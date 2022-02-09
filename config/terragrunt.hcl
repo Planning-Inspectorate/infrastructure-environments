@@ -3,7 +3,7 @@ locals {
   stack                         = basename(get_terragrunt_dir())
   subscription                  = get_env("SUBSCRIPTION")
   tfstate_storage_container_key = local.stack == "base" ? "base.tfstate" : "environments/${local.environment}/${local.stack}.tfstate"
-  variables_file_paths          = run_command("find", "${get_parent_terragrunt_dir()}/variables", "${get_terragrunt_dir()}/variables", "-type", "f")
+  variables_file_paths          = run_cmd("find", "${get_parent_terragrunt_dir()}/variables", "${get_terragrunt_dir()}/variables", "-type", "f")
   variables_files               = [for path in local.variables_file_paths : read_terragrunt_config(path).locals]
 }
 
