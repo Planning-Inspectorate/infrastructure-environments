@@ -1,14 +1,14 @@
 locals {
   environment                   = get_env("ENV")
   stack                         = basename(get_terragrunt_dir())
-  subscription                  = get_env("SUBSCRIPTION")
   tfstate_storage_container_key = local.stack == "base" ? "base.tfstate" : "environments/${local.environment}/${local.stack}.tfstate"
-  variables_file_paths          = run_cmd("find", "${get_parent_terragrunt_dir()}/variables", "${get_terragrunt_dir()}/variables", "-type", "f")
-  variables_files               = [for path in local.variables_file_paths : read_terragrunt_config(path).locals]
+  global_variables              = [for file in fileset("${get_parent_terragrunt_dir()}", "variables/*.hcl") : read_terragrunt_config("${get_parent_terragrunt_dir()}/${file}").locals]
+  stack_variables               = [for file in fileset("${get_terragrunt_dir()}", "variables/*.hcl") : read_terragrunt_config(file).locals]
+
 }
 
 terraform {
-  source = get_terragrunt_dir()
+  source = "${get_parent_terragrunt_dir()}/../app//stacks/${local.stack}"
 
   extra_arguments "retry_lock" {
     commands  = get_terraform_commands_that_need_locking()
@@ -16,36 +16,40 @@ terraform {
   }
 }
 
-generate {
+generate "backend" {
   path      = "backend.tf"
   if_exists = "overwrite"
-  source    = file("${get_parent_terragrunt_dir()}/backend.tf")
+  contents  = file("${get_parent_terragrunt_dir()}/backend.tf")
 }
 
-generate {
+generate "provider" {
   path      = "provider.tf"
-  if_exists = "skip"
-  source    = file("${get_parent_terragrunt_dir()}/provider.tf")
+  if_exists = "overwrite"
+  contents  = file("${get_parent_terragrunt_dir()}/provider.tf")
 }
 
 remote_state {
-  backend = "azurerm"
+  //  backend = "azurerm"
 
-  config = {
-    resource_group_name  = "pins-terraform"
-    storage_account_name = "pins-terraform"
-    container_name       = "terraform-state"
-    key                  = local.tfstate_storage_container_key
-  }
+  //  config = {
+  //    resource_group_name  = "pins-uk-terraform-rg"
+  //    storage_account_name = "pinsodtterraform"
+  //    container_name       = "kctfstate"
+  //    key                  = local.tfstate_storage_container_key
+  //  }
+
+  backend = "local"
+  config  = {}
 }
 
 inputs = merge(
-  merge(local.variables_files...),
+  merge(local.global_variables...),
+  merge(local.stack_variables...),
   {
     common_tags = {
       created_by  = "terraform"
       environment = local.environment
-      workload    = read_terragrunt_config("${get_terragrunt_parent_dir()}/variables/global.hcl").locals.workload
+      workload    = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/global.hcl").locals.workload
       stack       = local.stack
     }
   }

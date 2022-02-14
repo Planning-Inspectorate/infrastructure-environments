@@ -38,7 +38,6 @@ module "appeals_service_api" {
   private_dns_zone_id             = azurerm_private_dns_zone.private_link.id
   resource_group_name             = azurerm_resource_group.appeals_service_stack.name
   subnet_id                       = azurerm_subnet.endpoint_subnet.id
-  virtual_network_id              = azurerm_virtual_network.appeals_service.id
 
   app_settings = {
     LPA_DATA_PATH                                                               = ""

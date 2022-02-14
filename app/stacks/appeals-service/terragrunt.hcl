@@ -3,7 +3,7 @@ include {
 }
 
 dependency "base" {
-  config_path                             = "../../base"
+  config_path                             = "../base"
   mock_outputs_allowed_terraform_commands = ["validate", "plan"]
   mock_outputs_merge_with_state           = true
 

@@ -1,0 +1,94 @@
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      endpoint: Planning-Inspectorate
+      name: Planning-Inspectorate/common-pipeline-templates
+
+stages:
+  - stage: Validate
+    displayName: Validate Terraform
+    jobs:
+      - job: Validate
+        displayName: Validate Terraform
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - script: |
+              brew install terragrunt
+              brew install tflint
+              brew install checkov
+            displayName: Install dependencies
+          - script: |
+              terraform fmt -recursive -check
+              if [ $? -ne 0 ]; then
+                exit 1
+              fi
+            condition: succeededOrFailed()
+            displayName: Terraform Format
+          - script: |
+              terragrunt hclfmt --terragrunt-check
+            condition: succeededOrFailed()
+            displayName: Terragrunt HCL Format
+          - script: |
+              tflint --init
+
+              errors=false
+              working_dir=$(Build.Repository.LocalPath)/app
+              directories=($working_dir/modules $working_dir/stacks)
+
+              cd $working_dir
+
+              for d in ${directories}; do
+                cd $d
+
+                for m in *; do
+                  cd $m; tflint --config $(Build.Repository.LocalPath)/.tflint.hcl
+                  if [[ $? -ne 0 ]]; then
+                    errors=true
+                  fi
+                  cd ..
+                done
+
+                cd $working_dir
+              done
+
+              if [[ $errors == true ]]; then
+                exit 1
+              fi
+            condition: succeededOrFailed()
+            displayName: Run TFLint
+          - script: |
+              checkov -d .
+            condition: succeededOrFailed()
+            displayName: Run Checkov
+          - template: steps/terragrunt_validate.yml@templates
+            parameters:
+              environmentVariables:
+                ENV: dev
+              workingDirectory: $(Build.Repository.LocalPath)/app/stacks
+          - script: |
+              git tag -l | xargs git tag -d
+              git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" fetch --tags
+
+              DATE=$(date +%Y-%m-%d)
+              TAG_NAME="infra_$(Build.BuildNumber)"
+              TAG_MESSAGE="${DATE}"
+
+              EXISTING_TAGS=$(git -c http.extraheader="AUTHORIZATION: bearer $(system.accesstoken)" tag -l --points-at HEAD)
+              echo "$EXISTING_TAGS" | while read tag ; do
+                if [[ $tag == *"infra_"* ]]; then
+                  echo "##vso[build.addbuildtag]$tag"
+                  echo "Tag already set - skipping"
+                  exit 2
+                fi
+              done
+
+              echo "##vso[build.addbuildtag]$TAG_NAME"
+
+              git config --global user.name 'Azure DevOps'
+              git config --global user.email 'azure-devops@planninginspectorate.gov.uk'
+              git tag -a "${TAG_NAME}" -m "${TAG_MESSAGE}"
+              git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push origin "${TAG_NAME}"
+            condition: or(contains(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+            displayName: Git Tag

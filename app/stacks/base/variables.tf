@@ -8,8 +8,3 @@ variable "region" {
   type        = string
   default     = "uk-south"
 }
-
-variable "workload" {
-  description = "The project name"
-  type        = string
-}

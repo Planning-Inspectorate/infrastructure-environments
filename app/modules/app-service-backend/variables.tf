@@ -50,7 +50,8 @@ variable "prefix" {
 }
 
 variable "private_dns_zone_id" {
-  description = "The id of the private dns zone for "
+  description = "The id of the private dns zone"
+  type        = string
 }
 
 variable "resource_group_name" {
@@ -66,9 +67,4 @@ variable "subnet_id" {
 variable "tags" {
   description = "The tags applied to the resource"
   type        = map(string)
-}
-
-variable "virtual_network_id" {
-  description = "The id of the VNet the app service is deployed in"
-  type        = string
 }

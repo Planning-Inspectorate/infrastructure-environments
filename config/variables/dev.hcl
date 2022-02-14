@@ -1,3 +1,4 @@
 locals {
-  environment = "dev"
+  environment     = "dev"
+  subscription_id = "tbc"
 }
