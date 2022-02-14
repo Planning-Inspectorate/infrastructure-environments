@@ -1,3 +1,12 @@
+parameters:
+  - name: environment
+    type: string
+    default: dev
+    values:
+      - dev
+      - test
+      - prod
+
 resources:
   repositories:
     - repository: templates
@@ -7,6 +16,9 @@ resources:
 
 pool:
   vmImage: ubuntu-latest
+
+variables:
+  - template: ./variables/${{ parameters.environment }}.yml
 
 stages:
   - stage: Validate
@@ -65,8 +77,8 @@ stages:
             displayName: Run Checkov
           - template: steps/terragrunt_validate.yml@templates
             parameters:
-              environmentVariables:
-                ENV: dev
+              serviceConnection: Terraform Dev
+              subscriptionId: $(SUBSCRIPTION_ID)
               workingDirectory: $(Build.Repository.LocalPath)/app/stacks
           - script: |
               git tag -l | xargs git tag -d

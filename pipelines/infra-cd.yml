@@ -13,6 +13,8 @@ trigger:
     include:
     - main
 
+pr: none
+
 resources:
   repositories:
     - repository: templates
