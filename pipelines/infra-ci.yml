@@ -5,14 +5,15 @@ resources:
       endpoint: Planning-Inspectorate
       name: Planning-Inspectorate/common-pipeline-templates
 
+pool:
+  vmImage: ubuntu-latest
+
 stages:
   - stage: Validate
     displayName: Validate Terraform
     jobs:
       - job: Validate
         displayName: Validate Terraform
-        pool:
-          vmImage: ubuntu-latest
         steps:
           - script: |
               brew install terragrunt

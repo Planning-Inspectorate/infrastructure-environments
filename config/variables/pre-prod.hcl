@@ -1,3 +1,0 @@
-locals {
-  environment = "pre-prod"
-}
