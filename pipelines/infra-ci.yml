@@ -43,34 +43,11 @@ stages:
               terragrunt hclfmt --terragrunt-check
             condition: succeededOrFailed()
             displayName: Terragrunt HCL Format
-          - script: |
-              tflint --init
-
-              errors=false
-              working_dir=$(Build.Repository.LocalPath)/app
-              directories=($working_dir/modules $working_dir/stacks)
-
-              cd $working_dir
-
-              for d in ${directories}; do
-                cd $d
-
-                for m in *; do
-                  cd $m; tflint --config $(Build.Repository.LocalPath)/.tflint.hcl
-                  if [[ $? -ne 0 ]]; then
-                    errors=true
-                  fi
-                  cd ..
-                done
-
-                cd $working_dir
-              done
-
-              if [[ $errors == true ]]; then
-                exit 1
-              fi
-            condition: succeededOrFailed()
-            displayName: Run TFLint
+          - template: steps/terraform_tflint.yml@templates
+            parameters:
+              moduleDirectories:
+                - $(Build.Repository.LocalPath)/app/modules
+                - $(Build.Repository.LocalPath)/app/stacks
           - script: |
               checkov -d .
             condition: succeededOrFailed()
