@@ -1,9 +1,9 @@
-resource "azurerm_cosmosdb_account" "odt" {
+resource "azurerm_cosmosdb_account" "appeals_database" {
   #TODO: Customer Managed Keys
   #checkov:skip=CKV_AZURE_100: Customer Managed Keys not implemented yet
-  name                = "pins-${module.azure_region_uks.location_short}-odt"
-  location            = azurerm_resource_group.base_infrastructure.location
-  resource_group_name = azurerm_resource_group.base_infrastructure.name
+  name                = "pins-cosmos-appeals-service-${local.resource_suffix}"
+  location            = azurerm_resource_group.appeals_service_stack.location
+  resource_group_name = azurerm_resource_group.appeals_service_stack.name
   offer_type          = "Standard"
   kind                = "GlobalDocumentDB"
 
@@ -23,7 +23,6 @@ resource "azurerm_cosmosdb_account" "odt" {
     name = "MongoDBv3.4"
   }
 
-
   consistency_policy {
     consistency_level       = "BoundedStaleness"
     max_interval_in_seconds = 350
@@ -36,7 +35,7 @@ resource "azurerm_cosmosdb_account" "odt" {
   }
 
   geo_location {
-    location          = azurerm_resource_group.base_infrastructure.location
+    location          = azurerm_resource_group.appeals_service_stack.location
     failover_priority = 0
   }
 }

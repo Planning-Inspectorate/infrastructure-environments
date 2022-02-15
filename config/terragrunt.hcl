@@ -1,8 +1,9 @@
 locals {
   environment                   = get_env("ENV", "dev")
   stack                         = basename(get_terragrunt_dir())
-  tfstate_storage_container_key = local.stack == "base" ? "base.tfstate" : "environments/${local.environment}/${local.stack}.tfstate"
-  global_variables              = [for file in fileset("${get_parent_terragrunt_dir()}", "variables/*.hcl") : read_terragrunt_config("${get_parent_terragrunt_dir()}/${file}").locals]
+  tfstate_storage_container_key = "environments/${local.environment}/${local.stack}.tfstate"
+  global_variables              = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/global.hcl").locals
+  environment_variables         = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/${local.environment}.hcl").locals
   stack_variables               = [for file in fileset("${get_terragrunt_dir()}", "variables/*.hcl") : read_terragrunt_config(file).locals]
 }
 
@@ -31,7 +32,7 @@ remote_state {
   backend = "azurerm"
 
   config = {
-    #     subscription_id      = "00000000-0000-0000-0000-000000000000"
+    #  subscription_id     = "00000000-0000-0000-0000-000000000000"
     resource_group_name  = "pins-uk-terraform-rg"
     storage_account_name = "pinsodtterraform"
     container_name       = "kctfstate"
@@ -40,14 +41,15 @@ remote_state {
 }
 
 inputs = merge(
-  merge(local.global_variables...),
+  local.global_variables,
+  local.environment_variables,
   merge(local.stack_variables...),
   {
     common_tags = {
-      created_by  = "terraform"
-      environment = local.environment
-      workload    = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/global.hcl").locals.workload
-      stack       = local.stack
+      CostCentre  = "90117"
+      CreatedBy   = "terraform"
+      Environment = local.environment
+      ServiceName = local.stack
     }
   }
 )

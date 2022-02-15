@@ -44,11 +44,6 @@ variable "location" {
   type        = string
 }
 
-variable "prefix" {
-  description = "The environment prefix used for resource naming"
-  type        = string
-}
-
 variable "private_dns_zone_id" {
   description = "The id of the private dns zone"
   type        = string
@@ -56,6 +51,16 @@ variable "private_dns_zone_id" {
 
 variable "resource_group_name" {
   description = "The name of the resource group"
+  type        = string
+}
+
+variable "resource_suffix" {
+  description = "The suffix for resource naming"
+  type        = string
+}
+
+variable "service_name" {
+  description = "The name of the service the app belongs to"
   type        = string
 }
 

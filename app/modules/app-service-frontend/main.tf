@@ -2,7 +2,7 @@ resource "azurerm_app_service" "app_service" {
   #checkov:skip=CKV_AZURE_13: App service authentication not required
   #checkov:skip=CKV_AZURE_80: .Net not required
   #checkov:skip=CKV_AZURE_88: App service does not use Storage accounts
-  name                = "${var.prefix}-${var.app_name}"
+  name                = "pins-app-${var.service_name}-${var.app_name}-${var.resource_suffix}"
   location            = var.location
   resource_group_name = var.resource_group_name
   app_service_plan_id = var.app_service_plan_id

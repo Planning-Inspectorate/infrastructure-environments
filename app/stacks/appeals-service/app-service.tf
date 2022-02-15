@@ -5,19 +5,20 @@
 module "lpa_questionnaire_frontend" {
   source = "../../modules/app-service-frontend"
 
-  app_name                        = "${local.prefix}-lpa-questionnaire-web-app"
+  app_name                        = "lpaq-wfe"
   app_service_plan_id             = var.app_service_plan_id
   container_image                 = "lpa-questionnaire-web-app"
   container_image_tag             = "latest"
-  container_registry_login_server = data.azurerm_container_registry.odt.login_server
+  container_registry_login_server = data.azurerm_container_registry.acr.login_server
   location                        = azurerm_resource_group.appeals_service_stack.location
-  prefix                          = local.prefix
   resource_group_name             = azurerm_resource_group.appeals_service_stack.name
+  resource_suffix                 = local.resource_suffix
+  service_name                    = "appeals-service"
   subnet_id                       = azurerm_subnet.integration_subnet.id
 
   app_settings = {}
 
-  tags = var.common_tags
+  tags = local.tags
 }
 
 #====================================
@@ -27,16 +28,17 @@ module "lpa_questionnaire_frontend" {
 module "appeals_service_api" {
   source = "../../modules/app-service-backend"
 
-  app_name                        = "${local.prefix}-appeals-service-api"
+  app_name                        = "appeals-api"
   app_service_plan_id             = var.app_service_plan_id
   container_image                 = "appsvc-tutorial-custom-image"
   container_image_tag             = "latest"
-  container_registry_id           = data.azurerm_container_registry.odt.id
-  container_registry_login_server = data.azurerm_container_registry.odt.login_server
+  container_registry_id           = data.azurerm_container_registry.acr.id
+  container_registry_login_server = data.azurerm_container_registry.acr.login_server
   location                        = azurerm_resource_group.appeals_service_stack.location
-  prefix                          = local.prefix
   private_dns_zone_id             = azurerm_private_dns_zone.private_link.id
   resource_group_name             = azurerm_resource_group.appeals_service_stack.name
+  resource_suffix                 = local.resource_suffix
+  service_name                    = "appeals-service"
   subnet_id                       = azurerm_subnet.endpoint_subnet.id
 
   app_settings = {
@@ -85,5 +87,5 @@ module "appeals_service_api" {
     WEBSITES_PORT                                                               = 8000
   }
 
-  tags = var.common_tags
+  tags = local.tags
 }
