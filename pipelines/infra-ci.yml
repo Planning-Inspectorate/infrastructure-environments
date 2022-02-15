@@ -32,26 +32,14 @@ stages:
               brew install tflint
               brew install checkov
             displayName: Install dependencies
-          - script: |
-              terraform fmt -recursive -check
-              if [ $? -ne 0 ]; then
-                exit 1
-              fi
-            condition: succeededOrFailed()
-            displayName: Terraform Format
-          - script: |
-              terragrunt hclfmt --terragrunt-check
-            condition: succeededOrFailed()
-            displayName: Terragrunt HCL Format
+          - template: steps/terraform_format.yml@templates
+          - template: steps/terragrunt_hclfmt.yml@templates
           - template: steps/terraform_tflint.yml@templates
             parameters:
               moduleDirectories:
                 - $(Build.Repository.LocalPath)/app/modules
                 - $(Build.Repository.LocalPath)/app/stacks
-          - script: |
-              checkov -d .
-            condition: succeededOrFailed()
-            displayName: Run Checkov
+          - template: steps/run_checkov.yml@templates
           - template: steps/terragrunt_validate.yml@templates
             parameters:
               serviceConnection: Terraform Dev
