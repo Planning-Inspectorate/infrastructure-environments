@@ -46,6 +46,9 @@ stages:
               subscriptionId: $(SUBSCRIPTION_ID)
               workingDirectory: $(Build.Repository.LocalPath)/app/stacks
           - script: |
+              git config --global user.name 'Azure DevOps'
+              git config --global user.email 'azure-devops@planninginspectorate.gov.uk'
+              
               git tag -l | xargs git tag -d
               git fetch --tags
 
@@ -64,8 +67,6 @@ stages:
 
               echo "##vso[build.addbuildtag]$TAG_NAME"
 
-              git config --global user.name 'Azure DevOps'
-              git config --global user.email 'azure-devops@planninginspectorate.gov.uk'
               git tag -a "${TAG_NAME}" -m "${TAG_MESSAGE}"
               git push origin "${TAG_NAME}"
 #            condition: or(contains(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
