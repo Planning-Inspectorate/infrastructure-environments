@@ -27,6 +27,9 @@ stages:
       - job: Validate
         displayName: Validate Terraform
         steps:
+          - checkout: self
+            clean: true
+            persistCredentials: true
           - script: |
               brew install terragrunt
               brew install tflint
@@ -48,7 +51,7 @@ stages:
           - script: |
               git config --global user.name 'Azure DevOps'
               git config --global user.email 'azure-devops@planninginspectorate.gov.uk'
-              
+
               git tag -l | xargs git tag -d
               git fetch --tags
 
