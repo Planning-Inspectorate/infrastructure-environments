@@ -47,15 +47,15 @@ stages:
               workingDirectory: $(Build.Repository.LocalPath)/app/stacks
           - script: |
               git tag -l | xargs git tag -d
-              git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" fetch --tags
+              git -c http.extraheader="AUTHORIZATION: Basic token:$(System.AccessToken)" fetch --tags
 
               DATE=$(date +%Y-%m-%d)
-              TAG_NAME="infra_$(Build.BuildNumber)"
+              TAG_NAME="infra_environments_$(Build.BuildNumber)"
               TAG_MESSAGE="${DATE}"
 
-              EXISTING_TAGS=$(git -c http.extraheader="AUTHORIZATION: bearer $(system.accesstoken)" tag -l --points-at HEAD)
+              EXISTING_TAGS=$(git -c http.extraheader="AUTHORIZATION: Basic token:$(System.AccessToken)" tag -l --points-at HEAD)
               echo "$EXISTING_TAGS" | while read tag ; do
-                if [[ $tag == *"infra_"* ]]; then
+                if [[ $tag == *"infra_environments"* ]]; then
                   echo "##vso[build.addbuildtag]$tag"
                   echo "Tag already set - skipping"
                   exit 2
@@ -67,6 +67,6 @@ stages:
               git config --global user.name 'Azure DevOps'
               git config --global user.email 'azure-devops@planninginspectorate.gov.uk'
               git tag -a "${TAG_NAME}" -m "${TAG_MESSAGE}"
-              git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push origin "${TAG_NAME}"
+              git -c http.extraheader="AUTHORIZATION: Basic token:$(System.AccessToken)" push origin "${TAG_NAME}"
             condition: or(contains(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
             displayName: Git Tag
