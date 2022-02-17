@@ -48,29 +48,6 @@ stages:
               serviceConnection: Terraform Dev
               subscriptionId: $(SUBSCRIPTION_ID)
               workingDirectory: $(Build.Repository.LocalPath)/app/stacks
-          - script: |
-              git config --global user.name 'Azure DevOps'
-              git config --global user.email 'azure-devops@planninginspectorate.gov.uk'
-
-              git tag -l | xargs git tag -d
-              git fetch --tags
-
-              DATE=$(date +%Y-%m-%d)
-              TAG_NAME="infra_environments_$(Build.BuildNumber)"
-              TAG_MESSAGE="${DATE}"
-
-              EXISTING_TAGS=$(git tag -l --points-at HEAD)
-              echo "$EXISTING_TAGS" | while read tag ; do
-                if [[ $tag == *"infra_environments"* ]]; then
-                  echo "##vso[build.addbuildtag]$tag"
-                  echo "Tag already set - skipping"
-                  exit 2
-                fi
-              done
-
-              echo "##vso[build.addbuildtag]$TAG_NAME"
-
-              git tag -a "${TAG_NAME}" -m "${TAG_MESSAGE}"
-              git push origin "${TAG_NAME}"
-#            condition: or(contains(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
-            displayName: Git Tag
+          - template: steps/git_tagging.yml@templates
+            parameters:
+              tagPrefix: infrastructure-environments
