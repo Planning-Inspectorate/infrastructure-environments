@@ -60,6 +60,25 @@ stages:
               ENV: $(ENV)
               TERRAGRUNT_WORKING_DIR: $(Build.Repository.LocalPath)/app/stacks
               TF_INPUT: false
+          - task: CopyFiles@2
+            displayName: Copy sources to artifact
+            inputs:
+              SourceFolder: $(Build.Repository.LocalPath)/infrastructure
+              Contents: |
+                */**
+                !.git
+                !**/.terraform/**
+                !**/.terragrunt_cache/**
+                !**/.terraform.lock.hcl
+                !.gitignore
+                !.pre-commit-config.yaml
+                !.tflint.hcl
+                !LICENSE
+                !README.md
+              TargetFolder: $(Build.ArtifactStagingDirectory)
+          - publish: $(Build.ArtifactStagingDirectory)
+            artifact: infrastructure-environments
+            displayName: Publish sources
   - stage: Apply
     dependsOn: Plan
     displayName: Terraform Apply ${{ parameters.environment }}
@@ -94,5 +113,5 @@ stages:
                     ARM_SUBSCRIPTION_ID: $(SUBSCRIPTION_ID)
                     ARM_TENANT_ID: $(azureTenantId)
                     ENV: $(ENV)
-                    TERRAGRUNT_WORKING_DIR: $(Build.Repository.LocalPath)/app/stacks
+                    TERRAGRUNT_WORKING_DIR: $(Pipeline.Workspace)/infrastructure-environments/app/stacks
                     TF_INPUT: false
