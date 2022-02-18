@@ -7,7 +7,7 @@ resource "azurerm_app_service_plan" "common_service_plan" {
 
   sku {
     tier = "PremiumV2"
-    size = "P1"
+    size = "P1V2"
   }
 
   tags = local.tags
