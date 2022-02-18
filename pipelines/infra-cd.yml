@@ -1,11 +1,11 @@
 parameters:
   - name: environment
     type: string
-    default: dev
+    default: Dev
     values:
-      - dev
-      - test
-      - prod
+      - Dev
+      - Test
+      - Production
 
 trigger:
   batch: true
@@ -30,7 +30,7 @@ variables:
 
 stages:
   - stage: Plan
-    displayName: Terraform Plan
+    displayName: Terraform Plan ${{ parameters.environment }}
     jobs:
       - job: Plan
         displayName: Terraform Plan
@@ -43,7 +43,7 @@ stages:
             inputs:
               scriptType: bash
               scriptLocation: inlineScript
-              azureSubscription: Terraform Dev
+              azureSubscription: $(ADO_SERVICE_CONNECTION)
               addSpnToEnvironment: true
               inlineScript: |
                 echo "##vso[task.setvariable variable=azureClientId]$servicePrincipalId"
@@ -57,13 +57,42 @@ stages:
               ARM_CLIENT_SECRET: $(azureClientSecret)
               ARM_SUBSCRIPTION_ID: $(SUBSCRIPTION_ID)
               ARM_TENANT_ID: $(azureTenantId)
-              ENV: ${{ parameters.environment }}
+              ENV: $(ENV)
               TERRAGRUNT_WORKING_DIR: $(Build.Repository.LocalPath)/app/stacks
               TF_INPUT: false
-
-#  - stage: Apply
-#      displayName: Terraform Apply
-#      jobs:
-#        job: Apply
-#        displayName: Terraform Apply
-#        steps:
+  - stage: Apply
+    dependsOn: Plan
+    displayName: Terraform Apply ${{ parameters.environment }}
+    jobs:
+      - deployment: Apply
+        displayName: Terraform Apply
+        environment: ${{ parameters.environment }}
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - script: |
+                    brew install terragrunt
+                  displayName: Install dependencies
+                - task: AzureCLI@2
+                  displayName: Azure Authentication
+                  inputs:
+                    scriptType: bash
+                    scriptLocation: inlineScript
+                    azureSubscription: $(ADO_SERVICE_CONNECTION)
+                    addSpnToEnvironment: true
+                    inlineScript: |
+                      echo "##vso[task.setvariable variable=azureClientId]$servicePrincipalId"
+                      echo "##vso[task.setvariable variable=azureClientSecret]$servicePrincipalKey"
+                      echo "##vso[task.setvariable variable=azureTenantId]$tenantId"
+                - script: |
+                    terragrunt run-all apply --terragrunt-include-external-dependencies
+                  displayName: Terragrunt Plan
+                  env:
+                    ARM_CLIENT_ID: $(azureClientId)
+                    ARM_CLIENT_SECRET: $(azureClientSecret)
+                    ARM_SUBSCRIPTION_ID: $(SUBSCRIPTION_ID)
+                    ARM_TENANT_ID: $(azureTenantId)
+                    ENV: $(ENV)
+                    TERRAGRUNT_WORKING_DIR: $(Build.Repository.LocalPath)/app/stacks
+                    TF_INPUT: false
