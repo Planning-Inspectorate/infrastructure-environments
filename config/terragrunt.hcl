@@ -1,10 +1,9 @@
 locals {
-  environment                   = get_env("ENV", "dev")
-  stack                         = basename(get_terragrunt_dir())
-  tfstate_storage_container_key = "environments/${local.environment}/${local.stack}.tfstate"
-  global_variables              = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/global.hcl").locals
-  environment_variables         = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/${local.environment}.hcl").locals
-  stack_variables               = [for file in fileset("${get_terragrunt_dir()}", "variables/*.hcl") : read_terragrunt_config(file).locals]
+  environment           = get_env("ENV", "dev")
+  stack                 = basename(get_terragrunt_dir())
+  global_variables      = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/global.hcl").locals
+  environment_variables = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/${local.environment}.hcl").locals
+  stack_variables       = [for file in fileset("${get_terragrunt_dir()}", "variables/*.hcl") : read_terragrunt_config(file).locals]
 }
 
 terraform {
@@ -32,11 +31,11 @@ remote_state {
   backend = "azurerm"
 
   config = {
-    #  subscription_id     = "00000000-0000-0000-0000-000000000000"
-    resource_group_name  = "pins-uk-terraform-rg"
-    storage_account_name = "pinsodtterraform"
-    container_name       = "kctfstate"
-    key                  = local.tfstate_storage_container_key
+    subscription_id      = "edb1ff78-90da-4901-a497-7e79f966f8e2"
+    resource_group_name  = "pins-rg-shared-terraform-uks"
+    storage_account_name = "pinsstsharedtfstateuks"
+    container_name       = "terraformstate"
+    key                  = "environments/${local.environment}/${local.stack}.tfstate"
   }
 }
 

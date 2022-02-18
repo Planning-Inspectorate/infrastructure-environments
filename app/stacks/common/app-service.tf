@@ -6,8 +6,9 @@ resource "azurerm_app_service_plan" "common_service_plan" {
   reserved            = true
 
   sku {
-    tier = "Basic"
-    size = "B1"
+    tier = "PremiumV2"
+    size = "P1V2"
   }
+
   tags = local.tags
 }
