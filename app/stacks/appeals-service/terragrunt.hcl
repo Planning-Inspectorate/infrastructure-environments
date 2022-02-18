@@ -1,5 +1,5 @@
 include {
-  path = "${get_path_to_repo_root()}/config/terragrunt.hcl"
+  path = "../../../config/terragrunt.hcl"
 }
 
 dependency "common" {
