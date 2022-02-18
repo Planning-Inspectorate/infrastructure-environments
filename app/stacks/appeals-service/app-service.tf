@@ -44,7 +44,7 @@ module "appeals_service_api" {
   app_settings = {
     LPA_DATA_PATH                                                               = ""
     LPA_TRIALIST_DATA_PATH                                                      = ""
-    MONGODB_URL                                                                 = var.mongodb_url
+    MONGODB_URL                                                                 = azurerm_cosmosdb_account.appeals_database.connection_strings[0]
     MONGODB_DB_NAME                                                             = ""
     DOCS_API_PATH                                                               = ""
     DOCUMENTS_SERVICE_API_TIMEOUT                                               = ""

@@ -29,11 +29,6 @@ variable "instance" {
   default     = "001"
 }
 
-variable "mongodb_url" {
-  description = "The URL used to connect to MongoDB"
-  type        = string
-}
-
 variable "region" {
   description = "The region resources are deployed to in slug format e.g. 'uk-south'"
   type        = string
