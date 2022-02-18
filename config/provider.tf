@@ -1,9 +1,3 @@
-# variable "subscription_id" {
-#   description = "The subscription ID of the subscription terraform is deploying to"
-#   type        = string
-# }
-
-
 terraform {
   required_providers {
     azurerm = {
@@ -15,5 +9,4 @@ terraform {
 
 provider "azurerm" {
   features {}
-  #  subscription_id = var.subscription_id
 }
