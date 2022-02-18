@@ -63,7 +63,7 @@ stages:
           - task: CopyFiles@2
             displayName: Copy sources to artifact
             inputs:
-              SourceFolder: $(Build.Repository.LocalPath)/infrastructure
+              SourceFolder: $(Build.Repository.LocalPath)
               Contents: |
                 */**
                 !.git
