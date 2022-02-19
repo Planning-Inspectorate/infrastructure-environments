@@ -15,7 +15,6 @@ extends:
   template: stages/wrapper_ci.yml@templates
   parameters:
     azureLogin: true
-    azureServiceConnection: $(ADO_SERVICE_CONNECTION)
     validateName: Validate Terraform
     validationSteps:
       - script: |
