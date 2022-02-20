@@ -33,10 +33,15 @@ resource "azurerm_app_service" "app_service" {
     linux_fx_version                     = "DOCKER|${var.container_registry_login_server}/${var.container_image}:${var.container_image_tag}"
   }
 
-  app_settings = merge({
-    DOCKER_ENABLE_CI = var.enable_cd
-    },
-    var.app_settings
+  app_settings = merge(
+    var.app_settings,
+    {
+      APPINSIGHTS_INSTRUMENTATIONKEY             = var.app_insights_instrumentation_key
+      APPLICATIONINSIGHTS_CONNECTION_STRING      = var.app_insights_connection_string
+      ApplicationInsightsAgent_EXTENSION_VERSION = "~2"
+      XDT_MicrosoftApplicationInsights_Mode      = "default"
+      XDT_MicrosoftApplicationInsights_NodeJS    = "1"
+    }
   )
 
   tags = var.tags
@@ -49,6 +54,8 @@ resource "azurerm_role_assignment" "acr_pull" {
 }
 
 resource "azurerm_private_endpoint" "private_endpoint" {
+  count = var.app_type == "backend" ? 1 : 0
+
   name                = "pins-pe-${var.service_name}-${var.app_name}-${var.resource_suffix}"
   location            = var.location
   resource_group_name = var.resource_group_name
@@ -65,4 +72,11 @@ resource "azurerm_private_endpoint" "private_endpoint" {
     subresource_names              = ["sites"]
     is_manual_connection           = false
   }
+}
+
+resource "azurerm_app_service_virtual_network_swift_connection" "vnet_connection" {
+  count = var.app_type == "frontend" ? 1 : 0
+
+  app_service_id = azurerm_app_service.app_service.id
+  subnet_id      = var.subnet_id
 }

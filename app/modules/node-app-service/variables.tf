@@ -1,3 +1,15 @@
+variable "app_insights_connection_string" {
+  description = "The connection string to connect to an Application Insights resource"
+  sensitive   = true
+  type        = string
+}
+
+variable "app_insights_instrumentation_key" {
+  description = "The instrumentation key to connect to an Application Insights resource"
+  sensitive   = true
+  type        = string
+}
+
 variable "app_name" {
   description = "The name of the app service"
   type        = string
@@ -11,6 +23,16 @@ variable "app_service_plan_id" {
 variable "app_settings" {
   description = "The environment variables to be passed to the application"
   type        = map(string)
+}
+
+variable "app_type" {
+  description = "The type of application deployed to the App Service, valid values are 'backend' and 'frontend'"
+  type        = string
+
+  validation {
+    condition     = contains(["backend", "frontend"], var.app_type)
+    error_message = "Allowed values for app_type are 'backend' and 'frontend'."
+  }
 }
 
 variable "container_image" {
@@ -33,19 +55,14 @@ variable "container_registry_login_server" {
   type        = string
 }
 
-variable "enable_cd" {
-  description = "Flag to enable Continuous Deployment on the app service"
-  type        = bool
-  default     = true
-}
-
 variable "location" {
   description = "The name of the app service location"
   type        = string
 }
 
 variable "private_dns_zone_id" {
-  description = "The id of the private dns zone"
+  default     = null
+  description = "The id of the private dns zone, required if app_type is 'backend'"
   type        = string
 }
 
