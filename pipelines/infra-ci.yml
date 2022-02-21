@@ -9,9 +9,6 @@ resources:
 pool:
   vmImage: ubuntu-latest
 
-variables:
-  - template: ./variables/dev.yml
-
 extends:
   template: stages/wrapper_ci.yml@templates
   parameters:
@@ -36,3 +33,5 @@ extends:
         parameters:
           subscriptionId: $(SUBSCRIPTION_ID)
           workingDirectory: $(Build.Repository.LocalPath)/app/stacks
+    variables:
+      - template: pipelines/variables/dev.yml@self
