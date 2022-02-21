@@ -30,7 +30,6 @@ resources:
       type: github
       endpoint: Planning-Inspectorate
       name: Planning-Inspectorate/common-pipeline-templates
-      ref: feature/cd-stage-wrapper
 
 pool:
   vmImage: ubuntu-latest
