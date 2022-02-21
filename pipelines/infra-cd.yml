@@ -4,17 +4,17 @@ parameters:
     default:
       - name: Dev
         variables:
-          - template: ./variables/dev.yml
+          - template: pipelines/variables/dev.yml@self
       - name: Test
         dependsOn:
           - Dev
         variables:
-          - template: ./variables/test.yml
+          - template: pipelines/variables/test.yml@self
       - name: Production
         dependsOn:
           - Test
         variables:
-          - template: ./variables/production.yml
+          - template: pipelines/variables/production.yml@self
 
 trigger:
   batch: true
@@ -71,6 +71,6 @@ extends:
       environments:
         - name: Dev
           variables:
-            - template: ./variables/dev.yml
+            - template: pipelines/variables/dev.yml@self
     ${{ else }}:
       environments: ${{ parameters.environments }}
