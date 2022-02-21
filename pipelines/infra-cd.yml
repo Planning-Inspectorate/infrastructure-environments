@@ -45,7 +45,7 @@ extends:
           - script: |
               brew install terragrunt
             displayName: Install dependencies
-          - template: steps/terragrunt_plan_all.yml@templates
+          - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan_all.yml@templates
             parameters:
               environmentVariables:
                 - ENV: $(ENVIRONMENT)
@@ -60,7 +60,7 @@ extends:
           - script: |
               brew install terragrunt
             displayName: Install dependencies
-          - template: steps/terragrunt_apply_all.yml@templates
+          - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_apply_all.yml@templates
             parameters:
               environmentVariables:
                 - ENV: $(ENVIRONMENT)
