@@ -73,4 +73,4 @@ extends:
           variables:
             - template: ./variables/dev.yml
     ${{ else }}:
-      environments: ${{ parameter.environments }}
+      environments: ${{ parameters.environments }}
