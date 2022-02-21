@@ -12,7 +12,7 @@ module "lpa_questionnaire_frontend" {
   app_type                         = "frontend"
   container_image                  = "lpa-questionnaire-web-app"
   container_image_tag              = "latest"
-  container_registry_id            = ""
+  container_registry_id            = data.azurerm_container_registry.acr.id
   container_registry_login_server  = data.azurerm_container_registry.acr.login_server
   location                         = azurerm_resource_group.appeals_service_stack.location
   resource_group_name              = azurerm_resource_group.appeals_service_stack.name
@@ -142,7 +142,7 @@ module "appeal_reply_service" {
   resource_group_name              = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                  = local.resource_suffix
   service_name                     = "appeals-service"
-  subnet_id                        = azurerm_subnet.endpoint_subnet
+  subnet_id                        = azurerm_subnet.endpoint_subnet.id
 
   app_settings = {
     APPEALS_SERVICE_API_URL                                          = module.appeal_service.default_site_hostname
