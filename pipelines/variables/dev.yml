@@ -1,4 +1,7 @@
 variables:
-  ADO_SERVICE_CONNECTION: Terraform Dev
-  ENVIRONMENT: dev
-  SUBSCRIPTION_ID: 962e477c-0f3b-4372-97fc-a198a58e259e
+  - name: ADO_SERVICE_CONNECTION
+    value: Terraform Dev
+  - name: ENVIRONMENT
+    value: dev
+  - name: SUBSCRIPTION_ID
+    value: 962e477c-0f3b-4372-97fc-a198a58e259e
