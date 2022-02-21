@@ -11,8 +11,8 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 2.94.0 |
-| <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 2.94.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 2.97.0 |
+| <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 2.97.0 |
 
 ## Modules
 
