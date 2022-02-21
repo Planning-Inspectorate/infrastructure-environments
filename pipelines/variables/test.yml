@@ -1,4 +1,3 @@
 variables:
-  ADO_SERVICE_CONNECTION: Terraform Test
-  ENV: test
+  ENVIRONMENT: test
   SUBSCRIPTION_ID: 76cf28c6-6fda-42f1-bcd9-6d7dbed704ef

@@ -16,6 +16,9 @@ resource "azurerm_subnet" "integration_subnet" {
 
     service_delegation {
       name = "Microsoft.Web/serverFarms"
+      actions = [
+        "Microsoft.Network/virtualNetworks/subnets/action"
+      ]
     }
   }
 }
