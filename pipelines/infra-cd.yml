@@ -48,7 +48,7 @@ extends:
           - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan_all.yml@templates
             parameters:
               environmentVariables:
-                - ENV: $(ENVIRONMENT)
+                ENV: $(ENVIRONMENT)
               subscriptionId: $(SUBSCRIPTION_ID)
               workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
         isDeployment: false
@@ -63,7 +63,7 @@ extends:
           - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_apply_all.yml@templates
             parameters:
               environmentVariables:
-                - ENV: $(ENVIRONMENT)
+                ENV: $(ENVIRONMENT)
               subscriptionId: $(SUBSCRIPTION_ID)
               workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
         isDeployment: true
@@ -74,3 +74,4 @@ extends:
             - template: pipelines/variables/dev.yml@self
     ${{ else }}:
       environments: ${{ parameters.environments }}
+    project: infrastructure

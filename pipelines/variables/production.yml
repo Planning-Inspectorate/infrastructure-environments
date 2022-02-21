@@ -1,7 +1,3 @@
 variables:
-  - name: ADO_SERVICE_CONNECTION
-    value: Terraform Prod
-  - name: ENVIRONMENT
-    value: prod
-  - name: SUBSCRIPTION_ID
-    value: d1d6c393-2fe3-40af-ac27-f5b6bad36735
+  ENVIRONMENT: prod
+  SUBSCRIPTION_ID: d1d6c393-2fe3-40af-ac27-f5b6bad36735

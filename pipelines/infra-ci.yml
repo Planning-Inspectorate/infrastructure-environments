@@ -15,6 +15,7 @@ extends:
   template: stages/wrapper_ci.yml@templates
   parameters:
     azureLogin: true
+    project: infrastructure
     validateName: Validate Terraform
     validationSteps:
       - script: |
