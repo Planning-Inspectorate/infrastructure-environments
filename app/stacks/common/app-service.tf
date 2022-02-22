@@ -1,5 +1,5 @@
 resource "azurerm_app_service_plan" "common_service_plan" {
-  name                = "pins-asp-common-${local.resource_suffix}"
+  name                = "pins-asp-${local.service_name}-${local.resource_suffix}"
   location            = azurerm_resource_group.common_infrastructure.location
   resource_group_name = azurerm_resource_group.common_infrastructure.name
   kind                = "Linux"

@@ -1,6 +1,6 @@
-# Appeals service
+# Applications service
 
-This component contains the infrastructure required for the appeals service. This includes App services, CosmosDB, and the required networking resources.
+This component contains the infrastructure required for the applications service. This includes a frontend and a backend for the National Infrastructure application.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -18,24 +18,20 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_appeal_reply_service"></a> [appeal\_reply\_service](#module\_appeal\_reply\_service) | ../../modules/node-app-service | n/a |
-| <a name="module_appeal_service"></a> [appeal\_service](#module\_appeal\_service) | ../../modules/node-app-service | n/a |
 | <a name="module_azure_region_uks"></a> [azure\_region\_uks](#module\_azure\_region\_uks) | claranet/regions/azurerm | 4.2.1 |
-| <a name="module_documents_service"></a> [documents\_service](#module\_documents\_service) | ../../modules/node-app-service | n/a |
-| <a name="module_lpa_questionnaire_frontend"></a> [lpa\_questionnaire\_frontend](#module\_lpa\_questionnaire\_frontend) | ../../modules/node-app-service | n/a |
-| <a name="module_pdf_service"></a> [pdf\_service](#module\_pdf\_service) | ../../modules/node-app-service | n/a |
+| <a name="module_national_infrastructure_frontend"></a> [national\_infrastructure\_frontend](#module\_national\_infrastructure\_frontend) | ../../modules/node-app-service | n/a |
+| <a name="module_national_infrastructure_service"></a> [national\_infrastructure\_service](#module\_national\_infrastructure\_service) | ../../modules/node-app-service | n/a |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [azurerm_cosmosdb_account.appeals_database](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account) | resource |
 | [azurerm_private_dns_zone.private_link](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone) | resource |
 | [azurerm_private_dns_zone_virtual_network_link.private_link](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone_virtual_network_link) | resource |
-| [azurerm_resource_group.appeals_service_stack](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
+| [azurerm_resource_group.applications_service_stack](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
 | [azurerm_subnet.endpoint_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet) | resource |
 | [azurerm_subnet.integration_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet) | resource |
-| [azurerm_virtual_network.appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network) | resource |
+| [azurerm_virtual_network.applications_service](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network) | resource |
 | [azurerm_container_registry.acr](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/container_registry) | data source |
 
 ## Inputs
