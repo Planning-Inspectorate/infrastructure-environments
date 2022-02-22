@@ -18,9 +18,12 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_appeals_service_api"></a> [appeals\_service\_api](#module\_appeals\_service\_api) | ../../modules/app-service-backend | n/a |
+| <a name="module_appeal_reply_service"></a> [appeal\_reply\_service](#module\_appeal\_reply\_service) | ../../modules/node-app-service | n/a |
+| <a name="module_appeal_service"></a> [appeal\_service](#module\_appeal\_service) | ../../modules/node-app-service | n/a |
 | <a name="module_azure_region_uks"></a> [azure\_region\_uks](#module\_azure\_region\_uks) | claranet/regions/azurerm | 4.2.1 |
-| <a name="module_lpa_questionnaire_frontend"></a> [lpa\_questionnaire\_frontend](#module\_lpa\_questionnaire\_frontend) | ../../modules/app-service-frontend | n/a |
+| <a name="module_documents_service"></a> [documents\_service](#module\_documents\_service) | ../../modules/node-app-service | n/a |
+| <a name="module_lpa_questionnaire_frontend"></a> [lpa\_questionnaire\_frontend](#module\_lpa\_questionnaire\_frontend) | ../../modules/node-app-service | n/a |
+| <a name="module_pdf_service"></a> [pdf\_service](#module\_pdf\_service) | ../../modules/node-app-service | n/a |
 
 ## Resources
 
@@ -39,6 +42,8 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_app_insights_connection_string"></a> [app\_insights\_connection\_string](#input\_app\_insights\_connection\_string) | The connection string to connect to an Application Insights resource | `string` | n/a | yes |
+| <a name="input_app_insights_instrumentation_key"></a> [app\_insights\_instrumentation\_key](#input\_app\_insights\_instrumentation\_key) | The instrumentation key to connect to an Application Insights resource | `string` | n/a | yes |
 | <a name="input_app_service_plan_id"></a> [app\_service\_plan\_id](#input\_app\_service\_plan\_id) | The id of the app service plan | `string` | n/a | yes |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | The common resource tags for the project | `map(string)` | n/a | yes |
 | <a name="input_container_registry_name"></a> [container\_registry\_name](#input\_container\_registry\_name) | The name of the container registry that hosts the image | `string` | n/a | yes |
