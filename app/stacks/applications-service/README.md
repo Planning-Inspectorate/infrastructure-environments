@@ -19,7 +19,6 @@ No requirements.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_azure_region_uks"></a> [azure\_region\_uks](#module\_azure\_region\_uks) | claranet/regions/azurerm | 4.2.1 |
-| <a name="module_national_infrastructure_frontend"></a> [national\_infrastructure\_frontend](#module\_national\_infrastructure\_frontend) | ../../modules/node-app-service | n/a |
 | <a name="module_national_infrastructure_service"></a> [national\_infrastructure\_service](#module\_national\_infrastructure\_service) | ../../modules/node-app-service | n/a |
 
 ## Resources
