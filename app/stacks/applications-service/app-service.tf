@@ -40,7 +40,7 @@ module "national_infrastructure_service" {
   resource_group_name              = azurerm_resource_group.applications_service_stack.name
   resource_suffix                  = local.resource_suffix
   service_name                     = local.service_name
-  subnet_id                        = azurerm_subnet.integration_subnet.id
+  subnet_id                        = azurerm_subnet.endpoint_subnet.id
 
   app_settings = {
 
