@@ -2,7 +2,7 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
   #TODO: Customer Managed Keys
   #checkov:skip=CKV_AZURE_100: Customer Managed Keys not implemented yet
   #checkov:skip=CKV_AZURE_140: Local authentication only applicable to SQL API
-  name                = "pins-cosmos-appeals-service-${local.resource_suffix}"
+  name                = "pins-cosmos-${local.service_name}-${local.resource_suffix}"
   location            = azurerm_resource_group.appeals_service_stack.location
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
   offer_type          = "Standard"

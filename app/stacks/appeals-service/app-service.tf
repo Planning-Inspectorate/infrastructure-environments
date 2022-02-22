@@ -17,7 +17,7 @@ module "lpa_questionnaire_frontend" {
   location                         = azurerm_resource_group.appeals_service_stack.location
   resource_group_name              = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                  = local.resource_suffix
-  service_name                     = "appeals-service"
+  service_name                     = local.service_name
   subnet_id                        = azurerm_subnet.integration_subnet.id
 
   app_settings = {
@@ -73,7 +73,7 @@ module "appeal_service" {
   private_dns_zone_id              = azurerm_private_dns_zone.private_link.id
   resource_group_name              = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                  = local.resource_suffix
-  service_name                     = "appeals-service"
+  service_name                     = local.service_name
   subnet_id                        = azurerm_subnet.endpoint_subnet.id
 
   app_settings = {
@@ -141,7 +141,7 @@ module "appeal_reply_service" {
   private_dns_zone_id              = azurerm_private_dns_zone.private_link.id
   resource_group_name              = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                  = local.resource_suffix
-  service_name                     = "appeals-service"
+  service_name                     = local.service_name
   subnet_id                        = azurerm_subnet.endpoint_subnet.id
 
   app_settings = {
@@ -200,7 +200,7 @@ module "documents_service" {
   private_dns_zone_id              = azurerm_private_dns_zone.private_link.id
   resource_group_name              = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                  = local.resource_suffix
-  service_name                     = "appeals-service"
+  service_name                     = local.service_name
   subnet_id                        = azurerm_subnet.endpoint_subnet.id
 
   app_settings = {
@@ -243,7 +243,7 @@ module "pdf_service" {
   private_dns_zone_id              = azurerm_private_dns_zone.private_link.id
   resource_group_name              = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                  = local.resource_suffix
-  service_name                     = "appeals-service"
+  service_name                     = local.service_name
   subnet_id                        = azurerm_subnet.endpoint_subnet.id
 
   app_settings = {
