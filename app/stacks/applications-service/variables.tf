@@ -30,6 +30,11 @@ variable "container_registry_rg" {
   type        = string
 }
 
+variable "endpoint_subnet_id" {
+  description = "The subnet used for inbound traffic"
+  type        = string
+}
+
 variable "environment" {
   description = "The environment resources are deployed to e.g. 'dev'"
   type        = string
@@ -39,6 +44,16 @@ variable "instance" {
   description = "The environment instance for use if multiple environments are deployed to a subscription"
   type        = string
   default     = "001"
+}
+
+variable "integration_subnet_id" {
+  description = "The subnet used for outbound traffic"
+  type        = string
+}
+
+variable "private_dns_zone_id" {
+  description = "The id of the private DNS zone for App services"
+  type        = string
 }
 
 variable "region" {
