@@ -14,3 +14,18 @@ output "app_service_plan_id" {
   description = "The id of the app service plan"
   value       = azurerm_app_service_plan.common_service_plan.id
 }
+
+output "endpoint_subnet_id" {
+  description = "The subnet used for inbound traffic"
+  value       = azurerm_subnet.endpoint_subnet.id
+}
+
+output "integration_subnet_id" {
+  description = "The subnet used for outbound traffic"
+  value       = azurerm_subnet.integration_subnet.id
+}
+
+output "private_dns_zone_id" {
+  description = "The id of the private DNS zone for App services"
+  value       = azurerm_private_dns_zone.private_link.id
+}

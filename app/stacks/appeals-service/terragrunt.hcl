@@ -11,6 +11,9 @@ dependency "common" {
     app_insights_connection_string   = "mock_connection_string"
     app_insights_instrumentation_key = "mock_instrumentation_key"
     app_service_plan_id              = "mock_id"
+    endpoint_subnet_id               = "mock_subnet_id"
+    integration_subnet_id            = "mock_subnet_id"
+    private_dns_zone_id              = "mock_dns_zone_id"
   }
 }
 
@@ -18,4 +21,7 @@ inputs = {
   app_insights_connection_string   = dependency.common.outputs.app_insights_connection_string
   app_insights_instrumentation_key = dependency.common.outputs.app_insights_instrumentation_key
   app_service_plan_id              = dependency.common.outputs.app_service_plan_id
+  endpoint_subnet_id               = dependency.common.outputs.endpoint_subnet_id
+  integration_subnet_id            = dependency.common.outputs.endpoint_subnet_id
+  private_dns_zone_id              = dependency.common.outputs.private_dns_zone_id
 }

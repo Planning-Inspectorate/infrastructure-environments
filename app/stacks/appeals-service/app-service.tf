@@ -18,7 +18,7 @@ module "lpa_questionnaire_frontend" {
   resource_group_name              = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                  = local.resource_suffix
   service_name                     = local.service_name
-  subnet_id                        = azurerm_subnet.integration_subnet.id
+  subnet_id                        = var.integration_subnet_id
 
   app_settings = {
     ALLOW_APPEAL_REPLY_CREATE                = "true"
@@ -70,11 +70,11 @@ module "appeal_service" {
   container_registry_id            = data.azurerm_container_registry.acr.id
   container_registry_login_server  = data.azurerm_container_registry.acr.login_server
   location                         = azurerm_resource_group.appeals_service_stack.location
-  private_dns_zone_id              = azurerm_private_dns_zone.private_link.id
+  private_dns_zone_id              = var.private_dns_zone_id
   resource_group_name              = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                  = local.resource_suffix
   service_name                     = local.service_name
-  subnet_id                        = azurerm_subnet.endpoint_subnet.id
+  subnet_id                        = var.endpoint_subnet_id
 
   app_settings = {
     APP_APPEALS_BASE_URL                                                        = ""
@@ -138,11 +138,11 @@ module "appeal_reply_service" {
   container_registry_id            = data.azurerm_container_registry.acr.id
   container_registry_login_server  = data.azurerm_container_registry.acr.login_server
   location                         = azurerm_resource_group.appeals_service_stack.location
-  private_dns_zone_id              = azurerm_private_dns_zone.private_link.id
+  private_dns_zone_id              = var.private_dns_zone_id
   resource_group_name              = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                  = local.resource_suffix
   service_name                     = local.service_name
-  subnet_id                        = azurerm_subnet.endpoint_subnet.id
+  subnet_id                        = var.endpoint_subnet_id
 
   app_settings = {
     APPEALS_SERVICE_API_URL                                          = module.appeal_service.default_site_hostname
@@ -197,11 +197,11 @@ module "documents_service" {
   container_registry_id            = data.azurerm_container_registry.acr.id
   container_registry_login_server  = data.azurerm_container_registry.acr.login_server
   location                         = azurerm_resource_group.appeals_service_stack.location
-  private_dns_zone_id              = azurerm_private_dns_zone.private_link.id
+  private_dns_zone_id              = var.private_dns_zone_id
   resource_group_name              = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                  = local.resource_suffix
   service_name                     = local.service_name
-  subnet_id                        = azurerm_subnet.endpoint_subnet.id
+  subnet_id                        = var.endpoint_subnet_id
 
   app_settings = {
     BLOB_STORAGE_CONNECTION_STRING      = ""
@@ -240,11 +240,11 @@ module "pdf_service" {
   container_registry_id            = data.azurerm_container_registry.acr.id
   container_registry_login_server  = data.azurerm_container_registry.acr.login_server
   location                         = azurerm_resource_group.appeals_service_stack.location
-  private_dns_zone_id              = azurerm_private_dns_zone.private_link.id
+  private_dns_zone_id              = var.private_dns_zone_id
   resource_group_name              = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                  = local.resource_suffix
   service_name                     = local.service_name
-  subnet_id                        = azurerm_subnet.endpoint_subnet.id
+  subnet_id                        = var.endpoint_subnet_id
 
   app_settings = {
     DOCS_API_PATH                           = "/opt/app/api"
