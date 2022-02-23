@@ -4,6 +4,10 @@ resources:
       type: github
       endpoint: Planning-Inspectorate
       name: Planning-Inspectorate/common-pipeline-templates
+  containers:
+    - container: terraform-tools
+      image: terraform-tools
+      endpoint: Container Registry
 
 pool:
   vmImage: ubuntu-latest
@@ -12,14 +16,10 @@ extends:
   template: stages/wrapper_ci.yml@templates
   parameters:
     azureLogin: true
+    container: terraform-tools
     project: infrastructure
     validateName: Validate Terraform
     validationSteps:
-      - script: |
-          brew install terragrunt
-          brew install tflint
-          brew install checkov
-        displayName: Install dependencies
       - template: steps/terraform_format.yml@templates
       - template: steps/terragrunt_hclfmt.yml@templates
       - template: steps/terraform_tflint.yml@templates

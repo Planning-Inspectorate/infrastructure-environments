@@ -30,6 +30,10 @@ resources:
       type: github
       endpoint: Planning-Inspectorate
       name: Planning-Inspectorate/common-pipeline-templates
+  containers:
+    - container: terraform-tools
+      image: terraform-tools
+      endpoint: Container Registry
 
 pool:
   vmImage: ubuntu-latest
@@ -40,10 +44,8 @@ extends:
     deploymentStages:
       - name: Terraform Plan
         azureLogin: true
+        container: terraform-tools
         deploymentSteps:
-          - script: |
-              brew install terragrunt
-            displayName: Install dependencies
           - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan_all.yml@templates
             parameters:
               environmentVariables:
@@ -53,12 +55,10 @@ extends:
         isDeployment: false
       - name: Terraform Apply
         azureLogin: true
+        container: terraform-tools
         dependsOn:
           - Terraform Plan
         deploymentSteps:
-          - script: |
-              brew install terragrunt
-            displayName: Install dependencies
           - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_apply_all.yml@templates
             parameters:
               environmentVariables:
