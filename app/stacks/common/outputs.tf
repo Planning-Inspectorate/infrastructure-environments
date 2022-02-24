@@ -15,15 +15,25 @@ output "app_service_plan_id" {
   value       = azurerm_app_service_plan.common_service_plan.id
 }
 
-output "endpoint_subnet_appeals_service_id" {
-  description = "The id of the private endpoint subnet the appeals service apps are linked to for ingress traffic"
-  value       = azurerm_subnet.appeals_service_ingress.id
+output "common_resource_group_name" {
+  description = "The name of the common infrastructure resource group"
+  value       = azurerm_resource_group.common_infrastructure.name
 }
 
-output "endpoint_subnet_applications_service_id" {
-  description = "The id of the private endpoint subnet the applications service apps are linked to for ingress traffic"
-  value       = azurerm_subnet.applicatons_service_ingress.id
+output "common_network_name" {
+  description = "The name of the common infrastructure virtual network"
+  value       = azurerm_virtual_network.common_infrastructure.name
 }
+
+# output "endpoint_subnet_appeals_service_id" {
+#   description = "The id of the private endpoint subnet the appeals service apps are linked to for ingress traffic"
+#   value       = azurerm_subnet.appeals_service_ingress.id
+# }
+
+# output "endpoint_subnet_applications_service_id" {
+#   description = "The id of the private endpoint subnet the applications service apps are linked to for ingress traffic"
+#   value       = azurerm_subnet.applicatons_service_ingress.id
+# }
 
 output "integration_subnet_id" {
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"

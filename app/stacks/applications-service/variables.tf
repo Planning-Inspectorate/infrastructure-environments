@@ -15,6 +15,16 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "common_network_name" {
+  description = "The common infrastructure network name"
+  type        = string
+}
+
+variable "common_resource_group_name" {
+  description = "The common infrastructure resource group name"
+  type        = string
+}
+
 variable "common_tags" {
   description = "The common resource tags for the project"
   type        = map(string)
@@ -30,10 +40,10 @@ variable "container_registry_rg" {
   type        = string
 }
 
-variable "endpoint_subnet_id" {
-  description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
-  type        = string
-}
+# variable "endpoint_subnet_id" {
+#   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
+#   type        = string
+# }
 
 variable "environment" {
   description = "The environment resources are deployed to e.g. 'dev'"
