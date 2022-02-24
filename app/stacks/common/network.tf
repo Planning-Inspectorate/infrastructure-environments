@@ -23,11 +23,19 @@ resource "azurerm_subnet" "integration_subnet" {
   }
 }
 
-resource "azurerm_subnet" "endpoint_subnet" {
-  name                                           = "pins-snet-${local.service_name}-endpoint-${local.resource_suffix}"
+resource "azurerm_subnet" "appeals_service_ingress" {
+  name                                           = "pins-snet-appeals-service-ingress-${local.resource_suffix}"
   resource_group_name                            = azurerm_resource_group.common_infrastructure.name
   virtual_network_name                           = azurerm_virtual_network.appeals_service.name
   address_prefixes                               = ["10.0.2.0/24"]
+  enforce_private_link_endpoint_network_policies = true
+}
+
+resource "azurerm_subnet" "applicatons_service_ingress" {
+  name                                           = "pins-snet-applications-service-ingress-${local.resource_suffix}"
+  resource_group_name                            = azurerm_resource_group.common_infrastructure.name
+  virtual_network_name                           = azurerm_virtual_network.appeals_service.name
+  address_prefixes                               = ["10.0.3.0/24"]
   enforce_private_link_endpoint_network_policies = true
 }
 

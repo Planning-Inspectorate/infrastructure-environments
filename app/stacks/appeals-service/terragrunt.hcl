@@ -21,7 +21,7 @@ inputs = {
   app_insights_connection_string   = dependency.common.outputs.app_insights_connection_string
   app_insights_instrumentation_key = dependency.common.outputs.app_insights_instrumentation_key
   app_service_plan_id              = dependency.common.outputs.app_service_plan_id
-  endpoint_subnet_id               = dependency.common.outputs.endpoint_subnet_id
+  endpoint_subnet_id               = dependency.common.outputs.endpoint_subnet_appeals_service_id
   integration_subnet_id            = dependency.common.outputs.integration_subnet_id
   private_dns_zone_id              = dependency.common.outputs.private_dns_zone_id
 }

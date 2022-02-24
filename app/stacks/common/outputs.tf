@@ -15,13 +15,18 @@ output "app_service_plan_id" {
   value       = azurerm_app_service_plan.common_service_plan.id
 }
 
-output "endpoint_subnet_id" {
-  description = "The subnet used for inbound traffic"
-  value       = azurerm_subnet.endpoint_subnet.id
+output "endpoint_subnet_appeals_service_id" {
+  description = "The id of the private endpoint subnet the appeals service apps are linked to for ingress traffic"
+  value       = azurerm_subnet.appeals_service_ingress.id
+}
+
+output "endpoint_subnet_applications_service_id" {
+  description = "The id of the private endpoint subnet the applications service apps are linked to for ingress traffic"
+  value       = azurerm_subnet.applicatons_service_ingress.id
 }
 
 output "integration_subnet_id" {
-  description = "The subnet used for outbound traffic"
+  description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   value       = azurerm_subnet.integration_subnet.id
 }
 

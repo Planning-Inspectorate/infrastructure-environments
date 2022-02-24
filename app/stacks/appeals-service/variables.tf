@@ -36,7 +36,7 @@ variable "environment" {
 }
 
 variable "endpoint_subnet_id" {
-  description = "The subnet used for inbound traffic"
+  description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
   type        = string
 }
 
@@ -47,7 +47,7 @@ variable "instance" {
 }
 
 variable "integration_subnet_id" {
-  description = "The subnet used for outbound traffic"
+  description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   type        = string
 }
 
