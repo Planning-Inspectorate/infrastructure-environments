@@ -15,14 +15,14 @@ output "app_service_plan_id" {
   value       = azurerm_app_service_plan.common_service_plan.id
 }
 
-output "common_resource_group_name" {
-  description = "The name of the common infrastructure resource group"
-  value       = azurerm_resource_group.common_infrastructure.name
-}
-
 output "common_network_name" {
   description = "The name of the common infrastructure virtual network"
   value       = azurerm_virtual_network.common_infrastructure.name
+}
+
+output "common_resource_group_name" {
+  description = "The name of the common infrastructure resource group"
+  value       = azurerm_resource_group.common_infrastructure.name
 }
 
 output "integration_subnet_id" {
