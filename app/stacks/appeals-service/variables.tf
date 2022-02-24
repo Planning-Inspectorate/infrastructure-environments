@@ -45,11 +45,6 @@ variable "environment" {
   type        = string
 }
 
-# variable "endpoint_subnet_id" {
-#   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
-#   type        = string
-# }
-
 variable "instance" {
   description = "The environment instance for use if multiple environments are deployed to a subscription"
   type        = string

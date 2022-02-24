@@ -40,11 +40,6 @@ variable "container_registry_rg" {
   type        = string
 }
 
-# variable "endpoint_subnet_id" {
-#   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
-#   type        = string
-# }
-
 variable "environment" {
   description = "The environment resources are deployed to e.g. 'dev'"
   type        = string
