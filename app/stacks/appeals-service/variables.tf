@@ -15,13 +15,13 @@ variable "app_service_plan_id" {
   type        = string
 }
 
-variable "common_network_name" {
-  description = "The common infrastructure network name"
+variable "common_vnet_name" {
+  description = "The common infrastructure virtual network name"
   type        = string
 }
 
-variable "common_resource_group_name" {
-  description = "The common infrastructure resource group name"
+variable "common_vnet_resource_group_name" {
+  description = "The common infrastructure virtual network resource group name"
   type        = string
 }
 
