@@ -15,6 +15,16 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "common_vnet_name" {
+  description = "The common infrastructure virtual network name"
+  type        = string
+}
+
+variable "common_vnet_resource_group_name" {
+  description = "The common infrastructure virtual network resource group name"
+  type        = string
+}
+
 variable "common_tags" {
   description = "The common resource tags for the project"
   type        = map(string)
@@ -35,11 +45,6 @@ variable "environment" {
   type        = string
 }
 
-variable "endpoint_subnet_id" {
-  description = "The subnet used for inbound traffic"
-  type        = string
-}
-
 variable "instance" {
   description = "The environment instance for use if multiple environments are deployed to a subscription"
   type        = string
@@ -47,7 +52,7 @@ variable "instance" {
 }
 
 variable "integration_subnet_id" {
-  description = "The subnet used for outbound traffic"
+  description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   type        = string
 }
 

@@ -55,6 +55,18 @@ variable "container_registry_login_server" {
   type        = string
 }
 
+variable "endpoint_subnet_id" {
+  default     = null
+  description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
+  type        = string
+}
+
+variable "integration_subnet_id" {
+  default     = null
+  description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
+  type        = string
+}
+
 variable "location" {
   description = "The name of the app service location"
   type        = string
@@ -78,11 +90,6 @@ variable "resource_suffix" {
 
 variable "service_name" {
   description = "The name of the service the app belongs to"
-  type        = string
-}
-
-variable "subnet_id" {
-  description = "The id of the subnet the app service is deployed in"
   type        = string
 }
 

@@ -15,13 +15,18 @@ output "app_service_plan_id" {
   value       = azurerm_app_service_plan.common_service_plan.id
 }
 
-output "endpoint_subnet_id" {
-  description = "The subnet used for inbound traffic"
-  value       = azurerm_subnet.endpoint_subnet.id
+output "common_vnet_name" {
+  description = "The name of the common infrastructure virtual network"
+  value       = azurerm_virtual_network.common_infrastructure.name
+}
+
+output "common_vnet_resource_group_name" {
+  description = "The name of the common infrastructure virtual network resource group"
+  value       = azurerm_resource_group.common_infrastructure.name
 }
 
 output "integration_subnet_id" {
-  description = "The subnet used for outbound traffic"
+  description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   value       = azurerm_subnet.integration_subnet.id
 }
 
