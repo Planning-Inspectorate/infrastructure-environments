@@ -14,7 +14,6 @@ module "lpa_questionnaire_frontend" {
   container_image_tag              = "latest"
   container_registry_id            = data.azurerm_container_registry.acr.id
   container_registry_login_server  = data.azurerm_container_registry.acr.login_server
-  endpoint_subnet_id               = azurerm_subnet.appeals_service_ingress.id
   integration_subnet_id            = var.integration_subnet_id
   location                         = azurerm_resource_group.appeals_service_stack.location
   resource_group_name              = azurerm_resource_group.appeals_service_stack.name
@@ -71,7 +70,6 @@ module "appeal_service" {
   container_registry_id            = data.azurerm_container_registry.acr.id
   container_registry_login_server  = data.azurerm_container_registry.acr.login_server
   endpoint_subnet_id               = azurerm_subnet.appeals_service_ingress.id
-  integration_subnet_id            = var.integration_subnet_id
   location                         = azurerm_resource_group.appeals_service_stack.location
   private_dns_zone_id              = var.private_dns_zone_id
   resource_group_name              = azurerm_resource_group.appeals_service_stack.name
@@ -140,7 +138,6 @@ module "appeal_reply_service" {
   container_registry_id            = data.azurerm_container_registry.acr.id
   container_registry_login_server  = data.azurerm_container_registry.acr.login_server
   endpoint_subnet_id               = azurerm_subnet.appeals_service_ingress.id
-  integration_subnet_id            = var.integration_subnet_id
   location                         = azurerm_resource_group.appeals_service_stack.location
   private_dns_zone_id              = var.private_dns_zone_id
   resource_group_name              = azurerm_resource_group.appeals_service_stack.name
@@ -200,7 +197,6 @@ module "documents_service" {
   container_registry_id            = data.azurerm_container_registry.acr.id
   container_registry_login_server  = data.azurerm_container_registry.acr.login_server
   endpoint_subnet_id               = azurerm_subnet.appeals_service_ingress.id
-  integration_subnet_id            = var.integration_subnet_id
   location                         = azurerm_resource_group.appeals_service_stack.location
   private_dns_zone_id              = var.private_dns_zone_id
   resource_group_name              = azurerm_resource_group.appeals_service_stack.name
@@ -244,7 +240,6 @@ module "pdf_service" {
   container_registry_id            = data.azurerm_container_registry.acr.id
   container_registry_login_server  = data.azurerm_container_registry.acr.login_server
   endpoint_subnet_id               = azurerm_subnet.appeals_service_ingress.id
-  integration_subnet_id            = var.integration_subnet_id
   location                         = azurerm_resource_group.appeals_service_stack.location
   private_dns_zone_id              = var.private_dns_zone_id
   resource_group_name              = azurerm_resource_group.appeals_service_stack.name

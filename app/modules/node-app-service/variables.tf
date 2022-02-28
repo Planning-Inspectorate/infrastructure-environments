@@ -56,11 +56,13 @@ variable "container_registry_login_server" {
 }
 
 variable "endpoint_subnet_id" {
+  default     = null
   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
   type        = string
 }
 
 variable "integration_subnet_id" {
+  default     = null
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   type        = string
 }
