@@ -15,7 +15,9 @@ pool:
 extends:
   template: stages/wrapper_ci.yml@templates
   parameters:
+    authType: terraform
     container: terraform-tools
+    projectName: infrastructure
     validateName: Validate Terraform
     validationSteps:
       - template: steps/terraform_format.yml@templates
@@ -26,9 +28,6 @@ extends:
             - $(Build.Repository.LocalPath)/app/modules
             - $(Build.Repository.LocalPath)/app/stacks
       - template: steps/run_checkov.yml@templates
-      - template: steps/terraform_azure_cli_auth.yml@templates
-        parameters:
-          azureServiceConnection: infrastructure-dev
       - template: steps/terragrunt_validate_all.yml@templates
         parameters:
           subscriptionId: $(SUBSCRIPTION_ID)

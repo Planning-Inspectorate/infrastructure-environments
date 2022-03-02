@@ -3,6 +3,12 @@ variable "common_tags" {
   type        = map(string)
 }
 
+variable "common_vnet_address_space" {
+  description = "The CIDR address space for the common virtual network"
+  type        = string
+  default     = "10.0.0.0/16"
+}
+
 variable "environment" {
   description = "The environment resources are deployed to e.g. 'dev'"
   type        = string

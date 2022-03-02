@@ -15,6 +15,11 @@ output "app_service_plan_id" {
   value       = azurerm_app_service_plan.common_service_plan.id
 }
 
+output "common_vnet_cidr_blocks" {
+  description = "A map of IP address blocks from the subnet name to the allocated CIDR prefix"
+  value       = module.common_vnet_address_space.network_cidr_blocks
+}
+
 output "common_vnet_name" {
   description = "The name of the common infrastructure virtual network"
   value       = azurerm_virtual_network.common_infrastructure.name

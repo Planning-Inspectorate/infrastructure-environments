@@ -2,14 +2,28 @@ resource "azurerm_virtual_network" "common_infrastructure" {
   name                = "pins-vnet-${local.service_name}-${local.resource_suffix}"
   location            = azurerm_resource_group.common_infrastructure.location
   resource_group_name = azurerm_resource_group.common_infrastructure.name
-  address_space       = ["10.0.0.0/16"]
+  address_space       = [module.common_vnet_address_space.base_cidr_block]
+}
+
+resource "azurerm_subnet" "app_gateway_subnet" {
+  name                 = "pins-snet-${local.service_name}-agw-${local.resource_suffix}"
+  resource_group_name  = azurerm_resource_group.common_infrastructure.name
+  virtual_network_name = azurerm_virtual_network.common_infrastructure.name
+  address_prefixes     = [module.common_vnet_address_space.network_cidr_blocks["app_gateway"]]
+}
+
+resource "azurerm_subnet" "vpn_gateway_subnet" {
+  name                 = "pins-snet-${local.service_name}-vpn-${local.resource_suffix}"
+  resource_group_name  = azurerm_resource_group.common_infrastructure.name
+  virtual_network_name = azurerm_virtual_network.common_infrastructure.name
+  address_prefixes     = [module.common_vnet_address_space.network_cidr_blocks["vpn_gateway"]]
 }
 
 resource "azurerm_subnet" "integration_subnet" {
   name                 = "pins-snet-${local.service_name}-integration-${local.resource_suffix}"
   resource_group_name  = azurerm_resource_group.common_infrastructure.name
   virtual_network_name = azurerm_virtual_network.common_infrastructure.name
-  address_prefixes     = ["10.0.1.0/24"]
+  address_prefixes     = [module.common_vnet_address_space.network_cidr_blocks["app_service_integration"]]
 
   delegation {
     name = "delegation"
