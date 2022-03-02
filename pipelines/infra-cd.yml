@@ -3,18 +3,12 @@ parameters:
     type: object
     default:
       - name: Dev
-        variables:
-          - template: pipelines/variables/dev.yml@self
       - name: Test
         dependsOn:
           - Dev
-        variables:
-          - template: pipelines/variables/test.yml@self
-      - name: Production
+      - name: Prod
         dependsOn:
           - Test
-        variables:
-          - template: pipelines/variables/production.yml@self
 
 trigger:
   batch: true
@@ -43,7 +37,7 @@ extends:
   parameters:
     deploymentStages:
       - name: Terraform Plan
-        azureLogin: true
+        authType: terraform
         container: terraform-tools
         deploymentSteps:
           - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan_all.yml@templates
@@ -54,7 +48,7 @@ extends:
               workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
         isDeployment: false
       - name: Terraform Apply
-        azureLogin: true
+        authType: terraform
         container: terraform-tools
         dependsOn:
           - Terraform Plan
@@ -65,12 +59,9 @@ extends:
                 ENV: $(ENVIRONMENT)
               subscriptionId: $(SUBSCRIPTION_ID)
               workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
-        isDeployment: true
     ${{ if in(variables['Build.Reason'], 'IndividualCI', 'BatchedCI') }}:
       environments:
         - name: Dev
-          variables:
-            - template: pipelines/variables/dev.yml@self
     ${{ else }}:
       environments: ${{ parameters.environments }}
     project: infrastructure
