@@ -6,8 +6,8 @@ module "national_infrastructure_frontend" {
   app_name                         = "ni-wfe"
   app_service_plan_id              = var.app_service_plan_id
   app_type                         = "frontend"
-  container_image                  = ""
-  container_image_tag              = ""
+  container_image                  = "applications-service/forms-web-app"
+  container_image_tag              = var.environment
   container_registry_id            = data.azurerm_container_registry.acr.id
   container_registry_login_server  = data.azurerm_container_registry.acr.login_server
   integration_subnet_id            = var.integration_subnet_id
@@ -32,7 +32,7 @@ module "national_infrastructure_service" {
   app_service_plan_id              = var.app_service_plan_id
   app_type                         = "backend"
   container_image                  = ""
-  container_image_tag              = ""
+  container_image_tag              = var.environment
   container_registry_id            = data.azurerm_container_registry.acr.id
   container_registry_login_server  = data.azurerm_container_registry.acr.login_server
   endpoint_subnet_id               = azurerm_subnet.applicatons_service_ingress.id

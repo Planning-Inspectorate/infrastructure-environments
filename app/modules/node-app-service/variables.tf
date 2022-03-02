@@ -97,3 +97,8 @@ variable "tags" {
   description = "The tags applied to the resource"
   type        = map(string)
 }
+
+variable "tooling_remote_state_config" {
+  description = "The remote state configuration for the Tooling subscription that houses the Container Registry"
+  type        = map(string)
+}

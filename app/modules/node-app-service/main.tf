@@ -40,6 +40,9 @@ resource "azurerm_app_service" "app_service" {
       APPINSIGHTS_INSTRUMENTATIONKEY             = var.app_insights_instrumentation_key
       APPLICATIONINSIGHTS_CONNECTION_STRING      = var.app_insights_connection_string
       ApplicationInsightsAgent_EXTENSION_VERSION = "~2"
+      DOCKER_REGISTRY_SERVER_PASSWORD            = data.terraform_remote_state.container_registry.outputs.acr_server_password
+      DOCKER_REGISTRY_SERVER_URL                 = data.terraform_remote_state.container_registry.outputs.acr_server_url
+      DOCKER_REGISTRY_SERVER_USERNAME            = data.terraform_remote_state.container_registry.outputs.acr_server_username
       XDT_MicrosoftApplicationInsights_Mode      = "default"
       XDT_MicrosoftApplicationInsights_NodeJS    = "1"
     }

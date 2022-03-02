@@ -72,6 +72,11 @@ variable "region" {
   default     = "uk-south"
 }
 
+variable "tooling_remote_state_config" {
+  description = "The remote state configuration for the Tooling subscription that houses the Container Registry"
+  type        = map(string)
+}
+
 variable "tooling_subscription_id" {
   description = "The ID for the Tooling subscription that houses the Container Registry"
   type        = string
