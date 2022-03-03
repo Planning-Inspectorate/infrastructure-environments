@@ -27,11 +27,9 @@ resource "azurerm_app_service" "app_service" {
   }
 
   site_config {
-    acr_use_managed_identity_credentials = true
-    always_on                            = "true"
-    ftps_state                           = "FtpsOnly"
-    http2_enabled                        = true
-    linux_fx_version                     = "DOCKER|${var.container_registry_login_server}/${var.container_image}:${var.container_image_tag}"
+    always_on     = "true"
+    ftps_state    = "FtpsOnly"
+    http2_enabled = true
   }
 
   app_settings = merge(
@@ -40,18 +38,18 @@ resource "azurerm_app_service" "app_service" {
       APPINSIGHTS_INSTRUMENTATIONKEY             = var.app_insights_instrumentation_key
       APPLICATIONINSIGHTS_CONNECTION_STRING      = var.app_insights_connection_string
       ApplicationInsightsAgent_EXTENSION_VERSION = "~2"
+      DOCKER_REGISTRY_SERVER_PASSWORD            = var.container_registry_server_password
+      DOCKER_REGISTRY_SERVER_URL                 = var.container_registry_login_server
+      DOCKER_REGISTRY_SERVER_USERNAME            = var.container_registry_server_username
       XDT_MicrosoftApplicationInsights_Mode      = "default"
       XDT_MicrosoftApplicationInsights_NodeJS    = "1"
-    }
+    },
+    var.app_type == "frontend" ? {
+      HOST_URL = "https://pins-app-${var.service_name}-${var.app_name}-${var.resource_suffix}.azurewebsites.net"
+    } : {}
   )
 
   tags = var.tags
-}
-
-resource "azurerm_role_assignment" "acr_pull" {
-  role_definition_name = "AcrPull"
-  scope                = var.container_registry_id
-  principal_id         = azurerm_app_service.app_service.identity[0].principal_id
 }
 
 resource "azurerm_private_endpoint" "private_endpoint" {

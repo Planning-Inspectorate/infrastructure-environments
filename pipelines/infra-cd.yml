@@ -10,24 +10,28 @@ parameters:
         dependsOn:
           - Test
 
-trigger:
-  batch: true
-  branches:
-    include:
-      - main
+trigger: none
 
 pr: none
 
 resources:
+  containers:
+    - container: terraform-tools
+      image: terraform-tools
+      endpoint: Container Registry
+  pipelines:
+    - pipeline: infrastructure-environments-ci
+      source: infrastructure-environments CI
+      trigger:
+        branches:
+          include:
+            - main
   repositories:
     - repository: templates
       type: github
       endpoint: Planning-Inspectorate
       name: Planning-Inspectorate/common-pipeline-templates
-  containers:
-    - container: terraform-tools
-      image: terraform-tools
-      endpoint: Container Registry
+
 
 pool:
   vmImage: ubuntu-latest

@@ -5,20 +5,19 @@
 module "lpa_questionnaire_frontend" {
   source = "../../modules/node-app-service"
 
-  app_insights_connection_string   = var.app_insights_connection_string
-  app_insights_instrumentation_key = var.app_insights_instrumentation_key
-  app_name                         = "lpaq-wfe"
-  app_service_plan_id              = var.app_service_plan_id
-  app_type                         = "frontend"
-  container_image                  = "lpa-questionnaire-web-app"
-  container_image_tag              = "latest"
-  container_registry_id            = data.azurerm_container_registry.acr.id
-  container_registry_login_server  = data.azurerm_container_registry.acr.login_server
-  integration_subnet_id            = var.integration_subnet_id
-  location                         = azurerm_resource_group.appeals_service_stack.location
-  resource_group_name              = azurerm_resource_group.appeals_service_stack.name
-  resource_suffix                  = local.resource_suffix
-  service_name                     = local.service_name
+  app_insights_connection_string     = var.app_insights_connection_string
+  app_insights_instrumentation_key   = var.app_insights_instrumentation_key
+  app_name                           = "lpaq-wfe"
+  app_service_plan_id                = var.app_service_plan_id
+  app_type                           = "frontend"
+  container_registry_login_server    = data.azurerm_container_registry.acr.login_server
+  container_registry_server_password = data.azurerm_container_registry.acr.admin_password
+  container_registry_server_username = data.azurerm_container_registry.acr.admin_username
+  integration_subnet_id              = var.integration_subnet_id
+  location                           = azurerm_resource_group.appeals_service_stack.location
+  resource_group_name                = azurerm_resource_group.appeals_service_stack.name
+  resource_suffix                    = local.resource_suffix
+  service_name                       = local.service_name
 
   app_settings = {
     ALLOW_APPEAL_REPLY_CREATE                = "true"
@@ -60,21 +59,20 @@ module "lpa_questionnaire_frontend" {
 module "appeal_service" {
   source = "../../modules/node-app-service"
 
-  app_insights_connection_string   = var.app_insights_connection_string
-  app_insights_instrumentation_key = var.app_insights_instrumentation_key
-  app_name                         = "appeal-api"
-  app_service_plan_id              = var.app_service_plan_id
-  app_type                         = "backend"
-  container_image                  = "appsvc-tutorial-custom-image"
-  container_image_tag              = "latest"
-  container_registry_id            = data.azurerm_container_registry.acr.id
-  container_registry_login_server  = data.azurerm_container_registry.acr.login_server
-  endpoint_subnet_id               = azurerm_subnet.appeals_service_ingress.id
-  location                         = azurerm_resource_group.appeals_service_stack.location
-  private_dns_zone_id              = var.private_dns_zone_id
-  resource_group_name              = azurerm_resource_group.appeals_service_stack.name
-  resource_suffix                  = local.resource_suffix
-  service_name                     = local.service_name
+  app_insights_connection_string     = var.app_insights_connection_string
+  app_insights_instrumentation_key   = var.app_insights_instrumentation_key
+  app_name                           = "appeal-api"
+  app_service_plan_id                = var.app_service_plan_id
+  app_type                           = "backend"
+  container_registry_login_server    = data.azurerm_container_registry.acr.login_server
+  container_registry_server_password = data.azurerm_container_registry.acr.admin_password
+  container_registry_server_username = data.azurerm_container_registry.acr.admin_username
+  endpoint_subnet_id                 = azurerm_subnet.appeals_service_ingress.id
+  location                           = azurerm_resource_group.appeals_service_stack.location
+  private_dns_zone_id                = var.private_dns_zone_id
+  resource_group_name                = azurerm_resource_group.appeals_service_stack.name
+  resource_suffix                    = local.resource_suffix
+  service_name                       = local.service_name
 
   app_settings = {
     APP_APPEALS_BASE_URL                                                        = ""
@@ -128,21 +126,20 @@ module "appeal_service" {
 module "appeal_reply_service" {
   source = "../../modules/node-app-service"
 
-  app_insights_connection_string   = var.app_insights_connection_string
-  app_insights_instrumentation_key = var.app_insights_instrumentation_key
-  app_name                         = "appeal-reply-api"
-  app_service_plan_id              = var.app_service_plan_id
-  app_type                         = "backend"
-  container_image                  = ""
-  container_image_tag              = ""
-  container_registry_id            = data.azurerm_container_registry.acr.id
-  container_registry_login_server  = data.azurerm_container_registry.acr.login_server
-  endpoint_subnet_id               = azurerm_subnet.appeals_service_ingress.id
-  location                         = azurerm_resource_group.appeals_service_stack.location
-  private_dns_zone_id              = var.private_dns_zone_id
-  resource_group_name              = azurerm_resource_group.appeals_service_stack.name
-  resource_suffix                  = local.resource_suffix
-  service_name                     = local.service_name
+  app_insights_connection_string     = var.app_insights_connection_string
+  app_insights_instrumentation_key   = var.app_insights_instrumentation_key
+  app_name                           = "appeal-reply-api"
+  app_service_plan_id                = var.app_service_plan_id
+  app_type                           = "backend"
+  container_registry_login_server    = data.azurerm_container_registry.acr.login_server
+  container_registry_server_password = data.azurerm_container_registry.acr.admin_password
+  container_registry_server_username = data.azurerm_container_registry.acr.admin_username
+  endpoint_subnet_id                 = azurerm_subnet.appeals_service_ingress.id
+  location                           = azurerm_resource_group.appeals_service_stack.location
+  private_dns_zone_id                = var.private_dns_zone_id
+  resource_group_name                = azurerm_resource_group.appeals_service_stack.name
+  resource_suffix                    = local.resource_suffix
+  service_name                       = local.service_name
 
   app_settings = {
     APPEALS_SERVICE_API_URL                                          = module.appeal_service.default_site_hostname
@@ -187,21 +184,20 @@ module "appeal_reply_service" {
 module "documents_service" {
   source = "../../modules/node-app-service"
 
-  app_insights_connection_string   = var.app_insights_connection_string
-  app_insights_instrumentation_key = var.app_insights_instrumentation_key
-  app_name                         = "documents-api"
-  app_service_plan_id              = var.app_service_plan_id
-  app_type                         = "backend"
-  container_image                  = ""
-  container_image_tag              = ""
-  container_registry_id            = data.azurerm_container_registry.acr.id
-  container_registry_login_server  = data.azurerm_container_registry.acr.login_server
-  endpoint_subnet_id               = azurerm_subnet.appeals_service_ingress.id
-  location                         = azurerm_resource_group.appeals_service_stack.location
-  private_dns_zone_id              = var.private_dns_zone_id
-  resource_group_name              = azurerm_resource_group.appeals_service_stack.name
-  resource_suffix                  = local.resource_suffix
-  service_name                     = local.service_name
+  app_insights_connection_string     = var.app_insights_connection_string
+  app_insights_instrumentation_key   = var.app_insights_instrumentation_key
+  app_name                           = "documents-api"
+  app_service_plan_id                = var.app_service_plan_id
+  app_type                           = "backend"
+  container_registry_login_server    = data.azurerm_container_registry.acr.login_server
+  container_registry_server_password = data.azurerm_container_registry.acr.admin_password
+  container_registry_server_username = data.azurerm_container_registry.acr.admin_username
+  endpoint_subnet_id                 = azurerm_subnet.appeals_service_ingress.id
+  location                           = azurerm_resource_group.appeals_service_stack.location
+  private_dns_zone_id                = var.private_dns_zone_id
+  resource_group_name                = azurerm_resource_group.appeals_service_stack.name
+  resource_suffix                    = local.resource_suffix
+  service_name                       = local.service_name
 
   app_settings = {
     BLOB_STORAGE_CONNECTION_STRING      = ""
@@ -230,21 +226,20 @@ module "documents_service" {
 module "pdf_service" {
   source = "../../modules/node-app-service"
 
-  app_insights_connection_string   = var.app_insights_connection_string
-  app_insights_instrumentation_key = var.app_insights_instrumentation_key
-  app_name                         = "pdf-api"
-  app_service_plan_id              = var.app_service_plan_id
-  app_type                         = "backend"
-  container_image                  = ""
-  container_image_tag              = ""
-  container_registry_id            = data.azurerm_container_registry.acr.id
-  container_registry_login_server  = data.azurerm_container_registry.acr.login_server
-  endpoint_subnet_id               = azurerm_subnet.appeals_service_ingress.id
-  location                         = azurerm_resource_group.appeals_service_stack.location
-  private_dns_zone_id              = var.private_dns_zone_id
-  resource_group_name              = azurerm_resource_group.appeals_service_stack.name
-  resource_suffix                  = local.resource_suffix
-  service_name                     = local.service_name
+  app_insights_connection_string     = var.app_insights_connection_string
+  app_insights_instrumentation_key   = var.app_insights_instrumentation_key
+  app_name                           = "pdf-api"
+  app_service_plan_id                = var.app_service_plan_id
+  app_type                           = "backend"
+  container_registry_login_server    = data.azurerm_container_registry.acr.login_server
+  container_registry_server_password = data.azurerm_container_registry.acr.admin_password
+  container_registry_server_username = data.azurerm_container_registry.acr.admin_username
+  endpoint_subnet_id                 = azurerm_subnet.appeals_service_ingress.id
+  location                           = azurerm_resource_group.appeals_service_stack.location
+  private_dns_zone_id                = var.private_dns_zone_id
+  resource_group_name                = azurerm_resource_group.appeals_service_stack.name
+  resource_suffix                    = local.resource_suffix
+  service_name                       = local.service_name
 
   app_settings = {
     DOCS_API_PATH                           = "/opt/app/api"

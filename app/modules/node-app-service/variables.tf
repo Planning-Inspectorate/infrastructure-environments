@@ -35,23 +35,20 @@ variable "app_type" {
   }
 }
 
-variable "container_image" {
-  description = "The name of the image to be deployed to the app service"
-  type        = string
-}
-
-variable "container_image_tag" {
-  description = "The specific tag of the image to be deployed to the app service"
-  type        = string
-}
-
-variable "container_registry_id" {
-  description = "The id of the container registry that contains the image"
-  type        = string
-}
-
 variable "container_registry_login_server" {
   description = "The URL that can be used to log into the container registry"
+  type        = string
+}
+
+variable "container_registry_server_password" {
+  description = "The password used to connect to the container registry so that App Service can pull images"
+  sensitive   = true
+  type        = string
+}
+
+variable "container_registry_server_username" {
+  description = "The username used to connect to the container registry so that App Service can pull images"
+  sensitive   = true
   type        = string
 }
 

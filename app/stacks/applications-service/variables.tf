@@ -1,3 +1,8 @@
+variable "api_timeout" {
+  description = "The timeout in milliseconds for API calls in the frontend apps"
+  type        = string
+}
+
 variable "app_insights_connection_string" {
   description = "The connection string to connect to an Application Insights resource"
   sensitive   = true
@@ -47,6 +52,11 @@ variable "container_registry_rg" {
 
 variable "environment" {
   description = "The environment resources are deployed to e.g. 'dev'"
+  type        = string
+}
+
+variable "google_analytics_id" {
+  description = "The id used to connect the frontend app to Google Analytics"
   type        = string
 }
 
