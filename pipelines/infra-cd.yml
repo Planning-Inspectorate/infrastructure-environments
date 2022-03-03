@@ -10,8 +10,8 @@ parameters:
       - name: Prod
         dependsOn:
           - Test
-  - name: stacks
-    displayName: Stacks
+  - name: stack
+    displayName: Stack
     type: string
     default: all
     values:
@@ -55,7 +55,7 @@ extends:
         authType: terraform
         container: terraform-tools
         deploymentSteps:
-          - ${{ if eq(parameters.stacks, 'all') }}:
+          - ${{ if eq(parameters.stack, 'all') }}:
             - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan_all.yml@templates
               parameters:
                 environmentVariables:
@@ -68,8 +68,9 @@ extends:
                 artifactName: $(Build.BuildId)_$(ENVIRONMENT)
                 environmentVariables:
                   ENV: $(ENVIRONMENT)
+                stack: ${{ parameters.stack }}
                 subscriptionId: $(SUBSCRIPTION_ID)
-                workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.stacks }}
+                workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.stack }}
         isDeployment: false
       - name: Terraform Apply
         authType: terraform
@@ -77,7 +78,7 @@ extends:
         dependsOn:
           - Terraform Plan
         deploymentSteps:
-          - ${{ if eq(parameters.stacks, 'all') }}:
+          - ${{ if eq(parameters.stack, 'all') }}:
             - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_apply_all.yml@templates
               parameters:
                 environmentVariables:
@@ -88,7 +89,7 @@ extends:
             - template: ${{variables['Build.SourcesDirectory']}}/steps/terraform_apply.yml@templates
               parameters:
                 subscriptionId: $(SUBSCRIPTION_ID)
-        ${{ if ne(parameters.stacks, 'all') }}:
+        ${{ if ne(parameters.stack, 'all') }}:
           artifact: $(Build.BuildId)_$(ENVIRONMENT)
     ${{ if in(variables['Build.Reason'], 'IndividualCI', 'BatchedCI') }}:
       environments:
