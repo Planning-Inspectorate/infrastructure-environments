@@ -1,6 +1,6 @@
 resource "azurerm_key_vault" "environment_key_vault" {
   #checkov:skip=CKV_AZURE_42: Soft delete protection enabled by default in latest Azure provider
-  name                        = "pinsenvkv${var.environment}${module.azure_region_uks.location_short}${var.instance}"
+  name                        = replace("pinskv${local.service_name}${local.resource_suffix}", "-", "")
   location                    = azurerm_resource_group.common_infrastructure.location
   resource_group_name         = azurerm_resource_group.common_infrastructure.name
   enabled_for_disk_encryption = true

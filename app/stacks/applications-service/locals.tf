@@ -18,6 +18,6 @@ locals {
   ]
   secrets = {
     for name in local.secret_names :
-    name => "@Microsoft.KeyVault(SecretUri=${data.azurerm_key_vault.common_key_vault.vault_uri}secrets/${name}/${data.azurerm_key_vault_secret.secret[name].version})"
+    name => "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/${name}/${data.azurerm_key_vault_secret.secret[name].version})"
   }
 }

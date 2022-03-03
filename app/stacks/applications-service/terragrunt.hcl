@@ -20,7 +20,8 @@ dependency "common" {
       vpn_gateway                    = "10.1.0.128/25"
     }
     common_vnet_name      = "mock_vnet_name"
-    key_vault_name        = "mockkeyvaultname"
+    key_vault_id          = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mock_vault"
+    key_vault_uri         = "https://mockvault.vault.azure.net/"
     integration_subnet_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
     private_dns_zone_id   = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/privateDnsZones/mock_id"
   }
@@ -33,7 +34,8 @@ inputs = {
   common_resource_group_name       = dependency.common.outputs.common_resource_group_name
   common_vnet_cidr_blocks          = dependency.common.outputs.common_vnet_cidr_blocks
   common_vnet_name                 = dependency.common.outputs.common_vnet_name
-  key_vault_name                   = dependency.common.outputs.key_vault_name
+  key_vault_id                     = dependency.common.outputs.key_vault_id
+  key_vault_uri                    = dependency.common.outputs.key_vault_uri
   integration_subnet_id            = dependency.common.outputs.integration_subnet_id
   private_dns_zone_id              = dependency.common.outputs.private_dns_zone_id
 }
