@@ -55,6 +55,9 @@ extends:
         authType: terraform
         container: terraform-tools
         deploymentSteps:
+          - script: |
+              echo "##vso[build.addbuildtag]stack=${{ parameters.stack }}"
+            displayName: Add stack build tag
           - ${{ if eq(parameters.stack, 'all') }}:
             - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan_all.yml@templates
               parameters:
