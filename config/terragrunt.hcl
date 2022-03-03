@@ -1,9 +1,12 @@
 locals {
-  environment             = get_env("ENV", "dev")
-  stack                   = basename(get_terragrunt_dir())
-  global_variables        = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/global.hcl").locals
-  environment_variables   = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/${local.environment}.hcl").locals
-  stack_variables         = [for file in fileset("${get_terragrunt_dir()}", "variables/*.hcl") : read_terragrunt_config(file).locals]
+  environment           = get_env("ENV", "dev")
+  stack                 = basename(get_terragrunt_dir())
+  global_variables      = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/global.hcl").locals
+  environment_variables = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/${local.environment}.hcl").locals
+  stack_variables = merge(
+    read_terragrunt_config("${get_terragrunt_dir()}/variables/${local.environment}.hcl", {}).locals,
+    read_terragrunt_config("${get_terragrunt_dir()}/variables/global.hcl", {}).locals
+  )
   tooling_subscription_id = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/global.hcl").locals.tooling_subscription_id
 }
 

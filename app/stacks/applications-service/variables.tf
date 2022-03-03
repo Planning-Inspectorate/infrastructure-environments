@@ -71,6 +71,33 @@ variable "integration_subnet_id" {
   type        = string
 }
 
+variable "logger_level" {
+  description = "The level of logging enabled for applications in the environment e.g. info"
+  type        = string
+  default     = "info"
+}
+
+variable "key_vault_name" {
+  description = "The name of the Key Vault for retrieving secrets"
+  type        = string
+}
+
+variable "key_vault_rg" {
+  description = "The resource group containing the Key Vault for retrieving secrets"
+  type        = string
+}
+
+variable "mysql_database" {
+  description = "The name of the database for the Applications Service"
+  type        = string
+}
+
+variable "node_environment" {
+  description = "The node environment to be used for applications in this environment e.g. development"
+  type        = string
+  default     = "development"
+}
+
 variable "private_dns_zone_id" {
   description = "The id of the private DNS zone for App services"
   type        = string
