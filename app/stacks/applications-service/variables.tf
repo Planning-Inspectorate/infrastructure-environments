@@ -20,6 +20,11 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "common_resource_group_name" {
+  description = "The common infrastructure resource group name"
+  type        = string
+}
+
 variable "common_vnet_cidr_blocks" {
   description = "A map of IP address blocks from the subnet name to the allocated CIDR prefix"
   type        = map(string)
@@ -27,11 +32,6 @@ variable "common_vnet_cidr_blocks" {
 
 variable "common_vnet_name" {
   description = "The common infrastructure virtual network name"
-  type        = string
-}
-
-variable "common_vnet_resource_group_name" {
-  description = "The common infrastructure virtual network resource group name"
   type        = string
 }
 
@@ -79,11 +79,6 @@ variable "logger_level" {
 
 variable "key_vault_name" {
   description = "The name of the Key Vault for retrieving secrets"
-  type        = string
-}
-
-variable "key_vault_rg" {
-  description = "The resource group containing the Key Vault for retrieving secrets"
   type        = string
 }
 
