@@ -20,7 +20,7 @@ module "national_infrastructure_frontend" {
     APPLICATIONS_SERVICE_API_TIMEOUT = var.api_timeout
     APPLICATIONS_SERVICE_API_URL     = module.national_infrastructure_service.default_site_hostname
     GOOGLE_ANALYTICS_ID              = var.google_analytics_id
-    HOST_URL                         = "https://pins-app-${local.service_name}-ni-wfe-${local.resource_suffix}.azurewebsites.net"
+    HOST_URL                         = local.frontend_url
     SESSION_KEY                      = "some_key"
     SUBDOMAIN_OFFSET                 = "3"
     USE_SECURE_SESSION_COOKIES       = true
@@ -50,9 +50,9 @@ module "national_infrastructure_service" {
 
   app_settings = {
     ENCRYPTION_SECRET_KEY                               = local.secrets["APPLICATIONS_SERVICE_ENCRYPTION_SECRET_KEY"]
-    HAVING_YOUR_SAY_URL                                 = "https://pins-app-${local.service_name}-ni-wfe-${local.resource_suffix}.azurewebsites.net/having-your-say-guide"
+    HAVING_YOUR_SAY_URL                                 = "${local.frontend_url}having-your-say-guide"
     LOGGER_LEVEL                                        = var.logger_level
-    MAGIC_LINK_DOMAIN                                   = "https://pins-app-${local.service_name}-ni-wfe-${local.resource_suffix}.azurewebsites.net/"
+    MAGIC_LINK_DOMAIN                                   = local.frontend_url
     MYSQL_DATABASE                                      = var.mysql_database
     MYSQL_DIALECT                                       = "mysql"
     MYSQL_HOST                                          = local.secrets["APPLICATIONS_SERVICE_MYSQL_HOST"]
@@ -60,7 +60,7 @@ module "national_infrastructure_service" {
     MYSQL_PORT                                          = "3306"
     MYSQL_USERNAME                                      = local.secrets["APPLICATIONS_SERVICE_MYSQL_USERNAME"]
     NODE_ENV                                            = var.node_environment
-    PRELIMINARY_MEETING_URL                             = "https://pins-app-${local.service_name}-ni-wfe-${local.resource_suffix}.azurewebsites.net/"
+    PRELIMINARY_MEETING_URL                             = local.frontend_url
     SERVER_PORT                                         = "3000"
     SERVER_SHOW_ERRORS                                  = true
     SERVER_TERMINATION_GRACE_PERIOD_SECONDS             = "0"
