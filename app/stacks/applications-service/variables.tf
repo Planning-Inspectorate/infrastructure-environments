@@ -1,3 +1,8 @@
+variable "api_timeout" {
+  description = "The timeout in milliseconds for API calls in the frontend apps"
+  type        = string
+}
+
 variable "app_insights_connection_string" {
   description = "The connection string to connect to an Application Insights resource"
   sensitive   = true
@@ -50,6 +55,11 @@ variable "environment" {
   type        = string
 }
 
+variable "google_analytics_id" {
+  description = "The id used to connect the frontend app to Google Analytics"
+  type        = string
+}
+
 variable "instance" {
   description = "The environment instance for use if multiple environments are deployed to a subscription"
   type        = string
@@ -70,11 +80,6 @@ variable "region" {
   description = "The region resources are deployed to in slug format e.g. 'uk-south'"
   type        = string
   default     = "uk-south"
-}
-
-variable "tooling_remote_state_config" {
-  description = "The remote state configuration for the Tooling subscription that houses the Container Registry"
-  type        = map(string)
 }
 
 variable "tooling_subscription_id" {

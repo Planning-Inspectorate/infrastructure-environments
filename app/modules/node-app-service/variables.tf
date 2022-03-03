@@ -45,13 +45,20 @@ variable "container_image_tag" {
   type        = string
 }
 
-variable "container_registry_id" {
-  description = "The id of the container registry that contains the image"
+variable "container_registry_login_server" {
+  description = "The URL that can be used to log into the container registry"
   type        = string
 }
 
-variable "container_registry_login_server" {
-  description = "The URL that can be used to log into the container registry"
+variable "container_registry_server_password" {
+  description = "The password used to connect to the container registry so that App Service can pull images"
+  sensitive   = true
+  type        = string
+}
+
+variable "container_registry_server_username" {
+  description = "The username used to connect to the container registry so that App Service can pull images"
+  sensitive   = true
   type        = string
 }
 
@@ -95,10 +102,5 @@ variable "service_name" {
 
 variable "tags" {
   description = "The tags applied to the resource"
-  type        = map(string)
-}
-
-variable "tooling_remote_state_config" {
-  description = "The remote state configuration for the Tooling subscription that houses the Container Registry"
   type        = map(string)
 }
