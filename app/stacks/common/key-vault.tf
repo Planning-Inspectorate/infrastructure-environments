@@ -1,4 +1,4 @@
-resource "azurerm_key_vault" "example" {
+resource "azurerm_key_vault" "environment_key_vault" {
   #checkov:skip=CKV_AZURE_42: Soft delete protection enabled by default in latest Azure provider
   name                        = "examplekeyvault"
   location                    = azurerm_resource_group.common_infrastructure.location
