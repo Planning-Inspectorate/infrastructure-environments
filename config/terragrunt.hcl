@@ -4,8 +4,8 @@ locals {
   global_variables      = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/global.hcl").locals
   environment_variables = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/${local.environment}.hcl").locals
   stack_variables = merge(
-    read_terragrunt_config("${get_terragrunt_dir()}/variables/${local.environment}.hcl", {}).locals,
-    read_terragrunt_config("${get_terragrunt_dir()}/variables/global.hcl", {}).locals
+    read_terragrunt_config("${get_terragrunt_dir()}/variables/${local.environment}.hcl", { locals = {} }).locals,
+    read_terragrunt_config("${get_terragrunt_dir()}/variables/global.hcl", { locals = {} }).locals
   )
   tooling_subscription_id = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/global.hcl").locals.tooling_subscription_id
 }
@@ -46,7 +46,7 @@ remote_state {
 inputs = merge(
   local.global_variables,
   local.environment_variables,
-  merge(local.stack_variables...),
+  local.stack_variables,
   {
     common_tags = {
       CostCentre  = "90117"
