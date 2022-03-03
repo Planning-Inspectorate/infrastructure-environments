@@ -65,7 +65,7 @@ extends:
           - ${{ else }}:
             - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan.yml@templates
               parameters:
-                artifactName: $(Build.BuildId)_$(ENVIRONMENT)
+                artifactName: terraform-plan-$(ENVIRONMENT)
                 environmentVariables:
                   ENV: $(ENVIRONMENT)
                 stack: ${{ parameters.stack }}
@@ -88,9 +88,8 @@ extends:
           - ${{ else }}:
             - template: ${{variables['Build.SourcesDirectory']}}/steps/terraform_apply.yml@templates
               parameters:
+                artifactName: terraform-plan-$(ENVIRONMENT)
                 subscriptionId: $(SUBSCRIPTION_ID)
-        ${{ if ne(parameters.stack, 'all') }}:
-          artifact: $(Build.BuildId)_$(ENVIRONMENT)
     ${{ if in(variables['Build.Reason'], 'IndividualCI', 'BatchedCI') }}:
       environments:
         - name: Dev
