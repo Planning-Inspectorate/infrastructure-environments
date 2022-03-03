@@ -25,16 +25,6 @@ variable "app_settings" {
   type        = map(string)
 }
 
-variable "app_type" {
-  description = "The type of application deployed to the App Service, valid values are 'backend' and 'frontend'"
-  type        = string
-
-  validation {
-    condition     = contains(["backend", "frontend"], var.app_type)
-    error_message = "Allowed values for app_type are 'backend' and 'frontend'."
-  }
-}
-
 variable "container_registry_login_server" {
   description = "The URL that can be used to log into the container registry"
   type        = string
@@ -58,6 +48,12 @@ variable "endpoint_subnet_id" {
   type        = string
 }
 
+variable "inbound_vnet_connectivity" {
+  default     = false
+  description = "Indicates whether inbound connectivity (Private Endpoint) is required"
+  type        = bool
+}
+
 variable "integration_subnet_id" {
   default     = null
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
@@ -67,6 +63,12 @@ variable "integration_subnet_id" {
 variable "location" {
   description = "The name of the app service location"
   type        = string
+}
+
+variable "outbound_vnet_connectivity" {
+  default     = false
+  description = "Indicates whether outbound connectivity (VNET Integration) is required"
+  type        = bool
 }
 
 variable "private_dns_zone_id" {

@@ -37,14 +37,14 @@ resource "azurerm_app_service" "app_service" {
     {
       APPINSIGHTS_INSTRUMENTATIONKEY             = var.app_insights_instrumentation_key
       APPLICATIONINSIGHTS_CONNECTION_STRING      = var.app_insights_connection_string
-      ApplicationInsightsAgent_EXTENSION_VERSION = "~2"
+      ApplicationInsightsAgent_EXTENSION_VERSION = "~3"
       DOCKER_REGISTRY_SERVER_PASSWORD            = var.container_registry_server_password
       DOCKER_REGISTRY_SERVER_URL                 = var.container_registry_login_server
       DOCKER_REGISTRY_SERVER_USERNAME            = var.container_registry_server_username
       XDT_MicrosoftApplicationInsights_Mode      = "default"
       XDT_MicrosoftApplicationInsights_NodeJS    = "1"
     },
-    var.app_type == "frontend" ? {
+    var.inbound_vnet_connectivity == false ? {
       HOST_URL = "https://pins-app-${var.service_name}-${var.app_name}-${var.resource_suffix}.azurewebsites.net"
     } : {}
   )
@@ -53,7 +53,7 @@ resource "azurerm_app_service" "app_service" {
 }
 
 resource "azurerm_private_endpoint" "private_endpoint" {
-  count = var.app_type == "backend" ? 1 : 0
+  count = var.inbound_vnet_connectivity == true ? 1 : 0
 
   name                = "pins-pe-${var.service_name}-${var.app_name}-${var.resource_suffix}"
   location            = var.location
@@ -74,7 +74,7 @@ resource "azurerm_private_endpoint" "private_endpoint" {
 }
 
 resource "azurerm_app_service_virtual_network_swift_connection" "vnet_connection" {
-  count = var.app_type == "frontend" ? 1 : 0
+  count = var.outbound_vnet_connectivity == true ? 1 : 0
 
   app_service_id = azurerm_app_service.app_service.id
   subnet_id      = var.integration_subnet_id
