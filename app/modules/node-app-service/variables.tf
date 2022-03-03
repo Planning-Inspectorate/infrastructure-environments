@@ -35,16 +35,6 @@ variable "app_type" {
   }
 }
 
-variable "container_image" {
-  description = "The name of the image to be deployed to the app service"
-  type        = string
-}
-
-variable "container_image_tag" {
-  description = "The specific tag of the image to be deployed to the app service"
-  type        = string
-}
-
 variable "container_registry_login_server" {
   description = "The URL that can be used to log into the container registry"
   type        = string

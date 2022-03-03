@@ -27,11 +27,9 @@ resource "azurerm_app_service" "app_service" {
   }
 
   site_config {
-    acr_use_managed_identity_credentials = true
-    always_on                            = "true"
-    ftps_state                           = "FtpsOnly"
-    http2_enabled                        = true
-    linux_fx_version                     = "DOCKER|${var.container_registry_login_server}/${var.container_image}:${var.container_image_tag}"
+    always_on     = "true"
+    ftps_state    = "FtpsOnly"
+    http2_enabled = true
   }
 
   app_settings = merge(

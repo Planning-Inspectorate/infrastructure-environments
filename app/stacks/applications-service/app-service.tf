@@ -6,8 +6,6 @@ module "national_infrastructure_frontend" {
   app_name                           = "ni-wfe"
   app_service_plan_id                = var.app_service_plan_id
   app_type                           = "frontend"
-  container_image                    = "applications-service/forms-web-app"
-  container_image_tag                = var.environment
   container_registry_login_server    = data.azurerm_container_registry.acr.login_server
   container_registry_server_password = data.azurerm_container_registry.acr.admin_password
   container_registry_server_username = data.azurerm_container_registry.acr.admin_username
@@ -37,8 +35,6 @@ module "national_infrastructure_service" {
   app_name                           = "ni-api"
   app_service_plan_id                = var.app_service_plan_id
   app_type                           = "backend"
-  container_image                    = ""
-  container_image_tag                = var.environment
   container_registry_login_server    = data.azurerm_container_registry.acr.login_server
   container_registry_server_password = data.azurerm_container_registry.acr.admin_password
   container_registry_server_username = data.azurerm_container_registry.acr.admin_username
