@@ -1,5 +1,6 @@
 parameters:
   - name: environments
+    displayName: Environments
     type: object
     default:
       - name: Dev
@@ -9,6 +10,15 @@ parameters:
       - name: Prod
         dependsOn:
           - Test
+  - name: stacks
+    displayName: Stacks
+    type: string
+    default: all
+    values:
+      - all
+      - common
+      - appeals-service
+      - applications-service
 
 trigger: none
 
@@ -44,12 +54,20 @@ extends:
         authType: terraform
         container: terraform-tools
         deploymentSteps:
-          - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan_all.yml@templates
-            parameters:
-              environmentVariables:
-                ENV: $(ENVIRONMENT)
-              subscriptionId: $(SUBSCRIPTION_ID)
-              workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
+          - ${{ if eq(parameters.stacks, 'all') }}:
+            - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan_all.yml@templates
+              parameters:
+                environmentVariables:
+                  ENV: $(ENVIRONMENT)
+                subscriptionId: $(SUBSCRIPTION_ID)
+                workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
+          - ${{ else }}:
+            - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan.yml@templates
+              parameters:
+                environmentVariables:
+                  ENV: $(ENVIRONMENT)
+                subscriptionId: $(SUBSCRIPTION_ID)
+                workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.stacks }}
         isDeployment: false
       - name: Terraform Apply
         authType: terraform
@@ -57,12 +75,19 @@ extends:
         dependsOn:
           - Terraform Plan
         deploymentSteps:
-          - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_apply_all.yml@templates
-            parameters:
-              environmentVariables:
-                ENV: $(ENVIRONMENT)
-              subscriptionId: $(SUBSCRIPTION_ID)
-              workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
+          - ${{ if eq(parameters.stacks, 'all') }}:
+            - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_apply_all.yml@templates
+              parameters:
+                environmentVariables:
+                  ENV: $(ENVIRONMENT)
+                subscriptionId: $(SUBSCRIPTION_ID)
+                workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
+          - ${{ else }}:
+            - template: ${{variables['Build.SourcesDirectory']}}/steps/terraform_apply.yml@templates
+              parameters:
+                subscriptionId: $(SUBSCRIPTION_ID)
+        ${{ if ne(parameters.stacks, 'all') }}:
+          artifactName: $(Build.BuildId)_$(ENVIRONMENT)
     ${{ if in(variables['Build.Reason'], 'IndividualCI', 'BatchedCI') }}:
       environments:
         - name: Dev
