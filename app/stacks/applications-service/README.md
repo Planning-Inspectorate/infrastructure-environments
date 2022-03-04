@@ -63,5 +63,7 @@ No requirements.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_national_infrastructure_frontend_url"></a> [national\_infrastructure\_frontend\_url](#output\_national\_infrastructure\_frontend\_url) | The URL of the applications service national infrastructure frontend app service |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
