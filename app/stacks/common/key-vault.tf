@@ -1,6 +1,6 @@
 resource "azurerm_key_vault" "environment_key_vault" {
   #checkov:skip=CKV_AZURE_42: Soft delete protection enabled by default in latest Azure provider
-  #checkov:skip=CKV_AZURE_109: TODO: Network ACL, currently not iplemented as it blocks pipeline
+  #checkov:skip=CKV_AZURE_109: TODO: Network ACL, currently not implemented as it blocks pipeline
   name                        = replace("pinskv${local.service_name}${local.resource_suffix}", "-", "")
   location                    = azurerm_resource_group.common_infrastructure.location
   resource_group_name         = azurerm_resource_group.common_infrastructure.name
@@ -16,15 +16,15 @@ resource "azurerm_key_vault" "environment_key_vault" {
     object_id = data.azurerm_client_config.current.object_id
 
     key_permissions = [
-      "Create", "Delete", "Get"
+      "Create", "Delete", "Get", "List"
     ]
 
     secret_permissions = [
-      "Delete", "Get", "Set"
+      "Delete", "Get", "List", "Set"
     ]
 
     storage_permissions = [
-      "Delete", "Get", "Set"
+      "Delete", "Get", "List", "Set"
     ]
   }
 
