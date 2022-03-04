@@ -41,9 +41,6 @@ resource "azurerm_virtual_network_gateway_connection" "national_infrastructure" 
   type                       = "IPsec"
   virtual_network_gateway_id = azurerm_virtual_network_gateway.applications_service.id
   local_network_gateway_id   = azurerm_local_network_gateway.national_infrastructure.id
-  shared_key                 = "Testing"
+  shared_key                 = "Test" # var.key_vault_secret_refs["applications-service-vpn-gateway-shared-key"]
   tags                       = local.tags
-
-  # shared_key                 = data.azurerm_key_vault_secret.applications_service_vpn_gateway_shared_key.value
-  # shared_key                 = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/applications_service_vpn_gateway_shared_key)"
 }
