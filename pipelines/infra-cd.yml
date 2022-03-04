@@ -41,8 +41,6 @@ resources:
       type: github
       endpoint: Planning-Inspectorate
       name: Planning-Inspectorate/common-pipeline-templates
-      ref: feature/terragrunt-plan-apply-steps
-
 
 pool:
   vmImage: ubuntu-latest
