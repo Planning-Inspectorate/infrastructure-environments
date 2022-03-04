@@ -43,10 +43,7 @@ resource "azurerm_app_service" "app_service" {
       DOCKER_REGISTRY_SERVER_USERNAME            = var.container_registry_server_username
       XDT_MicrosoftApplicationInsights_Mode      = "default"
       XDT_MicrosoftApplicationInsights_NodeJS    = "1"
-    },
-    var.inbound_vnet_connectivity == false ? {
-      HOST_URL = "https://pins-app-${var.service_name}-${var.app_name}-${var.resource_suffix}.azurewebsites.net"
-    } : {}
+    }
   )
 
   tags = var.tags

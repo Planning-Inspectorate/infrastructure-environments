@@ -1,5 +1,6 @@
 parameters:
   - name: environments
+    displayName: Environments
     type: object
     default:
       - name: Dev
@@ -9,6 +10,15 @@ parameters:
       - name: Prod
         dependsOn:
           - Test
+  - name: stack
+    displayName: Stack
+    type: string
+    default: all
+    values:
+      - all
+      - common
+      - appeals-service
+      - applications-service
 
 trigger: none
 
@@ -32,7 +42,6 @@ resources:
       endpoint: Planning-Inspectorate
       name: Planning-Inspectorate/common-pipeline-templates
 
-
 pool:
   vmImage: ubuntu-latest
 
@@ -44,12 +53,25 @@ extends:
         authType: terraform
         container: terraform-tools
         deploymentSteps:
-          - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan_all.yml@templates
-            parameters:
-              environmentVariables:
-                ENV: $(ENVIRONMENT)
-              subscriptionId: $(SUBSCRIPTION_ID)
-              workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
+          - script: |
+              echo "##vso[build.addbuildtag]stack=${{ parameters.stack }}"
+            displayName: Add stack build tag
+          - ${{ if eq(parameters.stack, 'all') }}:
+            - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan_all.yml@templates
+              parameters:
+                environmentVariables:
+                  ENV: $(ENVIRONMENT)
+                subscriptionId: $(SUBSCRIPTION_ID)
+                workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
+          - ${{ else }}:
+            - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan.yml@templates
+              parameters:
+                artifactName: terraform-plan-$(ENVIRONMENT)
+                environmentVariables:
+                  ENV: $(ENVIRONMENT)
+                stack: ${{ parameters.stack }}
+                subscriptionId: $(SUBSCRIPTION_ID)
+                workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.stack }}
         isDeployment: false
       - name: Terraform Apply
         authType: terraform
@@ -57,12 +79,18 @@ extends:
         dependsOn:
           - Terraform Plan
         deploymentSteps:
-          - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_apply_all.yml@templates
-            parameters:
-              environmentVariables:
-                ENV: $(ENVIRONMENT)
-              subscriptionId: $(SUBSCRIPTION_ID)
-              workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
+          - ${{ if eq(parameters.stack, 'all') }}:
+            - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_apply_all.yml@templates
+              parameters:
+                environmentVariables:
+                  ENV: $(ENVIRONMENT)
+                subscriptionId: $(SUBSCRIPTION_ID)
+                workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
+          - ${{ else }}:
+            - template: ${{variables['Build.SourcesDirectory']}}/steps/terraform_apply.yml@templates
+              parameters:
+                artifactName: terraform-plan-$(ENVIRONMENT)
+                subscriptionId: $(SUBSCRIPTION_ID)
     ${{ if in(variables['Build.Reason'], 'IndividualCI', 'BatchedCI') }}:
       environments:
         - name: Dev

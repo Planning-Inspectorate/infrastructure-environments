@@ -15,6 +15,11 @@ output "app_service_plan_id" {
   value       = azurerm_app_service_plan.common_service_plan.id
 }
 
+output "common_resource_group_name" {
+  description = "The name of the common infrastructure resource group"
+  value       = azurerm_resource_group.common_infrastructure.name
+}
+
 output "common_vnet_cidr_blocks" {
   description = "A map of IP address blocks from the subnet name to the allocated CIDR prefix"
   value       = module.common_vnet_address_space.network_cidr_blocks
@@ -25,14 +30,14 @@ output "common_vnet_name" {
   value       = azurerm_virtual_network.common_infrastructure.name
 }
 
-output "common_vnet_resource_group_name" {
-  description = "The name of the common infrastructure virtual network resource group"
-  value       = azurerm_resource_group.common_infrastructure.name
-}
-
 output "integration_subnet_id" {
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   value       = azurerm_subnet.integration_subnet.id
+}
+
+output "key_vault_secret_refs" {
+  description = "Map of secret references from the Key Vault"
+  value       = local.secret_refs
 }
 
 output "private_dns_zone_id" {

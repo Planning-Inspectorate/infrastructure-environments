@@ -20,6 +20,11 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "common_resource_group_name" {
+  description = "The common infrastructure resource group name"
+  type        = string
+}
+
 variable "common_vnet_cidr_blocks" {
   description = "A map of IP address blocks from the subnet name to the allocated CIDR prefix"
   type        = map(string)
@@ -27,11 +32,6 @@ variable "common_vnet_cidr_blocks" {
 
 variable "common_vnet_name" {
   description = "The common infrastructure virtual network name"
-  type        = string
-}
-
-variable "common_vnet_resource_group_name" {
-  description = "The common infrastructure virtual network resource group name"
   type        = string
 }
 
@@ -69,6 +69,28 @@ variable "instance" {
 variable "integration_subnet_id" {
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   type        = string
+}
+
+variable "logger_level" {
+  description = "The level of logging enabled for applications in the environment e.g. info"
+  type        = string
+  default     = "info"
+}
+
+variable "key_vault_secret_refs" {
+  description = "Map of secret references from the Key Vault"
+  type        = map(string)
+}
+
+variable "mysql_database" {
+  description = "The name of the database for the Applications Service"
+  type        = string
+}
+
+variable "node_environment" {
+  description = "The node environment to be used for applications in this environment e.g. development"
+  type        = string
+  default     = "development"
 }
 
 variable "private_dns_zone_id" {
