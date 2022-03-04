@@ -43,6 +43,8 @@ resource "azurerm_key_vault_secret" "secret" {
   tags = local.tags
 
   lifecycle {
-    ignore_changes = all
+    ignore_changes = [
+      value
+    ]
   }
 }
