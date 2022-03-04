@@ -40,6 +40,8 @@ resource "azurerm_key_vault_secret" "secret" {
   name         = each.value
   value        = "<enter_value>"
 
+  tags = local.tags
+
   lifecycle {
     ignore_changes = all
   }
