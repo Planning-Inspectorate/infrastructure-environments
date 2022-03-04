@@ -108,3 +108,8 @@ variable "tooling_subscription_id" {
   description = "The ID for the Tooling subscription that houses the Container Registry"
   type        = string
 }
+
+variable "vpn_gateway_subnet_id" {
+  description = "The id of the VPN gateway subnet"
+  type        = string
+}

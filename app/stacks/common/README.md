@@ -60,4 +60,5 @@ No requirements.
 | <a name="output_integration_subnet_id"></a> [integration\_subnet\_id](#output\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic |
 | <a name="output_key_vault_secret_refs"></a> [key\_vault\_secret\_refs](#output\_key\_vault\_secret\_refs) | Map of secret references from the Key Vault |
 | <a name="output_private_dns_zone_id"></a> [private\_dns\_zone\_id](#output\_private\_dns\_zone\_id) | The id of the private DNS zone for App services |
+| <a name="output_vpn_gateway_subnet_id"></a> [vpn\_gateway\_subnet\_id](#output\_vpn\_gateway\_subnet\_id) | The id of the VPN gateway subnet |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

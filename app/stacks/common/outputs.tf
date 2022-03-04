@@ -44,3 +44,8 @@ output "private_dns_zone_id" {
   description = "The id of the private DNS zone for App services"
   value       = azurerm_private_dns_zone.private_link.id
 }
+
+output "vpn_gateway_subnet_id" {
+  description = "The id of the VPN gateway subnet"
+  value       = azurerm_subnet.vpn_gateway_subnet.id
+}
