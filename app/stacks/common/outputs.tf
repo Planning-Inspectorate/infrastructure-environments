@@ -35,14 +35,9 @@ output "integration_subnet_id" {
   value       = azurerm_subnet.integration_subnet.id
 }
 
-output "key_vault_id" {
-  description = "The ID of the Key Vault"
-  value       = azurerm_key_vault.environment_key_vault.id
-}
-
-output "key_vault_uri" {
-  description = "The URI of the Key Vault"
-  value       = azurerm_key_vault.environment_key_vault.vault_uri
+output "key_vault_secret_refs" {
+  description = "Map of secret references from the Key Vault"
+  value       = local.secret_refs
 }
 
 output "private_dns_zone_id" {

@@ -77,14 +77,9 @@ variable "logger_level" {
   default     = "info"
 }
 
-variable "key_vault_id" {
-  description = "The ID of the Key Vault for retrieving secrets"
-  type        = string
-}
-
-variable "key_vault_uri" {
-  description = "The URI of the Key Vault for retrieving secrets"
-  type        = string
+variable "key_vault_secret_refs" {
+  description = "Map of secret references from the Key Vault"
+  type        = map(string)
 }
 
 variable "mysql_database" {

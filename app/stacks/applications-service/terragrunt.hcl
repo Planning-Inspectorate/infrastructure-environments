@@ -19,9 +19,14 @@ dependency "common" {
       applications_service_endpoints = "10.1.3.0/24"
       vpn_gateway                    = "10.1.0.128/25"
     }
-    common_vnet_name      = "mock_vnet_name"
-    key_vault_id          = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mock_vault"
-    key_vault_uri         = "https://mockvault.vault.azure.net/"
+    common_vnet_name = "mock_vnet_name"
+    key_vault_secret_refs = {
+      applications-service-encryption-secret-key = "mock_secret"
+      applications-service-mysql-host            = "mock_secret"
+      applications-service-mysql-password        = "mock_secret"
+      applications-service-mysql-username        = "mock_secret"
+      srv-notify-api-key                         = "mock_secret"
+    }
     integration_subnet_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
     private_dns_zone_id   = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/privateDnsZones/mock_id"
   }
@@ -34,8 +39,7 @@ inputs = {
   common_resource_group_name       = dependency.common.outputs.common_resource_group_name
   common_vnet_cidr_blocks          = dependency.common.outputs.common_vnet_cidr_blocks
   common_vnet_name                 = dependency.common.outputs.common_vnet_name
-  key_vault_id                     = dependency.common.outputs.key_vault_id
-  key_vault_uri                    = dependency.common.outputs.key_vault_uri
+  key_vault_secret_refs            = dependency.common.outputs.key_vault_secret_refs
   integration_subnet_id            = dependency.common.outputs.integration_subnet_id
   private_dns_zone_id              = dependency.common.outputs.private_dns_zone_id
 }

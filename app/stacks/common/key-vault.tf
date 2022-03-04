@@ -34,3 +34,17 @@ resource "azurerm_key_vault" "environment_key_vault" {
 
   tags = local.tags
 }
+
+resource "azurerm_key_vault_secret" "secret" {
+  #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
+  #checkov:skip=CKV_AZURE_114: No need to set content type via Terraform, as secrets to be updated in Portal
+  for_each = toset(local.secret_names)
+
+  key_vault_id = azurerm_key_vault.environment_key_vault.id
+  name         = each.value
+  value        = "<enter_value>"
+
+  lifecycle {
+    ignore_changes = all
+  }
+}
