@@ -13,7 +13,6 @@ locals {
     "applications-service-mysql-host",
     "applications-service-mysql-password",
     "applications-service-mysql-username",
-    "applications-service-vpn-gateway-shared-key",
     "srv-notify-api-key"
   ]
 

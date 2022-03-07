@@ -15,6 +15,12 @@ variable "app_insights_instrumentation_key" {
   type        = string
 }
 
+variable "applications_service_vpn_gateway_shared_key" {
+  description = "The applications service virtual network gateway shared key"
+  sensitive   = true
+  type        = string
+}
+
 variable "app_service_plan_id" {
   description = "The id of the app service plan"
   type        = string
@@ -80,11 +86,6 @@ variable "logger_level" {
   description = "The level of logging enabled for applications in the environment e.g. info"
   type        = string
   default     = "info"
-}
-
-variable "key_vault_name" {
-  description = "The name of the common infrastructure key vault"
-  type        = string
 }
 
 variable "key_vault_secret_refs" {

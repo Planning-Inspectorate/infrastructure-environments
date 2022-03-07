@@ -15,6 +15,12 @@ output "app_service_plan_id" {
   value       = azurerm_app_service_plan.common_service_plan.id
 }
 
+output "applications_service_vpn_gateway_shared_key" {
+  description = "The applications service virtual network gateway shared key"
+  sensitive   = true
+  value       = azurerm_key_vault_secret.applications_service_vpn_gateway_shared_key.value
+}
+
 output "common_resource_group_name" {
   description = "The name of the common infrastructure resource group"
   value       = azurerm_resource_group.common_infrastructure.name
@@ -38,11 +44,6 @@ output "common_vnet_name" {
 output "integration_subnet_id" {
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   value       = azurerm_subnet.integration_subnet.id
-}
-
-output "key_vault_name" {
-  description = "The name of the common infrastructure key vault"
-  value       = azurerm_key_vault.environment_key_vault.name
 }
 
 output "key_vault_secret_refs" {

@@ -14,6 +14,6 @@ resource "azurerm_virtual_network_gateway_connection" "national_infrastructure" 
   type                       = "IPsec"
   virtual_network_gateway_id = var.common_vnet_gateway_id
   local_network_gateway_id   = azurerm_local_network_gateway.national_infrastructure.id
-  shared_key                 = data.azurerm_key_vault_secret.vnet_gateway_shared_key.value
+  shared_key                 = var.applications_service_vpn_gateway_shared_key
   tags                       = local.tags
 }

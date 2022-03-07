@@ -48,6 +48,23 @@ resource "azurerm_key_vault" "environment_key_vault" {
   tags = local.tags
 }
 
+resource "azurerm_key_vault_secret" "applications_service_vpn_gateway_shared_key" {
+  #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
+  #checkov:skip=CKV_AZURE_114: No need to set content type via Terraform, as secrets to be updated in Portal
+  key_vault_id = azurerm_key_vault.environment_key_vault.id
+  name         = "applications-service-vpn-gateway-shared-key"
+  value        = "<enter_value>"
+
+  tags = local.tags
+
+  lifecycle {
+    ignore_changes = [
+      value,
+      version
+    ]
+  }
+}
+
 resource "azurerm_key_vault_secret" "secret" {
   #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   #checkov:skip=CKV_AZURE_114: No need to set content type via Terraform, as secrets to be updated in Portal
