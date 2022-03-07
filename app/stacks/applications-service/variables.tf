@@ -82,6 +82,11 @@ variable "logger_level" {
   default     = "info"
 }
 
+variable "key_vault_name" {
+  description = "The name of the common infrastructure key vault"
+  type        = string
+}
+
 variable "key_vault_secret_refs" {
   description = "Map of secret references from the Key Vault"
   type        = map(string)

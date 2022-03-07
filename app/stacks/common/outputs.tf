@@ -40,6 +40,11 @@ output "integration_subnet_id" {
   value       = azurerm_subnet.integration_subnet.id
 }
 
+output "key_vault_name" {
+  description = "The name of the common infrastructure key vault"
+  value       = azurerm_key_vault.environment_key_vault.name
+}
+
 output "key_vault_secret_refs" {
   description = "Map of secret references from the Key Vault"
   value       = local.secret_refs
