@@ -2,7 +2,7 @@ resource "azurerm_public_ip" "vpn_gateway" {
   name                = "pins-vgw-pip-${local.service_name}-${local.resource_suffix}"
   resource_group_name = azurerm_resource_group.applications_service_stack.name
   location            = azurerm_resource_group.applications_service_stack.location
-  allocation_method   = "Static"
+  allocation_method   = "Dynamic"
   tags                = local.tags
 }
 
