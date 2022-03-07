@@ -48,3 +48,10 @@ resource "azurerm_private_dns_zone_virtual_network_link" "private_link" {
   private_dns_zone_name = azurerm_private_dns_zone.private_link.name
   virtual_network_id    = azurerm_virtual_network.common_infrastructure.id
 }
+
+resource "azurerm_virtual_network_peering" "tooling" {
+  name                      = "pins-peer-tooling-${local.service_name}-${local.resource_suffix}"
+  remote_virtual_network_id = data.azurerm_virtual_network.tooling.id
+  resource_group_name       = azurerm_virtual_network.common_infrastructure.resource_group_name
+  virtual_network_name      = azurerm_virtual_network.common_infrastructure.name
+}
