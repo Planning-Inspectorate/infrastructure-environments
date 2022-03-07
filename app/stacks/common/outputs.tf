@@ -15,6 +15,12 @@ output "app_service_plan_id" {
   value       = azurerm_app_service_plan.common_service_plan.id
 }
 
+output "applications_service_vpn_gateway_shared_key" {
+  description = "The applications service virtual network gateway shared key"
+  sensitive   = true
+  value       = data.azurerm_key_vault_secret.applications_service_vpn_gateway_shared_key.value
+}
+
 output "common_resource_group_name" {
   description = "The name of the common infrastructure resource group"
   value       = azurerm_resource_group.common_infrastructure.name
@@ -23,6 +29,11 @@ output "common_resource_group_name" {
 output "common_vnet_cidr_blocks" {
   description = "A map of IP address blocks from the subnet name to the allocated CIDR prefix"
   value       = module.common_vnet_address_space.network_cidr_blocks
+}
+
+output "common_vnet_gateway_id" {
+  description = "The id of the common infrastructure virtual network gateway"
+  value       = azurerm_virtual_network_gateway.common.id
 }
 
 output "common_vnet_name" {

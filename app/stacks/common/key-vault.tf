@@ -16,19 +16,53 @@ resource "azurerm_key_vault" "environment_key_vault" {
     object_id = data.azurerm_client_config.current.object_id
 
     key_permissions = [
-      "Create", "Delete", "Get", "List"
+      "Create", "Delete", "Get", "List", "Purge", "Recover"
     ]
 
     secret_permissions = [
-      "Delete", "Get", "List", "Set"
+      "Delete", "Get", "List", "Set", "Purge", "Recover"
     ]
 
     storage_permissions = [
-      "Delete", "Get", "List", "Set"
+      "Delete", "Get", "List", "Set", "Purge", "Recover"
+    ]
+  }
+
+  access_policy {
+    tenant_id = data.azurerm_client_config.current.tenant_id
+    object_id = "6e0b1ad0-76db-4871-b8d8-9d7b539527ff" # "PINS ODT Key Vault Admins"
+
+    key_permissions = [
+      "Create", "Get", "List"
+    ]
+
+    secret_permissions = [
+      "Get", "List", "Set"
+    ]
+
+    storage_permissions = [
+      "Get", "List", "Set"
     ]
   }
 
   tags = local.tags
+}
+
+resource "azurerm_key_vault_secret" "applications_service_vpn_gateway_shared_key" {
+  #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
+  #checkov:skip=CKV_AZURE_114: No need to set content type via Terraform, as secrets to be updated in Portal
+  key_vault_id = azurerm_key_vault.environment_key_vault.id
+  name         = "applications-service-vpn-gateway-shared-key"
+  value        = "<enter_value>"
+
+  tags = local.tags
+
+  lifecycle {
+    ignore_changes = [
+      value,
+      version
+    ]
+  }
 }
 
 resource "azurerm_key_vault_secret" "secret" {

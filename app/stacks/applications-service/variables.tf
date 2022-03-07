@@ -15,6 +15,12 @@ variable "app_insights_instrumentation_key" {
   type        = string
 }
 
+variable "applications_service_vpn_gateway_shared_key" {
+  description = "The applications service virtual network gateway shared key"
+  sensitive   = true
+  type        = string
+}
+
 variable "app_service_plan_id" {
   description = "The id of the app service plan"
   type        = string
@@ -28,6 +34,11 @@ variable "common_resource_group_name" {
 variable "common_vnet_cidr_blocks" {
   description = "A map of IP address blocks from the subnet name to the allocated CIDR prefix"
   type        = map(string)
+}
+
+variable "common_vnet_gateway_id" {
+  description = "The id of the common infrastructure virtual network gateway"
+  type        = string
 }
 
 variable "common_vnet_name" {
@@ -85,6 +96,16 @@ variable "key_vault_secret_refs" {
 variable "mysql_database" {
   description = "The name of the database for the Applications Service"
   type        = string
+}
+
+variable "national_infrastructure_gateway_ip" {
+  description = "The public IP address of the National Infrastructure gateway endpoint"
+  type        = string
+}
+
+variable "national_infrastructure_vnet_address_space" {
+  description = "The address space advertised by the National Infrastructure gateway endpoint"
+  type        = list(string)
 }
 
 variable "node_environment" {
