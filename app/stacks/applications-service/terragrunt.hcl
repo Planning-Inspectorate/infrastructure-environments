@@ -21,7 +21,7 @@ dependency "common" {
     }
     common_vnet_gateway_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Network/virtualNetworkGateways/mock_id"
     common_vnet_name       = "mock_vnet_name"
-    key_vault_name         = "mock_key_vault_name"
+    key_vault_name         = "mockkeyvaultname"
     key_vault_secret_refs = {
       applications-service-encryption-secret-key = "mock_secret"
       applications-service-mysql-host            = "mock_secret"
