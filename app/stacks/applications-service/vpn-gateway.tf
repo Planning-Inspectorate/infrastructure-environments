@@ -1,30 +1,3 @@
-resource "azurerm_public_ip" "vpn_gateway" {
-  name                = "pins-vgw-pip-${local.service_name}-${local.resource_suffix}"
-  resource_group_name = azurerm_resource_group.applications_service_stack.name
-  location            = azurerm_resource_group.applications_service_stack.location
-  allocation_method   = "Dynamic"
-  tags                = local.tags
-}
-
-resource "azurerm_virtual_network_gateway" "applications_service" {
-  name                = "pins-vgw-${local.service_name}-${local.resource_suffix}"
-  resource_group_name = var.common_resource_group_name
-  location            = azurerm_resource_group.applications_service_stack.location
-  type                = "Vpn"
-  vpn_type            = "RouteBased"
-  active_active       = false
-  enable_bgp          = false
-  sku                 = "VpnGw2"
-  tags                = local.tags
-
-  ip_configuration {
-    name                          = "Public"
-    public_ip_address_id          = azurerm_public_ip.vpn_gateway.id
-    private_ip_address_allocation = "Dynamic"
-    subnet_id                     = var.vpn_gateway_subnet_id
-  }
-}
-
 resource "azurerm_local_network_gateway" "national_infrastructure" {
   name                = "pins-lgw-${local.service_name}-${local.resource_suffix}"
   resource_group_name = azurerm_resource_group.applications_service_stack.name
@@ -39,7 +12,7 @@ resource "azurerm_virtual_network_gateway_connection" "national_infrastructure" 
   resource_group_name        = azurerm_resource_group.applications_service_stack.name
   location                   = azurerm_resource_group.applications_service_stack.location
   type                       = "IPsec"
-  virtual_network_gateway_id = azurerm_virtual_network_gateway.applications_service.id
+  virtual_network_gateway_id = var.common_vnet_gateway_id
   local_network_gateway_id   = azurerm_local_network_gateway.national_infrastructure.id
   shared_key                 = var.key_vault_secret_refs["applications-service-vpn-gateway-shared-key"]
   tags                       = local.tags

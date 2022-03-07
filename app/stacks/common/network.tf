@@ -12,11 +12,11 @@ resource "azurerm_subnet" "app_gateway_subnet" {
   address_prefixes     = [module.common_vnet_address_space.network_cidr_blocks["app_gateway"]]
 }
 
-resource "azurerm_subnet" "vpn_gateway_subnet" {
+resource "azurerm_subnet" "vnet_gateway_subnet" {
   name                 = "GatewaySubnet"
   resource_group_name  = azurerm_resource_group.common_infrastructure.name
   virtual_network_name = azurerm_virtual_network.common_infrastructure.name
-  address_prefixes     = [module.common_vnet_address_space.network_cidr_blocks["vpn_gateway"]]
+  address_prefixes     = [module.common_vnet_address_space.network_cidr_blocks["vnet_gateway"]]
 }
 
 resource "azurerm_subnet" "integration_subnet" {

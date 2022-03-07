@@ -30,6 +30,11 @@ variable "common_vnet_cidr_blocks" {
   type        = map(string)
 }
 
+variable "common_vnet_gateway_id" {
+  description = "The id of the common infrastructure virtual network gateway"
+  type        = string
+}
+
 variable "common_vnet_name" {
   description = "The common infrastructure virtual network name"
   type        = string
@@ -106,10 +111,5 @@ variable "region" {
 
 variable "tooling_subscription_id" {
   description = "The ID for the Tooling subscription that houses the Container Registry"
-  type        = string
-}
-
-variable "vpn_gateway_subnet_id" {
-  description = "The id of the VPN gateway subnet"
   type        = string
 }

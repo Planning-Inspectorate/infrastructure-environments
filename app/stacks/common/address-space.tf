@@ -8,7 +8,7 @@ module "common_vnet_address_space" {
       new_bits = 9 # /25 (123 usable) [0 - 127]
     },
     {
-      name     = "vpn_gateway"
+      name     = "vnet_gateway"
       new_bits = 9 # /25 (123 usable) [128 - 255]
     },
     {

@@ -25,6 +25,11 @@ output "common_vnet_cidr_blocks" {
   value       = module.common_vnet_address_space.network_cidr_blocks
 }
 
+output "common_vnet_gateway_id" {
+  description = "The id of the common infrastructure virtual network gateway"
+  value       = azurerm_virtual_network_gateway.common.id
+}
+
 output "common_vnet_name" {
   description = "The name of the common infrastructure virtual network"
   value       = azurerm_virtual_network.common_infrastructure.name
@@ -43,9 +48,4 @@ output "key_vault_secret_refs" {
 output "private_dns_zone_id" {
   description = "The id of the private DNS zone for App services"
   value       = azurerm_private_dns_zone.private_link.id
-}
-
-output "vpn_gateway_subnet_id" {
-  description = "The id of the VPN gateway subnet"
-  value       = azurerm_subnet.vpn_gateway_subnet.id
 }
