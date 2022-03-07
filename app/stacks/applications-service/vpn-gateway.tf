@@ -2,8 +2,8 @@ resource "azurerm_local_network_gateway" "national_infrastructure" {
   name                = "pins-lgw-${local.service_name}-${local.resource_suffix}"
   resource_group_name = azurerm_resource_group.applications_service_stack.name
   location            = azurerm_resource_group.applications_service_stack.location
-  gateway_address     = "51.104.42.155"
-  address_space       = ["10.222.0.0/26"]
+  gateway_address     = var.national_infrastructure_gateway_ip
+  address_space       = var.national_infrastructure_vnet_address_space
   tags                = local.tags
 }
 

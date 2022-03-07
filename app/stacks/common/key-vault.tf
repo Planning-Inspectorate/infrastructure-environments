@@ -16,15 +16,15 @@ resource "azurerm_key_vault" "environment_key_vault" {
     object_id = data.azurerm_client_config.current.object_id
 
     key_permissions = [
-      "Create", "Delete", "Get", "List"
+      "Create", "Delete", "Get", "List", "Purge"
     ]
 
     secret_permissions = [
-      "Delete", "Get", "List", "Set"
+      "Delete", "Get", "List", "Set", "Purge"
     ]
 
     storage_permissions = [
-      "Delete", "Get", "List", "Set"
+      "Delete", "Get", "List", "Set", "Purge"
     ]
   }
 

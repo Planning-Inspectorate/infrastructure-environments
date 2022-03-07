@@ -98,6 +98,16 @@ variable "mysql_database" {
   type        = string
 }
 
+variable "national_infrastructure_gateway_ip" {
+  description = "The public IP address of the National Infrastructure gateway endpoint"
+  type        = string
+}
+
+variable "national_infrastructure_vnet_address_space" {
+  description = "The address space advertised by the National Infrastructure gateway endpoint"
+  type        = list(string)
+}
+
 variable "node_environment" {
   description = "The node environment to be used for applications in this environment e.g. development"
   type        = string
