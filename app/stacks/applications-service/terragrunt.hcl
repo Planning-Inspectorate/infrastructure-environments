@@ -29,7 +29,7 @@ dependency "common" {
     }
     integration_subnet_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
     private_dns_zone_id   = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/privateDnsZones/mock_id"
-    vpn_gateway_subnet_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
+    vpn_gateway_subnet_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Network/virtualNetworks/mock_vnet/subnets/GatewaySubnet"
   }
 }
 
