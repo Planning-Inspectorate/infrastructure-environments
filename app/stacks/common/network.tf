@@ -43,6 +43,8 @@ resource "azurerm_private_dns_zone_virtual_network_link" "app_service" {
   private_dns_zone_name = "privatelink.azurewebsites.net"
   virtual_network_id    = azurerm_virtual_network.common_infrastructure.id
 
+  tags = local.tags
+
   provider = azurerm.tooling
 }
 
