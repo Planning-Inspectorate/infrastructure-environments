@@ -19,6 +19,7 @@ parameters:
       - common
       - appeals-service
       - applications-service
+      - front-door
 
 trigger: none
 
