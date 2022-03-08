@@ -7,7 +7,7 @@ resource "azurerm_frontdoor" "common" {
 
   frontend_endpoint {
     name      = "NationalInfrastructure"
-    host_name = var.environment == "prod" ? "pins-odt-ni-wfe.azurefd.net" : "pins-odt-ni-wfe-${var.environment}.azurefd.net"
+    host_name = var.environment == "prod" ? "${local.ni_frontend_prefix}.azurefd.net" : "${local.ni_frontend_prefix}-${var.environment}.azurefd.net"
 
     # web_application_firewall_policy_link_id
   }
@@ -26,8 +26,8 @@ resource "azurerm_frontdoor" "common" {
     health_probe_name   = "Http"
 
     backend {
-      address     = var.national_infrastructure_frontend_url
-      host_header = var.national_infrastructure_frontend_url
+      address     = var.ni_frontend_url
+      host_header = var.ni_frontend_url
       http_port   = 80
       https_port  = 443
     }

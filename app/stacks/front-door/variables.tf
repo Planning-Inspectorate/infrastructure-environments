@@ -19,7 +19,7 @@ variable "instance" {
   default     = "001"
 }
 
-variable "national_infrastructure_frontend_url" {
+variable "ni_frontend_url" {
   description = "The URL of the applications service national infrastructure frontend app service"
   type        = string
 }
