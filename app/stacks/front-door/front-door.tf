@@ -13,11 +13,19 @@ resource "azurerm_frontdoor" "common" {
   }
 
   backend_pool_load_balancing {
-    name = "Default"
+    name                            = "Default"
+    sample_size                     = 4
+    successful_samples_required     = 2
+    additional_latency_milliseconds = 0
   }
 
   backend_pool_health_probe {
-    name = "Http"
+    enabled             = true
+    name                = "Http"
+    path                = "/"
+    protocol            = "Http"
+    probe_method        = "GET"
+    interval_in_seconds = 120
   }
 
   backend_pool {
@@ -26,21 +34,27 @@ resource "azurerm_frontdoor" "common" {
     health_probe_name   = "Http"
 
     backend {
+      enabled     = true
       address     = var.ni_frontend_url
       host_header = var.ni_frontend_url
       http_port   = 80
       https_port  = 443
+      priority    = 1
+      weight      = 100
     }
   }
 
   routing_rule {
+    enabled            = true
     name               = "ForwardHttps"
     accepted_protocols = ["Http", "Https"]
     patterns_to_match  = ["/*"]
     frontend_endpoints = ["NationalInfrastructure"]
 
     forwarding_configuration {
-      backend_pool_name = "NationalInfrastructureFrontend"
+      backend_pool_name   = "NationalInfrastructureFrontend"
+      cache_enabled       = false
+      forwarding_protocol = "MatchRequest"
     }
   }
 }
