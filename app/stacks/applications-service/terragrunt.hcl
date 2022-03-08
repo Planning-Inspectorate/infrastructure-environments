@@ -24,8 +24,11 @@ dependency "common" {
     common_vnet_name       = "mock_vnet_name"
     key_vault_secret_refs = {
       applications-service-encryption-secret-key = "mock_secret"
+      applications-service-mysql-database        = "mock_secret"
+      applications-service-mysql-dialect         = "mock_secret"
       applications-service-mysql-host            = "mock_secret"
       applications-service-mysql-password        = "mock_secret"
+      applications-service-mysql-port            = "mock_secret"
       applications-service-mysql-username        = "mock_secret"
       srv-notify-api-key                         = "mock_secret"
     }
