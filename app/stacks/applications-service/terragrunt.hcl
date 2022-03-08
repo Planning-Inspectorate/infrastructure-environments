@@ -47,5 +47,4 @@ inputs = {
   common_vnet_name                            = dependency.common.outputs.common_vnet_name
   key_vault_secret_refs                       = dependency.common.outputs.key_vault_secret_refs
   integration_subnet_id                       = dependency.common.outputs.integration_subnet_id
-  private_dns_zone_id                         = dependency.common.outputs.private_dns_zone_id
 }

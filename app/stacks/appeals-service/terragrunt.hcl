@@ -32,5 +32,4 @@ inputs = {
   common_vnet_cidr_blocks          = dependency.common.outputs.common_vnet_cidr_blocks
   common_vnet_name                 = dependency.common.outputs.common_vnet_name
   integration_subnet_id            = dependency.common.outputs.integration_subnet_id
-  private_dns_zone_id              = dependency.common.outputs.private_dns_zone_id
 }
