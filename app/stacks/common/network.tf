@@ -3,6 +3,8 @@ resource "azurerm_virtual_network" "common_infrastructure" {
   location            = azurerm_resource_group.common_infrastructure.location
   resource_group_name = azurerm_resource_group.common_infrastructure.name
   address_space       = [module.common_vnet_address_space.base_cidr_block]
+
+  tags = local.tags
 }
 
 resource "azurerm_subnet" "app_gateway_subnet" {
