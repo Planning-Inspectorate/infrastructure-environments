@@ -6,9 +6,10 @@ resource "azurerm_frontdoor" "common" {
   tags                                         = local.tags
 
   frontend_endpoint {
-    name      = "NationalInfrastructure"
-    host_name = var.environment == "prod" ? "${local.ni_frontend_prefix}.azurefd.net" : "${local.ni_frontend_prefix}-${var.environment}.azurefd.net"
+    name      = "pins-fd-${local.service_name}-${local.resource_suffix}"
+    host_name = "${local.ni_frontend_prefix}.azurefd.net"
 
+    # host_name = var.environment == "prod" ? "${local.ni_frontend_prefix}.azurefd.net" : "${local.ni_frontend_prefix}-${var.environment}.azurefd.net"
     # web_application_firewall_policy_link_id
   }
 
