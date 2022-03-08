@@ -59,7 +59,7 @@ resource "azurerm_private_endpoint" "private_endpoint" {
 
   private_dns_zone_group {
     name                 = "privatednszonegroup"
-    private_dns_zone_ids = [var.private_dns_zone_id]
+    private_dns_zone_ids = [var.app_service_private_dns_zone_id]
   }
 
   private_service_connection {

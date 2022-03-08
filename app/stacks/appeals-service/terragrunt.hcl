@@ -21,7 +21,6 @@ dependency "common" {
     }
     common_vnet_name      = "mock_vnet_name"
     integration_subnet_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
-    private_dns_zone_id   = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/privateDnsZones/mock_id"
   }
 }
 
@@ -33,5 +32,4 @@ inputs = {
   common_vnet_cidr_blocks          = dependency.common.outputs.common_vnet_cidr_blocks
   common_vnet_name                 = dependency.common.outputs.common_vnet_name
   integration_subnet_id            = dependency.common.outputs.integration_subnet_id
-  private_dns_zone_id              = dependency.common.outputs.private_dns_zone_id
 }

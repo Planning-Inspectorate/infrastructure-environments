@@ -3,6 +3,8 @@ resource "azurerm_virtual_network" "common_infrastructure" {
   location            = azurerm_resource_group.common_infrastructure.location
   resource_group_name = azurerm_resource_group.common_infrastructure.name
   address_space       = [module.common_vnet_address_space.base_cidr_block]
+
+  tags = local.tags
 }
 
 resource "azurerm_subnet" "app_gateway_subnet" {
@@ -37,14 +39,20 @@ resource "azurerm_subnet" "integration_subnet" {
   }
 }
 
-resource "azurerm_private_dns_zone" "private_link" {
-  name                = "privatelink.azurewebsites.net"
-  resource_group_name = azurerm_resource_group.common_infrastructure.name
+resource "azurerm_private_dns_zone_virtual_network_link" "app_service" {
+  name                  = "pins-vnetlink-${local.service_name}-${local.resource_suffix}"
+  resource_group_name   = var.tooling_network_rg
+  private_dns_zone_name = "privatelink.azurewebsites.net"
+  virtual_network_id    = azurerm_virtual_network.common_infrastructure.id
+
+  tags = local.tags
+
+  provider = azurerm.tooling
 }
 
-resource "azurerm_private_dns_zone_virtual_network_link" "private_link" {
-  name                  = "pins-vnetlink-${local.service_name}-${local.resource_suffix}"
-  resource_group_name   = azurerm_resource_group.common_infrastructure.name
-  private_dns_zone_name = azurerm_private_dns_zone.private_link.name
-  virtual_network_id    = azurerm_virtual_network.common_infrastructure.id
+resource "azurerm_virtual_network_peering" "tooling" {
+  name                      = "pins-peer-tooling-${local.service_name}-${local.resource_suffix}"
+  remote_virtual_network_id = data.azurerm_virtual_network.tooling.id
+  resource_group_name       = azurerm_virtual_network.common_infrastructure.resource_group_name
+  virtual_network_name      = azurerm_virtual_network.common_infrastructure.name
 }

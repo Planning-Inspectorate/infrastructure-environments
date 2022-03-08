@@ -63,6 +63,7 @@ module "appeal_service" {
   app_insights_connection_string     = var.app_insights_connection_string
   app_insights_instrumentation_key   = var.app_insights_instrumentation_key
   app_name                           = "appeal-api"
+  app_service_private_dns_zone_id    = var.app_service_private_dns_zone_id
   app_service_plan_id                = var.app_service_plan_id
   container_registry_login_server    = data.azurerm_container_registry.acr.login_server
   container_registry_server_password = data.azurerm_container_registry.acr.admin_password
@@ -71,7 +72,6 @@ module "appeal_service" {
   inbound_vnet_connectivity          = true
   location                           = azurerm_resource_group.appeals_service_stack.location
   outbound_vnet_connectivity         = false
-  private_dns_zone_id                = var.private_dns_zone_id
   resource_group_name                = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                    = local.resource_suffix
   service_name                       = local.service_name
@@ -131,6 +131,7 @@ module "appeal_reply_service" {
   app_insights_connection_string     = var.app_insights_connection_string
   app_insights_instrumentation_key   = var.app_insights_instrumentation_key
   app_name                           = "appeal-reply-api"
+  app_service_private_dns_zone_id    = var.app_service_private_dns_zone_id
   app_service_plan_id                = var.app_service_plan_id
   container_registry_login_server    = data.azurerm_container_registry.acr.login_server
   container_registry_server_password = data.azurerm_container_registry.acr.admin_password
@@ -139,7 +140,6 @@ module "appeal_reply_service" {
   inbound_vnet_connectivity          = true
   location                           = azurerm_resource_group.appeals_service_stack.location
   outbound_vnet_connectivity         = false
-  private_dns_zone_id                = var.private_dns_zone_id
   resource_group_name                = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                    = local.resource_suffix
   service_name                       = local.service_name
@@ -190,6 +190,7 @@ module "documents_service" {
   app_insights_connection_string     = var.app_insights_connection_string
   app_insights_instrumentation_key   = var.app_insights_instrumentation_key
   app_name                           = "documents-api"
+  app_service_private_dns_zone_id    = var.app_service_private_dns_zone_id
   app_service_plan_id                = var.app_service_plan_id
   container_registry_login_server    = data.azurerm_container_registry.acr.login_server
   container_registry_server_password = data.azurerm_container_registry.acr.admin_password
@@ -198,7 +199,6 @@ module "documents_service" {
   inbound_vnet_connectivity          = true
   location                           = azurerm_resource_group.appeals_service_stack.location
   outbound_vnet_connectivity         = false
-  private_dns_zone_id                = var.private_dns_zone_id
   resource_group_name                = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                    = local.resource_suffix
   service_name                       = local.service_name
@@ -233,6 +233,7 @@ module "pdf_service" {
   app_insights_connection_string     = var.app_insights_connection_string
   app_insights_instrumentation_key   = var.app_insights_instrumentation_key
   app_name                           = "pdf-api"
+  app_service_private_dns_zone_id    = var.app_service_private_dns_zone_id
   app_service_plan_id                = var.app_service_plan_id
   container_registry_login_server    = data.azurerm_container_registry.acr.login_server
   container_registry_server_password = data.azurerm_container_registry.acr.admin_password
@@ -241,7 +242,6 @@ module "pdf_service" {
   inbound_vnet_connectivity          = true
   location                           = azurerm_resource_group.appeals_service_stack.location
   outbound_vnet_connectivity         = false
-  private_dns_zone_id                = var.private_dns_zone_id
   resource_group_name                = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                    = local.resource_suffix
   service_name                       = local.service_name

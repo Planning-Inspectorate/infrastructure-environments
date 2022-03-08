@@ -24,13 +24,15 @@ dependency "common" {
     common_vnet_name       = "mock_vnet_name"
     key_vault_secret_refs = {
       applications-service-encryption-secret-key = "mock_secret"
+      applications-service-mysql-database        = "mock_secret"
+      applications-service-mysql-dialect         = "mock_secret"
       applications-service-mysql-host            = "mock_secret"
       applications-service-mysql-password        = "mock_secret"
+      applications-service-mysql-port            = "mock_secret"
       applications-service-mysql-username        = "mock_secret"
       srv-notify-api-key                         = "mock_secret"
     }
     integration_subnet_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
-    private_dns_zone_id   = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/privateDnsZones/mock_id"
   }
 }
 
@@ -45,5 +47,4 @@ inputs = {
   common_vnet_name                            = dependency.common.outputs.common_vnet_name
   key_vault_secret_refs                       = dependency.common.outputs.key_vault_secret_refs
   integration_subnet_id                       = dependency.common.outputs.integration_subnet_id
-  private_dns_zone_id                         = dependency.common.outputs.private_dns_zone_id
 }

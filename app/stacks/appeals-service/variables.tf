@@ -15,6 +15,11 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "app_service_private_dns_zone_id" {
+  description = "The id of the private DNS zone for App services"
+  type        = string
+}
+
 variable "common_resource_group_name" {
   description = "The common infrastructure resource group name"
   type        = string
@@ -58,11 +63,6 @@ variable "instance" {
 
 variable "integration_subnet_id" {
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
-  type        = string
-}
-
-variable "private_dns_zone_id" {
-  description = "The id of the private DNS zone for App services"
   type        = string
 }
 
