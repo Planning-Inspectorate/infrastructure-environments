@@ -42,6 +42,7 @@ module "national_infrastructure_service" {
   container_registry_server_username = data.azurerm_container_registry.acr.admin_username
   endpoint_subnet_id                 = azurerm_subnet.applicatons_service_ingress.id
   inbound_vnet_connectivity          = true
+  integration_subnet_id              = var.integration_subnet_id
   location                           = azurerm_resource_group.applications_service_stack.location
   outbound_vnet_connectivity         = true
   resource_group_name                = azurerm_resource_group.applications_service_stack.name
