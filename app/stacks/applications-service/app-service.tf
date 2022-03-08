@@ -43,7 +43,7 @@ module "national_infrastructure_service" {
   endpoint_subnet_id                 = azurerm_subnet.applicatons_service_ingress.id
   inbound_vnet_connectivity          = true
   location                           = azurerm_resource_group.applications_service_stack.location
-  outbound_vnet_connectivity         = false
+  outbound_vnet_connectivity         = true
   resource_group_name                = azurerm_resource_group.applications_service_stack.name
   resource_suffix                    = local.resource_suffix
   service_name                       = local.service_name
@@ -53,11 +53,11 @@ module "national_infrastructure_service" {
     HAVING_YOUR_SAY_URL                                 = "${local.frontend_url}having-your-say-guide"
     LOGGER_LEVEL                                        = var.logger_level
     MAGIC_LINK_DOMAIN                                   = local.frontend_url
-    MYSQL_DATABASE                                      = var.mysql_database
-    MYSQL_DIALECT                                       = "mysql"
+    MYSQL_DATABASE                                      = var.key_vault_secret_refs["applications-service-mysql-database"]
+    MYSQL_DIALECT                                       = var.key_vault_secret_refs["applications-service-mysql-dialect"]
     MYSQL_HOST                                          = var.key_vault_secret_refs["applications-service-mysql-host"]
     MYSQL_PASSWORD                                      = var.key_vault_secret_refs["applications-service-mysql-password"]
-    MYSQL_PORT                                          = "3306"
+    MYSQL_PORT                                          = var.key_vault_secret_refs["applications-service-mysql-port"]
     MYSQL_USERNAME                                      = var.key_vault_secret_refs["applications-service-mysql-username"]
     NODE_ENV                                            = var.node_environment
     PRELIMINARY_MEETING_URL                             = local.frontend_url

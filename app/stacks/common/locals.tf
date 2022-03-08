@@ -10,8 +10,11 @@ locals {
 
   secret_names = [
     "applications-service-encryption-secret-key",
+    "applications-service-mysql-database",
+    "applications-service-mysql-dialect",
     "applications-service-mysql-host",
     "applications-service-mysql-password",
+    "applications-service-mysql-port",
     "applications-service-mysql-username",
     "srv-notify-api-key"
   ]

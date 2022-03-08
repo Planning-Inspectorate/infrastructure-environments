@@ -98,11 +98,6 @@ variable "key_vault_secret_refs" {
   type        = map(string)
 }
 
-variable "mysql_database" {
-  description = "The name of the database for the Applications Service"
-  type        = string
-}
-
 variable "national_infrastructure_gateway_ip" {
   description = "The public IP address of the National Infrastructure gateway endpoint"
   type        = string
