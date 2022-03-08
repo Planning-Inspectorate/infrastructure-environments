@@ -30,6 +30,16 @@ resource "azurerm_app_service" "app_service" {
     always_on     = "true"
     ftps_state    = "FtpsOnly"
     http2_enabled = true
+
+    dynamic "ip_restriction" {
+      for_each = var.inbound_vnet_connectivity == false ? [1] : []
+      content {
+        name        = "FrontDoorInbound"
+        service_tag = "AzureFrontDoor.Backend"
+        action      = "Allow"
+        priority    = 100
+      }
+    }
   }
 
   app_settings = merge(
