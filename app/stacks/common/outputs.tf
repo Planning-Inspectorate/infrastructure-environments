@@ -50,8 +50,3 @@ output "key_vault_secret_refs" {
   description = "Map of secret references from the Key Vault"
   value       = local.secret_refs
 }
-
-output "private_dns_zone_id" {
-  description = "The id of the private DNS zone for App services"
-  value       = azurerm_private_dns_zone.private_link.id
-}

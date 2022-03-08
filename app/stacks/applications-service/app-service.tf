@@ -35,13 +35,13 @@ module "national_infrastructure_service" {
   app_insights_connection_string     = var.app_insights_connection_string
   app_insights_instrumentation_key   = var.app_insights_instrumentation_key
   app_name                           = "ni-api"
+  app_service_private_dns_zone_id    = var.app_service_private_dns_zone_id
   app_service_plan_id                = var.app_service_plan_id
   container_registry_login_server    = data.azurerm_container_registry.acr.login_server
   container_registry_server_password = data.azurerm_container_registry.acr.admin_password
   container_registry_server_username = data.azurerm_container_registry.acr.admin_username
   endpoint_subnet_id                 = azurerm_subnet.applicatons_service_ingress.id
   inbound_vnet_connectivity          = true
-  private_dns_zone_id                = var.private_dns_zone_id
   location                           = azurerm_resource_group.applications_service_stack.location
   outbound_vnet_connectivity         = false
   resource_group_name                = azurerm_resource_group.applications_service_stack.name

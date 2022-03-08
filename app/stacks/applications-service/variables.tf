@@ -15,6 +15,11 @@ variable "app_insights_instrumentation_key" {
   type        = string
 }
 
+variable "app_service_private_dns_zone_id" {
+  description = "The id of the private DNS zone for App services"
+  type        = string
+}
+
 variable "applications_service_vpn_gateway_shared_key" {
   description = "The applications service virtual network gateway shared key"
   sensitive   = true
@@ -112,11 +117,6 @@ variable "node_environment" {
   description = "The node environment to be used for applications in this environment e.g. development"
   type        = string
   default     = "development"
-}
-
-variable "private_dns_zone_id" {
-  description = "The id of the private DNS zone for App services"
-  type        = string
 }
 
 variable "region" {

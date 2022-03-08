@@ -37,15 +37,10 @@ resource "azurerm_subnet" "integration_subnet" {
   }
 }
 
-resource "azurerm_private_dns_zone" "private_link" {
-  name                = "privatelink.azurewebsites.net"
-  resource_group_name = azurerm_resource_group.common_infrastructure.name
-}
-
 resource "azurerm_private_dns_zone_virtual_network_link" "private_link" {
   name                  = "pins-vnetlink-${local.service_name}-${local.resource_suffix}"
   resource_group_name   = azurerm_resource_group.common_infrastructure.name
-  private_dns_zone_name = azurerm_private_dns_zone.private_link.name
+  private_dns_zone_name = "privatelink.azurewebsites.net"
   virtual_network_id    = azurerm_virtual_network.common_infrastructure.id
 }
 

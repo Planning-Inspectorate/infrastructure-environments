@@ -15,6 +15,12 @@ variable "app_name" {
   type        = string
 }
 
+variable "app_service_private_dns_zone_id" {
+  description = "The id of the private DNS zone for App services"
+  type        = string
+  default     = null
+}
+
 variable "app_service_plan_id" {
   description = "The id of the app service plan"
   type        = string
@@ -69,12 +75,6 @@ variable "outbound_vnet_connectivity" {
   default     = false
   description = "Indicates whether outbound connectivity (VNET Integration) is required"
   type        = bool
-}
-
-variable "private_dns_zone_id" {
-  default     = null
-  description = "The id of the private dns zone, required if app_type is 'backend'"
-  type        = string
 }
 
 variable "resource_group_name" {
