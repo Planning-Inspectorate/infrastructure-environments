@@ -50,7 +50,7 @@ resource "azurerm_frontdoor" "common" {
     name               = "ForwardHttps"
     accepted_protocols = ["Http", "Https"]
     patterns_to_match  = ["/*"]
-    frontend_endpoints = ["NationalInfrastructure"]
+    frontend_endpoints = ["pins-fd-${local.service_name}-${local.resource_suffix}"]
 
     forwarding_configuration {
       backend_pool_name   = "NationalInfrastructureFrontend"
