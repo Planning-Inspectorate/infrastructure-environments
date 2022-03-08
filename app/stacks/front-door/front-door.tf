@@ -1,4 +1,7 @@
 resource "azurerm_frontdoor" "common" {
+  #TODO: Add frontend endpoints for custom domains:
+  # - Applications: www.national-infrastructure.planninginspectorate.gov.uk
+  # - Appeals:      appeal-planning-decision.planninginspectorate.gov.uk
   #checkov:skip=CKV_AZURE_121: WAF to be implemented later
   name                                         = "pins-fd-${local.service_name}-${local.resource_suffix}"
   resource_group_name                          = var.common_resource_group_name
@@ -54,9 +57,10 @@ resource "azurerm_frontdoor" "common" {
     frontend_endpoints = ["pins-fd-${local.service_name}-${local.resource_suffix}"]
 
     forwarding_configuration {
-      backend_pool_name   = "NationalInfrastructureFrontend"
-      cache_enabled       = false
-      forwarding_protocol = "MatchRequest"
+      backend_pool_name      = "NationalInfrastructureFrontend"
+      cache_enabled          = false
+      cache_query_parameters = []
+      forwarding_protocol    = "MatchRequest"
     }
   }
 }
