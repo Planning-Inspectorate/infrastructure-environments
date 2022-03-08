@@ -39,9 +39,11 @@ resource "azurerm_subnet" "integration_subnet" {
 
 resource "azurerm_private_dns_zone_virtual_network_link" "app_service" {
   name                  = "pins-vnetlink-${local.service_name}-${local.resource_suffix}"
-  resource_group_name   = azurerm_resource_group.common_infrastructure.name
+  resource_group_name   = var.tooling_network_rg
   private_dns_zone_name = "privatelink.azurewebsites.net"
   virtual_network_id    = azurerm_virtual_network.common_infrastructure.id
+
+  provider = azurerm.tooling
 }
 
 resource "azurerm_virtual_network_peering" "tooling" {
