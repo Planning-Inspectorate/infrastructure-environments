@@ -37,7 +37,7 @@ resource "azurerm_subnet" "integration_subnet" {
   }
 }
 
-resource "azurerm_private_dns_zone_virtual_network_link" "private_link" {
+resource "azurerm_private_dns_zone_virtual_network_link" "app_service" {
   name                  = "pins-vnetlink-${local.service_name}-${local.resource_suffix}"
   resource_group_name   = azurerm_resource_group.common_infrastructure.name
   private_dns_zone_name = "privatelink.azurewebsites.net"
