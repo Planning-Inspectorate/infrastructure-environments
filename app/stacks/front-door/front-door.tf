@@ -46,7 +46,7 @@ resource "azurerm_frontdoor" "common" {
       host_header = "www.gov.uk/government/organisations/planning-inspectorate"
       http_port   = 80
       https_port  = 443
-      priority    = 100
+      priority    = 5
       weight      = 100
     }
   }
