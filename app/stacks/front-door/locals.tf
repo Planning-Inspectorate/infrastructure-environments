@@ -1,4 +1,11 @@
 locals {
+  frontend_mappings = {
+    national_infrastructure_frontend = {
+      name              = "pins-fd-${local.service_name}-${local.resource_suffix}"
+      frontend_endpoint = "pins-fd-${local.service_name}-${local.resource_suffix}.azurefd.net"
+      patterns_to_match = ["/ni-wfe"]
+    }
+  }
   service_name    = "front-door"
   resource_suffix = "${var.environment}-${module.azure_region_uks.location_short}-${var.instance}"
   tags = merge(

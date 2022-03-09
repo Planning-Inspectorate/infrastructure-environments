@@ -8,13 +8,6 @@ resource "azurerm_frontdoor" "common" {
   enforce_backend_pools_certificate_name_check = false
   tags                                         = local.tags
 
-  frontend_endpoint {
-    name      = "pins-fd-${local.service_name}-${local.resource_suffix}"
-    host_name = "pins-fd-${local.service_name}-${local.resource_suffix}.azurefd.net"
-
-    # web_application_firewall_policy_link_id
-  }
-
   backend_pool_load_balancing {
     name                            = "Default"
     sample_size                     = 4
@@ -31,18 +24,29 @@ resource "azurerm_frontdoor" "common" {
     interval_in_seconds = 120
   }
 
+  #========================================================================
+  # Default Frontend Endpoint
+  #========================================================================
+
+  frontend_endpoint {
+    name      = "pins-fd-${local.service_name}-${local.resource_suffix}"
+    host_name = "pins-fd-${local.service_name}-${local.resource_suffix}.azurefd.net"
+
+    # web_application_firewall_policy_link_id
+  }
+
   backend_pool {
-    name                = "NationalInfrastructureFrontend"
+    name                = "Default"
     load_balancing_name = "Default"
     health_probe_name   = "Http"
 
     backend {
       enabled     = true
-      address     = var.ni_frontend_url
-      host_header = var.ni_frontend_url
+      address     = "www.gov.uk/government/organisations/planning-inspectorate"
+      host_header = "www.gov.uk/government/organisations/planning-inspectorate"
       http_port   = 80
       https_port  = 443
-      priority    = 1
+      priority    = 100
       weight      = 100
     }
   }
@@ -55,10 +59,62 @@ resource "azurerm_frontdoor" "common" {
     frontend_endpoints = ["pins-fd-${local.service_name}-${local.resource_suffix}"]
 
     forwarding_configuration {
-      backend_pool_name      = "NationalInfrastructureFrontend"
+      backend_pool_name      = "Default"
       cache_enabled          = false
       cache_query_parameters = []
       forwarding_protocol    = "MatchRequest"
+    }
+  }
+
+  #========================================================================
+  # Applications Service Frontend Endpoint
+  #========================================================================
+
+  dynamic "frontend_endpoint" {
+    for_each = local.frontend_mappings
+    iterator = mapping
+    content {
+      name      = mapping.value["name"]
+      host_name = mapping.value["frontend_endpoint"]
+    }
+  }
+
+  dynamic "backend_pool" {
+    for_each = local.frontend_mappings
+    iterator = mapping
+    content {
+      name                = "Default"
+      load_balancing_name = "Default"
+      health_probe_name   = "Http"
+
+      backend {
+        enabled     = true
+        address     = var.app_service_urls[mapping.key]
+        host_header = var.app_service_urls[mapping.key]
+        http_port   = 80
+        https_port  = 443
+        priority    = 1
+        weight      = 100
+      }
+    }
+  }
+
+  dynamic "routing_rule" {
+    for_each = local.frontend_mappings
+    iterator = mapping
+    content {
+      enabled            = true
+      name               = "ForwardHttps"
+      accepted_protocols = ["Http", "Https"]
+      patterns_to_match  = mapping.value["patterns_to_match"]
+      frontend_endpoints = ["www.national-infrastructure.planninginspectorate.gov.uk"]
+
+      forwarding_configuration {
+        backend_pool_name      = "Default"
+        cache_enabled          = false
+        cache_query_parameters = []
+        forwarding_protocol    = "MatchRequest"
+      }
     }
   }
 }

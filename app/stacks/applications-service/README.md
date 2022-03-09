@@ -65,5 +65,5 @@ No requirements.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_ni_frontend_url"></a> [ni\_frontend\_url](#output\_ni\_frontend\_url) | The URL of the applications service national infrastructure frontend app service |
+| <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of frontend app service URLs |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
