@@ -6,7 +6,7 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
   location            = azurerm_resource_group.appeals_service_stack.location
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
   offer_type          = "Standard"
-  kind                = "GlobalDocumentDB"
+  kind                = "MongoDB"
 
   access_key_metadata_writes_enabled = false
   enable_automatic_failover          = true
