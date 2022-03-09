@@ -107,7 +107,7 @@ resource "azurerm_frontdoor" "common" {
       name               = "ForwardHttps"
       accepted_protocols = ["Http", "Https"]
       patterns_to_match  = mapping.value["patterns_to_match"]
-      frontend_endpoints = ["www.national-infrastructure.planninginspectorate.gov.uk"]
+      frontend_endpoints = [mapping.value["frontend_endpoint"]]
 
       forwarding_configuration {
         backend_pool_name      = "Default"
