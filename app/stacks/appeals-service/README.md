@@ -18,19 +18,23 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_appeal_reply_service"></a> [appeal\_reply\_service](#module\_appeal\_reply\_service) | ../../modules/node-app-service | n/a |
-| <a name="module_appeal_service"></a> [appeal\_service](#module\_appeal\_service) | ../../modules/node-app-service | n/a |
+| <a name="module_appeal_documents_service_api"></a> [appeal\_documents\_service\_api](#module\_appeal\_documents\_service\_api) | ../../modules/node-app-service | n/a |
+| <a name="module_appeal_service_api"></a> [appeal\_service\_api](#module\_appeal\_service\_api) | ../../modules/node-app-service | n/a |
+| <a name="module_appeal_service_frontend"></a> [appeal\_service\_frontend](#module\_appeal\_service\_frontend) | ../../modules/node-app-service | n/a |
 | <a name="module_azure_region_uks"></a> [azure\_region\_uks](#module\_azure\_region\_uks) | claranet/regions/azurerm | 4.2.1 |
-| <a name="module_documents_service"></a> [documents\_service](#module\_documents\_service) | ../../modules/node-app-service | n/a |
-| <a name="module_lpa_questionnaire_frontend"></a> [lpa\_questionnaire\_frontend](#module\_lpa\_questionnaire\_frontend) | ../../modules/node-app-service | n/a |
-| <a name="module_pdf_service"></a> [pdf\_service](#module\_pdf\_service) | ../../modules/node-app-service | n/a |
+| <a name="module_clam_av_service_api"></a> [clam\_av\_service\_api](#module\_clam\_av\_service\_api) | ../../modules/node-app-service | n/a |
+| <a name="module_pdf_service_api"></a> [pdf\_service\_api](#module\_pdf\_service\_api) | ../../modules/node-app-service | n/a |
 
 ## Resources
 
 | Name | Type |
 |------|------|
+| [azurerm_advanced_threat_protection.appeal_documents](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/advanced_threat_protection) | resource |
 | [azurerm_cosmosdb_account.appeals_database](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account) | resource |
 | [azurerm_resource_group.appeals_service_stack](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
+| [azurerm_role_assignment.documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
+| [azurerm_storage_account.appeal_documents](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account) | resource |
+| [azurerm_storage_container.documents](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_container) | resource |
 | [azurerm_subnet.appeals_service_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet) | resource |
 | [azurerm_container_registry.acr](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/container_registry) | data source |
 

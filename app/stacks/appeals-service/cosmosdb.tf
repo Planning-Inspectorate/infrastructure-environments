@@ -12,6 +12,8 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
   enable_automatic_failover          = true
   public_network_access_enabled      = false
 
+  mongo_server_version = "3.6"
+
   capabilities {
     name = "EnableAggregationPipeline"
   }
