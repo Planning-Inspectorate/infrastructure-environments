@@ -67,7 +67,7 @@ resource "azurerm_frontdoor" "common" {
   }
 
   #========================================================================
-  # Applications Service Frontend Endpoint
+  # Dynamic Service Frontend Endpoints
   #========================================================================
 
   dynamic "frontend_endpoint" {

@@ -19,7 +19,7 @@ dependency "applications_service" {
 
   mock_outputs = {
     app_service_urls = {
-      mock_app_service = "mock_url"
+      national_infrastructure_frontend = "mock_url"
     }
   }
 }
