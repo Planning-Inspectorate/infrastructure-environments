@@ -22,10 +22,6 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
     name = "mongoEnableDocLevelTTL"
   }
 
-  capabilities {
-    name = "MongoDBv3.4"
-  }
-
   consistency_policy {
     consistency_level       = "BoundedStaleness"
     max_interval_in_seconds = 350
