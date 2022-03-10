@@ -76,3 +76,13 @@ resource "azurerm_app_service_virtual_network_swift_connection" "vnet_connection
   app_service_id = azurerm_app_service.app_service.id
   subnet_id      = var.integration_subnet_id
 }
+
+resource "azurerm_key_vault_access_policy" "read_secrets" {
+  count = var.key_vault_id != null ? 1 : 0
+
+  key_vault_id = var.key_vault_id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+  object_id    = azurerm_app_service.app_service.identity.0.principal_id
+
+  secret_permissions = ["Get"]
+}

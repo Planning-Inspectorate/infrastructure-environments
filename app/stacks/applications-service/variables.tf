@@ -93,6 +93,11 @@ variable "logger_level" {
   default     = "info"
 }
 
+variable "key_vault_id" {
+  description = "The ID of the key vault so the App Service can pull secret values"
+  type        = string
+}
+
 variable "key_vault_secret_refs" {
   description = "Map of secret references from the Key Vault"
   type        = map(string)
