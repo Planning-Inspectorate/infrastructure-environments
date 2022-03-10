@@ -20,6 +20,6 @@ locals {
   ]
 
   secret_refs = {
-    for name in local.secret_names : name => "@Microsoft.KeyVault(SecretUri=${azurerm_key_vault.environment_key_vault.vault_uri}secrets/${name}"
+    for name in local.secret_names : name => "@Microsoft.KeyVault(SecretUri=${azurerm_key_vault.environment_key_vault.vault_uri}secrets/${name}/)"
   }
 }
