@@ -1,8 +1,8 @@
 locals {
   frontend_mappings = {
     national_infrastructure_frontend = {
-      name              = "NationalInfrastructure"
-      frontend_endpoint = "www.national-infrastructure.planninginspectorate.gov.uk"
+      name              = "pins-fd-${local.service_name}-${local.resource_suffix}"
+      frontend_endpoint = "pins-fd-${local.service_name}-${local.resource_suffix}.azurefd.net"
       patterns_to_match = ["/*"]
     }
   }
