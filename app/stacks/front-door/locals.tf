@@ -1,7 +1,7 @@
 locals {
   frontend_mappings = {
     national_infrastructure_frontend = {
-      name              = "www.national-infrastructure.planninginspectorate.gov.uk"
+      name              = "NationalInfrastructure"
       frontend_endpoint = "www.national-infrastructure.planninginspectorate.gov.uk"
       patterns_to_match = ["/*"]
     }
