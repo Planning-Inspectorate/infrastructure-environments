@@ -71,20 +71,20 @@ resource "azurerm_frontdoor" "common" {
   # Dynamic Service Frontend Endpoints
   #========================================================================
 
-  # dynamic "frontend_endpoint" {
-  #   for_each = local.frontend_mappings
-  #   iterator = mapping
-  #   content {
-  #     name      = mapping.value["name"]
-  #     host_name = mapping.value["frontend_endpoint"]
-  #   }
-  # }
+  dynamic "frontend_endpoint" {
+    for_each = local.frontend_mappings
+    iterator = mapping
+    content {
+      name      = mapping.value["name"]
+      host_name = mapping.value["frontend_endpoint"]
+    }
+  }
 
   dynamic "backend_pool" {
     for_each = local.frontend_mappings
     iterator = mapping
     content {
-      name                = "Default"
+      name                = mapping.value["name"]
       load_balancing_name = "Default"
       health_probe_name   = "Http"
 
@@ -105,7 +105,7 @@ resource "azurerm_frontdoor" "common" {
     iterator = mapping
     content {
       enabled            = true
-      name               = "ForwardHttps"
+      name               = mapping.value["name"]
       accepted_protocols = ["Http", "Https"]
       patterns_to_match  = mapping.value["patterns_to_match"]
       frontend_endpoints = [mapping.value["name"]]
