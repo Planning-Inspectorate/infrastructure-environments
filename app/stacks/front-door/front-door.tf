@@ -56,7 +56,7 @@ resource "azurerm_frontdoor" "common" {
     name               = "ForwardHttps"
     accepted_protocols = ["Http", "Https"]
     patterns_to_match  = ["/*"]
-    frontend_endpoints = ["pins-fd-${local.service_name}-${local.resource_suffix}.azurefd.net"]
+    frontend_endpoints = ["pins-fd-${local.service_name}-${local.resource_suffix}"]
 
     forwarding_configuration {
       backend_pool_name      = "Default"
@@ -107,7 +107,7 @@ resource "azurerm_frontdoor" "common" {
       name               = "ForwardHttps"
       accepted_protocols = ["Http", "Https"]
       patterns_to_match  = mapping.value["patterns_to_match"]
-      frontend_endpoints = [mapping.value["frontend_endpoint"]]
+      frontend_endpoints = [mapping.value["name"]]
 
       forwarding_configuration {
         backend_pool_name      = "Default"
