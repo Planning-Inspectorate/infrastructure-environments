@@ -42,8 +42,8 @@ resource "azurerm_frontdoor" "common" {
 
     backend {
       enabled     = true
-      address     = "www.gov.uk/government/organisations/planning-inspectorate"
-      host_header = "www.gov.uk/government/organisations/planning-inspectorate"
+      address     = "www.gov.uk"
+      host_header = "www.gov.uk"
       http_port   = 80
       https_port  = 443
       priority    = 5
@@ -55,13 +55,14 @@ resource "azurerm_frontdoor" "common" {
     enabled            = true
     name               = "ForwardHttps"
     accepted_protocols = ["Http", "Https"]
-    patterns_to_match  = ["/*"]
+    patterns_to_match  = ["/"]
     frontend_endpoints = ["pins-fd-${local.service_name}-${local.resource_suffix}"]
 
     forwarding_configuration {
       backend_pool_name      = "Default"
       cache_enabled          = false
       cache_query_parameters = []
+      custom_forwarding_path = "/government/organisations/planning-inspectorate"
       forwarding_protocol    = "MatchRequest"
     }
   }
@@ -70,14 +71,14 @@ resource "azurerm_frontdoor" "common" {
   # Dynamic Service Frontend Endpoints
   #========================================================================
 
-  dynamic "frontend_endpoint" {
-    for_each = local.frontend_mappings
-    iterator = mapping
-    content {
-      name      = mapping.value["name"]
-      host_name = mapping.value["frontend_endpoint"]
-    }
-  }
+  # dynamic "frontend_endpoint" {
+  #   for_each = local.frontend_mappings
+  #   iterator = mapping
+  #   content {
+  #     name      = mapping.value["name"]
+  #     host_name = mapping.value["frontend_endpoint"]
+  #   }
+  # }
 
   dynamic "backend_pool" {
     for_each = local.frontend_mappings
