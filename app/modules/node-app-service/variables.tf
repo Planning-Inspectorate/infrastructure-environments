@@ -71,6 +71,12 @@ variable "location" {
   type        = string
 }
 
+variable "key_vault_id" {
+  description = "The ID of the key vault so the App Service can pull secret values"
+  type        = string
+  default     = null
+}
+
 variable "outbound_vnet_connectivity" {
   default     = false
   description = "Indicates whether outbound connectivity (VNET Integration) is required"

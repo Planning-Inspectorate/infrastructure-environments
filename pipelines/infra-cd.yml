@@ -26,10 +26,6 @@ trigger: none
 pr: none
 
 resources:
-  containers:
-    - container: terraform-tools
-      image: terraform-tools
-      endpoint: Container Registry
   pipelines:
     - pipeline: infrastructure-environments-ci
       source: infrastructure-environments CI
@@ -43,16 +39,12 @@ resources:
       endpoint: Planning-Inspectorate
       name: Planning-Inspectorate/common-pipeline-templates
 
-pool:
-  vmImage: ubuntu-latest
-
 extends:
   template: stages/wrapper_cd.yml@templates
   parameters:
     deploymentStages:
       - name: Terraform Plan
         authType: terraform
-        container: terraform-tools
         deploymentSteps:
           - script: |
               echo "##vso[build.addbuildtag]stack=${{ parameters.stack }}"
@@ -76,7 +68,6 @@ extends:
         isDeployment: false
       - name: Terraform Apply
         authType: terraform
-        container: terraform-tools
         dependsOn:
           - Terraform Plan
         deploymentSteps:
@@ -92,7 +83,7 @@ extends:
               parameters:
                 artifactName: terraform-plan-$(ENVIRONMENT)
                 subscriptionId: $(SUBSCRIPTION_ID)
-    ${{ if in(variables['Build.Reason'], 'IndividualCI', 'BatchedCI') }}:
+    ${{ if in(variables['Build.Reason'], 'IndividualCI', 'BatchedCI', 'ResourceTrigger') }}:
       environments:
         - name: Dev
     ${{ else }}:
