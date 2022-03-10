@@ -111,7 +111,7 @@ resource "azurerm_frontdoor" "common" {
       frontend_endpoints = [mapping.value["name"]]
 
       forwarding_configuration {
-        backend_pool_name      = "Default"
+        backend_pool_name      = mapping.value["name"]
         cache_enabled          = false
         cache_query_parameters = []
         forwarding_protocol    = "MatchRequest"
