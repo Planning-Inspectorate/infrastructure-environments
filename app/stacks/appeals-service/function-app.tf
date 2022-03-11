@@ -26,6 +26,8 @@ resource "azurerm_function_app" "horizon_add_document" {
     value = azurerm_servicebus_namespace_authorization_rule.horizon_function_apps.primary_connection_string
     type  = "custom"
   }
+
+  tags = local.tags
 }
 
 resource "azurerm_function_app" "horizon_create_contact" {
@@ -56,6 +58,8 @@ resource "azurerm_function_app" "horizon_create_contact" {
     value = azurerm_servicebus_namespace_authorization_rule.horizon_function_apps.primary_connection_string
     type  = "custom"
   }
+
+  tags = local.tags
 }
 
 resource "azurerm_function_app" "horizon_householder_appeal_publish" {
@@ -86,4 +90,6 @@ resource "azurerm_function_app" "horizon_householder_appeal_publish" {
     value = azurerm_servicebus_namespace_authorization_rule.horizon_function_apps.primary_connection_string
     type  = "custom"
   }
+
+  tags = local.tags
 }
