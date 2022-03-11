@@ -1,10 +1,5 @@
 locals {
   frontend_mappings = {
-    default = {
-      name              = "pins-fd-${local.service_name}-${local.resource_suffix}"
-      frontend_endpoint = "pins-fd-${local.service_name}-${local.resource_suffix}.azurefd.net"
-      patterns_to_match = ["/*"]
-    }
     national_infrastructure_frontend = {
       name              = "NationalInfrastructure"
       frontend_endpoint = var.applications_service_public_url
