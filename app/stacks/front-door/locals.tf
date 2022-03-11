@@ -16,7 +16,7 @@ locals {
     #   patterns_to_match = ["/*"]
     # }
   }
-  service_name    = "front-door"
+  service_name    = "common"
   resource_suffix = "${var.environment}-${module.azure_region_uks.location_short}-${var.instance}"
   tags = merge(
     var.common_tags,
