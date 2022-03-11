@@ -74,6 +74,7 @@ resource "azurerm_frontdoor" "common" {
   dynamic "frontend_endpoint" {
     for_each = local.frontend_mappings
     iterator = mapping
+
     content {
       name      = mapping.value["name"]
       host_name = mapping.value["frontend_endpoint"]
@@ -83,6 +84,7 @@ resource "azurerm_frontdoor" "common" {
   dynamic "backend_pool" {
     for_each = local.frontend_mappings
     iterator = mapping
+
     content {
       name                = mapping.value["name"]
       load_balancing_name = "Default"
@@ -103,6 +105,7 @@ resource "azurerm_frontdoor" "common" {
   dynamic "routing_rule" {
     for_each = local.frontend_mappings
     iterator = mapping
+
     content {
       enabled            = true
       name               = mapping.value["name"]

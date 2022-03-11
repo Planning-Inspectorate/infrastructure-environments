@@ -33,6 +33,7 @@ resource "azurerm_app_service" "app_service" {
 
     dynamic "ip_restriction" {
       for_each = var.inbound_vnet_connectivity == false ? [1] : []
+
       content {
         name        = "FrontDoorInbound"
         service_tag = "AzureFrontDoor.Backend"
