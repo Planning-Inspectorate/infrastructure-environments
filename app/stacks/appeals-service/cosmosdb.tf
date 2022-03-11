@@ -15,6 +15,10 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
   mongo_server_version = "3.6"
 
   capabilities {
+    name = "EnableMongo"
+  }
+
+  capabilities {
     name = "EnableAggregationPipeline"
   }
 
@@ -37,4 +41,6 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
     location          = azurerm_resource_group.appeals_service_stack.location
     failover_priority = 0
   }
+
+  tags = local.tags
 }

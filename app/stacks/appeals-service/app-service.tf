@@ -45,6 +45,7 @@ module "appeal_service_api" {
   endpoint_subnet_id                 = azurerm_subnet.appeals_service_ingress.id
   inbound_vnet_connectivity          = true
   integration_subnet_id              = var.integration_subnet_id
+  key_vault_id                       = var.key_vault_id
   location                           = azurerm_resource_group.appeals_service_stack.location
   outbound_vnet_connectivity         = true
   resource_group_name                = azurerm_resource_group.appeals_service_stack.name
@@ -52,7 +53,13 @@ module "appeal_service_api" {
   service_name                       = local.service_name
 
   app_settings = {
-
+    APP_APPEALS_BASE_URL                       = local.frontend_url
+    DOCS_API_PATH                              = "/opt/app/api"
+    DOCUMENTS_SERVICE_API_TIMEOUT              = "10000"
+    DOCUMENTS_SERVICE_API_URL                  = "https://${module.appeal_documents_service_api.default_site_hostname}"
+    FEATURE_FLAG_NEW_APPEAL_JOURNEY            = true
+    HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION = true
+    HORIZON_HAS_PUBLISHER_PASSWORD             = var.key_vault_secret_refs["horizon-has-publisher-password"]
   }
 
   tags = local.tags
