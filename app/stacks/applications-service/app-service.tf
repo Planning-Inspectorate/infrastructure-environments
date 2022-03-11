@@ -67,10 +67,10 @@ module "national_infrastructure_service" {
     SERVER_SHOW_ERRORS                                  = true
     SERVER_TERMINATION_GRACE_PERIOD_SECONDS             = "0"
     SRV_NOTIFY_API_KEY                                  = var.key_vault_secret_refs["srv-notify-api-key"]
-    SRV_NOTIFY_BASE_URL                                 = "https://api.notifications.service.gov.uk/"
-    SRV_NOTIFY_IP_REGISTRATION_CONFIRMATION_EMAIL_TO_IP = "830c9c01-1f81-4198-be72-11ab173c128a"
-    SRV_NOTIFY_MAGIC_LINK_EMAIL                         = "4ca6b93a-4c45-4abe-a8ea-69ba13c80915"
-    SRV_NOTIFY_SERVICE_ID                               = "9b89eb93-3071-432c-9c6b-4e07dbda9071"
+    SRV_NOTIFY_BASE_URL                                 = var.srv_notify_base_url
+    SRV_NOTIFY_IP_REGISTRATION_CONFIRMATION_EMAIL_TO_IP = var.srv_notify_ip_registration_confirmation_email_to_ip_template_id
+    SRV_NOTIFY_MAGIC_LINK_EMAIL                         = var.srv_notify_magic_link_email_template_id
+    SRV_NOTIFY_SERVICE_ID                               = var.srv_notify_service_id
   }
 
   tags = local.tags

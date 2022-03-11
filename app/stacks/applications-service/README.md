@@ -60,6 +60,10 @@ No requirements.
 | <a name="input_national_infrastructure_vnet_address_space"></a> [national\_infrastructure\_vnet\_address\_space](#input\_national\_infrastructure\_vnet\_address\_space) | The address space advertised by the National Infrastructure gateway endpoint | `list(string)` | n/a | yes |
 | <a name="input_node_environment"></a> [node\_environment](#input\_node\_environment) | The node environment to be used for applications in this environment e.g. development | `string` | `"development"` | no |
 | <a name="input_region"></a> [region](#input\_region) | The region resources are deployed to in slug format e.g. 'uk-south' | `string` | `"uk-south"` | no |
+| <a name="input_srv_notify_base_url"></a> [srv\_notify\_base\_url](#input\_srv\_notify\_base\_url) | The base URL for the Notifications service | `string` | n/a | yes |
+| <a name="input_srv_notify_ip_registration_confirmation_email_to_ip_template_id"></a> [srv\_notify\_ip\_registration\_confirmation\_email\_to\_ip\_template\_id](#input\_srv\_notify\_ip\_registration\_confirmation\_email\_to\_ip\_template\_id) | The template ID for the IP registration confirmation email | `string` | n/a | yes |
+| <a name="input_srv_notify_magic_link_email_template_id"></a> [srv\_notify\_magic\_link\_email\_template\_id](#input\_srv\_notify\_magic\_link\_email\_template\_id) | The template ID for the magic link email | `string` | n/a | yes |
+| <a name="input_srv_notify_service_id"></a> [srv\_notify\_service\_id](#input\_srv\_notify\_service\_id) | The ID of the Notifications service | `string` | n/a | yes |
 | <a name="input_tooling_subscription_id"></a> [tooling\_subscription\_id](#input\_tooling\_subscription\_id) | The ID for the Tooling subscription that houses the Container Registry | `string` | n/a | yes |
 
 ## Outputs

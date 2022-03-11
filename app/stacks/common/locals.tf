@@ -16,7 +16,6 @@ locals {
     "applications-service-mysql-password",
     "applications-service-mysql-port",
     "applications-service-mysql-username",
-    "horizon-has-publisher-password",
     "srv-notify-api-key"
   ]
 

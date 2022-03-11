@@ -53,13 +53,37 @@ module "appeal_service_api" {
   service_name                       = local.service_name
 
   app_settings = {
-    APP_APPEALS_BASE_URL                       = local.frontend_url
-    DOCS_API_PATH                              = "/opt/app/api"
-    DOCUMENTS_SERVICE_API_TIMEOUT              = "10000"
-    DOCUMENTS_SERVICE_API_URL                  = "https://${module.appeal_documents_service_api.default_site_hostname}"
-    FEATURE_FLAG_NEW_APPEAL_JOURNEY            = true
-    HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION = true
-    HORIZON_HAS_PUBLISHER_PASSWORD             = var.key_vault_secret_refs["horizon-has-publisher-password"]
+    APP_APPEALS_BASE_URL                                                        = local.frontend_url
+    DOCS_API_PATH                                                               = "/opt/app/api"
+    DOCUMENTS_SERVICE_API_TIMEOUT                                               = "10000"
+    DOCUMENTS_SERVICE_API_URL                                                   = "https://${module.appeal_documents_service_api.default_site_hostname}"
+    FEATURE_FLAG_NEW_APPEAL_JOURNEY                                             = true
+    HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION                                  = true
+    HORIZON_HAS_PUBLISHER_HOST                                                  = "${azurerm_servicebus_namespace.horizon.name}.servicebus.windows.net"
+    HORIZON_HAS_PUBLISHER_PASSWORD                                              = azurerm_servicebus_namespace_authorization_rule.horizon_function_apps.primary_connection_string
+    HORIZON_HAS_PUBLISHER_PORT                                                  = "5671"
+    HORIZON_HAS_PUBLISHER_QUEUE                                                 = azurerm_servicebus_queue.horizon_householder_appeal_publish.name
+    HORIZON_HAS_PUBLISHER_RECONNECT_LIMIT                                       = "5"
+    HORIZON_HAS_PUBLISHER_TRANSPORT                                             = "tls"
+    HORIZON_HAS_PUBLISHER_USERNAME                                              = azurerm_servicebus_namespace_authorization_rule.horizon_function_apps.name
+    LOGGER_LEVEL                                                                = var.logger_level
+    LPA_DATA_PATH                                                               = "/opt/app/data/lpa-list.csv"
+    LPA_TRIALIST_DATA_PATH                                                      = "/opt/app/data/lpa-trialists.json"
+    MONGODB_AUTO_INDEX                                                          = true
+    MONGODB_NAME                                                                = "appeals-service-api"
+    MONGODB_URL                                                                 = azurerm_cosmosdb_account.appeals_database.connection_strings[0]
+    NODE_ENV                                                                    = var.node_environment
+    SERVER_PORT                                                                 = "3000"
+    SERVER_SHOW_ERRORS                                                          = true
+    SERVER_TERMINATION_GRACE_PERIOD_SECONDS                                     = "0"
+    SRV_NOTIFY_API_KEY                                                          = var.key_vault_secret_refs["srv-notify-api-key"]
+    SRV_NOTIFY_APPEAL_SUBMISSION_CONFIRMATION_EMAIL_TO_APPELLANT_TEMPLATE_ID    = var.srv_notify_appeal_submission_confirmation_email_to_apellant_template_id
+    SRV_NOTIFY_APPEAL_SUBMISSION_RECEIVED_NOTIFICATION_EMAIL_TO_LPA_TEMPLATE_ID = var.srv_notify_appeal_submission_received_notification_email_to_lpa_template_id
+    SRV_NOTIFY_BASE_URL                                                         = var.srv_notify_base_url
+    SRV_NOTIFY_EMAIL_REPLYTO_ID_START_EMAIL_TO_LPA                              = var.srv_notify_email_reply_to_id_start_email_to_lpa_template_id
+    SRV_NOTIFY_SERVICE_ID                                                       = var.srv_notify_service_id
+    SRV_NOTIFY_START_EMAIL_TO_LPA_TEMPLATE_ID                                   = var.srv_notify_start_email_to_lpa_template_id
+    SRV_NOTIFY_TEMPLATE_ID                                                      = var.srv_notify_template_id
   }
 
   tags = local.tags
