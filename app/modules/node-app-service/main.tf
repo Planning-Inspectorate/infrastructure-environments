@@ -68,6 +68,8 @@ resource "azurerm_private_endpoint" "private_endpoint" {
     subresource_names              = ["sites"]
     is_manual_connection           = false
   }
+
+  tags = var.tags
 }
 
 resource "azurerm_app_service_virtual_network_swift_connection" "vnet_connection" {
