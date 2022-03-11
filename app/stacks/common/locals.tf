@@ -4,7 +4,8 @@ locals {
   tags = merge(
     var.common_tags,
     {
-      Region = var.region
+      Region      = var.region
+      ServiceName = local.service_name
     }
   )
 

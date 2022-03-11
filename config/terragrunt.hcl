@@ -52,7 +52,6 @@ inputs = merge(
       CostCentre  = "90117"
       CreatedBy   = "terraform"
       Environment = local.environment
-      ServiceName = local.stack
     }
   }
 )
