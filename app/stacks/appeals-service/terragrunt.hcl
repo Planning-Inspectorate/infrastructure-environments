@@ -23,7 +23,7 @@ dependency "common" {
     integration_subnet_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
     key_vault_id          = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
     key_vault_secret_refs = {
-
+      horizon-has-publisher-password = "mock_secret"
     }
   }
 }
