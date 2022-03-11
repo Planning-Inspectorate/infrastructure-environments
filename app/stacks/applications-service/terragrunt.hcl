@@ -22,6 +22,7 @@ dependency "common" {
     }
     common_vnet_gateway_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Network/virtualNetworkGateways/mock_id"
     common_vnet_name       = "mock_vnet_name"
+    integration_subnet_id  = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
     key_vault_id           = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
     key_vault_secret_refs = {
       applications-service-encryption-secret-key = "mock_secret"
@@ -33,7 +34,6 @@ dependency "common" {
       applications-service-mysql-username        = "mock_secret"
       srv-notify-api-key                         = "mock_secret"
     }
-    integration_subnet_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
   }
 }
 
@@ -46,7 +46,7 @@ inputs = {
   common_vnet_cidr_blocks                     = dependency.common.outputs.common_vnet_cidr_blocks
   common_vnet_gateway_id                      = dependency.common.outputs.common_vnet_gateway_id
   common_vnet_name                            = dependency.common.outputs.common_vnet_name
+  integration_subnet_id                       = dependency.common.outputs.integration_subnet_id
   key_vault_id                                = dependency.common.outputs.key_vault_id
   key_vault_secret_refs                       = dependency.common.outputs.key_vault_secret_refs
-  integration_subnet_id                       = dependency.common.outputs.integration_subnet_id
 }

@@ -6,11 +6,17 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
   location            = azurerm_resource_group.appeals_service_stack.location
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
   offer_type          = "Standard"
-  kind                = "GlobalDocumentDB"
+  kind                = "MongoDB"
 
   access_key_metadata_writes_enabled = false
   enable_automatic_failover          = true
   public_network_access_enabled      = false
+
+  mongo_server_version = "3.6"
+
+  capabilities {
+    name = "EnableMongo"
+  }
 
   capabilities {
     name = "EnableAggregationPipeline"
@@ -18,10 +24,6 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
 
   capabilities {
     name = "mongoEnableDocLevelTTL"
-  }
-
-  capabilities {
-    name = "MongoDBv3.4"
   }
 
   consistency_policy {
@@ -39,4 +41,6 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
     location          = azurerm_resource_group.appeals_service_stack.location
     failover_priority = 0
   }
+
+  tags = local.tags
 }
