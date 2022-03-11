@@ -87,12 +87,6 @@ variable "integration_subnet_id" {
   type        = string
 }
 
-variable "logger_level" {
-  description = "The level of logging enabled for applications in the environment e.g. info"
-  type        = string
-  default     = "info"
-}
-
 variable "key_vault_id" {
   description = "The ID of the key vault so the App Service can pull secret values"
   type        = string
@@ -101,6 +95,12 @@ variable "key_vault_id" {
 variable "key_vault_secret_refs" {
   description = "Map of secret references from the Key Vault"
   type        = map(string)
+}
+
+variable "logger_level" {
+  description = "The level of logging enabled for applications in the environment e.g. info"
+  type        = string
+  default     = "info"
 }
 
 variable "national_infrastructure_gateway_ip" {
@@ -123,6 +123,26 @@ variable "region" {
   description = "The region resources are deployed to in slug format e.g. 'uk-south'"
   type        = string
   default     = "uk-south"
+}
+
+variable "srv_notify_base_url" {
+  description = "The base URL for the Notifications service"
+  type        = string
+}
+
+variable "srv_notify_ip_registration_confirmation_email_to_ip_template_id" {
+  description = "The template ID for the IP registration confirmation email"
+  type        = string
+}
+
+variable "srv_notify_magic_link_email_template_id" {
+  description = "The template ID for the magic link email"
+  type        = string
+}
+
+variable "srv_notify_service_id" {
+  description = "The ID of the Notifications service"
+  type        = string
 }
 
 variable "tooling_subscription_id" {

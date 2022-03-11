@@ -66,7 +66,16 @@ No requirements.
 | <a name="input_integration_subnet_id"></a> [integration\_subnet\_id](#input\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic | `string` | n/a | yes |
 | <a name="input_key_vault_id"></a> [key\_vault\_id](#input\_key\_vault\_id) | The ID of the key vault so the App Service can pull secret values | `string` | n/a | yes |
 | <a name="input_key_vault_secret_refs"></a> [key\_vault\_secret\_refs](#input\_key\_vault\_secret\_refs) | Map of secret references from the Key Vault | `map(string)` | n/a | yes |
+| <a name="input_logger_level"></a> [logger\_level](#input\_logger\_level) | The level of logging enabled for applications in the environment e.g. info | `string` | `"info"` | no |
+| <a name="input_node_environment"></a> [node\_environment](#input\_node\_environment) | The node environment to be used for applications in this environment e.g. development | `string` | `"development"` | no |
 | <a name="input_region"></a> [region](#input\_region) | The region resources are deployed to in slug format e.g. 'uk-south' | `string` | `"uk-south"` | no |
+| <a name="input_srv_notify_appeal_submission_confirmation_email_to_apellant_template_id"></a> [srv\_notify\_appeal\_submission\_confirmation\_email\_to\_apellant\_template\_id](#input\_srv\_notify\_appeal\_submission\_confirmation\_email\_to\_apellant\_template\_id) | A template ID required by the Appeals Service API | `string` | n/a | yes |
+| <a name="input_srv_notify_appeal_submission_received_notification_email_to_lpa_template_id"></a> [srv\_notify\_appeal\_submission\_received\_notification\_email\_to\_lpa\_template\_id](#input\_srv\_notify\_appeal\_submission\_received\_notification\_email\_to\_lpa\_template\_id) | A template ID required by the Appeals Service API | `string` | n/a | yes |
+| <a name="input_srv_notify_base_url"></a> [srv\_notify\_base\_url](#input\_srv\_notify\_base\_url) | The base URL for the Notifications service | `string` | n/a | yes |
+| <a name="input_srv_notify_email_reply_to_id_start_email_to_lpa_template_id"></a> [srv\_notify\_email\_reply\_to\_id\_start\_email\_to\_lpa\_template\_id](#input\_srv\_notify\_email\_reply\_to\_id\_start\_email\_to\_lpa\_template\_id) | A template ID required by the Appeals Service API | `string` | n/a | yes |
+| <a name="input_srv_notify_service_id"></a> [srv\_notify\_service\_id](#input\_srv\_notify\_service\_id) | The ID of the Notifications service | `string` | n/a | yes |
+| <a name="input_srv_notify_start_email_to_lpa_template_id"></a> [srv\_notify\_start\_email\_to\_lpa\_template\_id](#input\_srv\_notify\_start\_email\_to\_lpa\_template\_id) | A template ID required by the Appeals Service API | `string` | n/a | yes |
+| <a name="input_srv_notify_template_id"></a> [srv\_notify\_template\_id](#input\_srv\_notify\_template\_id) | A template ID required by the Appeals Service API | `string` | n/a | yes |
 | <a name="input_tooling_subscription_id"></a> [tooling\_subscription\_id](#input\_tooling\_subscription\_id) | The ID for the Tooling subscription that houses the Container Registry | `string` | n/a | yes |
 
 ## Outputs

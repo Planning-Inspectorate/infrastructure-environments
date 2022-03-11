@@ -76,10 +76,57 @@ variable "key_vault_secret_refs" {
   type        = map(string)
 }
 
+variable "logger_level" {
+  description = "The level of logging enabled for applications in the environment e.g. info"
+  type        = string
+  default     = "info"
+}
+
+variable "node_environment" {
+  description = "The node environment to be used for applications in this environment e.g. development"
+  type        = string
+  default     = "development"
+}
+
 variable "region" {
   description = "The region resources are deployed to in slug format e.g. 'uk-south'"
   type        = string
   default     = "uk-south"
+}
+
+variable "srv_notify_appeal_submission_confirmation_email_to_apellant_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
+variable "srv_notify_appeal_submission_received_notification_email_to_lpa_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
+variable "srv_notify_base_url" {
+  description = "The base URL for the Notifications service"
+  type        = string
+}
+
+variable "srv_notify_email_reply_to_id_start_email_to_lpa_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
+variable "srv_notify_service_id" {
+  description = "The ID of the Notifications service"
+  type        = string
+}
+
+variable "srv_notify_start_email_to_lpa_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
+variable "srv_notify_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
 }
 
 variable "tooling_subscription_id" {

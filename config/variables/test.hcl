@@ -5,4 +5,5 @@ locals {
   google_analytics_id                        = "G-X21W2S2FN3"
   national_infrastructure_gateway_ip         = "51.104.42.155"
   national_infrastructure_vnet_address_space = ["10.222.0.0/26"]
+  srv_notify_base_url                        = "https://api.notifications.service.gov.uk/"
 }
