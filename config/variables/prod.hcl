@@ -1,5 +1,7 @@
 locals {
   api_timeout                                = 10000
+  appeals_service_public_url                 = "appeal-planning-decision.planninginspectorate.gov.uk"
+  applications_service_public_url            = "www.national-infrastructure.planninginspectorate.gov.uk"
   environment                                = "prod"
   common_vnet_address_space                  = "10.3.0.0/16"
   logger_level                               = "info"
