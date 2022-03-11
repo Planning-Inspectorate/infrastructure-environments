@@ -27,7 +27,7 @@ resource "azurerm_app_service" "app_service" {
   }
 
   site_config {
-    always_on     = "true"
+    always_on     = true
     ftps_state    = "FtpsOnly"
     http2_enabled = true
   }
