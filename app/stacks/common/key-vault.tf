@@ -59,6 +59,10 @@ resource "azurerm_key_vault_secret" "applications_service_vpn_gateway_shared_key
 
   tags = local.tags
 
+  depends_on = [
+    azurerm_key_vault_access_policy.terraform
+  ]
+
   lifecycle {
     ignore_changes = [
       value,
@@ -77,6 +81,10 @@ resource "azurerm_key_vault_secret" "secret" {
   value        = "<enter_value>"
 
   tags = local.tags
+
+  depends_on = [
+    azurerm_key_vault_access_policy.terraform
+  ]
 
   lifecycle {
     ignore_changes = [
