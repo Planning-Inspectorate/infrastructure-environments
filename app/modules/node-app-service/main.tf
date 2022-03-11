@@ -27,7 +27,7 @@ resource "azurerm_app_service" "app_service" {
   }
 
   site_config {
-    always_on     = "true"
+    always_on     = true
     ftps_state    = "FtpsOnly"
     http2_enabled = true
   }
@@ -68,6 +68,8 @@ resource "azurerm_private_endpoint" "private_endpoint" {
     subresource_names              = ["sites"]
     is_manual_connection           = false
   }
+
+  tags = var.tags
 }
 
 resource "azurerm_app_service_virtual_network_swift_connection" "vnet_connection" {
@@ -84,5 +86,8 @@ resource "azurerm_key_vault_access_policy" "read_secrets" {
   tenant_id    = data.azurerm_client_config.current.tenant_id
   object_id    = azurerm_app_service.app_service.identity.0.principal_id
 
-  secret_permissions = ["Get"]
+  certificate_permissions = []
+  key_permissions         = []
+  secret_permissions      = ["Get"]
+  storage_permissions     = []
 }

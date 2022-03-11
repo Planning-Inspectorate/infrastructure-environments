@@ -56,4 +56,5 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_default_site_hostname"></a> [default\_site\_hostname](#output\_default\_site\_hostname) | The Default Hostname associated with the App Service |
+| <a name="output_principal_id"></a> [principal\_id](#output\_principal\_id) | The ID of the principal associated with the App Service |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

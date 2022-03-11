@@ -66,6 +66,16 @@ variable "integration_subnet_id" {
   type        = string
 }
 
+variable "key_vault_id" {
+  description = "The ID of the key vault so the App Service can pull secret values"
+  type        = string
+}
+
+variable "key_vault_secret_refs" {
+  description = "Map of secret references from the Key Vault"
+  type        = map(string)
+}
+
 variable "region" {
   description = "The region resources are deployed to in slug format e.g. 'uk-south'"
   type        = string

@@ -18,7 +18,7 @@ module "national_infrastructure_frontend" {
 
   app_settings = {
     APPLICATIONS_SERVICE_API_TIMEOUT = var.api_timeout
-    APPLICATIONS_SERVICE_API_URL     = module.national_infrastructure_service.default_site_hostname
+    APPLICATIONS_SERVICE_API_URL     = "https://${module.national_infrastructure_service.default_site_hostname}"
     GOOGLE_ANALYTICS_ID              = var.google_analytics_id
     HOST_URL                         = local.frontend_url
     SESSION_KEY                      = "some_key"
