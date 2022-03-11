@@ -36,7 +36,7 @@ module "appeal_service_api" {
 
   app_insights_connection_string     = var.app_insights_connection_string
   app_insights_instrumentation_key   = var.app_insights_instrumentation_key
-  app_name                           = "appeal-api"
+  app_name                           = "appeals-api"
   app_service_private_dns_zone_id    = var.app_service_private_dns_zone_id
   app_service_plan_id                = var.app_service_plan_id
   container_registry_login_server    = data.azurerm_container_registry.acr.login_server
