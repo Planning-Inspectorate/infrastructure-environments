@@ -3,6 +3,16 @@ variable "app_service_urls" {
   type        = map(string)
 }
 
+variable "appeals_service_public_url" {
+  description = "The public URL for the Appeals Service frontend web app"
+  type        = string
+}
+
+variable "applications_service_public_url" {
+  description = "The public URL for the Applications Service frontend web app"
+  type        = string
+}
+
 variable "common_resource_group_name" {
   description = "The common infrastructure resource group name"
   type        = string
@@ -23,6 +33,11 @@ variable "instance" {
   type        = string
   default     = "001"
 }
+
+# variable "lpa_questionnaire_public_url" {
+#   description = "The public URL for the Appeals LPA Questionnaire frontend web app"
+#   type        = string
+# }
 
 variable "region" {
   description = "The region resources are deployed to in slug format e.g. 'uk-south'"
