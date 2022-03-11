@@ -64,5 +64,7 @@ No requirements.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of frontend app service URLs |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
