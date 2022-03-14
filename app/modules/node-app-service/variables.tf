@@ -99,6 +99,6 @@ variable "service_name" {
 }
 
 variable "tags" {
-  description = "The tags applied to the resource"
+  description = "The tags applied to all resources"
   type        = map(string)
 }
