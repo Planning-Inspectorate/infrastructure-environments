@@ -34,11 +34,6 @@ variable "instance" {
   default     = "001"
 }
 
-# variable "lpa_questionnaire_public_url" {
-#   description = "The public URL for the Appeals LPA Questionnaire frontend web app"
-#   type        = string
-# }
-
 variable "region" {
   description = "The region resources are deployed to in slug format e.g. 'uk-south'"
   type        = string

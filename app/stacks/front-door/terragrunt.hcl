@@ -20,7 +20,6 @@ dependency "appeals_service" {
   mock_outputs = {
     app_service_urls = {
       appeals_service_frontend = "mock_url"
-      # lpa_questionnaire_frontend = "mock_url"
     }
   }
 }

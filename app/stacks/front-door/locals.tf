@@ -10,11 +10,6 @@ locals {
       frontend_endpoint = var.appeals_service_public_url
       patterns_to_match = ["/*"]
     }
-    # lpa_questionnaire_frontend = {
-    #   name              = "LpaQuestionnaire"
-    #   frontend_endpoint = var.lpa_questionnaire_public_url
-    #   patterns_to_match = ["/*"]
-    # }
   }
   service_name    = "common"
   resource_suffix = "${var.environment}-${module.azure_region_uks.location_short}-${var.instance}"
