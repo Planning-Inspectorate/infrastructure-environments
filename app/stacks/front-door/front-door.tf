@@ -1,5 +1,5 @@
 resource "azurerm_frontdoor" "common" {
-  #checkov:skip=CKV_AZURE_121: WAF to be implemented later
+  #checkov:skip=CKV_AZURE_121: WAF implemented but Checkov still fails
   name                                         = "pins-fd-${local.service_name}-${local.resource_suffix}"
   resource_group_name                          = var.common_resource_group_name
   enforce_backend_pools_certificate_name_check = false
