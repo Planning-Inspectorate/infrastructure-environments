@@ -1,5 +1,5 @@
 include {
-  path = "../../../config/terragrunt.hcl"
+  path = "../../../../config/terragrunt.hcl"
 }
 
 dependency "common" {
