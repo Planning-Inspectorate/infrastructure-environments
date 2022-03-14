@@ -1,5 +1,7 @@
 locals {
   api_timeout                                = 10000
+  appeals_service_public_url                 = "appeals-service-test.planninginspectorate.gov.uk"
+  applications_service_public_url            = "applications-service-test.planninginspectorate.gov.uk"
   environment                                = "test"
   common_vnet_address_space                  = "10.2.0.0/16"
   google_analytics_id                        = "G-X21W2S2FN3"

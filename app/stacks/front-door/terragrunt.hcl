@@ -12,6 +12,18 @@ dependency "common" {
   }
 }
 
+dependency "appeals_service" {
+  config_path                             = "../appeals-service"
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
+  mock_outputs_merge_with_state           = true
+
+  mock_outputs = {
+    app_service_urls = {
+      appeals_service_frontend = "mock_url"
+    }
+  }
+}
+
 dependency "applications_service" {
   config_path                             = "../applications-service"
   mock_outputs_allowed_terraform_commands = ["validate", "plan"]
@@ -25,6 +37,9 @@ dependency "applications_service" {
 }
 
 inputs = {
-  app_service_urls           = dependency.applications_service.outputs.app_service_urls
+  app_service_urls = merge(
+    dependency.applications_service.outputs.app_service_urls,
+    dependency.appeals_service.outputs.app_service_urls
+  )
   common_resource_group_name = dependency.common.outputs.common_resource_group_name
 }

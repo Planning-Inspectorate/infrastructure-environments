@@ -3,6 +3,16 @@ variable "app_service_urls" {
   type        = map(string)
 }
 
+variable "appeals_service_public_url" {
+  description = "The public URL for the Appeals Service frontend web app"
+  type        = string
+}
+
+variable "applications_service_public_url" {
+  description = "The public URL for the Applications Service frontend web app"
+  type        = string
+}
+
 variable "common_resource_group_name" {
   description = "The common infrastructure resource group name"
   type        = string

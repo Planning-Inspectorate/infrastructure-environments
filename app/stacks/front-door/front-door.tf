@@ -1,7 +1,4 @@
 resource "azurerm_frontdoor" "common" {
-  #TODO: Add frontend endpoints for custom domains:
-  # - Applications: www.national-infrastructure.planninginspectorate.gov.uk
-  # - Appeals:      appeal-planning-decision.planninginspectorate.gov.uk
   #checkov:skip=CKV_AZURE_121: WAF to be implemented later
   name                                         = "pins-fd-${local.service_name}-${local.resource_suffix}"
   resource_group_name                          = var.common_resource_group_name
@@ -28,44 +25,44 @@ resource "azurerm_frontdoor" "common" {
   # Default Frontend Endpoint
   #========================================================================
 
-  # frontend_endpoint {
-  #   name      = "pins-fd-${local.service_name}-${local.resource_suffix}"
-  #   host_name = "pins-fd-${local.service_name}-${local.resource_suffix}.azurefd.net"
+  frontend_endpoint {
+    name      = "pins-fd-${local.service_name}-${local.resource_suffix}"
+    host_name = "pins-fd-${local.service_name}-${local.resource_suffix}.azurefd.net"
 
-  #   # web_application_firewall_policy_link_id
-  # }
+    # web_application_firewall_policy_link_id
+  }
 
-  # backend_pool {
-  #   name                = "Default"
-  #   load_balancing_name = "Default"
-  #   health_probe_name   = "Http"
+  backend_pool {
+    name                = "Default"
+    load_balancing_name = "Default"
+    health_probe_name   = "Http"
 
-  #   backend {
-  #     enabled     = true
-  #     address     = "www.gov.uk"
-  #     host_header = "www.gov.uk"
-  #     http_port   = 80
-  #     https_port  = 443
-  #     priority    = 5
-  #     weight      = 100
-  #   }
-  # }
+    backend {
+      enabled     = true
+      address     = "www.gov.uk"
+      host_header = "www.gov.uk"
+      http_port   = 80
+      https_port  = 443
+      priority    = 5
+      weight      = 100
+    }
+  }
 
-  # routing_rule {
-  #   enabled            = true
-  #   name               = "ForwardHttps"
-  #   accepted_protocols = ["Http", "Https"]
-  #   patterns_to_match  = ["/"]
-  #   frontend_endpoints = ["pins-fd-${local.service_name}-${local.resource_suffix}"]
+  routing_rule {
+    enabled            = true
+    name               = "Default"
+    accepted_protocols = ["Http", "Https"]
+    patterns_to_match  = ["/*"]
+    frontend_endpoints = ["pins-fd-${local.service_name}-${local.resource_suffix}"]
 
-  #   forwarding_configuration {
-  #     backend_pool_name      = "Default"
-  #     cache_enabled          = false
-  #     cache_query_parameters = []
-  #     custom_forwarding_path = "/government/organisations/planning-inspectorate"
-  #     forwarding_protocol    = "MatchRequest"
-  #   }
-  # }
+    forwarding_configuration {
+      backend_pool_name      = "Default"
+      cache_enabled          = false
+      cache_query_parameters = []
+      custom_forwarding_path = "/government/organisations/planning-inspectorate"
+      forwarding_protocol    = "MatchRequest"
+    }
+  }
 
   #========================================================================
   # Dynamic Service Frontend Endpoints
