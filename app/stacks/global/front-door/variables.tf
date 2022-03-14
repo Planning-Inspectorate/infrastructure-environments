@@ -13,11 +13,6 @@ variable "applications_service_public_url" {
   type        = string
 }
 
-variable "common_resource_group_name" {
-  description = "The common infrastructure resource group name"
-  type        = string
-}
-
 variable "common_tags" {
   description = "The common resource tags for the project"
   type        = map(string)
@@ -34,8 +29,8 @@ variable "instance" {
   default     = "001"
 }
 
-variable "region" {
-  description = "The region resources are deployed to in slug format e.g. 'uk-south'"
+variable "location" {
+  description = "The location resources are deployed to in slug format e.g. 'uk-south'"
   type        = string
   default     = "uk-south"
 }

@@ -12,11 +12,10 @@ locals {
     }
   }
   service_name    = "common"
-  resource_suffix = "${var.environment}-${var.instance}"
+  resource_suffix = "${var.environment}-${module.azure_region_uks.location_short}-${var.instance}"
   tags = merge(
     var.common_tags,
     {
-      Region      = var.region
       ServiceName = local.service_name
     }
   )
