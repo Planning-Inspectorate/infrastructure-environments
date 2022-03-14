@@ -26,10 +26,9 @@ resource "azurerm_frontdoor" "common" {
   #========================================================================
 
   frontend_endpoint {
-    name      = "pins-fd-${local.service_name}-${local.resource_suffix}"
-    host_name = "pins-fd-${local.service_name}-${local.resource_suffix}.azurefd.net"
-
-    # web_application_firewall_policy_link_id
+    name                                    = "pins-fd-${local.service_name}-${local.resource_suffix}"
+    host_name                               = "pins-fd-${local.service_name}-${local.resource_suffix}.azurefd.net"
+    web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
   }
 
   backend_pool {
@@ -73,8 +72,9 @@ resource "azurerm_frontdoor" "common" {
     iterator = mapping
 
     content {
-      name      = mapping.value["name"]
-      host_name = mapping.value["frontend_endpoint"]
+      name                                    = mapping.value["name"]
+      host_name                               = mapping.value["frontend_endpoint"]
+      web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
     }
   }
 
