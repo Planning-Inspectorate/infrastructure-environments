@@ -1,9 +1,10 @@
 locals {
-  environment           = get_env("ENV", "dev")
-  location              = basename("${get_terragrunt_dir()}/..")
-  stack                 = basename(get_terragrunt_dir())
-  global_variables      = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/global.hcl").locals
-  environment_variables = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/${local.environment}.hcl").locals
+  child_terragrunt_dir_absolute_path_parts = split("/", get_terragrunt_dir())
+  environment                              = get_env("ENV", "dev")
+  location                                 = element(local.child_terragrunt_dir_absolute_path_parts, length(local.child_terragrunt_dir_absolute_path_parts) - 2)
+  stack                                    = basename(get_terragrunt_dir())
+  global_variables                         = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/global.hcl").locals
+  environment_variables                    = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/${local.environment}.hcl").locals
   stack_variables = merge(
     read_terragrunt_config("${get_terragrunt_dir()}/variables/${local.environment}.hcl", { locals = {} }).locals,
     read_terragrunt_config("${get_terragrunt_dir()}/variables/global.hcl", { locals = {} }).locals
