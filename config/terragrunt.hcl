@@ -1,6 +1,6 @@
 locals {
   environment           = get_env("ENV", "dev")
-  location              = basename("../${get_terragrunt_dir()}")
+  location              = basename("${get_terragrunt_dir()}/..")
   stack                 = basename(get_terragrunt_dir())
   global_variables      = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/global.hcl").locals
   environment_variables = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/${local.environment}.hcl").locals
