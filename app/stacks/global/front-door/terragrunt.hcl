@@ -3,7 +3,7 @@ include {
 }
 
 dependency "appeals_service_uks" {
-  config_path                             = "../uk-south/appeals-service"
+  config_path                             = "../../uk-south/appeals-service"
   mock_outputs_allowed_terraform_commands = ["validate", "plan"]
   mock_outputs_merge_with_state           = true
 
@@ -15,7 +15,7 @@ dependency "appeals_service_uks" {
 }
 
 dependency "appeals_service_ukw" {
-  config_path                             = "../uk-west/appeals-service"
+  config_path                             = "../../uk-west/appeals-service"
   mock_outputs_allowed_terraform_commands = ["validate", "plan"]
   mock_outputs_merge_with_state           = true
 
@@ -27,7 +27,7 @@ dependency "appeals_service_ukw" {
 }
 
 dependency "applications_service_uks" {
-  config_path                             = "../uk-south/applications-service"
+  config_path                             = "../../uk-south/applications-service"
   mock_outputs_allowed_terraform_commands = ["validate", "plan"]
   mock_outputs_merge_with_state           = true
 
@@ -39,7 +39,7 @@ dependency "applications_service_uks" {
 }
 
 dependency "applications_service_ukw" {
-  config_path                             = "../uk-west/applications-service"
+  config_path                             = "../../uk-west/applications-service"
   mock_outputs_allowed_terraform_commands = ["validate", "plan"]
   mock_outputs_merge_with_state           = true
 
