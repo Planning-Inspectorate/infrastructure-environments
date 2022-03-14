@@ -3,5 +3,6 @@ resource "azurerm_application_insights" "node" {
   resource_group_name = azurerm_resource_group.common_infrastructure.name
   location            = azurerm_resource_group.common_infrastructure.location
   application_type    = "Node.JS"
+  workspace_id        = azurerm_log_analytics_workspace.common.id
   tags                = local.tags
 }
