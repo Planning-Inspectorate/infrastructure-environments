@@ -50,9 +50,9 @@ resource "azurerm_frontdoor" "common" {
 
   routing_rule {
     enabled            = true
-    name               = "ForwardHttps"
+    name               = "Default"
     accepted_protocols = ["Http", "Https"]
-    patterns_to_match  = ["/"]
+    patterns_to_match  = ["/*"]
     frontend_endpoints = ["pins-fd-${local.service_name}-${local.resource_suffix}"]
 
     forwarding_configuration {
