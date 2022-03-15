@@ -21,6 +21,13 @@ locals {
     }
   }
 
+  # The App Service URLs come back in a map that includes the location in the last 4 characters
+  # e.g.
+  # {
+  #   applications_frontend_uks = ...
+  # }
+  # We chop off the last 4 characters in the key and match it to a mapping in the frontend_endpoint_mappings variable
+  # We then create a new map with the key that includes the location, its app service url, and the matched frontend configuration
   backend_pool_mappings = {
     for k, v in var.app_service_urls : k => merge(
       local.frontend_endpoint_mappings[substr(k, 0, length(k) - 4)], { app_service_url = v }
