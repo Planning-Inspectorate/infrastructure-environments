@@ -20,6 +20,11 @@ variable "location" {
   default     = "uk-south"
 }
 
+variable "primary_vnet_address_space" {
+  description = "The CIDR address space for the common virtual network"
+  type        = string
+}
+
 variable "tooling_network_name" {
   description = "The name of the VNet in the Tooling environment"
   type        = string
@@ -32,10 +37,5 @@ variable "tooling_network_rg" {
 
 variable "tooling_subscription_id" {
   description = "The ID for the Tooling subscription that houses the Container Registry"
-  type        = string
-}
-
-variable "vnet_address_space" {
-  description = "The CIDR address space for the common virtual network"
   type        = string
 }
