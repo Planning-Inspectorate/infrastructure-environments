@@ -9,7 +9,7 @@ dependency "appeals_service_uks" {
 
   mock_outputs = {
     cosmosdb_connection_string                       = "mock_connection_string"
-    function_apps_storage_account                    = "mock_storage_account"
+    function_apps_storage_account                    = "mockstorageaccount"
     function_apps_storage_account_primary_access_key = "mock_key"
   }
 }
