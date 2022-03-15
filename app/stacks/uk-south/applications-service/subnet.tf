@@ -1,4 +1,4 @@
-resource "azurerm_subnet" "applicatons_service_ingress" {
+resource "azurerm_subnet" "applications_service_ingress" {
   name                                           = "pins-snet-${local.service_name}-ingress-${local.resource_suffix}"
   resource_group_name                            = var.common_resource_group_name
   virtual_network_name                           = var.common_vnet_name
