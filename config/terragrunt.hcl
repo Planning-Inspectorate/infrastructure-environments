@@ -6,8 +6,8 @@ locals {
   global_variables                         = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/global.hcl").locals
   environment_variables                    = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/${local.environment}.hcl").locals
   stack_variables = merge(
-    read_terragrunt_config("${get_terragrunt_dir()}/variables/${local.environment}.hcl", { locals = {} }).locals,
-    read_terragrunt_config("${get_terragrunt_dir()}/variables/global.hcl", { locals = {} }).locals
+    read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/stacks/${local.stack}/${local.environment}.hcl", { locals = {} }).locals,
+    read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/stacks/${local.stack}/global.hcl", { locals = {} }).locals
   )
   tooling_subscription_id = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/global.hcl").locals.tooling_subscription_id
 
