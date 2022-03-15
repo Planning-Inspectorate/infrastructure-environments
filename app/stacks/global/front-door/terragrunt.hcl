@@ -9,7 +9,7 @@ dependency "appeals_service_uks" {
 
   mock_outputs = {
     app_service_urls = {
-      appeals_service_frontend = "mock_url"
+      appeals_frontend_uks = "mock-wfe-url"
     }
   }
 }
@@ -21,7 +21,7 @@ dependency "appeals_service_ukw" {
 
   mock_outputs = {
     app_service_urls = {
-      appeals_service_frontend = "mock_url"
+      appeals_frontend_ukw = "mock-wfe-url"
     }
   }
 }
@@ -33,7 +33,7 @@ dependency "applications_service_uks" {
 
   mock_outputs = {
     app_service_urls = {
-      applications_service_frontend = "mock_url"
+      applications_frontend_uks = "mock-wfe-url"
     }
   }
 }
@@ -45,8 +45,7 @@ dependency "applications_service_ukw" {
 
   mock_outputs = {
     app_service_urls = {
-      appeals_frontend      = "mock_url"
-      applications_frontend = "mock_url"
+      applications_frontend_ukw = "mock-wfe-url"
     }
   }
 }
