@@ -1,18 +1,18 @@
 output "app_insights_connection_string" {
   description = "The Application Insights connection string used to allow monitoring on App Services"
   sensitive   = true
-  value       = azurerm_application_insights.node[0].connection_string
+  value       = length(azurerm_application_insights.node) > 0 ? azurerm_application_insights.node[0].connection_string : null
 }
 
 output "app_insights_instrumentation_key" {
   description = "The Application Insights instrumentation key used to allow monitoring on App Services"
   sensitive   = true
-  value       = azurerm_application_insights.node[0].instrumentation_key
+  value       = length(azurerm_application_insights.node) > 0 ? azurerm_application_insights.node[0].instrumentation_key : null
 }
 
 output "app_service_plan_id" {
   description = "The id of the app service plan"
-  value       = azurerm_app_service_plan.common_service_plan[0].id
+  value       = length(azurerm_app_service_plan.common_service_plan) > 0 ? azurerm_app_service_plan.common_service_plan[0].id : null
 }
 
 output "applications_service_vpn_gateway_shared_key" {
