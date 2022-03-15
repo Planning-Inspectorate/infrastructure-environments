@@ -3,6 +3,7 @@ locals {
     applications_frontend = {
       app_name                   = "applications-wfe"
       inbound_vnet_connectivity  = false
+      integration_subnet_id      = var.integration_subnet_id
       key_vault_access           = false
       outbound_vnet_connectivity = true
 
