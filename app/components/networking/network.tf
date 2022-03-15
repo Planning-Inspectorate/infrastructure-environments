@@ -8,7 +8,8 @@ resource "azurerm_virtual_network" "common_infrastructure" {
 }
 
 resource "azurerm_subnet" "vnet_gateway_subnet" {
-  name                 = "pins-snet-${var.service_name}-vnet-gateway-${var.resource_suffix}"
+  # Name if this subnet must be 'GatewaySubnet' since the VNet Gateway expects this
+  name                 = "GatewaySubnet"
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.common_infrastructure.name
   address_prefixes     = [module.vnet_address_space.network_cidr_blocks["vnet_gateway"]]
