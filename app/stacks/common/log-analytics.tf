@@ -1,5 +1,5 @@
 resource "azurerm_log_analytics_workspace" "common" {
-  name                = "pins-log-${local.service_name}-node-${local.resource_suffix}"
+  name                = "pins-log-${local.service_name}-${local.resource_suffix}"
   resource_group_name = azurerm_resource_group.common_infrastructure.name
   location            = azurerm_resource_group.common_infrastructure.location
   sku                 = "PerGB2018"
