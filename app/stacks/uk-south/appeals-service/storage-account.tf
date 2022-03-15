@@ -26,12 +26,6 @@ resource "azurerm_storage_container" "documents" {
   container_access_type = "private"
 }
 
-resource "azurerm_role_assignment" "documents_access" {
-  scope                = azurerm_resource_group.appeals_service_stack.id
-  role_definition_name = "Storage Blob Data Contributor"
-  principal_id         = module.app_services.appeal_documents_app_service_principal_id
-}
-
 resource "azurerm_storage_account" "function_apps" {
   #TODO: Customer Managed Keys
   #checkov:skip=CKV2_AZURE_1: Customer Managed Keys not implemented yet

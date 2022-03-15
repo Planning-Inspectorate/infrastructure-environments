@@ -19,6 +19,7 @@ module "app_services" {
   location                                                                    = module.azure_region_primary.location
   logger_level                                                                = var.logger_level
   node_environment                                                            = var.node_environment
+  resource_group_id                                                           = azurerm_resource_group.appeals_service_stack.id
   resource_group_name                                                         = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                                                             = local.resource_suffix
   service_name                                                                = local.service_name

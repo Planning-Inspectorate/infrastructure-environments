@@ -21,6 +21,7 @@ module "app_services" {
   location                                                                    = azurerm_resource_group.appeals_service_stack[count.index].location
   logger_level                                                                = var.logger_level
   node_environment                                                            = var.node_environment
+  resource_group_id                                                           = azurerm_resource_group.appeals_service_stack[count.index].id
   resource_group_name                                                         = azurerm_resource_group.appeals_service_stack[count.index].name
   resource_suffix                                                             = local.resource_suffix
   service_name                                                                = local.service_name
