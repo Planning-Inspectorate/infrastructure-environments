@@ -10,6 +10,8 @@ locals {
     read_terragrunt_config("${get_terragrunt_dir()}/variables/global.hcl", { locals = {} }).locals
   )
   tooling_subscription_id = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/global.hcl").locals.tooling_subscription_id
+
+  is_dr_deployment = get_env("DR_DEPLOYMENT", true)
 }
 
 terraform {
@@ -54,6 +56,7 @@ inputs = merge(
       CostCentre  = "90117"
       CreatedBy   = "terraform"
       Environment = local.environment
-    }
+    },
+    is_dr_deployment = local.is_dr_deployment
   }
 )

@@ -10,6 +10,14 @@ parameters:
       - name: Prod
         dependsOn:
           - Test
+  - name: location
+    displayName: Region
+    type: string
+    default: all
+    values:
+      - global
+      - uk-south
+      - uk-west
   - name: stack
     displayName: Stack
     type: string
@@ -20,6 +28,10 @@ parameters:
       - appeals-service
       - applications-service
       - front-door
+  - name: DRDeployment
+    displayName: Disaster Recovery Deployment?
+    type: boolean
+    default: false
 
 trigger: none
 
@@ -62,9 +74,11 @@ extends:
                 artifactName: terraform-plan-$(ENVIRONMENT)
                 environmentVariables:
                   ENV: $(ENVIRONMENT)
+                  ${{ eq(parameters.DRDeployment, 'true') }}:
+                    DR_DEPLOYMENT: true
                 stack: ${{ parameters.stack }}
                 subscriptionId: $(SUBSCRIPTION_ID)
-                workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.stack }}
+                workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.location }}/${{ parameters.stack }}
         isDeployment: false
       - name: Terraform Apply
         authType: terraform
