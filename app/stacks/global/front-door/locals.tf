@@ -1,11 +1,11 @@
 locals {
   frontend_mappings = {
-    national_infrastructure_frontend = {
+    applications_frontend = {
       name              = "ApplicationsService"
       frontend_endpoint = var.applications_service_public_url
       patterns_to_match = ["/*"]
     }
-    appeals_service_frontend = {
+    appeals_frontend = {
       name              = "AppealsService"
       frontend_endpoint = var.appeals_service_public_url
       patterns_to_match = ["/*"]
