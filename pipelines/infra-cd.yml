@@ -86,7 +86,7 @@ extends:
         isDeployment: false
       - name: Terraform Apply
         authType: terraform
-        condition: and(succeeded(), ne(variables['skipApply'], 'true'))
+#        condition: and(succeeded(), ne(variables['skipApply'], 'true'))
         dependsOn:
           - Terraform Plan
         deploymentSteps:
