@@ -45,7 +45,8 @@ dependency "applications_service_ukw" {
 
   mock_outputs = {
     app_service_urls = {
-      applications_service_frontend = "mock_url"
+      appeals_frontend      = "mock_url"
+      applications_frontend = "mock_url"
     }
   }
 }

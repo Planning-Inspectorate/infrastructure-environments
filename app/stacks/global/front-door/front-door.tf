@@ -68,7 +68,7 @@ resource "azurerm_frontdoor" "common" {
   #========================================================================
 
   dynamic "frontend_endpoint" {
-    for_each = local.frontend_mappings
+    for_each = local.frontend_endpoint_mappings
     iterator = mapping
 
     content {
@@ -79,7 +79,7 @@ resource "azurerm_frontdoor" "common" {
   }
 
   dynamic "backend_pool" {
-    for_each = local.frontend_mappings
+    for_each = local.backend_pool_mappings
     iterator = mapping
 
     content {
@@ -89,8 +89,8 @@ resource "azurerm_frontdoor" "common" {
 
       backend {
         enabled     = true
-        address     = var.app_service_urls[mapping.key]
-        host_header = var.app_service_urls[mapping.key]
+        address     = mapping.value["app_service_url"]
+        host_header = mapping.value["app_service_url"]
         http_port   = 80
         https_port  = 443
         priority    = 1
@@ -100,7 +100,7 @@ resource "azurerm_frontdoor" "common" {
   }
 
   dynamic "routing_rule" {
-    for_each = local.frontend_mappings
+    for_each = local.backend_pool_mappings
     iterator = mapping
 
     content {

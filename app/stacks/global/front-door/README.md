@@ -31,7 +31,7 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_app_service_urls"></a> [app\_service\_urls](#input\_app\_service\_urls) | A map of frontend app service URLs | `map(string)` | n/a | yes |
+| <a name="input_app_service_urls"></a> [app\_service\_urls](#input\_app\_service\_urls) | A map of App Service service URLs | `map(string)` | n/a | yes |
 | <a name="input_appeals_service_public_url"></a> [appeals\_service\_public\_url](#input\_appeals\_service\_public\_url) | The public URL for the Appeals Service frontend web app | `string` | n/a | yes |
 | <a name="input_applications_service_public_url"></a> [applications\_service\_public\_url](#input\_applications\_service\_public\_url) | The public URL for the Applications Service frontend web app | `string` | n/a | yes |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | The common resource tags for the project | `map(string)` | n/a | yes |

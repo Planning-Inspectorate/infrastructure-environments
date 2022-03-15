@@ -1,5 +1,5 @@
 variable "app_service_urls" {
-  description = "A map of frontend app service URLs"
+  description = "A map of App Service service URLs"
   type        = map(string)
 }
 

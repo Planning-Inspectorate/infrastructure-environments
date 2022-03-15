@@ -19,11 +19,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_appeal_documents_service_api"></a> [appeal\_documents\_service\_api](#module\_appeal\_documents\_service\_api) | ../../modules/node-app-service | n/a |
-| <a name="module_appeals_frontend"></a> [appeals\_frontend](#module\_appeals\_frontend) | ../../modules/node-app-service | n/a |
-| <a name="module_appeals_service_api"></a> [appeals\_service\_api](#module\_appeals\_service\_api) | ../../modules/node-app-service | n/a |
-| <a name="module_clam_av_service_api"></a> [clam\_av\_service\_api](#module\_clam\_av\_service\_api) | ../../modules/node-app-service | n/a |
-| <a name="module_pdf_service_api"></a> [pdf\_service\_api](#module\_pdf\_service\_api) | ../../modules/node-app-service | n/a |
+| <a name="module_app_service"></a> [app\_service](#module\_app\_service) | ../../modules/node-app-service | n/a |
 
 ## Resources
 
@@ -76,6 +72,6 @@ No requirements.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_app_service_principal_ids"></a> [app\_service\_principal\_ids](#output\_app\_service\_principal\_ids) | A map of frontend app service URLs |
 | <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of frontend app service URLs |
-| <a name="output_appeal_documents_app_service_principal_id"></a> [appeal\_documents\_app\_service\_principal\_id](#output\_appeal\_documents\_app\_service\_principal\_id) | The ID of the principal associated with the Appeal Documents API App Service |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
