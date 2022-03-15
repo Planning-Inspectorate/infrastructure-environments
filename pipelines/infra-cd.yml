@@ -73,10 +73,13 @@ extends:
             - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan.yml@templates
               parameters:
                 artifactName: terraform-plan-$(ENVIRONMENT)
-                environmentVariables:
-                  ENV: $(ENVIRONMENT)
-                  ${{ eq(parameters.DRDeployment, 'true') }}:
+                ${{ eq(parameters.DRDeployment, 'true') }}:
+                  environmentVariables:
+                    ENV: $(ENVIRONMENT)
                     DR_DEPLOYMENT: true
+                ${{ else }}:
+                  environmentVariables:
+                    ENV: $(ENVIRONMENT)
                 stack: ${{ parameters.stack }}
                 subscriptionId: $(SUBSCRIPTION_ID)
                 workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.location }}/${{ parameters.stack }}
