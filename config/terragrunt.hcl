@@ -11,7 +11,7 @@ locals {
   )
   tooling_subscription_id = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/global.hcl").locals.tooling_subscription_id
 
-  is_dr_deployment = get_env("DR_DEPLOYMENT", true)
+  is_dr_deployment = get_env("DR_DEPLOYMENT", false)
 }
 
 terraform {
