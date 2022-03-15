@@ -50,6 +50,7 @@ resources:
       type: github
       endpoint: Planning-Inspectorate
       name: Planning-Inspectorate/common-pipeline-templates
+      ref: feature/skip-apply-when-no-changes
 
 extends:
   template: stages/wrapper_cd.yml@templates
