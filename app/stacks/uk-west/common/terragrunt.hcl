@@ -8,7 +8,7 @@ dependency "common_uks" {
   mock_outputs_merge_with_state           = true
 
   mock_outputs = {
-    key_vault_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
+    key_vault_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
   }
 }
 

@@ -33,12 +33,12 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
   }
 
   geo_location {
-    location          = var.secondary_location
+    location          = module.azure_region_secondary.location
     failover_priority = 1
   }
 
   geo_location {
-    location          = var.primary_location
+    location          = module.azure_region_primary.location
     failover_priority = 0
   }
 

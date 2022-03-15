@@ -16,7 +16,7 @@ module "app_services" {
   integration_subnet_id                                                       = var.integration_subnet_id
   key_vault_id                                                                = var.key_vault_id
   key_vault_secret_refs                                                       = var.key_vault_secret_refs
-  location                                                                    = module.azure_region_primary.location_short
+  location                                                                    = module.azure_region_primary.location
   logger_level                                                                = var.logger_level
   node_environment                                                            = var.node_environment
   resource_group_name                                                         = azurerm_resource_group.appeals_service_stack.name
