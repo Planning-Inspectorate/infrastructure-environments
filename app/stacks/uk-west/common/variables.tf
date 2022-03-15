@@ -1,3 +1,9 @@
+variable "applications_service_vpn_gateway_shared_key" {
+  description = "The applications service virtual network gateway shared key"
+  sensitive   = true
+  type        = string
+}
+
 variable "common_tags" {
   description = "The common resource tags for the project"
   type        = map(string)
@@ -18,11 +24,6 @@ variable "is_dr_deployment" {
   description = "A flag to indicate whether or not the infrastructure deployment is for a disaster recovery scenario"
   type        = bool
   default     = false
-}
-
-variable "key_vault_id" {
-  description = "The ID of the Key Vault in the primary region"
-  type        = string
 }
 
 variable "location" {

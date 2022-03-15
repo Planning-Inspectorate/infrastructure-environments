@@ -18,7 +18,7 @@ output "app_service_plan_id" {
 output "applications_service_vpn_gateway_shared_key" {
   description = "The applications service virtual network gateway shared key"
   sensitive   = true
-  value       = data.azurerm_key_vault_secret.applications_service_vpn_gateway_shared_key.value
+  value       = var.applications_service_vpn_gateway_shared_key
 }
 
 output "common_resource_group_name" {
