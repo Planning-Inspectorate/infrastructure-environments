@@ -120,13 +120,15 @@ resource "azurerm_frontdoor" "common" {
   }
 }
 
-# resource "azurerm_frontdoor_custom_https_configuration" "applications_service" {
-#   frontend_endpoint_id              = azurerm_frontdoor.common.id
-#   custom_https_provisioning_enabled = true
+resource "azurerm_frontdoor_custom_https_configuration" "ssl_certificate" {
+  for_each = local.frontend_endpoint_mappings
 
-#   custom_https_configuration {
-#     certificate_source                      = "AzureKeyVault"
-#     azure_key_vault_certificate_secret_name = "applications-service-${var.environment}"
-#     azure_key_vault_certificate_vault_id    = azurerm_key_vault.environment_key_vault.id
-#   }
-# }
+  frontend_endpoint_id              = azurerm_frontdoor.common.frontend_endpoints[each.value["name"]]
+  custom_https_provisioning_enabled = true
+
+  custom_https_configuration {
+    certificate_source                      = "AzureKeyVault"
+    azure_key_vault_certificate_secret_name = each.value["ssl_certificate_name"]
+    azure_key_vault_certificate_vault_id    = var.common_key_vault_id
+  }
+}

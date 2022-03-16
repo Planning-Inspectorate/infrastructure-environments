@@ -3,13 +3,28 @@ variable "app_service_urls" {
   type        = map(string)
 }
 
+variable "appeals_service_ssl_certificate_name" {
+  description = "The SSL certificate name in the environment Key Vault for the appeals service"
+  type        = string
+}
+
 variable "appeals_service_public_url" {
   description = "The public URL for the Appeals Service frontend web app"
   type        = string
 }
 
+variable "applications_service_ssl_certificate_name" {
+  description = "The SSL certificate name in the environment Key Vault for the applications service"
+  type        = string
+}
+
 variable "applications_service_public_url" {
   description = "The public URL for the Applications Service frontend web app"
+  type        = string
+}
+
+variable "common_key_vault_id" {
+  description = "The common Key Vault for the environment"
   type        = string
 }
 

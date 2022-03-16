@@ -50,6 +50,16 @@ dependency "applications_service_ukw" {
   }
 }
 
+dependency "common_uks" {
+  config_path                             = "../../uk-south/common"
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
+  mock_outputs_merge_with_state           = true
+
+  mock_outputs = {
+    common_key_vault_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock-rg/providers/Microsoft.KeyVault/vaults/mockkv"
+  }
+}
+
 inputs = {
   app_service_urls = merge(
     # dependency.appeals_service_uks.outputs.app_service_urls,
@@ -58,4 +68,5 @@ inputs = {
     dependency.applications_service_uks.outputs.app_service_urls,
     dependency.applications_service_ukw.outputs.app_service_urls
   )
+  common_key_vault_id = dependency.common_uks.outputs.key_vault_id
 }
