@@ -27,9 +27,10 @@ resource "azurerm_app_service" "app_service" {
   }
 
   site_config {
-    always_on     = true
-    ftps_state    = "FtpsOnly"
-    http2_enabled = true
+    always_on        = true
+    ftps_state       = "FtpsOnly"
+    http2_enabled    = true
+    linux_fx_version = "DOCKER|${var.container_registry_login_server}/${var.image_name}:main"
 
     dynamic "ip_restriction" {
       for_each = var.inbound_vnet_connectivity == false ? [1] : []
@@ -58,6 +59,12 @@ resource "azurerm_app_service" "app_service" {
   )
 
   tags = var.tags
+
+  lifecycle {
+    ignore_changes = [
+      site_config["linux_fx_version"]
+    ]
+  }
 }
 
 resource "azurerm_private_endpoint" "private_endpoint" {

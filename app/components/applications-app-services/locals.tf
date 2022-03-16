@@ -2,6 +2,7 @@ locals {
   app_services = {
     applications_frontend = {
       app_name                   = "applications-wfe"
+      image_name                 = "applications-service/forms-web-app"
       inbound_vnet_connectivity  = false
       integration_subnet_id      = var.integration_subnet_id
       key_vault_access           = false
@@ -22,6 +23,7 @@ locals {
       app_name                        = "applications-api"
       app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
       endpoint_subnet_id              = var.endpoint_subnet_id
+      image_name                      = "applications-service/applications-service-api"
       inbound_vnet_connectivity       = true
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = true

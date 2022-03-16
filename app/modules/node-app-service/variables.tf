@@ -54,6 +54,11 @@ variable "endpoint_subnet_id" {
   type        = string
 }
 
+variable "image_name" {
+  description = "The name of the image deployed to the App Service"
+  type        = string
+}
+
 variable "inbound_vnet_connectivity" {
   default     = false
   description = "Indicates whether inbound connectivity (Private Endpoint) is required"
