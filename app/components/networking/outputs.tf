@@ -10,7 +10,7 @@ output "vnet_cidr_blocks" {
 
 output "vnet_gateway_id" {
   description = "The id of the common infrastructure virtual network gateway"
-  value       = azurerm_virtual_network_gateway.common.id
+  value       = length(azurerm_virtual_network_gateway.common) > 0 ? azurerm_virtual_network_gateway.common[0].id : null
 }
 
 output "vnet_name" {

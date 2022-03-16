@@ -15,6 +15,7 @@ parameters:
     type: string
     default: all
     values:
+      - all
       - global
       - uk-south
       - uk-west
@@ -50,7 +51,6 @@ resources:
       type: github
       endpoint: Planning-Inspectorate
       name: Planning-Inspectorate/common-pipeline-templates
-      ref: feature/skip-apply-when-no-changes
 
 extends:
   template: stages/wrapper_cd.yml@templates
@@ -67,19 +67,21 @@ extends:
               parameters:
                 environmentVariables:
                   ENV: $(ENVIRONMENT)
+                  ${{ if eq(parameters.DRDeployment, 'true') }}:
+                    DR_DEPLOYMENT: true
                 subscriptionId: $(SUBSCRIPTION_ID)
-                workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
+                ${{ if eq(parameters.location, 'all') }}:
+                  workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
+                ${{ else }}:
+                  workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.location }}
           - ${{ else }}:
             - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan.yml@templates
               parameters:
                 artifactName: terraform-plan-$(ENVIRONMENT)
-                ${{ eq(parameters.DRDeployment, 'true') }}:
-                  environmentVariables:
-                    ENV: $(ENVIRONMENT)
+                environmentVariables:
+                  ENV: $(ENVIRONMENT)
+                  ${{ eq(parameters.DRDeployment, 'true') }}:
                     DR_DEPLOYMENT: true
-                ${{ else }}:
-                  environmentVariables:
-                    ENV: $(ENVIRONMENT)
                 stack: ${{ parameters.stack }}
                 subscriptionId: $(SUBSCRIPTION_ID)
                 workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.location }}/${{ parameters.stack }}
@@ -95,8 +97,13 @@ extends:
               parameters:
                 environmentVariables:
                   ENV: $(ENVIRONMENT)
+                  ${{ if eq(parameters.DRDeployment, 'true') }}:
+                    DR_DEPLOYMENT: true
                 subscriptionId: $(SUBSCRIPTION_ID)
-                workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
+                ${{ if eq(parameters.location, 'all') }}:
+                  workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
+                ${{ else }}:
+                  workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.location }}
           - ${{ else }}:
             - template: ${{variables['Build.SourcesDirectory']}}/steps/terraform_apply.yml@templates
               parameters:
