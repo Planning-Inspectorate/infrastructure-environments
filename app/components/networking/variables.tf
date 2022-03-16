@@ -3,6 +3,11 @@ variable "base_cidr_block" {
   type        = string
 }
 
+variable "deploy_national_infrastructure_vnet_gateway" {
+  description = "A flag to determine if the VNet gateway to the National Infrastructure subscription should be deployed"
+  type        = bool
+}
+
 variable "location" {
   description = "The location resources are deployed to in slug format e.g. 'uk-south'"
   type        = string
