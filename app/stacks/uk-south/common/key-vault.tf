@@ -148,7 +148,8 @@ resource "azurerm_key_vault_certificate" "pins_wildcard" {
 
   lifecycle {
     ignore_changes = [
-      certificate
+      certificate,
+      version
     ]
   }
 }
