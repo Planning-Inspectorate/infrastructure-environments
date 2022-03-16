@@ -10,6 +10,14 @@ parameters:
       - name: Prod
         dependsOn:
           - Test
+  - name: location
+    displayName: Region
+    type: string
+    default: all
+    values:
+      - global
+      - uk-south
+      - uk-west
   - name: stack
     displayName: Stack
     type: string
@@ -20,6 +28,10 @@ parameters:
       - appeals-service
       - applications-service
       - front-door
+  - name: DRDeployment
+    displayName: Disaster Recovery Deployment?
+    type: boolean
+    default: false
 
 trigger: none
 
@@ -38,6 +50,7 @@ resources:
       type: github
       endpoint: Planning-Inspectorate
       name: Planning-Inspectorate/common-pipeline-templates
+      ref: feature/skip-apply-when-no-changes
 
 extends:
   template: stages/wrapper_cd.yml@templates
@@ -60,14 +73,20 @@ extends:
             - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan.yml@templates
               parameters:
                 artifactName: terraform-plan-$(ENVIRONMENT)
-                environmentVariables:
-                  ENV: $(ENVIRONMENT)
+                ${{ eq(parameters.DRDeployment, 'true') }}:
+                  environmentVariables:
+                    ENV: $(ENVIRONMENT)
+                    DR_DEPLOYMENT: true
+                ${{ else }}:
+                  environmentVariables:
+                    ENV: $(ENVIRONMENT)
                 stack: ${{ parameters.stack }}
                 subscriptionId: $(SUBSCRIPTION_ID)
-                workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.stack }}
+                workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.location }}/${{ parameters.stack }}
         isDeployment: false
       - name: Terraform Apply
         authType: terraform
+        condition: and(succeeded(), ne(variables['skipApply'], 'true'))
         dependsOn:
           - Terraform Plan
         deploymentSteps:
