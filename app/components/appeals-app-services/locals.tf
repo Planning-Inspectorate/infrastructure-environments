@@ -101,6 +101,7 @@ locals {
       app_name                        = "pdf-api"
       app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
       endpoint_subnet_id              = var.endpoint_subnet_id
+      image_name                      = "appeal-planning-decisions/pdf-api"
       inbound_vnet_connectivity       = true
       key_vault_access                = false
       outbound_vnet_connectivity      = false
