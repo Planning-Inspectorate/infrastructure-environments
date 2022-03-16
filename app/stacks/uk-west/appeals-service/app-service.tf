@@ -18,11 +18,11 @@ module "app_services" {
   integration_subnet_id                                                       = var.integration_subnet_id
   key_vault_id                                                                = var.key_vault_id
   key_vault_secret_refs                                                       = var.key_vault_secret_refs
-  location                                                                    = azurerm_resource_group.appeals_service_stack[count.index].location
+  location                                                                    = azurerm_resource_group.appeals_service_stack.location
   logger_level                                                                = var.logger_level
   node_environment                                                            = var.node_environment
-  resource_group_id                                                           = azurerm_resource_group.appeals_service_stack[count.index].id
-  resource_group_name                                                         = azurerm_resource_group.appeals_service_stack[count.index].name
+  resource_group_id                                                           = azurerm_resource_group.appeals_service_stack.id
+  resource_group_name                                                         = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                                                             = local.resource_suffix
   service_name                                                                = local.service_name
   srv_notify_appeal_submission_confirmation_email_to_apellant_template_id     = var.srv_notify_appeal_submission_confirmation_email_to_apellant_template_id
