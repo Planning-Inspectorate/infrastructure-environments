@@ -31,9 +31,9 @@ locals {
 
       app_settings = {
         ENCRYPTION_SECRET_KEY                               = var.key_vault_secret_refs["applications-service-encryption-secret-key"]
-        HAVING_YOUR_SAY_URL                                 = "${var.applications_service_public_url}having-your-say-guide"
+        HAVING_YOUR_SAY_URL                                 = "https://${var.applications_service_public_url}/having-your-say-guide"
         LOGGER_LEVEL                                        = var.logger_level
-        MAGIC_LINK_DOMAIN                                   = var.applications_service_public_url
+        MAGIC_LINK_DOMAIN                                   = "https://${var.applications_service_public_url}/"
         MYSQL_DATABASE                                      = var.key_vault_secret_refs["applications-service-mysql-database"]
         MYSQL_DIALECT                                       = var.key_vault_secret_refs["applications-service-mysql-dialect"]
         MYSQL_HOST                                          = var.key_vault_secret_refs["applications-service-mysql-host"]
@@ -41,7 +41,7 @@ locals {
         MYSQL_PORT                                          = var.key_vault_secret_refs["applications-service-mysql-port"]
         MYSQL_USERNAME                                      = var.key_vault_secret_refs["applications-service-mysql-username"]
         NODE_ENV                                            = var.node_environment
-        PRELIMINARY_MEETING_URL                             = var.applications_service_public_url
+        PRELIMINARY_MEETING_URL                             = "https://${var.applications_service_public_url}/"
         SERVER_PORT                                         = "3000"
         SERVER_SHOW_ERRORS                                  = true
         SERVER_TERMINATION_GRACE_PERIOD_SECONDS             = "0"
