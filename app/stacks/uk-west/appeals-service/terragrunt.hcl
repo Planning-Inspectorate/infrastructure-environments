@@ -39,7 +39,9 @@ dependency "common_ukw" {
     app_service_plan_id              = "mock_id"
     common_resource_group_name       = "mock_resource_group_name"
     common_vnet_cidr_blocks = {
+      app_service_integration   = "10.1.1.0/24"
       appeals_service_endpoints = "10.1.2.0/24"
+      cosmosdb_endpoint         = "10.1.3.1/25"
     }
     common_vnet_gateway_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Network/virtualNetworkGateways/mock_id"
     common_vnet_name       = "mock_vnet_name"

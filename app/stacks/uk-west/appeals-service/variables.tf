@@ -55,6 +55,11 @@ variable "container_registry_rg" {
   type        = string
 }
 
+variable "cosmosdb_id" {
+  description = "The ID of the CosmosDB account"
+  type        = string
+}
+
 variable "cosmosdb_connection_string" {
   description = "The connection string used to connect to CosmosDB"
   sensitive   = true

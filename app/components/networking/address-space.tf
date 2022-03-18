@@ -8,6 +8,10 @@ module "vnet_address_space" {
       new_bits = 9 # /25 (123 usable) [0 - 127]
     },
     {
+      name     = "cosmosdb_endpoint"
+      new_bits = 9 # /25 (123 usable [128 - 255]
+    },
+    {
       name     = "app_service_integration"
       new_bits = 8 # /24 (251 usable) [0 - 255]
     },
@@ -18,6 +22,6 @@ module "vnet_address_space" {
     {
       name     = "applications_service_endpoints"
       new_bits = 8 # /24 (251 usable) [0 - 255]
-    },
+    }
   ]
 }

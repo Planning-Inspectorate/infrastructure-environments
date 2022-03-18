@@ -13,11 +13,9 @@ dependency "common" {
     app_service_plan_id              = "mock_id"
     common_resource_group_name       = "mock_resource_group_name"
     common_vnet_cidr_blocks = {
-      app_gateway                    = "10.1.0.0/25"
-      app_service_integration        = "10.1.1.0/24"
-      appeals_service_endpoints      = "10.1.2.0/24"
-      applications_service_endpoints = "10.1.3.0/24"
-      vpn_gateway                    = "10.1.0.128/25"
+      app_service_integration   = "10.1.1.0/24"
+      appeals_service_endpoints = "10.1.2.0/24"
+      cosmosdb_endpoint         = "10.1.3.1/25"
     }
     common_vnet_name      = "mock_vnet_name"
     integration_subnet_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"

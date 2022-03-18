@@ -80,7 +80,7 @@ extends:
                 artifactName: terraform-plan-$(ENVIRONMENT)
                 environmentVariables:
                   ENV: $(ENVIRONMENT)
-                  ${{ eq(parameters.DRDeployment, 'true') }}:
+                  ${{ if eq(parameters.DRDeployment, 'true') }}:
                     DR_DEPLOYMENT: true
                 stack: ${{ parameters.stack }}
                 subscriptionId: $(SUBSCRIPTION_ID)
