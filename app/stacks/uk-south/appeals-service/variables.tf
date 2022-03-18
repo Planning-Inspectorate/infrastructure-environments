@@ -98,10 +98,20 @@ variable "primary_location" {
   default     = "uk-south"
 }
 
+variable "primary_cosmosdb_subnet_id" {
+  description = "The ID of the VNet in the primary location"
+  type        = string
+}
+
 variable "secondary_location" {
   description = "The secondary location resources are deployed to in slug format e.g. 'uk-west'"
   type        = string
   default     = "uk-west"
+}
+
+variable "secondary_cosmosdb_subnet_id" {
+  description = "The ID of the VNet in the secondary location"
+  type        = string
 }
 
 variable "srv_notify_appeal_submission_confirmation_email_to_apellant_template_id" {

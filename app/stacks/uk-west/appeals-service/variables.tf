@@ -60,6 +60,11 @@ variable "cosmosdb_id" {
   type        = string
 }
 
+variable "cosmosdb_subnet_id" {
+  description = "The ID of the subnet containing the Cosmos DB endpoint"
+  type        = string
+}
+
 variable "cosmosdb_connection_string" {
   description = "The connection string used to connect to CosmosDB"
   sensitive   = true

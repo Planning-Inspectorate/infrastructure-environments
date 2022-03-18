@@ -9,6 +9,11 @@ output "cosmosdb_connection_string" {
   value       = azurerm_cosmosdb_account.appeals_database.connection_strings[0]
 }
 
+output "cosmosdb_id" {
+  description = "The ID of the Cosmos DB account"
+  value       = azurerm_cosmosdb_account.appeals_database.id
+}
+
 output "function_apps_storage_account" {
   description = "The name of the storage account used by the Function Apps"
   value       = azurerm_storage_account.function_apps.name

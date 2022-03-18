@@ -10,7 +10,11 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
 
   access_key_metadata_writes_enabled = false
   enable_automatic_failover          = true
+  is_virtual_network_filter_enabled  = true
   public_network_access_enabled      = false
+
+  # IP addresses to allow access from Azure Portal. See: https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal
+  ip_range_filter = "104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 
   mongo_server_version = "3.6"
 
@@ -42,22 +46,22 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
     failover_priority = 0
   }
 
-  tags = local.tags
-}
+  virtual_network_rule {
+    id = var.primary_cosmosdb_subnet_id
+  }
 
-resource "azurerm_subnet" "cosmosdb" {
-  name                                           = "pins-snet-appeals-database-${local.resource_suffix}"
-  resource_group_name                            = var.common_resource_group_name
-  virtual_network_name                           = var.common_vnet_name
-  address_prefixes                               = [var.common_vnet_cidr_blocks["cosmosdb_endpoint"]]
-  enforce_private_link_endpoint_network_policies = true
+  virtual_network_rule {
+    id = var.secondary_cosmosdb_subnet_id
+  }
+
+  tags = local.tags
 }
 
 resource "azurerm_private_endpoint" "cosmosdb" {
   name                = "pins-pe-${local.service_name}-appeals-db-${local.resource_suffix}"
   location            = azurerm_resource_group.appeals_service_stack.location
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
-  subnet_id           = azurerm_subnet.cosmosdb.id
+  subnet_id           = var.primary_cosmosdb_subnet_id
 
   private_service_connection {
     name                           = "appealsdatabase"

@@ -41,6 +41,11 @@ output "common_vnet_name" {
   value       = module.networking.vnet_name
 }
 
+output "cosmosdb_subnet_id" {
+  description = "The id of the Cosmos DB endpoint subnet"
+  value       = module.networking.cosmosdb_subnet_id
+}
+
 output "integration_subnet_id" {
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   value       = module.networking.integration_subnet_id
@@ -54,4 +59,9 @@ output "key_vault_id" {
 output "key_vault_secret_refs" {
   description = "Map of secret references from the Key Vault"
   value       = local.secret_refs
+}
+
+output "vnet_id" {
+  description = "The ID of the Virtual Network"
+  value       = module.networking.vnet_id
 }

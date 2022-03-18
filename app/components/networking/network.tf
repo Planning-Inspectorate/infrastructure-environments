@@ -15,6 +15,13 @@ resource "azurerm_subnet" "vnet_gateway_subnet" {
   address_prefixes     = [module.vnet_address_space.network_cidr_blocks["vnet_gateway"]]
 }
 
+resource "azurerm_subnet" "cosmosdb" {
+  name                 = "pins-snet-cosmosdb-${var.resource_suffix}"
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = azurerm_virtual_network.common_infrastructure.name
+  address_prefixes     = [module.vnet_address_space.network_cidr_blocks["cosmosdb_endpoint"]]
+}
+
 resource "azurerm_subnet" "integration_subnet" {
   name                 = "pins-snet-${var.service_name}-integration-${var.resource_suffix}"
   resource_group_name  = var.resource_group_name
