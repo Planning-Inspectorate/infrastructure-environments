@@ -52,8 +52,9 @@ dependency "applications_service_ukw" {
 
 inputs = {
   app_service_urls = merge(
-    dependency.appeals_service_uks.outputs.app_service_urls,
-    dependency.appeals_service_ukw.outputs.app_service_urls,
+    # dependency.appeals_service_uks.outputs.app_service_urls,
+    # dependency.appeals_service_ukw.outputs.app_service_urls,
+
     dependency.applications_service_uks.outputs.app_service_urls,
     dependency.applications_service_ukw.outputs.app_service_urls
   )
