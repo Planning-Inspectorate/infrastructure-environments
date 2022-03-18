@@ -20,6 +20,7 @@ resource "azurerm_subnet" "cosmosdb" {
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.common_infrastructure.name
   address_prefixes     = [module.vnet_address_space.network_cidr_blocks["cosmosdb_endpoint"]]
+  service_endpoints    = ["Microsoft.AzureCosmosDB"]
 }
 
 resource "azurerm_subnet" "integration_subnet" {
