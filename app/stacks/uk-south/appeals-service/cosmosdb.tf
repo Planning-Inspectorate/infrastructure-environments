@@ -44,3 +44,19 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
 
   tags = local.tags
 }
+
+resource "azurerm_private_endpoint" "cosmosdb" {
+  name                = "pins-pe-${local.service_name}-appeals-db-${local.resource_suffix}"
+  location            = azurerm_resource_group.appeals_service_stack.location
+  resource_group_name = azurerm_resource_group.appeals_service_stack.name
+  subnet_id           = azurerm_subnet.appeals_service_ingress.id
+
+  private_service_connection {
+    name                           = "appealsdatabase"
+    private_connection_resource_id = azurerm_cosmosdb_account.appeals_database.id
+    subresource_names              = ["mongodb"]
+    is_manual_connection           = false
+  }
+
+  tags = local.tags
+}
