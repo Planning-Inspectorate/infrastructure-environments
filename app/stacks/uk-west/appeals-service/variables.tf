@@ -15,11 +15,6 @@ variable "app_service_plan_id" {
   type        = string
 }
 
-variable "app_service_private_dns_zone_id" {
-  description = "The id of the private DNS zone for App services"
-  type        = string
-}
-
 variable "appeals_service_public_url" {
   description = "The public URL for the Appeals Service frontend web app"
   type        = string

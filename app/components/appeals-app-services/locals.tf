@@ -31,7 +31,7 @@ locals {
       outbound_vnet_connectivity      = true
 
       app_settings = {
-        APP_APPEALS_BASE_URL                                                        = var.appeals_service_public_url
+        APP_APPEALS_BASE_URL                                                        = "https://${var.appeals_service_public_url}"
         DOCS_API_PATH                                                               = "/opt/app/api"
         DOCUMENTS_SERVICE_API_TIMEOUT                                               = "10000"
         DOCUMENTS_SERVICE_API_URL                                                   = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net/"

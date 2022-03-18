@@ -4,3 +4,11 @@ data "azurerm_container_registry" "acr" {
 
   provider = azurerm.tooling
 }
+
+data "azurerm_private_dns_zone" "app_service" {
+  name = "privatelink.azurewebsites.net"
+}
+
+data "azurerm_private_dns_zone" "cosmosdb" {
+  name = "privatelink.mongo.cosmos.azure.com"
+}
