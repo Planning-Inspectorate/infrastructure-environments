@@ -47,11 +47,13 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
   }
 
   virtual_network_rule {
-    id = var.primary_cosmosdb_subnet_id
+    id                                   = var.primary_cosmosdb_subnet_id
+    ignore_missing_vnet_service_endpoint = true
   }
 
   virtual_network_rule {
-    id = var.secondary_cosmosdb_subnet_id
+    id                                   = var.secondary_cosmosdb_subnet_id
+    ignore_missing_vnet_service_endpoint = true
   }
 
   tags = local.tags
