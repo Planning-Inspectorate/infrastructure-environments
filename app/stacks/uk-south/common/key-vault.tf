@@ -19,6 +19,10 @@ resource "azurerm_key_vault_access_policy" "terraform" {
   object_id    = data.azurerm_client_config.current.object_id
   tenant_id    = data.azurerm_client_config.current.tenant_id
 
+  certificate_permissions = [
+    "Create", "Delete", "Get", "List", "Update", "Recover"
+  ]
+
   key_permissions = [
     "Create", "Delete", "Get", "List", "Purge", "Recover"
   ]
@@ -36,6 +40,10 @@ resource "azurerm_key_vault_access_policy" "admins" {
   key_vault_id = azurerm_key_vault.environment_key_vault.id
   object_id    = "6e0b1ad0-76db-4871-b8d8-9d7b539527ff" # "PINS ODT Key Vault Admins"
   tenant_id    = data.azurerm_client_config.current.tenant_id
+
+  certificate_permissions = [
+    "Create", "Get", "List"
+  ]
 
   key_permissions = [
     "Create", "Get", "List"
