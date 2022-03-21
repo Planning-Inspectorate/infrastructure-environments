@@ -15,11 +15,6 @@ variable "app_service_plan_id" {
   type        = string
 }
 
-variable "app_service_private_dns_zone_id" {
-  description = "The id of the private DNS zone for App services"
-  type        = string
-}
-
 variable "appeals_service_public_url" {
   description = "The public URL for the Appeals Service frontend web app"
   type        = string
@@ -96,6 +91,11 @@ variable "primary_location" {
   description = "The primary location resources are deployed to in slug format e.g. 'uk-south'"
   type        = string
   default     = "uk-south"
+}
+
+variable "primary_cosmosdb_subnet_id" {
+  description = "The ID of the VNet in the primary location"
+  type        = string
 }
 
 variable "secondary_location" {

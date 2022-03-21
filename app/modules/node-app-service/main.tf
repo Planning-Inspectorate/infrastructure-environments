@@ -76,7 +76,7 @@ resource "azurerm_private_endpoint" "private_endpoint" {
   subnet_id           = var.endpoint_subnet_id
 
   private_dns_zone_group {
-    name                 = "privatednszonegroup"
+    name                 = "appserviceprivatednszone"
     private_dns_zone_ids = [var.app_service_private_dns_zone_id]
   }
 

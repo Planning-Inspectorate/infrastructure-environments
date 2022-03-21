@@ -10,7 +10,11 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
 
   access_key_metadata_writes_enabled = false
   enable_automatic_failover          = true
+  is_virtual_network_filter_enabled  = false
   public_network_access_enabled      = false
+
+  # IP addresses to allow access from Azure Portal. See: https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal
+  ip_range_filter = "104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 
   mongo_server_version = "3.6"
 
@@ -40,6 +44,27 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
   geo_location {
     location          = module.azure_region_primary.location
     failover_priority = 0
+  }
+
+  tags = local.tags
+}
+
+resource "azurerm_private_endpoint" "cosmosdb" {
+  name                = "pins-pe-${local.service_name}-appeals-db-${local.resource_suffix}"
+  location            = azurerm_resource_group.appeals_service_stack.location
+  resource_group_name = azurerm_resource_group.appeals_service_stack.name
+  subnet_id           = var.primary_cosmosdb_subnet_id
+
+  private_dns_zone_group {
+    name                 = "cosmosdbprivatednszone"
+    private_dns_zone_ids = [data.azurerm_private_dns_zone.cosmosdb.id]
+  }
+
+  private_service_connection {
+    name                           = "appealsdatabase"
+    private_connection_resource_id = azurerm_cosmosdb_account.appeals_database.id
+    subresource_names              = ["MongoDB"]
+    is_manual_connection           = false
   }
 
   tags = local.tags

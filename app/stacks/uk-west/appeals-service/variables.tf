@@ -15,11 +15,6 @@ variable "app_service_plan_id" {
   type        = string
 }
 
-variable "app_service_private_dns_zone_id" {
-  description = "The id of the private DNS zone for App services"
-  type        = string
-}
-
 variable "appeals_service_public_url" {
   description = "The public URL for the Appeals Service frontend web app"
   type        = string
@@ -52,6 +47,16 @@ variable "container_registry_name" {
 
 variable "container_registry_rg" {
   description = "The resource group of the container registry that hosts the image"
+  type        = string
+}
+
+variable "cosmosdb_id" {
+  description = "The ID of the CosmosDB account"
+  type        = string
+}
+
+variable "cosmosdb_subnet_id" {
+  description = "The ID of the subnet containing the Cosmos DB endpoint"
   type        = string
 }
 

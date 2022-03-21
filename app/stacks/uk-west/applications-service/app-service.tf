@@ -7,7 +7,7 @@ module "app_services" {
   app_insights_connection_string                                  = var.app_insights_connection_string
   app_insights_instrumentation_key                                = var.app_insights_instrumentation_key
   app_service_plan_id                                             = var.app_service_plan_id
-  app_service_private_dns_zone_id                                 = var.app_service_private_dns_zone_id
+  app_service_private_dns_zone_id                                 = data.azurerm_private_dns_zone.app_service.id
   applications_service_public_url                                 = var.applications_service_public_url
   container_registry_login_server                                 = data.azurerm_container_registry.acr.login_server
   container_registry_password                                     = data.azurerm_container_registry.acr.admin_password
