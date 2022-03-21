@@ -104,11 +104,6 @@ variable "secondary_location" {
   default     = "uk-west"
 }
 
-variable "secondary_cosmosdb_subnet_id" {
-  description = "The ID of the VNet in the secondary location"
-  type        = string
-}
-
 variable "srv_notify_appeal_submission_confirmation_email_to_apellant_template_id" {
   description = "A template ID required by the Appeals Service API"
   type        = string

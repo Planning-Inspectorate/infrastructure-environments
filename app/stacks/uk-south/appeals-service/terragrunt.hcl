@@ -29,16 +29,6 @@ dependency "common_uks" {
   }
 }
 
-dependency "common_ukw" {
-  config_path                             = "../../uk-west/common"
-  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
-  mock_outputs_merge_with_state           = true
-
-  mock_outputs = {
-    cosmosdb_subnet_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
-  }
-}
-
 inputs = {
   app_insights_connection_string   = dependency.common_uks.outputs.app_insights_connection_string
   app_insights_instrumentation_key = dependency.common_uks.outputs.app_insights_instrumentation_key
@@ -50,5 +40,4 @@ inputs = {
   key_vault_id                     = dependency.common_uks.outputs.key_vault_id
   key_vault_secret_refs            = dependency.common_uks.outputs.key_vault_secret_refs
   primary_cosmosdb_subnet_id       = dependency.common_uks.outputs.cosmosdb_subnet_id
-  secondary_cosmosdb_subnet_id     = dependency.common_ukw.outputs.cosmosdb_subnet_id
 }

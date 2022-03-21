@@ -10,7 +10,7 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
 
   access_key_metadata_writes_enabled = false
   enable_automatic_failover          = true
-  is_virtual_network_filter_enabled  = true
+  is_virtual_network_filter_enabled  = false
   public_network_access_enabled      = false
 
   # IP addresses to allow access from Azure Portal. See: https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal
@@ -44,16 +44,6 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
   geo_location {
     location          = module.azure_region_primary.location
     failover_priority = 0
-  }
-
-  virtual_network_rule {
-    id                                   = var.primary_cosmosdb_subnet_id
-    ignore_missing_vnet_service_endpoint = true
-  }
-
-  virtual_network_rule {
-    id                                   = var.secondary_cosmosdb_subnet_id
-    ignore_missing_vnet_service_endpoint = true
   }
 
   tags = local.tags
