@@ -36,10 +36,10 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
     max_staleness_prefix    = 100002
   }
 
-  geo_location {
-    location          = module.azure_region_secondary.location
-    failover_priority = 1
-  }
+  #  geo_location {
+  #    location          = module.azure_region_secondary.location
+  #    failover_priority = 1
+  #  }
 
   geo_location {
     location          = module.azure_region_primary.location
