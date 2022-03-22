@@ -8,6 +8,16 @@ variable "deploy_national_infrastructure_vnet_gateway" {
   type        = bool
 }
 
+variable "env_network_region_short" {
+  description = "The location resources are deployed to in short format e.g. 'uks'"
+  type        = string
+}
+
+variable "environment" {
+  description = "The environment resources are deployed to e.g. 'dev'"
+  type        = string
+}
+
 variable "location" {
   description = "The location resources are deployed to in slug format e.g. 'uk-south'"
   type        = string
@@ -36,6 +46,11 @@ variable "tags" {
 
 variable "tooling_network_name" {
   description = "The name of the VNet in the Tooling environment"
+  type        = string
+}
+
+variable "tooling_network_region_short" {
+  description = "The region in which the Tooling VNet resides in short format e.g. 'uks'"
   type        = string
 }
 
