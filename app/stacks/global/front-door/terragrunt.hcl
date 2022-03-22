@@ -50,8 +50,8 @@ dependency "applications_service_ukw" {
   }
 }
 
-dependency "common_uks" {
-  config_path                             = "../../uk-south/common"
+dependency "common_ukw" {
+  config_path                             = "../../uk-west/common"
   mock_outputs_allowed_terraform_commands = ["validate", "plan"]
   mock_outputs_merge_with_state           = true
 
@@ -68,5 +68,5 @@ inputs = {
     dependency.applications_service_uks.outputs.app_service_urls,
     dependency.applications_service_ukw.outputs.app_service_urls
   )
-  common_key_vault_id = dependency.common_uks.outputs.key_vault_id
+  common_key_vault_id = dependency.common_ukw.outputs.key_vault_id
 }

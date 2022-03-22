@@ -1,24 +1,24 @@
 output "app_insights_connection_string" {
   description = "The Application Insights connection string used to allow monitoring on App Services"
   sensitive   = true
-  value       = length(azurerm_application_insights.node) > 0 ? azurerm_application_insights.node[0].connection_string : null
+  value       = azurerm_application_insights.node.connection_string
 }
 
 output "app_insights_instrumentation_key" {
   description = "The Application Insights instrumentation key used to allow monitoring on App Services"
   sensitive   = true
-  value       = length(azurerm_application_insights.node) > 0 ? azurerm_application_insights.node[0].instrumentation_key : null
+  value       = azurerm_application_insights.node.instrumentation_key
 }
 
 output "app_service_plan_id" {
   description = "The id of the app service plan"
-  value       = length(azurerm_app_service_plan.common_service_plan) > 0 ? azurerm_app_service_plan.common_service_plan[0].id : null
+  value       = azurerm_app_service_plan.common_service_plan.id
 }
 
 output "applications_service_vpn_gateway_shared_key" {
   description = "The applications service virtual network gateway shared key"
   sensitive   = true
-  value       = var.applications_service_vpn_gateway_shared_key
+  value       = data.azurerm_key_vault_secret.applications_service_vpn_gateway_shared_key.value
 }
 
 output "common_resource_group_name" {
@@ -49,6 +49,16 @@ output "cosmosdb_subnet_id" {
 output "integration_subnet_id" {
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   value       = module.networking.integration_subnet_id
+}
+
+output "key_vault_id" {
+  description = "The ID of the key vault so App Services can pull secret values"
+  value       = azurerm_key_vault.environment_key_vault.id
+}
+
+output "key_vault_secret_refs" {
+  description = "Map of secret references from the Key Vault"
+  value       = local.secret_refs
 }
 
 output "vnet_id" {

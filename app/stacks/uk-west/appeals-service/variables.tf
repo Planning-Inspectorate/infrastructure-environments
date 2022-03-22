@@ -29,7 +29,6 @@ variable "common_tags" {
   description = "The common resource tags for the project"
   type        = map(string)
 }
-
 variable "common_vnet_cidr_blocks" {
   description = "A map of IP address blocks from the subnet name to the allocated CIDR prefix"
   type        = map(string)
@@ -50,35 +49,8 @@ variable "container_registry_rg" {
   type        = string
 }
 
-variable "cosmosdb_id" {
-  description = "The ID of the CosmosDB account"
-  type        = string
-}
-
-variable "cosmosdb_subnet_id" {
-  description = "The ID of the subnet containing the Cosmos DB endpoint"
-  type        = string
-}
-
-variable "cosmosdb_connection_string" {
-  description = "The connection string used to connect to CosmosDB"
-  sensitive   = true
-  type        = string
-}
-
 variable "environment" {
   description = "The environment resources are deployed to e.g. 'dev'"
-  type        = string
-}
-
-variable "function_apps_storage_account" {
-  description = "The name of the storage account used by the Function Apps"
-  type        = string
-}
-
-variable "function_apps_storage_account_primary_access_key" {
-  description = "The primary access key of the storage account used by the Function Apps"
-  sensitive   = true
   type        = string
 }
 
@@ -93,12 +65,6 @@ variable "integration_subnet_id" {
   type        = string
 }
 
-variable "is_dr_deployment" {
-  description = "A flag to indicate whether or not the infrastructure deployment is for a disaster recovery scenario"
-  type        = bool
-  default     = false
-}
-
 variable "key_vault_id" {
   description = "The ID of the key vault so the App Service can pull secret values"
   type        = string
@@ -107,12 +73,6 @@ variable "key_vault_id" {
 variable "key_vault_secret_refs" {
   description = "Map of secret references from the Key Vault"
   type        = map(string)
-}
-
-variable "location" {
-  description = "The location resources are deployed to in slug format e.g. 'uk-west'"
-  type        = string
-  default     = "uk-west"
 }
 
 variable "logger_level" {
@@ -125,6 +85,23 @@ variable "node_environment" {
   description = "The node environment to be used for applications in this environment e.g. development"
   type        = string
   default     = "development"
+}
+
+variable "primary_location" {
+  description = "The primary location resources are deployed to in slug format e.g. 'uk-south'"
+  type        = string
+  default     = "uk-west"
+}
+
+variable "primary_cosmosdb_subnet_id" {
+  description = "The ID of the VNet in the primary location"
+  type        = string
+}
+
+variable "secondary_location" {
+  description = "The secondary location resources are deployed to in slug format e.g. 'uk-west'"
+  type        = string
+  default     = "uk-south"
 }
 
 variable "srv_notify_appeal_submission_confirmation_email_to_apellant_template_id" {

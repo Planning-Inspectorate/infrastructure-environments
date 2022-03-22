@@ -1,13 +1,6 @@
-module "azure_region_primary" {
+module "azure_region_uks" {
   source  = "claranet/regions/azurerm"
   version = "4.2.1"
 
-  azure_region = var.primary_location
-}
-
-module "azure_region_secondary" {
-  source  = "claranet/regions/azurerm"
-  version = "4.2.1"
-
-  azure_region = var.secondary_location
+  azure_region = var.location
 }

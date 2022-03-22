@@ -87,6 +87,12 @@ variable "integration_subnet_id" {
   type        = string
 }
 
+variable "is_dr_deployment" {
+  description = "A flag to indicate whether or not the infrastructure deployment is for a disaster recovery scenario"
+  type        = bool
+  default     = false
+}
+
 variable "key_vault_id" {
   description = "The ID of the key vault so the App Service can pull secret values"
   type        = string
@@ -98,7 +104,7 @@ variable "key_vault_secret_refs" {
 }
 
 variable "location" {
-  description = "The location resources are deployed to in slug format e.g. 'uk-south'"
+  description = "The location resources are deployed to in slug format e.g. 'uk-west'"
   type        = string
   default     = "uk-south"
 }

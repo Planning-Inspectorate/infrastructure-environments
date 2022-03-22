@@ -47,9 +47,9 @@ variable "instance" {
 }
 
 variable "location" {
-  description = "The location resources are deployed to in slug format e.g. 'uk-south'"
+  description = "The location resources are deployed to in slug format e.g. 'uk-west'"
   type        = string
-  default     = "uk-south"
+  default     = "uk-west"
 }
 
 variable "use_wildcard_certificate" {
