@@ -26,7 +26,7 @@ variable "applications_service_public_url" {
 }
 
 variable "common_key_vault_id" {
-  description = "The common Key Vault for the environment"
+  description = "The ID of the common environment Key Vault that contains SSL certificates"
   type        = string
 }
 
@@ -47,9 +47,9 @@ variable "instance" {
 }
 
 variable "location" {
-  description = "The location resources are deployed to in slug format e.g. 'uk-south'"
+  description = "The location resources are deployed to in slug format e.g. 'uk-west'"
   type        = string
-  default     = "uk-south"
+  default     = "uk-west"
 }
 
 variable "use_wildcard_certificate" {

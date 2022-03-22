@@ -1,25 +1,20 @@
 locals {
-  service_name    = "common"
-  resource_suffix = "${var.environment}-${module.azure_region_uks.location_short}-${var.instance}"
-  tags = merge(
-    var.common_tags,
-    {
-      ServiceName = local.service_name
-    }
-  )
+  service_name              = "common"
+  resource_suffix           = "${var.environment}-${var.instance}"
+  wildcard_certificate_name = "pins-wildcard"
 
   frontend_endpoint_mappings = {
     applications_frontend = {
       name                 = "ApplicationsService"
       frontend_endpoint    = var.applications_service_public_url
       patterns_to_match    = ["/*"]
-      ssl_certificate_name = var.use_wildcard_certificate ? data.azurerm_key_vault_certificate.pins_wildcard.name : var.applications_service_ssl_certificate_name
+      ssl_certificate_name = var.use_wildcard_certificate ? local.wildcard_certificate_name : var.applications_service_ssl_certificate_name
     }
     appeals_frontend = {
       name                 = "AppealsService"
       frontend_endpoint    = var.appeals_service_public_url
       patterns_to_match    = ["/*"]
-      ssl_certificate_name = var.use_wildcard_certificate ? data.azurerm_key_vault_certificate.pins_wildcard.name : var.appeals_service_ssl_certificate_name
+      ssl_certificate_name = var.use_wildcard_certificate ? local.wildcard_certificate_name : var.appeals_service_ssl_certificate_name
     }
   }
 
@@ -35,4 +30,12 @@ locals {
       local.frontend_endpoint_mappings[substr(k, 0, length(k) - 4)], { app_service_url = v }
     ) if length(regexall("-wfe-", v)) > 0
   }
+
+  tags = merge(
+    var.common_tags,
+    {
+      ServiceName = local.service_name
+      Region      = "Global"
+    }
+  )
 }

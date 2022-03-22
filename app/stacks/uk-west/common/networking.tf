@@ -1,8 +1,8 @@
 module "networking" {
   source = "../../../components/networking"
 
-  base_cidr_block                             = var.secondary_vnet_address_space
-  deploy_national_infrastructure_vnet_gateway = var.is_dr_deployment
+  base_cidr_block                             = var.primary_vnet_address_space
+  deploy_national_infrastructure_vnet_gateway = true
   location                                    = azurerm_resource_group.common_infrastructure.location
   resource_group_name                         = azurerm_resource_group.common_infrastructure.name
   resource_suffix                             = local.resource_suffix

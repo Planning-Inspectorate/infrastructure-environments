@@ -1,6 +1,4 @@
 module "app_services" {
-  count = var.is_dr_deployment ? 1 : 0
-
   source = "../../../components/applications-app-services"
 
   api_timeout                                                     = var.api_timeout
