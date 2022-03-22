@@ -3,7 +3,6 @@ resource "azurerm_frontdoor" "common" {
   name                                         = "pins-fd-${local.service_name}-${local.resource_suffix}"
   resource_group_name                          = azurerm_resource_group.frontdoor.name
   enforce_backend_pools_certificate_name_check = false
-  tags                                         = local.tags
 
   backend_pool_load_balancing {
     name                            = "Default"
@@ -118,6 +117,8 @@ resource "azurerm_frontdoor" "common" {
       }
     }
   }
+
+  tags = local.tags
 }
 
 resource "azurerm_frontdoor_custom_https_configuration" "ssl_certificate" {
