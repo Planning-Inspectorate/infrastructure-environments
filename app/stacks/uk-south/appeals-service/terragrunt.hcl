@@ -16,7 +16,7 @@ dependency "appeals_service_ukw" {
 }
 
 dependency "common_uks" {
-  config_path                             = "../../uk-south/common"
+  config_path                             = "../common"
   mock_outputs_allowed_terraform_commands = ["validate", "plan"]
   mock_outputs_merge_with_state           = true
 
@@ -38,7 +38,7 @@ dependency "common_uks" {
 }
 
 dependency "common_ukw" {
-  config_path                             = "../common"
+  config_path                             = "../../uk-west/common"
   mock_outputs_allowed_terraform_commands = ["validate", "plan"]
   mock_outputs_merge_with_state           = true
 
