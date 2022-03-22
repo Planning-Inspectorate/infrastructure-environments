@@ -194,4 +194,6 @@ resource "azurerm_key_vault_access_policy" "frontdoor" {
   key_vault_id = var.common_key_vault_id
   object_id    = var.frontdoor_service_principal
   tenant_id    = data.azurerm_client_config.current.tenant_id
+
+  certificate_permissions = ["Get"]
 }
