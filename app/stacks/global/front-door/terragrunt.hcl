@@ -57,7 +57,7 @@ dependency "common_ukw" {
   mock_outputs_merge_with_state           = true
 
   mock_outputs = {
-    common_key_vault_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock-rg/providers/Microsoft.KeyVault/vaults/mockkv"
+    key_vault_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock-rg/providers/Microsoft.KeyVault/vaults/mockkv"
   }
 }
 
