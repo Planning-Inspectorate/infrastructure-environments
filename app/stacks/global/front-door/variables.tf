@@ -25,11 +25,6 @@ variable "applications_service_public_url" {
   type        = string
 }
 
-variable "common_key_vault_id" {
-  description = "The common Key Vault for the environment"
-  type        = string
-}
-
 variable "common_tags" {
   description = "The common resource tags for the project"
   type        = map(string)
@@ -37,11 +32,6 @@ variable "common_tags" {
 
 variable "environment" {
   description = "The environment resources are deployed to e.g. 'dev'"
-  type        = string
-}
-
-variable "frontdoor_service_principal" {
-  description = "The object ID for the Front Door Service Principal configured at the tenant level"
   type        = string
 }
 
@@ -55,6 +45,11 @@ variable "location" {
   description = "The location resources are deployed to in slug format e.g. 'uk-west'"
   type        = string
   default     = "uk-west"
+}
+
+variable "tooling_key_vault_id" {
+  description = "The ID of the Key Vault in the Tooling subscription that contains SSL certificates"
+  type        = string
 }
 
 variable "use_wildcard_certificate" {
