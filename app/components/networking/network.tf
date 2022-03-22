@@ -71,7 +71,7 @@ resource "azurerm_virtual_network_peering" "env_to_tooling" {
 }
 
 resource "azurerm_virtual_network_peering" "tooling_to_env" {
-  name                      = "pins-peer-tooling-to-env-shared-tooling-${var.tooling_network_region_short}"
+  name                      = "pins-peer-tooling-to-${var.environment}-${var.env_network_region_short}-shared-tooling-${var.tooling_network_region_short}"
   remote_virtual_network_id = azurerm_virtual_network.common_infrastructure.id
   resource_group_name       = var.tooling_network_rg
   virtual_network_name      = var.tooling_network_name

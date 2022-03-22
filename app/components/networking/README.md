@@ -42,6 +42,8 @@ No requirements.
 |------|-------------|------|---------|:--------:|
 | <a name="input_base_cidr_block"></a> [base\_cidr\_block](#input\_base\_cidr\_block) | The CIDR address space for the virtual network | `string` | n/a | yes |
 | <a name="input_deploy_national_infrastructure_vnet_gateway"></a> [deploy\_national\_infrastructure\_vnet\_gateway](#input\_deploy\_national\_infrastructure\_vnet\_gateway) | A flag to determine if the VNet gateway to the National Infrastructure subscription should be deployed | `bool` | n/a | yes |
+| <a name="input_env_network_region_short"></a> [env\_network\_region\_short](#input\_env\_network\_region\_short) | The location resources are deployed to in short format e.g. 'uks' | `string` | n/a | yes |
+| <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | The location resources are deployed to in slug format e.g. 'uk-south' | `string` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the resource group that will contain the App Services | `string` | n/a | yes |
 | <a name="input_resource_suffix"></a> [resource\_suffix](#input\_resource\_suffix) | The suffix for resource naming | `string` | n/a | yes |

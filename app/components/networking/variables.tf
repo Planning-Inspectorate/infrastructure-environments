@@ -8,6 +8,16 @@ variable "deploy_national_infrastructure_vnet_gateway" {
   type        = bool
 }
 
+variable "env_network_region_short" {
+  description = "The location resources are deployed to in short format e.g. 'uks'"
+  type        = string
+}
+
+variable "environment" {
+  description = "The environment resources are deployed to e.g. 'dev'"
+  type        = string
+}
+
 variable "location" {
   description = "The location resources are deployed to in slug format e.g. 'uk-south'"
   type        = string
