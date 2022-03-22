@@ -130,6 +130,6 @@ resource "azurerm_frontdoor_custom_https_configuration" "ssl_certificate" {
   custom_https_configuration {
     certificate_source                      = "AzureKeyVault"
     azure_key_vault_certificate_secret_name = each.value["ssl_certificate_name"]
-    azure_key_vault_certificate_vault_id    = var.tooling_key_vault_id
+    azure_key_vault_certificate_vault_id    = var.common_key_vault_id
   }
 }

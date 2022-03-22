@@ -41,21 +41,19 @@ resource "azurerm_key_vault_access_policy" "admins" {
   object_id    = "6e0b1ad0-76db-4871-b8d8-9d7b539527ff" # "PINS ODT Key Vault Admins"
   tenant_id    = data.azurerm_client_config.current.tenant_id
 
-  certificate_permissions = [
-    "Create", "Get", "List"
-  ]
+  certificate_permissions = ["Create", "Get", "List"]
+  key_permissions         = ["Create", "Get", "List"]
+  secret_permissions      = ["Get", "List", "Set"]
+  storage_permissions     = ["Get", "List", "Set"]
+}
 
-  key_permissions = [
-    "Create", "Get", "List"
-  ]
+resource "azurerm_key_vault_access_policy" "frontdoor" {
+  key_vault_id = azurerm_key_vault.environment_key_vault.id
+  object_id    = var.front_door_principal_id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
 
-  secret_permissions = [
-    "Get", "List", "Set"
-  ]
-
-  storage_permissions = [
-    "Get", "List", "Set"
-  ]
+  certificate_permissions = ["Get"]
+  secret_permissions      = ["Get"]
 }
 
 resource "azurerm_key_vault_secret" "applications_service_vpn_gateway_shared_key" {

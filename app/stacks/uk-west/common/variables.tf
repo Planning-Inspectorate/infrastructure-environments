@@ -8,6 +8,11 @@ variable "environment" {
   type        = string
 }
 
+variable "front_door_principal_id" {
+  description = "The ID of the service principal associated with Front Door in the tenant"
+  type        = string
+}
+
 variable "instance" {
   description = "The environment instance for use if multiple environments are deployed to a subscription"
   type        = string
