@@ -13,13 +13,13 @@ locals {
       name                 = "ApplicationsService"
       frontend_endpoint    = var.applications_service_public_url
       patterns_to_match    = ["/*"]
-      ssl_certificate_name = var.applications_service_ssl_certificate_name
+      ssl_certificate_name = var.use_wildcard_certificate ? data.azurerm_key_vault_certificate.pins_wildcard.name : var.applications_service_ssl_certificate_name
     }
     appeals_frontend = {
       name                 = "AppealsService"
       frontend_endpoint    = var.appeals_service_public_url
       patterns_to_match    = ["/*"]
-      ssl_certificate_name = var.appeals_service_ssl_certificate_name
+      ssl_certificate_name = var.use_wildcard_certificate ? data.azurerm_key_vault_certificate.pins_wildcard.name : var.appeals_service_ssl_certificate_name
     }
   }
 

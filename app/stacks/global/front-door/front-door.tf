@@ -132,3 +132,66 @@ resource "azurerm_frontdoor_custom_https_configuration" "ssl_certificate" {
     azure_key_vault_certificate_vault_id    = var.common_key_vault_id
   }
 }
+
+resource "azurerm_key_vault_certificate" "pins_wildcard" {
+  name         = "pins-wildcard"
+  key_vault_id = var.common_key_vault_id
+
+  certificate_policy {
+    issuer_parameters {
+      name = "Self"
+    }
+
+    key_properties {
+      exportable = true
+      key_size   = 2048
+      key_type   = "RSA"
+      reuse_key  = true
+    }
+
+    lifetime_action {
+      action {
+        action_type = "AutoRenew"
+      }
+
+      trigger {
+        days_before_expiry = 30
+      }
+    }
+
+    secret_properties {
+      content_type = "application/x-pkcs12"
+    }
+
+    x509_certificate_properties {
+      extended_key_usage = [
+        "1.3.6.1.5.5.7.3.1",
+        "1.3.6.1.5.5.7.3.2"
+      ]
+
+      key_usage = [
+        "dataEncipherment",
+        "digitalSignature"
+      ]
+
+      subject            = "CN=*.planninginspectorate.gov.uk"
+      validity_in_months = 12
+    }
+  }
+
+  tags = local.tags
+
+  lifecycle {
+    ignore_changes = [
+      certificate,
+      version
+    ]
+  }
+}
+
+#TODO: Update Object ID to Front Door Service Principal once it has been created
+resource "azurerm_key_vault_access_policy" "frontdoor" {
+  key_vault_id = var.common_key_vault_id
+  object_id    = data.azurerm_client_config.current.client_id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+}

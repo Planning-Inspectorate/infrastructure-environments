@@ -6,6 +6,7 @@ variable "app_service_urls" {
 variable "appeals_service_ssl_certificate_name" {
   description = "The SSL certificate name in the environment Key Vault for the appeals service"
   type        = string
+  default     = null
 }
 
 variable "appeals_service_public_url" {
@@ -16,6 +17,7 @@ variable "appeals_service_public_url" {
 variable "applications_service_ssl_certificate_name" {
   description = "The SSL certificate name in the environment Key Vault for the applications service"
   type        = string
+  default     = null
 }
 
 variable "applications_service_public_url" {
@@ -48,4 +50,10 @@ variable "location" {
   description = "The location resources are deployed to in slug format e.g. 'uk-south'"
   type        = string
   default     = "uk-south"
+}
+
+variable "use_wildcard_certificate" {
+  description = "A flag to indicate if Frontdoor should use the provisioned wildcard certificate"
+  type        = bool
+  default     = false
 }
