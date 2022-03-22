@@ -11,7 +11,10 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
   access_key_metadata_writes_enabled = false
   enable_automatic_failover          = true
   is_virtual_network_filter_enabled  = false
-  public_network_access_enabled      = false
+  #TODO: Private endpoint connection not working so this is enabled for now - Access restrictions done by firewall
+  #checkov:skip=CKV_AZURE_99
+  #checkov:skip=CKV_AZURE_101
+  public_network_access_enabled = true
 
   # IP addresses to allow access from Azure Portal. See: https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal
   ip_range_filter = "104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
