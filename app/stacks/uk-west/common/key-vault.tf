@@ -19,21 +19,10 @@ resource "azurerm_key_vault_access_policy" "terraform" {
   object_id    = data.azurerm_client_config.current.object_id
   tenant_id    = data.azurerm_client_config.current.tenant_id
 
-  certificate_permissions = [
-    "Create", "Delete", "Get", "Import", "List", "Update", "Recover"
-  ]
-
-  key_permissions = [
-    "Create", "Delete", "Get", "List", "Purge", "Recover"
-  ]
-
-  secret_permissions = [
-    "Delete", "Get", "List", "Set", "Purge", "Recover"
-  ]
-
-  storage_permissions = [
-    "Delete", "Get", "List", "Set", "Purge", "Recover"
-  ]
+  certificate_permissions = ["Create", "Delete", "Get", "Import", "List", "Update", "Recover"]
+  key_permissions         = ["Create", "Delete", "Get", "List", "Purge", "Recover"]
+  secret_permissions      = ["Delete", "Get", "List", "Set", "Purge", "Recover"]
+  storage_permissions     = ["Delete", "Get", "List", "Set", "Purge", "Recover"]
 }
 
 resource "azurerm_key_vault_access_policy" "admins" {
@@ -53,7 +42,9 @@ resource "azurerm_key_vault_access_policy" "frontdoor" {
   tenant_id    = data.azurerm_client_config.current.tenant_id
 
   certificate_permissions = ["Get"]
+  key_permissions         = []
   secret_permissions      = ["Get"]
+  storage_permissions     = []
 }
 
 resource "azurerm_key_vault_secret" "applications_service_vpn_gateway_shared_key" {
