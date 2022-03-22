@@ -44,6 +44,7 @@ No requirements.
 | <a name="input_common_key_vault_id"></a> [common\_key\_vault\_id](#input\_common\_key\_vault\_id) | The common Key Vault for the environment | `string` | n/a | yes |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | The common resource tags for the project | `map(string)` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
+| <a name="input_frontdoor_service_principal"></a> [frontdoor\_service\_principal](#input\_frontdoor\_service\_principal) | The object ID for the Front Door Service Principal configured at the tenant level | `string` | n/a | yes |
 | <a name="input_instance"></a> [instance](#input\_instance) | The environment instance for use if multiple environments are deployed to a subscription | `string` | `"001"` | no |
 | <a name="input_location"></a> [location](#input\_location) | The location resources are deployed to in slug format e.g. 'uk-west' | `string` | `"uk-west"` | no |
 | <a name="input_use_wildcard_certificate"></a> [use\_wildcard\_certificate](#input\_use\_wildcard\_certificate) | A flag to indicate if Frontdoor should use the provisioned wildcard certificate | `bool` | `false` | no |

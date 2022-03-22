@@ -189,9 +189,8 @@ resource "azurerm_key_vault_certificate" "pins_wildcard" {
   }
 }
 
-#TODO: Update Object ID to Front Door Service Principal once it has been created
 resource "azurerm_key_vault_access_policy" "frontdoor" {
   key_vault_id = var.common_key_vault_id
-  object_id    = data.azurerm_client_config.current.client_id
+  object_id    = var.frontdoor_service_principal
   tenant_id    = data.azurerm_client_config.current.tenant_id
 }
