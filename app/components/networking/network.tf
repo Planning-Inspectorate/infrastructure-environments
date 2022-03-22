@@ -63,9 +63,18 @@ resource "azurerm_private_dns_zone_virtual_network_link" "app_service_vnet_link"
   provider = azurerm.tooling
 }
 
-resource "azurerm_virtual_network_peering" "tooling" {
-  name                      = "pins-peer-tooling-${var.service_name}-${var.resource_suffix}"
+resource "azurerm_virtual_network_peering" "env_to_tooling" {
+  name                      = "pins-peer-env-to-tooling-${var.service_name}-${var.resource_suffix}"
   remote_virtual_network_id = data.azurerm_virtual_network.tooling.id
   resource_group_name       = azurerm_virtual_network.common_infrastructure.resource_group_name
   virtual_network_name      = azurerm_virtual_network.common_infrastructure.name
+}
+
+resource "azurerm_virtual_network_peering" "tooling_to_env" {
+  name                      = "pins-peer-tooling-to-env-shared-tooling-${var.tooling_network_region_short}"
+  remote_virtual_network_id = azurerm_virtual_network.common_infrastructure.id
+  resource_group_name       = var.tooling_network_rg
+  virtual_network_name      = var.tooling_network_name
+
+  provider = azurerm.tooling
 }

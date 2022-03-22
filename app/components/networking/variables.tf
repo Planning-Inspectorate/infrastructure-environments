@@ -39,6 +39,11 @@ variable "tooling_network_name" {
   type        = string
 }
 
+variable "tooling_network_region_short" {
+  description = "The region in which the Tooling VNet resides in short format e.g. 'uks'"
+  type        = string
+}
+
 variable "tooling_network_rg" {
   description = "The name of the resource group containing the VNet in the Tooling environment"
   type        = string
