@@ -20,7 +20,7 @@ resource "azurerm_key_vault_access_policy" "terraform" {
   tenant_id    = data.azurerm_client_config.current.tenant_id
 
   certificate_permissions = [
-    "Create", "Delete", "Get", "List", "Update", "Recover"
+    "Create", "Delete", "Get", "Import", "List", "Update", "Recover"
   ]
 
   key_permissions = [
@@ -41,7 +41,7 @@ resource "azurerm_key_vault_access_policy" "admins" {
   object_id    = "6e0b1ad0-76db-4871-b8d8-9d7b539527ff" # "PINS ODT Key Vault Admins"
   tenant_id    = data.azurerm_client_config.current.tenant_id
 
-  certificate_permissions = ["Create", "Get", "List"]
+  certificate_permissions = ["Create", "Get", "Import", "List"]
   key_permissions         = ["Create", "Get", "List"]
   secret_permissions      = ["Get", "List", "Set"]
   storage_permissions     = ["Get", "List", "Set"]
