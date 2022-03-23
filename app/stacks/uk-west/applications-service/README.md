@@ -11,8 +11,8 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 2.97.0 |
-| <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 2.97.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 2.99.0 |
+| <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 2.99.0 |
 
 ## Modules
 
@@ -60,6 +60,7 @@ No requirements.
 | <a name="input_national_infrastructure_gateway_ip"></a> [national\_infrastructure\_gateway\_ip](#input\_national\_infrastructure\_gateway\_ip) | The public IP address of the National Infrastructure gateway endpoint | `string` | n/a | yes |
 | <a name="input_national_infrastructure_vnet_address_space"></a> [national\_infrastructure\_vnet\_address\_space](#input\_national\_infrastructure\_vnet\_address\_space) | The address space advertised by the National Infrastructure gateway endpoint | `list(string)` | n/a | yes |
 | <a name="input_node_environment"></a> [node\_environment](#input\_node\_environment) | The node environment to be used for applications in this environment e.g. development | `string` | `"development"` | no |
+| <a name="input_private_beta_v1_routes_only"></a> [private\_beta\_v1\_routes\_only](#input\_private\_beta\_v1\_routes\_only) | Feature toggle for limiting web app routes to Private Beta V1 functionality only | `string` | n/a | yes |
 | <a name="input_srv_notify_base_url"></a> [srv\_notify\_base\_url](#input\_srv\_notify\_base\_url) | The base URL for the Notifications service | `string` | n/a | yes |
 | <a name="input_srv_notify_ip_registration_confirmation_email_to_ip_template_id"></a> [srv\_notify\_ip\_registration\_confirmation\_email\_to\_ip\_template\_id](#input\_srv\_notify\_ip\_registration\_confirmation\_email\_to\_ip\_template\_id) | The template ID for the IP registration confirmation email | `string` | n/a | yes |
 | <a name="input_srv_notify_magic_link_email_template_id"></a> [srv\_notify\_magic\_link\_email\_template\_id](#input\_srv\_notify\_magic\_link\_email\_template\_id) | The template ID for the magic link email | `string` | n/a | yes |

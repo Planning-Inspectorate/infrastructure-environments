@@ -16,6 +16,7 @@ locals {
         SESSION_KEY                      = "some_key"
         SUBDOMAIN_OFFSET                 = "3"
         USE_SECURE_SESSION_COOKIES       = true
+        PRIVATE_BETA_V1_ROUTES_ONLY      = var.private_beta_v1_routes_only
       }
     }
 
