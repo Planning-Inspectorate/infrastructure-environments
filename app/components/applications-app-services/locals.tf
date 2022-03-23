@@ -12,7 +12,7 @@ locals {
         APPLICATIONS_SERVICE_API_TIMEOUT = var.api_timeout
         APPLICATIONS_SERVICE_API_URL     = "https://pins-app-${var.service_name}-applications-api-${var.resource_suffix}.azurewebsites.net/"
         GOOGLE_ANALYTICS_ID              = var.google_analytics_id
-        HOST_URL                         = var.applications_service_public_url
+        HOST_URL                         = "https://${var.applications_service_public_url}/"
         SESSION_KEY                      = "some_key"
         SUBDOMAIN_OFFSET                 = "3"
         USE_SECURE_SESSION_COOKIES       = true
