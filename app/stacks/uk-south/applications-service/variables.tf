@@ -151,6 +151,11 @@ variable "srv_notify_service_id" {
   type        = string
 }
 
+variable "private_beta_v1_routes_only" {
+  description = "Feature toggle for limiting web app routes to Private Beta V1 functionality only"
+  type = string
+}
+
 variable "tooling_subscription_id" {
   description = "The ID for the Tooling subscription that houses the Container Registry"
   type        = string

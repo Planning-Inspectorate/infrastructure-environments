@@ -9,13 +9,14 @@ locals {
       outbound_vnet_connectivity = true
 
       app_settings = {
-        APPLICATIONS_SERVICE_API_TIMEOUT = var.api_timeout
-        APPLICATIONS_SERVICE_API_URL     = "https://pins-app-${var.service_name}-applications-api-${var.resource_suffix}.azurewebsites.net/"
-        GOOGLE_ANALYTICS_ID              = var.google_analytics_id
-        HOST_URL                         = "https://${var.applications_service_public_url}/"
-        SESSION_KEY                      = "some_key"
-        SUBDOMAIN_OFFSET                 = "3"
-        USE_SECURE_SESSION_COOKIES       = true
+        APPLICATIONS_SERVICE_API_TIMEOUT    = var.api_timeout
+        APPLICATIONS_SERVICE_API_URL        = "https://pins-app-${var.service_name}-applications-api-${var.resource_suffix}.azurewebsites.net/"
+        GOOGLE_ANALYTICS_ID                 = var.google_analytics_id
+        HOST_URL                            = "https://${var.applications_service_public_url}/"
+        SESSION_KEY                         = "some_key"
+        SUBDOMAIN_OFFSET                    = "3"
+        USE_SECURE_SESSION_COOKIES          = true
+        PRIVATE_BETA_V1_ROUTES_ONLY         = var.private_beta_v1_routes_only
       }
     }
 
