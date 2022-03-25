@@ -9,7 +9,7 @@ locals {
       inbound_vnet_connectivity  = false
       integration_subnet_id      = var.integration_subnet_id
       image_name                 = "appeal-planning-decisions/forms-web-app"
-      key_vault_access           = false
+      key_vault_access           = true
       outbound_vnet_connectivity = true
 
       app_settings = {
