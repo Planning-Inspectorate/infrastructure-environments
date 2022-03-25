@@ -22,10 +22,6 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
   mongo_server_version = "3.6"
 
   capabilities {
-    name = "DisableRateLimitingResponses"
-  }
-
-  capabilities {
     name = "EnableMongo"
   }
 
