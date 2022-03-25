@@ -1,3 +1,8 @@
+variable "api_timeout" {
+  description = "The timeout in milliseconds for API calls in the frontend apps"
+  type        = string
+}
+
 variable "app_insights_connection_string" {
   description = "The connection string to connect to an Application Insights resource"
   sensitive   = true
@@ -12,6 +17,16 @@ variable "app_insights_instrumentation_key" {
 
 variable "app_service_plan_id" {
   description = "The id of the app service plan"
+  type        = string
+}
+
+variable "appeal_documents_primary_blob_connection_string" {
+  description = "The Appeal Documents Storage Account blob connection string associated with the primary location"
+  type        = string
+}
+
+variable "appeal_documents_storage_container_name" {
+  description = "The name of the Storage Container for Appeal Documents"
   type        = string
 }
 
@@ -79,6 +94,16 @@ variable "function_apps_storage_account" {
 variable "function_apps_storage_account_primary_access_key" {
   description = "The primary access key of the storage account used by the Function Apps"
   sensitive   = true
+  type        = string
+}
+
+variable "google_analytics_id" {
+  description = "The id used to connect the frontend app to Google Analytics"
+  type        = string
+}
+
+variable "google_tag_manager_id" {
+  description = "The id used to connect the frontend app to Google Tag Manager"
   type        = string
 }
 

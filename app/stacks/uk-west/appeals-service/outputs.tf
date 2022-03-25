@@ -3,6 +3,11 @@ output "app_service_urls" {
   value       = module.app_services.app_service_urls
 }
 
+output "appeal_documents_primary_blob_connection_string" {
+  description = "The Appeal Documents Storage Account blob connection string associated with the primary location"
+  value       = azurerm_storage_account.appeal_documents.primary_blob_connection_string
+}
+
 output "cosmosdb_connection_string" {
   description = "The connection string used to connect to the MongoDB"
   sensitive   = true

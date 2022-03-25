@@ -1,3 +1,8 @@
+variable "api_timeout" {
+  description = "The timeout in milliseconds for API calls in the frontend apps"
+  type        = string
+}
+
 variable "app_insights_connection_string" {
   description = "The connection string to connect to an Application Insights resource"
   sensitive   = true
@@ -17,6 +22,16 @@ variable "app_service_plan_id" {
 
 variable "app_service_private_dns_zone_id" {
   description = "The id of the private DNS zone for App services"
+  type        = string
+}
+
+variable "appeal_documents_primary_blob_connection_string" {
+  description = "The Appeal Documents Storage Account blob connection string associated with the primary location"
+  type        = string
+}
+
+variable "appeal_documents_storage_container_name" {
+  description = "The name of the Storage Container for Appeal Documents"
   type        = string
 }
 
@@ -65,6 +80,16 @@ variable "function_apps_storage_account_primary_access_key" {
   type        = string
 }
 
+variable "google_analytics_id" {
+  description = "The id used to connect the frontend app to Google Analytics"
+  type        = string
+}
+
+variable "google_tag_manager_id" {
+  description = "The id used to connect the frontend app to Google Tag Manager"
+  type        = string
+}
+
 variable "integration_subnet_id" {
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   type        = string
@@ -80,6 +105,11 @@ variable "key_vault_secret_refs" {
   type        = map(string)
 }
 
+variable "location" {
+  description = "The location the App Services are deployed to in slug format e.g. 'uk-south'"
+  type        = string
+}
+
 variable "logger_level" {
   description = "The level of logging enabled for applications in the environment e.g. info"
   type        = string
@@ -90,11 +120,6 @@ variable "node_environment" {
   description = "The node environment to be used for applications in this environment e.g. development"
   type        = string
   default     = "development"
-}
-
-variable "location" {
-  description = "The location the App Services are deployed to in slug format e.g. 'uk-south'"
-  type        = string
 }
 
 variable "resource_group_id" {
