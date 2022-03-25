@@ -27,6 +27,7 @@ variable "app_service_private_dns_zone_id" {
 
 variable "appeal_documents_primary_blob_connection_string" {
   description = "The Appeal Documents Storage Account blob connection string associated with the primary location"
+  sensitive   = true
   type        = string
 }
 

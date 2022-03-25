@@ -5,6 +5,7 @@ output "app_service_urls" {
 
 output "appeal_documents_primary_blob_connection_string" {
   description = "The Appeal Documents Storage Account blob connection string associated with the primary location"
+  sensitive   = true
   value       = azurerm_storage_account.appeal_documents.primary_blob_connection_string
 }
 
