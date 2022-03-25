@@ -28,7 +28,7 @@ locals {
         GOOGLE_TAG_MANAGER_ID                      = var.google_tag_manager_id
         HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION = true
         HOST_URL                                   = "https://${var.appeals_service_public_url}"
-        MICROSOFT_PROVIDER_AUTHENTICATION_SECRET   = var.key_vault_secret_refs["microsoft_provider_authentication_secret"]
+        MICROSOFT_PROVIDER_AUTHENTICATION_SECRET   = var.key_vault_secret_refs["microsoft-provider-authentication-secret"]
         PDF_SERVICE_API_URL                        = "https://pins-app-${var.service_name}-pdf-api-${var.resource_suffix}.azurewebsites.net"
         PORT                                       = "3000"
         SESSION_KEY                                = "some_key"
