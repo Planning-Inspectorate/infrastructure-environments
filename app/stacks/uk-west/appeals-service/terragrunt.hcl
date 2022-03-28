@@ -34,8 +34,8 @@ inputs = {
   common_resource_group_name       = dependency.common_ukw.outputs.common_resource_group_name
   common_vnet_cidr_blocks          = dependency.common_ukw.outputs.common_vnet_cidr_blocks
   common_vnet_name                 = dependency.common_ukw.outputs.common_vnet_name
+  cosmosdb_subnet_id               = try(dependency.common_ukw.outputs.cosmosdb_subnet_id, null)
   integration_subnet_id            = dependency.common_ukw.outputs.integration_subnet_id
   key_vault_id                     = dependency.common_ukw.outputs.key_vault_id
   key_vault_secret_refs            = dependency.common_ukw.outputs.key_vault_secret_refs
-  primary_cosmosdb_subnet_id       = dependency.common_ukw.outputs.cosmosdb_subnet_id
 }
