@@ -12,7 +12,7 @@ resource "azurerm_monitor_metric_alert" "http_5xx" {
 
   criteria {
     metric_namespace = "Microsoft.Web/sites"
-    metric_name      = "Http Server Errors"
+    metric_name      = "Http5xx"
     aggregation      = "Count"
     operator         = "GreaterThan"
     threshold        = 10
