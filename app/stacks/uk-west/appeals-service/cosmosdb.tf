@@ -1,6 +1,7 @@
 resource "azurerm_cosmosdb_account" "appeals_database" {
   #TODO: Customer Managed Keys
   #checkov:skip=CKV_AZURE_100: Customer Managed Keys not implemented yet
+  #checkov:skip=CKV_AZURE_132: Allow metadata writes
   #checkov:skip=CKV_AZURE_140: Local authentication only applicable to SQL API
   name                = "pins-cosmos-${local.service_name}-${local.resource_suffix}"
   location            = azurerm_resource_group.appeals_service_stack.location
@@ -8,7 +9,7 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
   offer_type          = "Standard"
   kind                = "MongoDB"
 
-  access_key_metadata_writes_enabled = false
+  access_key_metadata_writes_enabled = true
   enable_automatic_failover          = true
   is_virtual_network_filter_enabled  = false
   #TODO: Private endpoint connection not working so this is enabled for now - Access restrictions done by firewall
