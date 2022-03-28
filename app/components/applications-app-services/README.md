@@ -57,6 +57,7 @@ No resources.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_app_service_ids"></a> [app\_service\_ids](#output\_app\_service\_ids) | A map of app service IDs |
 | <a name="output_app_service_principal_ids"></a> [app\_service\_principal\_ids](#output\_app\_service\_principal\_ids) | A map of frontend app service URLs |
 | <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of frontend app service URLs |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
