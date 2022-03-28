@@ -1,6 +1,6 @@
 output "app_service_ids" {
-  description = "A map of app service IDs"
-  value       = [for k, v in module.app_service : v.id]
+  description = "A list of app service IDs"
+  value       = [for k, v in module.app_service : v.app_service_id]
 }
 
 output "app_service_urls" {
