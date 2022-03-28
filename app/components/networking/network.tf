@@ -16,6 +16,8 @@ resource "azurerm_subnet" "vnet_gateway_subnet" {
 }
 
 resource "azurerm_subnet" "cosmosdb" {
+  count = var.cosmosdb_enable_public_access ? 0 : 1
+
   name                                           = "pins-snet-${var.service_name}-cosmosdb-${var.resource_suffix}"
   resource_group_name                            = var.resource_group_name
   virtual_network_name                           = azurerm_virtual_network.common_infrastructure.name
@@ -24,6 +26,8 @@ resource "azurerm_subnet" "cosmosdb" {
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "cosmosdb_vnet_link" {
+  count = var.cosmosdb_enable_public_access ? 0 : 1
+
   name                  = "pins-vnetlink-${var.service_name}-cosmosdb-${var.resource_suffix}"
   resource_group_name   = var.tooling_network_rg
   private_dns_zone_name = "privatelink.mongo.cosmos.azure.com"

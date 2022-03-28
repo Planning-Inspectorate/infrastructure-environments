@@ -2,6 +2,7 @@ locals {
   api_timeout                     = 10000
   appeals_service_public_url      = "appeals-service-dev.planninginspectorate.gov.uk"
   applications_service_public_url = "applications-service-dev.planninginspectorate.gov.uk"
+  cosmosdb_enable_public_access   = true
   environment                     = "dev"
   logger_level                    = "info"
   node_environment                = "development"

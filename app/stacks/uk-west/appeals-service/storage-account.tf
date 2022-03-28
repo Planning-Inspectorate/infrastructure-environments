@@ -21,7 +21,7 @@ resource "azurerm_storage_account" "appeal_documents" {
 resource "azurerm_storage_container" "documents" {
   #TODO: Logging
   #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
-  name                  = "documents"
+  name                  = "uploads"
   storage_account_name  = azurerm_storage_account.appeal_documents.name
   container_access_type = "private"
 }

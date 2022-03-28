@@ -2,6 +2,7 @@ module "networking" {
   source = "../../../components/networking"
 
   base_cidr_block                             = var.secondary_vnet_address_space
+  cosmosdb_enable_public_access               = var.cosmosdb_enable_public_access
   deploy_national_infrastructure_vnet_gateway = var.is_dr_deployment
   env_network_region_short                    = module.azure_region_uks.location_short
   environment                                 = var.environment

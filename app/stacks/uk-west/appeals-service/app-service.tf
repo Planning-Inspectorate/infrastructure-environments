@@ -1,10 +1,13 @@
 module "app_services" {
   source = "../../../components/appeals-app-services"
 
+  api_timeout                                                                 = var.api_timeout
   app_insights_connection_string                                              = var.app_insights_connection_string
   app_insights_instrumentation_key                                            = var.app_insights_instrumentation_key
   app_service_plan_id                                                         = var.app_service_plan_id
   app_service_private_dns_zone_id                                             = data.azurerm_private_dns_zone.app_service.id
+  appeal_documents_primary_blob_connection_string                             = azurerm_storage_account.appeal_documents.primary_blob_connection_string
+  appeal_documents_storage_container_name                                     = azurerm_storage_container.documents.name
   appeals_service_public_url                                                  = var.appeals_service_public_url
   container_registry_login_server                                             = data.azurerm_container_registry.acr.login_server
   container_registry_password                                                 = data.azurerm_container_registry.acr.admin_password
@@ -13,6 +16,8 @@ module "app_services" {
   endpoint_subnet_id                                                          = azurerm_subnet.appeals_service_ingress.id
   function_apps_storage_account                                               = azurerm_storage_account.function_apps.name
   function_apps_storage_account_primary_access_key                            = azurerm_storage_account.function_apps.primary_connection_string
+  google_analytics_id                                                         = var.google_analytics_id
+  google_tag_manager_id                                                       = var.google_tag_manager_id
   integration_subnet_id                                                       = var.integration_subnet_id
   key_vault_id                                                                = var.key_vault_id
   key_vault_secret_refs                                                       = var.key_vault_secret_refs

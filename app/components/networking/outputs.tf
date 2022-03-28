@@ -1,6 +1,6 @@
 output "cosmosdb_subnet_id" {
   description = "The id of the Cosmos DB endpoint subnet"
-  value       = azurerm_subnet.cosmosdb.id
+  value       = length(azurerm_subnet.cosmosdb) > 0 ? azurerm_subnet.cosmosdb[0].id : null
 }
 
 output "integration_subnet_id" {

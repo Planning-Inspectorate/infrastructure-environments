@@ -17,6 +17,7 @@ locals {
     "applications-service-mysql-password",
     "applications-service-mysql-port",
     "applications-service-mysql-username",
+    "microsoft-provider-authentication-secret",
     "srv-notify-api-key"
   ]
 

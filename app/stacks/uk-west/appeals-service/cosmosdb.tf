@@ -1,23 +1,27 @@
 resource "azurerm_cosmosdb_account" "appeals_database" {
   #TODO: Customer Managed Keys
   #checkov:skip=CKV_AZURE_100: Customer Managed Keys not implemented yet
+  #checkov:skip=CKV_AZURE_132: Allow metadata writes
   #checkov:skip=CKV_AZURE_140: Local authentication only applicable to SQL API
+
+  # Private endpoint connection is working, and access is restricted by the firewall. Turning off public network access seems to break
+  # the private connection too - looks like a bug in Azure, since when you create the account manually with a private connection the state shows
+  # that public_network_access_enabled is always set to true.
+  #checkov:skip=CKV_AZURE_99
+  #checkov:skip=CKV_AZURE_101
+
   name                = "pins-cosmos-${local.service_name}-${local.resource_suffix}"
   location            = azurerm_resource_group.appeals_service_stack.location
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
   offer_type          = "Standard"
   kind                = "MongoDB"
 
-  access_key_metadata_writes_enabled = false
+  access_key_metadata_writes_enabled = true
   enable_automatic_failover          = true
   is_virtual_network_filter_enabled  = false
-  #TODO: Private endpoint connection not working so this is enabled for now - Access restrictions done by firewall
-  #checkov:skip=CKV_AZURE_99
-  #checkov:skip=CKV_AZURE_101
-  public_network_access_enabled = true
 
   # IP addresses to allow access from Azure Portal. See: https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal
-  ip_range_filter = "104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+  ip_range_filter = var.cosmosdb_enable_public_access ? null : "104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 
   mongo_server_version = "3.6"
 
@@ -53,6 +57,8 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
 }
 
 resource "azurerm_private_endpoint" "cosmosdb" {
+  count = var.cosmosdb_enable_public_access ? 0 : 1
+
   name                = "pins-pe-${local.service_name}-appeals-db-${local.resource_suffix}"
   location            = azurerm_resource_group.appeals_service_stack.location
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
