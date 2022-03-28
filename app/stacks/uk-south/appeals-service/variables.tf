@@ -66,6 +66,12 @@ variable "container_registry_rg" {
   type        = string
 }
 
+variable "cosmosdb_enable_public_access" {
+  description = "A flag to indicate if the database can be accessed over the internet"
+  type        = string
+  default     = false
+}
+
 variable "cosmosdb_id" {
   description = "The ID of the CosmosDB account"
   type        = string

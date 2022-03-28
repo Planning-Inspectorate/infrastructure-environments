@@ -41,6 +41,7 @@ No requirements.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_base_cidr_block"></a> [base\_cidr\_block](#input\_base\_cidr\_block) | The CIDR address space for the virtual network | `string` | n/a | yes |
+| <a name="input_cosmosdb_enable_public_access"></a> [cosmosdb\_enable\_public\_access](#input\_cosmosdb\_enable\_public\_access) | A flag to indicate if the database can be accessed over the internet | `string` | `false` | no |
 | <a name="input_deploy_national_infrastructure_vnet_gateway"></a> [deploy\_national\_infrastructure\_vnet\_gateway](#input\_deploy\_national\_infrastructure\_vnet\_gateway) | A flag to determine if the VNet gateway to the National Infrastructure subscription should be deployed | `bool` | n/a | yes |
 | <a name="input_env_network_region_short"></a> [env\_network\_region\_short](#input\_env\_network\_region\_short) | The location resources are deployed to in short format e.g. 'uks' | `string` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |

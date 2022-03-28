@@ -3,6 +3,12 @@ variable "base_cidr_block" {
   type        = string
 }
 
+variable "cosmosdb_enable_public_access" {
+  description = "A flag to indicate if the database can be accessed over the internet"
+  type        = string
+  default     = false
+}
+
 variable "deploy_national_infrastructure_vnet_gateway" {
   description = "A flag to determine if the VNet gateway to the National Infrastructure subscription should be deployed"
   type        = bool

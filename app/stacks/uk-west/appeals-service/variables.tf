@@ -54,6 +54,12 @@ variable "container_registry_rg" {
   type        = string
 }
 
+variable "cosmosdb_enable_public_access" {
+  description = "A flag to indicate if the database can be accessed over the internet"
+  type        = string
+  default     = false
+}
+
 variable "environment" {
   description = "The environment resources are deployed to e.g. 'dev'"
   type        = string

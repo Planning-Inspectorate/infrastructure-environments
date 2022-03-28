@@ -1,4 +1,6 @@
 resource "azurerm_private_endpoint" "cosmosdb" {
+  count = var.cosmosdb_enable_public_access ? 0 : 1
+
   name                = "pins-pe-${local.service_name}-appeals-db-${local.resource_suffix}"
   location            = azurerm_resource_group.appeals_service_stack.location
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
