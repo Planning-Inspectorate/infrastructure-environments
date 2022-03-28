@@ -61,7 +61,8 @@ extends:
         deploymentSteps:
           - script: |
               echo "##vso[build.addbuildtag]stack=${{ parameters.stack }}"
-            displayName: Add stack build tag
+              echo "##vso[build.addbuildtag]region=${{ parameters.location }}"
+            displayName: Add stack & region build tag
           - ${{ if eq(parameters.stack, 'all') }}:
             - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan_all.yml@templates
               parameters:
