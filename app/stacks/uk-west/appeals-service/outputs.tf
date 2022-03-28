@@ -3,6 +3,11 @@ output "app_service_urls" {
   value       = module.app_services.app_service_urls
 }
 
+output "appeal_documents_storage_container_name" {
+  description = "The Appeal Documents Storage Account container name"
+  value       = azurerm_storage_account.appeal_documents.name
+}
+
 output "appeal_documents_primary_blob_connection_string" {
   description = "The Appeal Documents Storage Account blob connection string associated with the primary location"
   sensitive   = true

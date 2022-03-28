@@ -62,7 +62,7 @@ resource "azurerm_private_endpoint" "cosmosdb" {
   name                = "pins-pe-${local.service_name}-appeals-db-${local.resource_suffix}"
   location            = azurerm_resource_group.appeals_service_stack.location
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
-  subnet_id           = var.primary_cosmosdb_subnet_id
+  subnet_id           = var.cosmosdb_subnet_id
 
   private_dns_zone_group {
     name                 = "cosmosdbprivatednszone"

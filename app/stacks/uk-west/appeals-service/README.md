@@ -54,6 +54,7 @@ No requirements.
 | <a name="input_container_registry_name"></a> [container\_registry\_name](#input\_container\_registry\_name) | The name of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_container_registry_rg"></a> [container\_registry\_rg](#input\_container\_registry\_rg) | The resource group of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_cosmosdb_enable_public_access"></a> [cosmosdb\_enable\_public\_access](#input\_cosmosdb\_enable\_public\_access) | A flag to indicate if the database can be accessed over the internet | `string` | `false` | no |
+| <a name="input_cosmosdb_subnet_id"></a> [cosmosdb\_subnet\_id](#input\_cosmosdb\_subnet\_id) | The ID of the VNet in the primary location | `string` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
 | <a name="input_google_analytics_id"></a> [google\_analytics\_id](#input\_google\_analytics\_id) | The id used to connect the frontend app to Google Analytics | `string` | n/a | yes |
 | <a name="input_google_tag_manager_id"></a> [google\_tag\_manager\_id](#input\_google\_tag\_manager\_id) | The id used to connect the frontend app to Google Tag Manager | `string` | n/a | yes |
@@ -63,7 +64,6 @@ No requirements.
 | <a name="input_key_vault_secret_refs"></a> [key\_vault\_secret\_refs](#input\_key\_vault\_secret\_refs) | Map of secret references from the Key Vault | `map(string)` | n/a | yes |
 | <a name="input_logger_level"></a> [logger\_level](#input\_logger\_level) | The level of logging enabled for applications in the environment e.g. info | `string` | `"info"` | no |
 | <a name="input_node_environment"></a> [node\_environment](#input\_node\_environment) | The node environment to be used for applications in this environment e.g. development | `string` | `"development"` | no |
-| <a name="input_primary_cosmosdb_subnet_id"></a> [primary\_cosmosdb\_subnet\_id](#input\_primary\_cosmosdb\_subnet\_id) | The ID of the VNet in the primary location | `string` | n/a | yes |
 | <a name="input_primary_location"></a> [primary\_location](#input\_primary\_location) | The primary location resources are deployed to in slug format e.g. 'uk-south' | `string` | `"uk-west"` | no |
 | <a name="input_secondary_location"></a> [secondary\_location](#input\_secondary\_location) | The secondary location resources are deployed to in slug format e.g. 'uk-west' | `string` | `"uk-south"` | no |
 | <a name="input_srv_notify_appeal_submission_confirmation_email_to_apellant_template_id"></a> [srv\_notify\_appeal\_submission\_confirmation\_email\_to\_apellant\_template\_id](#input\_srv\_notify\_appeal\_submission\_confirmation\_email\_to\_apellant\_template\_id) | A template ID required by the Appeals Service API | `string` | n/a | yes |
@@ -81,6 +81,7 @@ No requirements.
 |------|-------------|
 | <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of frontend app service URLs |
 | <a name="output_appeal_documents_primary_blob_connection_string"></a> [appeal\_documents\_primary\_blob\_connection\_string](#output\_appeal\_documents\_primary\_blob\_connection\_string) | The Appeal Documents Storage Account blob connection string associated with the primary location |
+| <a name="output_appeal_documents_storage_container_name"></a> [appeal\_documents\_storage\_container\_name](#output\_appeal\_documents\_storage\_container\_name) | The Appeal Documents Storage Account container name |
 | <a name="output_cosmosdb_connection_string"></a> [cosmosdb\_connection\_string](#output\_cosmosdb\_connection\_string) | The connection string used to connect to the MongoDB |
 | <a name="output_cosmosdb_id"></a> [cosmosdb\_id](#output\_cosmosdb\_id) | The ID of the Cosmos DB account |
 | <a name="output_function_apps_storage_account"></a> [function\_apps\_storage\_account](#output\_function\_apps\_storage\_account) | The name of the storage account used by the Function Apps |

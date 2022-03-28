@@ -60,6 +60,11 @@ variable "cosmosdb_enable_public_access" {
   default     = false
 }
 
+variable "cosmosdb_subnet_id" {
+  description = "The ID of the VNet in the primary location"
+  type        = string
+}
+
 variable "environment" {
   description = "The environment resources are deployed to e.g. 'dev'"
   type        = string
@@ -112,11 +117,6 @@ variable "primary_location" {
   description = "The primary location resources are deployed to in slug format e.g. 'uk-south'"
   type        = string
   default     = "uk-west"
-}
-
-variable "primary_cosmosdb_subnet_id" {
-  description = "The ID of the VNet in the primary location"
-  type        = string
 }
 
 variable "secondary_location" {
