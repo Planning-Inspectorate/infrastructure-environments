@@ -1,14 +1,10 @@
-resource "azurerm_app_service_plan" "common_service_plan" {
+resource "azurerm_service_plan" "common_service_plan" {
   name                = "pins-asp-${local.service_name}-${local.resource_suffix}"
   location            = azurerm_resource_group.common_infrastructure.location
   resource_group_name = azurerm_resource_group.common_infrastructure.name
-  kind                = "Linux"
-  reserved            = true
 
-  sku {
-    tier = "PremiumV2"
-    size = "P1v2"
-  }
+  os_type  = "Linux"
+  sku_name = "P1v2"
 
   tags = local.tags
 }

@@ -1,48 +1,11 @@
-resource "azurerm_app_service" "app_service" {
-  #checkov:skip=CKV_AZURE_13: App service authentication not required
-  #checkov:skip=CKV_AZURE_17: Client cert requirement disabled as we have frontend apps
-  #checkov:skip=CKV_AZURE_80: .Net not required
-  #checkov:skip=CKV_AZURE_88: App service does not use Storage accounts
+resource "azurerm_linux_web_app" "web_app" {
   name                = "pins-app-${var.service_name}-${var.app_name}-${var.resource_suffix}"
   location            = var.location
   resource_group_name = var.resource_group_name
-  app_service_plan_id = var.app_service_plan_id
-  client_cert_enabled = false
-  https_only          = true
+  service_plan_id     = var.app_service_plan_id
 
-  identity {
-    type = "SystemAssigned"
-  }
-
-  logs {
-    detailed_error_messages_enabled = true
-    failed_request_tracing_enabled  = true
-
-    http_logs {
-      file_system {
-        retention_in_days = 4
-        retention_in_mb   = 25
-      }
-    }
-  }
-
-  site_config {
-    always_on        = true
-    ftps_state       = "FtpsOnly"
-    http2_enabled    = true
-    linux_fx_version = "DOCKER|${var.container_registry_login_server}/${var.image_name}:main"
-
-    dynamic "ip_restriction" {
-      for_each = var.inbound_vnet_connectivity == false ? [1] : []
-
-      content {
-        name        = "FrontDoorInbound"
-        service_tag = "AzureFrontDoor.Backend"
-        action      = "Allow"
-        priority    = 100
-      }
-    }
-  }
+  client_certificate_enabled = false
+  https_only                 = true
 
   app_settings = merge(
     var.app_settings,
@@ -58,11 +21,48 @@ resource "azurerm_app_service" "app_service" {
     }
   )
 
+  identity {
+    type = "SystemAssigned"
+  }
+
+  logs {
+    detailed_error_messages = true
+    failed_request_tracing  = true
+
+    http_logs {
+      file_system {
+        retention_in_days = 4
+        retention_in_mb   = 25
+      }
+    }
+  }
+
+  site_config {
+    always_on     = true
+    http2_enabled = true
+
+    application_stack {
+      docker_image     = "${var.container_registry_login_server}/${var.image_name}"
+      docker_image_tag = "main"
+    }
+
+    dynamic "ip_restriction" {
+      for_each = var.inbound_vnet_connectivity == false ? [1] : []
+
+      content {
+        name        = "FrontDoorInbound"
+        service_tag = "AzureFrontDoor.Backend"
+        action      = "Allow"
+        priority    = 100
+      }
+    }
+  }
+
   tags = var.tags
 
   lifecycle {
     ignore_changes = [
-      site_config["linux_fx_version"]
+      site_config["application_stack"]
     ]
   }
 }
@@ -82,7 +82,7 @@ resource "azurerm_private_endpoint" "private_endpoint" {
 
   private_service_connection {
     name                           = "privateendpointconnection"
-    private_connection_resource_id = azurerm_app_service.app_service.id
+    private_connection_resource_id = azurerm_linux_web_app.web_app.id
     subresource_names              = ["sites"]
     is_manual_connection           = false
   }
@@ -93,7 +93,7 @@ resource "azurerm_private_endpoint" "private_endpoint" {
 resource "azurerm_app_service_virtual_network_swift_connection" "vnet_connection" {
   count = var.outbound_vnet_connectivity == true ? 1 : 0
 
-  app_service_id = azurerm_app_service.app_service.id
+  app_service_id = azurerm_linux_web_app.web_app.id
   subnet_id      = var.integration_subnet_id
 }
 
@@ -102,7 +102,7 @@ resource "azurerm_key_vault_access_policy" "read_secrets" {
 
   key_vault_id = var.key_vault_id
   tenant_id    = data.azurerm_client_config.current.tenant_id
-  object_id    = azurerm_app_service.app_service.identity.0.principal_id
+  object_id    = azurerm_linux_web_app.web_app.identity.0.principal_id
 
   certificate_permissions = []
   key_permissions         = []

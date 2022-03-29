@@ -15,7 +15,6 @@ module "app_services" {
   cosmosdb_connection_string                                                  = azurerm_cosmosdb_account.appeals_database.connection_strings[0]
   endpoint_subnet_id                                                          = azurerm_subnet.appeals_service_ingress.id
   function_apps_storage_account                                               = azurerm_storage_account.function_apps.name
-  function_apps_storage_account_primary_access_key                            = azurerm_storage_account.function_apps.primary_connection_string
   google_analytics_id                                                         = var.google_analytics_id
   google_tag_manager_id                                                       = var.google_tag_manager_id
   integration_subnet_id                                                       = var.integration_subnet_id

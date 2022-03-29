@@ -1,8 +1,7 @@
 resource "azurerm_frontdoor" "common" {
   #checkov:skip=CKV_AZURE_121: WAF implemented but Checkov still fails: https://github.com/bridgecrewio/checkov/issues/2617
-  name                                         = "pins-fd-${local.service_name}-${local.resource_suffix}"
-  resource_group_name                          = azurerm_resource_group.frontdoor.name
-  enforce_backend_pools_certificate_name_check = false
+  name                = "pins-fd-${local.service_name}-${local.resource_suffix}"
+  resource_group_name = azurerm_resource_group.frontdoor.name
 
   backend_pool_load_balancing {
     name                            = "Default"
@@ -18,6 +17,10 @@ resource "azurerm_frontdoor" "common" {
     protocol            = "Http"
     probe_method        = "GET"
     interval_in_seconds = 120
+  }
+
+  backend_pool_settings {
+    enforce_backend_pools_certificate_name_check = false
   }
 
   #========================================================================
