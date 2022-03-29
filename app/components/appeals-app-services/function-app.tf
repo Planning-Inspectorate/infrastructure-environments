@@ -1,5 +1,4 @@
 resource "azurerm_linux_function_app" "horizon_functions" {
-  #checkov:skip=CKV_AZURE_56: Authentication not required
   name                          = "pins-func-horizon-${var.service_name}-${var.resource_suffix}"
   location                      = var.location
   resource_group_name           = var.resource_group_name
