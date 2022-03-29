@@ -1,3 +1,8 @@
+variable "action_group_low_id" {
+  description = "The ID of the Azure Monitor action group for low priority alerts"
+  type        = string
+}
+
 variable "api_timeout" {
   description = "The timeout in milliseconds for API calls in the frontend apps"
   type        = string
@@ -67,6 +72,11 @@ variable "cosmosdb_connection_string" {
 
 variable "endpoint_subnet_id" {
   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
+  type        = string
+}
+
+variable "environment" {
+  description = "The environment resources are deployed to e.g. 'dev'"
   type        = string
 }
 

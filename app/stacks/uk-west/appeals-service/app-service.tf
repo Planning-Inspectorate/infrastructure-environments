@@ -1,6 +1,7 @@
 module "app_services" {
   source = "../../../components/appeals-app-services"
 
+  action_group_low_id                                                         = var.action_group_low_id
   api_timeout                                                                 = var.api_timeout
   app_insights_connection_string                                              = var.app_insights_connection_string
   app_insights_instrumentation_key                                            = var.app_insights_instrumentation_key
@@ -14,6 +15,7 @@ module "app_services" {
   container_registry_username                                                 = data.azurerm_container_registry.acr.admin_username
   cosmosdb_connection_string                                                  = azurerm_cosmosdb_account.appeals_database.connection_strings[0]
   endpoint_subnet_id                                                          = azurerm_subnet.appeals_service_ingress.id
+  environment                                                                 = var.environment
   function_apps_storage_account                                               = azurerm_storage_account.function_apps.name
   google_analytics_id                                                         = var.google_analytics_id
   google_tag_manager_id                                                       = var.google_tag_manager_id
