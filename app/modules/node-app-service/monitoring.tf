@@ -2,7 +2,7 @@ resource "azurerm_monitor_metric_alert" "app_service_http_5xx" {
   name                = "Http 5xx - ${reverse(split("/", azurerm_linux_web_app.web_app.id))[0]}"
   resource_group_name = var.resource_group_name
   enabled             = var.environment == "dev" ? false : true
-  scopes              = azurerm_linux_web_app.web_app.id
+  scopes              = [azurerm_linux_web_app.web_app.id]
   description         = "Sends an alert when the App Service returns excess 5xx respones"
   window_size         = "PT5M"
   frequency           = "PT1M"
@@ -26,7 +26,7 @@ resource "azurerm_monitor_metric_alert" "app_service_response_time" {
   name                = "Response Time - ${reverse(split("/", azurerm_linux_web_app.web_app.id))[0]}"
   resource_group_name = var.resource_group_name
   enabled             = var.environment == "dev" ? false : true
-  scopes              = azurerm_linux_web_app.web_app.id
+  scopes              = [azurerm_linux_web_app.web_app.id]
   description         = "Sends an alert when the App Service response exceeds 3 seconds"
   window_size         = "PT5M"
   frequency           = "PT1M"
@@ -50,7 +50,7 @@ resource "azurerm_monitor_activity_log_alert" "app_service_stop" {
   name                = "App Service Stopped - ${reverse(split("/", azurerm_linux_web_app.web_app.id))[0]}"
   resource_group_name = var.resource_group_name
   enabled             = var.environment == "dev" ? false : true
-  scopes              = azurerm_linux_web_app.web_app.id
+  scopes              = [azurerm_linux_web_app.web_app.id]
   description         = "Sends an alert when the App Service is stopped"
   tags                = var.tags
 
@@ -69,7 +69,7 @@ resource "azurerm_monitor_activity_log_alert" "app_service_delete" {
   name                = "App Service Deleted - ${reverse(split("/", azurerm_linux_web_app.web_app.id))[0]}"
   resource_group_name = var.resource_group_name
   enabled             = var.environment == "dev" ? false : true
-  scopes              = azurerm_linux_web_app.web_app.id
+  scopes              = [azurerm_linux_web_app.web_app.id]
   description         = "Sends an alert when the App Service is deleted"
   tags                = var.tags
 
