@@ -1,28 +1,3 @@
-resource "azurerm_monitor_metric_alert" "app_service_http_4xx" {
-  for_each = toset(module.app_services.app_service_ids)
-
-  name                = "Http 4xx - ${reverse(split("/", each.key))[0]}"
-  resource_group_name = azurerm_resource_group.applications_service_stack.name
-  scopes              = [each.key]
-  description         = "Sends an alert when the App Service returns excess 4xx respones"
-  window_size         = "PT5M"
-  frequency           = "PT1M"
-  severity            = 4
-  tags                = var.common_tags
-
-  criteria {
-    metric_namespace = "Microsoft.Web/sites"
-    metric_name      = "Http4xx"
-    aggregation      = "Average"
-    operator         = "GreaterThanOrEqual"
-    threshold        = 1
-  }
-
-  action {
-    action_group_id = var.action_group_low_id
-  }
-}
-
 resource "azurerm_monitor_metric_alert" "app_service_http_5xx" {
   for_each = toset(module.app_services.app_service_ids)
 
