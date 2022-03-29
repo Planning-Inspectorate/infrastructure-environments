@@ -1,15 +1,15 @@
 resource "azurerm_monitor_metric_alert" "app_service_http_5xx" {
-  for_each = toset(module.app_services.app_service_ids)
+  for_each = toset([for k, v in module.app_service : v.app_service_id])
 
   name                = "Http 5xx - ${reverse(split("/", each.key))[0]}"
-  resource_group_name = azurerm_resource_group.applications_service_stack.name
-  enabled             = true
+  resource_group_name = var.resource_group_name
+  enabled             = true # var.environment == 'dev' ? false : true
   scopes              = [each.key]
   description         = "Sends an alert when the App Service returns excess 5xx respones"
   window_size         = "PT5M"
   frequency           = "PT1M"
-  severity            = 4
-  tags                = var.common_tags
+  severity            = local.severity["${var.environment}"].value
+  tags                = var.tags
 
   criteria {
     metric_namespace = "Microsoft.Web/sites"
@@ -25,17 +25,17 @@ resource "azurerm_monitor_metric_alert" "app_service_http_5xx" {
 }
 
 resource "azurerm_monitor_metric_alert" "app_service_response_time" {
-  for_each = toset(module.app_services.app_service_ids)
+  for_each = toset([for k, v in module.app_service : v.app_service_id])
 
   name                = "Response Time - ${reverse(split("/", each.key))[0]}"
-  resource_group_name = azurerm_resource_group.applications_service_stack.name
-  enabled             = true
+  resource_group_name = var.resource_group_name
+  enabled             = true # var.environment == 'dev' ? false : true
   scopes              = [each.key]
   description         = "Sends an alert when the App Service response exceeds 3 seconds"
   window_size         = "PT5M"
   frequency           = "PT1M"
-  severity            = 4
-  tags                = var.common_tags
+  severity            = local.severity["${var.environment}"].value
+  tags                = var.tags
 
   criteria {
     metric_namespace = "Microsoft.Web/sites"
@@ -51,14 +51,14 @@ resource "azurerm_monitor_metric_alert" "app_service_response_time" {
 }
 
 resource "azurerm_monitor_activity_log_alert" "app_service_stop" {
-  for_each = toset(module.app_services.app_service_ids)
+  for_each = toset([for k, v in module.app_service : v.app_service_id])
 
   name                = "App Service Stopped - ${reverse(split("/", each.key))[0]}"
-  resource_group_name = azurerm_resource_group.applications_service_stack.name
-  enabled             = true
+  resource_group_name = var.resource_group_name
+  enabled             = true # var.environment == 'dev' ? false : true
   scopes              = [each.key]
   description         = "Sends an alert when the App Service is stopped"
-  tags                = var.common_tags
+  tags                = var.tags
 
   criteria {
     resource_id    = each.key
@@ -72,14 +72,14 @@ resource "azurerm_monitor_activity_log_alert" "app_service_stop" {
 }
 
 resource "azurerm_monitor_activity_log_alert" "app_service_delete" {
-  for_each = toset(module.app_services.app_service_ids)
+  for_each = toset([for k, v in module.app_service : v.app_service_id])
 
   name                = "App Service Deleted - ${reverse(split("/", each.key))[0]}"
-  resource_group_name = azurerm_resource_group.applications_service_stack.name
-  enabled             = true
+  resource_group_name = var.resource_group_name
+  enabled             = true # var.environment == 'dev' ? false : true
   scopes              = [each.key]
   description         = "Sends an alert when the App Service is deleted"
-  tags                = var.common_tags
+  tags                = var.tags
 
   criteria {
     resource_id    = each.key
