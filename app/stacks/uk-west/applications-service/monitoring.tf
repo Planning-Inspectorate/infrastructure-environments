@@ -3,6 +3,7 @@ resource "azurerm_monitor_metric_alert" "app_service_http_5xx" {
 
   name                = "Http 5xx - ${reverse(split("/", each.key))[0]}"
   resource_group_name = azurerm_resource_group.applications_service_stack.name
+  enabled             = true
   scopes              = [each.key]
   description         = "Sends an alert when the App Service returns excess 5xx respones"
   window_size         = "PT5M"
@@ -28,6 +29,7 @@ resource "azurerm_monitor_metric_alert" "app_service_response_time" {
 
   name                = "Response Time - ${reverse(split("/", each.key))[0]}"
   resource_group_name = azurerm_resource_group.applications_service_stack.name
+  enabled             = true
   scopes              = [each.key]
   description         = "Sends an alert when the App Service response exceeds 3 seconds"
   window_size         = "PT5M"
@@ -53,6 +55,7 @@ resource "azurerm_monitor_activity_log_alert" "app_service_stop" {
 
   name                = "App Service Stopped - ${reverse(split("/", each.key))[0]}"
   resource_group_name = azurerm_resource_group.applications_service_stack.name
+  enabled             = true
   scopes              = [each.key]
   description         = "Sends an alert when the App Service is stopped"
   tags                = var.common_tags
@@ -73,6 +76,7 @@ resource "azurerm_monitor_activity_log_alert" "app_service_delete" {
 
   name                = "App Service Deleted - ${reverse(split("/", each.key))[0]}"
   resource_group_name = azurerm_resource_group.applications_service_stack.name
+  enabled             = true
   scopes              = [each.key]
   description         = "Sends an alert when the App Service is deleted"
   tags                = var.common_tags
