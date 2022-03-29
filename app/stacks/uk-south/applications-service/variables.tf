@@ -1,3 +1,8 @@
+variable "action_group_low_id" {
+  description = "The ID of the Azure Monitor action group for low priority (P4) alerts"
+  type        = string
+}
+
 variable "api_timeout" {
   description = "The timeout in milliseconds for API calls in the frontend apps"
   type        = string

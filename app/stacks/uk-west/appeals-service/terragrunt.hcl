@@ -29,7 +29,7 @@ dependency "common_ukw" {
 }
 
 inputs = {
-  action_group_low_id              = dependency.common.outputs.action_group_low_id
+  action_group_low_id              = dependency.common_ukw.outputs.action_group_low_id
   app_insights_connection_string   = dependency.common_ukw.outputs.app_insights_connection_string
   app_insights_instrumentation_key = dependency.common_ukw.outputs.app_insights_instrumentation_key
   app_service_plan_id              = dependency.common_ukw.outputs.app_service_plan_id
