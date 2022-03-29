@@ -1,7 +1,7 @@
 resource "azurerm_monitor_metric_alert" "http_5xx" {
   for_each = toset(module.app_services.app_service_ids)
 
-  name                = "HttpResponse5xx"
+  name                = "Http5xx"
   resource_group_name = azurerm_resource_group.applications_service_stack.name
   scopes              = [each.key]
   description         = "Sends an alert when app services return excess 5xx respones"
