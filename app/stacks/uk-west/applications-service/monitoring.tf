@@ -37,7 +37,7 @@ resource "azurerm_monitor_metric_alert" "app_service_response_time" {
 
   criteria {
     metric_namespace = "Microsoft.Web/sites"
-    metric_name      = "HttpResponse"
+    metric_name      = "HttpResponseTime"
     aggregation      = "Average"
     operator         = "GreaterThan"
     threshold        = 3
