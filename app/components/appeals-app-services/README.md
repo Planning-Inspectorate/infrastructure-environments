@@ -26,17 +26,7 @@ No requirements.
 
 | Name | Type |
 |------|------|
-<<<<<<< HEAD
 | [azurerm_linux_function_app.horizon_functions](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_function_app) | resource |
-=======
-| [azurerm_function_app.horizon_add_document](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/function_app) | resource |
-| [azurerm_function_app.horizon_create_contact](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/function_app) | resource |
-| [azurerm_function_app.horizon_householder_appeal_publish](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/function_app) | resource |
-| [azurerm_monitor_activity_log_alert.app_service_delete](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_activity_log_alert) | resource |
-| [azurerm_monitor_activity_log_alert.app_service_stop](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_activity_log_alert) | resource |
-| [azurerm_monitor_metric_alert.app_service_http_5xx](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_metric_alert) | resource |
-| [azurerm_monitor_metric_alert.app_service_response_time](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_metric_alert) | resource |
->>>>>>> Add monitoring for Appeals service apps
 | [azurerm_role_assignment.documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_servicebus_namespace.horizon](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/servicebus_namespace) | resource |
 | [azurerm_servicebus_namespace_authorization_rule.horizon_function_apps](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/servicebus_namespace_authorization_rule) | resource |

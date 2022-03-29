@@ -1,3 +1,8 @@
+variable "action_group_low_id" {
+  description = "The ID of the Azure Monitor action group for low priority alerts"
+  type        = string
+}
+
 variable "app_insights_connection_string" {
   description = "The connection string to connect to an Application Insights resource"
   sensitive   = true
@@ -51,6 +56,11 @@ variable "container_registry_server_username" {
 variable "endpoint_subnet_id" {
   default     = null
   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
+  type        = string
+}
+
+variable "environment" {
+  description = "The environment resources are deployed to e.g. 'dev'"
   type        = string
 }
 

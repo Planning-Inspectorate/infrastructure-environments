@@ -3,6 +3,7 @@ module "app_service" {
 
   source = "../../modules/node-app-service"
 
+  action_group_low_id                = var.action_group_low_id
   app_insights_connection_string     = var.app_insights_connection_string
   app_insights_instrumentation_key   = var.app_insights_instrumentation_key
   app_name                           = each.value["app_name"]
@@ -13,6 +14,7 @@ module "app_service" {
   container_registry_server_password = var.container_registry_password
   container_registry_server_username = var.container_registry_username
   endpoint_subnet_id                 = can(each.value["endpoint_subnet_id"]) ? each.value["endpoint_subnet_id"] : null
+  environment                        = var.environment
   image_name                         = each.value["image_name"]
   inbound_vnet_connectivity          = each.value["inbound_vnet_connectivity"]
   integration_subnet_id              = can(each.value["integration_subnet_id"]) ? each.value["integration_subnet_id"] : null
