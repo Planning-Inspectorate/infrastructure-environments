@@ -21,12 +21,11 @@ resource "azurerm_linux_function_app" "function_app" {
 
   dynamic "connection_string" {
     for_each = var.connection_strings
-    iterator = connection_string
 
     content {
-      name  = connection_string.name
-      type  = connection_string.type
-      value = connection_string.value
+      name  = connection_string.value["name"]
+      type  = connection_string.value["type"]
+      value = connection_string.value["value"]
     }
   }
 
