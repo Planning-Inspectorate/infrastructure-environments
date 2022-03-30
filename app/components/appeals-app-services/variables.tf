@@ -90,6 +90,11 @@ variable "google_tag_manager_id" {
   type        = string
 }
 
+variable "horizon_url" {
+  description = "The URL used to connect to Horizon"
+  type        = string
+}
+
 variable "integration_subnet_id" {
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   type        = string
