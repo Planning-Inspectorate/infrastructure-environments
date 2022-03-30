@@ -85,6 +85,11 @@ variable "google_tag_manager_id" {
   type        = string
 }
 
+variable "horizon_url" {
+  description = "The URL used to connect to Horizon"
+  type        = string
+}
+
 variable "instance" {
   description = "The environment instance for use if multiple environments are deployed to a subscription"
   type        = string
