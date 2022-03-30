@@ -11,11 +11,8 @@ resource "azurerm_linux_function_app" "function_app" {
   app_settings = merge(
     var.app_settings,
     {
-      APPINSIGHTS_INSTRUMENTATIONKEY             = var.app_insights_instrumentation_key
-      APPLICATIONINSIGHTS_CONNECTION_STRING      = var.app_insights_connection_string
-      ApplicationInsightsAgent_EXTENSION_VERSION = "~3"
-      XDT_MicrosoftApplicationInsights_Mode      = "default"
-      XDT_MicrosoftApplicationInsights_NodeJS    = "1"
+      APPINSIGHTS_INSTRUMENTATIONKEY        = var.app_insights_instrumentation_key
+      APPLICATIONINSIGHTS_CONNECTION_STRING = var.app_insights_connection_string
     }
   )
 
