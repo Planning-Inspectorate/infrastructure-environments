@@ -1,3 +1,8 @@
+variable "action_group_low_id" {
+  description = "The ID of the Azure Monitor action group for low priority alerts"
+  type        = string
+}
+
 variable "api_timeout" {
   description = "The timeout in milliseconds for API calls in the frontend apps"
   type        = string
@@ -109,6 +114,12 @@ variable "logger_level" {
   description = "The level of logging enabled for applications in the environment e.g. info"
   type        = string
   default     = "info"
+}
+
+variable "monitoring_alerts_enabled" {
+  default     = false
+  description = "Indicates whether Azure Monitor alerts are enabled for App Service"
+  type        = bool
 }
 
 variable "node_environment" {

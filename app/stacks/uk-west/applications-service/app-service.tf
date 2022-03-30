@@ -1,6 +1,7 @@
 module "app_services" {
   source = "../../../components/applications-app-services"
 
+  action_group_low_id                                             = var.action_group_low_id
   api_timeout                                                     = var.api_timeout
   app_insights_connection_string                                  = var.app_insights_connection_string
   app_insights_instrumentation_key                                = var.app_insights_instrumentation_key
@@ -16,6 +17,7 @@ module "app_services" {
   key_vault_id                                                    = var.key_vault_id
   key_vault_secret_refs                                           = var.key_vault_secret_refs
   location                                                        = azurerm_resource_group.applications_service_stack.location
+  monitoring_alerts_enabled                                       = var.monitoring_alerts_enabled
   logger_level                                                    = var.logger_level
   node_environment                                                = var.node_environment
   resource_group_name                                             = azurerm_resource_group.applications_service_stack.name

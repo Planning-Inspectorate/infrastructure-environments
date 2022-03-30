@@ -44,7 +44,8 @@ dependency "common_ukw" {
   mock_outputs_merge_with_state           = true
 
   mock_outputs = {
-    key_vault_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
+    action_group_low_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock"
+    key_vault_id        = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
 
     key_vault_secret_refs = {
       srv-notify-api-key = "mock_secret"
@@ -53,6 +54,7 @@ dependency "common_ukw" {
 }
 
 inputs = {
+  action_group_low_id                             = dependency.common_ukw.outputs.action_group_low_id
   app_insights_connection_string                  = try(dependency.common_uks.outputs.app_insights_connection_string, null)
   app_insights_instrumentation_key                = try(dependency.common_uks.outputs.app_insights_instrumentation_key, null)
   app_service_plan_id                             = try(dependency.common_uks.outputs.app_service_plan_id, null)

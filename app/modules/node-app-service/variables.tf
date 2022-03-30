@@ -1,3 +1,8 @@
+variable "action_group_low_id" {
+  description = "The ID of the Azure Monitor action group for low priority alerts"
+  type        = string
+}
+
 variable "app_insights_connection_string" {
   description = "The connection string to connect to an Application Insights resource"
   sensitive   = true
@@ -74,6 +79,12 @@ variable "integration_subnet_id" {
 variable "location" {
   description = "The name of the app service location"
   type        = string
+}
+
+variable "monitoring_alerts_enabled" {
+  default     = false
+  description = "Indicates whether Azure Monitor alerts are enabled for App Service"
+  type        = bool
 }
 
 variable "key_vault_id" {

@@ -5,6 +5,7 @@ locals {
   cosmosdb_enable_public_access   = true
   environment                     = "dev"
   logger_level                    = "info"
+  monitoring_alerts_enabled       = false
   node_environment                = "development"
   primary_vnet_address_space      = ["10.1.0.0/16"]
   secondary_vnet_address_space    = ["10.11.0.0/16"]

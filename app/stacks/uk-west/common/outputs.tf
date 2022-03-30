@@ -1,3 +1,8 @@
+output "action_group_low_id" {
+  description = "The Action Group ID for sending low priority (P4) alerts"
+  value       = azurerm_monitor_action_group.low.id
+}
+
 output "app_insights_connection_string" {
   description = "The Application Insights connection string used to allow monitoring on App Services"
   sensitive   = true
