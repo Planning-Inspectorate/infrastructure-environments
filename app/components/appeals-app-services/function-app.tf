@@ -1,37 +1,29 @@
-resource "azurerm_linux_function_app" "horizon_functions" {
-  name                          = "pins-func-horizon-${var.service_name}-${var.resource_suffix}"
-  location                      = var.location
-  resource_group_name           = var.resource_group_name
-  service_plan_id               = var.app_service_plan_id
-  storage_account_name          = var.function_apps_storage_account
-  storage_uses_managed_identity = true
+module "horizon_functions" {
+  source = "../../modules/node-function-app"
 
-  https_only = true
+  app_insights_connection_string   = var.app_insights_connection_string
+  app_insights_instrumentation_key = var.app_insights_instrumentation_key
+  app_name                         = "horizon"
+  app_service_plan_id              = var.app_service_plan_id
+  function_apps_storage_account    = var.function_apps_storage_account
+  location                         = var.location
+  resource_group_name              = var.resource_group_name
+  resource_suffix                  = var.resource_suffix
+  service_name                     = var.service_name
 
   app_settings = {
-
+    APPEALS_SERVICE_URL  = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
+    DOCUMENT_SERVICE_URL = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net"
+    HORIZON_URL          = var.horizon_url
   }
 
-  connection_string {
-    name  = "horizon-service-bus"
-    type  = "Custom"
-    value = azurerm_servicebus_namespace.horizon.default_primary_connection_string
-  }
-
-  identity {
-    type = "SystemAssigned"
-  }
-
-  site_config {
-    always_on                              = true
-    application_insights_connection_string = var.app_insights_connection_string
-    application_insights_key               = var.app_insights_instrumentation_key
-    http2_enabled                          = true
-
-    application_stack {
-      node_version = 14
+  connection_strings = [
+    {
+      name  = "horizon-service-bus"
+      type  = "Custom"
+      value = azurerm_servicebus_namespace.horizon.default_primary_connection_string
     }
-  }
+  ]
 
   tags = var.tags
 }

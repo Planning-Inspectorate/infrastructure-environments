@@ -18,6 +18,7 @@ module "app_services" {
   function_apps_storage_account                                               = azurerm_storage_account.function_apps.name
   google_analytics_id                                                         = var.google_analytics_id
   google_tag_manager_id                                                       = var.google_tag_manager_id
+  horizon_url                                                                 = var.horizon_url
   integration_subnet_id                                                       = var.integration_subnet_id
   key_vault_id                                                                = var.key_vault_id
   key_vault_secret_refs                                                       = var.key_vault_secret_refs

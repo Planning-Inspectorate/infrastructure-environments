@@ -6,6 +6,10 @@
 *.tfstate
 *.tfstate.*
 
+# Terraform lock files in modules
+.terraform.lock.hcl
+!app/stacks/**/.terraform.lock.hcl
+
 # Crash log files
 crash.log
 
