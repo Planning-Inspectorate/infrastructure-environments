@@ -4,6 +4,7 @@ locals {
   applications_service_public_url = "applications-service-test.planninginspectorate.gov.uk"
   environment                     = "test"
   logger_level                    = "info"
+  monitoring_alerts_enabled       = true
   node_environment                = "production"
   primary_vnet_address_space      = "10.2.0.0/16"
   secondary_vnet_address_space    = "10.12.0.0/16"

@@ -75,11 +75,6 @@ variable "endpoint_subnet_id" {
   type        = string
 }
 
-variable "environment" {
-  description = "The environment resources are deployed to e.g. 'dev'"
-  type        = string
-}
-
 variable "function_apps_storage_account" {
   description = "The name of the storage account used by the Function Apps"
   type        = string
@@ -119,6 +114,12 @@ variable "logger_level" {
   description = "The level of logging enabled for applications in the environment e.g. info"
   type        = string
   default     = "info"
+}
+
+variable "monitoring_alerts_enabled" {
+  default     = false
+  description = "Indicates whether Azure Monitor alerts are enabled for App Service"
+  type        = bool
 }
 
 variable "node_environment" {

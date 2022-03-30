@@ -19,7 +19,7 @@ module "app_service" {
   integration_subnet_id              = can(each.value["integration_subnet_id"]) ? each.value["integration_subnet_id"] : null
   key_vault_id                       = each.value["key_vault_access"] ? var.key_vault_id : null
   location                           = var.location
-  monitoring_alerts_enabled          = var.environment == "dev" ? false : true
+  monitoring_alerts_enabled          = var.monitoring_alerts_enabled
   outbound_vnet_connectivity         = each.value["outbound_vnet_connectivity"]
   resource_group_name                = var.resource_group_name
   resource_suffix                    = var.resource_suffix

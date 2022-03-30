@@ -114,6 +114,12 @@ variable "logger_level" {
   default     = "info"
 }
 
+variable "monitoring_alerts_enabled" {
+  default     = false
+  description = "Indicates whether Azure Monitor alerts are enabled for App Service"
+  type        = bool
+}
+
 variable "national_infrastructure_gateway_ip" {
   description = "The public IP address of the National Infrastructure gateway endpoint"
   type        = string

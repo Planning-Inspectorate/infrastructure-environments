@@ -112,6 +112,12 @@ variable "logger_level" {
   default     = "info"
 }
 
+variable "monitoring_alerts_enabled" {
+  default     = false
+  description = "Indicates whether Azure Monitor alerts are enabled for App Service"
+  type        = bool
+}
+
 variable "node_environment" {
   description = "The node environment to be used for applications in this environment e.g. development"
   type        = string

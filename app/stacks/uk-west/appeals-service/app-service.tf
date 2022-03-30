@@ -15,7 +15,6 @@ module "app_services" {
   container_registry_username                                                 = data.azurerm_container_registry.acr.admin_username
   cosmosdb_connection_string                                                  = azurerm_cosmosdb_account.appeals_database.connection_strings[0]
   endpoint_subnet_id                                                          = azurerm_subnet.appeals_service_ingress.id
-  environment                                                                 = var.environment
   function_apps_storage_account                                               = azurerm_storage_account.function_apps.name
   google_analytics_id                                                         = var.google_analytics_id
   google_tag_manager_id                                                       = var.google_tag_manager_id
@@ -24,6 +23,7 @@ module "app_services" {
   key_vault_secret_refs                                                       = var.key_vault_secret_refs
   location                                                                    = module.azure_region_primary.location
   logger_level                                                                = var.logger_level
+  monitoring_alerts_enabled                                                   = var.monitoring_alerts_enabled
   node_environment                                                            = var.node_environment
   resource_group_id                                                           = azurerm_resource_group.appeals_service_stack.id
   resource_group_name                                                         = azurerm_resource_group.appeals_service_stack.name
