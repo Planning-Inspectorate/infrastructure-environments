@@ -59,11 +59,6 @@ variable "endpoint_subnet_id" {
   type        = string
 }
 
-variable "environment" {
-  description = "The environment resources are deployed to e.g. 'dev'"
-  type        = string
-}
-
 variable "image_name" {
   description = "The name of the image deployed to the App Service"
   type        = string
@@ -84,6 +79,12 @@ variable "integration_subnet_id" {
 variable "location" {
   description = "The name of the app service location"
   type        = string
+}
+
+variable "monitoring_alerts_enabled" {
+  default     = false
+  description = "Indicates whether Azure Monitor alerts are enabled for App Service"
+  type        = bool
 }
 
 variable "key_vault_id" {
