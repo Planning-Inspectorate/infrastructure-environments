@@ -8,13 +8,7 @@ resource "azurerm_linux_function_app" "function_app" {
 
   https_only = true
 
-  app_settings = merge(
-    var.app_settings,
-    {
-      APPINSIGHTS_INSTRUMENTATIONKEY        = var.app_insights_instrumentation_key
-      APPLICATIONINSIGHTS_CONNECTION_STRING = var.app_insights_connection_string
-    }
-  )
+  app_settings = var.app_settings
 
   dynamic "connection_string" {
     for_each = var.connection_strings

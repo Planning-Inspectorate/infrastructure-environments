@@ -34,6 +34,7 @@ variable "app_service_plan_id" {
 variable "app_settings" {
   description = "The environment variables to be passed to the application"
   type        = map(string)
+  default     = {}
 }
 
 variable "container_registry_login_server" {
