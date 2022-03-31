@@ -10,7 +10,12 @@ dependency "common_uks" {
   mock_outputs = {
     common_resource_group_name = "mock_resource_group_name"
     common_vnet_cidr_blocks = {
-      back_office_endpoints = "10.1.4.0/24"
+      app_gateway                    = "10.1.0.0/25"
+      app_service_integration        = "10.1.1.0/24"
+      appeals_service_endpoints      = "10.1.2.0/24"
+      applications_service_endpoints = "10.1.3.0/24"
+      back_office_endpoints          = "10.1.4.0/24"
+      vpn_gateway                    = "10.1.0.128/25"
     }
     common_vnet_name = "mock_vnet_name"
   }
