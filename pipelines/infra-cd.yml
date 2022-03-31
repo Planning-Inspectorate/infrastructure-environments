@@ -28,6 +28,7 @@ parameters:
       - common
       - appeals-service
       - applications-service
+      - back-office
       - front-door
   - name: DRDeployment
     displayName: Disaster Recovery Deployment?
