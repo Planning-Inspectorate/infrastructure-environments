@@ -14,7 +14,7 @@ resource "azurerm_monitor_metric_alert" "app_service_http_5xx" {
     metric_name      = "Http5xx"
     aggregation      = "Average"
     operator         = "GreaterThanOrEqual"
-    threshold        = 1
+    threshold        = 10
   }
 
   action {
@@ -28,7 +28,7 @@ resource "azurerm_monitor_metric_alert" "app_service_response_time" {
   resource_group_name = var.resource_group_name
   enabled             = var.monitoring_alerts_enabled
   scopes              = [azurerm_linux_web_app.web_app.id]
-  description         = "Sends an alert when the App Service response exceeds 3 seconds"
+  description         = "Sends an alert when the App Service response exceeds 1 minute"
   window_size         = "PT5M"
   frequency           = "PT1M"
   severity            = 4
@@ -39,7 +39,7 @@ resource "azurerm_monitor_metric_alert" "app_service_response_time" {
     metric_name      = "HttpResponseTime"
     aggregation      = "Average"
     operator         = "GreaterThan"
-    threshold        = 3
+    threshold        = 60
   }
 
   action {
