@@ -18,7 +18,8 @@ resource "azurerm_monitor_metric_alert" "function_app_http_5xx" {
   }
 
   action {
-    action_group_id = var.action_group_low_id
+    action_group_id    = var.action_group_low_id
+    webhook_properties = {}
   }
 }
 
@@ -42,7 +43,8 @@ resource "azurerm_monitor_metric_alert" "function_app_response_time" {
   }
 
   action {
-    action_group_id = var.action_group_low_id
+    action_group_id    = var.action_group_low_id
+    webhook_properties = {}
   }
 }
 
@@ -61,7 +63,8 @@ resource "azurerm_monitor_activity_log_alert" "function_app_stop" {
   }
 
   action {
-    action_group_id = var.action_group_low_id
+    action_group_id    = var.action_group_low_id
+    webhook_properties = {}
   }
 }
 
@@ -80,6 +83,7 @@ resource "azurerm_monitor_activity_log_alert" "function_app_delete" {
   }
 
   action {
-    action_group_id = var.action_group_low_id
+    action_group_id    = var.action_group_low_id
+    webhook_properties = {}
   }
 }
