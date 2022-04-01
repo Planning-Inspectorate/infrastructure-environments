@@ -28,7 +28,7 @@ locals {
         GOOGLE_TAG_MANAGER_ID                      = var.google_tag_manager_id
         HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION = true
         HOST_URL                                   = "https://${var.appeals_service_public_url}"
-        MICROSOFT_PROVIDER_AUTHENTICATION_SECRET   = var.key_vault_secret_refs["microsoft-provider-authentication-secret"]
+        MICROSOFT_PROVIDER_AUTHENTICATION_SECRET   = var.key_vault_secret_refs["appeals-microsoft-provider-authentication-secret"]
         PDF_SERVICE_API_URL                        = "https://pins-app-${var.service_name}-pdf-api-${var.resource_suffix}.azurewebsites.net"
         PORT                                       = "3000"
         SESSION_KEY                                = "some_key"
@@ -77,7 +77,7 @@ locals {
         SERVER_PORT                                                                 = "3000"
         SERVER_SHOW_ERRORS                                                          = true
         SERVER_TERMINATION_GRACE_PERIOD_SECONDS                                     = "0"
-        SRV_NOTIFY_API_KEY                                                          = var.key_vault_secret_refs["srv-notify-api-key"]
+        SRV_NOTIFY_API_KEY                                                          = var.key_vault_secret_refs["appeals-srv-notify-api-key"]
         SRV_NOTIFY_APPEAL_SUBMISSION_CONFIRMATION_EMAIL_TO_APPELLANT_TEMPLATE_ID    = var.srv_notify_appeal_submission_confirmation_email_to_apellant_template_id
         SRV_NOTIFY_APPEAL_SUBMISSION_RECEIVED_NOTIFICATION_EMAIL_TO_LPA_TEMPLATE_ID = var.srv_notify_appeal_submission_received_notification_email_to_lpa_template_id
         SRV_NOTIFY_BASE_URL                                                         = var.srv_notify_base_url
