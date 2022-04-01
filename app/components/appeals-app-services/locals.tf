@@ -84,7 +84,6 @@ locals {
         SRV_NOTIFY_EMAIL_REPLYTO_ID_START_EMAIL_TO_LPA                              = var.srv_notify_email_reply_to_id_start_email_to_lpa_template_id
         SRV_NOTIFY_SERVICE_ID                                                       = var.srv_notify_service_id
         SRV_NOTIFY_START_EMAIL_TO_LPA_TEMPLATE_ID                                   = var.srv_notify_start_email_to_lpa_template_id
-        SRV_NOTIFY_TEMPLATE_ID                                                      = var.srv_notify_template_id
       }
     }
 

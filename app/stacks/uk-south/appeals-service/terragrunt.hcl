@@ -46,10 +46,7 @@ dependency "common_ukw" {
   mock_outputs = {
     action_group_low_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock"
     key_vault_id        = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
-
-    key_vault_secret_refs = {
-      srv-notify-api-key = "mock_secret"
-    }
+    key_vault_uri       = "https://mockvault.vault.azure.net/"
   }
 }
 
@@ -69,5 +66,5 @@ inputs = {
   function_apps_storage_account                   = dependency.appeals_service_ukw.outputs.function_apps_storage_account
   integration_subnet_id                           = dependency.common_uks.outputs.integration_subnet_id
   key_vault_id                                    = dependency.common_ukw.outputs.key_vault_id
-  key_vault_secret_refs                           = dependency.common_ukw.outputs.key_vault_secret_refs
+  key_vault_uri                                   = dependency.common_ukw.outputs.key_vault_uri
 }

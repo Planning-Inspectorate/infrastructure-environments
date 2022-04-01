@@ -15,7 +15,7 @@ module "app_services" {
   google_analytics_id                                             = var.google_analytics_id
   integration_subnet_id                                           = var.integration_subnet_id
   key_vault_id                                                    = var.key_vault_id
-  key_vault_secret_refs                                           = var.key_vault_secret_refs
+  key_vault_secret_refs                                           = local.secret_refs
   location                                                        = azurerm_resource_group.applications_service_stack.location
   monitoring_alerts_enabled                                       = var.monitoring_alerts_enabled
   logger_level                                                    = var.logger_level

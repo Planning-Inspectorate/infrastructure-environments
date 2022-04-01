@@ -23,7 +23,6 @@ dependency "common_uks" {
 }
 
 dependency "common_ukw" {
-
   config_path                             = "../../uk-west/common"
   mock_outputs_allowed_terraform_commands = ["validate", "plan"]
   mock_outputs_merge_with_state           = true
@@ -31,17 +30,7 @@ dependency "common_ukw" {
   mock_outputs = {
     action_group_low_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock"
     key_vault_id        = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
-
-    key_vault_secret_refs = {
-      applications-service-encryption-secret-key = "mock_secret"
-      applications-service-mysql-database        = "mock_secret"
-      applications-service-mysql-dialect         = "mock_secret"
-      applications-service-mysql-host            = "mock_secret"
-      applications-service-mysql-password        = "mock_secret"
-      applications-service-mysql-port            = "mock_secret"
-      applications-service-mysql-username        = "mock_secret"
-      srv-notify-api-key                         = "mock_secret"
-    }
+    key_vault_uri       = "https://mockvault.vault.azure.net/"
   }
 }
 
@@ -57,5 +46,5 @@ inputs = {
   common_vnet_name                            = dependency.common_uks.outputs.common_vnet_name
   integration_subnet_id                       = dependency.common_uks.outputs.integration_subnet_id
   key_vault_id                                = dependency.common_ukw.outputs.key_vault_id
-  key_vault_secret_refs                       = dependency.common_ukw.outputs.key_vault_secret_refs
+  key_vault_uri                               = dependency.common_ukw.outputs.key_vault_uri
 }
