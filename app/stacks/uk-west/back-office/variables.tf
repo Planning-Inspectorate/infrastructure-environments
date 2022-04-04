@@ -50,6 +50,11 @@ variable "container_registry_rg" {
   type        = string
 }
 
+variable "database_size" {
+  description = "A map of database sizing options"
+  type        = map(string)
+}
+
 variable "environment" {
   description = "The environment resources are deployed to e.g. 'dev'"
   type        = string
@@ -81,6 +86,18 @@ variable "monitoring_alerts_enabled" {
   default     = false
   description = "Indicates whether Azure Monitor alerts are enabled for App Service"
   type        = bool
+}
+
+variable "sql_server_administrator_password" {
+  description = "The built-in SQL Server administrator password"
+  sensitive   = true
+  type        = string
+}
+
+variable "sql_server_administrator_username" {
+  description = "The built-in SQL Server administrator password"
+  sensitive   = true
+  type        = string
 }
 
 variable "tooling_subscription_id" {

@@ -66,6 +66,18 @@ output "key_vault_uri" {
   value       = azurerm_key_vault.environment_key_vault.vault_uri
 }
 
+output "back_office_sql_server_administrator_password" {
+  description = "The back office service build-int SQL Server administrator password"
+  sensitive   = true
+  value       = data.azurerm_key_vault_secret.back_office_sql_server_administrator_password.value
+}
+
+output "back_office_sql_server_administrator_username" {
+  description = "The back office service build-int SQL Server administrator username"
+  sensitive   = true
+  value       = data.azurerm_key_vault_secret.back_office_sql_server_administrator_username.value
+}
+
 output "vnet_id" {
   description = "The ID of the Virtual Network"
   value       = module.networking.vnet_id
