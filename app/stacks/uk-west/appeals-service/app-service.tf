@@ -21,7 +21,7 @@ module "app_services" {
   horizon_url                                                                 = var.horizon_url
   integration_subnet_id                                                       = var.integration_subnet_id
   key_vault_id                                                                = var.key_vault_id
-  key_vault_secret_refs                                                       = local.secret_refs
+  key_vault_uri                                                               = var.key_vault_uri
   location                                                                    = module.azure_region_primary.location
   logger_level                                                                = var.logger_level
   monitoring_alerts_enabled                                                   = var.monitoring_alerts_enabled

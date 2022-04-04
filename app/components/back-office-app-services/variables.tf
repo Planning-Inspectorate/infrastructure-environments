@@ -3,11 +3,6 @@ variable "action_group_low_id" {
   type        = string
 }
 
-variable "api_timeout" {
-  description = "The timeout in milliseconds for API calls in the frontend apps"
-  type        = string
-}
-
 variable "app_insights_connection_string" {
   description = "The connection string to connect to an Application Insights resource"
   sensitive   = true
@@ -30,11 +25,6 @@ variable "app_service_plan_id" {
   type        = string
 }
 
-variable "applications_service_public_url" {
-  description = "The public URL for the Applications Service frontend web app"
-  type        = string
-}
-
 variable "container_registry_login_server" {
   description = "The URL used to connect to the Azure Container Registry"
   sensitive   = true
@@ -53,13 +43,14 @@ variable "container_registry_username" {
   type        = string
 }
 
-variable "endpoint_subnet_id" {
-  description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
+variable "database_connection_string" {
+  description = "The connection string used to connect to the MySQL database"
+  sensitive   = true
   type        = string
 }
 
-variable "google_analytics_id" {
-  description = "The id used to connect the frontend app to Google Analytics"
+variable "endpoint_subnet_id" {
+  description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
   type        = string
 }
 
@@ -73,32 +64,15 @@ variable "key_vault_id" {
   type        = string
 }
 
-variable "key_vault_uri" {
-  description = "The URI of the Key Vault"
-  type        = string
-}
-
 variable "location" {
   description = "The location the App Services are deployed to in slug format e.g. 'uk-south'"
   type        = string
-}
-
-variable "logger_level" {
-  description = "The level of logging enabled for applications in the environment e.g. info"
-  type        = string
-  default     = "info"
 }
 
 variable "monitoring_alerts_enabled" {
   default     = false
   description = "Indicates whether Azure Monitor alerts are enabled for App Service"
   type        = bool
-}
-
-variable "node_environment" {
-  description = "The node environment to be used for applications in this environment e.g. development"
-  type        = string
-  default     = "development"
 }
 
 variable "resource_group_name" {
@@ -113,31 +87,6 @@ variable "resource_suffix" {
 
 variable "service_name" {
   description = "The name of the service the Azure App Services are part of"
-  type        = string
-}
-
-variable "srv_notify_base_url" {
-  description = "The base URL for the Notifications service"
-  type        = string
-}
-
-variable "srv_notify_ip_registration_confirmation_email_to_ip_template_id" {
-  description = "The template ID for the IP registration confirmation email"
-  type        = string
-}
-
-variable "srv_notify_magic_link_email_template_id" {
-  description = "The template ID for the magic link email"
-  type        = string
-}
-
-variable "srv_notify_service_id" {
-  description = "The ID of the Notifications service"
-  type        = string
-}
-
-variable "private_beta_v1_routes_only" {
-  description = "Feature toggle for limiting web app routes to Private Beta V1 functionality only"
   type        = string
 }
 
