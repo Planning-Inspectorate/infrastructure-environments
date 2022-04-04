@@ -26,6 +26,18 @@ output "applications_service_vpn_gateway_shared_key" {
   value       = data.azurerm_key_vault_secret.applications_service_vpn_gateway_shared_key.value
 }
 
+output "back_office_sql_server_administrator_password" {
+  description = "The back office service built-in SQL Server administrator password"
+  sensitive   = true
+  value       = data.azurerm_key_vault_secret.back_office_sql_server_administrator_password.value
+}
+
+output "back_office_sql_server_administrator_username" {
+  description = "The back office service built-in SQL Server administrator username"
+  sensitive   = true
+  value       = data.azurerm_key_vault_secret.back_office_sql_server_administrator_username.value
+}
+
 output "common_resource_group_name" {
   description = "The name of the common infrastructure resource group"
   value       = azurerm_resource_group.common_infrastructure.name
@@ -64,18 +76,6 @@ output "key_vault_id" {
 output "key_vault_uri" {
   description = "The URI of the Key Vault"
   value       = azurerm_key_vault.environment_key_vault.vault_uri
-}
-
-output "back_office_sql_server_administrator_password" {
-  description = "The back office service build-int SQL Server administrator password"
-  sensitive   = true
-  value       = data.azurerm_key_vault_secret.back_office_sql_server_administrator_password.value
-}
-
-output "back_office_sql_server_administrator_username" {
-  description = "The back office service build-int SQL Server administrator username"
-  sensitive   = true
-  value       = data.azurerm_key_vault_secret.back_office_sql_server_administrator_username.value
 }
 
 output "vnet_id" {
