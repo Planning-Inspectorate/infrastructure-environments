@@ -73,7 +73,6 @@ No requirements.
 | <a name="input_srv_notify_email_reply_to_id_start_email_to_lpa_template_id"></a> [srv\_notify\_email\_reply\_to\_id\_start\_email\_to\_lpa\_template\_id](#input\_srv\_notify\_email\_reply\_to\_id\_start\_email\_to\_lpa\_template\_id) | A template ID required by the Appeals Service API | `string` | n/a | yes |
 | <a name="input_srv_notify_service_id"></a> [srv\_notify\_service\_id](#input\_srv\_notify\_service\_id) | The ID of the Notifications service | `string` | n/a | yes |
 | <a name="input_srv_notify_start_email_to_lpa_template_id"></a> [srv\_notify\_start\_email\_to\_lpa\_template\_id](#input\_srv\_notify\_start\_email\_to\_lpa\_template\_id) | A template ID required by the Appeals Service API | `string` | n/a | yes |
-| <a name="input_srv_notify_template_id"></a> [srv\_notify\_template\_id](#input\_srv\_notify\_template\_id) | A template ID required by the Appeals Service API | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | The tags applied to all resources | `map(string)` | n/a | yes |
 
 ## Outputs

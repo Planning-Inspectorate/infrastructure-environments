@@ -23,7 +23,7 @@ module "app_services" {
   horizon_url                                                                 = var.horizon_url
   integration_subnet_id                                                       = var.integration_subnet_id
   key_vault_id                                                                = var.key_vault_id
-  key_vault_secret_refs                                                       = var.key_vault_secret_refs
+  key_vault_secret_refs                                                       = local.secret_refs
   location                                                                    = azurerm_resource_group.appeals_service_stack.location
   logger_level                                                                = var.logger_level
   monitoring_alerts_enabled                                                   = var.monitoring_alerts_enabled
@@ -38,7 +38,6 @@ module "app_services" {
   srv_notify_email_reply_to_id_start_email_to_lpa_template_id                 = var.srv_notify_email_reply_to_id_start_email_to_lpa_template_id
   srv_notify_service_id                                                       = var.srv_notify_service_id
   srv_notify_start_email_to_lpa_template_id                                   = var.srv_notify_start_email_to_lpa_template_id
-  srv_notify_template_id                                                      = var.srv_notify_template_id
 
   tags = local.tags
 }

@@ -15,9 +15,7 @@ dependency "common" {
     applications_service_vpn_gateway_shared_key = "mock_shared_key"
     common_resource_group_name                  = "mock_resource_group_name"
     common_vnet_cidr_blocks = {
-      app_gateway                    = "10.1.0.0/25"
       app_service_integration        = "10.1.1.0/24"
-      appeals_service_endpoints      = "10.1.2.0/24"
       applications_service_endpoints = "10.1.3.0/24"
       vpn_gateway                    = "10.1.0.128/25"
     }
@@ -25,16 +23,7 @@ dependency "common" {
     common_vnet_name       = "mock_vnet_name"
     integration_subnet_id  = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
     key_vault_id           = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
-    key_vault_secret_refs = {
-      applications-service-encryption-secret-key = "mock_secret"
-      applications-service-mysql-database        = "mock_secret"
-      applications-service-mysql-dialect         = "mock_secret"
-      applications-service-mysql-host            = "mock_secret"
-      applications-service-mysql-password        = "mock_secret"
-      applications-service-mysql-port            = "mock_secret"
-      applications-service-mysql-username        = "mock_secret"
-      srv-notify-api-key                         = "mock_secret"
-    }
+    key_vault_uri          = "https://mockvault.vault.azure.net/"
   }
 }
 
@@ -50,5 +39,5 @@ inputs = {
   common_vnet_name                            = dependency.common.outputs.common_vnet_name
   integration_subnet_id                       = dependency.common.outputs.integration_subnet_id
   key_vault_id                                = dependency.common.outputs.key_vault_id
-  key_vault_secret_refs                       = dependency.common.outputs.key_vault_secret_refs
+  key_vault_uri                               = dependency.common.outputs.key_vault_uri
 }

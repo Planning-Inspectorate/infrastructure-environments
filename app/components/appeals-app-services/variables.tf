@@ -183,11 +183,6 @@ variable "srv_notify_start_email_to_lpa_template_id" {
   type        = string
 }
 
-variable "srv_notify_template_id" {
-  description = "A template ID required by the Appeals Service API"
-  type        = string
-}
-
 variable "tags" {
   description = "The tags applied to all resources"
   type        = map(string)
