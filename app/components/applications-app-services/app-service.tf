@@ -13,6 +13,7 @@ module "app_service" {
   container_registry_login_server    = var.container_registry_login_server
   container_registry_server_password = var.container_registry_password
   container_registry_server_username = var.container_registry_username
+  deployment_slot                    = var.use_deployment_slots
   endpoint_subnet_id                 = can(each.value["endpoint_subnet_id"]) ? each.value["endpoint_subnet_id"] : null
   image_name                         = each.value["image_name"]
   inbound_vnet_connectivity          = each.value["inbound_vnet_connectivity"]
