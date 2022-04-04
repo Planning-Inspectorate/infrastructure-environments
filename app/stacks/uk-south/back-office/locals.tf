@@ -1,6 +1,7 @@
 locals {
   service_name    = "back-office"
   resource_suffix = "${var.environment}-${module.azure_region_uks.location_short}-${var.instance}"
+
   tags = merge(
     var.common_tags,
     {
