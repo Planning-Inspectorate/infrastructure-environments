@@ -36,6 +36,7 @@ module "app_services" {
   srv_notify_email_reply_to_id_start_email_to_lpa_template_id                 = var.srv_notify_email_reply_to_id_start_email_to_lpa_template_id
   srv_notify_service_id                                                       = var.srv_notify_service_id
   srv_notify_start_email_to_lpa_template_id                                   = var.srv_notify_start_email_to_lpa_template_id
+  use_deployment_slots                                                        = var.use_deployment_slots
 
   tags = local.tags
 }

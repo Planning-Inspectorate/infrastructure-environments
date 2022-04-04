@@ -54,6 +54,12 @@ variable "container_registry_server_username" {
   type        = string
 }
 
+variable "deployment_slot" {
+  description = "Flag to indicate if the App Service should create a deployment slot"
+  type        = bool
+  default     = true
+}
+
 variable "endpoint_subnet_id" {
   default     = null
   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"

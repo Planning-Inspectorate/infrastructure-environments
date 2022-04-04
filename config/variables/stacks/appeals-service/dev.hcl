@@ -7,4 +7,5 @@ locals {
   srv_notify_email_reply_to_id_start_email_to_lpa_template_id                 = "f1e6c8c5-786e-41ca-9086-10b67f31bc86"
   srv_notify_service_id                                                       = "c46d894e-d10e-4c46-a467-019576cd906a"
   srv_notify_start_email_to_lpa_template_id                                   = "c4701212-4b6a-4b55-801a-c86c7dbea54b"
+  use_deployment_slots                                                        = false
 }

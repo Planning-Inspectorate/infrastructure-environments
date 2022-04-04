@@ -145,3 +145,9 @@ variable "tags" {
   description = "The tags applied to all resources"
   type        = map(string)
 }
+
+variable "use_deployment_slots" {
+  description = "Flag to indicate if App Service deployment slots are in use on the environment"
+  type        = bool
+  default     = true
+}

@@ -24,6 +24,7 @@ No modules.
 | [azurerm_app_service_virtual_network_swift_connection.vnet_connection](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service_virtual_network_swift_connection) | resource |
 | [azurerm_key_vault_access_policy.read_secrets](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_access_policy) | resource |
 | [azurerm_linux_web_app.web_app](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app) | resource |
+| [azurerm_linux_web_app_slot.staging](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app_slot) | resource |
 | [azurerm_monitor_activity_log_alert.app_service_delete](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_activity_log_alert) | resource |
 | [azurerm_monitor_activity_log_alert.app_service_stop](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_activity_log_alert) | resource |
 | [azurerm_monitor_metric_alert.app_service_http_5xx](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_metric_alert) | resource |
@@ -45,6 +46,7 @@ No modules.
 | <a name="input_container_registry_login_server"></a> [container\_registry\_login\_server](#input\_container\_registry\_login\_server) | The URL that can be used to log into the container registry | `string` | n/a | yes |
 | <a name="input_container_registry_server_password"></a> [container\_registry\_server\_password](#input\_container\_registry\_server\_password) | The password used to connect to the container registry so that App Service can pull images | `string` | n/a | yes |
 | <a name="input_container_registry_server_username"></a> [container\_registry\_server\_username](#input\_container\_registry\_server\_username) | The username used to connect to the container registry so that App Service can pull images | `string` | n/a | yes |
+| <a name="input_deployment_slot"></a> [deployment\_slot](#input\_deployment\_slot) | Flag to indicate if the App Service should create a deployment slot | `bool` | `true` | no |
 | <a name="input_endpoint_subnet_id"></a> [endpoint\_subnet\_id](#input\_endpoint\_subnet\_id) | The id of the private endpoint subnet the app service is linked to for ingress traffic | `string` | `null` | no |
 | <a name="input_image_name"></a> [image\_name](#input\_image\_name) | The name of the image deployed to the App Service | `string` | n/a | yes |
 | <a name="input_inbound_vnet_connectivity"></a> [inbound\_vnet\_connectivity](#input\_inbound\_vnet\_connectivity) | Indicates whether inbound connectivity (Private Endpoint) is required | `bool` | `false` | no |
