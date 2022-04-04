@@ -88,13 +88,13 @@ variable "monitoring_alerts_enabled" {
   type        = bool
 }
 
-variable "sql_server_administrator_password" {
+variable "sql_server_password" {
   description = "The built-in SQL Server administrator password"
   sensitive   = true
   type        = string
 }
 
-variable "sql_server_administrator_username" {
+variable "sql_server_username" {
   description = "The built-in SQL Server administrator password"
   sensitive   = true
   type        = string

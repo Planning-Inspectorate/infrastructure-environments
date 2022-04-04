@@ -26,16 +26,16 @@ output "applications_service_vpn_gateway_shared_key" {
   value       = data.azurerm_key_vault_secret.applications_service_vpn_gateway_shared_key.value
 }
 
-output "back_office_sql_server_administrator_password" {
+output "back_office_sql_server_password" {
   description = "The back office service built-in SQL Server administrator password"
   sensitive   = true
-  value       = data.azurerm_key_vault_secret.back_office_sql_server_administrator_password.value
+  value       = data.azurerm_key_vault_secret.back_office_sql_server_password.value
 }
 
-output "back_office_sql_server_administrator_username" {
+output "back_office_sql_server_username" {
   description = "The back office service built-in SQL Server administrator username"
   sensitive   = true
-  value       = data.azurerm_key_vault_secret.back_office_sql_server_administrator_username.value
+  value       = data.azurerm_key_vault_secret.back_office_sql_server_username.value
 }
 
 output "common_resource_group_name" {
