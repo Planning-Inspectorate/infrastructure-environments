@@ -61,9 +61,9 @@ output "key_vault_id" {
   value       = azurerm_key_vault.environment_key_vault.id
 }
 
-output "key_vault_secret_refs" {
-  description = "Map of secret references from the Key Vault"
-  value       = local.secret_refs
+output "key_vault_uri" {
+  description = "The URI of the Key Vault"
+  value       = azurerm_key_vault.environment_key_vault.vault_uri
 }
 
 output "vnet_id" {

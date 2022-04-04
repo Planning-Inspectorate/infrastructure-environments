@@ -46,7 +46,7 @@ locals {
         SERVER_PORT                                         = "3000"
         SERVER_SHOW_ERRORS                                  = true
         SERVER_TERMINATION_GRACE_PERIOD_SECONDS             = "0"
-        SRV_NOTIFY_API_KEY                                  = var.key_vault_secret_refs["srv-notify-api-key"]
+        SRV_NOTIFY_API_KEY                                  = var.key_vault_secret_refs["applications-srv-notify-api-key"]
         SRV_NOTIFY_BASE_URL                                 = var.srv_notify_base_url
         SRV_NOTIFY_IP_REGISTRATION_CONFIRMATION_EMAIL_TO_IP = var.srv_notify_ip_registration_confirmation_email_to_ip_template_id
         SRV_NOTIFY_MAGIC_LINK_EMAIL                         = var.srv_notify_magic_link_email_template_id

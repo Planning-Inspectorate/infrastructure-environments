@@ -97,9 +97,9 @@ variable "key_vault_id" {
   type        = string
 }
 
-variable "key_vault_secret_refs" {
-  description = "Map of secret references from the Key Vault"
-  type        = map(string)
+variable "key_vault_uri" {
+  description = "The URI of the Key Vault"
+  type        = string
 }
 
 variable "location" {

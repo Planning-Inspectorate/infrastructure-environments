@@ -106,9 +106,9 @@ variable "key_vault_id" {
   type        = string
 }
 
-variable "key_vault_secret_refs" {
-  description = "Map of secret references from the Key Vault"
-  type        = map(string)
+variable "key_vault_uri" {
+  description = "The URI of the Key Vault"
+  type        = string
 }
 
 variable "logger_level" {
@@ -167,11 +167,6 @@ variable "srv_notify_service_id" {
 }
 
 variable "srv_notify_start_email_to_lpa_template_id" {
-  description = "A template ID required by the Appeals Service API"
-  type        = string
-}
-
-variable "srv_notify_template_id" {
   description = "A template ID required by the Appeals Service API"
   type        = string
 }

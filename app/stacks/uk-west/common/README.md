@@ -30,7 +30,6 @@ No requirements.
 | [azurerm_key_vault_access_policy.frontdoor](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_access_policy) | resource |
 | [azurerm_key_vault_access_policy.terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_access_policy) | resource |
 | [azurerm_key_vault_secret.applications_service_vpn_gateway_shared_key](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.secret](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_secret) | resource |
 | [azurerm_monitor_action_group.low](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_action_group) | resource |
 | [azurerm_resource_group.common_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
 | [azurerm_service_plan.common_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan) | resource |
@@ -70,6 +69,6 @@ No requirements.
 | <a name="output_cosmosdb_subnet_id"></a> [cosmosdb\_subnet\_id](#output\_cosmosdb\_subnet\_id) | The id of the Cosmos DB endpoint subnet |
 | <a name="output_integration_subnet_id"></a> [integration\_subnet\_id](#output\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic |
 | <a name="output_key_vault_id"></a> [key\_vault\_id](#output\_key\_vault\_id) | The ID of the key vault so App Services can pull secret values |
-| <a name="output_key_vault_secret_refs"></a> [key\_vault\_secret\_refs](#output\_key\_vault\_secret\_refs) | Map of secret references from the Key Vault |
+| <a name="output_key_vault_uri"></a> [key\_vault\_uri](#output\_key\_vault\_uri) | The URI of the Key Vault |
 | <a name="output_vnet_id"></a> [vnet\_id](#output\_vnet\_id) | The ID of the Virtual Network |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

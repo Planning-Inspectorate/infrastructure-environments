@@ -22,9 +22,7 @@ dependency "common_ukw" {
     cosmosdb_subnet_id    = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
     integration_subnet_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
     key_vault_id          = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
-    key_vault_secret_refs = {
-      srv-notify-api-key = "mock_secret"
-    }
+    key_vault_uri         = "https://mockvault.vault.azure.net/"
   }
 }
 
@@ -39,5 +37,5 @@ inputs = {
   cosmosdb_subnet_id               = try(dependency.common_ukw.outputs.cosmosdb_subnet_id, null)
   integration_subnet_id            = dependency.common_ukw.outputs.integration_subnet_id
   key_vault_id                     = dependency.common_ukw.outputs.key_vault_id
-  key_vault_secret_refs            = dependency.common_ukw.outputs.key_vault_secret_refs
+  key_vault_uri                    = dependency.common_ukw.outputs.key_vault_uri
 }
