@@ -4,33 +4,14 @@ resource "azurerm_monitor_action_group" "low" {
   short_name          = "pins-${var.environment}-low"
   tags                = local.tags
 
-  email_receiver {
-    name                    = "Send to Lester March"
-    email_address           = "lester.march@kinandcarta.com"
-    use_common_alert_schema = true
-  }
+  dynamic "email_receiver" {
+    for_each = var.alert_recipients["low"]
+    iterator = mapping
 
-  email_receiver {
-    name                    = "Send to Chris Cundill"
-    email_address           = "chris.cundill@planninginspectorate.gov.uk"
-    use_common_alert_schema = true
-  }
-
-  email_receiver {
-    name                    = "Send to Elvin Ali"
-    email_address           = "elvin.ali@planninginspectorate.gov.uk"
-    use_common_alert_schema = true
-  }
-
-  email_receiver {
-    name                    = "Send to Pankaj Khare"
-    email_address           = "pankaj.khare@planninginspectorate.gov.uk"
-    use_common_alert_schema = true
-  }
-
-  email_receiver {
-    name                    = "Send to Harish Kancharla"
-    email_address           = "harish.kancharla@planninginspectorate.gov.uk"
-    use_common_alert_schema = true
+    content {
+      name                    = "Send to ${mapping.value}"
+      email_address           = mapping.value
+      use_common_alert_schema = true
+    }
   }
 }
