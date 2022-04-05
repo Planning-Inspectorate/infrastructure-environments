@@ -25,6 +25,8 @@ No requirements.
 
 | Name | Type |
 |------|------|
+| [azurerm_mssql_failover_group.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_failover_group) | resource |
+| [azurerm_mssql_server.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server) | resource |
 | [azurerm_resource_group.back_office_stack](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
 | [azurerm_subnet.back_office_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet) | resource |
 | [azurerm_container_registry.acr](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/container_registry) | data source |
@@ -38,6 +40,7 @@ No requirements.
 | <a name="input_app_insights_connection_string"></a> [app\_insights\_connection\_string](#input\_app\_insights\_connection\_string) | The connection string to connect to an Application Insights resource | `string` | n/a | yes |
 | <a name="input_app_insights_instrumentation_key"></a> [app\_insights\_instrumentation\_key](#input\_app\_insights\_instrumentation\_key) | The instrumentation key to connect to an Application Insights resource | `string` | n/a | yes |
 | <a name="input_app_service_plan_id"></a> [app\_service\_plan\_id](#input\_app\_service\_plan\_id) | The id of the app service plan | `string` | n/a | yes |
+| <a name="input_back_office_sql_database"></a> [back\_office\_sql\_database](#input\_back\_office\_sql\_database) | The ID of the Back Office SQL database | `string` | n/a | yes |
 | <a name="input_common_resource_group_name"></a> [common\_resource\_group\_name](#input\_common\_resource\_group\_name) | The common infrastructure resource group name | `string` | n/a | yes |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | The common resource tags for the project | `map(string)` | n/a | yes |
 | <a name="input_common_vnet_cidr_blocks"></a> [common\_vnet\_cidr\_blocks](#input\_common\_vnet\_cidr\_blocks) | A map of IP address blocks from the subnet name to the allocated CIDR prefix | `map(string)` | n/a | yes |
@@ -51,6 +54,9 @@ No requirements.
 | <a name="input_key_vault_id"></a> [key\_vault\_id](#input\_key\_vault\_id) | The ID of the key vault so the App Service can pull secret values | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | The location resources are deployed to in slug format e.g. 'uk-south' | `string` | `"uk-south"` | no |
 | <a name="input_monitoring_alerts_enabled"></a> [monitoring\_alerts\_enabled](#input\_monitoring\_alerts\_enabled) | Indicates whether Azure Monitor alerts are enabled for App Service | `bool` | `false` | no |
+| <a name="input_primary_sql_server_id"></a> [primary\_sql\_server\_id](#input\_primary\_sql\_server\_id) | The ID of the primary Back Office SQL server | `string` | n/a | yes |
+| <a name="input_sql_server_password"></a> [sql\_server\_password](#input\_sql\_server\_password) | The common infrastructure SQL server administrator password | `string` | n/a | yes |
+| <a name="input_sql_server_username"></a> [sql\_server\_username](#input\_sql\_server\_username) | The common infrastructure SQL server administrator username | `string` | n/a | yes |
 | <a name="input_tooling_subscription_id"></a> [tooling\_subscription\_id](#input\_tooling\_subscription\_id) | The ID for the Tooling subscription that houses the Container Registry | `string` | n/a | yes |
 | <a name="input_use_deployment_slots"></a> [use\_deployment\_slots](#input\_use\_deployment\_slots) | Flag to indicate if App Service deployment slots are in use on the environment | `bool` | `true` | no |
 

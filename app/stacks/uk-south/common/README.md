@@ -25,7 +25,6 @@ No requirements.
 | Name | Type |
 |------|------|
 | [azurerm_application_insights.node](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/application_insights) | resource |
-| [azurerm_mssql_server.common](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server) | resource |
 | [azurerm_resource_group.common_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
 | [azurerm_service_plan.common_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan) | resource |
 
@@ -41,8 +40,6 @@ No requirements.
 | <a name="input_is_dr_deployment"></a> [is\_dr\_deployment](#input\_is\_dr\_deployment) | A flag to indicate whether or not the infrastructure deployment is for a disaster recovery scenario | `bool` | `false` | no |
 | <a name="input_location"></a> [location](#input\_location) | The location resources are deployed to in slug format e.g. 'uk-west' | `string` | `"uk-south"` | no |
 | <a name="input_secondary_vnet_address_space"></a> [secondary\_vnet\_address\_space](#input\_secondary\_vnet\_address\_space) | The CIDR address space for the common virtual network | `string` | n/a | yes |
-| <a name="input_sql_server_password"></a> [sql\_server\_password](#input\_sql\_server\_password) | The common infrastructure SQL server administrator password | `string` | n/a | yes |
-| <a name="input_sql_server_username"></a> [sql\_server\_username](#input\_sql\_server\_username) | The common infrastructure SQL server administrator username | `string` | n/a | yes |
 | <a name="input_tooling_network_name"></a> [tooling\_network\_name](#input\_tooling\_network\_name) | The name of the VNet in the Tooling environment | `string` | n/a | yes |
 | <a name="input_tooling_network_region_short"></a> [tooling\_network\_region\_short](#input\_tooling\_network\_region\_short) | The region in which the Tooling VNet resides in short format e.g. 'uks' | `string` | n/a | yes |
 | <a name="input_tooling_network_rg"></a> [tooling\_network\_rg](#input\_tooling\_network\_rg) | The name of the resource group containing the VNet in the Tooling environment | `string` | n/a | yes |
@@ -62,6 +59,5 @@ No requirements.
 | <a name="output_common_vnet_name"></a> [common\_vnet\_name](#output\_common\_vnet\_name) | The name of the common infrastructure virtual network |
 | <a name="output_cosmosdb_subnet_id"></a> [cosmosdb\_subnet\_id](#output\_cosmosdb\_subnet\_id) | The id of the Cosmos DB endpoint subnet |
 | <a name="output_integration_subnet_id"></a> [integration\_subnet\_id](#output\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic |
-| <a name="output_sql_server_id"></a> [sql\_server\_id](#output\_sql\_server\_id) | The ID of the common infrastructure SQL server |
 | <a name="output_vnet_id"></a> [vnet\_id](#output\_vnet\_id) | The ID of the Virtual Network |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

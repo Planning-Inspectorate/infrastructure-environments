@@ -51,11 +51,6 @@ output "integration_subnet_id" {
   value       = module.networking.integration_subnet_id
 }
 
-output "sql_server_id" {
-  description = "The ID of the common infrastructure SQL server"
-  value       = azurerm_mssql_server.common.id
-}
-
 output "vnet_id" {
   description = "The ID of the Virtual Network"
   value       = module.networking.vnet_id

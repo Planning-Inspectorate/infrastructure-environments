@@ -61,11 +61,6 @@ output "key_vault_id" {
   value       = azurerm_key_vault.environment_key_vault.id
 }
 
-output "sql_server_id" {
-  description = "The ID of the common infrastructure SQL server"
-  value       = azurerm_mssql_server.common.id
-}
-
 output "sql_server_password" {
   description = "The common infrastructure SQL server administrator password"
   sensitive   = true

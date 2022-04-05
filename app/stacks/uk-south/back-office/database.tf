@@ -13,13 +13,18 @@ resource "azurerm_mssql_server" "back_office" {
   tags = var.common_tags
 }
 
-resource "azurerm_mssql_database" "back_office" {
-  name         = "pins-sqldb-${local.service_name}-${local.resource_suffix}"
-  server_id    = azurerm_mssql_server.back_office
-  collation    = "SQL_Latin1_General_CP1_CI_AS"
-  license_type = "LicenseIncluded"
-  sku_name     = var.database_size["sku_name"]
-  max_size_gb  = var.database_size["max_size_gb"]
+resource "azurerm_mssql_failover_group" "back_office" {
+  name      = "pins-sqlag-${local.service_name}-${local.resource_suffix}"
+  server_id = var.primary_sql_server_id
+  databases = [var.back_office_sql_database]
+
+  partner_server {
+    id = azurerm_mssql_server.back_office.id
+  }
+
+  read_write_endpoint_failover_policy {
+    mode = "Manual"
+  }
 
   tags = var.common_tags
 }

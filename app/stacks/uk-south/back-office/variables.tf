@@ -20,6 +20,11 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "back_office_sql_database" {
+  description = "The ID of the Back Office SQL database"
+  type        = string
+}
+
 variable "common_tags" {
   description = "The common resource tags for the project"
   type        = map(string)
@@ -87,6 +92,23 @@ variable "monitoring_alerts_enabled" {
   default     = false
   description = "Indicates whether Azure Monitor alerts are enabled for App Service"
   type        = bool
+}
+
+variable "primary_sql_server_id" {
+  description = "The ID of the primary Back Office SQL server"
+  type        = string
+}
+
+variable "sql_server_password" {
+  description = "The common infrastructure SQL server administrator password"
+  sensitive   = true
+  type        = string
+}
+
+variable "sql_server_username" {
+  description = "The common infrastructure SQL server administrator username"
+  sensitive   = true
+  type        = string
 }
 
 variable "tooling_subscription_id" {
