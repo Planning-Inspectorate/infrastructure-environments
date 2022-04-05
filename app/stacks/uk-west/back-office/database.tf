@@ -11,7 +11,6 @@ resource "random_id" "username_suffix" {
   byte_length = 6
 }
 
-# tflint-ignore: terraform_unused_declarations
 resource "azurerm_key_vault_secret" "back_office_sql_server_password" {
   #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   #checkov:skip=CKV_AZURE_114: No need to set content type via Terraform, as secrets to be updated in Portal
@@ -20,31 +19,16 @@ resource "azurerm_key_vault_secret" "back_office_sql_server_password" {
   value        = random_password.back_office_sql_server_password.result
 
   tags = local.tags
-
-  lifecycle {
-    ignore_changes = [
-      value,
-      version
-    ]
-  }
 }
 
-# tflint-ignore: terraform_unused_declarations
 resource "azurerm_key_vault_secret" "back_office_sql_server_username" {
   #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   #checkov:skip=CKV_AZURE_114: No need to set content type via Terraform, as secrets to be updated in Portal
   key_vault_id = var.key_vault_id
   name         = "back-office-sql-server-username"
-  value        = "backofficeadmin_${random_id.username_suffix.id}"
+  value        = local.sql_server_username
 
   tags = local.tags
-
-  lifecycle {
-    ignore_changes = [
-      value,
-      version
-    ]
-  }
 }
 
 resource "azurerm_mssql_server" "back_office" {
@@ -55,7 +39,7 @@ resource "azurerm_mssql_server" "back_office" {
   resource_group_name          = azurerm_resource_group.back_office_stack.name
   location                     = azurerm_resource_group.back_office_stack.location
   version                      = "12.0"
-  administrator_login          = "backofficeadmin_${random_id.username_suffix.id}"
+  administrator_login          = local.sql_server_username
   administrator_login_password = random_password.back_office_sql_server_password.result
   minimum_tls_version          = "1.2"
 

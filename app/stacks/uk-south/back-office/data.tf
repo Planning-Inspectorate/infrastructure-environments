@@ -10,13 +10,3 @@ data "azurerm_private_dns_zone" "app_service" {
 
   provider = azurerm.tooling
 }
-
-data "azurerm_key_vault_secret" "back_office_sql_server_password" {
-  name         = "back-office-sql-server-password"
-  key_vault_id = var.key_vault_id
-}
-
-data "azurerm_key_vault_secret" "back_office_sql_server_username" {
-  name         = "back-office-sql-server-username"
-  key_vault_id = var.key_vault_id
-}

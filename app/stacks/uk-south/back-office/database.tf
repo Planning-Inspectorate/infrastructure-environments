@@ -6,8 +6,8 @@ resource "azurerm_mssql_server" "back_office" {
   resource_group_name          = azurerm_resource_group.back_office_stack.name
   location                     = azurerm_resource_group.back_office_stack.location
   version                      = "12.0"
-  administrator_login          = data.azurerm_key_vault_secret.back_office_sql_server_username.value
-  administrator_login_password = data.azurerm_key_vault_secret.back_office_sql_server_password.value
+  administrator_login          = var.sql_server_username
+  administrator_login_password = var.sql_server_password
   minimum_tls_version          = "1.2"
 
   tags = local.tags

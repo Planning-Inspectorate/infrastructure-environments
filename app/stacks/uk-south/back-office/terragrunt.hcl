@@ -39,6 +39,8 @@ dependency "back_office_ukw" {
   mock_outputs = {
     back_office_sql_database = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Sql/servers/mock_sql_server/databases/mock_sql_db"
     sql_server_id            = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Sql/servers/mock_sql_server"
+    sql_server_password      = "mockpass"
+    sql_server_username      = "mockuser"
   }
 }
 
@@ -54,4 +56,6 @@ inputs = {
   integration_subnet_id            = dependency.common_uks.outputs.integration_subnet_id
   key_vault_id                     = dependency.common_ukw.outputs.key_vault_id
   primary_sql_server_id            = dependency.back_office_ukw.outputs.sql_server_id
+  sql_server_password              = dependency.back_office_ukw.outputs.sql_server_password
+  sql_server_username              = dependency.back_office_ukw.outputs.sql_server_username
 }
