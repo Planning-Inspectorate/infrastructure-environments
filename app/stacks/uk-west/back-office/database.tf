@@ -57,6 +57,11 @@ resource "azurerm_mssql_server" "back_office" {
   administrator_login_password = data.azurerm_key_vault_secret.back_office_sql_server_password.value
   minimum_tls_version          = "1.2"
 
+  depends_on = [
+    azurerm_key_vault_secret.back_office_sql_server_username,
+    azurerm_key_vault_secret.back_office_sql_server_password
+  ]
+
   tags = local.tags
 }
 
