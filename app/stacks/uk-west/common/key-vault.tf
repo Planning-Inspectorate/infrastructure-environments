@@ -47,6 +47,15 @@ resource "azurerm_key_vault_access_policy" "frontdoor" {
   storage_permissions     = []
 }
 
+resource "random_password" "back_office_sql_server_password" {
+  length      = 32
+  special     = true
+  min_lower   = 2
+  min_upper   = 2
+  min_numeric = 2
+  min_special = 2
+}
+
 resource "azurerm_key_vault_secret" "applications_service_vpn_gateway_shared_key" {
   #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   #checkov:skip=CKV_AZURE_114: No need to set content type via Terraform, as secrets to be updated in Portal
@@ -68,12 +77,12 @@ resource "azurerm_key_vault_secret" "applications_service_vpn_gateway_shared_key
   }
 }
 
-resource "azurerm_key_vault_secret" "sql_server_password" {
+resource "azurerm_key_vault_secret" "back_office_sql_server_password" {
   #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   #checkov:skip=CKV_AZURE_114: No need to set content type via Terraform, as secrets to be updated in Portal
   key_vault_id = azurerm_key_vault.environment_key_vault.id
-  name         = "sql-server-password"
-  value        = "<enter_value>"
+  name         = "back-office-sql-server-password"
+  value        = random_password.back_office_sql_server_password.result
 
   tags = local.tags
 
@@ -89,12 +98,12 @@ resource "azurerm_key_vault_secret" "sql_server_password" {
   }
 }
 
-resource "azurerm_key_vault_secret" "sql_server_username" {
+resource "azurerm_key_vault_secret" "back_office_sql_server_username" {
   #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   #checkov:skip=CKV_AZURE_114: No need to set content type via Terraform, as secrets to be updated in Portal
   key_vault_id = azurerm_key_vault.environment_key_vault.id
-  name         = "sql-server-username"
-  value        = "<enter_value>"
+  name         = "back-office-sql-server-username"
+  value        = "backofficeadmin"
 
   tags = local.tags
 

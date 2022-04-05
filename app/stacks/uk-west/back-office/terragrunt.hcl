@@ -16,11 +16,11 @@ dependency "common" {
     common_vnet_cidr_blocks = {
       back_office_endpoints = "10.1.4.0/24"
     }
-    common_vnet_name      = "mock_vnet_name"
-    integration_subnet_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
-    key_vault_id          = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
-    sql_server_password   = "mockuser"
-    sql_server_username   = "mockpass"
+    common_vnet_name                = "mock_vnet_name"
+    integration_subnet_id           = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
+    key_vault_id                    = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
+    back_office_sql_server_password = "mockuser"
+    back_office_sql_server_username = "mockpass"
   }
 }
 
@@ -35,6 +35,6 @@ inputs = {
   common_vnet_name                 = dependency.common.outputs.common_vnet_name
   integration_subnet_id            = dependency.common.outputs.integration_subnet_id
   key_vault_id                     = dependency.common.outputs.key_vault_id
-  sql_server_password              = dependency.common.outputs.sql_server_password
-  sql_server_username              = dependency.common.outputs.sql_server_username
+  sql_server_password              = dependency.common.outputs.back_office_sql_server_password
+  sql_server_username              = dependency.common.outputs.back_office_sql_server_username
 }
