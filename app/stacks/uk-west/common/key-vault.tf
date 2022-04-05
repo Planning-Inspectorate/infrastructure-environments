@@ -54,6 +54,10 @@ resource "random_password" "back_office_sql_server_password" {
   min_upper   = 2
   min_numeric = 2
   min_special = 2
+
+  keepers = {
+    key_vault_id = azurerm_key_vault.environment_key_vault.id
+  }
 }
 
 resource "azurerm_key_vault_secret" "applications_service_vpn_gateway_shared_key" {
