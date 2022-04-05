@@ -50,6 +50,11 @@ variable "container_registry_rg" {
   type        = string
 }
 
+variable "database_size" {
+  description = "A map of database sizing options"
+  type        = map(string)
+}
+
 variable "environment" {
   description = "The environment resources are deployed to e.g. 'dev'"
   type        = string

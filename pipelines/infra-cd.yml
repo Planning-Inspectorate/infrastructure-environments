@@ -10,7 +10,7 @@ parameters:
       - name: Prod
         dependsOn:
           - Test
-  - name: location
+  - name: region
     displayName: Region
     type: string
     default: all
@@ -62,7 +62,7 @@ extends:
         deploymentSteps:
           - script: |
               echo "##vso[build.addbuildtag]stack=${{ parameters.stack }}"
-              echo "##vso[build.addbuildtag]region=${{ parameters.location }}"
+              echo "##vso[build.addbuildtag]region=${{ parameters.region }}"
             displayName: Add stack & region build tag
           - ${{ if eq(parameters.stack, 'all') }}:
             - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan_all.yml@templates
@@ -72,10 +72,10 @@ extends:
                   ${{ if eq(parameters.DRDeployment, 'true') }}:
                     DR_DEPLOYMENT: true
                 subscriptionId: $(SUBSCRIPTION_ID)
-                ${{ if eq(parameters.location, 'all') }}:
+                ${{ if eq(parameters.region, 'all') }}:
                   workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
                 ${{ else }}:
-                  workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.location }}
+                  workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.region }}
           - ${{ else }}:
             - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan.yml@templates
               parameters:
@@ -84,9 +84,10 @@ extends:
                   ENV: $(ENVIRONMENT)
                   ${{ if eq(parameters.DRDeployment, 'true') }}:
                     DR_DEPLOYMENT: true
+                region: ${{ parameters.region }}
                 stack: ${{ parameters.stack }}
                 subscriptionId: $(SUBSCRIPTION_ID)
-                workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.location }}/${{ parameters.stack }}
+                workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.region }}/${{ parameters.stack }}
         isDeployment: false
       - name: Terraform Apply
         authType: terraform
@@ -102,10 +103,10 @@ extends:
                   ${{ if eq(parameters.DRDeployment, 'true') }}:
                     DR_DEPLOYMENT: true
                 subscriptionId: $(SUBSCRIPTION_ID)
-                ${{ if eq(parameters.location, 'all') }}:
+                ${{ if eq(parameters.region, 'all') }}:
                   workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
                 ${{ else }}:
-                  workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.location }}
+                  workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.region }}
           - ${{ else }}:
             - template: ${{variables['Build.SourcesDirectory']}}/steps/terraform_apply.yml@templates
               parameters:
