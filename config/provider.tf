@@ -4,10 +4,6 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "3.0.2"
     }
-    random = {
-      source  = "hashicorp/random"
-      version = "3.1.2"
-    }
   }
 
   required_version = "1.1.6"
@@ -16,5 +12,3 @@ terraform {
 provider "azurerm" {
   features {}
 }
-
-provider "random" {}
