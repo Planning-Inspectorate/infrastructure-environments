@@ -10,7 +10,7 @@ resource "azurerm_mssql_server" "back_office" {
   administrator_login_password = var.sql_server_password
   minimum_tls_version          = "1.2"
 
-  tags = var.common_tags
+  tags = local.tags
 }
 
 resource "azurerm_mssql_failover_group" "back_office" {
@@ -26,5 +26,5 @@ resource "azurerm_mssql_failover_group" "back_office" {
     mode = "Manual"
   }
 
-  tags = var.common_tags
+  tags = local.tags
 }

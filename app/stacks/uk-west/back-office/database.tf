@@ -10,7 +10,7 @@ resource "azurerm_mssql_server" "back_office" {
   administrator_login_password = var.sql_server_password
   minimum_tls_version          = "1.2"
 
-  tags = var.common_tags
+  tags = local.tags
 }
 
 resource "azurerm_mssql_database" "back_office" {
@@ -21,5 +21,5 @@ resource "azurerm_mssql_database" "back_office" {
   sku_name     = var.database_size["sku_name"]
   max_size_gb  = var.database_size["max_size_gb"]
 
-  tags = var.common_tags
+  tags = local.tags
 }
