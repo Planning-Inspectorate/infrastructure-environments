@@ -84,6 +84,7 @@ extends:
                   ENV: $(ENVIRONMENT)
                   ${{ if eq(parameters.DRDeployment, 'true') }}:
                     DR_DEPLOYMENT: true
+                region: ${{ parameters.region }}
                 stack: ${{ parameters.stack }}
                 subscriptionId: $(SUBSCRIPTION_ID)
                 workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.location }}/${{ parameters.stack }}
