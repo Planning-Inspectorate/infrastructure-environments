@@ -33,7 +33,7 @@ resource "azurerm_key_vault_secret" "back_office_sql_server_username" {
   #checkov:skip=CKV_AZURE_114: No need to set content type via Terraform, as secrets to be updated in Portal
   key_vault_id = var.key_vault_id
   name         = "back-office-sql-server-username"
-  value        = "backofficeadmin_${random_id.username_suffix}"
+  value        = "backofficeadmin_${random_id.username_suffix.id}"
 
   tags = local.tags
 
