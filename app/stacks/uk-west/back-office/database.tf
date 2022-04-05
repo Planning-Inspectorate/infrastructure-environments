@@ -1,3 +1,50 @@
+resource "random_password" "back_office_sql_server_password" {
+  length      = 32
+  special     = true
+  min_lower   = 2
+  min_upper   = 2
+  min_numeric = 2
+  min_special = 2
+}
+
+resource "random_id" "username_suffix" {
+  byte_length = 6
+}
+
+resource "azurerm_key_vault_secret" "back_office_sql_server_password" {
+  #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
+  #checkov:skip=CKV_AZURE_114: No need to set content type via Terraform, as secrets to be updated in Portal
+  key_vault_id = var.key_vault_id
+  name         = "back-office-sql-server-password"
+  value        = random_password.back_office_sql_server_password.result
+
+  tags = local.tags
+
+  lifecycle {
+    ignore_changes = [
+      value,
+      version
+    ]
+  }
+}
+
+resource "azurerm_key_vault_secret" "back_office_sql_server_username" {
+  #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
+  #checkov:skip=CKV_AZURE_114: No need to set content type via Terraform, as secrets to be updated in Portal
+  key_vault_id = var.key_vault_id
+  name         = "back-office-sql-server-username"
+  value        = "backofficeadmin_${random_id.username_suffix}"
+
+  tags = local.tags
+
+  lifecycle {
+    ignore_changes = [
+      value,
+      version
+    ]
+  }
+}
+
 resource "azurerm_mssql_server" "back_office" {
   #checkov:skip=CKV_AZURE_113: Public access enabled for testing
   #checkov:skip=CKV_AZURE_23: Auditing to be added later
