@@ -26,7 +26,7 @@ No requirements.
 | Name | Type |
 |------|------|
 | [azurerm_mssql_database.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_database) | resource |
-| [azurerm_mssql_server.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server) | resource |
+| [azurerm_mssql_failover_group.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_failover_group) | resource |
 | [azurerm_resource_group.back_office_stack](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
 | [azurerm_subnet.back_office_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet) | resource |
 | [azurerm_container_registry.acr](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/container_registry) | data source |
@@ -53,8 +53,8 @@ No requirements.
 | <a name="input_key_vault_id"></a> [key\_vault\_id](#input\_key\_vault\_id) | The ID of the key vault so the App Service can pull secret values | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | The location resources are deployed to in slug format e.g. 'uk-south' | `string` | `"uk-west"` | no |
 | <a name="input_monitoring_alerts_enabled"></a> [monitoring\_alerts\_enabled](#input\_monitoring\_alerts\_enabled) | Indicates whether Azure Monitor alerts are enabled for App Service | `bool` | `false` | no |
-| <a name="input_sql_server_password"></a> [sql\_server\_password](#input\_sql\_server\_password) | The built-in SQL Server administrator password | `string` | n/a | yes |
-| <a name="input_sql_server_username"></a> [sql\_server\_username](#input\_sql\_server\_username) | The built-in SQL Server administrator password | `string` | n/a | yes |
+| <a name="input_sql_server_failover_id"></a> [sql\_server\_failover\_id](#input\_sql\_server\_failover\_id) | The ID of the failover SQL server for the Back Office SQL database | `string` | n/a | yes |
+| <a name="input_sql_server_primary_id"></a> [sql\_server\_primary\_id](#input\_sql\_server\_primary\_id) | The ID of the primary SQL server for the Back Office SQL database | `string` | n/a | yes |
 | <a name="input_tooling_subscription_id"></a> [tooling\_subscription\_id](#input\_tooling\_subscription\_id) | The ID for the Tooling subscription that houses the Container Registry | `string` | n/a | yes |
 | <a name="input_use_deployment_slots"></a> [use\_deployment\_slots](#input\_use\_deployment\_slots) | Flag to indicate if App Service deployment slots are in use on the environment | `bool` | `true` | no |
 

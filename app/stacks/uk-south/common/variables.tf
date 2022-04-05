@@ -43,6 +43,18 @@ variable "secondary_vnet_address_space" {
   type        = string
 }
 
+variable "sql_server_password" {
+  description = "The common infrastructure SQL server administrator password"
+  sensitive   = true
+  type        = string
+}
+
+variable "sql_server_username" {
+  description = "The common infrastructure SQL server administrator username"
+  sensitive   = true
+  type        = string
+}
+
 variable "tooling_network_name" {
   description = "The name of the VNet in the Tooling environment"
   type        = string

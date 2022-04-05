@@ -88,15 +88,13 @@ variable "monitoring_alerts_enabled" {
   type        = bool
 }
 
-variable "sql_server_password" {
-  description = "The built-in SQL Server administrator password"
-  sensitive   = true
+variable "sql_server_primary_id" {
+  description = "The ID of the primary SQL server for the Back Office SQL database"
   type        = string
 }
 
-variable "sql_server_username" {
-  description = "The built-in SQL Server administrator password"
-  sensitive   = true
+variable "sql_server_failover_id" {
+  description = "The ID of the failover SQL server for the Back Office SQL database"
   type        = string
 }
 

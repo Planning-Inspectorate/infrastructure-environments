@@ -19,8 +19,17 @@ dependency "common" {
     common_vnet_name      = "mock_vnet_name"
     integration_subnet_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
     key_vault_id          = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
-    sql_server_password = "mock_password"
-    sql_server_username = "mock_username"
+    sql_server_primary_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Sql/servers/mock_sql_db"
+  }
+}
+
+dependency "common_uks" {
+  config_path                             = "../../uk-south/common"
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
+  mock_outputs_merge_with_state           = true
+
+  mock_outputs = {
+    sql_server_failover_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Sql/servers/mock_sql_db"
   }
 }
 
@@ -35,6 +44,6 @@ inputs = {
   common_vnet_name                 = dependency.common.outputs.common_vnet_name
   integration_subnet_id            = dependency.common.outputs.integration_subnet_id
   key_vault_id                     = dependency.common.outputs.key_vault_id
-  sql_server_password        = dependency.common.outputs.back_office_sql_server_password
-  sql_server_username        = dependency.common.outputs.back_office_sql_server_username
+  sql_server_failover_id           = dependency.common_uks.outputs.sql_server_id
+  sql_server_primary_id            = dependency.common.outputs.sql_server_id
 }
