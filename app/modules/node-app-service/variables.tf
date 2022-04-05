@@ -66,6 +66,12 @@ variable "endpoint_subnet_id" {
   type        = string
 }
 
+variable "front_door_restriction" {
+  description = "Flag to indicate if the web app should be restricted so it can only be accessed via Front Door"
+  type        = bool
+  default     = false
+}
+
 variable "image_name" {
   description = "The name of the image deployed to the App Service"
   type        = string
