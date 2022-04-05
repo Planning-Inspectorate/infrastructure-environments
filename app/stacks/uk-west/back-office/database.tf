@@ -15,7 +15,7 @@ resource "azurerm_mssql_server" "back_office" {
 
 resource "azurerm_mssql_database" "back_office" {
   name         = "pins-sqldb-${local.service_name}-${local.resource_suffix}"
-  server_id    = azurerm_mssql_server.back_office
+  server_id    = azurerm_mssql_server.back_office.id
   collation    = "SQL_Latin1_General_CP1_CI_AS"
   license_type = "LicenseIncluded"
   sku_name     = var.database_size["sku_name"]
