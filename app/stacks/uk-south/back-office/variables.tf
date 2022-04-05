@@ -99,18 +99,6 @@ variable "primary_sql_server_id" {
   type        = string
 }
 
-variable "sql_server_password" {
-  description = "The common infrastructure SQL server administrator password"
-  sensitive   = true
-  type        = string
-}
-
-variable "sql_server_username" {
-  description = "The common infrastructure SQL server administrator username"
-  sensitive   = true
-  type        = string
-}
-
 variable "tooling_subscription_id" {
   description = "The ID for the Tooling subscription that houses the Container Registry"
   type        = string

@@ -26,18 +26,6 @@ output "applications_service_vpn_gateway_shared_key" {
   value       = data.azurerm_key_vault_secret.applications_service_vpn_gateway_shared_key.value
 }
 
-output "back_office_sql_server_password" {
-  description = "The back office SQL server administrator password"
-  sensitive   = true
-  value       = data.azurerm_key_vault_secret.back_office_sql_server_password.value
-}
-
-output "back_office_sql_server_username" {
-  description = "The back office SQL server administrator username"
-  sensitive   = true
-  value       = data.azurerm_key_vault_secret.back_office_sql_server_username.value
-}
-
 output "common_resource_group_name" {
   description = "The name of the common infrastructure resource group"
   value       = azurerm_resource_group.common_infrastructure.name
