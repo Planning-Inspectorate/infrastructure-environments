@@ -17,8 +17,11 @@ extends:
       - template: steps/terraform_tflint.yml@templates
         parameters:
           moduleDirectories:
+            - $(Build.Repository.LocalPath)/app/components
             - $(Build.Repository.LocalPath)/app/modules
-            - $(Build.Repository.LocalPath)/app/stacks
+            - $(Build.Repository.LocalPath)/app/stacks/global
+            - $(Build.Repository.LocalPath)/app/stacks/uk-south
+            - $(Build.Repository.LocalPath)/app/stacks/uk-west
       - template: steps/run_checkov.yml@templates
       - template: steps/terragrunt_validate_all.yml@templates
         parameters:
