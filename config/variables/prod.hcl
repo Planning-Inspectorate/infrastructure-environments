@@ -2,6 +2,7 @@ locals {
   api_timeout                     = 10000
   appeals_service_public_url      = "appeals-service-prod.planninginspectorate.gov.uk"
   applications_service_public_url = "national-infrastructure-consenting.planninginspectorate.gov.uk"
+  back_office_public_url          = "back-office-prod.planninginspectorate.gov.uk"
   environment                     = "prod"
   logger_level                    = "info"
   monitoring_alerts_enabled       = true

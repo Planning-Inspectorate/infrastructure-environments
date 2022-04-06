@@ -16,6 +16,12 @@ locals {
       patterns_to_match    = ["/*"]
       ssl_certificate_name = var.use_wildcard_certificate ? local.wildcard_certificate_name : var.appeals_service_ssl_certificate_name
     }
+    back_office_frontend = {
+      name                 = "BackOffice"
+      frontend_endpoint    = var.back_office_public_url
+      patterns_to_match    = ["/*"]
+      ssl_certificate_name = var.use_wildcard_certificate ? local.wildcard_certificate_name : var.appeals_service_ssl_certificate_name
+    }
   }
 
   # The App Service URLs come back in a map that includes the location in the last 4 characters

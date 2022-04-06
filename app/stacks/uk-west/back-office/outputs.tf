@@ -1,3 +1,8 @@
+output "app_service_urls" {
+  description = "A map of frontend app service URLs"
+  value       = module.app_services.app_service_urls
+}
+
 output "back_office_sql_database" {
   description = "The ID of the Back Office SQL database"
   value       = azurerm_mssql_database.back_office.id

@@ -2,6 +2,7 @@ locals {
   api_timeout                     = 10000
   appeals_service_public_url      = "appeals-service-test.planninginspectorate.gov.uk"
   applications_service_public_url = "applications-service-test.planninginspectorate.gov.uk"
+  back_office_public_url          = "back-office-test.planninginspectorate.gov.uk"
   environment                     = "test"
   logger_level                    = "info"
   monitoring_alerts_enabled       = false
