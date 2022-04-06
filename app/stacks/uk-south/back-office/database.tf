@@ -13,11 +13,6 @@ resource "azurerm_mssql_server" "back_office" {
   tags = local.tags
 }
 
-resource "azurerm_private_dns_zone" "back_office_sql_server" {
-  name                = "privatelink.database.windows.net"
-  resource_group_name = azurerm_resource_group.back_office_stack.name
-}
-
 resource "azurerm_private_endpoint" "back_office_sql_server" {
   name                = "pins-pe-${local.service_name}-sql-${local.resource_suffix}"
   resource_group_name = azurerm_resource_group.back_office_stack.name
@@ -26,7 +21,7 @@ resource "azurerm_private_endpoint" "back_office_sql_server" {
 
   private_dns_zone_group {
     name                 = "sqlserverprivatednszone"
-    private_dns_zone_ids = [azurerm_private_dns_zone.back_office_sql_server.id]
+    private_dns_zone_ids = [data.azurerm_private_dns_zone.database.id]
   }
 
   private_service_connection {
@@ -35,13 +30,6 @@ resource "azurerm_private_endpoint" "back_office_sql_server" {
     subresource_names              = ["sqlServer"]
     is_manual_connection           = false
   }
-}
-
-resource "azurerm_private_dns_zone_virtual_network_link" "back_office_sql_server" {
-  name                  = "pins-vnetlink-sql-server-${local.resource_suffix}"
-  resource_group_name   = azurerm_resource_group.back_office_stack.name
-  private_dns_zone_name = azurerm_private_dns_zone.back_office_sql_server.name
-  virtual_network_id    = var.common_vnet_id
 }
 
 resource "azurerm_mssql_failover_group" "back_office" {
