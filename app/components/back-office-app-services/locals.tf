@@ -9,7 +9,8 @@ locals {
       outbound_vnet_connectivity = true
 
       app_settings = {
-
+        API_HOST = "https://pins-app-${var.service_name}-api-${var.resource_suffix}.azurewebsites.net"
+        NODE_ENV = var.node_environment
       }
     }
 
@@ -25,6 +26,7 @@ locals {
 
       app_settings = {
         DATABASE_URL = var.database_connection_string
+        NODE_ENV     = var.node_environment
       }
     }
   }

@@ -94,6 +94,12 @@ variable "monitoring_alerts_enabled" {
   type        = bool
 }
 
+variable "node_environment" {
+  description = "The node environment to be used for applications in this environment e.g. development"
+  type        = string
+  default     = "development"
+}
+
 variable "primary_sql_server_id" {
   description = "The ID of the primary Back Office SQL server"
   type        = string

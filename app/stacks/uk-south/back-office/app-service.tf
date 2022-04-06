@@ -17,6 +17,7 @@ module "app_services" {
   key_vault_id                     = var.key_vault_id
   location                         = azurerm_resource_group.back_office_stack.location
   monitoring_alerts_enabled        = var.monitoring_alerts_enabled
+  node_environment                 = var.node_environment
   resource_group_name              = azurerm_resource_group.back_office_stack.name
   resource_suffix                  = local.resource_suffix
   service_name                     = local.service_name

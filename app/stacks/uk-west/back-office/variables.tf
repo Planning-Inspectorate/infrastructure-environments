@@ -88,6 +88,12 @@ variable "monitoring_alerts_enabled" {
   type        = bool
 }
 
+variable "node_environment" {
+  description = "The node environment to be used for applications in this environment e.g. development"
+  type        = string
+  default     = "development"
+}
+
 variable "tooling_subscription_id" {
   description = "The ID for the Tooling subscription that houses the Container Registry"
   type        = string
