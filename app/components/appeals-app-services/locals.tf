@@ -6,9 +6,10 @@ locals {
 
     appeals_frontend = {
       app_name                   = "appeals-wfe"
+      front_door_restriction     = true
+      image_name                 = "appeal-planning-decisions/forms-web-app"
       inbound_vnet_connectivity  = false
       integration_subnet_id      = var.integration_subnet_id
-      image_name                 = "appeal-planning-decisions/forms-web-app"
       key_vault_access           = true
       outbound_vnet_connectivity = true
 

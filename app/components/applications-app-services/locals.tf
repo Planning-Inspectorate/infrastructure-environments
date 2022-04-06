@@ -2,6 +2,7 @@ locals {
   app_services = {
     applications_frontend = {
       app_name                   = "applications-wfe"
+      front_door_restriction     = true
       image_name                 = "applications-service/forms-web-app"
       inbound_vnet_connectivity  = false
       integration_subnet_id      = var.integration_subnet_id

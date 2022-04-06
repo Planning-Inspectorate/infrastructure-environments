@@ -77,7 +77,7 @@ resource "azurerm_linux_web_app_slot" "staging" {
     }
 
     dynamic "ip_restriction" {
-      for_each = !var.inbound_vnet_connectivity ? [1] : []
+      for_each = var.front_door_restriction ? [1] : []
 
       content {
         name        = "FrontDoorInbound"
