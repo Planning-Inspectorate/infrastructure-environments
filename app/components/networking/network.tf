@@ -67,6 +67,13 @@ resource "azurerm_private_dns_zone_virtual_network_link" "app_service_vnet_link"
   provider = azurerm.tooling
 }
 
+resource "azurerm_private_dns_zone_virtual_network_link" "back_office_sql_server" {
+  name                  = "pins-vnetlink-${var.service_name}-sql-server-${var.resource_suffix}"
+  resource_group_name   = var.tooling_network_rg
+  private_dns_zone_name = "privatelink.database.windows.net"
+  virtual_network_id    = azurerm_virtual_network.common_infrastructure.id
+}
+
 resource "azurerm_virtual_network_peering" "env_to_tooling" {
   name                      = "pins-peer-env-to-tooling-${var.service_name}-${var.resource_suffix}"
   remote_virtual_network_id = data.azurerm_virtual_network.tooling.id

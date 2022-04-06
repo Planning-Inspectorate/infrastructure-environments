@@ -1,10 +1,11 @@
 resource "random_password" "back_office_sql_server_password" {
-  length      = 32
-  special     = true
-  min_lower   = 2
-  min_upper   = 2
-  min_numeric = 2
-  min_special = 2
+  length           = 32
+  special          = true
+  override_special = "#$%&-_+{}<>"
+  min_lower        = 2
+  min_upper        = 2
+  min_numeric      = 2
+  min_special      = 2
 }
 
 resource "random_id" "username_suffix" {
@@ -49,6 +50,25 @@ resource "azurerm_mssql_server" "back_office" {
   ]
 
   tags = local.tags
+}
+
+resource "azurerm_private_endpoint" "back_office_sql_server" {
+  name                = "pins-pe-${local.service_name}-sql-${local.resource_suffix}"
+  resource_group_name = azurerm_resource_group.back_office_stack.name
+  location            = azurerm_resource_group.back_office_stack.location
+  subnet_id           = azurerm_subnet.back_office_ingress.id
+
+  private_dns_zone_group {
+    name                 = "sqlserverprivatednszone"
+    private_dns_zone_ids = [data.azurerm_private_dns_zone.database.id]
+  }
+
+  private_service_connection {
+    name                           = "privateendpointconnection"
+    private_connection_resource_id = azurerm_mssql_server.back_office.id
+    subresource_names              = ["sqlServer"]
+    is_manual_connection           = false
+  }
 }
 
 resource "azurerm_mssql_database" "back_office" {
