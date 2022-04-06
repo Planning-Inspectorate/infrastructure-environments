@@ -80,7 +80,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "back_office_sql_server
   name                  = "pins-vnetlink-sql-server-${local.resource_suffix}"
   resource_group_name   = azurerm_resource_group.back_office_stack.name
   private_dns_zone_name = azurerm_private_dns_zone.back_office_sql_server.name
-  virtual_network_id    = var.common_vnet_name
+  virtual_network_id    = var.common_vnet_id
 }
 
 resource "azurerm_mssql_database" "back_office" {

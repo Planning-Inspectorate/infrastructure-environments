@@ -65,6 +65,7 @@ No requirements.
 | <a name="output_common_resource_group_name"></a> [common\_resource\_group\_name](#output\_common\_resource\_group\_name) | The name of the common infrastructure resource group |
 | <a name="output_common_vnet_cidr_blocks"></a> [common\_vnet\_cidr\_blocks](#output\_common\_vnet\_cidr\_blocks) | A map of IP address blocks from the subnet name to the allocated CIDR prefix |
 | <a name="output_common_vnet_gateway_id"></a> [common\_vnet\_gateway\_id](#output\_common\_vnet\_gateway\_id) | The id of the common infrastructure virtual network gateway |
+| <a name="output_common_vnet_id"></a> [common\_vnet\_id](#output\_common\_vnet\_id) | The ID of the common infrastructure virtual network |
 | <a name="output_common_vnet_name"></a> [common\_vnet\_name](#output\_common\_vnet\_name) | The name of the common infrastructure virtual network |
 | <a name="output_cosmosdb_subnet_id"></a> [cosmosdb\_subnet\_id](#output\_cosmosdb\_subnet\_id) | The id of the Cosmos DB endpoint subnet |
 | <a name="output_integration_subnet_id"></a> [integration\_subnet\_id](#output\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic |

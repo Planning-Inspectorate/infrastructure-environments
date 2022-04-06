@@ -36,6 +36,11 @@ output "common_vnet_gateway_id" {
   value       = module.networking.vnet_gateway_id
 }
 
+output "common_vnet_id" {
+  description = "The ID of the common infrastructure virtual network"
+  value       = module.networking.vnet_id
+}
+
 output "common_vnet_name" {
   description = "The name of the common infrastructure virtual network"
   value       = module.networking.vnet_name
