@@ -75,6 +75,13 @@ resource "azurerm_private_endpoint" "back_office_sql_server" {
   }
 }
 
+resource "azurerm_private_dns_zone_virtual_network_link" "back_office_sql_server" {
+  name                  = "pins-vnetlink-sql-server-${local.resource_suffix}"
+  resource_group_name   = azurerm_resource_group.back_office_stack.name
+  private_dns_zone_name = azurerm_private_dns_zone.back_office_sql_server.name
+  virtual_network_id    = var.common_vnet_name
+}
+
 resource "azurerm_mssql_database" "back_office" {
   name         = "pins-sqldb-${local.service_name}-${local.resource_suffix}"
   server_id    = azurerm_mssql_server.back_office.id
