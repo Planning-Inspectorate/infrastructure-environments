@@ -68,6 +68,7 @@ variable "endpoint_subnet_id" {
 
 variable "front_door_restriction" {
   description = "Flag to indicate if the web app should be restricted so it can only be accessed via Front Door"
+  nullable    = false
   type        = bool
   default     = false
 }
