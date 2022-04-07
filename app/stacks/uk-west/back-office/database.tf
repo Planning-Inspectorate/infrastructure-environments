@@ -44,6 +44,11 @@ resource "azurerm_mssql_server" "back_office" {
   administrator_login_password = random_password.back_office_sql_server_password.result
   minimum_tls_version          = "1.2"
 
+  azuread_administrator {
+    login_username = var.sql_server_azuread_administrator["login_username"]
+    object_id      = var.sql_server_azuread_administrator["object_id"]
+  }
+
   depends_on = [
     azurerm_key_vault_secret.back_office_sql_server_username,
     azurerm_key_vault_secret.back_office_sql_server_password
@@ -76,8 +81,12 @@ resource "azurerm_mssql_database" "back_office" {
   server_id    = azurerm_mssql_server.back_office.id
   collation    = "SQL_Latin1_General_CP1_CI_AS"
   license_type = "LicenseIncluded"
-  sku_name     = var.database_size["sku_name"]
-  max_size_gb  = var.database_size["max_size_gb"]
+  sku_name     = var.sql_database_configuration["sku_name"]
+  max_size_gb  = var.sql_database_configuration["max_size_gb"]
+
+  short_term_retention_policy {
+    retention_days = var.sql_database_configuration["short_term_retention_days"]
+  }
 
   tags = local.tags
 }

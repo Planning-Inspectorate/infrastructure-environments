@@ -105,6 +105,11 @@ variable "primary_sql_server_id" {
   type        = string
 }
 
+variable "sql_server_azuread_administrator" {
+  description = "A map describing the AzureAD account used for the SQL server administrator"
+  type        = map(string)
+}
+
 variable "sql_server_password" {
   description = "The SQL server administrator password"
   sensitive   = true
