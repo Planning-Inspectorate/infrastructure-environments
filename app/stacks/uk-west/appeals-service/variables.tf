@@ -151,6 +151,16 @@ variable "srv_notify_appeal_submission_received_notification_email_to_lpa_templa
   type        = string
 }
 
+variable "srv_notify_full_appeal_confirmation_email_to_appellant_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
+variable "srv_notify_full_appeal_received_notification_email_to_lpa_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
 variable "srv_notify_base_url" {
   description = "The base URL for the Notifications service"
   type        = string
