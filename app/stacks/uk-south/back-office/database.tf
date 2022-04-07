@@ -10,6 +10,11 @@ resource "azurerm_mssql_server" "back_office" {
   administrator_login_password = var.sql_server_password
   minimum_tls_version          = "1.2"
 
+  azuread_administrator {
+    login_username = var.sql_server_azuread_administrator["login_username"]
+    object_id      = var.sql_server_azuread_administrator["object_id"]
+  }
+
   tags = local.tags
 }
 

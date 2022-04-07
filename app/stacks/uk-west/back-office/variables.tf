@@ -50,11 +50,6 @@ variable "container_registry_rg" {
   type        = string
 }
 
-variable "database_size" {
-  description = "A map of database sizing options"
-  type        = map(string)
-}
-
 variable "environment" {
   description = "The environment resources are deployed to e.g. 'dev'"
   type        = string
@@ -92,6 +87,16 @@ variable "node_environment" {
   description = "The node environment to be used for applications in this environment e.g. development"
   type        = string
   default     = "development"
+}
+
+variable "sql_database_configuration" {
+  description = "A map of database configuration options"
+  type        = map(string)
+}
+
+variable "sql_server_azuread_administrator" {
+  description = "A map describing the AzureAD account used for the SQL server administrator"
+  type        = map(string)
 }
 
 variable "tooling_subscription_id" {
