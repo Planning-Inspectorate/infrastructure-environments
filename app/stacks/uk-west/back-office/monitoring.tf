@@ -25,7 +25,7 @@ resource "azurerm_log_analytics_workspace" "back_office" {
   resource_group_name = azurerm_resource_group.back_office_stack.name
   location            = azurerm_resource_group.back_office_stack.location
   sku                 = "PerGB2018"
-  retention_in_days   = 7
+  retention_in_days   = 30
 
   tags = local.tags
 }
@@ -63,7 +63,6 @@ resource "azurerm_monitor_diagnostic_setting" "back_office_sql_server" {
 resource "azurerm_mssql_server_extended_auditing_policy" "back_office_sql_server" {
   server_id              = azurerm_mssql_server.back_office.id
   log_monitoring_enabled = true
-  retention_in_days      = 7
 
   # storage_endpoint                        = azurerm_storage_account.sql_audit.primary_blob_endpoint
   # storage_account_access_key              = azurerm_storage_account.sql_audit.primary_access_key
