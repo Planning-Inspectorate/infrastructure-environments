@@ -49,11 +49,11 @@ resource "azurerm_mssql_database_extended_auditing_policy" "back_office_sql_data
 }
 
 resource "azurerm_log_analytics_saved_search" "sql_security_audit" {
-  name                       = "SQLSecurityAuditEvents"
+  name                       = "PINSSQLSecurityAudit"
   log_analytics_workspace_id = azurerm_log_analytics_workspace.back_office.id
 
-  category     = "SQLSecurityAuditEvents"
-  display_name = "SQLSecurityAuditEvents"
+  category     = "Databases"
+  display_name = "PINS SQL Security Audit"
   query        = "AzureDiagnostics | where Category  == 'SQLSecurityAuditEvents'"
 
   tags = local.tags
