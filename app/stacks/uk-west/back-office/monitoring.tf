@@ -14,7 +14,7 @@ resource "azurerm_monitor_diagnostic_setting" "back_office_sql_database" {
   log_analytics_workspace_id = azurerm_log_analytics_workspace.back_office.id
 
   log {
-    category = "AllMetrics"
+    category = "SQLSecurityAuditEvents"
     enabled  = true
 
     retention_policy {
