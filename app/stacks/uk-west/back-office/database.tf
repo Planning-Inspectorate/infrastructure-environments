@@ -74,15 +74,16 @@ resource "azurerm_private_endpoint" "back_office_sql_server" {
     subresource_names              = ["sqlServer"]
     is_manual_connection           = false
   }
+
+  tags = local.tags
 }
 
 resource "azurerm_mssql_database" "back_office" {
-  name         = "pins-sqldb-${local.service_name}-${local.resource_suffix}"
-  server_id    = azurerm_mssql_server.back_office.id
-  collation    = "SQL_Latin1_General_CP1_CI_AS"
-  license_type = "LicenseIncluded"
-  sku_name     = var.sql_database_configuration["sku_name"]
-  max_size_gb  = var.sql_database_configuration["max_size_gb"]
+  name        = "pins-sqldb-${local.service_name}-${local.resource_suffix}"
+  server_id   = azurerm_mssql_server.back_office.id
+  collation   = "SQL_Latin1_General_CP1_CI_AS"
+  sku_name    = var.sql_database_configuration["sku_name"]
+  max_size_gb = var.sql_database_configuration["max_size_gb"]
 
   short_term_retention_policy {
     retention_days = var.sql_database_configuration["short_term_retention_days"]
