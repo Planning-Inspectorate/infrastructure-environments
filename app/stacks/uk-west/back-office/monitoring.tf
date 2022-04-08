@@ -30,9 +30,9 @@ resource "azurerm_log_analytics_workspace" "back_office" {
   tags = local.tags
 }
 
-resource "azurerm_monitor_diagnostic_setting" "back_office_sql_server" {
-  name                       = "SQLServerSecurity"
-  target_resource_id         = azurerm_mssql_server.back_office.id
+resource "azurerm_monitor_diagnostic_setting" "back_office_sql_database" {
+  name                       = "SQLSecurityAuditEvents"
+  target_resource_id         = azurerm_mssql_database.back_office.id
   log_analytics_workspace_id = azurerm_log_analytics_workspace.back_office.id
 
   log {
@@ -67,4 +67,14 @@ resource "azurerm_mssql_server_extended_auditing_policy" "back_office_sql_server
   # storage_endpoint                        = azurerm_storage_account.sql_audit.primary_blob_endpoint
   # storage_account_access_key              = azurerm_storage_account.sql_audit.primary_access_key
   # storage_account_access_key_is_secondary = false
+}
+
+resource "azurerm_mssql_database_extended_auditing_policy" "master_sql_database" {
+  database_id            = "${azurerm_mssql_server.back_office.id}/databases/master"
+  log_monitoring_enabled = true
+}
+
+resource "azurerm_mssql_database_extended_auditing_policy" "back_office_sql_database" {
+  database_id            = azurerm_mssql_database.back_office.id
+  log_monitoring_enabled = true
 }
