@@ -47,3 +47,14 @@ resource "azurerm_mssql_database_extended_auditing_policy" "back_office_sql_data
   database_id            = azurerm_mssql_database.back_office.id
   log_monitoring_enabled = true
 }
+
+resource "azurerm_log_analytics_saved_search" "sql_security_audit" {
+  name                       = "SQLSecurityAuditEvents"
+  log_analytics_workspace_id = azurerm_log_analytics_workspace.back_office.id
+
+  category     = "SQLSecurityAuditEvents"
+  display_name = "SQLSecurityAuditEvents"
+  query        = "AzureDiagnostics | where Category  == 'SQLSecurityAuditEvents'"
+
+  tags = local.tags
+}
