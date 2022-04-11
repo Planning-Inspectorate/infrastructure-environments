@@ -1,8 +1,8 @@
 locals {
   sql_database_configuration = {
-    max_size_gb               = 2
+    max_size_gb               = 1024
     short_term_retention_days = 7 # 7-35
-    sku_name                  = "Basic"
+    sku_name                  = "S3"
   }
   sql_server_azuread_administrator = {
     login_username = "sulmarch"
