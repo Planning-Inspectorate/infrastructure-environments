@@ -35,6 +35,8 @@ resource "azurerm_private_endpoint" "back_office_sql_server" {
     subresource_names              = ["sqlServer"]
     is_manual_connection           = false
   }
+
+  tags = local.tags
 }
 
 resource "azurerm_mssql_failover_group" "back_office" {
