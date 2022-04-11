@@ -14,7 +14,7 @@ resource "random_id" "username_suffix" {
 
 resource "azurerm_key_vault_secret" "back_office_sql_server_password" {
   #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
-  #checkov:skip=CKV_AZURE_114: No need to set content type via Terraform, as secrets to be updated in Portal
+  content_type = "text/plain"
   key_vault_id = var.key_vault_id
   name         = "back-office-sql-server-password"
   value        = random_password.back_office_sql_server_password.result
@@ -24,10 +24,20 @@ resource "azurerm_key_vault_secret" "back_office_sql_server_password" {
 
 resource "azurerm_key_vault_secret" "back_office_sql_server_username" {
   #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
-  #checkov:skip=CKV_AZURE_114: No need to set content type via Terraform, as secrets to be updated in Portal
+  content_type = "text/plain"
   key_vault_id = var.key_vault_id
   name         = "back-office-sql-server-username"
   value        = local.sql_server_username
+
+  tags = local.tags
+}
+
+resource "azurerm_key_vault_secret" "back_office_sql_connection_string" {
+  #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
+  content_type = "text/plain"
+  key_vault_id = var.key_vault_id
+  name         = "back-office-sql-connection-string"
+  value        = local.sql_connection_string
 
   tags = local.tags
 }
