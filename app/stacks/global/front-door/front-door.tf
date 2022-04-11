@@ -125,14 +125,14 @@ resource "azurerm_frontdoor" "common" {
 }
 
 resource "azurerm_frontdoor_custom_https_configuration" "ssl_certificate" {
-  for_each = azurerm_frontdoor.common.frontend_endpoint
+  for_each = azurerm_frontdoor.common.frontend_endpoints
 
-  frontend_endpoint_id              = reverse(split("/", each.value["id"]))[0]
+  frontend_endpoint_id              = reverse(split("/", each.value))[0]
   custom_https_provisioning_enabled = true
 
   custom_https_configuration {
     certificate_source                      = "AzureKeyVault"
-    azure_key_vault_certificate_secret_name = local.frontend_endpoint_mappings[reverse(split("/", each.value["id"]))[0]]["ssl_certificate_name"]
+    azure_key_vault_certificate_secret_name = local.frontend_endpoint_mappings[reverse(split("/", each.value))[0]]["ssl_certificate_name"]
     azure_key_vault_certificate_vault_id    = var.common_key_vault_id
   }
 }
