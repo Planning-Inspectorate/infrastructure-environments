@@ -66,58 +66,125 @@ resource "azurerm_frontdoor" "common" {
   }
 
   #========================================================================
-  # Dynamic Service Frontend Endpoints
+  # Applications Service Frontend Endpoints
   #========================================================================
 
-  dynamic "frontend_endpoint" {
-    for_each = local.frontend_endpoint_mappings
-    iterator = mapping
+  frontend_endpoint {
+    name                                    = local.frontend_endpoint_mappings["applications_frontend"]["name"]
+    host_name                               = local.frontend_endpoint_mappings["applications_frontend"]["frontend_endpoint"]
+    web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
+  }
 
-    content {
-      name                                    = mapping.value["name"]
-      host_name                               = mapping.value["frontend_endpoint"]
-      web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
+  backend_pool {
+    name                = local.frontend_endpoint_mappings["applications_frontend"]["name"]
+    load_balancing_name = "Default"
+    health_probe_name   = "Http"
+
+    backend {
+      enabled     = true
+      address     = local.backend_pool_mappings["applications_frontend"]["name"]
+      host_header = local.backend_pool_mappings["applications_frontend"]["name"]
+      http_port   = 80
+      https_port  = 443
+      priority    = 1
+      weight      = 100
     }
   }
 
-  dynamic "backend_pool" {
-    for_each = local.backend_pool_mappings
-    iterator = mapping
+  routing_rule {
+    enabled            = true
+    name               = local.backend_pool_mappings["applications_frontend"]["name"]
+    accepted_protocols = ["Http", "Https"]
+    patterns_to_match  = local.backend_pool_mappings["applications_frontend"]["patterns_to_match"]
+    frontend_endpoints = [local.backend_pool_mappings["applications_frontend"]["name"]]
 
-    content {
-      name                = mapping.value["name"]
-      load_balancing_name = "Default"
-      health_probe_name   = "Http"
-
-      backend {
-        enabled     = true
-        address     = mapping.value["app_service_url"]
-        host_header = mapping.value["app_service_url"]
-        http_port   = 80
-        https_port  = 443
-        priority    = 1
-        weight      = 100
-      }
+    forwarding_configuration {
+      backend_pool_name      = local.backend_pool_mappings["applications_frontend"]["name"]
+      cache_enabled          = false
+      cache_query_parameters = []
+      forwarding_protocol    = "MatchRequest"
     }
   }
 
-  dynamic "routing_rule" {
-    for_each = local.backend_pool_mappings
-    iterator = mapping
+  #========================================================================
+  # Appeals Service Frontend Endpoints
+  #========================================================================
 
-    content {
-      enabled            = true
-      name               = mapping.value["name"]
-      accepted_protocols = ["Http", "Https"]
-      patterns_to_match  = mapping.value["patterns_to_match"]
-      frontend_endpoints = [mapping.value["name"]]
+  frontend_endpoint {
+    name                                    = local.frontend_endpoint_mappings["appeals_frontend"]["name"]
+    host_name                               = local.frontend_endpoint_mappings["appeals_frontend"]["frontend_endpoint"]
+    web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
+  }
 
-      forwarding_configuration {
-        backend_pool_name      = mapping.value["name"]
-        cache_enabled          = false
-        cache_query_parameters = []
-        forwarding_protocol    = "MatchRequest"
-      }
+  backend_pool {
+    name                = local.frontend_endpoint_mappings["appeals_frontend"]["name"]
+    load_balancing_name = "Default"
+    health_probe_name   = "Http"
+
+    backend {
+      enabled     = true
+      address     = local.backend_pool_mappings["appeals_frontend"]["name"]
+      host_header = local.backend_pool_mappings["appeals_frontend"]["name"]
+      http_port   = 80
+      https_port  = 443
+      priority    = 1
+      weight      = 100
+    }
+  }
+
+  routing_rule {
+    enabled            = true
+    name               = local.backend_pool_mappings["appeals_frontend"]["name"]
+    accepted_protocols = ["Http", "Https"]
+    patterns_to_match  = local.backend_pool_mappings["appeals_frontend"]["patterns_to_match"]
+    frontend_endpoints = [local.backend_pool_mappings["appeals_frontend"]["name"]]
+
+    forwarding_configuration {
+      backend_pool_name      = local.backend_pool_mappings["appeals_frontend"]["name"]
+      cache_enabled          = false
+      cache_query_parameters = []
+      forwarding_protocol    = "MatchRequest"
+    }
+  }
+
+  #========================================================================
+  # Back Office Service Frontend Endpoints
+  #========================================================================
+
+  frontend_endpoint {
+    name                                    = local.frontend_endpoint_mappings["back_office_frontend"]["name"]
+    host_name                               = local.frontend_endpoint_mappings["back_office_frontend"]["frontend_endpoint"]
+    web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
+  }
+
+  backend_pool {
+    name                = local.frontend_endpoint_mappings["back_office_frontend"]["name"]
+    load_balancing_name = "Default"
+    health_probe_name   = "Http"
+
+    backend {
+      enabled     = true
+      address     = local.backend_pool_mappings["back_office_frontend"]["name"]
+      host_header = local.backend_pool_mappings["back_office_frontend"]["name"]
+      http_port   = 80
+      https_port  = 443
+      priority    = 1
+      weight      = 100
+    }
+  }
+
+  routing_rule {
+    enabled            = true
+    name               = local.backend_pool_mappings["back_office_frontend"]["name"]
+    accepted_protocols = ["Http", "Https"]
+    patterns_to_match  = local.backend_pool_mappings["back_office_frontend"]["patterns_to_match"]
+    frontend_endpoints = [local.backend_pool_mappings["back_office_frontend"]["name"]]
+
+    forwarding_configuration {
+      backend_pool_name      = local.backend_pool_mappings["back_office_frontend"]["name"]
+      cache_enabled          = false
+      cache_query_parameters = []
+      forwarding_protocol    = "MatchRequest"
     }
   }
 
