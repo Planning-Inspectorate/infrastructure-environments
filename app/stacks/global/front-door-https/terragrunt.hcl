@@ -39,9 +39,9 @@ dependency "front_door" {
       }
     }
     frontend_endpoints = {
-      ApplicationsService = "mock_id"
-      AppealsService      = "mock_id"
-      BackOffice          = "mock_id"
+      ApplicationsService = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock-rg/providers/Microsoft.Network/frontDoors/mock_front_door/frontendEndpoints/mock_id"
+      AppealsService      = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock-rg/providers/Microsoft.Network/frontDoors/mock_front_door/frontendEndpoints/mock_id"
+      BackOffice          = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock-rg/providers/Microsoft.Network/frontDoors/mock_front_door/frontendEndpoints/mock_id"
     }
   }
 }
