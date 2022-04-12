@@ -30,11 +30,6 @@ variable "back_office_public_url" {
   type        = string
 }
 
-variable "common_key_vault_id" {
-  description = "The ID of the common environment Key Vault that contains SSL certificates"
-  type        = string
-}
-
 variable "common_tags" {
   description = "The common resource tags for the project"
   type        = map(string)
