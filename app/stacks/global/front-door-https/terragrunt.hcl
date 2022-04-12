@@ -45,3 +45,9 @@ dependency "front_door" {
     }
   }
 }
+
+inputs = {
+  frontend_endpoint_mappings = dependency.front_door.outputs.frontend_endpoint_mappings
+  frontend_endpoints         = dependency.front_door.outputs.frontend_endpoints
+  common_key_vault_id        = dependency.common_ukw.outputs.key_vault_id
+}
