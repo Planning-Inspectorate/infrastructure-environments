@@ -20,7 +20,7 @@ locals {
       name                 = "BackOffice"
       frontend_endpoint    = var.back_office_public_url
       patterns_to_match    = ["/*"]
-      ssl_certificate_name = var.use_wildcard_certificate ? local.wildcard_certificate_name : var.appeals_service_ssl_certificate_name
+      ssl_certificate_name = var.use_wildcard_certificate ? local.wildcard_certificate_name : var.back_office_ssl_certificate_name
     }
   }
 
