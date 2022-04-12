@@ -5,7 +5,7 @@ variable "common_key_vault_id" {
 
 variable "frontend_endpoint_mappings" {
   description = "A map of maps containing configuration options for each frontend endpoint"
-  type        = map(map(string))
+  type        = map(map(any))
 }
 
 variable "frontend_endpoints" {
