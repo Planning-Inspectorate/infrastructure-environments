@@ -124,15 +124,35 @@ resource "azurerm_frontdoor" "common" {
   tags = local.tags
 }
 
-resource "azurerm_frontdoor_custom_https_configuration" "ssl_certificate" {
-  for_each = azurerm_frontdoor.common.frontend_endpoints
-
-  frontend_endpoint_id              = reverse(split("/", each.value))[0]
+resource "azurerm_frontdoor_custom_https_configuration" "applications_service_ssl_certificate" {
+  frontend_endpoint_id              = azurerm_frontdoor.common.frontend_endpoints["ApplicationsService"]
   custom_https_provisioning_enabled = true
 
   custom_https_configuration {
     certificate_source                      = "AzureKeyVault"
-    azure_key_vault_certificate_secret_name = local.frontend_endpoint_mappings["${reverse(split("/", each.value))[0]}"]["ssl_certificate_name"]
+    azure_key_vault_certificate_secret_name = local.frontend_endpoint_mappings["applications_frontend"]["ssl_certificate_name"]
+    azure_key_vault_certificate_vault_id    = var.common_key_vault_id
+  }
+}
+
+resource "azurerm_frontdoor_custom_https_configuration" "appeals_service_ssl_certificate" {
+  frontend_endpoint_id              = azurerm_frontdoor.common.frontend_endpoints["AppealsService"]
+  custom_https_provisioning_enabled = true
+
+  custom_https_configuration {
+    certificate_source                      = "AzureKeyVault"
+    azure_key_vault_certificate_secret_name = local.frontend_endpoint_mappings["appeals_frontend"]["ssl_certificate_name"]
+    azure_key_vault_certificate_vault_id    = var.common_key_vault_id
+  }
+}
+
+resource "azurerm_frontdoor_custom_https_configuration" "back_office_ssl_certificate" {
+  frontend_endpoint_id              = azurerm_frontdoor.common.frontend_endpoints["BackOffice"]
+  custom_https_provisioning_enabled = true
+
+  custom_https_configuration {
+    certificate_source                      = "AzureKeyVault"
+    azure_key_vault_certificate_secret_name = local.frontend_endpoint_mappings["back_office_frontend"]["ssl_certificate_name"]
     azure_key_vault_certificate_vault_id    = var.common_key_vault_id
   }
 }
