@@ -21,33 +21,33 @@ dependency "front_door" {
     frontend_endpoint_mappings = {
       applications_frontend = {
         name                 = "ApplicationsService"
-        frontend_endpoint    = mock_url
+        frontend_endpoint    = "mock_url"
         patterns_to_match    = ["/*"]
-        ssl_certificate_name = mock_certificate_name
+        ssl_certificate_name = "mock_certificate_name"
       }
       appeals_frontend = {
         name                 = "AppealsService"
-        frontend_endpoint    = mock_url
+        frontend_endpoint    = "mock_url"
         patterns_to_match    = ["/*"]
-        ssl_certificate_name = mock_certificate_name
+        ssl_certificate_name = "mock_certificate_name"
       }
       back_office_frontend = {
         name                 = "BackOffice"
-        frontend_endpoint    = mock_url
+        frontend_endpoint    = "mock_url"
         patterns_to_match    = ["/*"]
-        ssl_certificate_name = mock_certificate_name
+        ssl_certificate_name = "mock_certificate_name"
       }
     }
     frontend_endpoints = {
-      ApplicationsService = mock_id
-      AppealsService      = mock_id
-      BackOffice          = mock_id
+      ApplicationsService = "mock_id"
+      AppealsService      = "mock_id"
+      BackOffice          = "mock_id"
     }
   }
 }
 
 inputs = {
+  common_key_vault_id        = dependency.common_ukw.outputs.key_vault_id
   frontend_endpoint_mappings = dependency.front_door.outputs.frontend_endpoint_mappings
   frontend_endpoints         = dependency.front_door.outputs.frontend_endpoints
-  common_key_vault_id        = dependency.common_ukw.outputs.key_vault_id
 }
