@@ -74,6 +74,7 @@ No requirements.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of frontend app service URLs |
 | <a name="output_back_office_sql_database"></a> [back\_office\_sql\_database](#output\_back\_office\_sql\_database) | The ID of the Back Office SQL database |
 | <a name="output_sql_server_id"></a> [sql\_server\_id](#output\_sql\_server\_id) | The ID of the Back Office SQL server |
 | <a name="output_sql_server_password"></a> [sql\_server\_password](#output\_sql\_server\_password) | The SQL server administrator password |

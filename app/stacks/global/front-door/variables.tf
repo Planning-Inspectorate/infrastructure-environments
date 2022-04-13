@@ -25,8 +25,14 @@ variable "applications_service_public_url" {
   type        = string
 }
 
-variable "common_key_vault_id" {
-  description = "The ID of the common environment Key Vault that contains SSL certificates"
+variable "back_office_ssl_certificate_name" {
+  description = "The SSL certificate name in the environment Key Vault for the back office service"
+  type        = string
+  default     = null
+}
+
+variable "back_office_public_url" {
+  description = "The public URL for the Back Office frontend web app"
   type        = string
 }
 

@@ -24,7 +24,6 @@ No requirements.
 | Name | Type |
 |------|------|
 | [azurerm_frontdoor.common](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/frontdoor) | resource |
-| [azurerm_frontdoor_custom_https_configuration.ssl_certificate](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/frontdoor_custom_https_configuration) | resource |
 | [azurerm_frontdoor_firewall_policy.default](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/frontdoor_firewall_policy) | resource |
 | [azurerm_resource_group.frontdoor](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
 
@@ -37,7 +36,8 @@ No requirements.
 | <a name="input_appeals_service_ssl_certificate_name"></a> [appeals\_service\_ssl\_certificate\_name](#input\_appeals\_service\_ssl\_certificate\_name) | The SSL certificate name in the environment Key Vault for the appeals service | `string` | `null` | no |
 | <a name="input_applications_service_public_url"></a> [applications\_service\_public\_url](#input\_applications\_service\_public\_url) | The public URL for the Applications Service frontend web app | `string` | n/a | yes |
 | <a name="input_applications_service_ssl_certificate_name"></a> [applications\_service\_ssl\_certificate\_name](#input\_applications\_service\_ssl\_certificate\_name) | The SSL certificate name in the environment Key Vault for the applications service | `string` | `null` | no |
-| <a name="input_common_key_vault_id"></a> [common\_key\_vault\_id](#input\_common\_key\_vault\_id) | The ID of the common environment Key Vault that contains SSL certificates | `string` | n/a | yes |
+| <a name="input_back_office_public_url"></a> [back\_office\_public\_url](#input\_back\_office\_public\_url) | The public URL for the Back Office frontend web app | `string` | n/a | yes |
+| <a name="input_back_office_ssl_certificate_name"></a> [back\_office\_ssl\_certificate\_name](#input\_back\_office\_ssl\_certificate\_name) | The SSL certificate name in the environment Key Vault for the back office service | `string` | `null` | no |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | The common resource tags for the project | `map(string)` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
 | <a name="input_instance"></a> [instance](#input\_instance) | The environment instance for use if multiple environments are deployed to a subscription | `string` | `"001"` | no |
@@ -46,5 +46,8 @@ No requirements.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_frontend_endpoint_mappings"></a> [frontend\_endpoint\_mappings](#output\_frontend\_endpoint\_mappings) | A map of maps containing configuration options for each frontend endpoint |
+| <a name="output_frontend_endpoints"></a> [frontend\_endpoints](#output\_frontend\_endpoints) | A map of frontend endpoints within the Front Door instance |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
