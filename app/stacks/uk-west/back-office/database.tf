@@ -17,7 +17,7 @@ resource "azurerm_key_vault_secret" "back_office_sql_server_password" {
   content_type = "text/plain"
   key_vault_id = var.key_vault_id
   name         = "back-office-sql-server-password"
-  value        = random_password.back_office_sql_server_password.result
+  value        = azurerm_mssql_server.back_office.administrator_login_password
 
   tags = local.tags
 }
@@ -27,7 +27,7 @@ resource "azurerm_key_vault_secret" "back_office_sql_server_username" {
   content_type = "text/plain"
   key_vault_id = var.key_vault_id
   name         = "back-office-sql-server-username"
-  value        = local.sql_server_username
+  value        = azurerm_mssql_server.back_office.administrator_login
 
   tags = local.tags
 }
@@ -58,11 +58,6 @@ resource "azurerm_mssql_server" "back_office" {
     login_username = var.sql_server_azuread_administrator["login_username"]
     object_id      = var.sql_server_azuread_administrator["object_id"]
   }
-
-  depends_on = [
-    azurerm_key_vault_secret.back_office_sql_server_username,
-    azurerm_key_vault_secret.back_office_sql_server_password
-  ]
 
   tags = local.tags
 }
