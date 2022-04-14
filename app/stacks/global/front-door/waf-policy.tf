@@ -25,17 +25,11 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
         "GET",
         "POST",
         "PUT",
-        "HEAD",
         "DELETE",
-        "LOCK",
-        "UNLOCK",
-        "PROFILE",
-        "OPTIONS",
-        "PROPFIND",
-        "PROPPATCH",
-        "MKCOL",
         "COPY",
-        "MOVE"
+        "MOVE",
+        "HEAD",
+        "OPTIONS"
       ]
     }
   }
