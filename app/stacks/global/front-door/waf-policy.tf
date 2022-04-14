@@ -18,10 +18,6 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
         enabled = false
         action  = "Block"
       }
-    }
-
-    override {
-      rule_group_name = "SQLI"
 
       rule {
         # Detects basic SQL authentication bypass attempts 2/3
