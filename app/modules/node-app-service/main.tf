@@ -9,6 +9,20 @@ resource "azurerm_linux_web_app" "web_app" {
 
   app_settings = merge(var.app_settings, local.app_settings)
 
+  dynamic "auth_settings" {
+    for_each = var.azuread_auth_enabled ? [1] : []
+
+    content {
+      enabled          = true
+      default_provider = "AzureActiveDirectory"
+      issuer           = "https://sts.windows.net/${data.azurerm_client_config.current.tenant_id}/"
+
+      active_directory {
+        client_id = var.azuread_auth_application_id
+      }
+    }
+  }
+
   identity {
     type = "SystemAssigned"
   }

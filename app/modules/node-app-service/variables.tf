@@ -37,6 +37,18 @@ variable "app_settings" {
   default     = {}
 }
 
+variable "azuread_auth_application_id" {
+  description = "The Azure AD app registration ID representing the App Service for authentication"
+  type        = string
+  default     = null
+}
+
+variable "azuread_auth_enabled" {
+  description = "Flag to indicate if the App Service should use Azure AD for authentication"
+  type        = bool
+  default     = false
+}
+
 variable "container_registry_login_server" {
   description = "The URL that can be used to log into the container registry"
   type        = string
