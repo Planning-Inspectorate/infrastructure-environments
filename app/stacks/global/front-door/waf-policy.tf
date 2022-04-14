@@ -7,7 +7,7 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
 
   managed_rule {
     type    = "DefaultRuleSet"
-    version = "1.1"
+    version = "1.0"
 
     override {
       rule_group_name = "SQLI"
@@ -32,10 +32,10 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
     }
   }
 
-  # managed_rule {
-  #   type    = "OWASP"
-  #   version = "3.0"
-  # }
+  managed_rule {
+    type    = "OWASP"
+    version = "3.0"
+  }
 
   custom_rule {
     name                           = "RateLimitRequestMethod"
