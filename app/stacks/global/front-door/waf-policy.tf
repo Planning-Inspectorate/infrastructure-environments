@@ -10,18 +10,18 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
   }
 
   custom_rule {
-    name                           = "RateLimiting"
+    name                           = "RateLimitUri"
     action                         = "Log"
     enabled                        = true
-    priority                       = 1
+    priority                       = 101
     type                           = "RateLimitRule"
     rate_limit_duration_in_minutes = 1
-    rate_limit_threshold           = 100
+    rate_limit_threshold           = 5
 
     match_condition {
-      match_variable = "RemoteAddr"
-      match_values   = ["*"]
-      operator       = "Any"
+      match_variable = "RequestUri"
+      match_values   = ["/"]
+      operator       = "BeginsWith"
     }
   }
 
