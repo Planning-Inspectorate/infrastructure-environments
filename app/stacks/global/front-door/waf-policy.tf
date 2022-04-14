@@ -21,7 +21,6 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
     match_condition {
       match_variable = "RequestMethod"
       operator       = "Equal"
-      transforms     = ["Uppercase"]
       match_values = [
         "GET",
         "POST",
