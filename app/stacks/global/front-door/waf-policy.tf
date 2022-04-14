@@ -21,6 +21,11 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
     }
   }
 
+  managed_rule {
+    type    = "OWASP"
+    version = "3.0"
+  }
+
   custom_rule {
     name                           = "RateLimitRequestMethod"
     action                         = "Log"
