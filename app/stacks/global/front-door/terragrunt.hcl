@@ -81,7 +81,8 @@ dependency "common_ukw" {
   mock_outputs_merge_with_state           = true
 
   mock_outputs = {
-    key_vault_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock-rg/providers/Microsoft.KeyVault/vaults/mockkv"
+    key_vault_id               = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock-rg/providers/Microsoft.KeyVault/vaults/mockkv"
+    log_analytics_workspace_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mock-rg/providers/microsoft.operationalinsights/workspaces/mock_workspace"
   }
 }
 
@@ -94,5 +95,6 @@ inputs = {
     dependency.back_office_uks.outputs.app_service_urls,
     dependency.back_office_ukw.outputs.app_service_urls
   )
-  common_key_vault_id = dependency.common_ukw.outputs.key_vault_id
+  common_key_vault_id               = dependency.common_ukw.outputs.key_vault_id
+  common_log_analytics_workspace_id = dependency.common_ukw.outputs.log_analytics_workspace_id
 }
