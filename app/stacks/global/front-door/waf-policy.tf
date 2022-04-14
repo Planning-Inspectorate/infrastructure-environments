@@ -10,7 +10,7 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
   }
 
   custom_rule {
-    name                           = "RateLimitUri"
+    name                           = "RateLimitRequestMethod"
     action                         = "Log"
     enabled                        = true
     priority                       = 101
@@ -19,9 +19,25 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
     rate_limit_threshold           = 5
 
     match_condition {
-      match_variable = "RequestUri"
-      match_values   = ["/"]
-      operator       = "BeginsWith"
+      match_variable = "RequestMethod"
+      operator       = "Equal"
+      transforms     = ["Uppercase"]
+      match_values = [
+        "GET",
+        "POST",
+        "PUT",
+        "HEAD",
+        "DELETE",
+        "LOCK",
+        "UNLOCK",
+        "PROFILE",
+        "OPTIONS",
+        "PROPFIND",
+        "PROPPATCH",
+        "MKCOL",
+        "COPY",
+        "MOVE"
+      ]
     }
   }
 
