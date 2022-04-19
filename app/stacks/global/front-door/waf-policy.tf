@@ -29,14 +29,13 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
   }
 
   custom_rule {
-    # Test (PowerShell): For ($i = 0; $i -lt 60; $i++) { (Invoke-WebRequest -Uri 'https://back-office-dev.planninginspectorate.gov.uk/lpa').StatusCode }
     name                           = "RateLimitHttpRequest"
-    action                         = "Block" # Log
+    action                         = "Block"
     enabled                        = true
     priority                       = 100
     type                           = "RateLimitRule"
     rate_limit_duration_in_minutes = 1
-    rate_limit_threshold           = 50 # 100
+    rate_limit_threshold           = 100
 
     match_condition {
       match_variable = "RequestMethod"
