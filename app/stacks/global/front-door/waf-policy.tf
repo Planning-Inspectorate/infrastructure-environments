@@ -25,6 +25,13 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
         enabled = false
         action  = "Block"
       }
+
+      rule {
+        # False positive: SQL Comment Sequence Detected
+        rule_id = "942440"
+        enabled = false
+        action  = "Block"
+      }
     }
   }
 
