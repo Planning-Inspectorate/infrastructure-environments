@@ -2,7 +2,7 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
   name                              = replace("pinswaf${local.service_name}${local.resource_suffix}", "-", "")
   resource_group_name               = azurerm_resource_group.frontdoor.name
   enabled                           = true
-  mode                              = "Detection"
+  mode                              = "Prevention"
   custom_block_response_status_code = 429
 
   managed_rule {
@@ -13,14 +13,14 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
       rule_group_name = "SQLI"
 
       rule {
-        # Detects MySQL comment-/space-obfuscated injections and backtick termination
+        # False positive: Detects MySQL comment-/space-obfuscated injections and backtick termination
         rule_id = "942200"
         enabled = false
         action  = "Block"
       }
 
       rule {
-        # Detects basic SQL authentication bypass attempts 2/3
+        # False positive: Detects basic SQL authentication bypass attempts 2/3
         rule_id = "942260"
         enabled = false
         action  = "Block"
