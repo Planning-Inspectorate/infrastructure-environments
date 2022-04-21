@@ -1,7 +1,7 @@
 resource "azurerm_monitor_action_group" "low" {
   name                = "pins-ag-low-${local.service_name}-${local.resource_suffix}"
   resource_group_name = azurerm_resource_group.common_infrastructure.name
-  short_name          = "pins-${var.environment}-low"
+  short_name          = "${var.environment}-low"
   tags                = local.tags
 
   dynamic "email_receiver" {
