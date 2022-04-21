@@ -51,6 +51,12 @@ variable "environment" {
   type        = string
 }
 
+variable "front_door_waf_mode" {
+  description = "Indicates if the Web Application Firewall should be in Detection or Prevention mode"
+  type        = string
+  default     = "Detection"
+}
+
 variable "instance" {
   description = "The environment instance for use if multiple environments are deployed to a subscription"
   type        = string
