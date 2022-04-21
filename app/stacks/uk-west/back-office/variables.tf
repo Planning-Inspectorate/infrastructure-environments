@@ -94,6 +94,11 @@ variable "sql_database_configuration" {
   type        = map(string)
 }
 
+variable "sql_database_enable_public_access" {
+  description = "A switch indicating if SQL Server public access should be enabled"
+  type        = bool
+}
+
 variable "sql_server_azuread_administrator" {
   description = "A map describing the AzureAD account used for the SQL server administrator"
   type        = map(string)
