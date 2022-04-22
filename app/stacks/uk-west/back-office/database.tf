@@ -53,7 +53,7 @@ resource "azurerm_mssql_server" "back_office" {
   administrator_login           = local.sql_server_username
   administrator_login_password  = random_password.back_office_sql_server_password.result
   minimum_tls_version           = "1.2"
-  public_network_access_enabled = var.sql_database_enable_public_access
+  public_network_access_enabled = var.database_public_access_enabled
 
   azuread_administrator {
     login_username = var.sql_server_azuread_administrator["login_username"]

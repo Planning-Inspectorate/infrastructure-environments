@@ -3,7 +3,7 @@ locals {
   appeals_service_public_url      = "appeals-service-dev.planninginspectorate.gov.uk"
   applications_service_public_url = "applications-service-dev.planninginspectorate.gov.uk"
   back_office_public_url          = "back-office-dev.planninginspectorate.gov.uk"
-  cosmosdb_enable_public_access   = true
+  database_public_access_enabled  = true
   environment                     = "dev"
   logger_level                    = "info"
   monitoring_alerts_enabled       = false

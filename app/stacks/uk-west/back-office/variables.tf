@@ -50,6 +50,12 @@ variable "container_registry_rg" {
   type        = string
 }
 
+variable "database_public_access_enabled" {
+  description = "A switch indicating if databases should have public access enabled"
+  type        = bool
+  default     = false
+}
+
 variable "environment" {
   description = "The environment resources are deployed to e.g. 'dev'"
   type        = string
@@ -92,11 +98,6 @@ variable "node_environment" {
 variable "sql_database_configuration" {
   description = "A map of database configuration options"
   type        = map(string)
-}
-
-variable "sql_database_enable_public_access" {
-  description = "A switch indicating if SQL Server public access should be enabled"
-  type        = bool
 }
 
 variable "sql_server_azuread_administrator" {
