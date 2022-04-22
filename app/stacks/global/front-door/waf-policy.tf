@@ -21,7 +21,7 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
           # Exclusion to allow acceptance of cookies
           match_variable = "RequestCookieNames" # "CookieValue:cookie_policy"
           operator       = "Equals"
-          selector       = "{\"essential\":true,\"settings\":false,\"usage\":true,\"campaigns\":false}"
+          selector       = "cookie_policy"
         }
       }
     }
