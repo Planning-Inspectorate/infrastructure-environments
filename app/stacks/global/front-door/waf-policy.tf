@@ -24,6 +24,19 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
           selector       = "cookie_policy"
         }
       }
+
+      rule {
+        # Detects basic SQL authentication bypass attempts 2/3
+        rule_id = "942260"
+        action  = "Block"
+
+        exclusion {
+          # Exclusion to allow acceptance of cookies
+          match_variable = "RequestCookieNames" # "CookieValue:cookie_policy"
+          operator       = "Equals"
+          selector       = "cookie_policy"
+        }
+      }
     }
   }
 
