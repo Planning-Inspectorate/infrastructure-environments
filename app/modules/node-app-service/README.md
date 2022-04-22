@@ -43,8 +43,6 @@ No modules.
 | <a name="input_app_service_plan_id"></a> [app\_service\_plan\_id](#input\_app\_service\_plan\_id) | The id of the app service plan | `string` | n/a | yes |
 | <a name="input_app_service_private_dns_zone_id"></a> [app\_service\_private\_dns\_zone\_id](#input\_app\_service\_private\_dns\_zone\_id) | The id of the private DNS zone for App services | `string` | `null` | no |
 | <a name="input_app_settings"></a> [app\_settings](#input\_app\_settings) | The environment variables to be passed to the application | `map(string)` | `{}` | no |
-| <a name="input_azuread_auth_application_id"></a> [azuread\_auth\_application\_id](#input\_azuread\_auth\_application\_id) | The Azure AD app registration ID representing the App Service for authentication | `string` | `null` | no |
-| <a name="input_azuread_auth_enabled"></a> [azuread\_auth\_enabled](#input\_azuread\_auth\_enabled) | Flag to indicate if the App Service should use Azure AD for authentication | `bool` | `false` | no |
 | <a name="input_container_registry_login_server"></a> [container\_registry\_login\_server](#input\_container\_registry\_login\_server) | The URL that can be used to log into the container registry | `string` | n/a | yes |
 | <a name="input_container_registry_server_password"></a> [container\_registry\_server\_password](#input\_container\_registry\_server\_password) | The password used to connect to the container registry so that App Service can pull images | `string` | n/a | yes |
 | <a name="input_container_registry_server_username"></a> [container\_registry\_server\_username](#input\_container\_registry\_server\_username) | The username used to connect to the container registry so that App Service can pull images | `string` | n/a | yes |
