@@ -8,31 +8,6 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
   managed_rule {
     type    = "DefaultRuleSet"
     version = "1.0"
-
-    override {
-      rule_group_name = "SQLI"
-
-      rule {
-        # False positive: Detects MySQL comment-/space-obfuscated injections and backtick termination
-        rule_id = "942200"
-        enabled = false
-        action  = "Block"
-      }
-
-      rule {
-        # False positive: Detects basic SQL authentication bypass attempts 2/3
-        rule_id = "942260"
-        enabled = false
-        action  = "Block"
-      }
-
-      rule {
-        # False positive: SQL Comment Sequence Detected
-        rule_id = "942440"
-        enabled = false
-        action  = "Block"
-      }
-    }
   }
 
   custom_rule {
