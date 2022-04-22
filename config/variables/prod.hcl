@@ -4,7 +4,6 @@ locals {
   applications_service_public_url = "national-infrastructure-consenting.planninginspectorate.gov.uk"
   back_office_public_url          = "back-office-prod.planninginspectorate.gov.uk"
   environment                     = "prod"
-  front_door_waf_mode             = "Detection"
   logger_level                    = "info"
   monitoring_alerts_enabled       = true
   node_environment                = "production"

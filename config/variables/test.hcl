@@ -4,7 +4,6 @@ locals {
   applications_service_public_url = "applications-service-test.planninginspectorate.gov.uk"
   back_office_public_url          = "back-office-test.planninginspectorate.gov.uk"
   environment                     = "test"
-  front_door_waf_mode             = "Prevention"
   logger_level                    = "info"
   monitoring_alerts_enabled       = false
   node_environment                = "production"
