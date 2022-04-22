@@ -8,6 +8,23 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
   managed_rule {
     type    = "DefaultRuleSet"
     version = "1.0"
+
+    override {
+      rule_group_name = "SQLI"
+
+      rule {
+        # Detects MySQL comment-/space-obfuscated injections and backtick termination
+        rule_id = "942200"
+        action  = "Block"
+
+        exclusion {
+          # Exclusion to allow acceptance of cookies
+          match_variable = "RequestCookieNames" # "CookieValue:cookie_policy"
+          operator       = "Equals"
+          selector       = "{\"essential\":true,\"settings\":false,\"usage\":true,\"campaigns\":false}"
+        }
+      }
+    }
   }
 
   custom_rule {
