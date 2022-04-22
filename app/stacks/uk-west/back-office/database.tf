@@ -46,13 +46,14 @@ resource "azurerm_mssql_server" "back_office" {
   #checkov:skip=CKV_AZURE_113: Public access enabled for testing
   #checkov:skip=CKV_AZURE_23: Auditing to be added later
   #checkov:skip=CKV_AZURE_24: Auditing to be added later
-  name                         = "pins-sql-${local.service_name}-${local.resource_suffix}"
-  resource_group_name          = azurerm_resource_group.back_office_stack.name
-  location                     = azurerm_resource_group.back_office_stack.location
-  version                      = "12.0"
-  administrator_login          = local.sql_server_username
-  administrator_login_password = random_password.back_office_sql_server_password.result
-  minimum_tls_version          = "1.2"
+  name                          = "pins-sql-${local.service_name}-${local.resource_suffix}"
+  resource_group_name           = azurerm_resource_group.back_office_stack.name
+  location                      = azurerm_resource_group.back_office_stack.location
+  version                       = "12.0"
+  administrator_login           = local.sql_server_username
+  administrator_login_password  = random_password.back_office_sql_server_password.result
+  minimum_tls_version           = "1.2"
+  public_network_access_enabled = var.database_public_access_enabled
 
   azuread_administrator {
     login_username = var.sql_server_azuread_administrator["login_username"]
