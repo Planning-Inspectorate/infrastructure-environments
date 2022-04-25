@@ -66,6 +66,11 @@ output "key_vault_uri" {
   value       = azurerm_key_vault.environment_key_vault.vault_uri
 }
 
+output "log_analytics_workspace_id" {
+  description = "The ID of the Log Analytics Workspace so Front Door can log WAF events"
+  value       = azurerm_log_analytics_workspace.common.id
+}
+
 output "vnet_id" {
   description = "The ID of the Virtual Network"
   value       = module.networking.vnet_id

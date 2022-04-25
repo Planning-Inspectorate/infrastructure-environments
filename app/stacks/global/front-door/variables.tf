@@ -36,6 +36,11 @@ variable "back_office_public_url" {
   type        = string
 }
 
+variable "common_log_analytics_workspace_id" {
+  description = "The ID for the common Log Analytics Workspace"
+  type        = string
+}
+
 variable "common_tags" {
   description = "The common resource tags for the project"
   type        = map(string)
@@ -44,6 +49,12 @@ variable "common_tags" {
 variable "environment" {
   description = "The environment resources are deployed to e.g. 'dev'"
   type        = string
+}
+
+variable "front_door_waf_mode" {
+  description = "Indicates if the Web Application Firewall should be in Detection or Prevention mode"
+  type        = string
+  default     = "Detection"
 }
 
 variable "instance" {

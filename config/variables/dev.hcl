@@ -5,6 +5,7 @@ locals {
   back_office_public_url          = "back-office-dev.planninginspectorate.gov.uk"
   database_public_access_enabled  = true
   environment                     = "dev"
+  front_door_waf_mode             = "Prevention"
   logger_level                    = "info"
   monitoring_alerts_enabled       = false
   node_environment                = "development"
