@@ -10,6 +10,8 @@ module "app_service" {
   app_service_plan_id                = var.app_service_plan_id
   app_service_private_dns_zone_id    = can(each.value["app_service_private_dns_zone_id"]) ? each.value["app_service_private_dns_zone_id"] : null
   app_settings                       = each.value["app_settings"]
+  azuread_auth_client_id             = can(each.value["azuread_auth_client_id"]) ? each.value["azuread_auth_client_id"] : null
+  azuread_auth_enabled               = can(each.value["azuread_auth_enabled"]) ? each.value["azuread_auth_enabled"] : null
   container_registry_login_server    = var.container_registry_login_server
   container_registry_server_password = var.container_registry_password
   container_registry_server_username = var.container_registry_username
