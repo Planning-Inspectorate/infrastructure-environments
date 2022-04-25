@@ -19,6 +19,7 @@ dependency "common" {
     common_vnet_name      = "mock_vnet_name"
     integration_subnet_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
     key_vault_id          = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
+    key_vault_uri         = "https://mockvault.vault.azure.net/"
   }
 }
 
@@ -32,5 +33,6 @@ inputs = {
   common_vnet_gateway_id           = dependency.common.outputs.common_vnet_gateway_id
   common_vnet_name                 = dependency.common.outputs.common_vnet_name
   integration_subnet_id            = dependency.common.outputs.integration_subnet_id
+  key_vault_uri                    = dependency.common.outputs.key_vault_uri
   key_vault_id                     = dependency.common.outputs.key_vault_id
 }

@@ -28,6 +28,7 @@ dependency "common_ukw" {
   mock_outputs = {
     action_group_low_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock"
     key_vault_id        = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
+    key_vault_uri       = "https://mockvault.vault.azure.net/"
   }
 }
 
@@ -55,6 +56,7 @@ inputs = {
   common_vnet_name                 = dependency.common_uks.outputs.common_vnet_name
   integration_subnet_id            = dependency.common_uks.outputs.integration_subnet_id
   key_vault_id                     = dependency.common_ukw.outputs.key_vault_id
+  key_vault_uri                    = dependency.common_ukw.outputs.key_vault_uri
   primary_sql_server_id            = dependency.back_office_ukw.outputs.sql_server_id
   sql_server_password              = dependency.back_office_ukw.outputs.sql_server_password
   sql_server_username              = dependency.back_office_ukw.outputs.sql_server_username
