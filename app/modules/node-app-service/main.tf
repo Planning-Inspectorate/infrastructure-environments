@@ -9,6 +9,18 @@ resource "azurerm_linux_web_app" "web_app" {
 
   app_settings = merge(var.app_settings, local.app_settings)
 
+  dynamic "auth_settings" {
+    for_each = var.azuread_auth_enabled ? [1] : []
+
+    content {
+      enabled = var.azuread_auth_enabled
+
+      active_directory {
+        client_id = var.azuread_auth_client_id
+      }
+    }
+  }
+
   identity {
     type = "SystemAssigned"
   }
