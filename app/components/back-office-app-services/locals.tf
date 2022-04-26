@@ -7,7 +7,7 @@ locals {
       image_name                 = "back-office/back-office-web"
       inbound_vnet_connectivity  = false
       integration_subnet_id      = var.integration_subnet_id
-      key_vault_access           = false
+      key_vault_access           = true
       outbound_vnet_connectivity = true
 
       app_settings = {
