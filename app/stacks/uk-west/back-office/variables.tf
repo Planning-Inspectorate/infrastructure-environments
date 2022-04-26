@@ -32,12 +32,6 @@ variable "azuread_auth_client_id" {
   default     = null
 }
 
-variable "azuread_auth_enabled" {
-  description = "A switch to indicate if Azure AD authentication should be enabled"
-  type        = bool
-  default     = false
-}
-
 variable "azuread_auth_inspector_group_id" {
   description = "The Azure AD group ID for Back Office inspectors"
   type        = string

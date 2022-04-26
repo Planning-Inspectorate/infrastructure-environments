@@ -3,7 +3,7 @@ locals {
     back_office_frontend = {
       app_name                   = "wfe"
       azuread_auth_client_id     = var.azuread_auth_client_id
-      azuread_auth_enabled       = var.azuread_auth_enabled
+      azuread_auth_enabled       = true
       image_name                 = "back-office/back-office-web"
       inbound_vnet_connectivity  = false
       integration_subnet_id      = var.integration_subnet_id

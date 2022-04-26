@@ -8,7 +8,6 @@ module "app_services" {
   app_service_private_dns_zone_id         = data.azurerm_private_dns_zone.app_service.id
   azuread_auth_case_officer_group_id      = var.azuread_auth_case_officer_group_id
   azuread_auth_client_id                  = var.azuread_auth_client_id
-  azuread_auth_enabled                    = var.azuread_auth_enabled
   azuread_auth_inspector_group_id         = var.azuread_auth_inspector_group_id
   azuread_auth_validation_office_group_id = var.azuread_auth_validation_office_group_id
   container_registry_login_server         = data.azurerm_container_registry.acr.login_server
