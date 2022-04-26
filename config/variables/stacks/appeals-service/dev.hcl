@@ -2,6 +2,7 @@ locals {
   google_analytics_id                                                         = "G-TZBWMVPTHV"
   google_tag_manager_id                                                       = "GTM-KZN7XP4"
   horizon_url                                                                 = "http://10.0.7.4:8000"
+  node_environment                                                            = "development"
   srv_notify_appeal_submission_confirmation_email_to_apellant_template_id     = "72f71441-12bf-4455-afbc-c58f9c72bfbd"
   srv_notify_appeal_submission_received_notification_email_to_lpa_template_id = "79488d5d-7efd-4273-a11f-e73f11d19676"
   srv_notify_email_reply_to_id_start_email_to_lpa_template_id                 = "f1e6c8c5-786e-41ca-9086-10b67f31bc86"
