@@ -145,8 +145,6 @@ resource "azurerm_app_service_certificate" "custom_hostname" {
   location            = var.location
 
   # Requires abfa0a7c-a6b6-4736-8310-5855508787cd secret and certificate 'Get' permissions
-  # https://pinskvcommontestukw001.vault.azure.net/certificates/pins-wildcard
-  # var.use_wildcard_certificate ? local.wildcard_certificate_name : var.back_office_ssl_certificate_name
   # https://pinskvcommontestukw001.vault.azure.net/secrets/pins-wildcard/6a3852ed12ad4960a9efa220f13106b9
   key_vault_secret_id = var.custom_hostname_certificate_secret_id
 }
