@@ -121,6 +121,44 @@ resource "azurerm_linux_web_app_slot" "staging" {
   }
 }
 
+resource "azurerm_app_service_custom_hostname_binding" "custom_hostname" {
+  count = var.azuread_auth_enabled ? 1 : 0
+
+  hostname            = var.custom_hostname
+  app_service_name    = azurerm_linux_web_app.web_app.name
+  resource_group_name = var.resource_group_name
+
+  lifecycle {
+    # Managed using azurerm_app_service_certificate_binding
+    ignore_changes = [
+      ssl_state,
+      thumbprint
+    ]
+  }
+}
+
+resource "azurerm_app_service_certificate" "custom_hostname" {
+  count = var.azuread_auth_enabled ? 1 : 0
+
+  name                = var.custom_hostname
+  resource_group_name = var.resource_group_name
+  location            = var.location
+
+  # Requires abfa0a7c-a6b6-4736-8310-5855508787cd secret and certificate 'Get' permissions
+  # https://pinskvcommontestukw001.vault.azure.net/certificates/pins-wildcard
+  # var.use_wildcard_certificate ? local.wildcard_certificate_name : var.back_office_ssl_certificate_name
+  # https://pinskvcommontestukw001.vault.azure.net/secrets/pins-wildcard/6a3852ed12ad4960a9efa220f13106b9
+  key_vault_secret_id = var.custom_hostname_certificate_secret_id
+}
+
+resource "azurerm_app_service_certificate_binding" "custom_hostname" {
+  count = var.azuread_auth_enabled ? 1 : 0
+
+  certificate_id      = azurerm_app_service_certificate.custom_hostname[0].id
+  hostname_binding_id = azurerm_app_service_custom_hostname_binding.custom_hostname[0].id
+  ssl_state           = "SniEnabled"
+}
+
 resource "azurerm_private_endpoint" "private_endpoint" {
   count = var.inbound_vnet_connectivity ? 1 : 0
 

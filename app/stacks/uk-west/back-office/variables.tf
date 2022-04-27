@@ -44,6 +44,11 @@ variable "azuread_auth_validation_office_group_id" {
   default     = null
 }
 
+variable "back_office_public_url" {
+  description = "The public URL for the Back Office frontend web app"
+  type        = string
+}
+
 variable "common_tags" {
   description = "The common resource tags for the project"
   type        = map(string)

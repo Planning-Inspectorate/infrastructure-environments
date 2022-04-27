@@ -13,6 +13,8 @@ module "app_services" {
   container_registry_login_server         = data.azurerm_container_registry.acr.login_server
   container_registry_password             = data.azurerm_container_registry.acr.admin_password
   container_registry_username             = data.azurerm_container_registry.acr.admin_username
+  custom_hostname                         = var.back_office_public_url
+  custom_hostname_certificate_secret_id   = local.custom_hostname_certificate_secret_id
   database_connection_string              = local.sql_connection_string
   endpoint_subnet_id                      = azurerm_subnet.back_office_ingress.id
   integration_subnet_id                   = var.integration_subnet_id

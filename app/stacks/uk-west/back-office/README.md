@@ -57,6 +57,7 @@ No requirements.
 | <a name="input_azuread_auth_client_id"></a> [azuread\_auth\_client\_id](#input\_azuread\_auth\_client\_id) | The Back Office web frontend app registration ID used for Azure AD authentication | `string` | `null` | no |
 | <a name="input_azuread_auth_inspector_group_id"></a> [azuread\_auth\_inspector\_group\_id](#input\_azuread\_auth\_inspector\_group\_id) | The Azure AD group ID for Back Office inspectors | `string` | `null` | no |
 | <a name="input_azuread_auth_validation_office_group_id"></a> [azuread\_auth\_validation\_office\_group\_id](#input\_azuread\_auth\_validation\_office\_group\_id) | The Azure AD group ID for Back Office validation officers | `string` | `null` | no |
+| <a name="input_back_office_public_url"></a> [back\_office\_public\_url](#input\_back\_office\_public\_url) | The public URL for the Back Office frontend web app | `string` | n/a | yes |
 | <a name="input_common_resource_group_name"></a> [common\_resource\_group\_name](#input\_common\_resource\_group\_name) | The common infrastructure resource group name | `string` | n/a | yes |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | The common resource tags for the project | `map(string)` | n/a | yes |
 | <a name="input_common_vnet_cidr_blocks"></a> [common\_vnet\_cidr\_blocks](#input\_common\_vnet\_cidr\_blocks) | A map of IP address blocks from the subnet name to the allocated CIDR prefix | `map(string)` | n/a | yes |

@@ -66,6 +66,18 @@ variable "container_registry_server_username" {
   type        = string
 }
 
+variable "custom_hostname" {
+  description = "The custom hostname applied to the App Service required for auth redirection with a reverse proxy"
+  type        = string
+  default     = null
+}
+
+variable "custom_hostname_certificate_secret_id" {
+  description = "The Key Vault secret URL for the custom hostname SSL certificate"
+  type        = string
+  default     = null
+}
+
 variable "deployment_slot" {
   description = "Flag to indicate if the App Service should create a deployment slot"
   type        = bool

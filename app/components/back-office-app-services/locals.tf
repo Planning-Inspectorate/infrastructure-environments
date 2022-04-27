@@ -1,14 +1,16 @@
 locals {
   app_services = {
     back_office_frontend = {
-      app_name                   = "wfe"
-      azuread_auth_client_id     = var.azuread_auth_client_id
-      azuread_auth_enabled       = true
-      image_name                 = "back-office/back-office-web"
-      inbound_vnet_connectivity  = false
-      integration_subnet_id      = var.integration_subnet_id
-      key_vault_access           = true
-      outbound_vnet_connectivity = true
+      app_name                              = "wfe"
+      azuread_auth_client_id                = var.azuread_auth_client_id
+      azuread_auth_enabled                  = true
+      custom_hostname                       = var.custom_hostname
+      custom_hostname_certificate_secret_id = var.custom_hostname_certificate_secret_id
+      image_name                            = "back-office/back-office-web"
+      inbound_vnet_connectivity             = false
+      integration_subnet_id                 = var.integration_subnet_id
+      key_vault_access                      = true
+      outbound_vnet_connectivity            = true
 
       app_settings = {
         API_HOST                        = "https://pins-app-${var.service_name}-api-${var.resource_suffix}.azurewebsites.net"
