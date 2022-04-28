@@ -1,5 +1,5 @@
 locals {
-  app_service_principal_id        = "abfa0a7c-a6b6-4736-8310-5855508787cd"
+  app_service_principal_id        = "c1dc4452-3f0f-4e5e-9c64-9be49eac75f4"
   container_registry_name         = "pinscrsharedtoolinguks"
   container_registry_rg           = "pins-rg-shared-tooling-uks"
   app_service_private_dns_zone_id = "/subscriptions/${local.tooling_subscription_id}/resourceGroups/${local.tooling_network_rg}/providers/Microsoft.Network/privateDnsZones/privatelink.azurewebsites.net"
