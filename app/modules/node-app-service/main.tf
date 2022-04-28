@@ -121,34 +121,33 @@ resource "azurerm_linux_web_app_slot" "staging" {
   }
 }
 
-resource "azurerm_app_service_custom_hostname_binding" "custom_hostname" {
-  count = var.azuread_auth_enabled ? 1 : 0
-
-  hostname            = var.custom_hostname
-  app_service_name    = azurerm_linux_web_app.web_app.name
-  resource_group_name = var.resource_group_name
-
-  lifecycle {
-    # Managed using azurerm_app_service_certificate_binding
-    ignore_changes = [
-      ssl_state,
-      thumbprint
-    ]
-  }
-}
-
 resource "azurerm_app_service_certificate" "custom_hostname" {
   count = var.azuread_auth_enabled ? 1 : 0
 
   name                = var.custom_hostname
   resource_group_name = var.resource_group_name
   location            = var.location
-
-  # https://pinskvcommontestukw001.vault.azure.net/secrets/pins-wildcard            /6a3852ed12ad4960a9efa220f13106b9
-  # https://pinskvcommontestukw001.vault.azure.net:443/certificates/pins-wildcard
   key_vault_secret_id = var.custom_hostname_certificate_secret_id
 
   tags = var.tags
+}
+
+resource "azurerm_app_service_custom_hostname_binding" "custom_hostname" {
+  count = var.azuread_auth_enabled ? 1 : 0
+
+  hostname            = var.custom_hostname
+  app_service_name    = azurerm_linux_web_app.web_app.name
+  resource_group_name = var.resource_group_name
+  thumbprint          = azurerm_app_service_certificate.custom_hostname[0].thumbprint
+  ssl_state           = "SniEnabled"
+
+  # lifecycle {
+  #   # Managed using azurerm_app_service_certificate_binding
+  #   ignore_changes = [
+  #     ssl_state,
+  #     thumbprint
+  #   ]
+  # }
 }
 
 # resource "azurerm_app_service_certificate_binding" "custom_hostname" {
