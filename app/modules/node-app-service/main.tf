@@ -146,6 +146,8 @@ resource "azurerm_app_service_certificate" "custom_hostname" {
 
   # https://pinskvcommontestukw001.vault.azure.net/secrets/pins-wildcard/6a3852ed12ad4960a9efa220f13106b9
   key_vault_secret_id = var.custom_hostname_certificate_secret_id
+
+  tags = var.tags
 }
 
 # resource "azurerm_app_service_certificate_binding" "custom_hostname" {

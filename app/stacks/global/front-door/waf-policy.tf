@@ -37,6 +37,19 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
           selector       = "cookie_policy"
         }
       }
+
+      rule {
+        # Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)
+        rule_id = "942430"
+        action  = "Block"
+
+        exclusion {
+          # Exclusion to allow Azure AD authentication redirection
+          match_variable = "QueryStringArgNames" # "QueryParamValue:code"
+          operator       = "Equals"
+          selector       = "code"
+        }
+      }
     }
   }
 
