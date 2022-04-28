@@ -144,7 +144,8 @@ resource "azurerm_app_service_certificate" "custom_hostname" {
   resource_group_name = var.resource_group_name
   location            = var.location
 
-  # https://pinskvcommontestukw001.vault.azure.net/secrets/pins-wildcard/6a3852ed12ad4960a9efa220f13106b9
+  # https://pinskvcommontestukw001.vault.azure.net/secrets/pins-wildcard            /6a3852ed12ad4960a9efa220f13106b9
+  # https://pinskvcommontestukw001.vault.azure.net:443/certificates/pins-wildcard
   key_vault_secret_id = var.custom_hostname_certificate_secret_id
 
   tags = var.tags
