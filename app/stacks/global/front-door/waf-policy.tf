@@ -50,6 +50,19 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
           selector       = "code"
         }
       }
+
+      rule {
+        # SQL Comment Sequence Detected
+        rule_id = "942440"
+        action  = "Block"
+
+        exclusion {
+          # Exclusion to allow Azure AD authentication redirection
+          match_variable = "QueryStringArgNames" # "QueryParamValue:code"
+          operator       = "Equals"
+          selector       = "code"
+        }
+      }
     }
   }
 
