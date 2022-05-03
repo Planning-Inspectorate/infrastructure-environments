@@ -37,12 +37,6 @@ variable "app_settings" {
   default     = {}
 }
 
-variable "azuread_auth_client_id" {
-  description = "The associated app registration ID used for Azure AD authentication"
-  type        = string
-  default     = null
-}
-
 variable "azuread_auth_enabled" {
   description = "A switch to indicate if Azure AD authentication should be enabled"
   type        = bool
