@@ -13,6 +13,7 @@ dependency "appeals_service_ukw" {
     cosmosdb_connection_string                      = "mock_connection_string"
     cosmosdb_id                                     = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
     function_apps_storage_account                   = "mockstorageaccount"
+    function_apps_storage_account_access_key        = "mockaccesskey"
   }
 }
 
@@ -64,6 +65,7 @@ inputs = {
   cosmosdb_id                                     = dependency.appeals_service_ukw.outputs.cosmosdb_id
   cosmosdb_subnet_id                              = try(dependency.common_uks.outputs.cosmosdb_subnet_id, null)
   function_apps_storage_account                   = dependency.appeals_service_ukw.outputs.function_apps_storage_account
+  function_apps_storage_account_access_key        = dependency.appeals_service_ukw.outputs.function_apps_storage_account_access_key
   integration_subnet_id                           = dependency.common_uks.outputs.integration_subnet_id
   key_vault_id                                    = dependency.common_ukw.outputs.key_vault_id
   key_vault_uri                                   = dependency.common_ukw.outputs.key_vault_uri

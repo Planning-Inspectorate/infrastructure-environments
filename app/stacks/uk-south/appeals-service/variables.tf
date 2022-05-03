@@ -103,6 +103,12 @@ variable "function_apps_storage_account" {
   type        = string
 }
 
+variable "function_apps_storage_account_access_key" {
+  description = "The access key for the storage account"
+  type        = string
+  sensitive   = true
+}
+
 variable "google_analytics_id" {
   description = "The id used to connect the frontend app to Google Analytics"
   type        = string
