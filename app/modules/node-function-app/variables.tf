@@ -42,6 +42,12 @@ variable "function_apps_storage_account" {
   type        = string
 }
 
+variable "function_apps_storage_account_access_key" {
+  description = "The access key for the storage account"
+  type        = string
+  sensitive   = true
+}
+
 variable "location" {
   description = "The name of the app service location"
   type        = string
