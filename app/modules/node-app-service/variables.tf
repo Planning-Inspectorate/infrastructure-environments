@@ -37,12 +37,6 @@ variable "app_settings" {
   default     = {}
 }
 
-variable "azuread_auth_enabled" {
-  description = "A switch to indicate if Azure AD authentication should be enabled"
-  type        = bool
-  default     = false
-}
-
 variable "container_registry_login_server" {
   description = "The URL that can be used to log into the container registry"
   type        = string
@@ -70,6 +64,12 @@ variable "custom_hostname_certificate_secret_id" {
   description = "The Key Vault secret URL for the custom hostname SSL certificate"
   type        = string
   default     = null
+}
+
+variable "custom_hostname_enabled" {
+  description = "A switch to indicate if a custom hostname should be assigned to the App Service"
+  type        = bool
+  default     = false
 }
 
 variable "deployment_slot" {

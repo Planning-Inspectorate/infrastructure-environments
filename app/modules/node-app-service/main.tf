@@ -98,7 +98,7 @@ resource "azurerm_linux_web_app_slot" "staging" {
 }
 
 resource "azurerm_app_service_certificate" "custom_hostname" {
-  count = var.azuread_auth_enabled ? 1 : 0
+  count = var.custom_hostname_enabled ? 1 : 0
 
   name                = var.custom_hostname
   resource_group_name = var.resource_group_name
@@ -109,7 +109,7 @@ resource "azurerm_app_service_certificate" "custom_hostname" {
 }
 
 resource "azurerm_app_service_custom_hostname_binding" "custom_hostname" {
-  count = var.azuread_auth_enabled ? 1 : 0
+  count = var.custom_hostname_enabled ? 1 : 0
 
   hostname            = var.custom_hostname
   app_service_name    = azurerm_linux_web_app.web_app.name
