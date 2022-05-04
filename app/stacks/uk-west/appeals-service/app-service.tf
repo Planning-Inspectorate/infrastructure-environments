@@ -15,6 +15,7 @@ module "app_services" {
   container_registry_username                                                 = data.azurerm_container_registry.acr.admin_username
   cosmosdb_connection_string                                                  = azurerm_cosmosdb_account.appeals_database.connection_strings[0]
   endpoint_subnet_id                                                          = azurerm_subnet.appeals_service_ingress.id
+  environment                                                                 = var.environment
   function_apps_storage_account                                               = azurerm_storage_account.function_apps.name
   function_apps_storage_account_access_key                                    = azurerm_storage_account.function_apps.primary_access_key
   google_analytics_id                                                         = var.google_analytics_id

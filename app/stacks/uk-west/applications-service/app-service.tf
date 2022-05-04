@@ -12,6 +12,7 @@ module "app_services" {
   container_registry_password                                     = data.azurerm_container_registry.acr.admin_password
   container_registry_username                                     = data.azurerm_container_registry.acr.admin_username
   endpoint_subnet_id                                              = azurerm_subnet.applications_service_ingress.id
+  environment                                                     = var.environment
   google_analytics_id                                             = var.google_analytics_id
   integration_subnet_id                                           = var.integration_subnet_id
   key_vault_id                                                    = var.key_vault_id
