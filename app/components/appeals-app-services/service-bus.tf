@@ -7,22 +7,15 @@ resource "azurerm_servicebus_namespace" "horizon" {
   tags = var.tags
 }
 
-resource "azurerm_servicebus_queue" "horizon_add_document" {
-  name         = "add-document"
-  namespace_id = azurerm_servicebus_namespace.horizon.id
-
-  enable_partitioning = true
-}
-
-resource "azurerm_servicebus_queue" "horizon_create_contact" {
-  name         = "create-contact"
-  namespace_id = azurerm_servicebus_namespace.horizon.id
-
-  enable_partitioning = true
-}
-
 resource "azurerm_servicebus_queue" "horizon_householder_appeal_publish" {
-  name         = "householder-appeal-publish"
+  name         = "horizon-householder-appeal-publish"
+  namespace_id = azurerm_servicebus_namespace.horizon.id
+
+  enable_partitioning = true
+}
+
+resource "azurerm_servicebus_queue" "sql_householder_lpa_publish" {
+  name         = "sql-householder-lpa-publish"
   namespace_id = azurerm_servicebus_namespace.horizon.id
 
   enable_partitioning = true

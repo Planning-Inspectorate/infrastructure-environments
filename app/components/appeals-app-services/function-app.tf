@@ -22,7 +22,7 @@ module "horizon_functions" {
 
   connection_strings = [
     {
-      name  = "horizon-service-bus"
+      name  = "HORIZON_SERVICE_BUS_CONNECTION"
       type  = "Custom"
       value = azurerm_servicebus_namespace.horizon.default_primary_connection_string
     }
