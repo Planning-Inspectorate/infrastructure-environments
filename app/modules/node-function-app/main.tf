@@ -7,7 +7,7 @@ resource "azurerm_linux_function_app" "function_app" {
   storage_account_access_key = var.function_apps_storage_account_access_key
   https_only                 = true
 
-  app_settings = var.app_settings
+  app_settings = merge(var.app_settings, local.app_settings)
 
   dynamic "connection_string" {
     for_each = var.connection_strings
