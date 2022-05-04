@@ -29,3 +29,9 @@ output "function_apps_storage_account" {
   description = "The name of the storage account used by the Function Apps"
   value       = azurerm_storage_account.function_apps.name
 }
+
+output "function_apps_storage_account_access_key" {
+  description = "The access key for the storage account used by the Function Apps"
+  sensitive   = true
+  value       = azurerm_storage_account.function_apps.primary_access_key
+}

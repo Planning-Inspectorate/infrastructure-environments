@@ -1,14 +1,13 @@
 resource "azurerm_linux_function_app" "function_app" {
-  name                          = "pins-func-${var.service_name}-${var.app_name}-${var.resource_suffix}"
-  location                      = var.location
-  resource_group_name           = var.resource_group_name
-  service_plan_id               = var.app_service_plan_id
-  storage_account_name          = var.function_apps_storage_account
-  storage_uses_managed_identity = true
+  name                       = "pins-func-${var.service_name}-${var.app_name}-${var.resource_suffix}"
+  location                   = var.location
+  resource_group_name        = var.resource_group_name
+  service_plan_id            = var.app_service_plan_id
+  storage_account_name       = var.function_apps_storage_account
+  storage_account_access_key = var.function_apps_storage_account_access_key
+  https_only                 = true
 
-  https_only = true
-
-  app_settings = var.app_settings
+  app_settings = merge(var.app_settings, local.app_settings)
 
   dynamic "connection_string" {
     for_each = var.connection_strings
