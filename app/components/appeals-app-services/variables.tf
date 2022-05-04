@@ -75,6 +75,11 @@ variable "endpoint_subnet_id" {
   type        = string
 }
 
+variable "environment" {
+  description = "The environment resources are deployed to e.g. 'dev'"
+  type        = string
+}
+
 variable "function_apps_storage_account" {
   description = "The name of the storage account used by the Function Apps"
   type        = string

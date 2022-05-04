@@ -58,6 +58,11 @@ variable "endpoint_subnet_id" {
   type        = string
 }
 
+variable "environment" {
+  description = "The environment resources are deployed to e.g. 'dev'"
+  type        = string
+}
+
 variable "google_analytics_id" {
   description = "The id used to connect the frontend app to Google Analytics"
   type        = string

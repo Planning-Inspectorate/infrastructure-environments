@@ -96,6 +96,11 @@ variable "endpoint_subnet_id" {
   type        = string
 }
 
+variable "environment" {
+  description = "The environment resources are deployed to e.g. 'dev'"
+  type        = string
+}
+
 variable "integration_subnet_id" {
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   type        = string

@@ -28,9 +28,9 @@ locals {
     back_office_api = {
       app_name                        = "api"
       app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
-      endpoint_subnet_id              = var.endpoint_subnet_id
+      endpoint_subnet_id              = var.environment != "dev" ? var.endpoint_subnet_id : null
       image_name                      = "back-office/back-office-api"
-      inbound_vnet_connectivity       = true
+      inbound_vnet_connectivity       = var.environment != "dev" ? true : false
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = false
       outbound_vnet_connectivity      = true
