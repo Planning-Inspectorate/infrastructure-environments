@@ -114,25 +114,23 @@ resource "azurerm_app_service_custom_hostname_binding" "custom_hostname" {
   hostname            = var.custom_hostname
   app_service_name    = azurerm_linux_web_app.web_app.name
   resource_group_name = var.resource_group_name
-  # thumbprint          = azurerm_app_service_certificate.custom_hostname[0].thumbprint
-  # ssl_state           = "SniEnabled"
 
-  # lifecycle {
-  #   # Managed using azurerm_app_service_certificate_binding
-  #   ignore_changes = [
-  #     ssl_state,
-  #     thumbprint
-  #   ]
-  # }
+  lifecycle {
+    # Managed using azurerm_app_service_certificate_binding
+    ignore_changes = [
+      ssl_state,
+      thumbprint
+    ]
+  }
 }
 
-# resource "azurerm_app_service_certificate_binding" "custom_hostname" {
-#   count = var.azuread_auth_enabled ? 1 : 0
+resource "azurerm_app_service_certificate_binding" "custom_hostname" {
+  count = var.custom_hostname != null ? 1 : 0
 
-#   certificate_id      = azurerm_app_service_certificate.custom_hostname[0].id
-#   hostname_binding_id = azurerm_app_service_custom_hostname_binding.custom_hostname[0].id
-#   ssl_state           = "SniEnabled"
-# }
+  certificate_id      = azurerm_app_service_certificate.custom_hostname[0].id
+  hostname_binding_id = azurerm_app_service_custom_hostname_binding.custom_hostname[0].id
+  ssl_state           = "SniEnabled"
+}
 
 resource "azurerm_private_endpoint" "private_endpoint" {
   count = var.inbound_vnet_connectivity ? 1 : 0
