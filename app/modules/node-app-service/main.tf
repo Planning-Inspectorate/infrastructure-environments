@@ -114,8 +114,8 @@ resource "azurerm_app_service_custom_hostname_binding" "custom_hostname" {
   hostname            = var.custom_hostname
   app_service_name    = azurerm_linux_web_app.web_app.name
   resource_group_name = var.resource_group_name
-  thumbprint          = azurerm_app_service_certificate.custom_hostname[0].thumbprint
-  ssl_state           = "SniEnabled"
+  # thumbprint          = azurerm_app_service_certificate.custom_hostname[0].thumbprint
+  # ssl_state           = "SniEnabled"
 
   # lifecycle {
   #   # Managed using azurerm_app_service_certificate_binding
