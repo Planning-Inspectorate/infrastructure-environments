@@ -4,7 +4,6 @@ locals {
       app_name                              = "wfe"
       custom_hostname                       = var.custom_hostname
       custom_hostname_certificate_secret_id = var.custom_hostname_certificate_secret_id
-      custom_hostname_enabled               = true
       image_name                            = "back-office/back-office-web"
       inbound_vnet_connectivity             = false
       integration_subnet_id                 = var.integration_subnet_id

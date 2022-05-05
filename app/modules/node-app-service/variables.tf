@@ -66,12 +66,6 @@ variable "custom_hostname_certificate_secret_id" {
   default     = null
 }
 
-variable "custom_hostname_enabled" {
-  description = "A switch to indicate if a custom hostname should be assigned to the App Service"
-  type        = bool
-  default     = false
-}
-
 variable "deployment_slot" {
   description = "Flag to indicate if the App Service should create a deployment slot"
   type        = bool
