@@ -58,11 +58,6 @@ variable "endpoint_subnet_id" {
   type        = string
 }
 
-variable "environment" {
-  description = "The environment resources are deployed to e.g. 'dev'"
-  type        = string
-}
-
 variable "google_analytics_id" {
   description = "The id used to connect the frontend app to Google Analytics"
   type        = string
@@ -104,6 +99,12 @@ variable "node_environment" {
   description = "The node environment to be used for applications in this environment e.g. development"
   type        = string
   default     = "development"
+}
+
+variable "private_endpoint_enabled" {
+  description = "A switch to determine if Private Endpoint should be enabled for backend App Services"
+  type        = bool
+  default     = true
 }
 
 variable "resource_group_name" {

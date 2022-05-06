@@ -136,6 +136,12 @@ variable "node_environment" {
   default     = "development"
 }
 
+variable "private_endpoint_enabled" {
+  description = "A switch to determine if Private Endpoint should be enabled for backend App Services"
+  type        = bool
+  default     = true
+}
+
 variable "srv_notify_base_url" {
   description = "The base URL for the Notifications service"
   type        = string
