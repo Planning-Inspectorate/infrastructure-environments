@@ -101,7 +101,7 @@ resource "azurerm_app_service_certificate" "custom_hostname" {
   count = var.custom_hostname != null ? 1 : 0
 
   name                = var.custom_hostname
-  resource_group_name = var.resource_group_name
+  resource_group_name = "pins-rg-common-dev-ukw-001"
   location            = var.location
   key_vault_secret_id = var.custom_hostname_certificate_secret_id
 
