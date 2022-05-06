@@ -8,6 +8,7 @@ module "app_service" {
   app_insights_instrumentation_key      = var.app_insights_instrumentation_key
   app_name                              = each.value["app_name"]
   app_service_plan_id                   = var.app_service_plan_id
+  app_service_plan_resource_group_name  = can(each.value["app_service_plan_resource_group_name"]) ? each.value["app_service_plan_resource_group_name"] : null
   app_service_private_dns_zone_id       = can(each.value["app_service_private_dns_zone_id"]) ? each.value["app_service_private_dns_zone_id"] : null
   app_settings                          = each.value["app_settings"]
   container_registry_login_server       = var.container_registry_login_server

@@ -101,7 +101,7 @@ resource "azurerm_app_service_certificate" "custom_hostname" {
   count = var.custom_hostname != null ? 1 : 0
 
   name                = var.custom_hostname
-  resource_group_name = "pins-rg-common-dev-ukw-001"
+  resource_group_name = var.app_service_plan_resource_group_name
   location            = var.location
   key_vault_secret_id = var.custom_hostname_certificate_secret_id
 
@@ -116,23 +116,7 @@ resource "azurerm_app_service_custom_hostname_binding" "custom_hostname" {
   resource_group_name = var.resource_group_name
   ssl_state           = "SniEnabled"
   thumbprint          = azurerm_app_service_certificate.custom_hostname[0].thumbprint
-
-  # lifecycle {
-  #   # Managed using azurerm_app_service_certificate_binding
-  #   ignore_changes = [
-  #     ssl_state,
-  #     thumbprint
-  #   ]
-  # }
 }
-
-# resource "azurerm_app_service_certificate_binding" "custom_hostname" {
-#   count = var.custom_hostname != null ? 1 : 0
-
-#   certificate_id      = azurerm_app_service_certificate.custom_hostname[0].id
-#   hostname_binding_id = azurerm_app_service_custom_hostname_binding.custom_hostname[0].id
-#   ssl_state           = "SniEnabled"
-# }
 
 resource "azurerm_private_endpoint" "private_endpoint" {
   count = var.inbound_vnet_connectivity ? 1 : 0

@@ -25,6 +25,12 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "app_service_plan_resource_group_name" {
+  description = "The App Service Plan resource group name required for custom hostname certificate placement"
+  type        = string
+  default     = null
+}
+
 variable "azuread_auth_case_officer_group_id" {
   description = "The Azure AD group ID for Back Office case officers"
   type        = string

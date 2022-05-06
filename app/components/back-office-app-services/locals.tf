@@ -2,6 +2,7 @@ locals {
   app_services = {
     back_office_frontend = {
       app_name                              = "wfe"
+      app_service_plan_resource_group_name  = var.app_service_plan_resource_group_name
       custom_hostname                       = var.custom_hostname
       custom_hostname_certificate_secret_id = var.custom_hostname_certificate_secret_id
       image_name                            = "back-office/back-office-web"
