@@ -20,6 +20,35 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "azuread_auth_case_officer_group_id" {
+  description = "The Azure AD group ID for Back Office case officers"
+  type        = string
+  default     = null
+}
+
+variable "azuread_auth_client_id" {
+  description = "The Back Office web frontend app registration ID used for Azure AD authentication"
+  type        = string
+  default     = null
+}
+
+variable "azuread_auth_inspector_group_id" {
+  description = "The Azure AD group ID for Back Office inspectors"
+  type        = string
+  default     = null
+}
+
+variable "azuread_auth_validation_office_group_id" {
+  description = "The Azure AD group ID for Back Office validation officers"
+  type        = string
+  default     = null
+}
+
+variable "back_office_public_url" {
+  description = "The public URL for the Back Office frontend web app"
+  type        = string
+}
+
 variable "common_tags" {
   description = "The common resource tags for the project"
   type        = map(string)
@@ -74,6 +103,11 @@ variable "integration_subnet_id" {
 
 variable "key_vault_id" {
   description = "The ID of the key vault so the App Service can pull secret values"
+  type        = string
+}
+
+variable "key_vault_uri" {
+  description = "The URI of the Key Vault"
   type        = string
 }
 

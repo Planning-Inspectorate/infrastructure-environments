@@ -92,7 +92,7 @@ resource "azurerm_frontdoor" "common" {
       backend {
         enabled     = true
         address     = mapping.value["app_service_url"]
-        host_header = mapping.value["app_service_url"]
+        host_header = mapping.value["infer_backend_host_header"] ? "" : mapping.value["app_service_url"]
         http_port   = 80
         https_port  = 443
         priority    = 1

@@ -31,6 +31,12 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "app_service_plan_resource_group_name" {
+  description = "The App Service Plan resource group name required for custom hostname certificate placement"
+  type        = string
+  default     = null
+}
+
 variable "app_settings" {
   description = "The environment variables to be passed to the application"
   type        = map(string)
@@ -52,6 +58,18 @@ variable "container_registry_server_username" {
   description = "The username used to connect to the container registry so that App Service can pull images"
   sensitive   = true
   type        = string
+}
+
+variable "custom_hostname" {
+  description = "The custom hostname applied to the App Service required for auth redirection with a reverse proxy"
+  type        = string
+  default     = null
+}
+
+variable "custom_hostname_certificate_secret_id" {
+  description = "The Key Vault secret URL for the custom hostname SSL certificate"
+  type        = string
+  default     = null
 }
 
 variable "deployment_slot" {

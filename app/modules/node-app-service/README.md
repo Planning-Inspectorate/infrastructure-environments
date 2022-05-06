@@ -11,7 +11,7 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.0.2 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.1.0 |
 
 ## Modules
 
@@ -21,6 +21,8 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [azurerm_app_service_certificate.custom_hostname](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service_certificate) | resource |
+| [azurerm_app_service_custom_hostname_binding.custom_hostname](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service_custom_hostname_binding) | resource |
 | [azurerm_app_service_virtual_network_swift_connection.vnet_connection](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service_virtual_network_swift_connection) | resource |
 | [azurerm_key_vault_access_policy.read_secrets](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_access_policy) | resource |
 | [azurerm_linux_web_app.web_app](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app) | resource |
@@ -41,11 +43,14 @@ No modules.
 | <a name="input_app_insights_instrumentation_key"></a> [app\_insights\_instrumentation\_key](#input\_app\_insights\_instrumentation\_key) | The instrumentation key to connect to an Application Insights resource | `string` | n/a | yes |
 | <a name="input_app_name"></a> [app\_name](#input\_app\_name) | The name of the app service | `string` | n/a | yes |
 | <a name="input_app_service_plan_id"></a> [app\_service\_plan\_id](#input\_app\_service\_plan\_id) | The id of the app service plan | `string` | n/a | yes |
+| <a name="input_app_service_plan_resource_group_name"></a> [app\_service\_plan\_resource\_group\_name](#input\_app\_service\_plan\_resource\_group\_name) | The App Service Plan resource group name required for custom hostname certificate placement | `string` | `null` | no |
 | <a name="input_app_service_private_dns_zone_id"></a> [app\_service\_private\_dns\_zone\_id](#input\_app\_service\_private\_dns\_zone\_id) | The id of the private DNS zone for App services | `string` | `null` | no |
 | <a name="input_app_settings"></a> [app\_settings](#input\_app\_settings) | The environment variables to be passed to the application | `map(string)` | `{}` | no |
 | <a name="input_container_registry_login_server"></a> [container\_registry\_login\_server](#input\_container\_registry\_login\_server) | The URL that can be used to log into the container registry | `string` | n/a | yes |
 | <a name="input_container_registry_server_password"></a> [container\_registry\_server\_password](#input\_container\_registry\_server\_password) | The password used to connect to the container registry so that App Service can pull images | `string` | n/a | yes |
 | <a name="input_container_registry_server_username"></a> [container\_registry\_server\_username](#input\_container\_registry\_server\_username) | The username used to connect to the container registry so that App Service can pull images | `string` | n/a | yes |
+| <a name="input_custom_hostname"></a> [custom\_hostname](#input\_custom\_hostname) | The custom hostname applied to the App Service required for auth redirection with a reverse proxy | `string` | `null` | no |
+| <a name="input_custom_hostname_certificate_secret_id"></a> [custom\_hostname\_certificate\_secret\_id](#input\_custom\_hostname\_certificate\_secret\_id) | The Key Vault secret URL for the custom hostname SSL certificate | `string` | `null` | no |
 | <a name="input_deployment_slot"></a> [deployment\_slot](#input\_deployment\_slot) | Flag to indicate if the App Service should create a deployment slot | `bool` | `true` | no |
 | <a name="input_endpoint_subnet_id"></a> [endpoint\_subnet\_id](#input\_endpoint\_subnet\_id) | The id of the private endpoint subnet the app service is linked to for ingress traffic | `string` | `null` | no |
 | <a name="input_front_door_restriction"></a> [front\_door\_restriction](#input\_front\_door\_restriction) | Flag to indicate if the web app should be restricted so it can only be accessed via Front Door | `bool` | `false` | no |

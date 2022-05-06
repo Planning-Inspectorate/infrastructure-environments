@@ -36,6 +36,17 @@ resource "azurerm_key_vault_access_policy" "admins" {
   storage_permissions     = ["Delete", "Get", "List", "Set", "Purge", "Recover"]
 }
 
+resource "azurerm_key_vault_access_policy" "app_service" {
+  key_vault_id = azurerm_key_vault.environment_key_vault.id
+  object_id    = var.app_service_principal_id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+
+  certificate_permissions = ["Get"]
+  key_permissions         = []
+  secret_permissions      = ["Get"]
+  storage_permissions     = []
+}
+
 resource "azurerm_key_vault_access_policy" "frontdoor" {
   key_vault_id = azurerm_key_vault.environment_key_vault.id
   object_id    = var.front_door_principal_id

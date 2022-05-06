@@ -3,6 +3,11 @@ variable "alert_recipients" {
   type        = map(list(string))
 }
 
+variable "app_service_principal_id" {
+  description = "The ID of the service principal associated with App Service in the tenant"
+  type        = string
+}
+
 variable "common_tags" {
   description = "The common resource tags for the project"
   type        = map(string)

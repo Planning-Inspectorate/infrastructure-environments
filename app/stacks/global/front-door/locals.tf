@@ -5,22 +5,25 @@ locals {
 
   frontend_endpoint_mappings = {
     applications_frontend = {
-      name                 = "ApplicationsService"
-      frontend_endpoint    = var.applications_service_public_url
-      patterns_to_match    = ["/*"]
-      ssl_certificate_name = var.use_wildcard_certificate ? local.wildcard_certificate_name : var.applications_service_ssl_certificate_name
+      frontend_endpoint         = var.applications_service_public_url
+      infer_backend_host_header = false
+      name                      = "ApplicationsService"
+      patterns_to_match         = ["/*"]
+      ssl_certificate_name      = var.use_wildcard_certificate ? local.wildcard_certificate_name : var.applications_service_ssl_certificate_name
     }
     appeals_frontend = {
-      name                 = "AppealsService"
-      frontend_endpoint    = var.appeals_service_public_url
-      patterns_to_match    = ["/*"]
-      ssl_certificate_name = var.use_wildcard_certificate ? local.wildcard_certificate_name : var.appeals_service_ssl_certificate_name
+      frontend_endpoint         = var.appeals_service_public_url
+      infer_backend_host_header = false
+      name                      = "AppealsService"
+      patterns_to_match         = ["/*"]
+      ssl_certificate_name      = var.use_wildcard_certificate ? local.wildcard_certificate_name : var.appeals_service_ssl_certificate_name
     }
     back_office_frontend = {
-      name                 = "BackOffice"
-      frontend_endpoint    = var.back_office_public_url
-      patterns_to_match    = ["/*"]
-      ssl_certificate_name = var.use_wildcard_certificate ? local.wildcard_certificate_name : var.back_office_ssl_certificate_name
+      frontend_endpoint         = var.back_office_public_url
+      infer_backend_host_header = true
+      name                      = "BackOffice"
+      patterns_to_match         = ["/*"]
+      ssl_certificate_name      = var.use_wildcard_certificate ? local.wildcard_certificate_name : var.back_office_ssl_certificate_name
     }
   }
 

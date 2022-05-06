@@ -25,6 +25,36 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "app_service_plan_resource_group_name" {
+  description = "The App Service Plan resource group name required for custom hostname certificate placement"
+  type        = string
+  default     = null
+}
+
+variable "azuread_auth_case_officer_group_id" {
+  description = "The Azure AD group ID for Back Office case officers"
+  type        = string
+  default     = null
+}
+
+variable "azuread_auth_client_id" {
+  description = "The Back Office web frontend app registration ID used for Azure AD authentication"
+  type        = string
+  default     = null
+}
+
+variable "azuread_auth_inspector_group_id" {
+  description = "The Azure AD group ID for Back Office inspectors"
+  type        = string
+  default     = null
+}
+
+variable "azuread_auth_validation_office_group_id" {
+  description = "The Azure AD group ID for Back Office validation officers"
+  type        = string
+  default     = null
+}
+
 variable "container_registry_login_server" {
   description = "The URL used to connect to the Azure Container Registry"
   sensitive   = true
@@ -41,6 +71,18 @@ variable "container_registry_username" {
   description = "The username used to connect to the Azure Container Registry"
   sensitive   = true
   type        = string
+}
+
+variable "custom_hostname" {
+  description = "The custom hostname applied to the App Service required for auth redirection with a reverse proxy"
+  type        = string
+  default     = null
+}
+
+variable "custom_hostname_certificate_secret_id" {
+  description = "The Key Vault secret URL for the custom hostname SSL certificate"
+  type        = string
+  default     = null
 }
 
 variable "database_connection_string" {
@@ -61,6 +103,11 @@ variable "integration_subnet_id" {
 
 variable "key_vault_id" {
   description = "The ID of the key vault so the App Service can pull secret values"
+  type        = string
+}
+
+variable "key_vault_uri" {
+  description = "The URI of the Key Vault"
   type        = string
 }
 
