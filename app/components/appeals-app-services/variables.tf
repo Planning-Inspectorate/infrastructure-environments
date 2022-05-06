@@ -139,6 +139,12 @@ variable "node_environment" {
   default     = "development"
 }
 
+variable "private_endpoint_enabled" {
+  description = "A switch to determine if Private Endpoint should be enabled for backend App Services"
+  type        = bool
+  default     = true
+}
+
 variable "resource_group_id" {
   description = "The ID of the resource group that will contain the App Services"
   type        = string

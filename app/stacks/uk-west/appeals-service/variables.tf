@@ -129,6 +129,12 @@ variable "node_environment" {
   default     = "development"
 }
 
+variable "private_endpoint_enabled" {
+  description = "A switch to determine if Private Endpoint should be enabled for backend App Services"
+  type        = bool
+  default     = true
+}
+
 variable "primary_location" {
   description = "The primary location resources are deployed to in slug format e.g. 'uk-south'"
   type        = string

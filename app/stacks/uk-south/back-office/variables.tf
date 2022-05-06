@@ -140,6 +140,12 @@ variable "node_environment" {
   default     = "development"
 }
 
+variable "private_endpoint_enabled" {
+  description = "A switch to determine if Private Endpoint should be enabled for backend App Services"
+  type        = bool
+  default     = true
+}
+
 variable "primary_sql_server_id" {
   description = "The ID of the primary Back Office SQL server"
   type        = string

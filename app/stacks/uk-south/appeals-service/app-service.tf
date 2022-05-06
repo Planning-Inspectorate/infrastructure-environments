@@ -29,6 +29,7 @@ module "app_services" {
   logger_level                                                                = var.logger_level
   monitoring_alerts_enabled                                                   = var.monitoring_alerts_enabled
   node_environment                                                            = var.node_environment
+  private_endpoint_enabled                                                    = var.private_endpoint_enabled
   resource_group_id                                                           = azurerm_resource_group.appeals_service_stack.id
   resource_group_name                                                         = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                                                             = local.resource_suffix

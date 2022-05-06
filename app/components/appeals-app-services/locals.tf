@@ -40,6 +40,7 @@ locals {
         USE_SECURE_SESSION_COOKIES                 = false
       }
     }
+
     #====================================
     # Backends
     #====================================
@@ -47,9 +48,9 @@ locals {
     appeals_service_api = {
       app_name                        = "appeals-api"
       app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
-      endpoint_subnet_id              = var.endpoint_subnet_id
+      endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
       image_name                      = "appeal-planning-decisions/appeals-service-api"
-      inbound_vnet_connectivity       = true
+      inbound_vnet_connectivity       = var.private_endpoint_enabled
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = true
       outbound_vnet_connectivity      = true
@@ -93,9 +94,9 @@ locals {
     appeal_documents_service_api = {
       app_name                        = "documents-api"
       app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
-      endpoint_subnet_id              = var.endpoint_subnet_id
+      endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
       image_name                      = "appeal-planning-decisions/documents-api"
-      inbound_vnet_connectivity       = true
+      inbound_vnet_connectivity       = var.private_endpoint_enabled
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = false
       outbound_vnet_connectivity      = true
@@ -121,9 +122,9 @@ locals {
     pdf_service_api = {
       app_name                        = "pdf-api"
       app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
-      endpoint_subnet_id              = var.endpoint_subnet_id
+      endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
       image_name                      = "appeal-planning-decisions/pdf-api"
-      inbound_vnet_connectivity       = true
+      inbound_vnet_connectivity       = var.private_endpoint_enabled
       key_vault_access                = false
       outbound_vnet_connectivity      = false
 
@@ -141,9 +142,9 @@ locals {
     clam_av_service_api = {
       app_name                        = "clamav-api"
       app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
-      endpoint_subnet_id              = var.endpoint_subnet_id
+      endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
       image_name                      = "appeal-planning-decisions/clamav-api"
-      inbound_vnet_connectivity       = true
+      inbound_vnet_connectivity       = var.private_endpoint_enabled
       key_vault_access                = false
       outbound_vnet_connectivity      = false
 

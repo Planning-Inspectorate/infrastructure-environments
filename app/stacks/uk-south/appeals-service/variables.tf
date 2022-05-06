@@ -175,6 +175,12 @@ variable "node_environment" {
   default     = "development"
 }
 
+variable "private_endpoint_enabled" {
+  description = "A switch to determine if Private Endpoint should be enabled for backend App Services"
+  type        = bool
+  default     = true
+}
+
 variable "srv_notify_appeal_submission_confirmation_email_to_apellant_template_id" {
   description = "A template ID required by the Appeals Service API"
   type        = string
