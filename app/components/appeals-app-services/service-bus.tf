@@ -14,13 +14,6 @@ resource "azurerm_servicebus_queue" "horizon_householder_appeal_publish" {
   enable_partitioning = true
 }
 
-resource "azurerm_servicebus_queue" "sql_householder_lpa_publish" {
-  name         = "sql-householder-lpa-publish"
-  namespace_id = azurerm_servicebus_namespace.horizon.id
-
-  enable_partitioning = true
-}
-
 resource "azurerm_servicebus_namespace_authorization_rule" "horizon_function_apps" {
   name         = "horizon-function-apps"
   namespace_id = azurerm_servicebus_namespace.horizon.id
