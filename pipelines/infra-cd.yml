@@ -1,15 +1,4 @@
 parameters:
-  - name: environments
-    displayName: Environments
-    type: object
-    default:
-      - name: Dev
-      - name: Test
-        dependsOn:
-          - Dev
-      - name: Prod
-        dependsOn:
-          - Test
   - name: region
     displayName: Region
     type: string
@@ -53,13 +42,13 @@ resources:
       type: github
       endpoint: Planning-Inspectorate
       name: Planning-Inspectorate/common-pipeline-templates
+      ref: refs/tags/release/2.0.0
 
 extends:
   template: stages/wrapper_cd.yml@templates
   parameters:
     deploymentStages:
       - name: Terraform Plan
-        authType: terraform
         deploymentSteps:
           - script: |
               echo "##vso[build.addbuildtag]stack=${{ parameters.stack }}"
@@ -91,7 +80,6 @@ extends:
                 workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.region }}/${{ parameters.stack }}
         isDeployment: false
       - name: Terraform Apply
-        authType: terraform
         condition: and(succeeded(), ne(variables['skipApply'], 'true'))
         dependsOn:
           - Terraform Plan
@@ -113,9 +101,3 @@ extends:
               parameters:
                 artifactName: terraform-plan-$(ENVIRONMENT)
                 subscriptionId: $(SUBSCRIPTION_ID)
-    ${{ if in(variables['Build.Reason'], 'IndividualCI', 'BatchedCI', 'ResourceTrigger') }}:
-      environments:
-        - name: Dev
-    ${{ else }}:
-      environments: ${{ parameters.environments }}
-    project: infrastructure

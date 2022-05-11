@@ -4,12 +4,11 @@ resources:
       type: github
       endpoint: Planning-Inspectorate
       name: Planning-Inspectorate/common-pipeline-templates
+      ref: refs/tags/release/2.0.0
 
 extends:
   template: stages/wrapper_ci.yml@templates
   parameters:
-    authType: terraform
-    projectName: infrastructure
     validateName: Validate Terraform
     validationSteps:
       - template: steps/terraform_format.yml@templates
