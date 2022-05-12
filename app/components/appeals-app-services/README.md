@@ -31,7 +31,6 @@ No requirements.
 | [azurerm_servicebus_namespace.horizon](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/servicebus_namespace) | resource |
 | [azurerm_servicebus_namespace_authorization_rule.horizon_function_apps](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/servicebus_namespace_authorization_rule) | resource |
 | [azurerm_servicebus_queue.horizon_householder_appeal_publish](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/servicebus_queue) | resource |
-| [azurerm_servicebus_queue.sql_householder_lpa_publish](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/servicebus_queue) | resource |
 
 ## Inputs
 
