@@ -16,6 +16,7 @@ locals {
       app_settings = {
         APPEALS_SERVICE_API_TIMEOUT                = var.api_timeout
         APPEALS_SERVICE_API_URL                    = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
+        CLAM_AV_HOST                               = "https://pins-app-${var.service_name}-clamav-api-${var.resource_suffix}.azurewebsites.net"
         DOCS_API_PATH                              = "/opt/app/api"
         DOCUMENTS_SERVICE_API_TIMEOUT              = var.api_timeout
         DOCUMENTS_SERVICE_API_URL                  = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net/"
