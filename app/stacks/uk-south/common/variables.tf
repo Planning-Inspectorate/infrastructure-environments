@@ -57,8 +57,3 @@ variable "tooling_network_rg" {
   description = "The name of the resource group containing the VNet in the Tooling environment"
   type        = string
 }
-
-variable "tooling_subscription_id" {
-  description = "The ID for the Tooling subscription that houses the Container Registry"
-  type        = string
-}

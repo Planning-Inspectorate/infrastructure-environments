@@ -55,21 +55,13 @@ variable "azuread_auth_validation_office_group_id" {
   default     = null
 }
 
-variable "container_registry_login_server" {
-  description = "The URL used to connect to the Azure Container Registry"
-  sensitive   = true
+variable "container_registry_name" {
+  description = "The name of the container registry that hosts the image"
   type        = string
 }
 
-variable "container_registry_password" {
-  description = "The password used to connect to the Azure Container Registry"
-  sensitive   = true
-  type        = string
-}
-
-variable "container_registry_username" {
-  description = "The username used to connect to the Azure Container Registry"
-  sensitive   = true
+variable "container_registry_rg" {
+  description = "The resource group of the container registry that hosts the image"
   type        = string
 }
 

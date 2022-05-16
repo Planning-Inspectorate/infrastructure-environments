@@ -11,9 +11,8 @@ module "app_service" {
   app_service_plan_resource_group_name  = can(each.value["app_service_plan_resource_group_name"]) ? each.value["app_service_plan_resource_group_name"] : null
   app_service_private_dns_zone_id       = can(each.value["app_service_private_dns_zone_id"]) ? each.value["app_service_private_dns_zone_id"] : null
   app_settings                          = each.value["app_settings"]
-  container_registry_login_server       = var.container_registry_login_server
-  container_registry_server_password    = var.container_registry_password
-  container_registry_server_username    = var.container_registry_username
+  container_registry_name               = var.container_registry_name
+  container_registry_rg                 = var.container_registry_rg
   custom_hostname                       = can(each.value["custom_hostname"]) ? each.value["custom_hostname"] : null
   custom_hostname_certificate_secret_id = can(each.value["custom_hostname_certificate_secret_id"]) ? each.value["custom_hostname_certificate_secret_id"] : null
   deployment_slot                       = var.use_deployment_slots
@@ -30,4 +29,9 @@ module "app_service" {
   service_name                          = var.service_name
 
   tags = var.tags
+
+  providers = {
+    azurerm         = azurerm
+    azurerm.tooling = azurerm.tooling
+  }
 }

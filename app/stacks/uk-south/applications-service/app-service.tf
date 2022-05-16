@@ -10,9 +10,8 @@ module "app_services" {
   app_service_plan_id                                             = var.app_service_plan_id
   app_service_private_dns_zone_id                                 = data.azurerm_private_dns_zone.app_service.id
   applications_service_public_url                                 = var.applications_service_public_url
-  container_registry_login_server                                 = data.azurerm_container_registry.acr.login_server
-  container_registry_password                                     = data.azurerm_container_registry.acr.admin_password
-  container_registry_username                                     = data.azurerm_container_registry.acr.admin_username
+  container_registry_name                                         = var.container_registry_name
+  container_registry_rg                                           = var.container_registry_rg
   endpoint_subnet_id                                              = azurerm_subnet.applications_service_ingress.id
   google_analytics_id                                             = var.google_analytics_id
   integration_subnet_id                                           = var.integration_subnet_id
@@ -34,4 +33,9 @@ module "app_services" {
   use_deployment_slots                                            = var.use_deployment_slots
 
   tags = local.tags
+
+  providers = {
+    azurerm         = azurerm
+    azurerm.tooling = azurerm.tooling
+  }
 }

@@ -168,11 +168,6 @@ variable "sql_server_username" {
   type        = string
 }
 
-variable "tooling_subscription_id" {
-  description = "The ID for the Tooling subscription that houses the Container Registry"
-  type        = string
-}
-
 variable "use_deployment_slots" {
   description = "Flag to indicate if App Service deployment slots are in use on the environment"
   type        = bool

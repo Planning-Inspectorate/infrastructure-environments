@@ -30,7 +30,7 @@ resource "azurerm_linux_web_app" "web_app" {
     http2_enabled = true
 
     application_stack {
-      docker_image     = "${var.container_registry_login_server}/${var.image_name}"
+      docker_image     = "${data.azurerm_container_registry.acr.login_server}/${var.image_name}"
       docker_image_tag = "main"
     }
 
@@ -55,6 +55,25 @@ resource "azurerm_linux_web_app" "web_app" {
   }
 }
 
+resource "azurerm_container_registry_webhook" "app_service_cd" {
+  name                = "WH${replace("${var.service_name}${var.app_name}${var.resource_suffix}", "-", "")}"
+  resource_group_name = data.azurerm_container_registry.acr.resource_group_name
+  location            = data.azurerm_container_registry.acr.location
+  registry_name       = data.azurerm_container_registry.acr.name
+
+  service_uri = "https://${azurerm_linux_web_app.web_app.site_credential[0].name}:${azurerm_linux_web_app.web_app.site_credential[0].password}@${lower(azurerm_linux_web_app.web_app.name)}.scm.azurewebsites.net/docker/hook"
+  status      = "enabled"
+  scope       = "mytag:*"
+  actions     = ["push"]
+  custom_headers = {
+    "Content-Type" = "application/json"
+  }
+
+  tags = var.tags
+
+  provider = azurerm.tooling
+}
+
 resource "azurerm_linux_web_app_slot" "staging" {
   count = var.deployment_slot ? 1 : 0
 
@@ -72,7 +91,7 @@ resource "azurerm_linux_web_app_slot" "staging" {
     http2_enabled = true
 
     application_stack {
-      docker_image     = "${var.container_registry_login_server}/${var.image_name}"
+      docker_image     = "${data.azurerm_container_registry.acr.login_server}/${var.image_name}"
       docker_image_tag = "main"
     }
 

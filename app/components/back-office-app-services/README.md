@@ -5,13 +5,16 @@ This module contains the App Services resources for the Back Office service. The
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | 1.1.6 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.6.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.3.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.0.2 |
 
 ## Modules
 
@@ -24,7 +27,7 @@ No requirements.
 
 | Name | Type |
 |------|------|
-| [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config) | data source |
+| [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/data-sources/client_config) | data source |
 
 ## Inputs
 
@@ -40,9 +43,8 @@ No requirements.
 | <a name="input_azuread_auth_client_id"></a> [azuread\_auth\_client\_id](#input\_azuread\_auth\_client\_id) | The Back Office web frontend app registration ID used for Azure AD authentication | `string` | `null` | no |
 | <a name="input_azuread_auth_inspector_group_id"></a> [azuread\_auth\_inspector\_group\_id](#input\_azuread\_auth\_inspector\_group\_id) | The Azure AD group ID for Back Office inspectors | `string` | `null` | no |
 | <a name="input_azuread_auth_validation_office_group_id"></a> [azuread\_auth\_validation\_office\_group\_id](#input\_azuread\_auth\_validation\_office\_group\_id) | The Azure AD group ID for Back Office validation officers | `string` | `null` | no |
-| <a name="input_container_registry_login_server"></a> [container\_registry\_login\_server](#input\_container\_registry\_login\_server) | The URL used to connect to the Azure Container Registry | `string` | n/a | yes |
-| <a name="input_container_registry_password"></a> [container\_registry\_password](#input\_container\_registry\_password) | The password used to connect to the Azure Container Registry | `string` | n/a | yes |
-| <a name="input_container_registry_username"></a> [container\_registry\_username](#input\_container\_registry\_username) | The username used to connect to the Azure Container Registry | `string` | n/a | yes |
+| <a name="input_container_registry_name"></a> [container\_registry\_name](#input\_container\_registry\_name) | The name of the container registry that hosts the image | `string` | n/a | yes |
+| <a name="input_container_registry_rg"></a> [container\_registry\_rg](#input\_container\_registry\_rg) | The resource group of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_custom_hostname"></a> [custom\_hostname](#input\_custom\_hostname) | The custom hostname applied to the App Service required for auth redirection with a reverse proxy | `string` | `null` | no |
 | <a name="input_custom_hostname_certificate_secret_id"></a> [custom\_hostname\_certificate\_secret\_id](#input\_custom\_hostname\_certificate\_secret\_id) | The Key Vault secret URL for the custom hostname SSL certificate | `string` | `null` | no |
 | <a name="input_database_connection_string"></a> [database\_connection\_string](#input\_database\_connection\_string) | The connection string used to connect to the MySQL database | `string` | n/a | yes |
