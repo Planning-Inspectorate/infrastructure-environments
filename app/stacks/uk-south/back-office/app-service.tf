@@ -13,9 +13,8 @@ module "app_services" {
   azuread_auth_client_id                  = var.azuread_auth_client_id
   azuread_auth_inspector_group_id         = var.azuread_auth_inspector_group_id
   azuread_auth_validation_office_group_id = var.azuread_auth_validation_office_group_id
-  container_registry_login_server         = data.azurerm_container_registry.acr.login_server
-  container_registry_password             = data.azurerm_container_registry.acr.admin_password
-  container_registry_username             = data.azurerm_container_registry.acr.admin_username
+  container_registry_name                 = var.container_registry_name
+  container_registry_rg                   = var.container_registry_rg
   custom_hostname                         = var.back_office_public_url
   custom_hostname_certificate_secret_id   = data.azurerm_key_vault_certificate.wildcard_certificate.id
   database_connection_string              = local.sql_connection_string
@@ -33,4 +32,9 @@ module "app_services" {
   use_deployment_slots                    = var.use_deployment_slots
 
   tags = local.tags
+
+  providers = {
+    azurerm         = azurerm
+    azurerm.tooling = azurerm.tooling
+  }
 }

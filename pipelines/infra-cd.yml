@@ -42,7 +42,7 @@ resources:
       type: github
       endpoint: Planning-Inspectorate
       name: Planning-Inspectorate/common-pipeline-templates
-      ref: refs/tags/release/2.0.0
+      ref: refs/tags/release/2.0.1
 
 extends:
   template: stages/wrapper_cd.yml@templates
@@ -57,6 +57,7 @@ extends:
           - ${{ if eq(parameters.stack, 'all') }}:
             - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan_all.yml@templates
               parameters:
+                artifactName: terraform-config-files
                 environmentVariables:
                   ENV: $(ENVIRONMENT)
                   ${{ if eq(parameters.DRDeployment, 'true') }}:
@@ -80,6 +81,8 @@ extends:
                 workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.region }}/${{ parameters.stack }}
         isDeployment: false
       - name: Terraform Apply
+        ${{ if eq(parameters.stack, 'all') }}:
+          artifact: terraform-config-files
         condition: and(succeeded(), ne(variables['skipApply'], 'true'))
         dependsOn:
           - Terraform Plan
@@ -87,6 +90,7 @@ extends:
           - ${{ if eq(parameters.stack, 'all') }}:
             - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_apply_all.yml@templates
               parameters:
+                artifactname: terraform-config-files
                 environmentVariables:
                   ENV: $(ENVIRONMENT)
                   ${{ if eq(parameters.DRDeployment, 'true') }}:

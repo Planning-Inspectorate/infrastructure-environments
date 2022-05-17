@@ -13,7 +13,11 @@ module "networking" {
   tooling_network_name                        = var.tooling_network_name
   tooling_network_region_short                = var.tooling_network_region_short
   tooling_network_rg                          = var.tooling_network_rg
-  tooling_subscription_id                     = var.tooling_subscription_id
 
   tags = local.tags
+
+  providers = {
+    azurerm         = azurerm
+    azurerm.tooling = azurerm.tooling
+  }
 }

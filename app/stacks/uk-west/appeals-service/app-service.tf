@@ -10,9 +10,8 @@ module "app_services" {
   appeal_documents_primary_blob_connection_string                             = azurerm_storage_account.appeal_documents.primary_blob_connection_string
   appeal_documents_storage_container_name                                     = azurerm_storage_container.documents.name
   appeals_service_public_url                                                  = var.appeals_service_public_url
-  container_registry_login_server                                             = data.azurerm_container_registry.acr.login_server
-  container_registry_password                                                 = data.azurerm_container_registry.acr.admin_password
-  container_registry_username                                                 = data.azurerm_container_registry.acr.admin_username
+  container_registry_name                                                     = var.container_registry_name
+  container_registry_rg                                                       = var.container_registry_rg
   cosmosdb_connection_string                                                  = azurerm_cosmosdb_account.appeals_database.connection_strings[0]
   endpoint_subnet_id                                                          = azurerm_subnet.appeals_service_ingress.id
   function_apps_storage_account                                               = azurerm_storage_account.function_apps.name
@@ -43,4 +42,9 @@ module "app_services" {
   use_deployment_slots                                                        = var.use_deployment_slots
 
   tags = local.tags
+
+  providers = {
+    azurerm         = azurerm
+    azurerm.tooling = azurerm.tooling
+  }
 }

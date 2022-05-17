@@ -29,10 +29,10 @@ generate "backend" {
   contents  = file("${get_parent_terragrunt_dir()}/backend.tf")
 }
 
-generate "provider" {
-  path      = "provider.tf"
+generate "providers" {
+  path      = "providers.tf"
   if_exists = "overwrite"
-  contents  = file("${get_parent_terragrunt_dir()}/provider.tf")
+  contents  = file("${get_parent_terragrunt_dir()}/providers.tf")
 }
 
 remote_state {
