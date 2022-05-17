@@ -123,3 +123,39 @@ resource "azurerm_frontdoor" "common" {
 
   tags = local.tags
 }
+
+resource "azurerm_frontdoor_rules_engine" "search_indexing" {
+  name                = "searchindex"
+  frontdoor_name      = azurerm_frontdoor.common.name
+  resource_group_name = azurerm_frontdoor.common.resource_group_name
+
+  rule {
+    name     = "addrobotstagheader"
+    priority = 1
+
+    action {
+      response_header {
+        header_action_type = "Append"
+        header_name        = "X-Robots-Tag"
+        value              = "noindex,nofollow"
+      }
+    }
+  }
+}
+
+# Terraform does not yet support linking Rules Engine to Routing rules so using local-exec to run the required Azure CLI command
+resource "null_resource" "fd_routing_noindex" {
+  triggers = {
+    always_run = timestamp()
+  }
+
+  provisioner "local-exec" {
+    interpreter = ["/bin/bash", "-c"]
+    command     = "az config set extension.use_dynamic_install=yes_without_prompt; for RULE_NAME in ${local.search_indexing_rule_backends}; do az network front-door routing-rule update --front-door-name ${azurerm_frontdoor.common.name} --resource-group ${azurerm_frontdoor.common.resource_group_name} --name $RULE_NAME --rules-engine ${azurerm_frontdoor_rules_engine.search_indexing.name}; done"
+  }
+
+  # forces execution to go after front door
+  depends_on = [
+    azurerm_frontdoor.common
+  ]
+}

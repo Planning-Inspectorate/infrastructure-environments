@@ -69,6 +69,12 @@ variable "location" {
   default     = "uk-west"
 }
 
+variable "enable_search_indexing_by_default" {
+  description = "A flag to indicate if the environment should enable search indexing for frontends by default"
+  type        = bool
+  default     = false
+}
+
 variable "use_wildcard_certificate" {
   description = "A flag to indicate if Frontdoor should use the provisioned wildcard certificate"
   type        = bool
