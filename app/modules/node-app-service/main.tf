@@ -63,7 +63,7 @@ resource "azurerm_container_registry_webhook" "app_service_cd" {
 
   service_uri = "https://${azurerm_linux_web_app.web_app.site_credential[0].name}:${azurerm_linux_web_app.web_app.site_credential[0].password}@${lower(azurerm_linux_web_app.web_app.name)}.scm.azurewebsites.net/docker/hook"
   status      = "enabled"
-  scope       = "mytag:*"
+  scope       = "${var.image_name}:*"
   actions     = ["push"]
   custom_headers = {
     "Content-Type" = "application/json"
