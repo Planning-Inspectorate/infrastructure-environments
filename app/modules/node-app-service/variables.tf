@@ -3,18 +3,6 @@ variable "action_group_low_id" {
   type        = string
 }
 
-variable "app_insights_connection_string" {
-  description = "The connection string to connect to an Application Insights resource"
-  sensitive   = true
-  type        = string
-}
-
-variable "app_insights_instrumentation_key" {
-  description = "The instrumentation key to connect to an Application Insights resource"
-  sensitive   = true
-  type        = string
-}
-
 variable "app_name" {
   description = "The name of the app service"
   type        = string
@@ -103,6 +91,11 @@ variable "integration_subnet_id" {
 
 variable "location" {
   description = "The name of the app service location"
+  type        = string
+}
+
+variable "log_analytics_workspace_id" {
+  description = "The ID of the Azure Monitor Log Analytics Workspace"
   type        = string
 }
 

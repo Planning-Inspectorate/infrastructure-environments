@@ -4,8 +4,6 @@ module "app_service" {
   source = "../../modules/node-app-service"
 
   action_group_low_id                   = var.action_group_low_id
-  app_insights_connection_string        = var.app_insights_connection_string
-  app_insights_instrumentation_key      = var.app_insights_instrumentation_key
   app_name                              = each.value["app_name"]
   app_service_plan_id                   = var.app_service_plan_id
   app_service_plan_resource_group_name  = can(each.value["app_service_plan_resource_group_name"]) ? each.value["app_service_plan_resource_group_name"] : null
@@ -22,6 +20,7 @@ module "app_service" {
   integration_subnet_id                 = can(each.value["integration_subnet_id"]) ? each.value["integration_subnet_id"] : null
   key_vault_id                          = each.value["key_vault_access"] ? var.key_vault_id : null
   location                              = var.location
+  log_analytics_workspace_id            = var.log_analytics_workspace_id
   monitoring_alerts_enabled             = var.monitoring_alerts_enabled
   outbound_vnet_connectivity            = each.value["outbound_vnet_connectivity"]
   resource_group_name                   = var.resource_group_name

@@ -2,8 +2,6 @@ module "horizon_functions" {
   source = "../../modules/node-function-app"
 
   action_group_low_id                      = var.action_group_low_id
-  app_insights_connection_string           = var.app_insights_connection_string
-  app_insights_instrumentation_key         = var.app_insights_instrumentation_key
   app_name                                 = "horizon"
   app_service_plan_id                      = var.app_service_plan_id
   function_apps_storage_account            = var.function_apps_storage_account

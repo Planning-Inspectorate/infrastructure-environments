@@ -24,10 +24,8 @@ resource "azurerm_linux_function_app" "function_app" {
   }
 
   site_config {
-    always_on                              = true
-    application_insights_connection_string = var.app_insights_connection_string
-    application_insights_key               = var.app_insights_instrumentation_key
-    http2_enabled                          = true
+    always_on     = true
+    http2_enabled = true
 
     application_stack {
       node_version = 14

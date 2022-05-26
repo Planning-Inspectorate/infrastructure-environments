@@ -9,8 +9,6 @@ dependency "common" {
 
   mock_outputs = {
     action_group_low_id                         = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock"
-    app_insights_connection_string              = "mock_connection_string"
-    app_insights_instrumentation_key            = "mock_instrumentation_key"
     app_service_plan_id                         = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pins-rg-common-dev-ukw-001/providers/Microsoft.Web/serverfarms/mock_id"
     applications_service_vpn_gateway_shared_key = "mock_shared_key"
     common_resource_group_name                  = "mock_resource_group_name"
@@ -29,8 +27,6 @@ dependency "common" {
 
 inputs = {
   action_group_low_id                         = dependency.common.outputs.action_group_low_id
-  app_insights_connection_string              = dependency.common.outputs.app_insights_connection_string
-  app_insights_instrumentation_key            = dependency.common.outputs.app_insights_instrumentation_key
   app_service_plan_id                         = dependency.common.outputs.app_service_plan_id
   applications_service_vpn_gateway_shared_key = dependency.common.outputs.applications_service_vpn_gateway_shared_key
   common_resource_group_name                  = dependency.common.outputs.common_resource_group_name

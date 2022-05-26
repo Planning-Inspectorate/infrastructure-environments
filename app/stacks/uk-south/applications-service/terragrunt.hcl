@@ -8,8 +8,6 @@ dependency "common_uks" {
   mock_outputs_merge_with_state           = true
 
   mock_outputs = {
-    app_insights_connection_string              = "mock_connection_string"
-    app_insights_instrumentation_key            = "mock_instrumentation_key"
     app_service_plan_id                         = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pins-rg-common-dev-ukw-001/providers/Microsoft.Web/serverfarms/mock_id"
     applications_service_vpn_gateway_shared_key = "mock_shared_key"
     common_resource_group_name                  = "mock_resource_group_name"
@@ -36,8 +34,6 @@ dependency "common_ukw" {
 
 inputs = {
   action_group_low_id                         = dependency.common_ukw.outputs.action_group_low_id
-  app_insights_connection_string              = try(dependency.common_uks.outputs.app_insights_connection_string, null)
-  app_insights_instrumentation_key            = try(dependency.common_uks.outputs.app_insights_instrumentation_key, null)
   app_service_plan_id                         = try(dependency.common_uks.outputs.app_service_plan_id, null)
   applications_service_vpn_gateway_shared_key = dependency.common_uks.outputs.applications_service_vpn_gateway_shared_key
   common_resource_group_name                  = dependency.common_uks.outputs.common_resource_group_name
