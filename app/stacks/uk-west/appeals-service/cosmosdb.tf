@@ -12,10 +12,11 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
 
   access_key_metadata_writes_enabled = true
   enable_automatic_failover          = true
+  public_network_access_enabled      = false
   is_virtual_network_filter_enabled  = false
 
   # IP addresses to allow access from Azure Portal. See: https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal
-  # ip_range_filter = var.database_public_access_enabled ? null : "104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+  ip_range_filter = var.database_public_access_enabled ? null : "104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 
   mongo_server_version = "3.6"
 
@@ -37,10 +38,10 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
     max_staleness_prefix    = 100002
   }
 
-   geo_location {
-     location          = module.azure_region_secondary.location
-     failover_priority = 1
-   }
+  geo_location {
+    location          = module.azure_region_secondary.location
+    failover_priority = 1
+  }
 
   geo_location {
     location          = module.azure_region_primary.location
