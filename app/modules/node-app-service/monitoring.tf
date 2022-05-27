@@ -10,6 +10,13 @@ resource "azurerm_monitor_diagnostic_setting" "web_app_logs" {
   metric {
     category = "AllMetrics"
   }
+
+  lifecycle {
+    ignore_changes = [
+      log,
+      metric
+    ]
+  }
 }
 
 resource "azurerm_monitor_metric_alert" "app_service_http_5xx" {
