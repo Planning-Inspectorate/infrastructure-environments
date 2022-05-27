@@ -179,17 +179,3 @@ resource "azurerm_key_vault_access_policy" "read_secrets" {
   secret_permissions      = ["Get"]
   storage_permissions     = []
 }
-
-resource "azurerm_monitor_diagnostic_setting" "web_app_logs" {
-  name                       = "AppServiceLogs"
-  log_analytics_workspace_id = var.log_analytics_workspace_id
-  target_resource_id         = azurerm_linux_web_app.web_app.id
-
-  log {
-    category = "AppServiceConsoleLogs"
-  }
-
-  metric {
-    category = "AllMetrics"
-  }
-}

@@ -12,7 +12,7 @@ resource "azurerm_log_analytics_saved_search" "app_service_console_logs" {
   name                       = "App Service Console Logs"
   log_analytics_workspace_id = azurerm_log_analytics_workspace.back_office.id
 
-  category     = "Applications"
+  category     = "App Logs"
   display_name = "App Service Console Logs"
   query        = "AppServiceConsoleLogs"
 }

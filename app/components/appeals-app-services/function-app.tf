@@ -7,6 +7,7 @@ module "horizon_functions" {
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
   location                                 = var.location
+  log_analytics_workspace_id               = var.log_analytics_workspace_id
   monitoring_alerts_enabled                = var.monitoring_alerts_enabled
   resource_group_name                      = var.resource_group_name
   resource_suffix                          = var.resource_suffix

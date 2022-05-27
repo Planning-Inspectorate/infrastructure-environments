@@ -41,6 +41,11 @@ variable "location" {
   type        = string
 }
 
+variable "log_analytics_workspace_id" {
+  description = "The ID of the Azure Monitor Log Analytics Workspace"
+  type        = string
+}
+
 variable "monitoring_alerts_enabled" {
   default     = false
   description = "Indicates whether Azure Monitor alerts are enabled for App Service"

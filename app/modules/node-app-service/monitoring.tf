@@ -1,3 +1,17 @@
+resource "azurerm_monitor_diagnostic_setting" "web_app_logs" {
+  name                       = "AppServiceLogs"
+  log_analytics_workspace_id = var.log_analytics_workspace_id
+  target_resource_id         = azurerm_linux_web_app.web_app.id
+
+  log {
+    category = "AppServiceConsoleLogs"
+  }
+
+  metric {
+    category = "AllMetrics"
+  }
+}
+
 resource "azurerm_monitor_metric_alert" "app_service_http_5xx" {
   name                = "Http 5xx - ${reverse(split("/", azurerm_linux_web_app.web_app.id))[0]}"
   resource_group_name = var.resource_group_name
