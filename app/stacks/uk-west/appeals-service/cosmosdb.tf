@@ -4,12 +4,6 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
   #checkov:skip=CKV_AZURE_132: Allow metadata writes
   #checkov:skip=CKV_AZURE_140: Local authentication only applicable to SQL API
 
-  # Private endpoint connection is working, and access is restricted by the firewall. Turning off public network access seems to break
-  # the private connection too - looks like a bug in Azure, since when you create the account manually with a private connection the state shows
-  # that public_network_access_enabled is always set to true.
-  #checkov:skip=CKV_AZURE_99
-  #checkov:skip=CKV_AZURE_101
-
   name                = "pins-cosmos-${local.service_name}-${local.resource_suffix}"
   location            = azurerm_resource_group.appeals_service_stack.location
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
@@ -21,7 +15,7 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
   is_virtual_network_filter_enabled  = false
 
   # IP addresses to allow access from Azure Portal. See: https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal
-  ip_range_filter = var.database_public_access_enabled ? null : "104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+  # ip_range_filter = var.database_public_access_enabled ? null : "104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 
   mongo_server_version = "3.6"
 
@@ -43,10 +37,10 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
     max_staleness_prefix    = 100002
   }
 
-  #  geo_location {
-  #    location          = module.azure_region_secondary.location
-  #    failover_priority = 1
-  #  }
+   geo_location {
+     location          = module.azure_region_secondary.location
+     failover_priority = 1
+   }
 
   geo_location {
     location          = module.azure_region_primary.location
@@ -65,12 +59,12 @@ resource "azurerm_private_endpoint" "cosmosdb" {
   subnet_id           = var.cosmosdb_subnet_id
 
   private_dns_zone_group {
-    name                 = "cosmosdbprivatednszone"
+    name                 = "default"
     private_dns_zone_ids = [data.azurerm_private_dns_zone.cosmosdb.id]
   }
 
   private_service_connection {
-    name                           = "appealsdatabase"
+    name                           = "pins-pe-${local.service_name}-appeals-db-${local.resource_suffix}"
     private_connection_resource_id = azurerm_cosmosdb_account.appeals_database.id
     subresource_names              = ["MongoDB"]
     is_manual_connection           = false
