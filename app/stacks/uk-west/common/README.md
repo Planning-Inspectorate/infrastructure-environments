@@ -24,7 +24,6 @@ No requirements.
 
 | Name | Type |
 |------|------|
-| [azurerm_application_insights.node](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/application_insights) | resource |
 | [azurerm_key_vault.environment_key_vault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault) | resource |
 | [azurerm_key_vault_access_policy.admins](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_access_policy) | resource |
 | [azurerm_key_vault_access_policy.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_access_policy) | resource |
@@ -60,8 +59,6 @@ No requirements.
 | Name | Description |
 |------|-------------|
 | <a name="output_action_group_low_id"></a> [action\_group\_low\_id](#output\_action\_group\_low\_id) | The Action Group ID for sending low priority (P4) alerts |
-| <a name="output_app_insights_connection_string"></a> [app\_insights\_connection\_string](#output\_app\_insights\_connection\_string) | The Application Insights connection string used to allow monitoring on App Services |
-| <a name="output_app_insights_instrumentation_key"></a> [app\_insights\_instrumentation\_key](#output\_app\_insights\_instrumentation\_key) | The Application Insights instrumentation key used to allow monitoring on App Services |
 | <a name="output_app_service_plan_id"></a> [app\_service\_plan\_id](#output\_app\_service\_plan\_id) | The id of the app service plan |
 | <a name="output_applications_service_vpn_gateway_shared_key"></a> [applications\_service\_vpn\_gateway\_shared\_key](#output\_applications\_service\_vpn\_gateway\_shared\_key) | The applications service virtual network gateway shared key |
 | <a name="output_common_resource_group_name"></a> [common\_resource\_group\_name](#output\_common\_resource\_group\_name) | The name of the common infrastructure resource group |

@@ -1,3 +1,24 @@
+resource "azurerm_monitor_diagnostic_setting" "function_app_logs" {
+  name                       = "Function App Logs"
+  log_analytics_workspace_id = var.log_analytics_workspace_id
+  target_resource_id         = azurerm_linux_function_app.function_app.id
+
+  log {
+    category = "FunctionAppLogs"
+  }
+
+  metric {
+    category = "AllMetrics"
+  }
+
+  lifecycle {
+    ignore_changes = [
+      log,
+      metric
+    ]
+  }
+}
+
 resource "azurerm_monitor_metric_alert" "function_app_http_5xx" {
   name                = "Http 5xx - ${reverse(split("/", azurerm_linux_function_app.function_app.id))[0]}"
   resource_group_name = var.resource_group_name

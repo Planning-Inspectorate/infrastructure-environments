@@ -5,8 +5,6 @@ module "app_services" {
 
   action_group_low_id                                             = var.action_group_low_id
   api_timeout                                                     = var.api_timeout
-  app_insights_connection_string                                  = var.app_insights_connection_string
-  app_insights_instrumentation_key                                = var.app_insights_instrumentation_key
   app_service_plan_id                                             = var.app_service_plan_id
   app_service_private_dns_zone_id                                 = data.azurerm_private_dns_zone.app_service.id
   applications_service_public_url                                 = var.applications_service_public_url
@@ -18,6 +16,7 @@ module "app_services" {
   key_vault_id                                                    = var.key_vault_id
   key_vault_uri                                                   = var.key_vault_uri
   location                                                        = azurerm_resource_group.applications_service_stack.location
+  log_analytics_workspace_id                                      = azurerm_log_analytics_workspace.applcations_service.id
   logger_level                                                    = var.logger_level
   monitoring_alerts_enabled                                       = var.monitoring_alerts_enabled
   node_environment                                                = var.node_environment

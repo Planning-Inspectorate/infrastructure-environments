@@ -2,13 +2,12 @@ module "horizon_functions" {
   source = "../../modules/node-function-app"
 
   action_group_low_id                      = var.action_group_low_id
-  app_insights_connection_string           = var.app_insights_connection_string
-  app_insights_instrumentation_key         = var.app_insights_instrumentation_key
   app_name                                 = "horizon"
   app_service_plan_id                      = var.app_service_plan_id
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
   location                                 = var.location
+  log_analytics_workspace_id               = var.log_analytics_workspace_id
   monitoring_alerts_enabled                = var.monitoring_alerts_enabled
   resource_group_name                      = var.resource_group_name
   resource_suffix                          = var.resource_suffix

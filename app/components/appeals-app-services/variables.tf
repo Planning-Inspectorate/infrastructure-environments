@@ -8,18 +8,6 @@ variable "api_timeout" {
   type        = string
 }
 
-variable "app_insights_connection_string" {
-  description = "The connection string to connect to an Application Insights resource"
-  sensitive   = true
-  type        = string
-}
-
-variable "app_insights_instrumentation_key" {
-  description = "The instrumentation key to connect to an Application Insights resource"
-  sensitive   = true
-  type        = string
-}
-
 variable "app_service_plan_id" {
   description = "The id of the app service plan"
   type        = string
@@ -110,6 +98,11 @@ variable "key_vault_uri" {
 
 variable "location" {
   description = "The location the App Services are deployed to in slug format e.g. 'uk-south'"
+  type        = string
+}
+
+variable "log_analytics_workspace_id" {
+  description = "The ID of the Azure Monitor Log Analytics Workspace"
   type        = string
 }
 
