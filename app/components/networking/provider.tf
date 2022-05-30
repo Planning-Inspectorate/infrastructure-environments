@@ -6,6 +6,4 @@ terraform {
       configuration_aliases = [azurerm, azurerm.tooling]
     }
   }
-
-  required_version = "1.1.6"
 }
