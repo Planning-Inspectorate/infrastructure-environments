@@ -12,7 +12,7 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
 
   access_key_metadata_writes_enabled = true
   enable_automatic_failover          = true
-  public_network_access_enabled      = false
+  public_network_access_enabled      = var.database_public_access_enabled
   is_virtual_network_filter_enabled  = false
 
   # IP addresses to allow access from Azure Portal. See: https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal
