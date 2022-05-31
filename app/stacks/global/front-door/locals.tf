@@ -1,7 +1,6 @@
 locals {
-  service_name              = "common"
-  resource_suffix           = "${var.environment}-${var.instance}"
-  wildcard_certificate_name = "pins-wildcard"
+  service_name    = "common"
+  resource_suffix = "${var.environment}-${var.instance}"
 
   frontend_endpoint_mappings = {
     applications_frontend = {
@@ -10,7 +9,7 @@ locals {
       name                      = "ApplicationsService"
       patterns_to_match         = ["/*"]
       search_indexing           = var.enable_search_indexing_by_default
-      ssl_certificate_name      = var.use_wildcard_certificate ? local.wildcard_certificate_name : var.applications_service_ssl_certificate_name
+      ssl_certificate_name      = var.applications_service_ssl_certificate_name
     }
     appeals_frontend = {
       frontend_endpoint         = var.appeals_service_public_url
@@ -18,7 +17,7 @@ locals {
       name                      = "AppealsService"
       patterns_to_match         = ["/*"]
       search_indexing           = false
-      ssl_certificate_name      = var.use_wildcard_certificate ? local.wildcard_certificate_name : var.appeals_service_ssl_certificate_name
+      ssl_certificate_name      = var.appeals_service_ssl_certificate_name
     }
     back_office_frontend = {
       frontend_endpoint         = var.back_office_public_url
@@ -26,7 +25,7 @@ locals {
       name                      = "BackOffice"
       patterns_to_match         = ["/*"]
       search_indexing           = false
-      ssl_certificate_name      = var.use_wildcard_certificate ? local.wildcard_certificate_name : var.back_office_ssl_certificate_name
+      ssl_certificate_name      = var.back_office_ssl_certificate_name
     }
   }
 

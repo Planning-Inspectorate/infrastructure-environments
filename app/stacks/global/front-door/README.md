@@ -37,11 +37,11 @@ No requirements.
 |------|-------------|------|---------|:--------:|
 | <a name="input_app_service_urls"></a> [app\_service\_urls](#input\_app\_service\_urls) | A map of App Service service URLs | `map(string)` | n/a | yes |
 | <a name="input_appeals_service_public_url"></a> [appeals\_service\_public\_url](#input\_appeals\_service\_public\_url) | The public URL for the Appeals Service frontend web app | `string` | n/a | yes |
-| <a name="input_appeals_service_ssl_certificate_name"></a> [appeals\_service\_ssl\_certificate\_name](#input\_appeals\_service\_ssl\_certificate\_name) | The SSL certificate name in the environment Key Vault for the appeals service | `string` | `null` | no |
+| <a name="input_appeals_service_ssl_certificate_name"></a> [appeals\_service\_ssl\_certificate\_name](#input\_appeals\_service\_ssl\_certificate\_name) | The SSL certificate name in the environment Key Vault for the appeals service | `string` | `"pins-wildcard"` | no |
 | <a name="input_applications_service_public_url"></a> [applications\_service\_public\_url](#input\_applications\_service\_public\_url) | The public URL for the Applications Service frontend web app | `string` | n/a | yes |
-| <a name="input_applications_service_ssl_certificate_name"></a> [applications\_service\_ssl\_certificate\_name](#input\_applications\_service\_ssl\_certificate\_name) | The SSL certificate name in the environment Key Vault for the applications service | `string` | `null` | no |
+| <a name="input_applications_service_ssl_certificate_name"></a> [applications\_service\_ssl\_certificate\_name](#input\_applications\_service\_ssl\_certificate\_name) | The SSL certificate name in the environment Key Vault for the applications service | `string` | `"pins-wildcard"` | no |
 | <a name="input_back_office_public_url"></a> [back\_office\_public\_url](#input\_back\_office\_public\_url) | The public URL for the Back Office frontend web app | `string` | n/a | yes |
-| <a name="input_back_office_ssl_certificate_name"></a> [back\_office\_ssl\_certificate\_name](#input\_back\_office\_ssl\_certificate\_name) | The SSL certificate name in the environment Key Vault for the back office service | `string` | `null` | no |
+| <a name="input_back_office_ssl_certificate_name"></a> [back\_office\_ssl\_certificate\_name](#input\_back\_office\_ssl\_certificate\_name) | The SSL certificate name in the environment Key Vault for the back office service | `string` | `"pins-wildcard"` | no |
 | <a name="input_common_log_analytics_workspace_id"></a> [common\_log\_analytics\_workspace\_id](#input\_common\_log\_analytics\_workspace\_id) | The ID for the common Log Analytics Workspace | `string` | n/a | yes |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | The common resource tags for the project | `map(string)` | n/a | yes |
 | <a name="input_enable_search_indexing_by_default"></a> [enable\_search\_indexing\_by\_default](#input\_enable\_search\_indexing\_by\_default) | A flag to indicate if the environment should enable search indexing for frontends by default | `bool` | `false` | no |
@@ -49,7 +49,6 @@ No requirements.
 | <a name="input_front_door_waf_mode"></a> [front\_door\_waf\_mode](#input\_front\_door\_waf\_mode) | Indicates if the Web Application Firewall should be in Detection or Prevention mode | `string` | `"Detection"` | no |
 | <a name="input_instance"></a> [instance](#input\_instance) | The environment instance for use if multiple environments are deployed to a subscription | `string` | `"001"` | no |
 | <a name="input_location"></a> [location](#input\_location) | The location resources are deployed to in slug format e.g. 'uk-west' | `string` | `"uk-west"` | no |
-| <a name="input_use_wildcard_certificate"></a> [use\_wildcard\_certificate](#input\_use\_wildcard\_certificate) | A flag to indicate if Frontdoor should use the provisioned wildcard certificate | `bool` | `false` | no |
 
 ## Outputs
 
