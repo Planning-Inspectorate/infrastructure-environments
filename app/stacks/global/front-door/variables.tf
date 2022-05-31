@@ -6,7 +6,7 @@ variable "app_service_urls" {
 variable "appeals_service_ssl_certificate_name" {
   description = "The SSL certificate name in the environment Key Vault for the appeals service"
   type        = string
-  default     = null
+  default     = "pins-wildcard"
 }
 
 variable "appeals_service_public_url" {
@@ -17,7 +17,7 @@ variable "appeals_service_public_url" {
 variable "applications_service_ssl_certificate_name" {
   description = "The SSL certificate name in the environment Key Vault for the applications service"
   type        = string
-  default     = null
+  default     = "pins-wildcard"
 }
 
 variable "applications_service_public_url" {
@@ -28,7 +28,7 @@ variable "applications_service_public_url" {
 variable "back_office_ssl_certificate_name" {
   description = "The SSL certificate name in the environment Key Vault for the back office service"
   type        = string
-  default     = null
+  default     = "pins-wildcard"
 }
 
 variable "back_office_public_url" {
@@ -71,12 +71,6 @@ variable "location" {
 
 variable "enable_search_indexing_by_default" {
   description = "A flag to indicate if the environment should enable search indexing for frontends by default"
-  type        = bool
-  default     = false
-}
-
-variable "use_wildcard_certificate" {
-  description = "A flag to indicate if Frontdoor should use the provisioned wildcard certificate"
   type        = bool
   default     = false
 }
