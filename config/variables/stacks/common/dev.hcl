@@ -1,7 +1,6 @@
 locals {
   alert_recipients = {
     low = [
-      "lester.march@kinandcarta.com",
       "chris.cundill@planninginspectorate.gov.uk",
       "elvin.ali@planninginspectorate.gov.uk",
       "pankaj.khare@planninginspectorate.gov.uk",
