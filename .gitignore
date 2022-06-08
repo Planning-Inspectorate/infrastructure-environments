@@ -29,3 +29,6 @@ override.tf.json
 .idea
 .vscode
 *.iml
+
+# Pre-commit hooks
+providers-tmp.tf
