@@ -18,7 +18,7 @@ resource "azurerm_servicebus_namespace_authorization_rule" "horizon_function_app
   name         = "horizon-function-apps"
   namespace_id = azurerm_servicebus_namespace.horizon.id
 
-  listen = true
-  send   = false
+  listen = false
+  send   = true
   manage = false
 }

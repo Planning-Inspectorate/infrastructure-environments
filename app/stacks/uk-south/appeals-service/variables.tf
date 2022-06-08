@@ -59,26 +59,10 @@ variable "container_registry_rg" {
   type        = string
 }
 
-variable "cosmosdb_id" {
-  description = "The ID of the CosmosDB account"
-  type        = string
-}
-
-variable "cosmosdb_subnet_id" {
-  description = "The ID of the subnet containing the Cosmos DB endpoint"
-  type        = string
-}
-
 variable "cosmosdb_connection_string" {
   description = "The connection string used to connect to CosmosDB"
   sensitive   = true
   type        = string
-}
-
-variable "database_public_access_enabled" {
-  description = "A switch indicating if databases should have public access enabled"
-  type        = bool
-  default     = false
 }
 
 variable "environment" {
