@@ -64,6 +64,7 @@ locals {
         FEATURE_FLAG_NEW_APPEAL_JOURNEY                                       = true
         HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION                            = true
         HORIZON_HAS_PUBLISHER_HOST                                            = "${azurerm_servicebus_namespace.horizon.name}.servicebus.windows.net"
+        HORIZON_HAS_PUBLISHER_HOSTNAME                                        = "${azurerm_servicebus_namespace.horizon.name}.servicebus.windows.net"
         HORIZON_HAS_PUBLISHER_PASSWORD                                        = azurerm_servicebus_namespace_authorization_rule.horizon_function_apps.primary_key
         HORIZON_HAS_PUBLISHER_PORT                                            = "5671"
         HORIZON_HAS_PUBLISHER_QUEUE                                           = azurerm_servicebus_queue.horizon_householder_appeal_publish.name
