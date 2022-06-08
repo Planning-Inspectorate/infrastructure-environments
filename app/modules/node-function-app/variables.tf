@@ -36,6 +36,12 @@ variable "function_apps_storage_account_access_key" {
   sensitive   = true
 }
 
+variable "integration_subnet_id" {
+  default     = null
+  description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
+  type        = string
+}
+
 variable "location" {
   description = "The name of the app service location"
   type        = string
@@ -49,6 +55,12 @@ variable "log_analytics_workspace_id" {
 variable "monitoring_alerts_enabled" {
   default     = false
   description = "Indicates whether Azure Monitor alerts are enabled for App Service"
+  type        = bool
+}
+
+variable "outbound_vnet_connectivity" {
+  default     = false
+  description = "Indicates whether outbound connectivity (VNET Integration) is required"
   type        = bool
 }
 

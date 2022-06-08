@@ -34,3 +34,10 @@ resource "azurerm_linux_function_app" "function_app" {
 
   tags = var.tags
 }
+
+resource "azurerm_app_service_virtual_network_swift_connection" "vnet_connection" {
+  count = var.outbound_vnet_connectivity ? 1 : 0
+
+  app_service_id = azurerm_linux_function_app.function_app.id
+  subnet_id      = var.integration_subnet_id
+}
