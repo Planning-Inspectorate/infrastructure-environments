@@ -35,7 +35,7 @@ resource "azurerm_linux_web_app" "web_app" {
     }
 
     dynamic "ip_restriction" {
-      for_each = !var.inbound_vnet_connectivity ? [1] : []
+      for_each = var.front_door_restriction ? [1] : []
 
       content {
         name        = "FrontDoorInbound"
@@ -87,17 +87,6 @@ resource "azurerm_linux_web_app_slot" "staging" {
     application_stack {
       docker_image     = "${data.azurerm_container_registry.acr.login_server}/${var.image_name}"
       docker_image_tag = "main"
-    }
-
-    dynamic "ip_restriction" {
-      for_each = var.front_door_restriction ? [1] : []
-
-      content {
-        name        = "FrontDoorInbound"
-        service_tag = "AzureFrontDoor.Backend"
-        action      = "Allow"
-        priority    = 100
-      }
     }
   }
 
