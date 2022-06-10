@@ -7,7 +7,7 @@ resource "azurerm_linux_web_app" "web_app" {
   client_certificate_enabled = false
   https_only                 = true
 
-  app_settings = merge(var.app_settings, local.app_settings)
+  app_settings = local.app_settings
 
   identity {
     type = "SystemAssigned"
@@ -62,7 +62,7 @@ resource "azurerm_linux_web_app_slot" "staging" {
   client_certificate_enabled = false
   https_only                 = true
 
-  app_settings = merge(var.app_settings, local.app_settings)
+  app_settings = local.staging_slot_app_settings
 
   identity {
     type = "SystemAssigned"
