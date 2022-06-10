@@ -154,9 +154,3 @@ variable "srv_notify_service_id" {
   description = "The ID of the Notifications service"
   type        = string
 }
-
-variable "use_deployment_slots" {
-  description = "Flag to indicate if App Service deployment slots are in use on the environment"
-  type        = bool
-  default     = true
-}

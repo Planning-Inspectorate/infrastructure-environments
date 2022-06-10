@@ -13,7 +13,7 @@ This module contains the App Services resources for the Back Office service. The
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.0.2 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.6.0 |
 
 ## Modules
 
@@ -58,7 +58,6 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_resource_suffix"></a> [resource\_suffix](#input\_resource\_suffix) | The suffix for resource naming | `string` | n/a | yes |
 | <a name="input_service_name"></a> [service\_name](#input\_service\_name) | The name of the service the Azure App Services are part of | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | The tags applied to all resources | `map(string)` | n/a | yes |
-| <a name="input_use_deployment_slots"></a> [use\_deployment\_slots](#input\_use\_deployment\_slots) | Flag to indicate if App Service deployment slots are in use on the environment | `bool` | `true` | no |
 
 ## Outputs
 

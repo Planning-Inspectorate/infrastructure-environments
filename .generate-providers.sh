@@ -7,12 +7,14 @@ generate() {
 
   PATTERN="\\.tf?$"
 
+  DIRECTORIES=()
+
   for file in $FILES; do
     FILE_DIR=$(dirname $file)
 
     if [[ $file =~ $PATTERN ]]; then
       if [[ ! "${DIRECTORIES[*]}" =~ "$FILE_DIR" ]] && [[ $FILE_DIR == *"app/stacks"* ]]; then
-        DIRECTORIES+=$FILE_DIR
+        DIRECTORIES+=($FILE_DIR)
       fi
     fi
   done

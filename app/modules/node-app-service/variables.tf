@@ -53,12 +53,6 @@ variable "custom_hostname_certificate_secret_id" {
   default     = null
 }
 
-variable "deployment_slot" {
-  description = "Flag to indicate if the App Service should create a deployment slot"
-  type        = bool
-  default     = true
-}
-
 variable "endpoint_subnet_id" {
   default     = null
   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"

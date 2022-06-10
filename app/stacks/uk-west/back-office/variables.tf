@@ -132,9 +132,3 @@ variable "sql_server_azuread_administrator" {
   description = "A map describing the AzureAD account used for the SQL server administrator"
   type        = map(string)
 }
-
-variable "use_deployment_slots" {
-  description = "Flag to indicate if App Service deployment slots are in use on the environment"
-  type        = bool
-  default     = true
-}

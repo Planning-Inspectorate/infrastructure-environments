@@ -56,15 +56,28 @@ resource "azurerm_linux_web_app" "web_app" {
 }
 
 resource "azurerm_linux_web_app_slot" "staging" {
-  count = var.deployment_slot ? 1 : 0
-
   name           = "staging"
   app_service_id = azurerm_linux_web_app.web_app.id
+
+  client_certificate_enabled = false
+  https_only                 = true
 
   app_settings = merge(var.app_settings, local.app_settings)
 
   identity {
     type = "SystemAssigned"
+  }
+
+  logs {
+    detailed_error_messages = true
+    failed_request_tracing  = true
+
+    http_logs {
+      file_system {
+        retention_in_days = 4
+        retention_in_mb   = 25
+      }
+    }
   }
 
   site_config {

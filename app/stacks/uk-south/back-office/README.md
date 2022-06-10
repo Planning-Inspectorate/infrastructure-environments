@@ -68,7 +68,6 @@ No requirements.
 | <a name="input_sql_server_azuread_administrator"></a> [sql\_server\_azuread\_administrator](#input\_sql\_server\_azuread\_administrator) | A map describing the AzureAD account used for the SQL server administrator | `map(string)` | n/a | yes |
 | <a name="input_sql_server_password"></a> [sql\_server\_password](#input\_sql\_server\_password) | The SQL server administrator password | `string` | n/a | yes |
 | <a name="input_sql_server_username"></a> [sql\_server\_username](#input\_sql\_server\_username) | The SQL server administrator username | `string` | n/a | yes |
-| <a name="input_use_deployment_slots"></a> [use\_deployment\_slots](#input\_use\_deployment\_slots) | Flag to indicate if App Service deployment slots are in use on the environment | `bool` | `true` | no |
 
 ## Outputs
 

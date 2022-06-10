@@ -34,7 +34,6 @@ module "app_services" {
   srv_notify_full_appeal_confirmation_email_to_appellant_template_id    = var.srv_notify_full_appeal_confirmation_email_to_appellant_template_id
   srv_notify_full_appeal_received_notification_email_to_lpa_template_id = var.srv_notify_full_appeal_received_notification_email_to_lpa_template_id
   srv_notify_service_id                                                 = var.srv_notify_service_id
-  use_deployment_slots                                                  = var.use_deployment_slots
 
   tags = local.tags
 
