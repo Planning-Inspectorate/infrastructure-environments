@@ -150,6 +150,14 @@ resource "azurerm_app_service_virtual_network_swift_connection" "vnet_connection
   subnet_id      = var.integration_subnet_id
 }
 
+resource "azurerm_app_service_slot_virtual_network_swift_connection" "vnet_connection" {
+  count = var.outbound_vnet_connectivity ? 1 : 0
+
+  app_service_id = azurerm_linux_web_app.web_app.id
+  slot_name      = "staging"
+  subnet_id      = var.integration_subnet_id
+}
+
 resource "azurerm_key_vault_access_policy" "read_secrets" {
   count = var.key_vault_id != null ? 1 : 0
 
