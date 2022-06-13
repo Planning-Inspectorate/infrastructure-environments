@@ -10,7 +10,6 @@ module "app_service" {
   app_settings                    = each.value["app_settings"]
   container_registry_name         = var.container_registry_name
   container_registry_rg           = var.container_registry_rg
-  deployment_slot                 = var.use_deployment_slots
   endpoint_subnet_id              = can(each.value["endpoint_subnet_id"]) ? each.value["endpoint_subnet_id"] : null
   front_door_restriction          = can(each.value["front_door_restriction"]) ? each.value["front_door_restriction"] : null
   image_name                      = each.value["image_name"]

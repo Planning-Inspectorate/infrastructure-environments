@@ -28,7 +28,6 @@ module "app_services" {
   resource_group_name                     = azurerm_resource_group.back_office_stack.name
   resource_suffix                         = local.resource_suffix
   service_name                            = local.service_name
-  use_deployment_slots                    = var.use_deployment_slots
 
   tags = local.tags
 

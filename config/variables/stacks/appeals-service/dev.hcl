@@ -10,5 +10,4 @@ locals {
   srv_notify_full_appeal_received_notification_email_to_lpa_template_id       = "e3cba5d9-8b97-4922-97f1-48ef303b9195"
   srv_notify_service_id                                                       = "c46d894e-d10e-4c46-a467-019576cd906a"
   srv_notify_start_email_to_lpa_template_id                                   = "c4701212-4b6a-4b55-801a-c86c7dbea54b"
-  use_deployment_slots                                                        = false
 }

@@ -26,6 +26,7 @@ No modules.
 |------|------|
 | [azurerm_app_service_certificate.custom_hostname](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/app_service_certificate) | resource |
 | [azurerm_app_service_custom_hostname_binding.custom_hostname](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/app_service_custom_hostname_binding) | resource |
+| [azurerm_app_service_slot_virtual_network_swift_connection.vnet_connection](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/app_service_slot_virtual_network_swift_connection) | resource |
 | [azurerm_app_service_virtual_network_swift_connection.vnet_connection](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/app_service_virtual_network_swift_connection) | resource |
 | [azurerm_key_vault_access_policy.read_secrets](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/key_vault_access_policy) | resource |
 | [azurerm_linux_web_app.web_app](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/linux_web_app) | resource |
@@ -53,7 +54,6 @@ No modules.
 | <a name="input_container_registry_rg"></a> [container\_registry\_rg](#input\_container\_registry\_rg) | The resource group of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_custom_hostname"></a> [custom\_hostname](#input\_custom\_hostname) | The custom hostname applied to the App Service required for auth redirection with a reverse proxy | `string` | `null` | no |
 | <a name="input_custom_hostname_certificate_secret_id"></a> [custom\_hostname\_certificate\_secret\_id](#input\_custom\_hostname\_certificate\_secret\_id) | The Key Vault secret URL for the custom hostname SSL certificate | `string` | `null` | no |
-| <a name="input_deployment_slot"></a> [deployment\_slot](#input\_deployment\_slot) | Flag to indicate if the App Service should create a deployment slot | `bool` | `true` | no |
 | <a name="input_endpoint_subnet_id"></a> [endpoint\_subnet\_id](#input\_endpoint\_subnet\_id) | The id of the private endpoint subnet the app service is linked to for ingress traffic | `string` | `null` | no |
 | <a name="input_front_door_restriction"></a> [front\_door\_restriction](#input\_front\_door\_restriction) | Flag to indicate if the web app should be restricted so it can only be accessed via Front Door | `bool` | `false` | no |
 | <a name="input_image_name"></a> [image\_name](#input\_image\_name) | The name of the image deployed to the App Service | `string` | n/a | yes |

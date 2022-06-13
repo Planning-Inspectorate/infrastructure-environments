@@ -7,7 +7,7 @@ resource "azurerm_linux_web_app" "web_app" {
   client_certificate_enabled = false
   https_only                 = true
 
-  app_settings = merge(var.app_settings, local.app_settings)
+  app_settings = local.app_settings
 
   identity {
     type = "SystemAssigned"
@@ -35,7 +35,7 @@ resource "azurerm_linux_web_app" "web_app" {
     }
 
     dynamic "ip_restriction" {
-      for_each = !var.inbound_vnet_connectivity ? [1] : []
+      for_each = var.front_door_restriction ? [1] : []
 
       content {
         name        = "FrontDoorInbound"
@@ -56,15 +56,28 @@ resource "azurerm_linux_web_app" "web_app" {
 }
 
 resource "azurerm_linux_web_app_slot" "staging" {
-  count = var.deployment_slot ? 1 : 0
-
   name           = "staging"
   app_service_id = azurerm_linux_web_app.web_app.id
 
-  app_settings = merge(var.app_settings, local.app_settings)
+  client_certificate_enabled = false
+  https_only                 = true
+
+  app_settings = local.staging_slot_app_settings
 
   identity {
     type = "SystemAssigned"
+  }
+
+  logs {
+    detailed_error_messages = true
+    failed_request_tracing  = true
+
+    http_logs {
+      file_system {
+        retention_in_days = 4
+        retention_in_mb   = 25
+      }
+    }
   }
 
   site_config {
@@ -74,17 +87,6 @@ resource "azurerm_linux_web_app_slot" "staging" {
     application_stack {
       docker_image     = "${data.azurerm_container_registry.acr.login_server}/${var.image_name}"
       docker_image_tag = "main"
-    }
-
-    dynamic "ip_restriction" {
-      for_each = var.front_door_restriction ? [1] : []
-
-      content {
-        name        = "FrontDoorInbound"
-        service_tag = "AzureFrontDoor.Backend"
-        action      = "Allow"
-        priority    = 100
-      }
     }
   }
 
@@ -145,6 +147,14 @@ resource "azurerm_app_service_virtual_network_swift_connection" "vnet_connection
   count = var.outbound_vnet_connectivity ? 1 : 0
 
   app_service_id = azurerm_linux_web_app.web_app.id
+  subnet_id      = var.integration_subnet_id
+}
+
+resource "azurerm_app_service_slot_virtual_network_swift_connection" "vnet_connection" {
+  count = var.outbound_vnet_connectivity ? 1 : 0
+
+  app_service_id = azurerm_linux_web_app.web_app.id
+  slot_name      = "staging"
   subnet_id      = var.integration_subnet_id
 }
 

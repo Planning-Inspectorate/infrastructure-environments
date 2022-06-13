@@ -13,7 +13,6 @@ module "app_service" {
   container_registry_rg                 = var.container_registry_rg
   custom_hostname                       = can(each.value["custom_hostname"]) ? each.value["custom_hostname"] : null
   custom_hostname_certificate_secret_id = can(each.value["custom_hostname_certificate_secret_id"]) ? each.value["custom_hostname_certificate_secret_id"] : null
-  deployment_slot                       = var.use_deployment_slots
   endpoint_subnet_id                    = can(each.value["endpoint_subnet_id"]) ? each.value["endpoint_subnet_id"] : null
   image_name                            = each.value["image_name"]
   inbound_vnet_connectivity             = each.value["inbound_vnet_connectivity"]

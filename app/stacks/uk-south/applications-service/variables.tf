@@ -160,9 +160,3 @@ variable "private_beta_v1_routes_only" {
   description = "Feature toggle for limiting web app routes to Private Beta V1 functionality only"
   type        = string
 }
-
-variable "use_deployment_slots" {
-  description = "Flag to indicate if App Service deployment slots are in use on the environment"
-  type        = bool
-  default     = true
-}
