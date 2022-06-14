@@ -170,3 +170,16 @@ resource "azurerm_key_vault_access_policy" "read_secrets" {
   secret_permissions      = ["Get"]
   storage_permissions     = []
 }
+
+resource "azurerm_key_vault_access_policy" "read_secrets_staging_slot" {
+  count = var.key_vault_id != null ? 1 : 0
+
+  key_vault_id = var.key_vault_id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+  object_id    = azurerm_linux_web_app_slot.staging.identity.0.principal_id
+
+  certificate_permissions = []
+  key_permissions         = []
+  secret_permissions      = ["Get"]
+  storage_permissions     = []
+}
