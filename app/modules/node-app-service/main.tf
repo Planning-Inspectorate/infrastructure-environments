@@ -154,7 +154,7 @@ resource "azurerm_app_service_slot_virtual_network_swift_connection" "vnet_conne
   count = var.outbound_vnet_connectivity ? 1 : 0
 
   app_service_id = azurerm_linux_web_app.web_app.id
-  slot_name      = "staging"
+  slot_name      = azurerm_linux_web_app_slot.staging.name
   subnet_id      = var.integration_subnet_id
 }
 
@@ -164,6 +164,19 @@ resource "azurerm_key_vault_access_policy" "read_secrets" {
   key_vault_id = var.key_vault_id
   tenant_id    = data.azurerm_client_config.current.tenant_id
   object_id    = azurerm_linux_web_app.web_app.identity.0.principal_id
+
+  certificate_permissions = []
+  key_permissions         = []
+  secret_permissions      = ["Get"]
+  storage_permissions     = []
+}
+
+resource "azurerm_key_vault_access_policy" "read_secrets_staging_slot" {
+  count = var.key_vault_id != null ? 1 : 0
+
+  key_vault_id = var.key_vault_id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+  object_id    = azurerm_linux_web_app_slot.staging.identity.0.principal_id
 
   certificate_permissions = []
   key_permissions         = []

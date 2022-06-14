@@ -42,7 +42,7 @@ resources:
       type: github
       endpoint: Planning-Inspectorate
       name: Planning-Inspectorate/common-pipeline-templates
-      ref: refs/tags/release/2.4.1
+      ref: refs/tags/release/2.5.5
 
 extends:
   template: stages/wrapper_cd.yml@templates
@@ -83,7 +83,6 @@ extends:
       - name: Terraform Apply
         ${{ if eq(parameters.stack, 'all') }}:
           artifact: terraform-config-files
-        condition: and(succeeded(), ne(variables['skipApply'], 'true'))
         dependsOn:
           - Terraform Plan
         deploymentSteps:
@@ -105,5 +104,3 @@ extends:
               parameters:
                 artifactName: terraform-plan-$(ENVIRONMENT)
                 subscriptionId: $(SUBSCRIPTION_ID)
-        variables:
-          skipApply: $[stageDependencies.Terraform_Plan.Terraform_Plan.outputs['terraform_plan.skipApply']]
