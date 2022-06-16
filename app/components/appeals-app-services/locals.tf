@@ -85,6 +85,8 @@ locals {
         SRV_NOTIFY_BASE_URL                                                   = var.srv_notify_base_url
         SRV_NOTIFY_FULL_APPEAL_CONFIRMATION_EMAIL_TO_APPELLANT_TEMPLATE_ID    = var.srv_notify_full_appeal_confirmation_email_to_appellant_template_id
         SRV_NOTIFY_FULL_APPEAL_RECEIVED_NOTIFICATION_EMAIL_TO_LPA_TEMPLATE_ID = var.srv_notify_full_appeal_received_notification_email_to_lpa_template_id
+        SRV_NOTIFY_SAVE_AND_RETURN_CONTINUE_WITH_APPEAL_TEMPLATE_ID           = var.srv_notify_save_and_return_continue_with_appeal_template_id
+        SRV_NOTIFY_SAVE_AND_RETURN_ENTER_CODE_INTO_SERVICE_TEMPLATE_ID        = var.srv_notify_save_and_return_enter_code_into_service_template_id
         SRV_NOTIFY_SERVICE_ID                                                 = var.srv_notify_service_id
       }
     }

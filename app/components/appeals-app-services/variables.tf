@@ -165,6 +165,16 @@ variable "srv_notify_full_appeal_received_notification_email_to_lpa_template_id"
   type        = string
 }
 
+variable "srv_notify_save_and_return_continue_with_appeal_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
+variable "srv_notify_save_and_return_enter_code_into_service_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
 variable "srv_notify_service_id" {
   description = "The ID of the Notifications service"
   type        = string
