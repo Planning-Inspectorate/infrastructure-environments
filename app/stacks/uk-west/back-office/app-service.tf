@@ -5,10 +5,13 @@ module "app_services" {
   app_service_plan_id                     = var.app_service_plan_id
   app_service_plan_resource_group_name    = var.common_resource_group_name
   app_service_private_dns_zone_id         = data.azurerm_private_dns_zone.app_service.id
-  azuread_auth_case_officer_group_id      = var.azuread_auth_case_officer_group_id
   azuread_auth_client_id                  = var.azuread_auth_client_id
-  azuread_auth_inspector_group_id         = var.azuread_auth_inspector_group_id
-  azuread_auth_validation_office_group_id = var.azuread_auth_validation_office_group_id
+  azuread_appeals_case_officer_group_id            = var.azuread_appeals_case_officer_group_id
+  azuread_appeals_inspector_group_id               = var.azuread_appeals_inspector_group_id
+  azuread_appeals_validation_officer_group_id      = var.azuread_appeals_validation_officer_group_id
+  azuread_applications_case_admin_officer_group_id = var.azuread_applications_case_admin_officer_group_id
+  azuread_applications_caseofficer_group_id        = var.azuread_applications_caseofficer_group_id
+  azuread_applications_inspector_group_id          = var.azuread_applications_inspector_group_id
   container_registry_name                 = var.container_registry_name
   container_registry_rg                   = var.container_registry_rg
   custom_hostname                         = var.back_office_public_url

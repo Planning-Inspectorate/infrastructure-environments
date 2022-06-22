@@ -8,26 +8,44 @@ variable "app_service_plan_id" {
   type        = string
 }
 
-variable "azuread_auth_case_officer_group_id" {
-  description = "The Azure AD group ID for Back Office case officers"
-  type        = string
-  default     = null
-}
-
 variable "azuread_auth_client_id" {
   description = "The Back Office web frontend app registration ID used for Azure AD authentication"
   type        = string
   default     = null
 }
 
-variable "azuread_auth_inspector_group_id" {
-  description = "The Azure AD group ID for Back Office inspectors"
+variable "azuread_appeals_case_officer_group_id" {
+  description = "The Azure AD group ID for Appeals Back Office case officers"
   type        = string
   default     = null
 }
 
-variable "azuread_auth_validation_office_group_id" {
-  description = "The Azure AD group ID for Back Office validation officers"
+variable "azuread_appeals_inspector_group_id" {
+  description = "The Azure AD group ID for Appeals Back Office inspectors"
+  type        = string
+  default     = null
+}
+
+variable "azuread_appeals_validation_officer_group_id" {
+  description = "The Azure AD group ID for Appeals Back Office validation officers"
+  type        = string
+  default     = null
+}
+
+variable "azuread_applications_caseofficer_group_id" {
+  description = "The Azure AD group ID for Applications Back Office case officers"
+  type        = string
+  default     = null
+}
+
+variable "azuread_applications_inspector_group_id" {
+  description = "The Azure AD group ID for Applications Back Office inspectors"
+  type        = string
+  default     = null
+}
+
+variable "azuread_applications_case_admin_officer_group_id" {
+  description = "The Azure AD group ID for Applications Back Office case admin officers"
   type        = string
   default     = null
 }
