@@ -154,3 +154,8 @@ variable "private_beta_v1_routes_only" {
   description = "Feature toggle for limiting web app routes to Private Beta V1 functionality only"
   type        = string
 }
+
+variable "feature_save_and_exit_option" {
+  description = "Feature toggle for showing the save and exit option on registration form"
+  type        = string
+}
