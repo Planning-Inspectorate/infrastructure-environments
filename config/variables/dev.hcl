@@ -7,7 +7,7 @@ locals {
   enable_search_indexing_by_default = false
   environment                       = "dev"
   front_door_waf_mode               = "Prevention"
-  logger_level                      = "info"
+  logger_level                      = "debug"
   monitoring_alerts_enabled         = false
   primary_vnet_address_space        = ["10.1.0.0/16"]
   private_endpoint_enabled          = false
