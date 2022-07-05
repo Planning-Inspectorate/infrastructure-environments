@@ -12,4 +12,5 @@ locals {
   srv_notify_save_and_return_enter_code_into_service_template_id              = "e509eee7-f0bd-4d63-9203-d598ddd5b31e"
   srv_notify_service_id                                                       = "c46d894e-d10e-4c46-a467-019576cd906a"
   srv_notify_start_email_to_lpa_template_id                                   = "c4701212-4b6a-4b55-801a-c86c7dbea54b"
+  srv_notify_confirm_email_template_id                                        = "4156c7ac-a235-4577-b976-44020bec4d5f"
 }
