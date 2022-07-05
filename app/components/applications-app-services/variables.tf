@@ -132,6 +132,11 @@ variable "private_beta_v1_routes_only" {
   type        = string
 }
 
+variable "feature_save_and_exit_option" {
+  description = "Feature toggle for showing the save and exit option on registration form"
+  type        = string
+}
+
 variable "tags" {
   description = "The tags applied to all resources"
   type        = map(string)

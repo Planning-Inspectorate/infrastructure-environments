@@ -7,4 +7,5 @@ locals {
   srv_notify_magic_link_email_template_id                         = "4ca6b93a-4c45-4abe-a8ea-69ba13c80915"
   srv_notify_service_id                                           = "9b89eb93-3071-432c-9c6b-4e07dbda9071"
   private_beta_v1_routes_only                                     = "false"
+  feature_save_and_exit_option                                    = "false"
 }
