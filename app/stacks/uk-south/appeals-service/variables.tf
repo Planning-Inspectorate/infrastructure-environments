@@ -180,6 +180,7 @@ variable "srv_notify_save_and_return_enter_code_into_service_template_id" {
 
 variable "srv_notify_confirm_email_template_id" {
   description = "A template ID required by the Appeals Service API"
+  type        = string
 }
 
 variable "srv_notify_service_id" {
