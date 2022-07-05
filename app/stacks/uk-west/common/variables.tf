@@ -41,6 +41,21 @@ variable "location" {
   default     = "uk-west"
 }
 
+variable "pipeline_appeals_service_principal_object_id" {
+  description = "The ID of the service principal associated with the Appeals Service pipelines"
+  type        = string
+}
+
+variable "pipeline_applications_service_principal_object_id" {
+  description = "The ID of the service principal associated with the Applications Service pipelines"
+  type        = string
+}
+
+variable "pipeline_back_office_principal_object_id" {
+  description = "The ID of the service principal associated with the Back Office pipelines"
+  type        = string
+}
+
 variable "primary_vnet_address_space" {
   description = "The CIDR address space for the common virtual network"
   type        = string

@@ -58,6 +58,39 @@ resource "azurerm_key_vault_access_policy" "frontdoor" {
   storage_permissions     = []
 }
 
+resource "azurerm_key_vault_access_policy" "pipeline_appeals_service" {
+  key_vault_id = azurerm_key_vault.environment_key_vault.id
+  object_id    = var.pipeline_appeals_service_principal_object_id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+
+  certificate_permissions = ["Get"]
+  key_permissions         = []
+  secret_permissions      = ["Get"]
+  storage_permissions     = []
+}
+
+resource "azurerm_key_vault_access_policy" "pipeline_applications_service" {
+  key_vault_id = azurerm_key_vault.environment_key_vault.id
+  object_id    = var.pipeline_applications_service_principal_object_id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+
+  certificate_permissions = ["Get"]
+  key_permissions         = []
+  secret_permissions      = ["Get"]
+  storage_permissions     = []
+}
+
+resource "azurerm_key_vault_access_policy" "pipeline_back_office" {
+  key_vault_id = azurerm_key_vault.environment_key_vault.id
+  object_id    = var.pipeline_back_office_principal_object_id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+
+  certificate_permissions = ["Get"]
+  key_permissions         = []
+  secret_permissions      = ["Get"]
+  storage_permissions     = []
+}
+
 resource "azurerm_key_vault_secret" "applications_service_vpn_gateway_shared_key" {
   #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   #checkov:skip=CKV_AZURE_114: No need to set content type via Terraform, as secrets to be updated in Portal
