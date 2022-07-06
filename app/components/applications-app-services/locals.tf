@@ -14,7 +14,7 @@ locals {
         APPLICATIONS_SERVICE_API_URL     = "https://pins-app-${var.service_name}-applications-api-${var.resource_suffix}.azurewebsites.net/"
         GOOGLE_ANALYTICS_ID              = var.google_analytics_id
         HOST_URL                         = "https://${var.applications_service_public_url}/"
-        SESSION_KEY                      = "some_key"
+        SESSION_KEY                      = local.secret_refs["applications-service-session-key"]
         SUBDOMAIN_OFFSET                 = "3"
         USE_SECURE_SESSION_COOKIES       = true
         PRIVATE_BETA_V1_ROUTES_ONLY      = var.private_beta_v1_routes_only
@@ -65,7 +65,8 @@ locals {
     "applications-service-mysql-password",
     "applications-service-mysql-port",
     "applications-service-mysql-username",
-    "applications-srv-notify-api-key"
+    "applications-srv-notify-api-key",
+    "applications-service-session-key"
   ]
 
   secret_refs = {
