@@ -49,58 +49,60 @@ extends:
   parameters:
     deploymentStages:
       - name: Terraform Plan
-        deploymentSteps:
-          - script: |
-              echo "##vso[build.addbuildtag]stack=${{ parameters.stack }}"
-              echo "##vso[build.addbuildtag]region=${{ parameters.region }}"
-            displayName: Add stack & region build tag
-          - ${{ if eq(parameters.stack, 'all') }}:
-            - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan_all.yml@templates
-              parameters:
-                artifactName: terraform-config-files
-                environmentVariables:
-                  ENV: $(ENVIRONMENT)
-                  ${{ if eq(parameters.DRDeployment, 'true') }}:
-                    DR_DEPLOYMENT: true
-                subscriptionId: $(SUBSCRIPTION_ID)
-                ${{ if eq(parameters.region, 'all') }}:
-                  workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
-                ${{ else }}:
-                  workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.region }}
-          - ${{ else }}:
-            - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan.yml@templates
-              parameters:
-                artifactName: terraform-plan-$(ENVIRONMENT)
-                environmentVariables:
-                  ENV: $(ENVIRONMENT)
-                  ${{ if eq(parameters.DRDeployment, 'true') }}:
-                    DR_DEPLOYMENT: true
-                region: ${{ parameters.region }}
-                stack: ${{ parameters.stack }}
-                subscriptionId: $(SUBSCRIPTION_ID)
-                workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.region }}/${{ parameters.stack }}
-        isDeployment: false
+        deploymentJobs:
+          - name: Plan
+            isDeployment: false
+            steps:
+              - script: |
+                  echo "##vso[build.addbuildtag]stack=${{ parameters.stack }}"
+                  echo "##vso[build.addbuildtag]region=${{ parameters.region }}"
+                displayName: Add stack & region build tag
+              - ${{ if eq(parameters.stack, 'all') }}:
+                - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan_all.yml@templates
+                  parameters:
+                    artifactName: terraform-config-files
+                    environmentVariables:
+                      ENV: $(ENVIRONMENT)
+                      ${{ if eq(parameters.DRDeployment, 'true') }}:
+                        DR_DEPLOYMENT: true
+                    subscriptionId: $(SUBSCRIPTION_ID)
+                    ${{ if eq(parameters.region, 'all') }}:
+                      workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
+                    ${{ else }}:
+                      workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.region }}
+              - ${{ else }}:
+                - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan.yml@templates
+                  parameters:
+                    artifactName: terraform-plan-$(ENVIRONMENT)
+                    environmentVariables:
+                      ENV: $(ENVIRONMENT)
+                      ${{ if eq(parameters.DRDeployment, 'true') }}:
+                        DR_DEPLOYMENT: true
+                    region: ${{ parameters.region }}
+                    stack: ${{ parameters.stack }}
+                    subscriptionId: $(SUBSCRIPTION_ID)
+                    workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.region }}/${{ parameters.stack }}
       - name: Terraform Apply
-        ${{ if eq(parameters.stack, 'all') }}:
-          artifact: terraform-config-files
         dependsOn:
           - Terraform Plan
-        deploymentSteps:
-          - ${{ if eq(parameters.stack, 'all') }}:
-            - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_apply_all.yml@templates
-              parameters:
-                artifactname: terraform-config-files
-                environmentVariables:
-                  ENV: $(ENVIRONMENT)
-                  ${{ if eq(parameters.DRDeployment, 'true') }}:
-                    DR_DEPLOYMENT: true
-                subscriptionId: $(SUBSCRIPTION_ID)
-                ${{ if eq(parameters.region, 'all') }}:
-                  workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
-                ${{ else }}:
-                  workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.region }}
-          - ${{ else }}:
-            - template: ${{variables['Build.SourcesDirectory']}}/steps/terraform_apply.yml@templates
-              parameters:
-                artifactName: terraform-plan-$(ENVIRONMENT)
-                subscriptionId: $(SUBSCRIPTION_ID)
+        deploymentJobs:
+          - name: Apply
+            steps:
+              - ${{ if eq(parameters.stack, 'all') }}:
+                - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_apply_all.yml@templates
+                  parameters:
+                    artifactname: terraform-config-files
+                    environmentVariables:
+                      ENV: $(ENVIRONMENT)
+                      ${{ if eq(parameters.DRDeployment, 'true') }}:
+                        DR_DEPLOYMENT: true
+                    subscriptionId: $(SUBSCRIPTION_ID)
+                    ${{ if eq(parameters.region, 'all') }}:
+                      workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
+                    ${{ else }}:
+                      workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.region }}
+              - ${{ else }}:
+                - template: ${{variables['Build.SourcesDirectory']}}/steps/terraform_apply.yml@templates
+                  parameters:
+                    artifactName: terraform-plan-$(ENVIRONMENT)
+                    subscriptionId: $(SUBSCRIPTION_ID)
