@@ -8,4 +8,5 @@ locals {
   srv_notify_service_id                                           = "2f25f917-c24f-44a6-9d0c-aebac7c98081"
   private_beta_v1_routes_only                                     = "true"
   feature_save_and_exit_option                                    = "false"
+  documents_host                                                  = "https://infrastructure.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
 }

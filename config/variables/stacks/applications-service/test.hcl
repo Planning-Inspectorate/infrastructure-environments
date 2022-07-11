@@ -8,4 +8,5 @@ locals {
   srv_notify_service_id                                           = "9b89eb93-3071-432c-9c6b-4e07dbda9071"
   private_beta_v1_routes_only                                     = "false"
   feature_save_and_exit_option                                    = "false"
+  documents_host                                                  = "https://nipreprod.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
 }

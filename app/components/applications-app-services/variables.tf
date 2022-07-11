@@ -141,3 +141,8 @@ variable "tags" {
   description = "The tags applied to all resources"
   type        = map(string)
 }
+
+variable "documents_host" {
+  description = "Specifies environment specific Wordpress CMS URL Prefix"
+  type        = string
+}
