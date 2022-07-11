@@ -165,3 +165,8 @@ variable "feature_save_and_exit_option" {
   description = "Feature toggle for showing the save and exit option on registration form"
   type        = string
 }
+
+variable "documents_host" {
+  description = "Specifies environment specific Wordpress CMS URL Prefix"
+  type        = string
+}
