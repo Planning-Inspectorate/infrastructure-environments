@@ -30,6 +30,7 @@ module "app_services" {
   srv_notify_service_id                                           = var.srv_notify_service_id
   private_beta_v1_routes_only                                     = var.private_beta_v1_routes_only
   feature_save_and_exit_option                                    = var.feature_save_and_exit_option
+  feature_show_affected_area_section                              = var.feature_show_affected_area_section
   documents_host                                                  = var.documents_host
 
   tags = local.tags
