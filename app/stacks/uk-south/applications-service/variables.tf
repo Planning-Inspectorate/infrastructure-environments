@@ -166,6 +166,11 @@ variable "feature_save_and_exit_option" {
   type        = string
 }
 
+variable "feature_show_affected_area_section" {
+  description = "Feature toggle for showing the affected area section on project page"
+  type        = string
+}
+
 variable "documents_host" {
   description = "Specifies environment specific Wordpress CMS URL Prefix"
   type        = string
