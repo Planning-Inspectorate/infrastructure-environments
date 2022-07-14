@@ -171,6 +171,11 @@ variable "feature_show_affected_area_section" {
   type        = string
 }
 
+variable "feature_hide_project_timeline_link" {
+  description = "Feature toggle to show / hide the project timeline link on project overview nav bar"
+  type        = string
+}
+
 variable "documents_host" {
   description = "Specifies environment specific Wordpress CMS URL Prefix"
   type        = string

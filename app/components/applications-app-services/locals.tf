@@ -20,6 +20,7 @@ locals {
         PRIVATE_BETA_V1_ROUTES_ONLY        = var.private_beta_v1_routes_only
         FEATURE_SAVE_AND_EXIT_OPTION       = var.feature_save_and_exit_option
         FEATURE_SHOW_AFFECTED_AREA_SECTION = var.feature_show_affected_area_section
+        FEATURE_PROJECT_TIMELINE_LINK      = var.feature_hide_project_timeline_link
       }
     }
 

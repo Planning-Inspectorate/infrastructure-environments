@@ -9,5 +9,6 @@ locals {
   private_beta_v1_routes_only                                     = "false"
   feature_save_and_exit_option                                    = "false"
   feature_show_affected_area_section                              = "false"
+  feature_hide_project_timeline_link                              = "false"
   documents_host                                                  = "https://nitestaz.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
 }
