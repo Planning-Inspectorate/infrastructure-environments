@@ -53,6 +53,7 @@ No requirements.
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
 | <a name="input_feature_save_and_exit_option"></a> [feature\_save\_and\_exit\_option](#input\_feature\_save\_and\_exit\_option) | Feature toggle for showing the save and exit option on registration form | `string` | n/a | yes |
 | <a name="input_feature_show_affected_area_section"></a> [feature\_show\_affected\_area\_section](#input\_feature\_show\_affected\_area\_section) | Feature toggle for showing the affected area section on project page | `string` | n/a | yes |
+| <a name="input_feature_hide_project_timeline_link"></a> [feature\_hide\_project\_timeline\_link](#input\_feature\_hide\_project\_timeline\_link) | Feature toggle to show / hide the project timeline link on project overview nav bar | `string` | n/a | yes |
 | <a name="input_google_analytics_id"></a> [google\_analytics\_id](#input\_google\_analytics\_id) | The id used to connect the frontend app to Google Analytics | `string` | n/a | yes |
 | <a name="input_instance"></a> [instance](#input\_instance) | The environment instance for use if multiple environments are deployed to a subscription | `string` | `"001"` | no |
 | <a name="input_integration_subnet_id"></a> [integration\_subnet\_id](#input\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic | `string` | n/a | yes |

@@ -29,6 +29,7 @@ module "app_services" {
   private_beta_v1_routes_only                                     = var.private_beta_v1_routes_only
   feature_save_and_exit_option                                    = var.feature_save_and_exit_option
   feature_show_affected_area_section                              = var.feature_show_affected_area_section
+  feature_hide_project_timeline_link                              = var.feature_hide_project_timeline_link
   documents_host                                                  = var.documents_host
 
   tags = local.tags
