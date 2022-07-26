@@ -187,3 +187,18 @@ variable "srv_notify_service_id" {
   description = "The ID of the Notifications service"
   type        = string
 }
+
+variable "srv_notify_appeal_submission_confirmation_email_to_appellant_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
+variable "srv_notify_appeal_submission_received_notification_email_to_lpa_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
+variable "srv_notify_start_email_to_lpa_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
