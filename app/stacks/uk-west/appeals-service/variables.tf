@@ -105,6 +105,11 @@ variable "logger_level" {
   default     = "info"
 }
 
+variable "lpa_service_public_url" {
+  description = "The public URL for the LPA API"
+  type        = string
+}
+
 variable "monitoring_alerts_enabled" {
   default     = false
   description = "Indicates whether Azure Monitor alerts are enabled for App Service"

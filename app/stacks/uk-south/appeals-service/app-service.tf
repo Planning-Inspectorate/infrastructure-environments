@@ -25,6 +25,7 @@ module "app_services" {
   location                                                                    = azurerm_resource_group.appeals_service_stack.location
   log_analytics_workspace_id                                                  = azurerm_log_analytics_workspace.appeals_service.id
   logger_level                                                                = var.logger_level
+  lpa_service_public_url                                                      = var.lpa_service_public_url
   monitoring_alerts_enabled                                                   = var.monitoring_alerts_enabled
   node_environment                                                            = var.node_environment
   private_endpoint_enabled                                                    = var.private_endpoint_enabled

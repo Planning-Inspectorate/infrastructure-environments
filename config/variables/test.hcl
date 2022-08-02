@@ -7,6 +7,7 @@ locals {
   enable_search_indexing_by_default = false
   front_door_waf_mode               = "Prevention"
   logger_level                      = "info"
+  lpa_service_public_url            = "lpa-service-test.planninginspectorate.gov.uk"
   monitoring_alerts_enabled         = false
   primary_vnet_address_space        = "10.2.0.0/16"
   secondary_vnet_address_space      = "10.12.0.0/16"

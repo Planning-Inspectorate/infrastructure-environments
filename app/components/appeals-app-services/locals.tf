@@ -156,6 +156,29 @@ locals {
 
       }
     }
+
+    lpa_service_api = {
+      app_name                        = "lpa-api"
+      app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
+      endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
+      image_name                      = "appeal-planning-decision/lpa-api"
+      inbound_vnet_connectivity       = var.private_endpoint_enabled
+      integration_subnet_id           = var.integration_subnet_id
+      key_vault_access                = true
+      outbound_vnet_connectivity      = true
+
+      app_settings = {
+        APP_APPEALS_BASE_URL                    = "https://${var.lpa_service_public_url}"
+        LOGGER_LEVEL                            = var.logger_level
+        MONGODB_AUTO_INDEX                      = true
+        MONGODB_NAME                            = "lpa-service-api"
+        MONGODB_URL                             = var.cosmosdb_connection_string
+        NODE_ENV                                = var.node_environment
+        SERVER_PORT                             = "3008"
+        SERVER_SHOW_ERRORS                      = true
+        SERVER_TERMINATION_GRACE_PERIOD_SECONDS = "0"
+      }
+    }
   }
 
   secret_names = [
