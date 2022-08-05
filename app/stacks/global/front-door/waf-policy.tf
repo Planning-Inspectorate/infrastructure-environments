@@ -10,6 +10,23 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
     version = "1.0"
 
     override {
+      rule_group_name = "RFI"
+
+      rule {
+        # Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link
+        rule_id = "931130"
+        action  = "Block"
+
+        exclusion {
+          # Exclusion to fix BOAS-153
+          match_variable = "RequestBodyPostArgNames" # PostParamValue:applicant.website
+          operator       = "Equals"
+          selector       = "applicant.website"
+        }
+      }
+    }
+
+    override {
       rule_group_name = "SQLI"
 
       rule {
