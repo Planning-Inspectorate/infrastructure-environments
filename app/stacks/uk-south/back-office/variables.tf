@@ -173,3 +173,9 @@ variable "sql_server_username" {
   sensitive   = true
   type        = string
 }
+
+variable "os_places_api_key" {
+  description = "The OS Places API KEY for Back Office"
+  type        = string
+  default     = null
+}
