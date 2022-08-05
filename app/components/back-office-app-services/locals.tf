@@ -25,6 +25,7 @@ locals {
         APPLICATIONS_CASEOFFICER_GROUP_ID        = var.azuread_applications_caseofficer_group_id
         APPLICATIONS_INSPECTOR_GROUP_ID          = var.azuread_applications_inspector_group_id
         NODE_ENV                                 = var.node_environment
+        OS_PLACES_API_KEY                        = var.os_places_api_key
       }
     }
 

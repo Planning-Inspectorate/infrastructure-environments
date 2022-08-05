@@ -51,10 +51,13 @@ No requirements.
 |------|-------------|------|---------|:--------:|
 | <a name="input_action_group_low_id"></a> [action\_group\_low\_id](#input\_action\_group\_low\_id) | The ID of the Azure Monitor action group for low priority (P4) alerts | `string` | n/a | yes |
 | <a name="input_app_service_plan_id"></a> [app\_service\_plan\_id](#input\_app\_service\_plan\_id) | The id of the app service plan | `string` | n/a | yes |
-| <a name="input_azuread_auth_case_officer_group_id"></a> [azuread\_auth\_case\_officer\_group\_id](#input\_azuread\_auth\_case\_officer\_group\_id) | The Azure AD group ID for Back Office case officers | `string` | `null` | no |
+| <a name="input_azuread_appeals_case_officer_group_id"></a> [azuread\_appeals\_case\_officer\_group\_id](#input\_azuread\_appeals\_case\_officer\_group\_id) | The Azure AD group ID for Appeals Back Office case officers | `string` | `null` | no |
+| <a name="input_azuread_appeals_inspector_group_id"></a> [azuread\_appeals\_inspector\_group\_id](#input\_azuread\_appeals\_inspector\_group\_id) | The Azure AD group ID for Appeals Back Office inspectors | `string` | `null` | no |
+| <a name="input_azuread_appeals_validation_officer_group_id"></a> [azuread\_appeals\_validation\_officer\_group\_id](#input\_azuread\_appeals\_validation\_officer\_group\_id) | The Azure AD group ID for Appeals Back Office validation officers | `string` | `null` | no |
+| <a name="input_azuread_applications_case_admin_officer_group_id"></a> [azuread\_applications\_case\_admin\_officer\_group\_id](#input\_azuread\_applications\_case\_admin\_officer\_group\_id) | The Azure AD group ID for Applications Back Office case admin officers | `string` | `null` | no |
+| <a name="input_azuread_applications_caseofficer_group_id"></a> [azuread\_applications\_caseofficer\_group\_id](#input\_azuread\_applications\_caseofficer\_group\_id) | The Azure AD group ID for Applications Back Office case officers | `string` | `null` | no |
+| <a name="input_azuread_applications_inspector_group_id"></a> [azuread\_applications\_inspector\_group\_id](#input\_azuread\_applications\_inspector\_group\_id) | The Azure AD group ID for Applications Back Office inspectors | `string` | `null` | no |
 | <a name="input_azuread_auth_client_id"></a> [azuread\_auth\_client\_id](#input\_azuread\_auth\_client\_id) | The Back Office web frontend app registration ID used for Azure AD authentication | `string` | `null` | no |
-| <a name="input_azuread_auth_inspector_group_id"></a> [azuread\_auth\_inspector\_group\_id](#input\_azuread\_auth\_inspector\_group\_id) | The Azure AD group ID for Back Office inspectors | `string` | `null` | no |
-| <a name="input_azuread_auth_validation_office_group_id"></a> [azuread\_auth\_validation\_office\_group\_id](#input\_azuread\_auth\_validation\_office\_group\_id) | The Azure AD group ID for Back Office validation officers | `string` | `null` | no |
 | <a name="input_back_office_public_url"></a> [back\_office\_public\_url](#input\_back\_office\_public\_url) | The public URL for the Back Office frontend web app | `string` | n/a | yes |
 | <a name="input_common_resource_group_name"></a> [common\_resource\_group\_name](#input\_common\_resource\_group\_name) | The common infrastructure resource group name | `string` | n/a | yes |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | The common resource tags for the project | `map(string)` | n/a | yes |
@@ -71,6 +74,7 @@ No requirements.
 | <a name="input_location"></a> [location](#input\_location) | The location resources are deployed to in slug format e.g. 'uk-south' | `string` | `"uk-west"` | no |
 | <a name="input_monitoring_alerts_enabled"></a> [monitoring\_alerts\_enabled](#input\_monitoring\_alerts\_enabled) | Indicates whether Azure Monitor alerts are enabled for App Service | `bool` | `false` | no |
 | <a name="input_node_environment"></a> [node\_environment](#input\_node\_environment) | The node environment to be used for applications in this environment e.g. development | `string` | `"development"` | no |
+| <a name="input_os_places_api_key"></a> [os\_places\_api\_key](#input\_os\_places\_api\_key) | The OS Places API KEY for Back Office | `string` | `null` | no |
 | <a name="input_private_endpoint_enabled"></a> [private\_endpoint\_enabled](#input\_private\_endpoint\_enabled) | A switch to determine if Private Endpoint should be enabled for backend App Services | `bool` | `true` | no |
 | <a name="input_sql_database_configuration"></a> [sql\_database\_configuration](#input\_sql\_database\_configuration) | A map of database configuration options | `map(string)` | n/a | yes |
 | <a name="input_sql_server_azuread_administrator"></a> [sql\_server\_azuread\_administrator](#input\_sql\_server\_azuread\_administrator) | A map describing the AzureAD account used for the SQL server administrator | `map(string)` | n/a | yes |
