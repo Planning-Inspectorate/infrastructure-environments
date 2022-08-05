@@ -154,8 +154,9 @@ resource "null_resource" "fd_routing_noindex" {
     command     = "az config set extension.use_dynamic_install=yes_without_prompt; for RULE_NAME in ${local.search_indexing_rule_backends}; do az network front-door routing-rule update --front-door-name ${azurerm_frontdoor.common.name} --resource-group ${azurerm_frontdoor.common.resource_group_name} --name $RULE_NAME --rules-engine ${azurerm_frontdoor_rules_engine.search_indexing.name}; done"
   }
 
-  # forces execution to go after front door
+  # forces execution to go after front door and WAF policy
   depends_on = [
-    azurerm_frontdoor.common
+    azurerm_frontdoor.common,
+    azurerm_frontdoor_firewall_policy.default
   ]
 }
