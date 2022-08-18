@@ -16,5 +16,5 @@ resource "azurerm_storage_account" "back_office_documents" {
   cross_tenant_replication_enabled = false
   enable_https_traffic_only        = true
   min_tls_version                  = "TLS1_2"
-  tags = local.tags
+  tags                             = local.tags
 }
