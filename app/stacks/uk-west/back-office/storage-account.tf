@@ -7,7 +7,7 @@ resource "azurerm_storage_account" "back_office_documents" {
   #checkov:skip=CKV2_AZURE_8: Logging not implemented yet
   #TODO: Access restrictions
   #checkov:skip=CKV_AZURE_35: Network access restrictions
-  name                             = replace("pinsstdocs${local.resource_suffix}", "-", "")
+  name                             = replace("pinsstdocsbo${local.resource_suffix}", "-", "")
   resource_group_name              = azurerm_resource_group.back_office_stack.name
   location                         = azurerm_resource_group.back_office_stack.location
   account_tier                     = "Standard"
