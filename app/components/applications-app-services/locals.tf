@@ -21,6 +21,8 @@ locals {
         FEATURE_SAVE_AND_EXIT_OPTION       = var.feature_save_and_exit_option
         FEATURE_SHOW_AFFECTED_AREA_SECTION = var.feature_show_affected_area_section
         FEATURE_PROJECT_TIMELINE_LINK      = var.feature_hide_project_timeline_link
+        FEATURE_ALLOW_DOCUMENT_LIBRARY     = var.feature_allow_document_library
+        FEATURE_ALLOW_REPRESENTATION       = var.feature_allow_representation
       }
     }
 
