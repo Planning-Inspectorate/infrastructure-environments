@@ -10,7 +10,7 @@ locals {
   feature_save_and_exit_option                                    = "false"
   feature_show_affected_area_section                              = "false"
   feature_hide_project_timeline_link                              = "false"
-  feature_allow_document_library                                  = "false"
-  feature_allow_representation                                    = "false"
+  feature_allow_document_library                                  = "true"
+  feature_allow_representation                                    = "true"
   documents_host                                                  = "https://nipreprod.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
 }
