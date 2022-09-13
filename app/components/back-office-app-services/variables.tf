@@ -147,6 +147,11 @@ variable "resource_suffix" {
   type        = string
 }
 
+variable "service_bus_namespace_name" {
+  description = "The name of the Back Office service bus namespace"
+  type        = string
+}
+
 variable "service_name" {
   description = "The name of the service the Azure App Services are part of"
   type        = string

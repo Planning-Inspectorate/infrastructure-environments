@@ -40,14 +40,22 @@ locals {
       outbound_vnet_connectivity      = true
 
       app_settings = {
-        DATABASE_URL = var.database_connection_string
-        NODE_ENV     = var.node_environment
+        DATABASE_URL                = var.database_connection_string
+        NODE_ENV                    = var.node_environment
+        SERVICE_BUS_HOST            = "${var.service_bus_namespace_name}.servicebus.windows.net"
+        SERVICE_BUS_HOSTNAME        = "${var.service_bus_namespace_name}.servicebus.windows.net"
+        SERVICE_BUS_PASSWORD        = local.secret_refs["back-office-topic-key"]
+        SERVICE_BUS_PORT            = "5671"
+        SERVICE_BUS_RECONNECT_LIMIT = "5"
+        SERVICE_BUS_TRANSPORT       = "tls"
+        SERVICE_BUS_USERNAME        = "back-office-apps"
       }
     }
   }
 
   secret_names = [
-    "back-office-client-secret"
+    "back-office-client-secret",
+    "back-office-topic-key"
   ]
 
   secret_refs = {
