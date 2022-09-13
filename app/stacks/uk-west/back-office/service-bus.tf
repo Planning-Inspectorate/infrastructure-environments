@@ -7,9 +7,7 @@ resource "azurerm_servicebus_namespace" "back_office" {
   tags = local.tags
 }
 
-resource "azurerm_servicebus_queue" "back_office_publish" {
-  name         = "back-office-publish"
+resource "azurerm_servicebus_topic" "case_started" {
+  name         = "case-started"
   namespace_id = azurerm_servicebus_namespace.back_office.id
-
-  enable_partitioning = true
 }
