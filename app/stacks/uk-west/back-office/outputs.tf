@@ -8,6 +8,11 @@ output "back_office_sql_database" {
   value       = azurerm_mssql_database.back_office.id
 }
 
+output "service_bus_namespace_id" {
+  description = "The ID of the Service Bus Namespace"
+  value       = azurerm_servicebus_namespace.back_office.id
+}
+
 output "sql_server_id" {
   description = "The ID of the Back Office SQL server"
   value       = azurerm_mssql_server.back_office.id

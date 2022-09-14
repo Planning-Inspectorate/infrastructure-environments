@@ -147,6 +147,12 @@ variable "resource_suffix" {
   type        = string
 }
 
+variable "service_bus_namespace_name" {
+  default     = null
+  description = "The name of the Back Office service bus namespace"
+  type        = string
+}
+
 variable "service_name" {
   description = "The name of the service the Azure App Services are part of"
   type        = string
@@ -155,10 +161,4 @@ variable "service_name" {
 variable "tags" {
   description = "The tags applied to all resources"
   type        = map(string)
-}
-
-variable "os_places_api_key" {
-  description = "The OS Places API KEY for Back Office"
-  type        = string
-  default     = null
 }

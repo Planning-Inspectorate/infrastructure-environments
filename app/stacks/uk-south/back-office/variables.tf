@@ -152,6 +152,11 @@ variable "private_endpoint_enabled" {
   default     = true
 }
 
+variable "primary_service_bus_namespace_id" {
+  description = "The ID of the primary Service Bus Namespace"
+  type        = string
+}
+
 variable "primary_sql_server_id" {
   description = "The ID of the primary Back Office SQL server"
   type        = string
@@ -172,10 +177,4 @@ variable "sql_server_username" {
   description = "The SQL server administrator username"
   sensitive   = true
   type        = string
-}
-
-variable "os_places_api_key" {
-  description = "The OS Places API KEY for Back Office"
-  type        = string
-  default     = null
 }

@@ -25,7 +25,7 @@ locals {
         APPLICATIONS_CASEOFFICER_GROUP_ID        = var.azuread_applications_caseofficer_group_id
         APPLICATIONS_INSPECTOR_GROUP_ID          = var.azuread_applications_inspector_group_id
         NODE_ENV                                 = var.node_environment
-        OS_PLACES_API_KEY                        = var.os_places_api_key
+        OS_PLACES_API_KEY                        = local.secret_refs["os-places-api-key"]
       }
     }
 
@@ -36,18 +36,27 @@ locals {
       image_name                      = "back-office/back-office-api"
       inbound_vnet_connectivity       = var.private_endpoint_enabled
       integration_subnet_id           = var.integration_subnet_id
-      key_vault_access                = false
+      key_vault_access                = true
       outbound_vnet_connectivity      = true
 
       app_settings = {
-        DATABASE_URL = var.database_connection_string
-        NODE_ENV     = var.node_environment
+        DATABASE_URL                = var.database_connection_string
+        NODE_ENV                    = var.node_environment
+        SERVICE_BUS_HOST            = "${var.service_bus_namespace_name}.servicebus.windows.net"
+        SERVICE_BUS_HOSTNAME        = "${var.service_bus_namespace_name}.servicebus.windows.net"
+        SERVICE_BUS_PASSWORD        = local.secret_refs["back-office-topic-key"]
+        SERVICE_BUS_PORT            = "5671"
+        SERVICE_BUS_RECONNECT_LIMIT = "5"
+        SERVICE_BUS_TRANSPORT       = "tls"
+        SERVICE_BUS_USERNAME        = "back-office-apps"
       }
     }
   }
 
   secret_names = [
-    "back-office-client-secret"
+    "back-office-client-secret",
+    "back-office-topic-key",
+    "os-places-api-key"
   ]
 
   secret_refs = {

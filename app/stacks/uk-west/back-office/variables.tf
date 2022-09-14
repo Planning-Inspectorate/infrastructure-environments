@@ -150,9 +150,3 @@ variable "sql_server_azuread_administrator" {
   description = "A map describing the AzureAD account used for the SQL server administrator"
   type        = map(string)
 }
-
-variable "os_places_api_key" {
-  description = "The OS Places API KEY for Back Office"
-  type        = string
-  default     = null
-}
