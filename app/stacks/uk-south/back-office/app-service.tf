@@ -31,7 +31,6 @@ module "app_services" {
   resource_group_name                              = azurerm_resource_group.back_office_stack.name
   resource_suffix                                  = local.resource_suffix
   service_name                                     = local.service_name
-  os_places_api_key                                = var.os_places_api_key
 
   tags = local.tags
 

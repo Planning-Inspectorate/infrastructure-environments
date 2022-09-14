@@ -162,9 +162,3 @@ variable "tags" {
   description = "The tags applied to all resources"
   type        = map(string)
 }
-
-variable "os_places_api_key" {
-  description = "The OS Places API KEY for Back Office"
-  type        = string
-  default     = null
-}

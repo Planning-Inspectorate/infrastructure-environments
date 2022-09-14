@@ -30,7 +30,6 @@ module "app_services" {
   resource_suffix                                  = local.resource_suffix
   service_bus_namespace_name                       = azurerm_servicebus_namespace.back_office.name
   service_name                                     = local.service_name
-  os_places_api_key                                = var.os_places_api_key
 
   tags = local.tags
 
