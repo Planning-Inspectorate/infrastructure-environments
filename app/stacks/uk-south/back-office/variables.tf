@@ -152,6 +152,11 @@ variable "private_endpoint_enabled" {
   default     = true
 }
 
+variable "primary_service_bus_namespace_id" {
+  description = "The ID of the primary Service Bus Namespace"
+  type        = string
+}
+
 variable "primary_sql_server_id" {
   description = "The ID of the primary Back Office SQL server"
   type        = string
