@@ -39,6 +39,7 @@ locals {
 
       app_settings = {
         ENCRYPTION_SECRET_KEY                               = local.secret_refs["applications-service-encryption-secret-key"]
+        FILE_UPLOADS_PATH                                   = "/opt/app/uploads"
         HAVING_YOUR_SAY_URL                                 = "https://${var.applications_service_public_url}/having-your-say-guide"
         LOGGER_LEVEL                                        = var.logger_level
         MAGIC_LINK_DOMAIN                                   = "https://${var.applications_service_public_url}/"
