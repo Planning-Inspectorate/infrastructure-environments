@@ -12,6 +12,7 @@ locals {
       app_settings = {
         APPLICATIONS_SERVICE_API_TIMEOUT   = var.api_timeout
         APPLICATIONS_SERVICE_API_URL       = "https://pins-app-${var.service_name}-applications-api-${var.resource_suffix}.azurewebsites.net/"
+        FILE_UPLOADS_PATH                  = "/opt/app/uploads"
         GOOGLE_ANALYTICS_ID                = var.google_analytics_id
         HOST_URL                           = "https://${var.applications_service_public_url}/"
         SESSION_KEY                        = local.secret_refs["applications-service-session-key"]
