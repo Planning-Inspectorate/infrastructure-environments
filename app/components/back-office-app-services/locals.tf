@@ -26,6 +26,7 @@ locals {
         APPLICATIONS_INSPECTOR_GROUP_ID          = var.azuread_applications_inspector_group_id
         NODE_ENV                                 = var.node_environment
         OS_PLACES_API_KEY                        = local.secret_refs["os-places-api-key"]
+        SESSION_SECRET                           = local.secret_refs["session-secret"]
       }
     }
 
@@ -56,7 +57,8 @@ locals {
   secret_names = [
     "back-office-client-secret",
     "back-office-topic-key",
-    "os-places-api-key"
+    "os-places-api-key",
+    "session-secret"
   ]
 
   secret_refs = {
