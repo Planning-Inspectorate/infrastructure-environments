@@ -57,7 +57,8 @@ locals {
   secret_names = [
     "back-office-client-secret",
     "back-office-topic-key",
-    "os-places-api-key"
+    "os-places-api-key",
+    "session-secret"
   ]
 
   secret_refs = {
