@@ -12,6 +12,7 @@ resource "azurerm_servicebus_queue" "horizon_householder_appeal_publish" {
   namespace_id = azurerm_servicebus_namespace.horizon.id
 
   enable_partitioning = true
+  max_delivery_count  = 100
 }
 
 resource "azurerm_servicebus_namespace_authorization_rule" "horizon_function_apps" {
