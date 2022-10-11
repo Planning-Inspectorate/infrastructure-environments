@@ -50,6 +50,11 @@ locals {
         MYSQL_PORT                                          = local.secret_refs["applications-service-mysql-port"]
         MYSQL_USERNAME                                      = local.secret_refs["applications-service-mysql-username"]
         NODE_ENV                                            = var.node_environment
+        NI_API_HOST                                         = local.secret_refs["applications-service-ni-api-host"]
+        NI_OAUTH_CLIENT_ID                                  = local.secret_refs["applications-service-ni-oauth-client-id"]
+        NI_OAUTH_CLIENT_SECRET                              = local.secret_refs["applications-service-ni-oauth-client-secret"]
+        NI_OAUTH_USERNAME                                   = local.secret_refs["applications-service-ni-oauth-username"]
+        NI_OAUTH_PASSWORD                                   = local.secret_refs["applications-service-ni-oauth-password"]
         PRELIMINARY_MEETING_URL                             = "https://${var.applications_service_public_url}/"
         SERVER_PORT                                         = "3000"
         SERVER_SHOW_ERRORS                                  = true
@@ -72,6 +77,11 @@ locals {
     "applications-service-mysql-password",
     "applications-service-mysql-port",
     "applications-service-mysql-username",
+    "applications-service-ni-api-host",
+    "applications-service-ni-oauth-client-id",
+    "applications-service-ni-oauth-client-secret",
+    "applications-service-ni-oauth-username",
+    "applications-service-ni-oauth-password",
     "applications-srv-notify-api-key",
     "applications-service-session-key"
   ]
