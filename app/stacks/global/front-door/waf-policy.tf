@@ -90,7 +90,7 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
     priority                       = 100
     type                           = "RateLimitRule"
     rate_limit_duration_in_minutes = 1
-    rate_limit_threshold           = 100
+    rate_limit_threshold           = 300
 
     match_condition {
       match_variable = "RequestMethod"
