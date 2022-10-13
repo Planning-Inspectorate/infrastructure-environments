@@ -29,6 +29,7 @@ This module also contains some resources such as Service Bus and Function Apps r
 
 | Name | Type |
 |------|------|
+| [azurerm_role_assignment.app_configuration_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/role_assignment) | resource |
 | [azurerm_servicebus_namespace.horizon](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_namespace) | resource |
 | [azurerm_servicebus_namespace_authorization_rule.horizon_function_apps](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_namespace_authorization_rule) | resource |
