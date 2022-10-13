@@ -104,7 +104,7 @@ locals {
       image_name                      = "appeal-planning-decision/documents-api"
       inbound_vnet_connectivity       = var.private_endpoint_enabled
       integration_subnet_id           = var.integration_subnet_id
-      key_vault_access                = false
+      key_vault_access                = true
       outbound_vnet_connectivity      = true
 
       app_settings = {
@@ -132,7 +132,7 @@ locals {
       endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
       image_name                      = "appeal-planning-decision/pdf-api"
       inbound_vnet_connectivity       = var.private_endpoint_enabled
-      key_vault_access                = false
+      key_vault_access                = true
       outbound_vnet_connectivity      = false
 
       app_settings = {
@@ -153,7 +153,7 @@ locals {
       endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
       image_name                      = "appeal-planning-decision/clamav-api"
       inbound_vnet_connectivity       = var.private_endpoint_enabled
-      key_vault_access                = false
+      key_vault_access                = true
       outbound_vnet_connectivity      = false
 
       app_settings = {
