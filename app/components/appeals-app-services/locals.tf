@@ -32,6 +32,7 @@ locals {
         HOST_URL                                   = "https://${var.appeals_service_public_url}"
         MICROSOFT_PROVIDER_AUTHENTICATION_SECRET   = local.secret_refs["appeals-microsoft-provider-authentication-secret"]
         PDF_SERVICE_API_URL                        = "https://pins-app-${var.service_name}-pdf-api-${var.resource_suffix}.azurewebsites.net"
+        PINS_FEATURE_FLAG_AZURE_ENDPOINT           = local.secret_refs["appeals-app-config-endpoint"]
         PORT                                       = "3000"
         SESSION_KEY                                = "some_key"
         SESSION_MONGODB_COLLECTION                 = "sessions"
@@ -78,6 +79,7 @@ locals {
         MONGODB_NAME                                                                = "appeals-service-api"
         MONGODB_URL                                                                 = var.cosmosdb_connection_string
         NODE_ENV                                                                    = var.node_environment
+        PINS_FEATURE_FLAG_AZURE_ENDPOINT                                            = local.secret_refs["appeals-app-config-endpoint"]
         SERVER_PORT                                                                 = "3000"
         SERVER_SHOW_ERRORS                                                          = true
         SERVER_TERMINATION_GRACE_PERIOD_SECONDS                                     = "0"
@@ -106,20 +108,21 @@ locals {
       outbound_vnet_connectivity      = true
 
       app_settings = {
-        BLOB_STORAGE_CONNECTION_STRING = var.appeal_documents_primary_blob_connection_string
-        DOCS_API_PATH                  = "/opt/app/api"
-        FILE_MAX_SIZE_IN_BYTES         = "15000000"
-        FILE_UPLOAD_PATH               = "/tmp/upload"
-        LOGGER_LEVEL                   = var.logger_level
-        MONGODB_AUTO_INDEX             = true
-        MONGODB_DB_NAME                = "documents-service-api"
-        MONGODB_URL                    = var.cosmosdb_connection_string
-        NODE_ENV                       = var.node_environment
-        SERVER_PORT                    = "4000",
-        SERVER_SHOW_ERRORS             = true
-        STORAGE_CONTAINER_NAME         = var.appeal_documents_storage_container_name
-        STORAGE_UPLOAD_MAX_ATTEMPTS    = "3"
-        STORAGE_UPLOAD_QUERY_LIMIT     = "5"
+        BLOB_STORAGE_CONNECTION_STRING   = var.appeal_documents_primary_blob_connection_string
+        DOCS_API_PATH                    = "/opt/app/api"
+        FILE_MAX_SIZE_IN_BYTES           = "15000000"
+        FILE_UPLOAD_PATH                 = "/tmp/upload"
+        LOGGER_LEVEL                     = var.logger_level
+        MONGODB_AUTO_INDEX               = true
+        MONGODB_DB_NAME                  = "documents-service-api"
+        MONGODB_URL                      = var.cosmosdb_connection_string
+        NODE_ENV                         = var.node_environment
+        PINS_FEATURE_FLAG_AZURE_ENDPOINT = local.secret_refs["appeals-app-config-endpoint"]
+        SERVER_PORT                      = "4000",
+        SERVER_SHOW_ERRORS               = true
+        STORAGE_CONTAINER_NAME           = var.appeal_documents_storage_container_name
+        STORAGE_UPLOAD_MAX_ATTEMPTS      = "3"
+        STORAGE_UPLOAD_QUERY_LIMIT       = "5"
       }
     }
 
@@ -137,6 +140,7 @@ locals {
         GOTENBERG_URL                           = "http://gotenberg:4000"
         LOGGER_LEVEL                            = var.logger_level
         NODE_ENV                                = var.node_environment
+        PINS_FEATURE_FLAG_AZURE_ENDPOINT        = local.secret_refs["appeals-app-config-endpoint"]
         SERVER_PORT                             = "3000"
         SERVER_SHOW_ERRORS                      = true
         SERVER_TERMINATION_GRACE_PERIOD_SECONDS = "0"
@@ -153,12 +157,13 @@ locals {
       outbound_vnet_connectivity      = false
 
       app_settings = {
-
+        PINS_FEATURE_FLAG_AZURE_ENDPOINT = local.secret_refs["appeals-app-config-endpoint"]
       }
     }
   }
 
   secret_names = [
+    "appeals-app-config-endpoint",
     "appeals-microsoft-provider-authentication-secret",
     "appeals-srv-notify-api-key"
   ]
