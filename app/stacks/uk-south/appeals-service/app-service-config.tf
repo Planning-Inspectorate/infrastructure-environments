@@ -15,7 +15,7 @@ resource "azurerm_private_endpoint" "appeals_app_config" {
   name                = "pins-pe-${local.service_name}-asc-${local.resource_suffix}"
   location            = azurerm_resource_group.appeals_service_stack.location
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
-  subnet_id           = var.integration_subnet_id
+  subnet_id           = azurerm_subnet.appeals_service_ingress.id
 
   private_dns_zone_group {
     name                 = "default"
