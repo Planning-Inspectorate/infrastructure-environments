@@ -104,7 +104,7 @@ locals {
       image_name                      = "appeal-planning-decision/documents-api"
       inbound_vnet_connectivity       = var.private_endpoint_enabled
       integration_subnet_id           = var.integration_subnet_id
-      key_vault_access                = false
+      key_vault_access                = true
       outbound_vnet_connectivity      = true
 
       app_settings = {
@@ -132,7 +132,7 @@ locals {
       endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
       image_name                      = "appeal-planning-decision/pdf-api"
       inbound_vnet_connectivity       = var.private_endpoint_enabled
-      key_vault_access                = false
+      key_vault_access                = true
       outbound_vnet_connectivity      = false
 
       app_settings = {
@@ -140,7 +140,6 @@ locals {
         GOTENBERG_URL                           = "http://gotenberg:4000"
         LOGGER_LEVEL                            = var.logger_level
         NODE_ENV                                = var.node_environment
-        PINS_FEATURE_FLAG_AZURE_ENDPOINT        = local.secret_refs["appeals-app-config-endpoint"]
         SERVER_PORT                             = "3000"
         SERVER_SHOW_ERRORS                      = true
         SERVER_TERMINATION_GRACE_PERIOD_SECONDS = "0"
@@ -157,7 +156,7 @@ locals {
       outbound_vnet_connectivity      = false
 
       app_settings = {
-        PINS_FEATURE_FLAG_AZURE_ENDPOINT = local.secret_refs["appeals-app-config-endpoint"]
+
       }
     }
   }
