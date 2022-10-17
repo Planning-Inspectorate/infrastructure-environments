@@ -35,7 +35,7 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
         action  = "Block"
 
         exclusion {
-          # Exclusion to allow acceptance of cookies
+          # Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address
           match_variable = "RequestCookieNames" # "CookieValue:cookie_policy"
           operator       = "Equals"
           selector       = "cookie_policy"
