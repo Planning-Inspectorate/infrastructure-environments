@@ -41,6 +41,19 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
           selector       = "cookie_policy"
         }
       }
+
+      rule {
+        # Possible Remote File Inclusion (RFI) Attack: Common RFI Vulnerable Parameter Name used w/URL Payload
+        rule_id = "930110"
+        action  = "Block"
+
+        exclusion {
+          # Exclusion to allow acceptance of cookies
+          match_variable = "RequestCookieNames" # "CookieValue:cookie_policy"
+          operator       = "Equals"
+          selector       = "cookie_policy"
+        }
+      }
     }
 
     override {
