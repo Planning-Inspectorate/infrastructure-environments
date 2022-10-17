@@ -30,8 +30,21 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
       rule_group_name = "LFI"
 
       rule {
-        # Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address
+        # Path Traversal Attack (/../)
         rule_id = "930100"
+        action  = "Block"
+
+        exclusion {
+          # Exclusion to allow acceptance of cookies
+          match_variable = "RequestCookieNames" # "CookieValue:cookie_policy"
+          operator       = "Equals"
+          selector       = "cookie_policy"
+        }
+      }
+
+      rule {
+        # Path Traversal Attack (/../)
+        rule_id = "930110"
         action  = "Block"
 
         exclusion {
