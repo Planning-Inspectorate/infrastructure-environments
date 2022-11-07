@@ -20,6 +20,10 @@ resource "azurerm_app_configuration_feature" "appeals_service" {
     default_rollout_percentage = try(each.value["targeting"]["percentage"], 100)
     users                      = try(each.value["targeting"]["users"], [])
   }
+
+  depends_on = [
+    azurerm_role_assignment.appeals_app_configuration_terraform
+  ]
 }
 
 resource "azurerm_private_endpoint" "appeals_app_config" {
@@ -41,4 +45,10 @@ resource "azurerm_private_endpoint" "appeals_app_config" {
   }
 
   tags = local.tags
+}
+
+resource "azurerm_role_assignment" "appeals_app_configuration_terraform" {
+  scope                = azurerm_app_configuration.appeals_service.id
+  role_definition_name = "App Configuration Data Owner"
+  principal_id         = data.azurerm_client_config.current.object_id
 }
