@@ -13,6 +13,11 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "appeals_feature_flags" {
+  description = "A list of maps describing feature flags to be saved in the App Configuration store"
+  type        = list(any)
+}
+
 variable "appeals_service_public_url" {
   description = "The public URL for the Appeals Service frontend web app"
   type        = string

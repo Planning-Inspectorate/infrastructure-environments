@@ -1,4 +1,13 @@
 locals {
+  appeals_feature_flags = [
+    {
+      name      = "as-5408-final-comments"
+      enabled   = false
+      targeting = {
+        percentage = 100
+      }
+    }
+  ]
   google_analytics_id                                                         = "G-TZBWMVPTHV"
   google_tag_manager_id                                                       = "GTM-KZN7XP4"
   horizon_url                                                                 = "http://10.224.161.68:8000"
