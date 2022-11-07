@@ -8,7 +8,7 @@ resource "azurerm_app_configuration" "appeals_service" {
 }
 
 resource "azurerm_app_configuration_feature" "appeals_service" {
-  for_each = toset(var.appeals_feature_flags)
+  for_each = { for feature in var.appeals_feature_flags : feature.name => feature }
 
   configuration_store_id = azurerm_app_configuration.appeals_service.id
   name                   = each.value["name"]
