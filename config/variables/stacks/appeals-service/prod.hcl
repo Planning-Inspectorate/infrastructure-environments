@@ -12,4 +12,6 @@ locals {
   srv_notify_save_and_return_enter_code_into_service_template_id              = "17fa62a6-81f6-49f7-87f0-b7a67d9ec5a0"
   srv_notify_service_id                                                       = "57ab0834-106d-438c-b0b9-3c8f2c268738"
   srv_notify_confirm_email_template_id                                        = "fef50c47-5ce4-4741-b89d-e31768b27bfd"
+  feature_flags                                                               = [{"name": "as-5408-final-comments", "enabled":"false", "targeting_filter": {"default_rollout_percentage": 100, "users": [""]}}] 
+
 }

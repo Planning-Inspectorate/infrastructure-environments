@@ -202,3 +202,9 @@ variable "srv_notify_start_email_to_lpa_template_id" {
   description = "A template ID required by the Appeals Service API"
   type        = string
 }
+
+variable "feature_flags" {
+  description = "Active feature flags for appeals ecosystem"
+  type        = list
+}
+

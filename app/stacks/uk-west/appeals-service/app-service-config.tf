@@ -6,7 +6,6 @@ resource "azurerm_app_configuration" "appeals_service" {
 
   tags = local.tags
 }
-
 resource "azurerm_private_endpoint" "appeals_app_config" {
   name                = "pins-pe-${local.service_name}-asc-${local.resource_suffix}"
   location            = azurerm_resource_group.appeals_service_stack.location
@@ -26,4 +25,12 @@ resource "azurerm_private_endpoint" "appeals_app_config" {
   }
 
   tags = local.tags
+}
+
+resource "azurerm_app_configuration_feature" "appeals_feature_flags" {
+  for_each = var.feature_flags
+  configuration_store_id = azurerm_app_configuration.appeals_service.id
+  name                   = each.value["name"]
+  enabled                = each.value["enabled"]
+  targeting_filter       = each.value["targeting_filter"] 
 }
