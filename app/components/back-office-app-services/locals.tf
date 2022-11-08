@@ -52,6 +52,21 @@ locals {
         SERVICE_BUS_USERNAME        = "back-office-apps"
       }
     }
+
+    back_office_document_storage_api = {
+      app_name                        = "document-storage-api"
+      app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
+      endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
+      image_name                      = "back-office/back-office-document-storage-api"
+      inbound_vnet_connectivity       = var.private_endpoint_enabled
+      integration_subnet_id           = var.integration_subnet_id
+      key_vault_access                = true
+      outbound_vnet_connectivity      = true
+
+      app_settings = {
+        NODE_ENV = var.node_environment
+      }
+    }
   }
 
   secret_names = [
