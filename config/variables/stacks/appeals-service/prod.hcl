@@ -5,6 +5,7 @@ locals {
       enabled   = false
       targeting = {
         percentage = 100
+        users = []
       }
     },
     {
@@ -12,8 +13,7 @@ locals {
       enabled     = true
       targeting   = {
         percentage = 100
-        users = ["E60000213", "E60000068"]
-      }
+        users = ["E69999999", "E60000213", "E60000068"]
       }
     }
   ]
