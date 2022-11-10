@@ -5,6 +5,7 @@ locals {
       enabled   = false
       targeting = {
         percentage = 100
+        users = []
       }
     },
     {
