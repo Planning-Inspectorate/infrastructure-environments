@@ -7,6 +7,14 @@ locals {
         percentage = 100
         users = ["E69999999"]
       }
+    },
+    {
+      name        = "horizon-document-labelling"
+      enabled     = true
+      targeting   = {
+        percentage = 100
+        users = ["E69999999", "E60000213", "E60000068"]
+      }
     }
   ]
   google_analytics_id                                                         = "G-TZBWMVPTHV"
