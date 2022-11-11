@@ -24,6 +24,7 @@ locals {
         APPLICATIONS_CASE_ADMIN_OFFICER_GROUP_ID = var.azuread_applications_case_admin_officer_group_id
         APPLICATIONS_CASEOFFICER_GROUP_ID        = var.azuread_applications_caseofficer_group_id
         APPLICATIONS_INSPECTOR_GROUP_ID          = var.azuread_applications_inspector_group_id
+        AZURE_BLOB_STORE_HOST                    = var.document_storage_api_host
         NODE_ENV                                 = var.node_environment
         OS_PLACES_API_KEY                        = local.secret_refs["os-places-api-key"]
         SESSION_SECRET                           = local.secret_refs["session-secret"]
