@@ -50,6 +50,11 @@ variable "azuread_applications_case_admin_officer_group_id" {
   default     = null
 }
 
+variable "back_office_document_storage_api_host" {
+  description = "The full failover URI to the storage account used for back office documents"
+  type        = string
+}
+
 variable "back_office_public_url" {
   description = "The public URL for the Back Office frontend web app"
   type        = string
