@@ -42,6 +42,8 @@ locals {
 
       app_settings = {
         DATABASE_URL                = var.database_connection_string
+        DOCUMENT_STORAGE_API_HOST   = "https://pins-app-${var.service_name}-document-storage-api-${var.resource_suffix}.azurewebsites.net"
+        DOCUMENT_STORAGE_API_PORT   = "3443"
         NODE_ENV                    = var.node_environment
         SERVICE_BUS_HOST            = "${var.service_bus_namespace_name}.servicebus.windows.net"
         SERVICE_BUS_HOSTNAME        = "${var.service_bus_namespace_name}.servicebus.windows.net"
@@ -64,7 +66,8 @@ locals {
       outbound_vnet_connectivity      = true
 
       app_settings = {
-        NODE_ENV = var.node_environment
+        AZURE_BLOB_STORE_HOST = var.document_storage_api_host
+        NODE_ENV              = var.node_environment
       }
     }
   }
