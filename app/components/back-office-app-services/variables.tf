@@ -89,6 +89,11 @@ variable "database_connection_string" {
   type        = string
 }
 
+variable "document_storage_api_host" {
+  description = "The full URI to the storage account used for back office documents"
+  type        = string
+}
+
 variable "endpoint_subnet_id" {
   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
   type        = string

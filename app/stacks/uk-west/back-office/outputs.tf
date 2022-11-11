@@ -3,6 +3,11 @@ output "app_service_urls" {
   value       = module.app_services.app_service_urls
 }
 
+output "back_office_document_storage_api_host" {
+  description = "The full failover URI to the storage account used for back office documents"
+  value       = azurerm_storage_account.back_office_documents.secondary_blob_endpoint
+}
+
 output "back_office_sql_database" {
   description = "The ID of the Back Office SQL database"
   value       = azurerm_mssql_database.back_office.id
