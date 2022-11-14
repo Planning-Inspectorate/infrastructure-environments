@@ -2,8 +2,8 @@ resource "azurerm_servicebus_namespace" "back_office" {
   name                = "pins-sb-${local.service_name}-${local.resource_suffix}"
   location            = azurerm_resource_group.back_office_stack.location
   resource_group_name = azurerm_resource_group.back_office_stack.name
-  sku                 = "Premium"
-  capacity            = 1
+  sku                 = var.service_bus_failover_enabled ? "Premium" : "Standard"
+  capacity            = var.service_bus_failover_enabled ? 1 : 0
 
   tags = local.tags
 }

@@ -141,6 +141,12 @@ variable "private_endpoint_enabled" {
   default     = true
 }
 
+variable "service_bus_failover_enabled" {
+  default     = false
+  description = "A switch to determine if Service Bus failover is enabled requiring the Premium SKU"
+  type        = bool
+}
+
 variable "sql_database_configuration" {
   description = "A map of database configuration options"
   type        = map(string)
