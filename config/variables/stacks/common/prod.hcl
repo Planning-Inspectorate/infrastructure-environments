@@ -5,7 +5,7 @@ locals {
       "anthony.walsh@planninginspectorate.gov.uk",
       "Gregg.Barron@planninginspectorate.gov.uk",
       "john.roberts@planninginspectorate.gov.uk",
-      "philip.philipou@planninginspectorate.gov.uk"
+      "philip.philippou@planninginspectorate.gov.uk"
     ]
   }
   appeals_service_ssl_certificate_name      = "pins-wildcard"
