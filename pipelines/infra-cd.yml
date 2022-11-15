@@ -64,7 +64,7 @@ extends:
                     environmentVariables:
                       ENV: $(ENVIRONMENT)
                       ${{ if eq(parameters.DRDeployment, 'true') }}:
-                        DR_DEPLOYMENT: true
+                        DR_DEPLOYMENT: ${{ true }}
                     subscriptionId: $(SUBSCRIPTION_ID)
                     ${{ if eq(parameters.region, 'all') }}:
                       workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
@@ -77,7 +77,7 @@ extends:
                     environmentVariables:
                       ENV: $(ENVIRONMENT)
                       ${{ if eq(parameters.DRDeployment, 'true') }}:
-                        DR_DEPLOYMENT: true
+                        DR_DEPLOYMENT: ${{ true }}
                     region: ${{ parameters.region }}
                     stack: ${{ parameters.stack }}
                     subscriptionId: $(SUBSCRIPTION_ID)
@@ -95,7 +95,7 @@ extends:
                     environmentVariables:
                       ENV: $(ENVIRONMENT)
                       ${{ if eq(parameters.DRDeployment, 'true') }}:
-                        DR_DEPLOYMENT: true
+                        DR_DEPLOYMENT: ${{ true }}
                     subscriptionId: $(SUBSCRIPTION_ID)
                     ${{ if eq(parameters.region, 'all') }}:
                       workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
