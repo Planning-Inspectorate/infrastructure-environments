@@ -167,6 +167,12 @@ variable "primary_sql_server_id" {
   type        = string
 }
 
+variable "service_bus_failover_enabled" {
+  default     = false
+  description = "A switch to determine if Service Bus failover is enabled requiring the Premium SKU"
+  type        = bool
+}
+
 variable "sql_server_azuread_administrator" {
   description = "A map describing the AzureAD account used for the SQL server administrator"
   type        = map(string)
