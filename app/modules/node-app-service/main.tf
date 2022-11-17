@@ -30,7 +30,7 @@ resource "azurerm_linux_web_app" "web_app" {
     http2_enabled = true
 
     application_stack {
-      docker_image     = "${data.azurerm_container_registry.acr.login_server}/${var.image_name}"
+      docker_image     = "${var.image_source}/${var.image_name}"
       docker_image_tag = "main"
     }
 

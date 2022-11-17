@@ -34,7 +34,8 @@ locals {
     clam_av = {
       app_name                             = "clam-av"
       app_service_plan_resource_group_name = var.app_service_plan_resource_group_name
-      image_name                           = "clamav/clamav"
+      image_source                         = "clamav"
+      image_name                           = "clamav"
       inbound_vnet_connectivity            = false
       integration_subnet_id                = var.integration_subnet_id
       outbound_vnet_connectivity           = false

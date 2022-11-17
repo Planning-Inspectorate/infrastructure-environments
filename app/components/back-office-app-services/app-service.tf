@@ -15,6 +15,7 @@ module "app_service" {
   custom_hostname_certificate_secret_id = can(each.value["custom_hostname_certificate_secret_id"]) ? each.value["custom_hostname_certificate_secret_id"] : null
   endpoint_subnet_id                    = can(each.value["endpoint_subnet_id"]) ? each.value["endpoint_subnet_id"] : null
   image_name                            = each.value["image_name"]
+  image_source                          = can(each.value["image_source"]) ? each.value["image_source"] : data.azurerm_container_registry.acr.login_server
   inbound_vnet_connectivity             = each.value["inbound_vnet_connectivity"]
   integration_subnet_id                 = can(each.value["integration_subnet_id"]) ? each.value["integration_subnet_id"] : null
   key_vault_id                          = each.value["key_vault_access"] ? var.key_vault_id : null
