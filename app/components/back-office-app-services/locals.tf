@@ -38,6 +38,8 @@ locals {
       inbound_vnet_connectivity            = false
       integration_subnet_id                = var.integration_subnet_id
       outbound_vnet_connectivity           = false
+      key_vault_access                     = false
+      app_settings                         = {}
     }
 
     back_office_api = {
