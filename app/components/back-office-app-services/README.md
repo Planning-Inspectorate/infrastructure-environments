@@ -27,7 +27,6 @@ This module contains the App Services resources for the Back Office service. The
 | Name | Type |
 |------|------|
 | [azurerm_container_group.clam_av](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/container_group) | resource |
-| [azurerm_resource_group.clam_av_group](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/resource_group) | resource |
 | [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/data-sources/client_config) | data source |
 
 ## Inputs

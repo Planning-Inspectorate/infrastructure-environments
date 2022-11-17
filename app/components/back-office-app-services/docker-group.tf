@@ -1,12 +1,7 @@
-resource "azurerm_resource_group" "clam_av_group" {
-  name     = "clam-av-group"
-  location = module.azure_region_uks.location
-}
-
 resource "azurerm_container_group" "clam_av" {
   name                = "clam-av"
-  location            = azurerm_resource_group.clam_av_group.location
-  resource_group_name = azurerm_resource_group.clam_av_group.name
+  location            = azurerm_resource_group.back_office_stack.location
+  resource_group_name = azurerm_resource_group.back_office_stack.name
   ip_address_type     = "Public"
   os_type             = "Linux"
   network_profile_id  = "network_profile_id"
