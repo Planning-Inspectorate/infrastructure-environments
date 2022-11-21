@@ -27,6 +27,7 @@ module "app_services" {
   srv_notify_base_url                                             = var.srv_notify_base_url
   srv_notify_ip_registration_confirmation_email_to_ip_template_id = var.srv_notify_ip_registration_confirmation_email_to_ip_template_id
   srv_notify_magic_link_email_template_id                         = var.srv_notify_magic_link_email_template_id
+  srv_notify_submission_complete_email_template_id                = var.srv_notify_submission_complete_email_template_id
   srv_notify_service_id                                           = var.srv_notify_service_id
   private_beta_v1_routes_only                                     = var.private_beta_v1_routes_only
   feature_save_and_exit_option                                    = var.feature_save_and_exit_option

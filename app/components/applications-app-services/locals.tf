@@ -63,6 +63,7 @@ locals {
         SRV_NOTIFY_BASE_URL                                 = var.srv_notify_base_url
         SRV_NOTIFY_IP_REGISTRATION_CONFIRMATION_EMAIL_TO_IP = var.srv_notify_ip_registration_confirmation_email_to_ip_template_id
         SRV_NOTIFY_MAGIC_LINK_EMAIL                         = var.srv_notify_magic_link_email_template_id
+        SRV_NOTIFY_SUBMISSION_COMPLETE_EMAIL                = var.srv_notify_submission_complete_email_template_id
         SRV_NOTIFY_SERVICE_ID                               = var.srv_notify_service_id
         DOCUMENTS_HOST                                      = var.documents_host
       }
