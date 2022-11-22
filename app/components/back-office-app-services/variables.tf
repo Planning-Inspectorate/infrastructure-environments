@@ -94,6 +94,11 @@ variable "document_storage_api_host" {
   type        = string
 }
 
+variable "document_storage_back_office_documents_id" {
+  description = "The azurerm_storage_account back_office_documents resource id"
+  type        = string
+}
+
 variable "document_storage_container" {
   description = "The container in Blob Storage used for Back Office storage of documents"
   type        = string
@@ -171,9 +176,4 @@ variable "service_name" {
 variable "tags" {
   description = "The tags applied to all resources"
   type        = map(string)
-}
-
-variable "resource_group_id" {
-  description = "The ID of the resource group that will contain the App Services"
-  type        = string
 }
