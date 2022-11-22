@@ -26,6 +26,7 @@ This module contains the App Services resources for the Back Office service. The
 
 | Name | Type |
 |------|------|
+| [azurerm_role_assignment.documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/role_assignment) | resource |
 | [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/data-sources/client_config) | data source |
 
 ## Inputs
