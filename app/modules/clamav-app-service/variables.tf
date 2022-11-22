@@ -1,3 +1,9 @@
+variable "app_settings" {
+  description = "The environment variables to be passed to the application"
+  type        = map(string)
+  default     = {}
+}
+
 variable "integration_subnet_id" {
   default     = null
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"

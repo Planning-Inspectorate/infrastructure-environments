@@ -29,6 +29,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_app_settings"></a> [app\_settings](#input\_app\_settings) | The environment variables to be passed to the application | `map(string)` | `{}` | no |
 | <a name="input_integration_subnet_id"></a> [integration\_subnet\_id](#input\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic | `string` | `null` | no |
 | <a name="input_listen_port"></a> [listen\_port](#input\_listen\_port) | The port on which the container will listen for requests | `number` | `3310` | no |
 | <a name="input_location"></a> [location](#input\_location) | The name of the app service location | `string` | n/a | yes |

@@ -20,6 +20,7 @@ This component contains the common infrastructure required by each environment. 
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_app_services"></a> [app\_services](#module\_app\_services) | ../../../modules/clamav-app-service | n/a |
 | <a name="module_azure_region_ukw"></a> [azure\_region\_ukw](#module\_azure\_region\_ukw) | claranet/regions/azurerm | 4.2.1 |
 | <a name="module_networking"></a> [networking](#module\_networking) | ../../../components/networking | n/a |
 
