@@ -1,16 +1,16 @@
 resource "azurerm_service_plan" "clamav_service_plan" {
-  name                = "pins-asp-clamav-${local.resource_suffix}"
+  name                = "pins-asp-clamav-${var.resource_suffix}"
   location            = var.location
   resource_group_name = var.resource_group_name
 
   os_type  = "Linux"
-  sku_name = "P1v2"
+  sku_name = var.service_plan_sku
 
-  tags = local.tags
+  tags = var.tags
 }
 
 resource "azurerm_linux_web_app" "clamav" {
-  name                = "pins-app-${var.service_name}-${var.app_name}-${var.resource_suffix}"
+  name                = "pins-app-clamav-${var.resource_suffix}"
   location            = var.location
   resource_group_name = var.resource_group_name
   service_plan_id     = azurerm_service_plan.clamav_service_plan.id
