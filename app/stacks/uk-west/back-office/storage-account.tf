@@ -17,6 +17,15 @@ resource "azurerm_storage_account" "back_office_documents" {
   enable_https_traffic_only        = true
   min_tls_version                  = "TLS1_2"
   tags                             = local.tags
+  blob_properties {
+    cors_rule {
+      allowed_headers    = ["*"]
+      allowed_methods    = ["GET", "OPTIONS", "PUT"]
+      allowed_origins    = ["https://back-office-${var.environment}.planninginspectorate.gov.uk"]
+      exposed_headers    = ["*"]
+      max_age_in_seconds = "600"
+    }
+  }
 }
 
 resource "azurerm_storage_container" "back_office_documents_container" {
