@@ -67,8 +67,9 @@ locals {
       outbound_vnet_connectivity      = true
 
       app_settings = {
-        AZURE_BLOB_STORE_HOST = var.document_storage_api_host
-        NODE_ENV              = var.node_environment
+        AZURE_BLOB_STORE_HOST      = var.document_storage_api_host
+        AZURE_BLOB_STORE_CONTAINER = var.document_storage_container
+        NODE_ENV                   = var.node_environment
       }
     }
   }

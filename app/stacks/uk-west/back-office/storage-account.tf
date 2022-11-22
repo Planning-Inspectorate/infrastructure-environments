@@ -18,3 +18,11 @@ resource "azurerm_storage_account" "back_office_documents" {
   min_tls_version                  = "TLS1_2"
   tags                             = local.tags
 }
+
+resource "azurerm_storage_container" "back_office_documents_container" {
+  #TODO: Logging
+  #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
+  name                  = "document-service-uploads"
+  storage_account_name  = azurerm_storage_account.back_office_documents.name
+  container_access_type = "private"
+}

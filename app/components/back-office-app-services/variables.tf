@@ -94,6 +94,11 @@ variable "document_storage_api_host" {
   type        = string
 }
 
+variable "document_storage_container" {
+  description = "The container in Blob Storage used for Back Office storage of documents"
+  type        = string
+}
+
 variable "endpoint_subnet_id" {
   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
   type        = string
@@ -166,4 +171,9 @@ variable "service_name" {
 variable "tags" {
   description = "The tags applied to all resources"
   type        = map(string)
+}
+
+variable "resource_group_id" {
+  description = "The ID of the resource group that will contain the App Services"
+  type        = string
 }
