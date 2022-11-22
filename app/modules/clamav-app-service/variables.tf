@@ -4,6 +4,18 @@ variable "app_settings" {
   default     = {}
 }
 
+variable "endpoint_subnet_id" {
+  default     = null
+  description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
+  type        = string
+}
+
+variable "inbound_vnet_connectivity" {
+  default     = false
+  description = "Indicates whether inbound connectivity (Private Endpoint) is required"
+  type        = bool
+}
+
 variable "integration_subnet_id" {
   default     = null
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"

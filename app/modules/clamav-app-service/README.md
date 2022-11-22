@@ -5,13 +5,16 @@ This Terraform module creates an App service to deploy ClamAV.
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.6.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | n/a |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.6.0 |
+| <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 3.6.0 |
 
 ## Modules
 
@@ -21,15 +24,19 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [azurerm_app_service_virtual_network_swift_connection.vnet_connection](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service_virtual_network_swift_connection) | resource |
-| [azurerm_linux_web_app.clamav](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app) | resource |
-| [azurerm_service_plan.clamav_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan) | resource |
+| [azurerm_app_service_virtual_network_swift_connection.vnet_connection](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/app_service_virtual_network_swift_connection) | resource |
+| [azurerm_linux_web_app.clamav](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/linux_web_app) | resource |
+| [azurerm_private_endpoint.private_endpoint](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/private_endpoint) | resource |
+| [azurerm_service_plan.clamav_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/service_plan) | resource |
+| [azurerm_private_dns_zone.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/data-sources/private_dns_zone) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_app_settings"></a> [app\_settings](#input\_app\_settings) | The environment variables to be passed to the application | `map(string)` | `{}` | no |
+| <a name="input_endpoint_subnet_id"></a> [endpoint\_subnet\_id](#input\_endpoint\_subnet\_id) | The id of the private endpoint subnet the app service is linked to for ingress traffic | `string` | `null` | no |
+| <a name="input_inbound_vnet_connectivity"></a> [inbound\_vnet\_connectivity](#input\_inbound\_vnet\_connectivity) | Indicates whether inbound connectivity (Private Endpoint) is required | `bool` | `false` | no |
 | <a name="input_integration_subnet_id"></a> [integration\_subnet\_id](#input\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic | `string` | `null` | no |
 | <a name="input_listen_port"></a> [listen\_port](#input\_listen\_port) | The port on which the container will listen for requests | `number` | `3310` | no |
 | <a name="input_location"></a> [location](#input\_location) | The name of the app service location | `string` | n/a | yes |
