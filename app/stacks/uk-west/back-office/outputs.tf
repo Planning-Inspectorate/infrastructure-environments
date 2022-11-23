@@ -8,7 +8,12 @@ output "back_office_document_storage_api_host" {
   value       = azurerm_storage_account.back_office_documents.secondary_blob_endpoint
 }
 
-output "document_storage_back_office_documents_id" {
+output "back_office_document_storage_container_name" {
+  description = "The back office blob storage container name"
+  value       = azurerm_storage_container.back_office_documents_container.name
+}
+
+output "back_office_document_storage_documents_id" {
   description = "The azurerm_storage_account back_office_documents resource id"
   value       = azurerm_storage_account.back_office_documents.id
 }

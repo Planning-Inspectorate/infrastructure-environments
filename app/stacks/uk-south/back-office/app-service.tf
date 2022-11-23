@@ -20,8 +20,8 @@ module "app_services" {
   custom_hostname_certificate_secret_id            = data.azurerm_key_vault_certificate.wildcard_certificate.id
   database_connection_string                       = local.sql_connection_string
   document_storage_api_host                        = var.back_office_document_storage_api_host
-  document_storage_container                       = azurerm_storage_container.back_office_documents_container.name
-  document_storage_back_office_documents_id        = azurerm_storage_account.back_office_documents.id
+  document_storage_container                       = var.back_office_document_storage_container_name
+  document_storage_back_office_documents_id        = var.back_office_document_storage_documents_id
   endpoint_subnet_id                               = azurerm_subnet.back_office_ingress.id
   integration_subnet_id                            = var.integration_subnet_id
   key_vault_id                                     = var.key_vault_id
