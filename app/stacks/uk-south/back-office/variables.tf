@@ -55,6 +55,16 @@ variable "back_office_document_storage_api_host" {
   type        = string
 }
 
+variable "back_office_document_storage_container_name" {
+  description = "The back office blob storage container name"
+  type        = string
+}
+
+variable "back_office_document_storage_documents_id" {
+  description = "The back office blob storage resource id"
+  type        = string
+}
+
 variable "back_office_public_url" {
   description = "The public URL for the Back Office frontend web app"
   type        = string

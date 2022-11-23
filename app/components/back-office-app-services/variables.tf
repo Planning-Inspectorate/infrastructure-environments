@@ -94,6 +94,16 @@ variable "document_storage_api_host" {
   type        = string
 }
 
+variable "document_storage_back_office_documents_id" {
+  description = "The azurerm_storage_account back_office_documents resource id"
+  type        = string
+}
+
+variable "document_storage_container" {
+  description = "The container in Blob Storage used for Back Office storage of documents"
+  type        = string
+}
+
 variable "endpoint_subnet_id" {
   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
   type        = string
