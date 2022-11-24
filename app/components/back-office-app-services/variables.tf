@@ -89,6 +89,21 @@ variable "database_connection_string" {
   type        = string
 }
 
+variable "document_storage_api_host" {
+  description = "The full URI to the storage account used for back office documents"
+  type        = string
+}
+
+variable "document_storage_back_office_documents_id" {
+  description = "The azurerm_storage_account back_office_documents resource id"
+  type        = string
+}
+
+variable "document_storage_container" {
+  description = "The container in Blob Storage used for Back Office storage of documents"
+  type        = string
+}
+
 variable "endpoint_subnet_id" {
   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
   type        = string
@@ -147,6 +162,12 @@ variable "resource_suffix" {
   type        = string
 }
 
+variable "service_bus_namespace_name" {
+  default     = null
+  description = "The name of the Back Office service bus namespace"
+  type        = string
+}
+
 variable "service_name" {
   description = "The name of the service the Azure App Services are part of"
   type        = string
@@ -155,10 +176,4 @@ variable "service_name" {
 variable "tags" {
   description = "The tags applied to all resources"
   type        = map(string)
-}
-
-variable "os_places_api_key" {
-  description = "The OS Places API KEY for Back Office"
-  type        = string
-  default     = null
 }

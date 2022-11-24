@@ -122,6 +122,11 @@ variable "srv_notify_magic_link_email_template_id" {
   type        = string
 }
 
+variable "srv_notify_submission_complete_email_template_id" {
+  description = "The template ID for the submission complete email"
+  type        = string
+}
+
 variable "srv_notify_service_id" {
   description = "The ID of the Notifications service"
   type        = string
@@ -144,6 +149,16 @@ variable "feature_show_affected_area_section" {
 
 variable "feature_hide_project_timeline_link" {
   description = "Feature toggle to show / hide the project timeline link on project overview nav bar"
+  type        = string
+}
+
+variable "feature_allow_document_library" {
+  description = "Feature toggle for limiting the web app routes to document library"
+  type        = string
+}
+
+variable "feature_allow_representation" {
+  description = "Feature toggle for limiting the web app routes to representation"
   type        = string
 }
 

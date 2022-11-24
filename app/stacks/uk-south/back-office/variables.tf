@@ -50,6 +50,21 @@ variable "azuread_applications_case_admin_officer_group_id" {
   default     = null
 }
 
+variable "back_office_document_storage_api_host" {
+  description = "The full failover URI to the storage account used for back office documents"
+  type        = string
+}
+
+variable "back_office_document_storage_container_name" {
+  description = "The back office blob storage container name"
+  type        = string
+}
+
+variable "back_office_document_storage_documents_id" {
+  description = "The back office blob storage resource id"
+  type        = string
+}
+
 variable "back_office_public_url" {
   description = "The public URL for the Back Office frontend web app"
   type        = string
@@ -152,9 +167,20 @@ variable "private_endpoint_enabled" {
   default     = true
 }
 
+variable "primary_service_bus_namespace_id" {
+  description = "The ID of the primary Service Bus Namespace"
+  type        = string
+}
+
 variable "primary_sql_server_id" {
   description = "The ID of the primary Back Office SQL server"
   type        = string
+}
+
+variable "service_bus_failover_enabled" {
+  default     = false
+  description = "A switch to determine if Service Bus failover is enabled requiring the Premium SKU"
+  type        = bool
 }
 
 variable "sql_server_azuread_administrator" {
@@ -172,10 +198,4 @@ variable "sql_server_username" {
   description = "The SQL server administrator username"
   sensitive   = true
   type        = string
-}
-
-variable "os_places_api_key" {
-  description = "The OS Places API KEY for Back Office"
-  type        = string
-  default     = null
 }

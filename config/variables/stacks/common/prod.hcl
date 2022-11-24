@@ -1,9 +1,11 @@
 locals {
   alert_recipients = {
     low = [
+      "Alexander.douglas@planninginspectorate.gov.uk",
       "anthony.walsh@planninginspectorate.gov.uk",
-      "chris.nash@planninginspectorate.gov.uk",
-      "john.roberts@planninginspectorate.gov.uk"
+      "Gregg.Barron@planninginspectorate.gov.uk",
+      "john.roberts@planninginspectorate.gov.uk",
+      "philip.philippou@planninginspectorate.gov.uk"
     ]
   }
   appeals_service_ssl_certificate_name      = "pins-wildcard"

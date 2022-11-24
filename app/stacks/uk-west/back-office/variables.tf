@@ -141,6 +141,12 @@ variable "private_endpoint_enabled" {
   default     = true
 }
 
+variable "service_bus_failover_enabled" {
+  default     = false
+  description = "A switch to determine if Service Bus failover is enabled requiring the Premium SKU"
+  type        = bool
+}
+
 variable "sql_database_configuration" {
   description = "A map of database configuration options"
   type        = map(string)
@@ -149,10 +155,4 @@ variable "sql_database_configuration" {
 variable "sql_server_azuread_administrator" {
   description = "A map describing the AzureAD account used for the SQL server administrator"
   type        = map(string)
-}
-
-variable "os_places_api_key" {
-  description = "The OS Places API KEY for Back Office"
-  type        = string
-  default     = null
 }

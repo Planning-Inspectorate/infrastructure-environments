@@ -12,6 +12,7 @@ locals {
       app_settings = {
         APPLICATIONS_SERVICE_API_TIMEOUT   = var.api_timeout
         APPLICATIONS_SERVICE_API_URL       = "https://pins-app-${var.service_name}-applications-api-${var.resource_suffix}.azurewebsites.net/"
+        FILE_UPLOADS_PATH                  = "/opt/app/uploads"
         GOOGLE_ANALYTICS_ID                = var.google_analytics_id
         HOST_URL                           = "https://${var.applications_service_public_url}/"
         SESSION_KEY                        = local.secret_refs["applications-service-session-key"]
@@ -21,6 +22,8 @@ locals {
         FEATURE_SAVE_AND_EXIT_OPTION       = var.feature_save_and_exit_option
         FEATURE_SHOW_AFFECTED_AREA_SECTION = var.feature_show_affected_area_section
         FEATURE_PROJECT_TIMELINE_LINK      = var.feature_hide_project_timeline_link
+        FEATURE_ALLOW_DOCUMENT_LIBRARY     = var.feature_allow_document_library
+        FEATURE_ALLOW_REPRESENTATION       = var.feature_allow_representation
       }
     }
 
@@ -36,6 +39,7 @@ locals {
 
       app_settings = {
         ENCRYPTION_SECRET_KEY                               = local.secret_refs["applications-service-encryption-secret-key"]
+        FILE_UPLOADS_PATH                                   = "/opt/app/uploads"
         HAVING_YOUR_SAY_URL                                 = "https://${var.applications_service_public_url}/having-your-say-guide"
         LOGGER_LEVEL                                        = var.logger_level
         MAGIC_LINK_DOMAIN                                   = "https://${var.applications_service_public_url}/"
@@ -46,6 +50,11 @@ locals {
         MYSQL_PORT                                          = local.secret_refs["applications-service-mysql-port"]
         MYSQL_USERNAME                                      = local.secret_refs["applications-service-mysql-username"]
         NODE_ENV                                            = var.node_environment
+        NI_API_HOST                                         = local.secret_refs["applications-service-ni-api-host"]
+        NI_OAUTH_CLIENT_ID                                  = local.secret_refs["applications-service-ni-oauth-client-id"]
+        NI_OAUTH_CLIENT_SECRET                              = local.secret_refs["applications-service-ni-oauth-client-secret"]
+        NI_OAUTH_USERNAME                                   = local.secret_refs["applications-service-ni-oauth-username"]
+        NI_OAUTH_PASSWORD                                   = local.secret_refs["applications-service-ni-oauth-password"]
         PRELIMINARY_MEETING_URL                             = "https://${var.applications_service_public_url}/"
         SERVER_PORT                                         = "3000"
         SERVER_SHOW_ERRORS                                  = true
@@ -54,6 +63,7 @@ locals {
         SRV_NOTIFY_BASE_URL                                 = var.srv_notify_base_url
         SRV_NOTIFY_IP_REGISTRATION_CONFIRMATION_EMAIL_TO_IP = var.srv_notify_ip_registration_confirmation_email_to_ip_template_id
         SRV_NOTIFY_MAGIC_LINK_EMAIL                         = var.srv_notify_magic_link_email_template_id
+        SRV_NOTIFY_SUBMISSION_COMPLETE_EMAIL                = var.srv_notify_submission_complete_email_template_id
         SRV_NOTIFY_SERVICE_ID                               = var.srv_notify_service_id
         DOCUMENTS_HOST                                      = var.documents_host
       }
@@ -68,6 +78,11 @@ locals {
     "applications-service-mysql-password",
     "applications-service-mysql-port",
     "applications-service-mysql-username",
+    "applications-service-ni-api-host",
+    "applications-service-ni-oauth-client-id",
+    "applications-service-ni-oauth-client-secret",
+    "applications-service-ni-oauth-username",
+    "applications-service-ni-oauth-password",
     "applications-srv-notify-api-key",
     "applications-service-session-key"
   ]

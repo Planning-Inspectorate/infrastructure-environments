@@ -19,6 +19,9 @@ module "app_services" {
   custom_hostname                                  = var.back_office_public_url
   custom_hostname_certificate_secret_id            = data.azurerm_key_vault_certificate.wildcard_certificate.id
   database_connection_string                       = local.sql_connection_string
+  document_storage_api_host                        = var.back_office_document_storage_api_host
+  document_storage_container                       = var.back_office_document_storage_container_name
+  document_storage_back_office_documents_id        = var.back_office_document_storage_documents_id
   endpoint_subnet_id                               = azurerm_subnet.back_office_ingress.id
   integration_subnet_id                            = var.integration_subnet_id
   key_vault_id                                     = var.key_vault_id
@@ -30,8 +33,8 @@ module "app_services" {
   private_endpoint_enabled                         = var.private_endpoint_enabled
   resource_group_name                              = azurerm_resource_group.back_office_stack.name
   resource_suffix                                  = local.resource_suffix
+  service_bus_namespace_name                       = azurerm_servicebus_namespace.back_office[0].name
   service_name                                     = local.service_name
-  os_places_api_key                                = var.os_places_api_key
 
   tags = local.tags
 
