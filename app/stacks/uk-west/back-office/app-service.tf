@@ -32,6 +32,7 @@ module "app_services" {
   resource_group_name                              = azurerm_resource_group.back_office_stack.name
   resource_suffix                                  = local.resource_suffix
   service_bus_namespace_name                       = azurerm_servicebus_namespace.back_office.name
+  service_bus_namespace_id                         = azurerm_servicebus_namespace.back_office[0].id
   service_name                                     = local.service_name
 
   tags = local.tags
