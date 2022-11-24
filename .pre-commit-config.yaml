@@ -15,7 +15,7 @@ repos:
         pass_filenames: false
         require_serial: true
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.62.0
+    rev: v1.74.1
     hooks:
       - id: terraform_validate
         exclude: |
@@ -33,7 +33,7 @@ repos:
         pass_filenames: false
         require_serial: true
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.62.0
+    rev: v1.74.1
     hooks:
       - id: terraform_docs
       - id: terraform_fmt
@@ -41,4 +41,4 @@ repos:
         args:
           - --args=--config=__GIT_WORKING_DIR__/.tflint.hcl
       - id: terragrunt_fmt
-      - id: checkov
+      - id: terraform_checkov

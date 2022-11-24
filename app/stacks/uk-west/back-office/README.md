@@ -87,6 +87,7 @@ No requirements.
 | <a name="input_service_bus_failover_enabled"></a> [service\_bus\_failover\_enabled](#input\_service\_bus\_failover\_enabled) | A switch to determine if Service Bus failover is enabled requiring the Premium SKU | `bool` | `false` | no |
 | <a name="input_sql_database_configuration"></a> [sql\_database\_configuration](#input\_sql\_database\_configuration) | A map of database configuration options | `map(string)` | n/a | yes |
 | <a name="input_sql_server_azuread_administrator"></a> [sql\_server\_azuread\_administrator](#input\_sql\_server\_azuread\_administrator) | A map describing the AzureAD account used for the SQL server administrator | `map(string)` | n/a | yes |
+| <a name="input_test_tflint_fail"></a> [test\_tflint\_fail](#input\_test\_tflint\_fail) | none | `string` | n/a | yes |
 
 ## Outputs
 
