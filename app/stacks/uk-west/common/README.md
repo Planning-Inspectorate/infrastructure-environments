@@ -45,6 +45,7 @@ No requirements.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_alert_recipients"></a> [alert\_recipients](#input\_alert\_recipients) | The email recipients for monitoring alerts | `map(list(string))` | n/a | yes |
+| <a name="input_app_service_plan_sku"></a> [app\_service\_plan\_sku](#input\_app\_service\_plan\_sku) | The SKU of the App Service Plan | `string` | `"P1v2"` | no |
 | <a name="input_app_service_principal_id"></a> [app\_service\_principal\_id](#input\_app\_service\_principal\_id) | The ID of the service principal associated with App Service in the tenant | `string` | n/a | yes |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | The common resource tags for the project | `map(string)` | n/a | yes |
 | <a name="input_cosmosdb_enable_public_access"></a> [cosmosdb\_enable\_public\_access](#input\_cosmosdb\_enable\_public\_access) | A flag to indicate if the database can be accessed over the internet | `string` | `false` | no |

@@ -1,3 +1,9 @@
+variable "app_service_plan_sku" {
+  default     = "P1v2"
+  description = "The SKU of the App Service Plan"
+  type        = string
+}
+
 variable "applications_service_vpn_gateway_shared_key" {
   description = "The applications service virtual network gateway shared key"
   sensitive   = true
