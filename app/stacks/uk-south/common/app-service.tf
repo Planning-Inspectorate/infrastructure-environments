@@ -6,7 +6,7 @@ resource "azurerm_service_plan" "common_service_plan" {
   resource_group_name = azurerm_resource_group.common_infrastructure.name
 
   os_type  = "Linux"
-  sku_name = "P1v2"
+  sku_name = var.app_service_plan_sku
 
   tags = local.tags
 }
