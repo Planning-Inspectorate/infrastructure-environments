@@ -21,6 +21,8 @@ module "app_services" {
   document_storage_container                       = azurerm_storage_container.back_office_documents_container.name
   document_storage_back_office_documents_id        = azurerm_storage_account.back_office_documents.id
   endpoint_subnet_id                               = azurerm_subnet.back_office_ingress.id
+  function_apps_storage_account                    = azurerm_storage_account.back_office_documents.name
+  function_apps_storage_account_access_key         = azurerm_storage_account.back_office_documents.primary_access_key
   integration_subnet_id                            = var.integration_subnet_id
   key_vault_id                                     = var.key_vault_id
   key_vault_uri                                    = var.key_vault_uri

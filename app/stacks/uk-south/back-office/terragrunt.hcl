@@ -40,6 +40,8 @@ dependency "back_office_ukw" {
     back_office_document_storage_documents_id   = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Storage/storageAccounts/mockstorageaccount"
     back_office_sql_database                    = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Sql/servers/mock_sql_server/databases/mock_sql_db"
     back_office_document_storage_container_name = "mock-name"
+    function_apps_storage_account               = "mockstorageaccount"
+    function_apps_storage_account_access_key    = "mockaccesskey"
     service_bus_namespace_id                    = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock_sb_namespace"
     sql_server_id                               = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Sql/servers/mock_sql_server"
     sql_server_password                         = "mockpass"
@@ -57,6 +59,8 @@ inputs = {
   common_resource_group_name                  = dependency.common_uks.outputs.common_resource_group_name
   common_vnet_cidr_blocks                     = dependency.common_uks.outputs.common_vnet_cidr_blocks
   common_vnet_name                            = dependency.common_uks.outputs.common_vnet_name
+  function_apps_storage_account               = dependency.back_office_ukw.outputs.function_apps_storage_account
+  function_apps_storage_account_access_key    = dependency.back_office_ukw.outputs.function_apps_storage_account_access_key
   integration_subnet_id                       = dependency.common_uks.outputs.integration_subnet_id
   key_vault_id                                = dependency.common_ukw.outputs.key_vault_id
   key_vault_uri                               = dependency.common_ukw.outputs.key_vault_uri
