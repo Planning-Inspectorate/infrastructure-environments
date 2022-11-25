@@ -53,7 +53,7 @@ locals {
         SERVICE_BUS_RECONNECT_LIMIT = "5"
         SERVICE_BUS_TRANSPORT       = "tls"
         SERVICE_BUS_USERNAME        = "back-office-apps"
-        SERVICE_BUS_ENABLED         = var.service_bus_enabled
+        SERVICE_BUS_ENABLED         = var.feature_service_bus_enabled
       }
     }
 
