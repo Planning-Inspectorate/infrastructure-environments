@@ -109,6 +109,16 @@ variable "endpoint_subnet_id" {
   type        = string
 }
 
+variable "function_apps_storage_account" {
+  description = "Storage account for function"
+  type        = string
+}
+
+variable "function_apps_storage_account_access_key" {
+  description = "Storage account for function access key"
+  type        = string
+}
+
 variable "integration_subnet_id" {
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   type        = string
