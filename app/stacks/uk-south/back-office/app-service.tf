@@ -36,6 +36,7 @@ module "app_services" {
   service_bus_namespace_name                       = azurerm_servicebus_namespace.back_office[0].name
   service_bus_namespace_id                         = azurerm_servicebus_namespace.back_office[0].id
   service_name                                     = local.service_name
+  feature_service_bus_enabled                      = var.feature_service_bus_enabled
 
   tags = local.tags
 

@@ -183,3 +183,8 @@ variable "tags" {
   description = "The tags applied to all resources"
   type        = map(string)
 }
+
+variable "feature_service_bus_enabled" {
+  description = "Whether or not Service Bus events are enabled"
+  type        = string
+}

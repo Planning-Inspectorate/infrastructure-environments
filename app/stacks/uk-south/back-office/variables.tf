@@ -199,3 +199,8 @@ variable "sql_server_username" {
   sensitive   = true
   type        = string
 }
+
+variable "feature_service_bus_enabled" {
+  description = "Whether or not Service Bus events are enabled"
+  type        = string
+}
