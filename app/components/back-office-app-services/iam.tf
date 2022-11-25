@@ -9,3 +9,10 @@ resource "azurerm_role_assignment" "applications_caseofficer_documents_access" {
   role_definition_name = "Storage Blob Data Contributor"
   principal_id         = var.azuread_applications_caseofficer_group_id
 }
+
+# For now, allow the back office to publish to all topics in the namespace - we can scope this down to topics later
+resource "azurerm_role_assignment" "back_office_app_send_service_bus_access" {
+  scope                = var.service_bus_namespace_id
+  role_definition_name = "Azure Service Bus Data Sender"
+  principal_id         = module.app_service["back_office_api"].principal_id
+}

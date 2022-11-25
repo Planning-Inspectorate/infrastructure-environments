@@ -8,6 +8,7 @@ resource "azurerm_servicebus_namespace" "back_office" {
   tags = local.tags
 }
 
+# case-started
 resource "azurerm_servicebus_topic" "case_started" {
   name         = "case-started"
   namespace_id = azurerm_servicebus_namespace.back_office.id
@@ -26,4 +27,17 @@ resource "azurerm_servicebus_namespace_authorization_rule" "back_office_apps" {
   listen = true
   send   = true
   manage = false
+}
+
+# NSIP project
+resource "azurerm_servicebus_topic" "nsip_project" {
+  name                = "nsip-project"
+  namespace_id        = azurerm_servicebus_namespace.back_office.id
+  default_message_ttl = "P14D"
+}
+
+resource "azurerm_servicebus_subscription" "nsip_project_poc" {
+  name               = "nsip-project-poc-subscriber"
+  topic_id           = azurerm_servicebus_topic.nsip_project.id
+  max_delivery_count = 1
 }
