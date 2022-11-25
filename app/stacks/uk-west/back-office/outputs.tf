@@ -30,6 +30,7 @@ output "function_apps_storage_account" {
 
 output "function_apps_storage_account_access_key" {
   description = "Function app storage account access key"
+  sensitive   = true
   value       = azurerm_storage_account.back_office_documents.primary_access_key
 }
 
