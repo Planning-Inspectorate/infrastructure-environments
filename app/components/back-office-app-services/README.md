@@ -19,9 +19,9 @@ This module contains the App Services resources for the Back Office service. The
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_anti_virus_functions"></a> [anti\_virus\_functions](#module\_anti\_virus\_functions) | ../../modules/node-function-app | n/a |
 | <a name="module_app_service"></a> [app\_service](#module\_app\_service) | ../../modules/node-app-service | n/a |
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
-| <a name="module_horizon_functions"></a> [horizon\_functions](#module\_horizon\_functions) | ../../modules/node-function-app | n/a |
 
 ## Resources
 

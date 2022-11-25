@@ -1,4 +1,4 @@
-module "horizon_functions" {
+module "anti_virus_functions" {
   source = "../../modules/node-function-app"
 
   action_group_low_id                      = var.action_group_low_id

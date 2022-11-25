@@ -116,6 +116,16 @@ variable "environment" {
   type        = string
 }
 
+variable "function_apps_storage_account" {
+  description = "Function app storage account"
+  type        = string
+}
+
+variable "function_apps_storage_account_access_key" {
+  description = "Function app storage account access key"
+  type        = string
+}
+
 variable "instance" {
   description = "The environment instance for use if multiple environments are deployed to a subscription"
   type        = string
