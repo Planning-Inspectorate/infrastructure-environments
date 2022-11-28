@@ -15,6 +15,7 @@ module "anti_virus_functions" {
   resource_suffix                          = var.resource_suffix
   service_name                             = var.service_name
 
+  app_settings = {}
   #   app_settings = {
   #     APPEALS_SERVICE_URL  = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
   #     DOCUMENT_SERVICE_URL = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net"

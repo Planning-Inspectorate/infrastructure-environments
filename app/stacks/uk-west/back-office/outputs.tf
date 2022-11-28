@@ -25,13 +25,13 @@ output "back_office_sql_database" {
 
 output "function_apps_storage_account" {
   description = "Function app storage account"
-  value       = azurerm_storage_account.back_office_documents.name
+  value       = azurerm_storage_account.function_storage.name
 }
 
 output "function_apps_storage_account_access_key" {
   description = "Function app storage account access key"
   sensitive   = true
-  value       = azurerm_storage_account.back_office_documents.primary_access_key
+  value       = azurerm_storage_account.function_storage.primary_access_key
 }
 
 output "service_bus_namespace_id" {
