@@ -10,7 +10,7 @@ module "anti_virus_functions" {
   location                                 = var.location
   log_analytics_workspace_id               = var.log_analytics_workspace_id
   monitoring_alerts_enabled                = var.monitoring_alerts_enabled
-  outbound_vnet_connectivity               = false
+  outbound_vnet_connectivity               = true
   resource_group_name                      = var.resource_group_name
   resource_suffix                          = var.resource_suffix
   service_name                             = var.service_name
