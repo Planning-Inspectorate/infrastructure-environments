@@ -1,19 +1,19 @@
 locals {
   appeals_feature_flags = [
     {
-      name      = "as-5408-final-comments"
-      enabled   = false
+      name    = "as-5408-final-comments"
+      enabled = false
       targeting = {
         percentage = 100
-        users = []
+        users      = []
       }
     },
     {
-      name        = "horizon-document-labelling"
-      enabled     = true
-      targeting   = {
+      name    = "horizon-document-labelling"
+      enabled = true
+      targeting = {
         percentage = 100
-        users = ["E69999999", "E60000213", "E60000068"]
+        users      = ["E69999999", "E60000213", "E60000068"]
       }
     }
   ]
