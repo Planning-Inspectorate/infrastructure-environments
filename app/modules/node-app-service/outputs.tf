@@ -5,5 +5,5 @@ output "default_site_hostname" {
 
 output "principal_id" {
   description = "The ID of the principal associated with the App Service"
-  value       = azurerm_linux_web_app.web_app.identity.0.principal_id
+  value       = azurerm_linux_web_app.web_app.identity[0].principal_id
 }

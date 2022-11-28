@@ -163,7 +163,7 @@ resource "azurerm_key_vault_access_policy" "read_secrets" {
 
   key_vault_id = var.key_vault_id
   tenant_id    = data.azurerm_client_config.current.tenant_id
-  object_id    = azurerm_linux_web_app.web_app.identity.0.principal_id
+  object_id    = azurerm_linux_web_app.web_app.identity[0].principal_id
 
   certificate_permissions = []
   key_permissions         = []
@@ -176,7 +176,7 @@ resource "azurerm_key_vault_access_policy" "read_secrets_staging_slot" {
 
   key_vault_id = var.key_vault_id
   tenant_id    = data.azurerm_client_config.current.tenant_id
-  object_id    = azurerm_linux_web_app_slot.staging.identity.0.principal_id
+  object_id    = azurerm_linux_web_app_slot.staging.identity[0].principal_id
 
   certificate_permissions = []
   key_permissions         = []
