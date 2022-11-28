@@ -156,3 +156,8 @@ variable "sql_server_azuread_administrator" {
   description = "A map describing the AzureAD account used for the SQL server administrator"
   type        = map(string)
 }
+
+variable "feature_service_bus_enabled" {
+  description = "Whether or not Service Bus events are enabled"
+  type        = string
+}
