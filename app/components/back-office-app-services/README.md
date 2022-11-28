@@ -55,6 +55,7 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_document_storage_back_office_documents_id"></a> [document\_storage\_back\_office\_documents\_id](#input\_document\_storage\_back\_office\_documents\_id) | The azurerm\_storage\_account back\_office\_documents resource id | `string` | n/a | yes |
 | <a name="input_document_storage_container"></a> [document\_storage\_container](#input\_document\_storage\_container) | The container in Blob Storage used for Back Office storage of documents | `string` | n/a | yes |
 | <a name="input_endpoint_subnet_id"></a> [endpoint\_subnet\_id](#input\_endpoint\_subnet\_id) | The id of the private endpoint subnet the app service is linked to for ingress traffic | `string` | n/a | yes |
+| <a name="input_feature_service_bus_enabled"></a> [feature\_service\_bus\_enabled](#input\_feature\_service\_bus\_enabled) | Whether or not Service Bus events are enabled | `string` | n/a | yes |
 | <a name="input_integration_subnet_id"></a> [integration\_subnet\_id](#input\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic | `string` | n/a | yes |
 | <a name="input_key_vault_id"></a> [key\_vault\_id](#input\_key\_vault\_id) | The ID of the key vault so the App Service can pull secret values | `string` | n/a | yes |
 | <a name="input_key_vault_uri"></a> [key\_vault\_uri](#input\_key\_vault\_uri) | The URI of the Key Vault | `string` | n/a | yes |
