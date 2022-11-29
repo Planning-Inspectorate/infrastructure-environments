@@ -1,3 +1,8 @@
+output "back_office_integration_subnet_id" {
+  description = "Integration subnet for back office anti-virus resources"
+  value       = azurerm_subnet.back_office_integration_subnet.id
+}
+
 output "cosmosdb_subnet_id" {
   description = "The id of the Cosmos DB endpoint subnet"
   value       = length(azurerm_subnet.cosmosdb) > 0 ? azurerm_subnet.cosmosdb[0].id : null
