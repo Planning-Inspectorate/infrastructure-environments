@@ -82,5 +82,5 @@ resource "azurerm_app_service_virtual_network_swift_connection" "vnet_connection
   count = var.outbound_vnet_connectivity ? 1 : 0
 
   app_service_id = azurerm_linux_web_app.clamav.id
-  subnet_id      = var.integration_subnet_id
+  subnet_id      = var.back_office_integration_subnet_id
 }
