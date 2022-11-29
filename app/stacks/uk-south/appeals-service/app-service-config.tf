@@ -1,6 +1,4 @@
 resource "azurerm_app_configuration" "appeals_service" {
-  count = var.is_dr_deployment ? 1 : 0
-
   name                = "pins-asc-appeals-${local.resource_suffix}"
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
   location            = module.azure_region_uks.location
@@ -10,8 +8,6 @@ resource "azurerm_app_configuration" "appeals_service" {
 }
 
 resource "azurerm_private_endpoint" "appeals_app_config" {
-  count = var.is_dr_deployment ? 1 : 0
-
   name                = "pins-pe-${local.service_name}-asc-${local.resource_suffix}"
   location            = azurerm_resource_group.appeals_service_stack.location
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
@@ -24,7 +20,7 @@ resource "azurerm_private_endpoint" "appeals_app_config" {
 
   private_service_connection {
     name                           = "pins-pe-${local.service_name}-asc-${local.resource_suffix}"
-    private_connection_resource_id = azurerm_app_configuration.appeals_service[0].id
+    private_connection_resource_id = azurerm_app_configuration.appeals_service.id
     subresource_names              = ["configurationStores"]
     is_manual_connection           = false
   }
