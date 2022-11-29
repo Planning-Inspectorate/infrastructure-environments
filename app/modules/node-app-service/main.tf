@@ -1,4 +1,8 @@
 resource "azurerm_linux_web_app" "web_app" {
+  #checkov:skip=CKV_AZURE_13: App Service authentication may not be required
+  #checkov:skip=CKV_AZURE_17: Disabling FTP(S) to be tested
+  #checkov:skip=CKV_AZURE_78: TLS mutual authentication may not be required
+  #checkov:skip=CKV_AZURE_88: Azure Files mount may not be required
   name                = "pins-app-${var.service_name}-${var.app_name}-${var.resource_suffix}"
   location            = var.location
   resource_group_name = var.resource_group_name
@@ -163,7 +167,7 @@ resource "azurerm_key_vault_access_policy" "read_secrets" {
 
   key_vault_id = var.key_vault_id
   tenant_id    = data.azurerm_client_config.current.tenant_id
-  object_id    = azurerm_linux_web_app.web_app.identity.0.principal_id
+  object_id    = azurerm_linux_web_app.web_app.identity[0].principal_id
 
   certificate_permissions = []
   key_permissions         = []
@@ -176,7 +180,7 @@ resource "azurerm_key_vault_access_policy" "read_secrets_staging_slot" {
 
   key_vault_id = var.key_vault_id
   tenant_id    = data.azurerm_client_config.current.tenant_id
-  object_id    = azurerm_linux_web_app_slot.staging.identity.0.principal_id
+  object_id    = azurerm_linux_web_app_slot.staging.identity[0].principal_id
 
   certificate_permissions = []
   key_permissions         = []

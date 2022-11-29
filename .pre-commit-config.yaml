@@ -4,18 +4,8 @@ repos:
     hooks:
       - id: end-of-file-fixer
       - id: trailing-whitespace
-  # TODO: Only run Terraform validate against stacks directory due to a known issue in Terraform when using "configuration_aliases" - https://github.com/hashicorp/terraform/issues/28490
-  - repo: local
-    hooks:
-      - id: generate_terraform_providers
-        entry: .generate-providers.sh generate
-        files: \.tf?$
-        language: script
-        name: Generate Terraform Providers
-        pass_filenames: false
-        require_serial: true
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.62.0
+    rev: v1.77.0
     hooks:
       - id: terraform_validate
         exclude: |
@@ -23,17 +13,8 @@ repos:
             app/modules|
             app/components
           )
-  - repo: local
-    hooks:
-      - id: remove_terraform_providers
-        entry: .generate-providers.sh remove
-        files: \.tf?$
-        language: script
-        name: Remove Terraform Providers
-        pass_filenames: false
-        require_serial: true
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.62.0
+    rev: v1.77.0
     hooks:
       - id: terraform_docs
       - id: terraform_fmt
@@ -41,4 +22,4 @@ repos:
         args:
           - --args=--config=__GIT_WORKING_DIR__/.tflint.hcl
       - id: terragrunt_fmt
-      - id: checkov
+      - id: terraform_checkov
