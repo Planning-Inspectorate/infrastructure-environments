@@ -6,7 +6,7 @@ module "anti_virus_functions" {
   app_service_plan_id                      = var.app_service_plan_id
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
-  integration_subnet_id                    = var.integration_subnet_id
+  integration_subnet_id                    = var.back_office_integration_subnet_id
   location                                 = var.location
   log_analytics_workspace_id               = var.log_analytics_workspace_id
   monitoring_alerts_enabled                = var.monitoring_alerts_enabled
