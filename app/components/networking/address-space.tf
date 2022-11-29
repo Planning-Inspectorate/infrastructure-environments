@@ -16,10 +16,6 @@ module "vnet_address_space" {
       new_bits = 8 # /24 (251 usable) [0 - 255]
     },
     {
-      name     = "back_office_app_service_integration"
-      new_bits = 8 # /24 (251 usable) [0 - 255]
-    },
-    {
       name     = "appeals_service_endpoints"
       new_bits = 8 # /24 (251 usable) [0 - 255]
     },
@@ -31,5 +27,9 @@ module "vnet_address_space" {
       name     = "back_office_endpoints"
       new_bits = 8 # /24 (251 usable) [0 - 255]
     },
+    {
+      name     = "back_office_app_service_integration"
+      new_bits = 8 # /24 (251 usable) [0 - 255]
+    }
   ]
 }

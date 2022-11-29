@@ -12,6 +12,7 @@ module "app_services" {
   azuread_applications_case_admin_officer_group_id = var.azuread_applications_case_admin_officer_group_id
   azuread_applications_caseofficer_group_id        = var.azuread_applications_caseofficer_group_id
   azuread_applications_inspector_group_id          = var.azuread_applications_inspector_group_id
+  back_office_integration_subnet_id                = var.back_office_integration_subnet_id
   container_registry_name                          = var.container_registry_name
   container_registry_rg                            = var.container_registry_rg
   custom_hostname                                  = var.back_office_public_url

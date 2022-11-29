@@ -50,6 +50,11 @@ variable "azuread_applications_case_admin_officer_group_id" {
   default     = null
 }
 
+variable "back_office_integration_subnet_id" {
+  description = "Integration subnet for back office anti-virus resources"
+  type        = string
+}
+
 variable "back_office_public_url" {
   description = "The public URL for the Back Office frontend web app"
   type        = string
