@@ -4,11 +4,6 @@ variable "app_settings" {
   default     = {}
 }
 
-variable "back_office_integration_subnet_id" {
-  description = "Integration subnet for back office anti-virus resources"
-  type        = string
-}
-
 variable "endpoint_subnet_id" {
   default     = null
   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"

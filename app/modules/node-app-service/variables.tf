@@ -31,10 +31,10 @@ variable "app_settings" {
   default     = {}
 }
 
-variable "back_office_integration_subnet_id" {
-  description = "Integration subnet for back office anti-virus resources"
-  type        = string
-}
+# variable "back_office_integration_subnet_id" {
+#   description = "Integration subnet for back office anti-virus resources"
+#   type        = string
+# }
 
 variable "container_registry_name" {
   description = "The name of the container registry that hosts the image"

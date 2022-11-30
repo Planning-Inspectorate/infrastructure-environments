@@ -3,13 +3,13 @@ module "app_service" {
 
   source = "../../modules/node-app-service"
 
-  action_group_low_id                   = var.action_group_low_id
-  app_name                              = each.value["app_name"]
-  app_service_plan_id                   = var.app_service_plan_id
-  app_service_plan_resource_group_name  = can(each.value["app_service_plan_resource_group_name"]) ? each.value["app_service_plan_resource_group_name"] : null
-  app_service_private_dns_zone_id       = can(each.value["app_service_private_dns_zone_id"]) ? each.value["app_service_private_dns_zone_id"] : null
-  app_settings                          = each.value["app_settings"]
-  back_office_integration_subnet_id     = can(each.value["back_office_integration_subnet_id"]) ? each.value["back_office_integration_subnet_id"] : null
+  action_group_low_id                  = var.action_group_low_id
+  app_name                             = each.value["app_name"]
+  app_service_plan_id                  = var.app_service_plan_id
+  app_service_plan_resource_group_name = can(each.value["app_service_plan_resource_group_name"]) ? each.value["app_service_plan_resource_group_name"] : null
+  app_service_private_dns_zone_id      = can(each.value["app_service_private_dns_zone_id"]) ? each.value["app_service_private_dns_zone_id"] : null
+  app_settings                         = each.value["app_settings"]
+  # back_office_integration_subnet_id     = can(each.value["back_office_integration_subnet_id"]) ? each.value["back_office_integration_subnet_id"] : null
   container_registry_name               = var.container_registry_name
   container_registry_rg                 = var.container_registry_rg
   custom_hostname                       = can(each.value["custom_hostname"]) ? each.value["custom_hostname"] : null
