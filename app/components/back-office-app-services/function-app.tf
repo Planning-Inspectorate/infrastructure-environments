@@ -3,7 +3,7 @@ module "anti_virus_functions" {
 
   action_group_low_id                      = var.action_group_low_id
   app_name                                 = "document-check-function"
-  app_service_plan_id                      = var.app_service_plan_id
+  app_service_plan_id                      = var.clamav_app_service_plan_id
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
   integration_subnet_id                    = var.back_office_integration_subnet_id
@@ -16,19 +16,5 @@ module "anti_virus_functions" {
   service_name                             = var.service_name
 
   app_settings = {}
-  #   app_settings = {
-  #     APPEALS_SERVICE_URL  = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
-  #     DOCUMENT_SERVICE_URL = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net"
-  #     HORIZON_URL          = var.horizon_url
-  #   }
-
-  #   connection_strings = [
-  #     {
-  #       name  = "HORIZON_SERVICE_BUS_CONNECTION"
-  #       type  = "Custom"
-  #       value = azurerm_servicebus_namespace.horizon.default_primary_connection_string
-  #     }
-  #   ]
-
-  tags = var.tags
+  tags         = var.tags
 }

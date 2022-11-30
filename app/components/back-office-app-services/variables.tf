@@ -66,6 +66,11 @@ variable "back_office_integration_subnet_id" {
   type        = string
 }
 
+variable "clamav_app_service_plan_id" {
+  description = "ClamAV app service plan ID"
+  type        = string
+}
+
 variable "container_registry_name" {
   description = "The name of the container registry that hosts the image"
   type        = string

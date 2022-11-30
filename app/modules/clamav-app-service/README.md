@@ -48,5 +48,7 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_clamav_app_service_plan_id"></a> [clamav\_app\_service\_plan\_id](#output\_clamav\_app\_service\_plan\_id) | ClamAV app service plan ID |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
