@@ -57,7 +57,7 @@ resource "azurerm_subnet" "integration_subnet" {
 }
 
 resource "azurerm_subnet" "back_office_integration_subnet" {
-  name                 = "pins-snet-${var.service_name}-integration-${var.resource_suffix}"
+  name                 = "pins-snet-back-office-${var.service_name}-integration-${var.resource_suffix}"
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.common_infrastructure.name
   address_prefixes     = [module.vnet_address_space.network_cidr_blocks["back_office_app_service_integration"]]
