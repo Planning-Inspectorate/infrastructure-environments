@@ -1,7 +1,8 @@
 module "clamav_app_service" {
   source = "../../../modules/clamav-app-service"
 
-  endpoint_subnet_id         = azurerm_subnet.back_office_ingress.id
+  # endpoint_subnet_id         = azurerm_subnet.back_office_ingress.id
+  endpoint_subnet_id         = var.back_office_integration_subnet_id
   inbound_vnet_connectivity  = true
   integration_subnet_id      = var.back_office_integration_subnet_id
   location                   = azurerm_resource_group.back_office_stack.location
