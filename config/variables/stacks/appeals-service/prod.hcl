@@ -15,6 +15,10 @@ locals {
         percentage = 100
         users      = ["E69999999", "E60000213", "E60000068"]
       }
+    },
+    {
+      name    = "send-appeal-direct-to-horizon-wrapper"
+      enabled = true
     }
   ]
   google_analytics_id                                                         = "G-TZBWMVPTHV"
