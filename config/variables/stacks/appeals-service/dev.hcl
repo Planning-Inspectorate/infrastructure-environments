@@ -19,6 +19,10 @@ locals {
     {
       name    = "send-appeal-direct-to-horizon-wrapper"
       enabled = true
+      targeting = {
+        percentage = 100
+        users      = []
+      }
     }
   ]
   google_analytics_id                                                         = "G-TZBWMVPTHV"
