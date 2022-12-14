@@ -32,9 +32,3 @@ variable "tags" {
   description = "The tags applied to all resources"
   type        = map(string)
 }
-
-variable "service_plan_sku" {
-  default     = "P1v2"
-  description = "The SKU of the App Service Plan providing resources to hosted App Services"
-  type        = string
-}

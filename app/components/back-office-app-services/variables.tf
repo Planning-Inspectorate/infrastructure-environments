@@ -66,11 +66,6 @@ variable "back_office_integration_subnet_id" {
   type        = string
 }
 
-variable "clamav_app_service_plan_id" {
-  description = "ClamAV app service plan ID"
-  type        = string
-}
-
 variable "container_registry_name" {
   description = "The name of the container registry that hosts the image"
   type        = string
@@ -206,5 +201,11 @@ variable "tags" {
 
 variable "feature_service_bus_enabled" {
   description = "Whether or not Service Bus events are enabled"
+  type        = string
+}
+
+variable "service_plan_sku" {
+  default     = "P1v2"
+  description = "The SKU of the App Service Plan providing resources to hosted App Services"
   type        = string
 }

@@ -1,9 +1,21 @@
+resource "azurerm_service_plan" "clamav_service_plan" {
+  name                = "pins-asp-clamav-${var.resource_suffix}"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+
+  os_type  = "Linux"
+  sku_name = var.service_plan_sku
+
+  tags = var.tags
+}
+
+
 module "anti_virus_functions" {
   source = "../../modules/node-function-app"
 
   action_group_low_id                      = var.action_group_low_id
   app_name                                 = "document-check-function"
-  app_service_plan_id                      = var.clamav_app_service_plan_id
+  app_service_plan_id                      = azurerm_service_plan.clamav_service_plan.id
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
   integration_subnet_id                    = var.back_office_integration_subnet_id
