@@ -1,14 +1,12 @@
-module "clamav_app_service" {
-  source = "../../../modules/clamav-app-service"
+module "clamav_container" {
+  source = "../../../modules/clamav-container-instance"
 
-  # endpoint_subnet_id         = azurerm_subnet.back_office_ingress.id
-  endpoint_subnet_id         = var.back_office_integration_subnet_id
-  inbound_vnet_connectivity  = true
-  integration_subnet_id      = var.back_office_integration_subnet_id
-  location                   = azurerm_resource_group.back_office_stack.location
-  outbound_vnet_connectivity = true
-  resource_group_name        = azurerm_resource_group.back_office_stack.name
-  resource_suffix            = local.resource_suffix
+  common_vnet_cidr_blocks = var.common_vnet_cidr_blocks
+  common_vnet_name        = var.common_vnet_name
+  location                = azurerm_resource_group.back_office_stack.location
+  resource_group_name     = azurerm_resource_group.back_office_stack.name
+  resource_suffix         = local.resource_suffix
+  service_name            = "back-office-clam-av"
 
   tags = local.tags
 
