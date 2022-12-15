@@ -13,7 +13,7 @@ resource "azurerm_container_group" "back_office_containers" {
     memory = "3"
 
     volume {
-      name       = "clamav_db"
+      name       = "clamav-db"
       mount_path = "/var/lib/clamav"
 
       storage_account_key  = azurerm_storage_account.back_office_containers.primary_access_key
