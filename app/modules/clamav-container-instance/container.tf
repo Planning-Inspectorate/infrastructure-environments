@@ -1,6 +1,5 @@
 resource "azurerm_container_group" "back_office_containers" {
-  #checkov:skip=CKV_AZURE_98: Ensure that Azure Container group is deployed into virtual network
-  name                = "back-office-containers-${var.resource_suffix}"
+  name                = "bo-clamav-${var.resource_suffix}"
   location            = var.location
   resource_group_name = var.resource_group_name
   ip_address_type     = "Private"
