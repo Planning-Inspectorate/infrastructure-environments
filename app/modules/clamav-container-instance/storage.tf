@@ -7,7 +7,7 @@ resource "azurerm_storage_account" "back_office_containers" {
   #checkov:skip=CKV2_AZURE_8: Logging not implemented yet
   #TODO: Access restrictions
   #checkov:skip=CKV_AZURE_35: Network access restrictions
-  name                     = "bo-clamav-${var.resource_suffix}"
+  name                     = replace("boclamav${var.resource_suffix}", "-", "")
   location                 = var.location
   resource_group_name      = var.resource_group_name
   account_tier             = "Standard"
