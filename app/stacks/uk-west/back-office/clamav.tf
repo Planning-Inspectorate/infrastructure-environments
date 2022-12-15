@@ -1,12 +1,13 @@
 module "clamav_container" {
   source = "../../../modules/clamav-container-instance"
 
-  common_vnet_cidr_blocks = var.common_vnet_cidr_blocks
-  common_vnet_name        = var.common_vnet_name
-  location                = azurerm_resource_group.back_office_stack.location
-  resource_group_name     = azurerm_resource_group.back_office_stack.name
-  resource_suffix         = local.resource_suffix
-  service_name            = "back-office-clam-av"
+  common_vnet_cidr_blocks    = var.common_vnet_cidr_blocks
+  common_vnet_name           = var.common_vnet_name
+  location                   = azurerm_resource_group.back_office_stack.location
+  resource_group_name        = azurerm_resource_group.back_office_stack.name
+  common_resource_group_name = var.common_resource_group_name
+  resource_suffix            = local.resource_suffix
+  service_name               = "back-office-clam-av"
 
   tags = local.tags
 

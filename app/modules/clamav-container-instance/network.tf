@@ -1,6 +1,6 @@
 resource "azurerm_subnet" "back_office_clamav" {
   name                 = "pins-snet-${var.service_name}-clam-av-${var.resource_suffix}"
-  resource_group_name  = var.resource_group_name
+  resource_group_name  = var.common_resource_group_name
   virtual_network_name = var.common_vnet_name
   address_prefixes     = [var.common_vnet_cidr_blocks["back_office_clamav"]]
 
@@ -17,7 +17,7 @@ resource "azurerm_subnet" "back_office_clamav" {
 resource "azurerm_network_profile" "back_office_clamav" {
   name                = "pins-snet-bac-office-clam-av-${var.resource_suffix}"
   location            = var.location
-  resource_group_name = var.resource_group_name
+  resource_group_name = var.common_resource_group_name
 
   container_network_interface {
     name = "containers-subnet-np-nic"
