@@ -12,6 +12,7 @@ locals {
   feature_show_affected_area_section                              = "false"
   feature_hide_project_timeline_link                              = "false"
   feature_allow_document_library                                  = "true"
+  feature_allow_examination_timetable                             = "false"
   feature_allow_representation                                    = "true"
   documents_host                                                  = "https://infrastructure.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
 }

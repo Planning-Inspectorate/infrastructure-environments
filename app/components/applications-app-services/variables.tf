@@ -157,6 +157,11 @@ variable "feature_allow_document_library" {
   type        = string
 }
 
+variable "feature_allow_examination_timetable" {
+  description = "Feature toggle for the activation of examination timetable routes and links"
+  type        = string
+}
+
 variable "feature_allow_representation" {
   description = "Feature toggle for limiting the web app routes to representation"
   type        = string
