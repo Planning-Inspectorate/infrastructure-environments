@@ -34,6 +34,7 @@ module "app_services" {
   feature_show_affected_area_section                              = var.feature_show_affected_area_section
   feature_hide_project_timeline_link                              = var.feature_hide_project_timeline_link
   feature_allow_document_library                                  = var.feature_allow_document_library
+  feature_allow_examination_timetable                             = var.feature_allow_examination_timetable
   feature_allow_representation                                    = var.feature_allow_representation
   documents_host                                                  = var.documents_host
 
