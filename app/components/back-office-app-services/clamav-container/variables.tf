@@ -1,10 +1,5 @@
-variable "common_vnet_cidr_blocks" {
-  description = "A map of IP address blocks from the subnet name to the allocated CIDR prefix"
-  type        = map(string)
-}
-
-variable "common_vnet_name" {
-  description = "The common infrastructure virtual network name"
+variable "back_office_clamav_subnet_id" {
+  description = "Integration subnet for the clamav container"
   type        = string
 }
 
@@ -25,11 +20,6 @@ variable "resource_group_name" {
 
 variable "resource_suffix" {
   description = "The suffix for resource naming"
-  type        = string
-}
-
-variable "service_name" {
-  description = "The name of the service"
   type        = string
 }
 

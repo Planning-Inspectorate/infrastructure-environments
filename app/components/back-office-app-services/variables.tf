@@ -61,8 +61,24 @@ variable "azuread_applications_case_admin_officer_group_id" {
   default     = null
 }
 
+variable "feature_document_scanning_enabled" {
+  default     = false
+  description = "Indicates whether ClamAV Document Scanning has been enabled"
+  type        = bool
+}
+
+variable "integration_subnet_id" {
+  description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
+  type        = string
+}
+
 variable "back_office_integration_subnet_id" {
   description = "Integration subnet for back office anti-virus resources"
+  type        = string
+}
+
+variable "back_office_clamav_subnet_id" {
+  description = "Integration subnet for the clamav container"
   type        = string
 }
 
@@ -111,21 +127,6 @@ variable "document_storage_container" {
 
 variable "endpoint_subnet_id" {
   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
-  type        = string
-}
-
-variable "function_apps_storage_account" {
-  description = "Storage account for function"
-  type        = string
-}
-
-variable "function_apps_storage_account_access_key" {
-  description = "Storage account for function access key"
-  type        = string
-}
-
-variable "integration_subnet_id" {
-  description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   type        = string
 }
 

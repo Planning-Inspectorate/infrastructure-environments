@@ -72,6 +72,7 @@ This component contains the common infrastructure required by each environment. 
 | <a name="output_action_group_low_id"></a> [action\_group\_low\_id](#output\_action\_group\_low\_id) | The Action Group ID for sending low priority (P4) alerts |
 | <a name="output_app_service_plan_id"></a> [app\_service\_plan\_id](#output\_app\_service\_plan\_id) | The id of the app service plan |
 | <a name="output_applications_service_vpn_gateway_shared_key"></a> [applications\_service\_vpn\_gateway\_shared\_key](#output\_applications\_service\_vpn\_gateway\_shared\_key) | The applications service virtual network gateway shared key |
+| <a name="output_back_office_clamav_subnet_id"></a> [back\_office\_clamav\_subnet\_id](#output\_back\_office\_clamav\_subnet\_id) | Integration subnet for the clamav container |
 | <a name="output_back_office_integration_subnet_id"></a> [back\_office\_integration\_subnet\_id](#output\_back\_office\_integration\_subnet\_id) | Integration subnet for back office anti-virus resources |
 | <a name="output_common_resource_group_name"></a> [common\_resource\_group\_name](#output\_common\_resource\_group\_name) | The name of the common infrastructure resource group |
 | <a name="output_common_vnet_cidr_blocks"></a> [common\_vnet\_cidr\_blocks](#output\_common\_vnet\_cidr\_blocks) | A map of IP address blocks from the subnet name to the allocated CIDR prefix |

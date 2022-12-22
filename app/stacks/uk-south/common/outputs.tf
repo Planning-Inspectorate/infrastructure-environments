@@ -39,6 +39,16 @@ output "integration_subnet_id" {
   value       = module.networking.integration_subnet_id
 }
 
+output "back_office_integration_subnet_id" {
+  description = "Integration subnet for back office anti-virus resources"
+  value       = module.networking.back_office_integration_subnet_id
+}
+
+output "back_office_clamav_subnet_id" {
+  description = "Integration subnet for the clamav container"
+  value       = module.networking.back_office_clamav_subnet_id
+}
+
 output "vnet_id" {
   description = "The ID of the Virtual Network"
   value       = module.networking.vnet_id

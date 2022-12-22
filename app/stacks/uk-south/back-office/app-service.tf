@@ -15,6 +15,7 @@ module "app_services" {
   azuread_applications_caseofficer_group_id        = var.azuread_applications_caseofficer_group_id
   azuread_applications_inspector_group_id          = var.azuread_applications_inspector_group_id
   back_office_integration_subnet_id                = var.back_office_integration_subnet_id
+  back_office_clamav_subnet_id                     = var.back_office_clamav_subnet_id
   container_registry_name                          = var.container_registry_name
   container_registry_rg                            = var.container_registry_rg
   custom_hostname                                  = var.back_office_public_url
@@ -24,8 +25,6 @@ module "app_services" {
   document_storage_container                       = var.back_office_document_storage_container_name
   document_storage_back_office_documents_id        = var.back_office_document_storage_documents_id
   endpoint_subnet_id                               = azurerm_subnet.back_office_ingress.id
-  function_apps_storage_account                    = var.function_apps_storage_account
-  function_apps_storage_account_access_key         = var.function_apps_storage_account_access_key
   integration_subnet_id                            = var.integration_subnet_id
   key_vault_id                                     = var.key_vault_id
   key_vault_uri                                    = var.key_vault_uri
@@ -40,6 +39,7 @@ module "app_services" {
   service_bus_namespace_id                         = azurerm_servicebus_namespace.back_office[0].id
   service_name                                     = local.service_name
   feature_service_bus_enabled                      = var.feature_service_bus_enabled
+  feature_document_scanning_enabled                = var.feature_document_scanning_enabled
 
   tags = local.tags
 

@@ -19,6 +19,11 @@ output "back_office_integration_subnet_id" {
   value       = module.networking.back_office_integration_subnet_id
 }
 
+output "back_office_clamav_subnet_id" {
+  description = "Integration subnet for the clamav container"
+  value       = module.networking.back_office_clamav_subnet_id
+}
+
 output "common_resource_group_name" {
   description = "The name of the common infrastructure resource group"
   value       = azurerm_resource_group.common_infrastructure.name
