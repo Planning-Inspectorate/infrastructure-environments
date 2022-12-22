@@ -15,6 +15,9 @@ module "anti_virus_functions" {
   resource_suffix                          = var.resource_suffix
   service_name                             = "document-check-function"
 
-  app_settings = {}
-  tags         = var.tags
+  app_settings = {
+    CLAMAV_HOST = var.clamav_host
+  }
+
+  tags = var.tags
 }

@@ -30,6 +30,7 @@ module "document_check_function" {
   tags                       = var.tags
   service_plan_sku           = var.service_plan_sku
   integration_subnet_id      = var.back_office_integration_subnet_id
+  clamav_host                = module.clam_av_container[0].ip_address
 
   providers = {
     azurerm         = azurerm

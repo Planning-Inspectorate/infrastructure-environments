@@ -44,3 +44,8 @@ variable "integration_subnet_id" {
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   type        = string
 }
+
+variable "clamav_host" {
+  description = "The hostname of the ClamAV Container"
+  type        = string
+}
