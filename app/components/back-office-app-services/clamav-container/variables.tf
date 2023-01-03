@@ -27,3 +27,13 @@ variable "tags" {
   description = "The tags applied to all resources"
   type        = map(string)
 }
+
+variable "common_vnet_id" {
+  description = "The common infrastructure virtual network id"
+  type        = string
+}
+
+variable "environment" {
+  description = "The environment resources are deployed to e.g. 'dev'"
+  type        = string
+}

@@ -162,6 +162,11 @@ variable "node_environment" {
   default     = "development"
 }
 
+variable "environment" {
+  description = "The environment resources are deployed to e.g. 'dev'"
+  type        = string
+}
+
 variable "private_endpoint_enabled" {
   description = "A switch to determine if Private Endpoint should be enabled for backend App Services"
   type        = bool
@@ -208,5 +213,10 @@ variable "feature_service_bus_enabled" {
 variable "service_plan_sku" {
   default     = "P1v2"
   description = "The SKU of the App Service Plan providing resources to hosted App Services"
+  type        = string
+}
+
+variable "common_vnet_id" {
+  description = "The common infrastructure virtual network id"
   type        = string
 }

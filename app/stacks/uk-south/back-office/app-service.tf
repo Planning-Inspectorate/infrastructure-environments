@@ -40,6 +40,9 @@ module "app_services" {
   service_name                                     = local.service_name
   feature_service_bus_enabled                      = var.feature_service_bus_enabled
   feature_document_scanning_enabled                = var.feature_document_scanning_enabled
+  common_vnet_id                                   = var.common_vnet_id
+  environment                                      = var.environment
+
 
   tags = local.tags
 

@@ -15,6 +15,7 @@ dependency "common_uks" {
     common_vnet_cidr_blocks = {
       back_office_endpoints = "10.1.4.0/24"
     }
+    vnet_id               = "mock_vnet_id"
     common_vnet_name      = "mock_vnet_name"
     integration_subnet_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
   }
@@ -62,6 +63,7 @@ inputs = {
   back_office_sql_database                    = dependency.back_office_ukw.outputs.back_office_sql_database
   common_resource_group_name                  = dependency.common_uks.outputs.common_resource_group_name
   common_vnet_cidr_blocks                     = dependency.common_uks.outputs.common_vnet_cidr_blocks
+  common_vnet_id                              = dependency.common_uks.outputs.vnet_id
   common_vnet_name                            = dependency.common_uks.outputs.common_vnet_name
   function_apps_storage_account               = dependency.back_office_ukw.outputs.function_apps_storage_account
   function_apps_storage_account_access_key    = dependency.back_office_ukw.outputs.function_apps_storage_account_access_key

@@ -9,6 +9,8 @@ module "clam_av_container" {
   resource_group_name          = var.resource_group_name
   resource_suffix              = var.resource_suffix
   tags                         = var.tags
+  common_vnet_id               = var.common_vnet_id
+  environment                  = var.environment
 
   providers = {
     azurerm         = azurerm
