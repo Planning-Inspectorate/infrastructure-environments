@@ -49,3 +49,8 @@ variable "clamav_host" {
   description = "The hostname of the ClamAV Container"
   type        = string
 }
+
+variable "document_storage_back_office_documents_id" {
+  description = "The azurerm_storage_account back_office_documents resource id"
+  type        = string
+}
