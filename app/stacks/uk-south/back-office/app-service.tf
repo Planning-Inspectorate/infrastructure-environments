@@ -14,6 +14,8 @@ module "app_services" {
   azuread_applications_case_admin_officer_group_id = var.azuread_applications_case_admin_officer_group_id
   azuread_applications_caseofficer_group_id        = var.azuread_applications_caseofficer_group_id
   azuread_applications_inspector_group_id          = var.azuread_applications_inspector_group_id
+  back_office_integration_subnet_id                = var.back_office_integration_subnet_id
+  back_office_clamav_subnet_id                     = var.back_office_clamav_subnet_id
   container_registry_name                          = var.container_registry_name
   container_registry_rg                            = var.container_registry_rg
   custom_hostname                                  = var.back_office_public_url
@@ -37,6 +39,7 @@ module "app_services" {
   service_bus_namespace_id                         = azurerm_servicebus_namespace.back_office[0].id
   service_name                                     = local.service_name
   feature_service_bus_enabled                      = var.feature_service_bus_enabled
+  feature_document_scanning_enabled                = var.feature_document_scanning_enabled
 
   tags = local.tags
 

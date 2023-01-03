@@ -23,6 +23,17 @@ output "back_office_sql_database" {
   value       = azurerm_mssql_database.back_office.id
 }
 
+output "function_apps_storage_account" {
+  description = "Function app storage account"
+  value       = azurerm_storage_account.function_storage.name
+}
+
+output "function_apps_storage_account_access_key" {
+  description = "Function app storage account access key"
+  sensitive   = true
+  value       = azurerm_storage_account.function_storage.primary_access_key
+}
+
 output "service_bus_namespace_id" {
   description = "The ID of the Service Bus Namespace"
   value       = azurerm_servicebus_namespace.back_office.id

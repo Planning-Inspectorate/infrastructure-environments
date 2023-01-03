@@ -14,6 +14,16 @@ output "applications_service_vpn_gateway_shared_key" {
   value       = data.azurerm_key_vault_secret.applications_service_vpn_gateway_shared_key.value
 }
 
+output "back_office_integration_subnet_id" {
+  description = "Integration subnet for back office anti-virus resources"
+  value       = module.networking.back_office_integration_subnet_id
+}
+
+output "back_office_clamav_subnet_id" {
+  description = "Integration subnet for the clamav container"
+  value       = module.networking.back_office_clamav_subnet_id
+}
+
 output "common_resource_group_name" {
   description = "The name of the common infrastructure resource group"
   value       = azurerm_resource_group.common_infrastructure.name

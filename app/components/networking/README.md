@@ -30,6 +30,8 @@ This module contains the networking resources for the PINS ODT environments. The
 | [azurerm_private_dns_zone_virtual_network_link.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
 | [azurerm_private_dns_zone_virtual_network_link.cosmosdb_vnet_link](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
 | [azurerm_public_ip.vnet_gateway](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/public_ip) | resource |
+| [azurerm_subnet.back_office_clamav](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/subnet) | resource |
+| [azurerm_subnet.back_office_integration_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/subnet) | resource |
 | [azurerm_subnet.cosmosdb](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/subnet) | resource |
 | [azurerm_subnet.integration_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/subnet) | resource |
 | [azurerm_subnet.vnet_gateway_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/subnet) | resource |
@@ -61,6 +63,8 @@ This module contains the networking resources for the PINS ODT environments. The
 
 | Name | Description |
 |------|-------------|
+| <a name="output_back_office_clamav_subnet_id"></a> [back\_office\_clamav\_subnet\_id](#output\_back\_office\_clamav\_subnet\_id) | Integration subnet for the clamav container |
+| <a name="output_back_office_integration_subnet_id"></a> [back\_office\_integration\_subnet\_id](#output\_back\_office\_integration\_subnet\_id) | Integration subnet for back office anti-virus resources |
 | <a name="output_cosmosdb_subnet_id"></a> [cosmosdb\_subnet\_id](#output\_cosmosdb\_subnet\_id) | The id of the Cosmos DB endpoint subnet |
 | <a name="output_integration_subnet_id"></a> [integration\_subnet\_id](#output\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic |
 | <a name="output_vnet_cidr_blocks"></a> [vnet\_cidr\_blocks](#output\_vnet\_cidr\_blocks) | A map of IP address blocks from the subnet name to the allocated CIDR prefix |

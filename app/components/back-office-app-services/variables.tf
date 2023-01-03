@@ -61,6 +61,27 @@ variable "azuread_applications_case_admin_officer_group_id" {
   default     = null
 }
 
+variable "feature_document_scanning_enabled" {
+  default     = false
+  description = "Indicates whether ClamAV Document Scanning has been enabled"
+  type        = bool
+}
+
+variable "integration_subnet_id" {
+  description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
+  type        = string
+}
+
+variable "back_office_integration_subnet_id" {
+  description = "Integration subnet for back office anti-virus resources"
+  type        = string
+}
+
+variable "back_office_clamav_subnet_id" {
+  description = "Integration subnet for the clamav container"
+  type        = string
+}
+
 variable "container_registry_name" {
   description = "The name of the container registry that hosts the image"
   type        = string
@@ -106,11 +127,6 @@ variable "document_storage_container" {
 
 variable "endpoint_subnet_id" {
   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
-  type        = string
-}
-
-variable "integration_subnet_id" {
-  description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   type        = string
 }
 
@@ -186,5 +202,11 @@ variable "tags" {
 
 variable "feature_service_bus_enabled" {
   description = "Whether or not Service Bus events are enabled"
+  type        = string
+}
+
+variable "service_plan_sku" {
+  default     = "P1v2"
+  description = "The SKU of the App Service Plan providing resources to hosted App Services"
   type        = string
 }

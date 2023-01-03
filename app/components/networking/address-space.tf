@@ -27,5 +27,21 @@ module "vnet_address_space" {
       name     = "back_office_endpoints"
       new_bits = 8 # /24 (251 usable) [0 - 255]
     },
+    /*
+      These addresses were manually reserved in Azure,
+      so we are making sure they are not taken up by anything here
+    */
+    {
+      name     = "AzureBastionSubnet"
+      new_bits = 10 # /26 (58 usable) [0 - 63]
+    },
+    {
+      name     = "back_office_app_service_integration"
+      new_bits = 8 # /24 (251 usable) [0 - 255]
+    },
+    {
+      name     = "back_office_clamav"
+      new_bits = 8 # /24 (251 usable) [0 - 255]
+    }
   ]
 }

@@ -17,5 +17,6 @@ locals {
     login_username = "sulmarch"
     object_id      = "42523fcb-4a32-4910-8caa-4d310c7bfd55" # sulmarch@pinso365.onmicrosoft.com
   }
-  feature_service_bus_enabled = "true"
+  feature_service_bus_enabled       = "true"
+  feature_document_scanning_enabled = true
 }
