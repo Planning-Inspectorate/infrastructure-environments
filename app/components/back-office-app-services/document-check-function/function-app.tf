@@ -16,8 +16,9 @@ module "anti_virus_functions" {
   service_name                             = "doc-check"
 
   app_settings = {
-    CLAM_AV_HOST = var.clamav_host
-    CLAM_AV_PORT = "3310"
+    CLAM_AV_HOST                       = var.clamav_host
+    CLAM_AV_PORT                       = "3310"
+    DOCUMENT_STORAGE_CONNECTION_STRING = var.back_office_document_storage_connection_string
   }
 
   tags = var.tags

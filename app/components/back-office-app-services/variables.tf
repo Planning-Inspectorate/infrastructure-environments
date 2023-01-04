@@ -61,6 +61,11 @@ variable "azuread_applications_case_admin_officer_group_id" {
   default     = null
 }
 
+variable "back_office_document_storage_connection_string" {
+  description = "The azurerm_storage_account back_office_documents connection string"
+  type        = string
+}
+
 variable "feature_document_scanning_enabled" {
   default     = false
   description = "Indicates whether ClamAV Document Scanning has been enabled"

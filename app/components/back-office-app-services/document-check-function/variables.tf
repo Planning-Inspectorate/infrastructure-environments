@@ -3,6 +3,11 @@ variable "action_group_low_id" {
   type        = string
 }
 
+variable "back_office_document_storage_connection_string" {
+  description = "The azurerm_storage_account back_office_documents connection string"
+  type        = string
+}
+
 variable "location" {
   description = "The location the App Services are deployed to in slug format e.g. 'uk-south'"
   type        = string
