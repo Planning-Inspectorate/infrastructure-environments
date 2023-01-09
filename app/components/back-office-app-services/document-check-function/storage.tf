@@ -1,3 +1,4 @@
+# TODO: This is redundant by default, so we can move it to uk-west stack and pass storage account in
 resource "azurerm_storage_account" "document_check_function" {
   #TODO: Customer Managed Keys
   #checkov:skip=CKV2_AZURE_1: Customer Managed Keys not implemented yet

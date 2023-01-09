@@ -32,14 +32,14 @@ resource "azurerm_container_group" "back_office_containers" {
     }
   }
 
-  #container {
-  #  name = "azurecli"
-  #  image  = "clamav/clamav:latest"
-  #  cpu    = "0.5"
-  #  memory = "1.5"
-  #
-  #  commands = ["/bin/sh", "-c", "az network private-dns record-set a update --name <name> -g <resource-group> -z <zone-name> --set aRecords[0].ipv4Address=$#(hostname -i)"]
-  #}
+  container {
+    name   = "azurecli"
+    image  = "mcr.microsoft.com/azure-cli:latest"
+    cpu    = "0.5"
+    memory = "1.5"
+
+    commands = ["/bin/sh", "-c", "az network private-dns record-set a update --name <name> -g <resource-group> -z <zone-name> --set aRecords[0].ipv4Address=$#(hostname -i)"]
+  }
 
   tags = var.tags
 }

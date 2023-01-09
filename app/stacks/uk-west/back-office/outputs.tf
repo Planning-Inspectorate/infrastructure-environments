@@ -18,6 +18,11 @@ output "back_office_document_storage_documents_id" {
   value       = azurerm_storage_account.back_office_documents.id
 }
 
+output "back_office_document_storage_connection_string" {
+  description = "The azurerm_storage_account back_office_documents connection string"
+  value       = azurerm_storage_account.back_office_documents.primary_blob_connection_string
+}
+
 output "back_office_sql_database" {
   description = "The ID of the Back Office SQL database"
   value       = azurerm_mssql_database.back_office.id

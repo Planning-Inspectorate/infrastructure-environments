@@ -103,6 +103,7 @@ This component contains the infrastructure required for the back office service.
 |------|-------------|
 | <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of frontend app service URLs |
 | <a name="output_back_office_document_storage_api_host"></a> [back\_office\_document\_storage\_api\_host](#output\_back\_office\_document\_storage\_api\_host) | The full failover URI to the storage account used for back office documents |
+| <a name="output_back_office_document_storage_connection_string"></a> [back\_office\_document\_storage\_connection\_string](#output\_back\_office\_document\_storage\_connection\_string) | The azurerm\_storage\_account back\_office\_documents connection string |
 | <a name="output_back_office_document_storage_container_name"></a> [back\_office\_document\_storage\_container\_name](#output\_back\_office\_document\_storage\_container\_name) | The back office blob storage container name |
 | <a name="output_back_office_document_storage_documents_id"></a> [back\_office\_document\_storage\_documents\_id](#output\_back\_office\_document\_storage\_documents\_id) | The azurerm\_storage\_account back\_office\_documents resource id |
 | <a name="output_back_office_sql_database"></a> [back\_office\_sql\_database](#output\_back\_office\_sql\_database) | The ID of the Back Office SQL database |

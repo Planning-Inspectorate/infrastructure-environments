@@ -1,3 +1,4 @@
+# TODO: Declare this in the uk-west region
 resource "azurerm_storage_account" "back_office_containers" {
   #TODO: Customer Managed Keys
   #checkov:skip=CKV2_AZURE_1: Customer Managed Keys not implemented yet
@@ -17,6 +18,7 @@ resource "azurerm_storage_account" "back_office_containers" {
   tags = var.tags
 }
 
+# TODO: Does this need to be multi-az?
 resource "azurerm_storage_share" "clamav_db" {
   name                 = "clamav-db"
   storage_account_name = azurerm_storage_account.back_office_containers.name
