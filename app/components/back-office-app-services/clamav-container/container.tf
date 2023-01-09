@@ -6,6 +6,10 @@ resource "azurerm_container_group" "back_office_containers" {
   os_type             = "Linux"
   network_profile_id  = azurerm_network_profile.back_office_clamav.id
 
+  identity {
+    type = "SystemAssigned"
+  }
+
   container {
     name   = "clamav"
     image  = "clamav/clamav:latest"
