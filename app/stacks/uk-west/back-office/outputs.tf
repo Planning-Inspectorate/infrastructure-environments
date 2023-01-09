@@ -21,6 +21,7 @@ output "back_office_document_storage_documents_id" {
 output "back_office_document_storage_connection_string" {
   description = "The azurerm_storage_account back_office_documents connection string"
   value       = azurerm_storage_account.back_office_documents.primary_blob_connection_string
+  sensitive   = true
 }
 
 output "back_office_sql_database" {

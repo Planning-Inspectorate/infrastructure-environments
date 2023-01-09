@@ -64,6 +64,7 @@ variable "azuread_applications_case_admin_officer_group_id" {
 variable "back_office_document_storage_connection_string" {
   description = "The azurerm_storage_account back_office_documents connection string"
   type        = string
+  sensitive   = true
 }
 
 variable "feature_document_scanning_enabled" {
