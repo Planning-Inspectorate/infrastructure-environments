@@ -143,7 +143,7 @@ resource "azurerm_frontdoor_rules_engine" "search_indexing" {
   }
 
   rule {
-    name     = "book-reference-file-robots-tag"
+    name     = "Book Reference File Robots Tag"
     priority = 2
 
     match_condition {
