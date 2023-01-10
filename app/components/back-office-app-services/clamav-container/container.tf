@@ -42,7 +42,8 @@ resource "azurerm_container_group" "back_office_containers" {
     cpu    = "0.5"
     memory = "1.5"
 
-    commands = ["az network private-dns record-set a update --name <name> -g <resource-group> -z <zone-name> --set aRecords[0].ipv4Address=$#(hostname -i)"]
+    #commands = ["az network private-dns record-set a update --name <name> -g <resource-group> -z <zone-name> --set aRecords[0].ipv4Address=$#(hostname -i)"]
+    commands = ["az", "--version"]
   }
 
   tags = var.tags
