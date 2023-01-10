@@ -141,6 +141,26 @@ resource "azurerm_frontdoor_rules_engine" "search_indexing" {
       }
     }
   }
+
+  rule {
+    name     = "book-reference-file-robots-tag"
+    priority = 2
+
+    match_condition {
+      variable  = "RequestFilename"
+      operator  = "Contains"
+      value     = ["book", "reference"]
+      transform = ["Lowercase"]
+    }
+
+    action {
+      response_header {
+        header_action_type = "Append"
+        header_name        = "X-Robots-Tag"
+        value              = "noindex,nofollow"
+      }
+    }
+  }
 }
 
 # Terraform does not yet support linking Rules Engine to Routing rules so using local-exec to run the required Azure CLI command
