@@ -23,6 +23,11 @@ variable "applications_service_public_url" {
   type        = string
 }
 
+variable "applications_service_redis_connection_string_secret_name" {
+  description = "Name of the secret in Key Vault that stores the redis connection string"
+  type        = string
+}
+
 variable "container_registry_name" {
   description = "The name of the container registry that hosts the image"
   type        = string
@@ -164,6 +169,11 @@ variable "feature_allow_examination_timetable" {
 
 variable "feature_allow_representation" {
   description = "Feature toggle for limiting the web app routes to representation"
+  type        = string
+}
+
+variable "feature_redis_session_store" {
+  description = "Feature toggle for using redis to store session data as opposed to default in-memory store"
   type        = string
 }
 

@@ -17,6 +17,7 @@ dependency "common" {
       applications_service_endpoints = "10.1.3.0/24"
       vpn_gateway                    = "10.1.0.128/25"
     }
+    vnet_id                = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Network/virtualNetworks/mock_id"
     common_vnet_gateway_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Network/virtualNetworkGateways/mock_id"
     common_vnet_name       = "mock_vnet_name"
     integration_subnet_id  = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
@@ -32,6 +33,7 @@ inputs = {
   common_resource_group_name                  = dependency.common.outputs.common_resource_group_name
   common_vnet_cidr_blocks                     = dependency.common.outputs.common_vnet_cidr_blocks
   common_vnet_gateway_id                      = dependency.common.outputs.common_vnet_gateway_id
+  common_vnet_id                              = dependency.common.outputs.vnet_id
   common_vnet_name                            = dependency.common.outputs.common_vnet_name
   integration_subnet_id                       = dependency.common.outputs.integration_subnet_id
   key_vault_id                                = dependency.common.outputs.key_vault_id

@@ -14,5 +14,6 @@ locals {
   feature_allow_document_library                                  = "true"
   feature_allow_examination_timetable                             = "false"
   feature_allow_representation                                    = "true"
+  feature_redis_session_store                                     = "false"
   documents_host                                                  = "https://infrastructure.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
 }
