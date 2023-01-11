@@ -43,7 +43,7 @@ resource "azurerm_container_group" "back_office_containers" {
     memory = "1.5"
 
     # az network private-dns record-set a update --resource-group pins-rg-back-office-dev-ukw-001 --zone-name backoffice.dev --name clamav --set "aRecords[0].ipv4Address=$(hostname -i"
-    commands = ["/bin/sh", "-c", "az network private-dns record-set a update --resource-group pins-rg-back-office-dev-ukw-001 --zone-name backoffice.dev --name clamav --set \"aRecords[0].ipv4Address=10.1.7.0\"; sleep 1000000"]
+    commands = ["/bin/sh", "-c", "az login --identity; az network private-dns record-set a update --resource-group pins-rg-back-office-dev-ukw-001 --zone-name backoffice.dev --name clamav --set \"aRecords[0].ipv4Address=10.1.7.0\"; sleep 1000000"]
   }
 
   tags = var.tags
