@@ -42,8 +42,7 @@ resource "azurerm_container_group" "back_office_containers" {
     cpu    = "0.5"
     memory = "1.5"
 
-    # az network private-dns record-set a update --resource-group pins-rg-back-office-dev-ukw-001 --zone-name backoffice.dev --name clamav --set "aRecords[0].ipv4Address=$(hostname -i"
-    commands = ["/bin/sh", "-c", "az login --identity; az network private-dns record-set a update --resource-group pins-rg-back-office-dev-ukw-001 --zone-name backoffice.dev --name clamav --set \"aRecords[0].ipv4Address=10.1.7.4\"; sleep 1000000"]
+    commands = ["/bin/sh", "-c", "az login --identity; az network private-dns record-set a update --resource-group ${var.resource_group_name} --zone-name ${local.domain_name}--name ${local.dns_record_name} --set \"aRecords[0].ipv4Address=$(hostname -i)\""]
   }
 
   exposed_port {
