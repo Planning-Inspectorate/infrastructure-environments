@@ -55,6 +55,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="input_azuread_auth_client_id"></a> [azuread\_auth\_client\_id](#input\_azuread\_auth\_client\_id) | The Back Office web frontend app registration ID used for Azure AD authentication | `string` | `null` | no |
 | <a name="input_back_office_clamav_subnet_id"></a> [back\_office\_clamav\_subnet\_id](#input\_back\_office\_clamav\_subnet\_id) | Integration subnet for the clamav container | `string` | n/a | yes |
 | <a name="input_back_office_document_storage_api_host"></a> [back\_office\_document\_storage\_api\_host](#input\_back\_office\_document\_storage\_api\_host) | The full failover URI to the storage account used for back office documents | `string` | n/a | yes |
+| <a name="input_back_office_document_storage_connection_string"></a> [back\_office\_document\_storage\_connection\_string](#input\_back\_office\_document\_storage\_connection\_string) | The azurerm\_storage\_account back\_office\_documents connection string | `string` | n/a | yes |
 | <a name="input_back_office_document_storage_container_name"></a> [back\_office\_document\_storage\_container\_name](#input\_back\_office\_document\_storage\_container\_name) | The back office blob storage container name | `string` | n/a | yes |
 | <a name="input_back_office_document_storage_documents_id"></a> [back\_office\_document\_storage\_documents\_id](#input\_back\_office\_document\_storage\_documents\_id) | The back office blob storage resource id | `string` | n/a | yes |
 | <a name="input_back_office_integration_subnet_id"></a> [back\_office\_integration\_subnet\_id](#input\_back\_office\_integration\_subnet\_id) | Integration subnet for back office anti-virus resources | `string` | n/a | yes |
@@ -63,6 +64,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="input_common_resource_group_name"></a> [common\_resource\_group\_name](#input\_common\_resource\_group\_name) | The common infrastructure resource group name | `string` | n/a | yes |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | The common resource tags for the project | `map(string)` | n/a | yes |
 | <a name="input_common_vnet_cidr_blocks"></a> [common\_vnet\_cidr\_blocks](#input\_common\_vnet\_cidr\_blocks) | A map of IP address blocks from the subnet name to the allocated CIDR prefix | `map(string)` | n/a | yes |
+| <a name="input_common_vnet_id"></a> [common\_vnet\_id](#input\_common\_vnet\_id) | The common infrastructure virtual network id | `string` | n/a | yes |
 | <a name="input_common_vnet_name"></a> [common\_vnet\_name](#input\_common\_vnet\_name) | The common infrastructure virtual network name | `string` | n/a | yes |
 | <a name="input_container_registry_name"></a> [container\_registry\_name](#input\_container\_registry\_name) | The name of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_container_registry_rg"></a> [container\_registry\_rg](#input\_container\_registry\_rg) | The resource group of the container registry that hosts the image | `string` | n/a | yes |

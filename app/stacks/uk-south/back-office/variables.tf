@@ -65,6 +65,12 @@ variable "back_office_document_storage_documents_id" {
   type        = string
 }
 
+variable "back_office_document_storage_connection_string" {
+  description = "The azurerm_storage_account back_office_documents connection string"
+  type        = string
+  sensitive   = true
+}
+
 variable "back_office_integration_subnet_id" {
   description = "Integration subnet for back office anti-virus resources"
   type        = string
@@ -98,6 +104,11 @@ variable "common_resource_group_name" {
 variable "common_vnet_cidr_blocks" {
   description = "A map of IP address blocks from the subnet name to the allocated CIDR prefix"
   type        = map(string)
+}
+
+variable "common_vnet_id" {
+  description = "The common infrastructure virtual network id"
+  type        = string
 }
 
 variable "common_vnet_name" {

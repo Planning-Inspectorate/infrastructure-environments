@@ -24,6 +24,7 @@ module "app_services" {
   document_storage_api_host                        = var.back_office_document_storage_api_host
   document_storage_container                       = var.back_office_document_storage_container_name
   document_storage_back_office_documents_id        = var.back_office_document_storage_documents_id
+  back_office_document_storage_connection_string   = var.back_office_document_storage_connection_string
   endpoint_subnet_id                               = azurerm_subnet.back_office_ingress.id
   integration_subnet_id                            = var.integration_subnet_id
   key_vault_id                                     = var.key_vault_id
@@ -40,6 +41,9 @@ module "app_services" {
   service_name                                     = local.service_name
   feature_service_bus_enabled                      = var.feature_service_bus_enabled
   feature_document_scanning_enabled                = var.feature_document_scanning_enabled
+  common_vnet_id                                   = var.common_vnet_id
+  environment                                      = var.environment
+
 
   tags = local.tags
 

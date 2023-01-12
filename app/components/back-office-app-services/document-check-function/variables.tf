@@ -3,6 +3,12 @@ variable "action_group_low_id" {
   type        = string
 }
 
+variable "back_office_document_storage_connection_string" {
+  description = "The azurerm_storage_account back_office_documents connection string"
+  type        = string
+  sensitive   = true
+}
+
 variable "location" {
   description = "The location the App Services are deployed to in slug format e.g. 'uk-south'"
   type        = string
@@ -47,5 +53,10 @@ variable "integration_subnet_id" {
 
 variable "clamav_host" {
   description = "The hostname of the ClamAV Container"
+  type        = string
+}
+
+variable "document_storage_back_office_documents_id" {
+  description = "The azurerm_storage_account back_office_documents resource id"
   type        = string
 }

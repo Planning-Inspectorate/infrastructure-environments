@@ -52,5 +52,7 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_principal_id"></a> [principal\_id](#output\_principal\_id) | The ID of the principal associated with the Function App |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
