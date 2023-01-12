@@ -42,7 +42,7 @@ resource "azurerm_container_group" "back_office_containers" {
     cpu    = "0.5"
     memory = "1.5"
 
-    commands = ["/bin/sh", "-c", "az login --identity; az network private-dns record-set a update --resource-group ${var.resource_group_name} --zone-name ${local.domain_name} --name ${local.dns_record_name} --set \"aRecords[0].ipv4Address=$(hostname -i)\"; sleep 100000"]
+    commands = ["/bin/sh", "-c", "az login --identity; az network private-dns record-set a update --resource-group ${var.resource_group_name} --zone-name ${local.domain_name} --name ${local.dns_record_name} --set \"aRecords[0].ipv4Address=$(ip route get 1.2.3.4 | awk '{print $7}')\"; sleep 100000"]
   }
 
   exposed_port {
