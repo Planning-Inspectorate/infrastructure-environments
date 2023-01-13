@@ -9,10 +9,10 @@ variable "back_office_document_storage_connection_string" {
   sensitive   = true
 }
 
-variable "back_office_api_host" {
-  description = "Back Office Api Host"
-  type        = string
-}
+# variable "back_office_api_host" {
+#   description = "Back Office Api Host"
+#   type        = string
+# }
 
 variable "location" {
   description = "The location the App Services are deployed to in slug format e.g. 'uk-south'"
