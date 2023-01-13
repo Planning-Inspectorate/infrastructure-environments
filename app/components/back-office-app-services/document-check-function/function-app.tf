@@ -24,8 +24,3 @@ module "anti_virus_functions" {
 
   tags = var.tags
 }
-resource "azurerm_role_assignment" "testing" {
-  scope                = var.service_bus_namespace_id
-  role_definition_name = "Testing"
-  principal_id         = module.app_service["back_office_api"].principal_id
-}
