@@ -35,6 +35,7 @@ module "document_check_function" {
   clamav_host                                    = module.clam_av_container[0].clamav_host
   document_storage_back_office_documents_id      = var.document_storage_back_office_documents_id
   back_office_document_storage_connection_string = var.back_office_document_storage_connection_string
+  back_office_api_host                           = module.app_service["back_office_api"].default_site_hostname
 
   providers = {
     azurerm         = azurerm

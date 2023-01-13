@@ -12,8 +12,3 @@ output "secret_names" {
   description = "List of Key Vault secrets required for this component"
   value       = local.secret_names
 }
-
-output "back_office_api_host" {
-  description = "Back Office Api Host"
-  value       = module.app_service["back_office_api"].default_site_hostname
-}

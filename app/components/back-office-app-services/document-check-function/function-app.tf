@@ -19,7 +19,7 @@ module "anti_virus_functions" {
     CLAM_AV_HOST                       = var.clamav_host
     CLAM_AV_PORT                       = "3310"
     DOCUMENT_STORAGE_CONNECTION_STRING = var.back_office_document_storage_connection_string
-    API_HOST                           = module.app_service
+    API_HOST                           = var.back_office_api_host
   }
 
   tags = var.tags
