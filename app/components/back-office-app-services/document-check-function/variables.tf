@@ -9,7 +9,7 @@ variable "back_office_document_storage_connection_string" {
   sensitive   = true
 }
 
-output "back_office_api_host" {
+variable "back_office_api_host" {
   description = "Back Office Api Host"
   type        = string
 }
