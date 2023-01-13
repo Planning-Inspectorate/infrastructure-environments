@@ -86,5 +86,6 @@ This module contains the App Services resources for the Back Office service. The
 |------|-------------|
 | <a name="output_app_service_principal_ids"></a> [app\_service\_principal\_ids](#output\_app\_service\_principal\_ids) | A map of App Service principal IDs |
 | <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of App Service URLs |
+| <a name="output_back_office_api_host"></a> [back\_office\_api\_host](#output\_back\_office\_api\_host) | Back Office Api Host |
 | <a name="output_secret_names"></a> [secret\_names](#output\_secret\_names) | List of Key Vault secrets required for this component |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

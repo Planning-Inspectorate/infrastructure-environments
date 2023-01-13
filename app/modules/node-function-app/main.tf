@@ -5,7 +5,6 @@ resource "azurerm_linux_function_app" "function_app" {
   service_plan_id            = var.app_service_plan_id
   storage_account_name       = var.function_apps_storage_account
   storage_account_access_key = var.function_apps_storage_account_access_key
-  back_office_api_host       = module.app_service["back_office_api"].default_site_hostname
   https_only                 = true
 
   app_settings = merge(var.app_settings, local.app_settings)
