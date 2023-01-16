@@ -7,7 +7,10 @@ resource "azurerm_linux_function_app" "function_app" {
   storage_account_access_key = var.function_apps_storage_account_access_key
   https_only                 = true
 
-  app_settings = merge(var.app_settings, local.app_settings)
+  app_settings = merge(
+    var.app_settings,
+    local.app_settings
+  )
 
   dynamic "connection_string" {
     for_each = var.connection_strings
@@ -32,10 +35,6 @@ resource "azurerm_linux_function_app" "function_app" {
     }
   }
 
-  app_settings {
-    APPINSIGHTS_INSTRUMENTATIONKEY = var.use_app_insights ? azurerm_application_insights.test.instrumentation_key : null
-  }
-
   tags = var.tags
 }
 
@@ -50,5 +49,5 @@ resource "azurerm_application_insights" "function_app_insights" {
   name                = "pins-func-${var.service_name}-${var.app_name}-${var.resource_suffix}-app-insights"
   location            = var.location
   resource_group_name = var.resource_group_name
-  application_type    = "Web"
+  application_type    = "web"
 }
