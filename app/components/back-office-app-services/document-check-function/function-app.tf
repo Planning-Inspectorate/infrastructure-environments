@@ -14,6 +14,7 @@ module "anti_virus_functions" {
   resource_group_name                      = var.resource_group_name
   resource_suffix                          = var.resource_suffix
   service_name                             = "doc-check"
+  use_app_insights                         = true
 
   app_settings = {
     CLAM_AV_HOST                       = var.clamav_host

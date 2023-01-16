@@ -32,6 +32,10 @@ resource "azurerm_linux_function_app" "function_app" {
     }
   }
 
+  app_settings {
+    APPINSIGHTS_INSTRUMENTATIONKEY = var.use_app_insights ? azurerm_application_insights.test.instrumentation_key : null
+  }
+
   tags = var.tags
 }
 
@@ -40,4 +44,11 @@ resource "azurerm_app_service_virtual_network_swift_connection" "vnet_connection
 
   app_service_id = azurerm_linux_function_app.function_app.id
   subnet_id      = var.integration_subnet_id
+}
+
+resource "azurerm_application_insights" "function_app_insights" {
+  name                = "pins-func-${var.service_name}-${var.app_name}-${var.resource_suffix}-app-insights"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+  application_type    = "Web"
 }
