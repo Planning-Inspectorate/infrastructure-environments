@@ -29,6 +29,16 @@ output "back_office_sql_database" {
   value       = azurerm_mssql_database.back_office.id
 }
 
+output "document_check_function_storage_name" {
+  description = "Function Storage name"
+  value       = azurerm_storage_account.function_storage.name
+}
+
+output "document_check_function_storage_primary_access_key" {
+  description = "Function Storage Primary Access Key"
+  value       = azurerm_storage_account.function_storage.primary_access_key
+}
+
 output "function_apps_storage_account" {
   description = "Function app storage account"
   value       = azurerm_storage_account.function_storage.name

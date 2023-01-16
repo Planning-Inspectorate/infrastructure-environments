@@ -50,7 +50,7 @@ resource "azurerm_storage_account" "function_storage" {
   resource_group_name              = azurerm_resource_group.back_office_stack.name
   location                         = azurerm_resource_group.back_office_stack.location
   account_tier                     = "Standard"
-  account_replication_type         = "GRS"
+  account_replication_type         = "LRS"
   allow_nested_items_to_be_public  = false
   cross_tenant_replication_enabled = false
   enable_https_traffic_only        = true

@@ -14,6 +14,16 @@ variable "back_office_api_host" {
   type        = string
 }
 
+variable "document_check_function_storage_name" {
+  description = "Function Storage name"
+  type        = string
+}
+
+variable "document_check_function_storage_primary_access_key" {
+  description = "Function Storage Primary Access Key"
+  type        = string
+}
+
 variable "location" {
   description = "The location the App Services are deployed to in slug format e.g. 'uk-south'"
   type        = string

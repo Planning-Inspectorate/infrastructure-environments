@@ -4,8 +4,8 @@ module "anti_virus_functions" {
   action_group_low_id                      = var.action_group_low_id
   app_name                                 = "doc-check"
   app_service_plan_id                      = azurerm_service_plan.clamav_service_plan.id
-  function_apps_storage_account            = azurerm_storage_account.document_check_function.name
-  function_apps_storage_account_access_key = azurerm_storage_account.document_check_function.primary_access_key
+  function_apps_storage_account            = var.document_check_function_storage_name
+  function_apps_storage_account_access_key = var.document_check_function_storage_primary_access_key
   integration_subnet_id                    = var.integration_subnet_id
   location                                 = var.location
   log_analytics_workspace_id               = var.log_analytics_workspace_id
