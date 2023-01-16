@@ -37,6 +37,7 @@ output "document_check_function_storage_name" {
 output "document_check_function_storage_primary_access_key" {
   description = "Function Storage Primary Access Key"
   value       = azurerm_storage_account.function_storage.primary_access_key
+  sensitive   = true
 }
 
 output "function_apps_storage_account" {
