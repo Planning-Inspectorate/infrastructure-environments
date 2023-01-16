@@ -50,6 +50,7 @@ No modules.
 | <a name="input_resource_suffix"></a> [resource\_suffix](#input\_resource\_suffix) | The suffix for resource naming | `string` | n/a | yes |
 | <a name="input_service_name"></a> [service\_name](#input\_service\_name) | The name of the service the app belongs to | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | The tags applied to all resources | `map(string)` | n/a | yes |
+| <a name="input_use_app_insights"></a> [use\_app\_insights](#input\_use\_app\_insights) | Decides if monitoring should be enabled | `bool` | `false` | no |
 
 ## Outputs
 
