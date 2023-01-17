@@ -1,5 +1,5 @@
 locals {
-  api_timeout                       = 10000
+  api_timeout                       = 20000
   app_service_plan_sku              = "P2v2"
   appeals_service_public_url        = "appeals-service-test.planninginspectorate.gov.uk"
   applications_service_public_url   = "applications-service-test.planninginspectorate.gov.uk"
