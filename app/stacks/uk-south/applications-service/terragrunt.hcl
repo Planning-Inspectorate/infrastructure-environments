@@ -39,6 +39,7 @@ inputs = {
   common_resource_group_name                  = dependency.common_uks.outputs.common_resource_group_name
   common_vnet_cidr_blocks                     = dependency.common_uks.outputs.common_vnet_cidr_blocks
   common_vnet_gateway_id                      = try(dependency.common_uks.outputs.common_vnet_gateway_id, null)
+  common_vnet_id                              = dependency.common_uks.outputs.vnet_id
   common_vnet_name                            = dependency.common_uks.outputs.common_vnet_name
   integration_subnet_id                       = dependency.common_uks.outputs.integration_subnet_id
   key_vault_id                                = dependency.common_ukw.outputs.key_vault_id
