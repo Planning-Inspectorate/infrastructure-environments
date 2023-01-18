@@ -6,7 +6,7 @@ locals {
       image_name                 = "applications-service/forms-web-app"
       inbound_vnet_connectivity  = false
       integration_subnet_id      = var.integration_subnet_id
-      key_vault_access           = false
+      key_vault_access           = true
       outbound_vnet_connectivity = true
 
       app_settings = {
@@ -15,6 +15,7 @@ locals {
         FILE_UPLOADS_PATH                   = "/opt/app/uploads"
         GOOGLE_ANALYTICS_ID                 = var.google_analytics_id
         HOST_URL                            = "https://${var.applications_service_public_url}/"
+        REDIS_CONNECTION_STRING             = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/${var.applications_service_redis_connection_string_secret_name}/)"
         SESSION_KEY                         = local.secret_refs["applications-service-session-key"]
         SUBDOMAIN_OFFSET                    = "3"
         USE_SECURE_SESSION_COOKIES          = true
@@ -25,6 +26,7 @@ locals {
         FEATURE_ALLOW_DOCUMENT_LIBRARY      = var.feature_allow_document_library
         FEATURE_ALLOW_EXAMINATION_TIMETABLE = var.feature_allow_examination_timetable
         FEATURE_ALLOW_REPRESENTATION        = var.feature_allow_representation
+        FEATURE_REDIS_SESSION_STORE         = var.feature_redis_session_store
       }
     }
 
