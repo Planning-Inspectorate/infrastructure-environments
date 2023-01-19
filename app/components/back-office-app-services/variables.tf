@@ -67,6 +67,16 @@ variable "back_office_document_storage_connection_string" {
   sensitive   = true
 }
 
+variable "document_check_function_storage_name" {
+  description = "Function Storage name"
+  type        = string
+}
+
+variable "document_check_function_storage_primary_access_key" {
+  description = "Function Storage Primary Access Key"
+  type        = string
+}
+
 variable "feature_document_scanning_enabled" {
   default     = false
   description = "Indicates whether ClamAV Document Scanning has been enabled"

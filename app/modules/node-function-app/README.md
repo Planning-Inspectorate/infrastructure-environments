@@ -22,6 +22,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [azurerm_app_service_virtual_network_swift_connection.vnet_connection](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service_virtual_network_swift_connection) | resource |
+| [azurerm_application_insights.function_app_insights](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/application_insights) | resource |
 | [azurerm_linux_function_app.function_app](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_function_app) | resource |
 | [azurerm_monitor_activity_log_alert.function_app_delete](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_activity_log_alert) | resource |
 | [azurerm_monitor_activity_log_alert.function_app_stop](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_activity_log_alert) | resource |
@@ -49,6 +50,7 @@ No modules.
 | <a name="input_resource_suffix"></a> [resource\_suffix](#input\_resource\_suffix) | The suffix for resource naming | `string` | n/a | yes |
 | <a name="input_service_name"></a> [service\_name](#input\_service\_name) | The name of the service the app belongs to | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | The tags applied to all resources | `map(string)` | n/a | yes |
+| <a name="input_use_app_insights"></a> [use\_app\_insights](#input\_use\_app\_insights) | Decides if monitoring should be enabled | `bool` | `false` | no |
 
 ## Outputs
 
