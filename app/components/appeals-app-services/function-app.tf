@@ -14,6 +14,7 @@ module "horizon_functions" {
   resource_group_name                      = var.resource_group_name
   resource_suffix                          = var.resource_suffix
   service_name                             = var.service_name
+  use_app_insights                         = false
 
   app_settings = {
     APPEALS_SERVICE_URL  = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"

@@ -6,6 +6,10 @@ resource "azurerm_container_group" "back_office_containers" {
   os_type             = "Linux"
   network_profile_id  = azurerm_network_profile.back_office_clamav.id
 
+  identity {
+    type = "SystemAssigned"
+  }
+
   container {
     name   = "clamav"
     image  = "clamav/clamav:latest"
@@ -30,6 +34,25 @@ resource "azurerm_container_group" "back_office_containers" {
       port     = 7357
       protocol = "TCP"
     }
+  }
+
+  container {
+    name   = "azurecli"
+    image  = "mcr.microsoft.com/azure-cli:latest"
+    cpu    = "0.5"
+    memory = "1.5"
+
+    commands = ["/bin/sh", "-c", "az login --identity; az network private-dns record-set a update --resource-group ${var.resource_group_name} --zone-name ${local.domain_name} --name ${local.dns_record_name} --set \"aRecords[0].ipv4Address=$(ip route get 1.2.3.4 | awk '{print $7}')\"; sleep 100000"]
+  }
+
+  exposed_port {
+    port     = 3310
+    protocol = "TCP"
+  }
+
+  exposed_port {
+    port     = 7357
+    protocol = "TCP"
   }
 
   tags = var.tags

@@ -61,6 +61,22 @@ variable "azuread_applications_case_admin_officer_group_id" {
   default     = null
 }
 
+variable "back_office_document_storage_connection_string" {
+  description = "The azurerm_storage_account back_office_documents connection string"
+  type        = string
+  sensitive   = true
+}
+
+variable "document_check_function_storage_name" {
+  description = "Function Storage name"
+  type        = string
+}
+
+variable "document_check_function_storage_primary_access_key" {
+  description = "Function Storage Primary Access Key"
+  type        = string
+}
+
 variable "feature_document_scanning_enabled" {
   default     = false
   description = "Indicates whether ClamAV Document Scanning has been enabled"
@@ -162,6 +178,11 @@ variable "node_environment" {
   default     = "development"
 }
 
+variable "environment" {
+  description = "The environment resources are deployed to e.g. 'dev'"
+  type        = string
+}
+
 variable "private_endpoint_enabled" {
   description = "A switch to determine if Private Endpoint should be enabled for backend App Services"
   type        = bool
@@ -208,5 +229,10 @@ variable "feature_service_bus_enabled" {
 variable "service_plan_sku" {
   default     = "P1v2"
   description = "The SKU of the App Service Plan providing resources to hosted App Services"
+  type        = string
+}
+
+variable "common_vnet_id" {
+  description = "The common infrastructure virtual network id"
   type        = string
 }

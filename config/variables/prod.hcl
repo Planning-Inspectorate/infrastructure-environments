@@ -1,5 +1,5 @@
 locals {
-  api_timeout                          = 10000
+  api_timeout                          = 20000
   app_service_plan_sku                 = "P3v2"
   appeals_service_public_url           = "appeal-planning-decision.service.gov.uk"
   appeals_service_ssl_certificate_name = "appealservicecf835e2d-1ed6-460f-aa7c-922922db830e"

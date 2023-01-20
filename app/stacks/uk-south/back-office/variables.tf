@@ -65,6 +65,12 @@ variable "back_office_document_storage_documents_id" {
   type        = string
 }
 
+variable "back_office_document_storage_connection_string" {
+  description = "The azurerm_storage_account back_office_documents connection string"
+  type        = string
+  sensitive   = true
+}
+
 variable "back_office_integration_subnet_id" {
   description = "Integration subnet for back office anti-virus resources"
   type        = string
@@ -100,6 +106,11 @@ variable "common_vnet_cidr_blocks" {
   type        = map(string)
 }
 
+variable "common_vnet_id" {
+  description = "The common infrastructure virtual network id"
+  type        = string
+}
+
 variable "common_vnet_name" {
   description = "The common infrastructure virtual network name"
   type        = string
@@ -119,6 +130,16 @@ variable "database_public_access_enabled" {
   description = "A switch indicating if databases should have public access enabled"
   type        = bool
   default     = false
+}
+
+variable "document_check_function_storage_name" {
+  description = "Function Storage name"
+  type        = string
+}
+
+variable "document_check_function_storage_primary_access_key" {
+  description = "Function Storage Primary Access Key"
+  type        = string
 }
 
 variable "environment" {

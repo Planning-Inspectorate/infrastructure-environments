@@ -18,9 +18,26 @@ output "back_office_document_storage_documents_id" {
   value       = azurerm_storage_account.back_office_documents.id
 }
 
+output "back_office_document_storage_connection_string" {
+  description = "The azurerm_storage_account back_office_documents connection string"
+  value       = azurerm_storage_account.back_office_documents.primary_blob_connection_string
+  sensitive   = true
+}
+
 output "back_office_sql_database" {
   description = "The ID of the Back Office SQL database"
   value       = azurerm_mssql_database.back_office.id
+}
+
+output "document_check_function_storage_name" {
+  description = "Function Storage name"
+  value       = azurerm_storage_account.function_storage.name
+}
+
+output "document_check_function_storage_primary_access_key" {
+  description = "Function Storage Primary Access Key"
+  value       = azurerm_storage_account.function_storage.primary_access_key
+  sensitive   = true
 }
 
 output "function_apps_storage_account" {
