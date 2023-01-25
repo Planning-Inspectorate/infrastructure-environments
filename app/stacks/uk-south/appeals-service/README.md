@@ -31,10 +31,12 @@ This component contains the infrastructure required for the appeals service. Thi
 | [azurerm_app_configuration.appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/app_configuration) | resource |
 | [azurerm_log_analytics_workspace.appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/log_analytics_workspace) | resource |
 | [azurerm_private_endpoint.appeals_app_config](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/private_endpoint) | resource |
+| [azurerm_private_endpoint.cosmosdb](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/private_endpoint) | resource |
 | [azurerm_resource_group.appeals_service_stack](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/resource_group) | resource |
 | [azurerm_subnet.appeals_service_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/subnet) | resource |
 | [azurerm_private_dns_zone.app_config](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/data-sources/private_dns_zone) | data source |
 | [azurerm_private_dns_zone.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/data-sources/private_dns_zone) | data source |
+| [azurerm_private_dns_zone.cosmosdb](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/data-sources/private_dns_zone) | data source |
 
 ## Inputs
 
@@ -53,6 +55,9 @@ This component contains the infrastructure required for the appeals service. Thi
 | <a name="input_container_registry_name"></a> [container\_registry\_name](#input\_container\_registry\_name) | The name of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_container_registry_rg"></a> [container\_registry\_rg](#input\_container\_registry\_rg) | The resource group of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_cosmosdb_connection_string"></a> [cosmosdb\_connection\_string](#input\_cosmosdb\_connection\_string) | The connection string used to connect to CosmosDB | `string` | n/a | yes |
+| <a name="input_cosmosdb_id"></a> [cosmosdb\_id](#input\_cosmosdb\_id) | The ID of the CosmosDB account | `string` | n/a | yes |
+| <a name="input_cosmosdb_subnet_id"></a> [cosmosdb\_subnet\_id](#input\_cosmosdb\_subnet\_id) | The ID of the VNet in the primary location | `string` | n/a | yes |
+| <a name="input_database_public_access_enabled"></a> [database\_public\_access\_enabled](#input\_database\_public\_access\_enabled) | A switch indicating if databases should have public access enabled | `bool` | `false` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
 | <a name="input_function_apps_storage_account"></a> [function\_apps\_storage\_account](#input\_function\_apps\_storage\_account) | The name of the storage account used by the Function Apps | `string` | n/a | yes |
 | <a name="input_function_apps_storage_account_access_key"></a> [function\_apps\_storage\_account\_access\_key](#input\_function\_apps\_storage\_account\_access\_key) | The access key for the storage account | `string` | n/a | yes |

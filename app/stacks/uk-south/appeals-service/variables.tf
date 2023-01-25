@@ -65,6 +65,22 @@ variable "cosmosdb_connection_string" {
   type        = string
 }
 
+variable "cosmosdb_id" {
+  description = "The ID of the CosmosDB account"
+  type        = string
+}
+
+variable "cosmosdb_subnet_id" {
+  description = "The ID of the VNet in the primary location"
+  type        = string
+}
+
+variable "database_public_access_enabled" {
+  description = "A switch indicating if databases should have public access enabled"
+  type        = bool
+  default     = false
+}
+
 variable "environment" {
   description = "The environment resources are deployed to e.g. 'dev'"
   type        = string
