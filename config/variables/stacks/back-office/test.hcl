@@ -5,7 +5,7 @@ locals {
   azuread_appeals_inspector_group_id               = "c921094a-318f-4996-be5e-9bd2ef9b7bdf"
   azuread_appeals_validation_officer_group_id      = "76d99e25-b02b-4400-96d2-bb9393bbdb9d"
   azuread_applications_case_admin_officer_group_id = "b8bb03d5-9162-4f35-9ff3-856be16dff23"
-  azuread_applications_caseofficer_group_id        = "ac136ed4-241a-459e-9b4e-267939fd4f08"
+  azuread_applications_caseteam_group_id           = "ac136ed4-241a-459e-9b4e-267939fd4f08"
   azuread_applications_inspector_group_id          = "9dbf4271-7823-45ed-b1a7-3712f6f2faa3"
   service_bus_failover_enabled                     = false
   sql_database_configuration = {

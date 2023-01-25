@@ -29,7 +29,7 @@ This module contains the App Services resources for the Back Office service. The
 | Name | Type |
 |------|------|
 | [azurerm_role_assignment.applications_case_admin_officer_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.applications_caseofficer_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.applications_caseteam_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.back_office_app_send_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/role_assignment) | resource |
 | [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/data-sources/client_config) | data source |
 
@@ -45,7 +45,7 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_azuread_appeals_inspector_group_id"></a> [azuread\_appeals\_inspector\_group\_id](#input\_azuread\_appeals\_inspector\_group\_id) | The Azure AD group ID for Appeals Back Office inspectors | `string` | `null` | no |
 | <a name="input_azuread_appeals_validation_officer_group_id"></a> [azuread\_appeals\_validation\_officer\_group\_id](#input\_azuread\_appeals\_validation\_officer\_group\_id) | The Azure AD group ID for Appeals Back Office validation officers | `string` | `null` | no |
 | <a name="input_azuread_applications_case_admin_officer_group_id"></a> [azuread\_applications\_case\_admin\_officer\_group\_id](#input\_azuread\_applications\_case\_admin\_officer\_group\_id) | The Azure AD group ID for Applications Back Office case admin officers | `string` | `null` | no |
-| <a name="input_azuread_applications_caseofficer_group_id"></a> [azuread\_applications\_caseofficer\_group\_id](#input\_azuread\_applications\_caseofficer\_group\_id) | The Azure AD group ID for Applications Back Office case officers | `string` | `null` | no |
+| <a name="input_azuread_applications_caseteam_group_id"></a> [azuread\_applications\_caseteam\_group\_id](#input\_azuread\_applications\_caseteam\_group\_id) | The Azure AD group ID for Applications Back Office case team | `string` | `null` | no |
 | <a name="input_azuread_applications_inspector_group_id"></a> [azuread\_applications\_inspector\_group\_id](#input\_azuread\_applications\_inspector\_group\_id) | The Azure AD group ID for Applications Back Office inspectors | `string` | `null` | no |
 | <a name="input_azuread_auth_client_id"></a> [azuread\_auth\_client\_id](#input\_azuread\_auth\_client\_id) | The Back Office web frontend app registration ID used for Azure AD authentication | `string` | `null` | no |
 | <a name="input_back_office_clamav_subnet_id"></a> [back\_office\_clamav\_subnet\_id](#input\_back\_office\_clamav\_subnet\_id) | Integration subnet for the clamav container | `string` | n/a | yes |

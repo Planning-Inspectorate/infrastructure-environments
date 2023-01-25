@@ -12,7 +12,7 @@ module "app_services" {
   azuread_appeals_inspector_group_id                 = var.azuread_appeals_inspector_group_id
   azuread_appeals_validation_officer_group_id        = var.azuread_appeals_validation_officer_group_id
   azuread_applications_case_admin_officer_group_id   = var.azuread_applications_case_admin_officer_group_id
-  azuread_applications_caseofficer_group_id          = var.azuread_applications_caseofficer_group_id
+  azuread_applications_caseteam_group_id             = var.azuread_applications_caseteam_group_id
   azuread_applications_inspector_group_id            = var.azuread_applications_inspector_group_id
   back_office_integration_subnet_id                  = var.back_office_integration_subnet_id
   back_office_clamav_subnet_id                       = var.back_office_clamav_subnet_id

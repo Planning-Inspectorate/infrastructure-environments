@@ -10,7 +10,7 @@ module "app_services" {
   azuread_appeals_inspector_group_id                 = var.azuread_appeals_inspector_group_id
   azuread_appeals_validation_officer_group_id        = var.azuread_appeals_validation_officer_group_id
   azuread_applications_case_admin_officer_group_id   = var.azuread_applications_case_admin_officer_group_id
-  azuread_applications_caseofficer_group_id          = var.azuread_applications_caseofficer_group_id
+  azuread_applications_caseteam_group_id             = var.azuread_applications_caseteam_group_id
   azuread_applications_inspector_group_id            = var.azuread_applications_inspector_group_id
   integration_subnet_id                              = var.integration_subnet_id
   back_office_document_storage_connection_string     = azurerm_storage_account.back_office_documents.primary_blob_connection_string
