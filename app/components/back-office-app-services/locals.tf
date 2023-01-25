@@ -22,7 +22,7 @@ locals {
         AUTH_TENANT_ID                           = data.azurerm_client_config.current.tenant_id
         APPEALS_VALIDATION_OFFICER_GROUP_ID      = var.azuread_appeals_validation_officer_group_id
         APPLICATIONS_CASE_ADMIN_OFFICER_GROUP_ID = var.azuread_applications_case_admin_officer_group_id
-        APPLICATIONS_CASEOFFICER_GROUP_ID        = var.azuread_applications_caseofficer_group_id
+        APPLICATIONS_CASETEAM_GROUP_ID           = var.azuread_applications_caseteam_group_id
         APPLICATIONS_INSPECTOR_GROUP_ID          = var.azuread_applications_inspector_group_id
         AZURE_BLOB_STORE_HOST                    = var.document_storage_api_host
         NODE_ENV                                 = var.node_environment
