@@ -5,7 +5,7 @@ output "app_service_urls" {
 
 output "back_office_document_storage_api_host" {
   description = "The full failover URI to the storage account used for back office documents"
-  value       = azurerm_storage_account.back_office_documents.secondary_blob_endpoint
+  value       = azurerm_storage_account.back_office_documents.primary_blob_endpoint
 }
 
 output "back_office_document_storage_container_name" {
