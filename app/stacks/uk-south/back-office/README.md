@@ -32,6 +32,7 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_mssql_failover_group.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/mssql_failover_group) | resource |
 | [azurerm_mssql_server.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/mssql_server) | resource |
 | [azurerm_private_dns_zone.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/private_dns_zone) | resource |
+| [azurerm_private_dns_zone_virtual_network_link.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
 | [azurerm_private_endpoint.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/private_endpoint) | resource |
 | [azurerm_private_endpoint.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/private_endpoint) | resource |
 | [azurerm_resource_group.back_office_stack](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/resource_group) | resource |
