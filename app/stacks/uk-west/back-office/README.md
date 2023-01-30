@@ -39,13 +39,13 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_mssql_database_extended_auditing_policy.back_office_sql_database](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/mssql_database_extended_auditing_policy) | resource |
 | [azurerm_mssql_server.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/mssql_server) | resource |
 | [azurerm_mssql_server_extended_auditing_policy.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/mssql_server_extended_auditing_policy) | resource |
+| [azurerm_private_dns_zone.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/private_dns_zone) | resource |
+| [azurerm_private_endpoint.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/private_endpoint) | resource |
 | [azurerm_private_endpoint.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/private_endpoint) | resource |
 | [azurerm_resource_group.back_office_stack](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/resource_group) | resource |
 | [azurerm_servicebus_namespace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_namespace) | resource |
-| [azurerm_servicebus_namespace_authorization_rule.back_office_apps](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_namespace_authorization_rule) | resource |
-| [azurerm_servicebus_subscription.back_office_api](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_servicebus_namespace_network_rule_set.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_namespace_network_rule_set) | resource |
 | [azurerm_servicebus_subscription.nsip_project_poc](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_subscription) | resource |
-| [azurerm_servicebus_topic.case_started](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_project](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_storage_account.back_office_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/storage_account) | resource |
 | [azurerm_storage_account.function_storage](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/storage_account) | resource |
