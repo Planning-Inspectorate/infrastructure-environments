@@ -16,6 +16,15 @@ resource "azurerm_private_dns_zone" "back_office" {
   resource_group_name = azurerm_resource_group.back_office_stack.name
 }
 
+resource "azurerm_private_dns_zone_virtual_network_link" "back_office" {
+  count = var.service_bus_failover_enabled ? 1 : 0
+
+  name                  = "service-bus-dns-link"
+  resource_group_name   = azurerm_resource_group.back_office_stack.name
+  private_dns_zone_name = azurerm_private_dns_zone.back_office[0].name
+  virtual_network_id    = var.common_vnet_id
+}
+
 # Create a network ruleset to disable public access
 resource "azurerm_servicebus_namespace_network_rule_set" "back_office" {
   count = var.service_bus_failover_enabled ? 0 : 1
