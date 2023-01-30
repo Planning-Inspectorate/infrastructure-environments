@@ -15,6 +15,11 @@ resource "azurerm_servicebus_namespace_disaster_recovery_config" "back_office" {
   name                 = "pins-sb-dr-${local.service_name}-${local.resource_suffix}"
   primary_namespace_id = var.primary_service_bus_namespace_id
   partner_namespace_id = azurerm_servicebus_namespace.back_office[0].id
+
+  depends_on = [
+    azurerm_private_endpoint.back_office,
+    azurerm_servicebus_namespace_network_rule_set.back_office
+  ]
 }
 
 # https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-geo-dr#recommended-configuration
