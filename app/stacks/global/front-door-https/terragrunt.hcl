@@ -20,28 +20,28 @@ dependency "front_door" {
   mock_outputs = {
     frontend_endpoint_mappings = {
       applications_frontend = {
-        name                 = "ApplicationsService"
+        name                 = "applications-service"
         frontend_endpoint    = "mock_url"
         patterns_to_match    = ["/*"]
         ssl_certificate_name = "mock_certificate_name"
       }
       appeals_frontend = {
-        name                 = "AppealsService"
+        name                 = "appeals-service"
         frontend_endpoint    = "mock_url"
         patterns_to_match    = ["/*"]
         ssl_certificate_name = "mock_certificate_name"
       }
       back_office_frontend = {
-        name                 = "BackOffice"
+        name                 = "back-office"
         frontend_endpoint    = "mock_url"
         patterns_to_match    = ["/*"]
         ssl_certificate_name = "mock_certificate_name"
       }
     }
     frontend_endpoints = {
-      ApplicationsService = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock-rg/providers/Microsoft.Network/frontDoors/mock_front_door/frontendEndpoints/mock_id"
-      AppealsService      = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock-rg/providers/Microsoft.Network/frontDoors/mock_front_door/frontendEndpoints/mock_id"
-      BackOffice          = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock-rg/providers/Microsoft.Network/frontDoors/mock_front_door/frontendEndpoints/mock_id"
+      applications-service = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock-rg/providers/Microsoft.Network/frontDoors/mock_front_door/frontendEndpoints/mock_id"
+      appeals-service      = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock-rg/providers/Microsoft.Network/frontDoors/mock_front_door/frontendEndpoints/mock_id"
+      back-office          = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock-rg/providers/Microsoft.Network/frontDoors/mock_front_door/frontendEndpoints/mock_id"
     }
   }
 }
