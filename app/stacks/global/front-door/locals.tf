@@ -6,7 +6,7 @@ locals {
     applications_frontend = {
       frontend_endpoint         = var.applications_service_public_url
       infer_backend_host_header = false
-      name                      = "applications-service"
+      name                      = "ApplicationsService"
       patterns_to_match         = ["/*"]
       search_indexing           = var.enable_search_indexing_by_default
       ssl_certificate_name      = var.applications_service_ssl_certificate_name
@@ -14,7 +14,7 @@ locals {
     appeals_frontend = {
       frontend_endpoint         = var.appeals_service_public_url
       infer_backend_host_header = false
-      name                      = "appeals-service"
+      name                      = "AppealsService"
       patterns_to_match         = ["/*"]
       search_indexing           = false
       ssl_certificate_name      = var.appeals_service_ssl_certificate_name
