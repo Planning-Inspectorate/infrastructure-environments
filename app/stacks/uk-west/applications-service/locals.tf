@@ -1,5 +1,5 @@
 locals {
-  service_name    = "applications-service"
+  service_name    = "ApplicationsService"
   resource_suffix = "${var.environment}-${module.azure_region_ukw.location_short}-${var.instance}"
 
   tags = merge(
