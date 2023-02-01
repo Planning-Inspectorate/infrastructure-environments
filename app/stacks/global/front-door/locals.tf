@@ -22,7 +22,7 @@ locals {
     back_office_frontend = {
       frontend_endpoint         = var.back_office_public_url
       infer_backend_host_header = true
-      name                      = "back-office"
+      name                      = "BackOffice"
       patterns_to_match         = ["/*"]
       search_indexing           = false
       ssl_certificate_name      = var.back_office_ssl_certificate_name
