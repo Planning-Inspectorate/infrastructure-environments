@@ -1,8 +1,8 @@
-module "anti_virus_functions" {
+module "odw_subscriber_function" {
   source = "../../../modules/node-function-app"
 
   action_group_low_id                      = var.action_group_low_id
-  app_name                                 = "doc-check"
+  app_name                                 = "odw-subscriber"
   app_service_plan_id                      = var.app_service_plan_id
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
@@ -13,15 +13,10 @@ module "anti_virus_functions" {
   outbound_vnet_connectivity               = true
   resource_group_name                      = var.resource_group_name
   resource_suffix                          = var.resource_suffix
-  service_name                             = "doc-check"
+  service_name                             = "odw-subscriber"
   use_app_insights                         = true
 
-  app_settings = {
-    CLAM_AV_HOST                       = var.clamav_host
-    CLAM_AV_PORT                       = "3310"
-    DOCUMENT_STORAGE_CONNECTION_STRING = var.back_office_document_storage_connection_string
-    API_HOST                           = var.back_office_api_host
-  }
+  app_settings = {}
 
   tags = var.tags
 }
