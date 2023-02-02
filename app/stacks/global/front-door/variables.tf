@@ -1,3 +1,8 @@
+variable "app_service_urls" {
+  description = "A map of App Service service URLs"
+  type        = map(string)
+}
+
 variable "appeals_service_ssl_certificate_name" {
   description = "The SSL certificate name in the environment Key Vault for the appeals service"
   type        = string
@@ -7,17 +12,6 @@ variable "appeals_service_ssl_certificate_name" {
 variable "appeals_service_public_url" {
   description = "The public URL for the Appeals Service frontend web app"
   type        = string
-}
-
-variable "appeals_service_primary_app_service_url" {
-  description = "The primary App Service URL for the Appeals Service"
-  type        = string
-}
-
-variable "appeals_service_secondary_app_service_url" {
-  description = "The secondary App Service URL for the Appeals Service"
-  type        = string
-  default     = ""
 }
 
 variable "applications_service_ssl_certificate_name" {
@@ -31,17 +25,6 @@ variable "applications_service_public_url" {
   type        = string
 }
 
-variable "applications_service_primary_app_service_url" {
-  description = "The primary App Service URL for the Applications Service"
-  type        = string
-}
-
-variable "applications_service_secondary_app_service_url" {
-  description = "The secondary App Service URL for the Applications Service"
-  type        = string
-  default     = ""
-}
-
 variable "back_office_ssl_certificate_name" {
   description = "The SSL certificate name in the environment Key Vault for the back office service"
   type        = string
@@ -51,17 +34,6 @@ variable "back_office_ssl_certificate_name" {
 variable "back_office_public_url" {
   description = "The public URL for the Back Office frontend web app"
   type        = string
-}
-
-variable "back_office_primary_app_service_url" {
-  description = "The primary App Service URL for the Back Office"
-  type        = string
-}
-
-variable "back_office_secondary_app_service_url" {
-  description = "The secondary App Service URL for the Back Office"
-  type        = string
-  default     = ""
 }
 
 variable "common_log_analytics_workspace_id" {

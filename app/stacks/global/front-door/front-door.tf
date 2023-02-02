@@ -81,7 +81,7 @@ resource "azurerm_frontdoor" "common" {
   }
 
   dynamic "backend_pool" {
-    for_each = local.frontend_endpoint_mappings
+    for_each = local.backend_pool_mappings
     iterator = mapping
 
     content {
@@ -89,46 +89,20 @@ resource "azurerm_frontdoor" "common" {
       load_balancing_name = "Default"
       health_probe_name   = "Http"
 
-      dynamic "backend" {
-        for_each = mapping.value["app_service_urls"]
-        iterator = app_service_url
-
-        content {
-          enabled     = true
-          address     = app_service_url.value["url"]
-          host_header = mapping.value["infer_backend_host_header"] ? "" : app_service_url.value["url"]
-          http_port   = 80
-          https_port  = 443
-          priority    = app_service_url.value["priority"]
-          weight      = 100
-        }
+      backend {
+        enabled     = true
+        address     = mapping.value["app_service_url"]
+        host_header = mapping.value["infer_backend_host_header"] ? "" : mapping.value["app_service_url"]
+        http_port   = 80
+        https_port  = 443
+        priority    = 1
+        weight      = 100
       }
-
-      #backend {
-      #  enabled     = true
-      #  address     = mapping.value["primary_app_service_url"]
-      #  host_header = mapping.value["infer_backend_host_header"] ? "" : mapping.value["primary_app_service_url"]
-      #  http_port   = 80
-      #  https_port  = 443
-      #  priority    = 1
-      #  weight      = 100
-      #}
-      #
-      ## This is currently configured as an active-passive
-      #backend {
-      #  enabled     = true
-      #  address     = mapping.value["secondary_app_service_url"]
-      #  host_header = mapping.value["infer_backend_host_header"] ? "" : mapping.value["secondary_app_service_url"]
-      #  http_port   = 80
-      #  https_port  = 443
-      #  priority    = 0
-      #  weight      = 100
-      #}
     }
   }
 
   dynamic "routing_rule" {
-    for_each = local.frontend_endpoint_mappings
+    for_each = local.backend_pool_mappings
     iterator = mapping
 
     content {
