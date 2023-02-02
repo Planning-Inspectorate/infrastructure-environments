@@ -87,14 +87,15 @@ dependency "common_ukw" {
 }
 
 inputs = {
-  app_service_urls = merge(
-    dependency.appeals_service_uks.outputs.app_service_urls,
-    dependency.appeals_service_ukw.outputs.app_service_urls,
-    dependency.applications_service_uks.outputs.app_service_urls,
-    dependency.applications_service_ukw.outputs.app_service_urls,
-    dependency.back_office_uks.outputs.app_service_urls,
-    dependency.back_office_ukw.outputs.app_service_urls
-  )
+  appeals_service_primary_app_service_url   = dependency.appeals_service_ukw.outputs.web_frontend_url
+  appeals_service_secondary_app_service_url = dependency.appeals_service_uks.outputs.web_frontend_url
+
+  applications_service_primary_app_service_url   = dependency.applications_service_ukw.outputs.web_frontend_url
+  applications_service_secondary_app_service_url = dependency.applications_service_uks.outputs.web_frontend_url
+
+  back_office_primary_app_service_url   = dependency.back_office_ukw.outputs.web_frontend_url
+  back_office_secondary_app_service_url = dependency.back_office_uks.outputs.web_frontend_url
+
   common_key_vault_id               = dependency.common_ukw.outputs.key_vault_id
   common_log_analytics_workspace_id = dependency.common_ukw.outputs.log_analytics_workspace_id
 }

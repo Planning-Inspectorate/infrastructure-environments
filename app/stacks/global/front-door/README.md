@@ -35,12 +35,17 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_app_service_urls"></a> [app\_service\_urls](#input\_app\_service\_urls) | A map of App Service service URLs | `map(string)` | n/a | yes |
+| <a name="input_appeals_service_primary_app_service_url"></a> [appeals\_service\_primary\_app\_service\_url](#input\_appeals\_service\_primary\_app\_service\_url) | The primary App Service URL for the Appeals Service | `string` | n/a | yes |
 | <a name="input_appeals_service_public_url"></a> [appeals\_service\_public\_url](#input\_appeals\_service\_public\_url) | The public URL for the Appeals Service frontend web app | `string` | n/a | yes |
+| <a name="input_appeals_service_secondary_app_service_url"></a> [appeals\_service\_secondary\_app\_service\_url](#input\_appeals\_service\_secondary\_app\_service\_url) | The secondary App Service URL for the Appeals Service | `string` | `""` | no |
 | <a name="input_appeals_service_ssl_certificate_name"></a> [appeals\_service\_ssl\_certificate\_name](#input\_appeals\_service\_ssl\_certificate\_name) | The SSL certificate name in the environment Key Vault for the appeals service | `string` | `"pins-wildcard"` | no |
+| <a name="input_applications_service_primary_app_service_url"></a> [applications\_service\_primary\_app\_service\_url](#input\_applications\_service\_primary\_app\_service\_url) | The primary App Service URL for the Applications Service | `string` | n/a | yes |
 | <a name="input_applications_service_public_url"></a> [applications\_service\_public\_url](#input\_applications\_service\_public\_url) | The public URL for the Applications Service frontend web app | `string` | n/a | yes |
+| <a name="input_applications_service_secondary_app_service_url"></a> [applications\_service\_secondary\_app\_service\_url](#input\_applications\_service\_secondary\_app\_service\_url) | The secondary App Service URL for the Applications Service | `string` | `""` | no |
 | <a name="input_applications_service_ssl_certificate_name"></a> [applications\_service\_ssl\_certificate\_name](#input\_applications\_service\_ssl\_certificate\_name) | The SSL certificate name in the environment Key Vault for the applications service | `string` | `"pins-wildcard"` | no |
+| <a name="input_back_office_primary_app_service_url"></a> [back\_office\_primary\_app\_service\_url](#input\_back\_office\_primary\_app\_service\_url) | The primary App Service URL for the Back Office | `string` | n/a | yes |
 | <a name="input_back_office_public_url"></a> [back\_office\_public\_url](#input\_back\_office\_public\_url) | The public URL for the Back Office frontend web app | `string` | n/a | yes |
+| <a name="input_back_office_secondary_app_service_url"></a> [back\_office\_secondary\_app\_service\_url](#input\_back\_office\_secondary\_app\_service\_url) | The secondary App Service URL for the Back Office | `string` | `""` | no |
 | <a name="input_back_office_ssl_certificate_name"></a> [back\_office\_ssl\_certificate\_name](#input\_back\_office\_ssl\_certificate\_name) | The SSL certificate name in the environment Key Vault for the back office service | `string` | `"pins-wildcard"` | no |
 | <a name="input_common_log_analytics_workspace_id"></a> [common\_log\_analytics\_workspace\_id](#input\_common\_log\_analytics\_workspace\_id) | The ID for the common Log Analytics Workspace | `string` | n/a | yes |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | The common resource tags for the project | `map(string)` | n/a | yes |
