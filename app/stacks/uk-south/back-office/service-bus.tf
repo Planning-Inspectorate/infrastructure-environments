@@ -44,7 +44,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "back_office" {
 
 # Create a network ruleset to disable public access
 resource "azurerm_servicebus_namespace_network_rule_set" "back_office" {
-  count = var.service_bus_failover_enabled ? 0 : 1
+  count = var.service_bus_failover_enabled ? 1 : 0
 
   namespace_id                  = azurerm_servicebus_namespace.back_office[0].id
   public_network_access_enabled = false
