@@ -28,6 +28,16 @@ variable "applications_service_redis_connection_string_secret_name" {
   type        = string
 }
 
+variable "back_office_service_bus_namespace_name" {
+  description = "Namespace of Back Office Service Bus instance"
+  type        = string
+}
+
+variable "back_office_service_bus_nsip_project_topic_id" {
+  description = "ID for the nsip-project topic"
+  type        = string
+}
+
 variable "container_registry_name" {
   description = "The name of the container registry that hosts the image"
   type        = string
@@ -109,6 +119,16 @@ variable "resource_suffix" {
 
 variable "service_name" {
   description = "The name of the service the Azure App Services are part of"
+  type        = string
+}
+
+variable "function_storage_primary_access_key" {
+  description = "Access key for the Azure Storage Account for Function Apps"
+  type        = string
+}
+
+variable "function_storage_name" {
+  description = "Name of the Azure Storage Account for Function Apps"
   type        = string
 }
 

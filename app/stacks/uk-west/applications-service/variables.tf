@@ -24,6 +24,16 @@ variable "applications_service_public_url" {
   type        = string
 }
 
+variable "back_office_service_bus_namespace_name" {
+  description = "Namespace of Back Office Service Bus instance"
+  type        = string
+}
+
+variable "back_office_service_bus_nsip_project_topic_id" {
+  description = "ID for the nsip-project topic"
+  type        = string
+}
+
 variable "common_resource_group_name" {
   description = "The common infrastructure resource group name"
   type        = string

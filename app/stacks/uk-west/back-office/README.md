@@ -114,6 +114,8 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_function_apps_storage_account"></a> [function\_apps\_storage\_account](#output\_function\_apps\_storage\_account) | Function app storage account |
 | <a name="output_function_apps_storage_account_access_key"></a> [function\_apps\_storage\_account\_access\_key](#output\_function\_apps\_storage\_account\_access\_key) | Function app storage account access key |
 | <a name="output_service_bus_namespace_id"></a> [service\_bus\_namespace\_id](#output\_service\_bus\_namespace\_id) | The ID of the Service Bus Namespace |
+| <a name="output_service_bus_namespace_name"></a> [service\_bus\_namespace\_name](#output\_service\_bus\_namespace\_name) | The name of the Service Bus Namespace |
+| <a name="output_service_bus_nsip_project_topic_id"></a> [service\_bus\_nsip\_project\_topic\_id](#output\_service\_bus\_nsip\_project\_topic\_id) | ID of the nsip-project Service Bus Topic |
 | <a name="output_sql_server_id"></a> [sql\_server\_id](#output\_sql\_server\_id) | The ID of the Back Office SQL server |
 | <a name="output_sql_server_password"></a> [sql\_server\_password](#output\_sql\_server\_password) | The SQL server administrator password |
 | <a name="output_sql_server_username"></a> [sql\_server\_username](#output\_sql\_server\_username) | The SQL server administrator username |
