@@ -3,6 +3,11 @@ output "app_service_urls" {
   value       = module.app_services.app_service_urls
 }
 
+output "web_frontend_url" {
+  description = "The URL of the web frontend app service"
+  value       = module.app_services.web_frontend_url
+}
+
 output "appeal_documents_storage_container_name" {
   description = "The Appeal Documents Storage Account container name"
   value       = azurerm_storage_account.appeal_documents.name
