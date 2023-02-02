@@ -3,17 +3,6 @@ variable "action_group_low_id" {
   type        = string
 }
 
-variable "back_office_document_storage_connection_string" {
-  description = "The azurerm_storage_account back_office_documents connection string"
-  type        = string
-  sensitive   = true
-}
-
-variable "back_office_api_host" {
-  description = "Back Office Api Host"
-  type        = string
-}
-
 variable "function_apps_storage_account" {
   description = "Function Storage name"
   type        = string
@@ -57,16 +46,6 @@ variable "tags" {
 
 variable "integration_subnet_id" {
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
-  type        = string
-}
-
-variable "clamav_host" {
-  description = "The hostname of the ClamAV Container"
-  type        = string
-}
-
-variable "document_storage_back_office_documents_id" {
-  description = "The azurerm_storage_account back_office_documents resource id"
   type        = string
 }
 
