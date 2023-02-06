@@ -16,7 +16,9 @@ module "odw_subscriber_function" {
   service_name                             = "odw-subscriber"
   use_app_insights                         = true
 
-  app_settings = {}
+  app_settings = {
+    ServiceBusConnection__fullyQualifiedNamespace = "${var.service_bus_namespace_name}.servicebus.windows.net"
+  }
 
   tags = var.tags
 }
