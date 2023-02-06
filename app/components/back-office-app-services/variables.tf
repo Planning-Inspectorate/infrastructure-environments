@@ -243,3 +243,9 @@ variable "employee_topic_id" {
   type        = string
   default     = ""
 }
+
+variable "feature_odw_subscription_enabled" {
+  description = "Temporary flag to enable/disable ODW subscription integration. Always disabled for uk-south for now."
+  type        = bool
+  default     = false
+}

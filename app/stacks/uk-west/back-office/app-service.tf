@@ -45,6 +45,7 @@ module "app_services" {
   document_check_function_storage_primary_access_key = azurerm_storage_account.function_storage.primary_access_key
   tags                                               = local.tags
   employee_topic_id                                  = azurerm_servicebus_topic.employee.id
+  feature_odw_subscription_enabled                   = true
 
   providers = {
     azurerm         = azurerm

@@ -1,6 +1,6 @@
 module "odw_subscriber_function" {
 
-  count = var.employee_topic_id != "" ? 1 : 0
+  count = var.feature_odw_subscription_enabled ? 1 : 0
 
   source = "./odw-subscriber-function"
 

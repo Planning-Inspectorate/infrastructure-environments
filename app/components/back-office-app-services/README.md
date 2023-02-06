@@ -68,6 +68,7 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_endpoint_subnet_id"></a> [endpoint\_subnet\_id](#input\_endpoint\_subnet\_id) | The id of the private endpoint subnet the app service is linked to for ingress traffic | `string` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
 | <a name="input_feature_document_scanning_enabled"></a> [feature\_document\_scanning\_enabled](#input\_feature\_document\_scanning\_enabled) | Indicates whether ClamAV Document Scanning has been enabled | `bool` | `false` | no |
+| <a name="input_feature_odw_subscription_enabled"></a> [feature\_odw\_subscription\_enabled](#input\_feature\_odw\_subscription\_enabled) | Temporary flag to enable/disable ODW subscription integration. Always disabled for uk-south for now. | `bool` | `false` | no |
 | <a name="input_feature_service_bus_enabled"></a> [feature\_service\_bus\_enabled](#input\_feature\_service\_bus\_enabled) | Whether or not Service Bus events are enabled | `string` | n/a | yes |
 | <a name="input_integration_subnet_id"></a> [integration\_subnet\_id](#input\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic | `string` | n/a | yes |
 | <a name="input_key_vault_id"></a> [key\_vault\_id](#input\_key\_vault\_id) | The ID of the key vault so the App Service can pull secret values | `string` | n/a | yes |
