@@ -58,3 +58,9 @@ variable "employee_topic_id" {
   description = "The ID of the employee topic"
   type        = string
 }
+
+variable "service_bus_namespace_name" {
+  default     = null
+  description = "The name of the Back Office service bus namespace"
+  type        = string
+}
