@@ -9,6 +9,7 @@ resource "azurerm_servicebus_namespace" "back_office" {
 
   tags = local.tags
 }
+
 resource "azurerm_servicebus_namespace_disaster_recovery_config" "back_office" {
   count = var.service_bus_failover_enabled ? 1 : 0
 

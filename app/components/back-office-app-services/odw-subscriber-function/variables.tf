@@ -53,3 +53,8 @@ variable "app_service_plan_id" {
   description = "The id of the app service plan"
   type        = string
 }
+
+variable "employee_topic_id" {
+  description = "The ID of the employee topic"
+  type        = string
+}

@@ -1,4 +1,7 @@
 module "odw_subscriber_function" {
+
+  count = var.employee_topic_id != "" ? 1 : 0
+
   source = "./odw-subscriber-function"
 
   action_group_low_id                      = var.action_group_low_id
@@ -12,6 +15,7 @@ module "odw_subscriber_function" {
   function_apps_storage_account            = var.document_check_function_storage_name
   function_apps_storage_account_access_key = var.document_check_function_storage_primary_access_key
   app_service_plan_id                      = azurerm_service_plan.back_office_functions_plan.id
+  employee_topic_id                        = var.employee_topic_id
 
   providers = {
     azurerm         = azurerm

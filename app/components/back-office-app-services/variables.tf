@@ -236,3 +236,10 @@ variable "common_vnet_id" {
   description = "The common infrastructure virtual network id"
   type        = string
 }
+
+# Setting this to empty string for now whilst we figure out DR plans
+variable "employee_topic_id" {
+  description = "The ID of the employee topic"
+  type        = string
+  default     = ""
+}

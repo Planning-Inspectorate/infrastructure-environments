@@ -20,3 +20,9 @@ module "odw_subscriber_function" {
 
   tags = var.tags
 }
+
+resource "azurerm_servicebus_subscription" "employee_topic_subscription" {
+  name               = "employee-topic-subscription"
+  topic_id           = var.employee_topic_id
+  max_delivery_count = 1
+}
