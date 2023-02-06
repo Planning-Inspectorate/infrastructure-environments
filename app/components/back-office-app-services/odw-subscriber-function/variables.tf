@@ -3,17 +3,6 @@ variable "action_group_low_id" {
   type        = string
 }
 
-variable "back_office_document_storage_connection_string" {
-  description = "The azurerm_storage_account back_office_documents connection string"
-  type        = string
-  sensitive   = true
-}
-
-variable "back_office_api_host" {
-  description = "Back Office Api Host"
-  type        = string
-}
-
 variable "function_apps_storage_account" {
   description = "Function Storage name"
   type        = string
@@ -60,17 +49,18 @@ variable "integration_subnet_id" {
   type        = string
 }
 
-variable "clamav_host" {
-  description = "The hostname of the ClamAV Container"
-  type        = string
-}
-
-variable "document_storage_back_office_documents_id" {
-  description = "The azurerm_storage_account back_office_documents resource id"
-  type        = string
-}
-
 variable "app_service_plan_id" {
   description = "The id of the app service plan"
+  type        = string
+}
+
+variable "employee_topic_id" {
+  description = "The ID of the employee topic"
+  type        = string
+}
+
+variable "service_bus_namespace_name" {
+  default     = null
+  description = "The name of the Back Office service bus namespace"
   type        = string
 }

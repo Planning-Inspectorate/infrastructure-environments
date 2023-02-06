@@ -57,13 +57,20 @@ resource "azurerm_private_endpoint" "back_office" {
   tags = local.tags
 }
 
-# NSIP project
+# Topics
 resource "azurerm_servicebus_topic" "nsip_project" {
   name                = "nsip-project"
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
 
+resource "azurerm_servicebus_topic" "employee" {
+  name                = "employee"
+  namespace_id        = azurerm_servicebus_namespace.back_office.id
+  default_message_ttl = "P14D"
+}
+
+# POC Subscription
 resource "azurerm_servicebus_subscription" "nsip_project_poc" {
   name               = "nsip-project-poc-subscriber"
   topic_id           = azurerm_servicebus_topic.nsip_project.id
