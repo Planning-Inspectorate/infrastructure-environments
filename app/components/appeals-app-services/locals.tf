@@ -60,7 +60,7 @@ locals {
       app_settings = {
         APP_APPEALS_BASE_URL                                                        = "https://${var.appeals_service_public_url}"
         DOCS_API_PATH                                                               = "/opt/app/api"
-        DOCUMENTS_SERVICE_API_TIMEOUT                                               = "10000"
+        DOCUMENTS_SERVICE_API_TIMEOUT                                               = var.api_timeout
         DOCUMENTS_SERVICE_API_URL                                                   = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net"
         FEATURE_FLAG_NEW_APPEAL_JOURNEY                                             = true
         HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION                                  = true
