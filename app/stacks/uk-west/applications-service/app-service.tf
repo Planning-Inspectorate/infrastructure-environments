@@ -7,9 +7,13 @@ module "app_services" {
   app_service_private_dns_zone_id                                 = data.azurerm_private_dns_zone.app_service.id
   applications_service_public_url                                 = var.applications_service_public_url
   applications_service_redis_connection_string_secret_name        = azurerm_key_vault_secret.redis_cache_connection_string.name
+  back_office_service_bus_namespace_name                          = var.back_office_service_bus_namespace_name
+  back_office_service_bus_nsip_project_topic_id                   = var.back_office_service_bus_nsip_project_topic_id
   container_registry_name                                         = var.container_registry_name
   container_registry_rg                                           = var.container_registry_rg
   endpoint_subnet_id                                              = azurerm_subnet.applications_service_ingress.id
+  function_storage_name                                           = azurerm_storage_account.function_storage.name
+  function_storage_primary_access_key                             = azurerm_storage_account.function_storage.primary_connection_string
   google_analytics_id                                             = var.google_analytics_id
   integration_subnet_id                                           = var.integration_subnet_id
   key_vault_id                                                    = var.key_vault_id
