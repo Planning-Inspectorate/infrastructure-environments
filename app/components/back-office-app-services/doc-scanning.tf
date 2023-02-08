@@ -35,9 +35,11 @@ module "document_check_function" {
   document_storage_back_office_documents_id      = var.document_storage_back_office_documents_id
   back_office_document_storage_connection_string = var.back_office_document_storage_connection_string
   back_office_api_host                           = module.app_service["back_office_api"].default_site_hostname
+  back_office_document_api_host                  = module.app_service["back_office_document_storage_api"].default_site_hostname
   function_apps_storage_account                  = var.document_check_function_storage_name
   function_apps_storage_account_access_key       = var.document_check_function_storage_primary_access_key
   app_service_plan_id                            = azurerm_service_plan.back_office_functions_plan.id
+
 
   providers = {
     azurerm         = azurerm
