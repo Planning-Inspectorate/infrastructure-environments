@@ -197,6 +197,12 @@ variable "feature_redis_session_store" {
   type        = string
 }
 
+variable "feature_back_office_subscriber_enabled" {
+  description = "Temporary flag to enable/disable Back Office subscription integration. Always disabled for uk-south for now."
+  type        = bool
+  default     = false
+}
+
 variable "tags" {
   description = "The tags applied to all resources"
   type        = map(string)

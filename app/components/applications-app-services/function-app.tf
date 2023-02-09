@@ -1,4 +1,6 @@
 module "back_office_subscribers" {
+  count = var.feature_back_office_subscriber_enabled ? 1 : 0
+
   source = "../../modules/node-function-app"
 
   action_group_low_id                      = var.action_group_low_id
@@ -24,13 +26,17 @@ module "back_office_subscribers" {
 }
 
 resource "azurerm_servicebus_subscription" "nsip_project_topic_subscription" {
+  count = var.feature_back_office_subscriber_enabled ? 1 : 0
+
   name               = "applications-nsip-project-subscription"
   topic_id           = var.back_office_service_bus_nsip_project_topic_id
   max_delivery_count = 1
 }
 
 resource "azurerm_role_assignment" "nsip_service_bus_role" {
-  scope                = azurerm_servicebus_subscription.nsip_project_topic_subscription.id
+  count = var.feature_back_office_subscriber_enabled ? 1 : 0
+
+  scope                = azurerm_servicebus_subscription.nsip_project_topic_subscription[0].id
   role_definition_name = "Azure Service Bus Data Receiver"
-  principal_id         = module.back_office_subscribers.principal_id
+  principal_id         = module.back_office_subscribers[0].principal_id
 }
