@@ -43,7 +43,7 @@ dependency "applications_service_ukw" {
   }
 }
 
-# TODO: uncomment when service bus in back office uks set up
+# TODO: ASB-1171 - uncomment when service bus in back office uks set up
 #dependency "back_office_uks" {
 #  config_path                             = "../../uk-south/back-office"
 #  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
@@ -60,9 +60,11 @@ inputs = {
   app_service_plan_id                         = try(dependency.common_uks.outputs.app_service_plan_id, null)
   applications_service_vpn_gateway_shared_key = dependency.common_uks.outputs.applications_service_vpn_gateway_shared_key
 
-  # TODO: uncomment when service bus in back office uks set up
+  # TODO: ASB-1171 - uncomment when service bus in back office uks set up
   # back_office_service_bus_namespace_name        = dependency.back_office_uks.outputs.service_bus_namespace_name
   # back_office_service_bus_nsip_project_topic_id = dependency.back_office_uks.outputs.service_bus_nsip_project_topic_id
+  back_office_service_bus_namespace_name        = "mock-namespace"
+  back_office_service_bus_nsip_project_topic_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
 
   common_resource_group_name          = dependency.common_uks.outputs.common_resource_group_name
   common_vnet_cidr_blocks             = dependency.common_uks.outputs.common_vnet_cidr_blocks
