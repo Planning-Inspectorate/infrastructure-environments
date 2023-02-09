@@ -1,8 +1,8 @@
-module "service_bus_trigger_function" {
+module "back_office_subscribers" {
   source = "../../modules/node-function-app"
 
   action_group_low_id                      = var.action_group_low_id
-  app_name                                 = "sb-trigger"
+  app_name                                 = "bo-subscribers"
   app_service_plan_id                      = var.app_service_plan_id
   function_apps_storage_account            = var.function_storage_name
   function_apps_storage_account_access_key = var.function_storage_primary_access_key
@@ -24,7 +24,7 @@ module "service_bus_trigger_function" {
 }
 
 resource "azurerm_servicebus_subscription" "nsip_project_topic_subscription" {
-  name               = "nsip-project-subscription"
+  name               = "applications-nsip-project-subscription"
   topic_id           = var.back_office_service_bus_nsip_project_topic_id
   max_delivery_count = 1
 }
@@ -32,5 +32,5 @@ resource "azurerm_servicebus_subscription" "nsip_project_topic_subscription" {
 resource "azurerm_role_assignment" "nsip_service_bus_role" {
   scope                = azurerm_servicebus_subscription.nsip_project_topic_subscription.id
   role_definition_name = "Azure Service Bus Data Receiver"
-  principal_id         = module.service_bus_trigger_function.principal_id
+  principal_id         = module.back_office_subscribers.principal_id
 }

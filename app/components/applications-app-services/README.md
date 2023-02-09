@@ -21,7 +21,7 @@ This module contains the App Services resources for the applications service. Th
 |------|--------|---------|
 | <a name="module_app_service"></a> [app\_service](#module\_app\_service) | ../../modules/node-app-service | n/a |
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
-| <a name="module_service_bus_trigger_function"></a> [service\_bus\_trigger\_function](#module\_service\_bus\_trigger\_function) | ../../modules/node-function-app | n/a |
+| <a name="module_back_office_subscribers"></a> [back\_office\_subscribers](#module\_back\_office\_subscribers) | ../../modules/node-function-app | n/a |
 
 ## Resources
 
