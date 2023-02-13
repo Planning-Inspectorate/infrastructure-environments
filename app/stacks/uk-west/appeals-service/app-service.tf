@@ -34,6 +34,7 @@ module "app_services" {
   srv_horizon_url                                                             = var.horizon_url
   srv_notify_api_key                                                          = local.secret_refs["appeals-srv-notify-api-key"]
   srv_notify_base_url                                                         = var.srv_notify_base_url
+  srv_notify_failure_to_upload_to_horizon_template_id                         = var.srv_notify_failure_to_upload_to_horizon_template_id
   srv_notify_full_appeal_confirmation_email_to_appellant_template_id          = var.srv_notify_full_appeal_confirmation_email_to_appellant_template_id
   srv_notify_full_appeal_received_notification_email_to_lpa_template_id       = var.srv_notify_full_appeal_received_notification_email_to_lpa_template_id
   srv_notify_save_and_return_continue_with_appeal_template_id                 = var.srv_notify_save_and_return_continue_with_appeal_template_id
