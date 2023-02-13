@@ -41,5 +41,5 @@ locals {
   srv_admin_monitoring_email                                                  = "AppealsBetaTeam@planninginspectorate.gov.uk"
   srv_notify_failure_to_upload_to_horizon_template_id                         = "49413491-90fd-4ce8-b061-e2f4758b636b"
   task_submit_to_horizon_cron_string                                          = "*/10 * * * *"
-  task_submit_to_horizon_trigger_active                                       = "true
+  task_submit_to_horizon_trigger_active                                       = "true"
 }
