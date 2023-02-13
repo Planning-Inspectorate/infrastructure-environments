@@ -38,4 +38,8 @@ locals {
   srv_notify_save_and_return_enter_code_into_service_template_id              = "17fa62a6-81f6-49f7-87f0-b7a67d9ec5a0"
   srv_notify_service_id                                                       = "57ab0834-106d-438c-b0b9-3c8f2c268738"
   srv_notify_confirm_email_template_id                                        = "fef50c47-5ce4-4741-b89d-e31768b27bfd"
+  srv_admin_monitoring_email                                                  = "appealsbetateam@planninginspectorate.gov.uk"
+  srv_notify_failure_to_upload_to_horizon_template_id                         = "68fbc646-c4b4-4050-be04-1829a0b109dc"
+  task_submit_to_horizon_cron_string                                          = "*/15 * * * *"
+  task_submit_to_horizon_trigger_active                                       = "true"
 }
