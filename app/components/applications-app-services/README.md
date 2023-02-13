@@ -21,7 +21,7 @@ This module contains the App Services resources for the applications service. Th
 |------|--------|---------|
 | <a name="module_app_service"></a> [app\_service](#module\_app\_service) | ../../modules/node-app-service | n/a |
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
-| <a name="module_service_bus_trigger_function"></a> [service\_bus\_trigger\_function](#module\_service\_bus\_trigger\_function) | ../../modules/node-function-app | n/a |
+| <a name="module_back_office_subscribers"></a> [back\_office\_subscribers](#module\_back\_office\_subscribers) | ../../modules/node-function-app | n/a |
 
 ## Resources
 
@@ -49,6 +49,7 @@ This module contains the App Services resources for the applications service. Th
 | <a name="input_feature_allow_document_library"></a> [feature\_allow\_document\_library](#input\_feature\_allow\_document\_library) | Feature toggle for limiting the web app routes to document library | `string` | n/a | yes |
 | <a name="input_feature_allow_examination_timetable"></a> [feature\_allow\_examination\_timetable](#input\_feature\_allow\_examination\_timetable) | Feature toggle for the activation of examination timetable routes and links | `string` | n/a | yes |
 | <a name="input_feature_allow_representation"></a> [feature\_allow\_representation](#input\_feature\_allow\_representation) | Feature toggle for limiting the web app routes to representation | `string` | n/a | yes |
+| <a name="input_feature_back_office_subscriber_enabled"></a> [feature\_back\_office\_subscriber\_enabled](#input\_feature\_back\_office\_subscriber\_enabled) | Temporary flag to enable/disable Back Office subscription integration. Always disabled for uk-south for now. | `bool` | `false` | no |
 | <a name="input_feature_hide_project_timeline_link"></a> [feature\_hide\_project\_timeline\_link](#input\_feature\_hide\_project\_timeline\_link) | Feature toggle to show / hide the project timeline link on project overview nav bar | `string` | n/a | yes |
 | <a name="input_feature_redis_session_store"></a> [feature\_redis\_session\_store](#input\_feature\_redis\_session\_store) | Feature toggle for using redis to store session data as opposed to default in-memory store | `string` | n/a | yes |
 | <a name="input_feature_save_and_exit_option"></a> [feature\_save\_and\_exit\_option](#input\_feature\_save\_and\_exit\_option) | Feature toggle for showing the save and exit option on registration form | `string` | n/a | yes |
