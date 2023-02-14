@@ -210,6 +210,11 @@ variable "feature_redis_session_store" {
   type        = string
 }
 
+variable "feature_enabled_content_security_policy" {
+  description = "Feature toggle to enable/disable content security policy"
+  type        = string
+}
+
 variable "documents_host" {
   description = "Specifies environment specific Wordpress CMS URL Prefix"
   type        = string
