@@ -203,6 +203,11 @@ variable "feature_back_office_subscriber_enabled" {
   default     = false
 }
 
+variable "feature_enabled_content_security_policy" {
+  description = "Feature toggle to enable/disable content security policy"
+  type        = string
+}
+
 variable "tags" {
   description = "The tags applied to all resources"
   type        = map(string)

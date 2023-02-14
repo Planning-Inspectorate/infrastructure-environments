@@ -7,6 +7,7 @@ locals {
   feature_redis_session_store                                     = "true"
   feature_save_and_exit_option                                    = "false"
   feature_show_affected_area_section                              = "false"
+  feature_enabled_content_security_policy                         = "true"
   google_analytics_id                                             = "G-566E329TBN"
   national_infrastructure_gateway_ip                              = "51.141.40.109"
   national_infrastructure_vnet_address_space                      = ["10.0.0.0/20"]
