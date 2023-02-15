@@ -236,3 +236,16 @@ variable "common_vnet_id" {
   description = "The common infrastructure virtual network id"
   type        = string
 }
+
+# Setting this to empty string for now whilst we figure out DR plans
+variable "employee_topic_id" {
+  description = "The ID of the employee topic"
+  type        = string
+  default     = ""
+}
+
+variable "feature_odw_subscription_enabled" {
+  description = "Temporary flag to enable/disable ODW subscription integration. Always disabled for uk-south for now."
+  type        = bool
+  default     = false
+}

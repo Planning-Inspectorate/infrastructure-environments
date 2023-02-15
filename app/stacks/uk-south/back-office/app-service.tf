@@ -45,6 +45,7 @@ module "app_services" {
   environment                                        = var.environment
   document_check_function_storage_name               = var.document_check_function_storage_name
   document_check_function_storage_primary_access_key = var.document_check_function_storage_primary_access_key
+  feature_odw_subscription_enabled                   = false
 
   tags = local.tags
 

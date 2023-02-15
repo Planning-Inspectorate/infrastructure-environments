@@ -30,7 +30,9 @@ module "app_services" {
   resource_group_name                                                         = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                                                             = local.resource_suffix
   service_name                                                                = local.service_name
+  srv_admin_monitoring_email                                                  = var.srv_admin_monitoring_email
   srv_notify_base_url                                                         = var.srv_notify_base_url
+  srv_notify_failure_to_upload_to_horizon_template_id                         = var.srv_notify_failure_to_upload_to_horizon_template_id
   srv_notify_full_appeal_confirmation_email_to_appellant_template_id          = var.srv_notify_full_appeal_confirmation_email_to_appellant_template_id
   srv_notify_full_appeal_received_notification_email_to_lpa_template_id       = var.srv_notify_full_appeal_received_notification_email_to_lpa_template_id
   srv_notify_save_and_return_continue_with_appeal_template_id                 = var.srv_notify_save_and_return_continue_with_appeal_template_id
@@ -40,6 +42,8 @@ module "app_services" {
   srv_notify_appeal_submission_received_notification_email_to_lpa_template_id = var.srv_notify_appeal_submission_received_notification_email_to_lpa_template_id
   srv_notify_start_email_to_lpa_template_id                                   = var.srv_notify_start_email_to_lpa_template_id
   srv_notify_service_id                                                       = var.srv_notify_service_id
+  task_submit_to_horizon_cron_string                                          = var.task_submit_to_horizon_cron_string
+  task_submit_to_horizon_trigger_active                                       = var.task_submit_to_horizon_trigger_active
 
   tags = local.tags
 

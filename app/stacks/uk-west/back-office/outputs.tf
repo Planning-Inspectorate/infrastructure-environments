@@ -61,6 +61,16 @@ output "service_bus_namespace_id" {
   value       = azurerm_servicebus_namespace.back_office.id
 }
 
+output "service_bus_namespace_name" {
+  description = "The name of the Service Bus Namespace"
+  value       = azurerm_servicebus_namespace.back_office.name
+}
+
+output "service_bus_nsip_project_topic_id" {
+  description = "ID of the nsip-project Service Bus Topic"
+  value       = azurerm_servicebus_topic.nsip_project.id
+}
+
 output "sql_server_id" {
   description = "The ID of the Back Office SQL server"
   value       = azurerm_mssql_server.back_office.id

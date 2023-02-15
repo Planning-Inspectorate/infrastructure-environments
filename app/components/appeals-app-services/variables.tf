@@ -200,6 +200,26 @@ variable "srv_notify_start_email_to_lpa_template_id" {
   type        = string
 }
 
+variable "srv_admin_monitoring_email" {
+  description = "Email for the Horizon failure team"
+  type        = string
+}
+
+variable "srv_notify_failure_to_upload_to_horizon_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
+variable "task_submit_to_horizon_cron_string" {
+  description = "Task to submit to horizon cron string"
+  type        = string
+}
+
+variable "task_submit_to_horizon_trigger_active" {
+  description = "Task to submit to horizon trigger active"
+  type        = string
+}
+
 variable "tags" {
   description = "The tags applied to all resources"
   type        = map(string)

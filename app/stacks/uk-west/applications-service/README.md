@@ -37,6 +37,7 @@ This component contains the infrastructure required for the applications service
 | [azurerm_private_endpoint.applications_service_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/private_endpoint) | resource |
 | [azurerm_redis_cache.applications_service_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/redis_cache) | resource |
 | [azurerm_resource_group.applications_service_stack](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/resource_group) | resource |
+| [azurerm_storage_account.function_storage](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/storage_account) | resource |
 | [azurerm_subnet.applications_service_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/subnet) | resource |
 | [azurerm_virtual_network_gateway_connection.national_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/virtual_network_gateway_connection) | resource |
 | [azurerm_private_dns_zone.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/data-sources/private_dns_zone) | data source |
@@ -50,6 +51,8 @@ This component contains the infrastructure required for the applications service
 | <a name="input_app_service_plan_id"></a> [app\_service\_plan\_id](#input\_app\_service\_plan\_id) | The id of the app service plan | `string` | n/a | yes |
 | <a name="input_applications_service_public_url"></a> [applications\_service\_public\_url](#input\_applications\_service\_public\_url) | The public URL for the Applications Service frontend web app | `string` | n/a | yes |
 | <a name="input_applications_service_vpn_gateway_shared_key"></a> [applications\_service\_vpn\_gateway\_shared\_key](#input\_applications\_service\_vpn\_gateway\_shared\_key) | The applications service virtual network gateway shared key | `string` | n/a | yes |
+| <a name="input_back_office_service_bus_namespace_name"></a> [back\_office\_service\_bus\_namespace\_name](#input\_back\_office\_service\_bus\_namespace\_name) | Namespace of Back Office Service Bus instance | `string` | n/a | yes |
+| <a name="input_back_office_service_bus_nsip_project_topic_id"></a> [back\_office\_service\_bus\_nsip\_project\_topic\_id](#input\_back\_office\_service\_bus\_nsip\_project\_topic\_id) | ID for the nsip-project topic | `string` | n/a | yes |
 | <a name="input_common_resource_group_name"></a> [common\_resource\_group\_name](#input\_common\_resource\_group\_name) | The common infrastructure resource group name | `string` | n/a | yes |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | The common resource tags for the project | `map(string)` | n/a | yes |
 | <a name="input_common_vnet_cidr_blocks"></a> [common\_vnet\_cidr\_blocks](#input\_common\_vnet\_cidr\_blocks) | A map of IP address blocks from the subnet name to the allocated CIDR prefix | `map(string)` | n/a | yes |
@@ -67,6 +70,7 @@ This component contains the infrastructure required for the applications service
 | <a name="input_feature_redis_session_store"></a> [feature\_redis\_session\_store](#input\_feature\_redis\_session\_store) | Feature toggle for using redis to store session data as opposed to default in-memory store | `string` | n/a | yes |
 | <a name="input_feature_save_and_exit_option"></a> [feature\_save\_and\_exit\_option](#input\_feature\_save\_and\_exit\_option) | Feature toggle for showing the save and exit option on registration form | `string` | n/a | yes |
 | <a name="input_feature_show_affected_area_section"></a> [feature\_show\_affected\_area\_section](#input\_feature\_show\_affected\_area\_section) | Feature toggle for showing the affected area section on project page | `string` | n/a | yes |
+| <a name="input_feature_enabled_content_security_policy"></a> [feature\_enabled\_content\_security\_policy](#input\feature\_enabled\_content\_security\_policy) | Feature toggle to enable/disable content security policy| `string` | n/a | yes |
 | <a name="input_google_analytics_id"></a> [google\_analytics\_id](#input\_google\_analytics\_id) | The id used to connect the frontend app to Google Analytics | `string` | n/a | yes |
 | <a name="input_instance"></a> [instance](#input\_instance) | The environment instance for use if multiple environments are deployed to a subscription | `string` | `"001"` | no |
 | <a name="input_integration_subnet_id"></a> [integration\_subnet\_id](#input\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic | `string` | n/a | yes |
@@ -92,5 +96,7 @@ This component contains the infrastructure required for the applications service
 | Name | Description |
 |------|-------------|
 | <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of frontend app service URLs |
+| <a name="output_function_storage_name"></a> [function\_storage\_name](#output\_function\_storage\_name) | Name of the Storage Account used for Function Apps |
+| <a name="output_function_storage_primary_access_key"></a> [function\_storage\_primary\_access\_key](#output\_function\_storage\_primary\_access\_key) | Primary access key of the Storage Account used for Function Apps |
 | <a name="output_web_frontend_url"></a> [web\_frontend\_url](#output\_web\_frontend\_url) | The URL of the web frontend app service |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

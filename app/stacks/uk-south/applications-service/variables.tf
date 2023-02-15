@@ -24,6 +24,16 @@ variable "applications_service_public_url" {
   type        = string
 }
 
+variable "back_office_service_bus_namespace_name" {
+  description = "Namespace of Back Office Service Bus instance"
+  type        = string
+}
+
+variable "back_office_service_bus_nsip_project_topic_id" {
+  description = "ID for the nsip-project topic"
+  type        = string
+}
+
 variable "common_resource_group_name" {
   description = "The common infrastructure resource group name"
   type        = string
@@ -66,6 +76,16 @@ variable "container_registry_rg" {
 
 variable "environment" {
   description = "The environment resources are deployed to e.g. 'dev'"
+  type        = string
+}
+
+variable "function_storage_name" {
+  description = "Name of the Storage Account used for Function Apps"
+  type        = string
+}
+
+variable "function_storage_primary_access_key" {
+  description = "Primary access key of the Storage Account used for Function Apps"
   type        = string
 }
 
@@ -203,6 +223,10 @@ variable "feature_allow_representation" {
 
 variable "feature_redis_session_store" {
   description = "Feature toggle for using redis to store session data as opposed to default in-memory store"
+  type        = string
+}
+variable "feature_enabled_content_security_policy" {
+  description = "Feature toggle to enable/disable content security policy"
   type        = string
 }
 

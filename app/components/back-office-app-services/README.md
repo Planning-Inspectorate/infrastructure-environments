@@ -23,6 +23,7 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
 | <a name="module_clam_av_container"></a> [clam\_av\_container](#module\_clam\_av\_container) | ./clamav-container | n/a |
 | <a name="module_document_check_function"></a> [document\_check\_function](#module\_document\_check\_function) | ./document-check-function | n/a |
+| <a name="module_odw_subscriber_function"></a> [odw\_subscriber\_function](#module\_odw\_subscriber\_function) | ./odw-subscriber-function | n/a |
 
 ## Resources
 
@@ -31,6 +32,7 @@ This module contains the App Services resources for the Back Office service. The
 | [azurerm_role_assignment.applications_case_admin_officer_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.applications_caseteam_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.back_office_app_send_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/role_assignment) | resource |
+| [azurerm_service_plan.back_office_functions_plan](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/service_plan) | resource |
 | [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/data-sources/client_config) | data source |
 
 ## Inputs
@@ -62,9 +64,11 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_document_storage_api_host"></a> [document\_storage\_api\_host](#input\_document\_storage\_api\_host) | The full URI to the storage account used for back office documents | `string` | n/a | yes |
 | <a name="input_document_storage_back_office_documents_id"></a> [document\_storage\_back\_office\_documents\_id](#input\_document\_storage\_back\_office\_documents\_id) | The azurerm\_storage\_account back\_office\_documents resource id | `string` | n/a | yes |
 | <a name="input_document_storage_container"></a> [document\_storage\_container](#input\_document\_storage\_container) | The container in Blob Storage used for Back Office storage of documents | `string` | n/a | yes |
+| <a name="input_employee_topic_id"></a> [employee\_topic\_id](#input\_employee\_topic\_id) | The ID of the employee topic | `string` | `""` | no |
 | <a name="input_endpoint_subnet_id"></a> [endpoint\_subnet\_id](#input\_endpoint\_subnet\_id) | The id of the private endpoint subnet the app service is linked to for ingress traffic | `string` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
 | <a name="input_feature_document_scanning_enabled"></a> [feature\_document\_scanning\_enabled](#input\_feature\_document\_scanning\_enabled) | Indicates whether ClamAV Document Scanning has been enabled | `bool` | `false` | no |
+| <a name="input_feature_odw_subscription_enabled"></a> [feature\_odw\_subscription\_enabled](#input\_feature\_odw\_subscription\_enabled) | Temporary flag to enable/disable ODW subscription integration. Always disabled for uk-south for now. | `bool` | `false` | no |
 | <a name="input_feature_service_bus_enabled"></a> [feature\_service\_bus\_enabled](#input\_feature\_service\_bus\_enabled) | Whether or not Service Bus events are enabled | `string` | n/a | yes |
 | <a name="input_integration_subnet_id"></a> [integration\_subnet\_id](#input\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic | `string` | n/a | yes |
 | <a name="input_key_vault_id"></a> [key\_vault\_id](#input\_key\_vault\_id) | The ID of the key vault so the App Service can pull secret values | `string` | n/a | yes |

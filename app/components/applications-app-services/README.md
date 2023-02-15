@@ -11,7 +11,9 @@ This module contains the App Services resources for the applications service. Th
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.6.0 |
 
 ## Modules
 
@@ -19,10 +21,14 @@ No providers.
 |------|--------|---------|
 | <a name="module_app_service"></a> [app\_service](#module\_app\_service) | ../../modules/node-app-service | n/a |
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
+| <a name="module_back_office_subscribers"></a> [back\_office\_subscribers](#module\_back\_office\_subscribers) | ../../modules/node-function-app | n/a |
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [azurerm_role_assignment.nsip_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/role_assignment) | resource |
+| [azurerm_servicebus_subscription.nsip_project_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_subscription) | resource |
 
 ## Inputs
 
@@ -34,6 +40,8 @@ No resources.
 | <a name="input_app_service_private_dns_zone_id"></a> [app\_service\_private\_dns\_zone\_id](#input\_app\_service\_private\_dns\_zone\_id) | The id of the private DNS zone for App services | `string` | n/a | yes |
 | <a name="input_applications_service_public_url"></a> [applications\_service\_public\_url](#input\_applications\_service\_public\_url) | The public URL for the Applications Service frontend web app | `string` | n/a | yes |
 | <a name="input_applications_service_redis_connection_string_secret_name"></a> [applications\_service\_redis\_connection\_string\_secret\_name](#input\_applications\_service\_redis\_connection\_string\_secret\_name) | Name of the secret in Key Vault that stores the redis connection string | `string` | n/a | yes |
+| <a name="input_back_office_service_bus_namespace_name"></a> [back\_office\_service\_bus\_namespace\_name](#input\_back\_office\_service\_bus\_namespace\_name) | Namespace of Back Office Service Bus instance | `string` | n/a | yes |
+| <a name="input_back_office_service_bus_nsip_project_topic_id"></a> [back\_office\_service\_bus\_nsip\_project\_topic\_id](#input\_back\_office\_service\_bus\_nsip\_project\_topic\_id) | ID for the nsip-project topic | `string` | n/a | yes |
 | <a name="input_container_registry_name"></a> [container\_registry\_name](#input\_container\_registry\_name) | The name of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_container_registry_rg"></a> [container\_registry\_rg](#input\_container\_registry\_rg) | The resource group of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_documents_host"></a> [documents\_host](#input\_documents\_host) | Specifies environment specific Wordpress CMS URL Prefix | `string` | n/a | yes |
@@ -41,10 +49,13 @@ No resources.
 | <a name="input_feature_allow_document_library"></a> [feature\_allow\_document\_library](#input\_feature\_allow\_document\_library) | Feature toggle for limiting the web app routes to document library | `string` | n/a | yes |
 | <a name="input_feature_allow_examination_timetable"></a> [feature\_allow\_examination\_timetable](#input\_feature\_allow\_examination\_timetable) | Feature toggle for the activation of examination timetable routes and links | `string` | n/a | yes |
 | <a name="input_feature_allow_representation"></a> [feature\_allow\_representation](#input\_feature\_allow\_representation) | Feature toggle for limiting the web app routes to representation | `string` | n/a | yes |
+| <a name="input_feature_back_office_subscriber_enabled"></a> [feature\_back\_office\_subscriber\_enabled](#input\_feature\_back\_office\_subscriber\_enabled) | Temporary flag to enable/disable Back Office subscription integration. Always disabled for uk-south for now. | `bool` | `false` | no |
 | <a name="input_feature_hide_project_timeline_link"></a> [feature\_hide\_project\_timeline\_link](#input\_feature\_hide\_project\_timeline\_link) | Feature toggle to show / hide the project timeline link on project overview nav bar | `string` | n/a | yes |
 | <a name="input_feature_redis_session_store"></a> [feature\_redis\_session\_store](#input\_feature\_redis\_session\_store) | Feature toggle for using redis to store session data as opposed to default in-memory store | `string` | n/a | yes |
 | <a name="input_feature_save_and_exit_option"></a> [feature\_save\_and\_exit\_option](#input\_feature\_save\_and\_exit\_option) | Feature toggle for showing the save and exit option on registration form | `string` | n/a | yes |
 | <a name="input_feature_show_affected_area_section"></a> [feature\_show\_affected\_area\_section](#input\_feature\_show\_affected\_area\_section) | Feature toggle for showing the affected area section on project page | `string` | n/a | yes |
+| <a name="input_function_storage_name"></a> [function\_storage\_name](#input\_function\_storage\_name) | Name of the Azure Storage Account for Function Apps | `string` | n/a | yes |
+| <a name="input_function_storage_primary_access_key"></a> [function\_storage\_primary\_access\_key](#input\_function\_storage\_primary\_access\_key) | Access key for the Azure Storage Account for Function Apps | `string` | n/a | yes |
 | <a name="input_google_analytics_id"></a> [google\_analytics\_id](#input\_google\_analytics\_id) | The id used to connect the frontend app to Google Analytics | `string` | n/a | yes |
 | <a name="input_integration_subnet_id"></a> [integration\_subnet\_id](#input\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic | `string` | n/a | yes |
 | <a name="input_key_vault_id"></a> [key\_vault\_id](#input\_key\_vault\_id) | The ID of the key vault so the App Service can pull secret values | `string` | n/a | yes |

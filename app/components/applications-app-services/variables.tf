@@ -28,6 +28,16 @@ variable "applications_service_redis_connection_string_secret_name" {
   type        = string
 }
 
+variable "back_office_service_bus_namespace_name" {
+  description = "Namespace of Back Office Service Bus instance"
+  type        = string
+}
+
+variable "back_office_service_bus_nsip_project_topic_id" {
+  description = "ID for the nsip-project topic"
+  type        = string
+}
+
 variable "container_registry_name" {
   description = "The name of the container registry that hosts the image"
   type        = string
@@ -112,6 +122,16 @@ variable "service_name" {
   type        = string
 }
 
+variable "function_storage_primary_access_key" {
+  description = "Access key for the Azure Storage Account for Function Apps"
+  type        = string
+}
+
+variable "function_storage_name" {
+  description = "Name of the Azure Storage Account for Function Apps"
+  type        = string
+}
+
 variable "srv_notify_base_url" {
   description = "The base URL for the Notifications service"
   type        = string
@@ -174,6 +194,17 @@ variable "feature_allow_representation" {
 
 variable "feature_redis_session_store" {
   description = "Feature toggle for using redis to store session data as opposed to default in-memory store"
+  type        = string
+}
+
+variable "feature_back_office_subscriber_enabled" {
+  description = "Temporary flag to enable/disable Back Office subscription integration. Always disabled for uk-south for now."
+  type        = bool
+  default     = false
+}
+
+variable "feature_enabled_content_security_policy" {
+  description = "Feature toggle to enable/disable content security policy"
   type        = string
 }
 

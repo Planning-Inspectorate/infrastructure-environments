@@ -13,7 +13,7 @@ locals {
       enabled = true
       targeting = {
         percentage = 100
-        users      = ["E69999999", "E60000213", "E60000068"]
+        users      = ["E69999999", "E60000015", "E60000016", "E60000068"]
       }
     },
     {
@@ -38,4 +38,8 @@ locals {
   srv_notify_service_id                                                       = "c46d894e-d10e-4c46-a467-019576cd906a"
   srv_notify_start_email_to_lpa_template_id                                   = "c4701212-4b6a-4b55-801a-c86c7dbea54b"
   srv_notify_confirm_email_template_id                                        = "4156c7ac-a235-4577-b976-44020bec4d5f"
+  srv_admin_monitoring_email                                                  = "AppealsBetaTeam@planninginspectorate.gov.uk"
+  srv_notify_failure_to_upload_to_horizon_template_id                         = "49413491-90fd-4ce8-b061-e2f4758b636b"
+  task_submit_to_horizon_cron_string                                          = "*/10 * * * *"
+  task_submit_to_horizon_trigger_active                                       = "true"
 }
