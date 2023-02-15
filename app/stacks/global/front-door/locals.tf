@@ -2,23 +2,44 @@ locals {
   service_name    = "common"
   resource_suffix = "${var.environment}-${var.instance}"
 
+  applications_primary_mapping = {
+    url      = var.applications_service_primary_app_service_url,
+    priority = 1
+  }
+
+  applications_secondary_mapping = {
+    url      = var.applications_service_secondary_app_service_url,
+    priority = 0
+  }
+
+
+  back_office_primary_mapping = {
+    url      = var.back_office_primary_app_service_url,
+    priority = 1
+  }
+
+  back_office_secondary_mapping = {
+    url      = var.back_office_secondary_app_service_url,
+    priority = 0
+  }
+
+  appeals_primary_mapping = {
+    url      = var.appeals_service_primary_app_service_url,
+    priority = 1
+  }
+
+  appeals_secondary_mapping = {
+    url      = var.appeals_service_secondary_app_service_url,
+    priority = 0
+  }
+
   frontend_endpoint_mappings = {
     applications_frontend = {
       frontend_endpoint = var.applications_service_public_url
-      # We won't always have a secondary app service url, so we need to conditionally create the app_service_urls variable
-      app_service_urls = var.applications_service_secondary_app_service_url != "" && var.feature_front_door_failover_enaled ? [
-        {
-          url      = var.applications_service_primary_app_service_url,
-          priority = 1
-        },
-        {
-          url      = var.applications_service_secondary_app_service_url,
-          priority = 0
-        }] : [
-        {
-          url      = var.applications_service_primary_app_service_url,
-          priority = 1
-        }
+      app_service_urls = local.applications_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
+        local.applications_primary_mapping,
+        local.applications_secondary_mapping] : [
+        local.applications_primary_mapping
       ]
       infer_backend_host_header = false
       name                      = "ApplicationsService"
@@ -27,48 +48,32 @@ locals {
       ssl_certificate_name      = var.applications_service_ssl_certificate_name
     }
 
-    appeals_frontend = {
-      frontend_endpoint = var.appeals_service_public_url
-      app_service_urls = var.appeals_service_secondary_app_service_url != "" && var.feature_front_door_failover_enaled ? [
-        {
-          url      = var.appeals_service_primary_app_service_url,
-          priority = 1
-        },
-        {
-          url      = var.appeals_service_secondary_app_service_url,
-          priority = 0
-        }] : [
-        {
-          url      = var.appeals_service_primary_app_service_url,
-          priority = 1
-      }]
-      infer_backend_host_header = false
-      name                      = "AppealsService"
-      patterns_to_match         = ["/*"]
-      search_indexing           = false
-      ssl_certificate_name      = var.appeals_service_ssl_certificate_name
-    }
-
     back_office_frontend = {
       frontend_endpoint = var.back_office_public_url
-      app_service_urls = var.back_office_secondary_app_service_url != "" && var.feature_front_door_failover_enaled ? [
-        {
-          url      = var.back_office_primary_app_service_url,
-          priority = 1
-        },
-        {
-          url      = var.back_office_secondary_app_service_url,
-          priority = 0
-        }] : [
-        {
-          url      = var.back_office_primary_app_service_url,
-          priority = 1
-      }]
+      app_service_urls = local.back_office_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
+        local.back_office_primary_mapping,
+        local.back_office_secondary_mapping] : [
+        local.back_office_primary_mapping
+      ]
       infer_backend_host_header = true
       name                      = "BackOffice"
       patterns_to_match         = ["/*"]
       search_indexing           = false
       ssl_certificate_name      = var.back_office_ssl_certificate_name
+    }
+
+    appeals_frontend = {
+      frontend_endpoint = var.appeals_service_public_url
+      app_service_urls = local.appeals_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
+        local.appeals_primary_mapping,
+        local.appeals_secondary_mapping] : [
+        local.appeals_primary_mapping
+      ]
+      infer_backend_host_header = false
+      name                      = "AppealsService"
+      patterns_to_match         = ["/*"]
+      search_indexing           = false
+      ssl_certificate_name      = var.appeals_service_ssl_certificate_name
     }
   }
 
