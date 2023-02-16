@@ -81,7 +81,7 @@ resource "azurerm_frontdoor" "common" {
   }
 
   dynamic "backend_pool" {
-    for_each = local.frontend_endpoint_mappings
+    for_each = [local.frontend_endpoint_mappings["applications_frontend"], local.frontend_endpoint_mappings["back_office_frontend"], local.frontend_endpoint_mappings["appeals_frontend"]]
     iterator = mapping
 
     content {
