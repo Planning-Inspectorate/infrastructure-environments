@@ -52,3 +52,9 @@ resource "azurerm_role_assignment" "appeals_app_configuration_terraform" {
   role_definition_name = "App Configuration Data Owner"
   principal_id         = data.azurerm_client_config.current.object_id
 }
+
+resource "azurerm_key_vault_secret" "appeals_app_config_endpoint_kv_secret" {
+  name         = "appeals-app-config-endpoint"
+  value        = azurerm_app_configuration.appeals_service.primary_write_key[0].connection_string
+  key_vault_id = var.key_vault_id
+}
