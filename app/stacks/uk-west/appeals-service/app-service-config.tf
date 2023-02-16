@@ -58,7 +58,7 @@ resource "time_offset" "secret_expire_date" {
 }
 
 resource "azurerm_key_vault_secret" "appeals_app_config_endpoint_kv_secret" {
-  name            = "appeals-app-config-endpoint"
+  name            = "appeals-app-config-connection-string"
   value           = azurerm_app_configuration.appeals_service.primary_write_key[0].connection_string
   key_vault_id    = var.key_vault_id
   content_type    = "text/plain"
