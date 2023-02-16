@@ -9,6 +9,7 @@ This component contains the infrastructure required for the appeals service. Thi
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | 1.1.6 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.6.0 |
+| <a name="requirement_time"></a> [time](#requirement\_time) | ~>0.9 |
 
 ## Providers
 
@@ -16,6 +17,7 @@ This component contains the infrastructure required for the appeals service. Thi
 |------|---------|
 | <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.6.0 |
 | <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 3.6.0 |
+| <a name="provider_time"></a> [time](#provider\_time) | ~>0.9 |
 
 ## Modules
 
@@ -34,7 +36,7 @@ This component contains the infrastructure required for the appeals service. Thi
 | [azurerm_app_configuration_feature.appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/app_configuration_feature) | resource |
 | [azurerm_cosmosdb_account.appeals_database](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/cosmosdb_account) | resource |
 | [azurerm_key_vault_secret.app_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.appeals_app_config_endpoint](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.appeals_app_config_endpoint_kv_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_log_analytics_workspace.appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/log_analytics_workspace) | resource |
 | [azurerm_private_endpoint.appeals_app_config](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/private_endpoint) | resource |
 | [azurerm_private_endpoint.cosmosdb](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/private_endpoint) | resource |
@@ -44,6 +46,7 @@ This component contains the infrastructure required for the appeals service. Thi
 | [azurerm_storage_account.function_apps](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/storage_account) | resource |
 | [azurerm_storage_container.documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/storage_container) | resource |
 | [azurerm_subnet.appeals_service_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/subnet) | resource |
+| [time_offset.secret_expire_date](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/offset) | resource |
 | [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/data-sources/client_config) | data source |
 | [azurerm_private_dns_zone.app_config](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/data-sources/private_dns_zone) | data source |
 | [azurerm_private_dns_zone.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/data-sources/private_dns_zone) | data source |

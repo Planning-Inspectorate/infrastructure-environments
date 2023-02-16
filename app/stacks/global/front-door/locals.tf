@@ -33,49 +33,43 @@ locals {
     priority = 0
   }
 
-  frontend_endpoint_mappings = {
-    applications_frontend = {
-      frontend_endpoint = var.applications_service_public_url
-      app_service_urls = local.applications_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
-        local.applications_primary_mapping,
-        local.applications_secondary_mapping] : [
-        local.applications_primary_mapping
-      ]
-      infer_backend_host_header = false
-      name                      = "ApplicationsService"
-      patterns_to_match         = ["/*"]
-      search_indexing           = var.enable_search_indexing_by_default
-      ssl_certificate_name      = var.applications_service_ssl_certificate_name
-    }
-
-    back_office_frontend = {
-      frontend_endpoint = var.back_office_public_url
-      app_service_urls = local.back_office_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
-        local.back_office_primary_mapping,
-        local.back_office_secondary_mapping] : [
-        local.back_office_primary_mapping
-      ]
-      infer_backend_host_header = true
-      name                      = "BackOffice"
-      patterns_to_match         = ["/*"]
-      search_indexing           = false
-      ssl_certificate_name      = var.back_office_ssl_certificate_name
-    }
-
-    appeals_frontend = {
-      frontend_endpoint = var.appeals_service_public_url
-      app_service_urls = local.appeals_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
-        local.appeals_primary_mapping,
-        local.appeals_secondary_mapping] : [
-        local.appeals_primary_mapping
-      ]
-      infer_backend_host_header = false
-      name                      = "AppealsService"
-      patterns_to_match         = ["/*"]
-      search_indexing           = false
-      ssl_certificate_name      = var.appeals_service_ssl_certificate_name
-    }
-  }
+  frontend_endpoint_mappings = [{
+    frontend_endpoint = var.applications_service_public_url
+    app_service_urls = local.applications_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
+      local.applications_primary_mapping,
+      local.applications_secondary_mapping] : [
+      local.applications_primary_mapping
+    ]
+    infer_backend_host_header = false
+    name                      = "ApplicationsService"
+    patterns_to_match         = ["/*"]
+    search_indexing           = var.enable_search_indexing_by_default
+    ssl_certificate_name      = var.applications_service_ssl_certificate_name
+    }, {
+    frontend_endpoint = var.back_office_public_url
+    app_service_urls = local.back_office_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
+      local.back_office_primary_mapping,
+      local.back_office_secondary_mapping] : [
+      local.back_office_primary_mapping
+    ]
+    infer_backend_host_header = true
+    name                      = "BackOffice"
+    patterns_to_match         = ["/*"]
+    search_indexing           = false
+    ssl_certificate_name      = var.back_office_ssl_certificate_name
+    }, {
+    frontend_endpoint = var.appeals_service_public_url
+    app_service_urls = local.appeals_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
+      local.appeals_primary_mapping,
+      local.appeals_secondary_mapping] : [
+      local.appeals_primary_mapping
+    ]
+    infer_backend_host_header = false
+    name                      = "AppealsService"
+    patterns_to_match         = ["/*"]
+    search_indexing           = false
+    ssl_certificate_name      = var.appeals_service_ssl_certificate_name
+  }]
 
   # This variable is used in a bash script to loop through some Azure CLI commands that cannot conflict
   # We cannot use a terraform for_each loop for the null_resource since these all run in parallel. Hence the loop is done within the command
