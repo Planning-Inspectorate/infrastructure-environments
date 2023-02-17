@@ -70,8 +70,7 @@ resource "azurerm_frontdoor" "common" {
   #========================================================================
 
   dynamic "frontend_endpoint" {
-    # Attempt to re-create in the same order as they appear on the Azure Portal to avoid unnecessary downtime
-    for_each = [local.frontend_endpoint_mappings["applications_frontend"], local.frontend_endpoint_mappings["back_office_frontend"], local.frontend_endpoint_mappings["appeals_frontend"]]
+    for_each = local.frontend_endpoint_mappings
     iterator = mapping
 
     content {
