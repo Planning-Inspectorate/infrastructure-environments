@@ -38,7 +38,7 @@ resource "time_offset" "secret_expire_date" {
 
 resource "azurerm_key_vault_secret" "appeals_app_config_endpoint_kv_secret" {
   count           = var.is_dr_deployment ? 1 : 0
-  name            = "appeals-app-config-endpoint"
+  name            = "appeals-app-config-connection-string"
   value           = azurerm_app_configuration.appeals_service[0].primary_write_key[0].connection_string
   key_vault_id    = var.key_vault_id
   content_type    = "text/plain"
