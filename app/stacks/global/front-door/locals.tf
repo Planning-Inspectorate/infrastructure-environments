@@ -2,44 +2,79 @@ locals {
   service_name    = "common"
   resource_suffix = "${var.environment}-${var.instance}"
 
+  applications_primary_mapping = {
+    url      = var.applications_service_primary_app_service_url,
+    priority = 1
+  }
+
+  applications_secondary_mapping = {
+    url      = var.applications_service_secondary_app_service_url,
+    priority = 0
+  }
+
+
+  back_office_primary_mapping = {
+    url      = var.back_office_primary_app_service_url,
+    priority = 1
+  }
+
+  back_office_secondary_mapping = {
+    url      = var.back_office_secondary_app_service_url,
+    priority = 0
+  }
+
+  appeals_primary_mapping = {
+    url      = var.appeals_service_primary_app_service_url,
+    priority = 1
+  }
+
+  appeals_secondary_mapping = {
+    url      = var.appeals_service_secondary_app_service_url,
+    priority = 0
+  }
+
   frontend_endpoint_mappings = {
     applications_frontend = {
-      frontend_endpoint         = var.applications_service_public_url
+      frontend_endpoint = var.applications_service_public_url
+      app_service_urls = local.applications_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
+        local.applications_primary_mapping,
+        local.applications_secondary_mapping] : [
+        local.applications_primary_mapping
+      ]
       infer_backend_host_header = false
       name                      = "ApplicationsService"
       patterns_to_match         = ["/*"]
       search_indexing           = var.enable_search_indexing_by_default
       ssl_certificate_name      = var.applications_service_ssl_certificate_name
     }
-    appeals_frontend = {
-      frontend_endpoint         = var.appeals_service_public_url
-      infer_backend_host_header = false
-      name                      = "AppealsService"
-      patterns_to_match         = ["/*"]
-      search_indexing           = false
-      ssl_certificate_name      = var.appeals_service_ssl_certificate_name
-    }
+
     back_office_frontend = {
-      frontend_endpoint         = var.back_office_public_url
+      frontend_endpoint = var.back_office_public_url
+      app_service_urls = local.back_office_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
+        local.back_office_primary_mapping,
+        local.back_office_secondary_mapping] : [
+        local.back_office_primary_mapping
+      ]
       infer_backend_host_header = true
       name                      = "BackOffice"
       patterns_to_match         = ["/*"]
       search_indexing           = false
       ssl_certificate_name      = var.back_office_ssl_certificate_name
     }
-  }
 
-  # The App Service URLs come back in a map that includes the location in the last 4 characters
-  # e.g.
-  # {
-  #   applications_frontend_uks = ...
-  # }
-  # We chop off the last 4 characters in the key and match it to a mapping in the frontend_endpoint_mappings variable
-  # We then create a new map with the key that includes the location, its app service url, and the matched frontend configuration
-  backend_pool_mappings = {
-    for k, v in var.app_service_urls : k => merge(
-      local.frontend_endpoint_mappings[substr(k, 0, length(k) - 4)], { app_service_url = v }
-    ) if length(regexall("-wfe-", v)) > 0
+    appeals_frontend = {
+      frontend_endpoint = var.appeals_service_public_url
+      app_service_urls = local.appeals_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
+        local.appeals_primary_mapping,
+        local.appeals_secondary_mapping] : [
+        local.appeals_primary_mapping
+      ]
+      infer_backend_host_header = false
+      name                      = "AppealsService"
+      patterns_to_match         = ["/*"]
+      search_indexing           = false
+      ssl_certificate_name      = var.appeals_service_ssl_certificate_name
+    }
   }
 
   # This variable is used in a bash script to loop through some Azure CLI commands that cannot conflict
