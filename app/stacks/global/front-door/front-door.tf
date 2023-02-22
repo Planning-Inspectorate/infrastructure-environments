@@ -115,7 +115,7 @@ resource "azurerm_frontdoor" "common" {
       name               = mapping.value["name"]
       accepted_protocols = ["Http", "Https"]
       patterns_to_match  = mapping.value["patterns_to_match"]
-      frontend_endpoints = [mapping.value["name"]]
+      frontend_endpoints = [mapping.value["frontend_name"]]
 
       forwarding_configuration {
         backend_pool_name      = mapping.value["name"]
