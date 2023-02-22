@@ -74,7 +74,7 @@ resource "azurerm_frontdoor" "common" {
     iterator = mapping
 
     content {
-      name                                    = mapping.value["name"]
+      name                                    = mapping.value["frontend_name"]
       host_name                               = mapping.value["frontend_endpoint"]
       web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
     }

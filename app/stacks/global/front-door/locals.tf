@@ -43,6 +43,7 @@ locals {
       ]
       infer_backend_host_header = false
       name                      = "ApplicationsService"
+      frontend_name             = "ApplicationsService"
       patterns_to_match         = ["/*"]
       search_indexing           = var.enable_search_indexing_by_default
       ssl_certificate_name      = var.applications_service_ssl_certificate_name
@@ -57,6 +58,7 @@ locals {
       ]
       infer_backend_host_header = true
       name                      = "BackOffice"
+      frontend_name             = "BackOffice"
       patterns_to_match         = ["/*"]
       search_indexing           = false
       ssl_certificate_name      = var.back_office_ssl_certificate_name
@@ -71,6 +73,7 @@ locals {
       ]
       infer_backend_host_header = false
       name                      = "AppealsService"
+      frontend_name             = "appeal-planning-decision-service-gov-uk"
       patterns_to_match         = ["/*"]
       search_indexing           = false
       ssl_certificate_name      = var.appeals_service_ssl_certificate_name
