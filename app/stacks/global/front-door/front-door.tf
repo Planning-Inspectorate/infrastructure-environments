@@ -71,32 +71,21 @@ resource "azurerm_frontdoor" "common" {
 
   # Try remove loop, see if we can make order explicit
   frontend_endpoint {
-    name                                    = "ApplicationsService"
-    host_name                               = var.applications_service_primary_app_service_url
+    name                                    = local.frontend_endpoint_mappings.applications_frontend.frontend_name
+    host_name                               = local.frontend_endpoint_mappings.applications_frontend.frontend_endpoint
     web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
   }
 
   frontend_endpoint {
-    name                                    = "BackOffice"
-    host_name                               = var.back_office_public_url
+    name                                    = local.frontend_endpoint_mappings.back_office_frontend.frontend_name
+    host_name                               = local.frontend_endpoint_mappings.back_office_frontend.frontend_endpoint
     web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
   }
 
   frontend_endpoint {
-    name                                    = "appeal-planning-decision-service-gov-uk"
-    host_name                               = var.appeals_service_public_url
+    name                                    = local.frontend_endpoint_mappings.appeals_frontend.frontend_name
+    host_name                               = local.frontend_endpoint_mappings.appeals_frontend.frontend_endpoint
     web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
-  }
-
-  dynamic "frontend_endpoint" {
-    for_each = local.frontend_endpoint_mappings
-    iterator = mapping
-
-    content {
-      name                                    = mapping.value["frontend_name"]
-      host_name                               = mapping.value["frontend_endpoint"]
-      web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
-    }
   }
 
   dynamic "backend_pool" {
