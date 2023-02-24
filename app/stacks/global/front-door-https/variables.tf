@@ -6,7 +6,7 @@ variable "common_key_vault_id" {
 variable "frontend_endpoint_mappings" {
   description = "A map of maps containing configuration options for each frontend endpoint"
   type = map(object({
-    name                 = string
+    frontend_name        = string
     frontend_endpoint    = string
     patterns_to_match    = list(string)
     ssl_certificate_name = string
