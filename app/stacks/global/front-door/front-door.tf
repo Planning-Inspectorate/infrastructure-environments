@@ -69,15 +69,23 @@ resource "azurerm_frontdoor" "common" {
   # Dynamic Service Frontend Endpoints
   #========================================================================
 
-  dynamic "frontend_endpoint" {
-    for_each = local.frontend_endpoint_mappings
-    iterator = mapping
+  # Try remove loop, see if we can make order explicit
+  frontend_endpoint {
+    name                                    = local.frontend_endpoint_mappings.applications_frontend.frontend_name
+    host_name                               = local.frontend_endpoint_mappings.applications_frontend.frontend_endpoint
+    web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
+  }
 
-    content {
-      name                                    = mapping.value["name"]
-      host_name                               = mapping.value["frontend_endpoint"]
-      web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
-    }
+  frontend_endpoint {
+    name                                    = local.frontend_endpoint_mappings.back_office_frontend.frontend_name
+    host_name                               = local.frontend_endpoint_mappings.back_office_frontend.frontend_endpoint
+    web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
+  }
+
+  frontend_endpoint {
+    name                                    = local.frontend_endpoint_mappings.appeals_frontend.frontend_name
+    host_name                               = local.frontend_endpoint_mappings.appeals_frontend.frontend_endpoint
+    web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
   }
 
   dynamic "backend_pool" {
@@ -115,7 +123,7 @@ resource "azurerm_frontdoor" "common" {
       name               = mapping.value["name"]
       accepted_protocols = ["Http", "Https"]
       patterns_to_match  = mapping.value["patterns_to_match"]
-      frontend_endpoints = [mapping.value["name"]]
+      frontend_endpoints = [mapping.value["frontend_name"]]
 
       forwarding_configuration {
         backend_pool_name      = mapping.value["name"]
