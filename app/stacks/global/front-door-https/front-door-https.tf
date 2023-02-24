@@ -1,7 +1,7 @@
 resource "azurerm_frontdoor_custom_https_configuration" "ssl_certificate" {
   for_each = var.frontend_endpoint_mappings
 
-  frontend_endpoint_id              = var.frontend_endpoints[each.value["name"]]
+  frontend_endpoint_id              = var.frontend_endpoints[each.value["frontend_name"]]
   custom_https_provisioning_enabled = true
 
   custom_https_configuration {
