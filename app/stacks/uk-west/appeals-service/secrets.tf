@@ -27,7 +27,6 @@ resource "azurerm_key_vault_secret" "appeals_app_config_endpoint_kv_secret" {
   key_vault_id    = var.key_vault_id
   content_type    = "text/plain"
   expiration_date = time_offset.secret_expire_date.rfc3339
-  # depends_on      = [azurerm_key_vault_secret.app_secret]
 
   tags = local.tags
 }
