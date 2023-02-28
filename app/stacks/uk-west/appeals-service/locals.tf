@@ -7,7 +7,7 @@ locals {
   ]
 
   secret_names = [
-    for secret_name in module.app_service.secret_names :
+    for secret_name in module.app_services.secret_names :
     secret_name if !contains(local.secret_names_exclude, secret_name)
   ]
 
