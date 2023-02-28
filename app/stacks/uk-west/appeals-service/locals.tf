@@ -9,7 +9,7 @@ locals {
   secret_names = [
     for secret_name in toset(module.app-service.secret_names) :
     secret_name if !contains(local.secret_names_exclude, secret_name)
-  ] 
+  ]
 
   tags = merge(
     var.common_tags,
