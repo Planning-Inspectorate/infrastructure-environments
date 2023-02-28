@@ -1,5 +1,5 @@
 module "publish_document_function" {
-  source = "./publish-document-check-function"
+  source = "./publish-document-function"
 
   count = var.feature_document_scanning_enabled ? 1 : 0
 
