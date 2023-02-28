@@ -6,7 +6,7 @@ locals {
     "appeals-app-config-connection-string"
   ]
   secret_names = [
-    for secret in module.app_services.secrets :
+    for secret in module.app_services.secret_names :
     secret.name
     if !contains(local.secret_names_exclude, secret.name)
   ]
