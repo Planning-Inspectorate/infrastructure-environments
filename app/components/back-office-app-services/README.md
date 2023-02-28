@@ -24,6 +24,7 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="module_clam_av_container"></a> [clam\_av\_container](#module\_clam\_av\_container) | ./clamav-container | n/a |
 | <a name="module_document_check_function"></a> [document\_check\_function](#module\_document\_check\_function) | ./document-check-function | n/a |
 | <a name="module_odw_subscriber_function"></a> [odw\_subscriber\_function](#module\_odw\_subscriber\_function) | ./odw-subscriber-function | n/a |
+| <a name="module_publish_document_function"></a> [publish\_document\_function](#module\_publish\_document\_function) | ./publish-document-check-function | n/a |
 
 ## Resources
 
