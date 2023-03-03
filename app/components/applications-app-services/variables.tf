@@ -28,6 +28,11 @@ variable "applications_service_redis_connection_string_secret_name" {
   type        = string
 }
 
+variable "applications_sql_server_connection_string" {
+  description = "Connection string for applications service sql server"
+  type        = string
+}
+
 variable "back_office_service_bus_namespace_name" {
   description = "Namespace of Back Office Service Bus instance"
   type        = string
