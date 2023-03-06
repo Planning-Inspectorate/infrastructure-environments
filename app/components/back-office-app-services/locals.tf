@@ -15,6 +15,7 @@ locals {
         API_HOST                                 = "https://pins-app-${var.service_name}-api-${var.resource_suffix}.azurewebsites.net"
         APPEALS_CASE_OFFICER_GROUP_ID            = var.azuread_appeals_case_officer_group_id
         AUTH_CLIENT_ID                           = var.azuread_auth_client_id
+        AUTH_CLIENT_BACKEND_API_ID               = var.azuread_auth_api_client_id
         AUTH_CLIENT_SECRET                       = local.secret_refs["back-office-client-secret"]
         AUTH_CLOUD_INSTANCE_ID                   = "https://login.microsoftonline.com"
         APPEALS_INSPECTOR_GROUP_ID               = var.azuread_appeals_inspector_group_id
@@ -29,6 +30,7 @@ locals {
         NODE_ENV                                 = var.node_environment
         OS_PLACES_API_KEY                        = local.secret_refs["os-places-api-key"]
         SESSION_SECRET                           = local.secret_refs["session-secret"]
+        CLIENT_CREDENTIAL_GRANT_ENABLED = var.feature_client_credentials_grant_enabled
       }
     }
 
@@ -46,6 +48,8 @@ locals {
         DATABASE_URL                = var.database_connection_string
         DOCUMENT_STORAGE_API_HOST   = "https://pins-app-${var.service_name}-document-storage-api-${var.resource_suffix}.azurewebsites.net"
         DOCUMENT_STORAGE_API_PORT   = "3443"
+        AUTH_CLIENT_BACKEND_API_ID  = var.azuread_auth_api_client_id
+        AUTH_TENANT_ID              = data.azurerm_client_config.current.tenant_id
         NODE_ENV                    = var.node_environment
         SERVICE_BUS_HOST            = "${var.service_bus_namespace_name}.servicebus.windows.net"
         SERVICE_BUS_HOSTNAME        = "${var.service_bus_namespace_name}.servicebus.windows.net"
@@ -55,6 +59,7 @@ locals {
         SERVICE_BUS_TRANSPORT       = "tls"
         SERVICE_BUS_USERNAME        = "back-office-apps"
         SERVICE_BUS_ENABLED         = var.feature_service_bus_enabled
+        CLIENT_CREDENTIAL_GRANT_ENABLED = var.feature_client_credentials_grant_enabled
       }
     }
 

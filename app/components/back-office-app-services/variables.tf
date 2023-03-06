@@ -25,6 +25,13 @@ variable "azuread_auth_client_id" {
   default     = null
 }
 
+variable "azuread_auth_api_client_id" {
+  description = "The Back Office web backend app registration ID used for Azure AD authentication"
+  type        = string
+  default     = null
+}
+
+
 variable "azuread_appeals_case_officer_group_id" {
   description = "The Azure AD group ID for Appeals Back Office case officers"
   type        = string
@@ -225,6 +232,12 @@ variable "feature_service_bus_enabled" {
   description = "Whether or not Service Bus events are enabled"
   type        = string
 }
+
+variable "feature_client_credentials_grant_enabled" {
+  description = "Whether or not Client credential flow is enabled"
+  type        = string
+}
+
 
 variable "service_plan_sku" {
   default     = "P1v2"

@@ -8,6 +8,7 @@ module "app_services" {
   app_service_plan_resource_group_name               = var.common_resource_group_name
   app_service_private_dns_zone_id                    = data.azurerm_private_dns_zone.app_service.id
   azuread_auth_client_id                             = var.azuread_auth_client_id
+  azuread_auth_api_client_id                         = var.azuread_auth_api_client_id
   azuread_appeals_case_officer_group_id              = var.azuread_appeals_case_officer_group_id
   azuread_appeals_inspector_group_id                 = var.azuread_appeals_inspector_group_id
   azuread_appeals_validation_officer_group_id        = var.azuread_appeals_validation_officer_group_id
@@ -40,6 +41,7 @@ module "app_services" {
   service_bus_namespace_id                           = azurerm_servicebus_namespace.back_office[0].id
   service_name                                       = local.service_name
   feature_service_bus_enabled                        = var.feature_service_bus_enabled
+  feature_client_credentials_grant_enabled           = var.feature_client_credentials_grant_enabled
   feature_document_scanning_enabled                  = var.feature_document_scanning_enabled
   common_vnet_id                                     = var.common_vnet_id
   environment                                        = var.environment
