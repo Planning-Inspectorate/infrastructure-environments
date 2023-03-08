@@ -36,6 +36,12 @@ variable "function_apps_storage_account_access_key" {
   sensitive   = true
 }
 
+variable "function_node_version" {
+  default     = 14
+  description = "Node version for function"
+  type        = number
+}
+
 variable "integration_subnet_id" {
   default     = null
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
