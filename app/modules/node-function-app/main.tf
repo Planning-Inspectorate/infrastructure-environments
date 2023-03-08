@@ -31,7 +31,7 @@ resource "azurerm_linux_function_app" "function_app" {
     http2_enabled = true
 
     application_stack {
-      node_version = var.function_node_version ? 14 : var.function_node_version
+      node_version = var.function_node_version
     }
   }
 

@@ -6,7 +6,6 @@ module "odw_subscriber_function" {
   app_service_plan_id                      = var.app_service_plan_id
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
-  function_node_version                    = 14
   integration_subnet_id                    = var.integration_subnet_id
   location                                 = var.location
   log_analytics_workspace_id               = var.log_analytics_workspace_id

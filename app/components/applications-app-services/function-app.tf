@@ -7,7 +7,6 @@ module "back_office_subscribers" {
   app_name                                 = "bo-subscribers"
   app_service_plan_id                      = var.app_service_plan_id
   function_apps_storage_account            = var.function_storage_name
-  function_node_version                    = 14
   function_apps_storage_account_access_key = var.function_storage_primary_access_key
   integration_subnet_id                    = var.integration_subnet_id
   location                                 = var.location
