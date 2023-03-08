@@ -3,3 +3,9 @@ data "azurerm_private_dns_zone" "app_service" {
 
   provider = azurerm.tooling
 }
+
+data "azurerm_private_dns_zone" "database" {
+  name = "privatelink.database.windows.net"
+
+  provider = azurerm.tooling
+}

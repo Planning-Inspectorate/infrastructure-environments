@@ -17,4 +17,13 @@ locals {
   srv_notify_magic_link_email_template_id                         = "0f4635cf-eed0-487a-83ff-a325800f9c9c"
   srv_notify_service_id                                           = "2f25f917-c24f-44a6-9d0c-aebac7c98081"
   srv_notify_submission_complete_email_template_id                = "47a18e22-7374-4a3a-8048-8f895e127b93"
+  sql_database_configuration = {
+    max_size_gb               = 1024
+    short_term_retention_days = 30
+    sku_name                  = "S3"
+  }
+  sql_server_azuread_administrator = {
+    login_username = "sunrahman"
+    object_id      = "2af5c723-b22e-4eac-b0e5-ec39675462d6"
+  }
 }

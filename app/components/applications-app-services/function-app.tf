@@ -20,6 +20,7 @@ module "back_office_subscribers" {
 
   app_settings = {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
+    SqlConnectionString                           = var.applications_sql_server_connection_string
   }
 
   tags = var.tags
