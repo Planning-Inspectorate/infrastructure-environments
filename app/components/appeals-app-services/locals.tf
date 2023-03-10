@@ -14,6 +14,7 @@ locals {
       outbound_vnet_connectivity = true
 
       app_settings = {
+        APPLICATIONINSIGHTS_CONNECTION_STRING      = local.secret_refs["appeals-app-insights-connection-string"]
         APPEALS_SERVICE_API_TIMEOUT                = var.api_timeout
         APPEALS_SERVICE_API_URL                    = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
         CLAM_AV_HOST                               = "https://pins-app-${var.service_name}-clamav-api-${var.resource_suffix}.azurewebsites.net"
@@ -58,6 +59,7 @@ locals {
       outbound_vnet_connectivity      = true
 
       app_settings = {
+        APPLICATIONINSIGHTS_CONNECTION_STRING                                       = local.secret_refs["appeals-app-insights-connection-string"]
         APP_APPEALS_BASE_URL                                                        = "https://${var.appeals_service_public_url}"
         DOCS_API_PATH                                                               = "/opt/app/api"
         DOCUMENTS_SERVICE_API_TIMEOUT                                               = var.api_timeout
@@ -114,6 +116,7 @@ locals {
       outbound_vnet_connectivity      = true
 
       app_settings = {
+        APPLICATIONINSIGHTS_CONNECTION_STRING     = local.secret_refs["appeals-app-insights-connection-string"]
         BLOB_STORAGE_CONNECTION_STRING            = var.appeal_documents_primary_blob_connection_string
         DOCS_API_PATH                             = "/opt/app/api"
         FILE_MAX_SIZE_IN_BYTES                    = "15000000"
@@ -171,6 +174,7 @@ locals {
   secret_names = [
     "appeals-app-config-endpoint",
     "appeals-app-config-connection-string",
+    "appeals-app-insights-connection-string",
     "appeals-microsoft-provider-authentication-secret",
     "appeals-srv-notify-api-key"
   ]
