@@ -213,6 +213,11 @@ variable "feature_enabled_content_security_policy" {
   type        = string
 }
 
+variable "feature_allow_section_51" {
+  description = "Feature toggle to section 51"
+  type        = string
+}
+
 variable "tags" {
   description = "The tags applied to all resources"
   type        = map(string)

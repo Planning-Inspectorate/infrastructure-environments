@@ -130,6 +130,11 @@ variable "feature_enabled_content_security_policy" {
   type        = string
 }
 
+variable "feature_allow_section_51" {
+  description = "Feature toggle to section 51"
+  type        = string
+}
+
 variable "google_analytics_id" {
   description = "The id used to connect the frontend app to Google Analytics"
   type        = string
