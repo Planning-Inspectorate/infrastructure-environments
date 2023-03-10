@@ -40,4 +40,3 @@ resource "azurerm_key_vault_secret" "applications_insights_connection_kv_secret"
 
   tags = local.tags
 }
-
