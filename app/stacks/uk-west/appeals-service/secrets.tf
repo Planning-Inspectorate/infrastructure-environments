@@ -32,7 +32,7 @@ resource "azurerm_key_vault_secret" "appeals_app_config_endpoint_kv_secret" {
 }
 
 resource "azurerm_key_vault_secret" "applications_insights_connection_kv_secret" {
-  name            = "application-insights-connection-string"
+  name            = "appeals-app-insights-connection-string"
   value           = data.azurerm_application_insights.function_app_insights.connection_string
   key_vault_id    = var.key_vault_id
   content_type    = "text/plain"

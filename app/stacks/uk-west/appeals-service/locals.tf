@@ -4,7 +4,7 @@ locals {
 
   secret_names_exclude = [
     "appeals-app-config-connection-string",
-    "application-insights-connection-string"
+    "appeals-app-insights-connection-string"
   ]
 
   secret_names = [
