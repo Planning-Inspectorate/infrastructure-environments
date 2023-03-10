@@ -23,6 +23,7 @@ module "app_services" {
   feature_save_and_exit_option                                    = var.feature_save_and_exit_option
   feature_show_affected_area_section                              = var.feature_show_affected_area_section
   feature_enabled_content_security_policy                         = var.feature_enabled_content_security_policy
+  feature_allow_section_51                                        = var.feature_allow_section_51
   function_storage_name                                           = azurerm_storage_account.function_storage.name
   function_storage_primary_access_key                             = azurerm_storage_account.function_storage.primary_connection_string
   google_analytics_id                                             = var.google_analytics_id

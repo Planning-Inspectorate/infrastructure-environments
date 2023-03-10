@@ -130,6 +130,11 @@ variable "feature_enabled_content_security_policy" {
   type        = string
 }
 
+variable "feature_allow_section_51" {
+  description = "Feature toggle to section 51"
+  type        = string
+}
+
 variable "function_storage_name" {
   description = "Name of the Storage Account used for Function Apps"
   type        = string
