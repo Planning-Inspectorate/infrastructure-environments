@@ -19,6 +19,6 @@ data "azurerm_private_dns_zone" "cosmosdb" {
 }
 
 data "azurerm_application_insights" "function_app_insights" {
-  name                = "pins-func-${local}.service_name}-horizon-${local.resource_suffix}-app-insights"
+  name                = "pins-func-${local.service_name}-horizon-${local.resource_suffix}-app-insights"
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
 }
