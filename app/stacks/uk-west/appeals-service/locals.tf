@@ -3,7 +3,8 @@ locals {
   resource_suffix = "${var.environment}-${module.azure_region_primary.location_short}-${var.instance}"
 
   secret_names_exclude = [
-    "appeals-app-config-connection-string"
+    "appeals-app-config-connection-string",
+    "application-insights-connection-string"
   ]
 
   secret_names = [

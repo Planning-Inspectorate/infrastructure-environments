@@ -17,3 +17,8 @@ data "azurerm_private_dns_zone" "cosmosdb" {
 
   provider = azurerm.tooling
 }
+
+data "azurerm_application_insights" "function_app_insights" {
+  name                = "pins-func-${var.service_name}-${var.app_name}-${var.resource_suffix}-app-insights"
+  resource_group_name = azurerm_resource_group.appeals_service_stack.name
+}
