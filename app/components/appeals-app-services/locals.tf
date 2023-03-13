@@ -146,6 +146,7 @@ locals {
       outbound_vnet_connectivity      = false
 
       app_settings = {
+        APPLICATIONINSIGHTS_CONNECTION_STRING   = local.secret_refs["appeals-app-insights-connection-string"]
         DOCS_API_PATH                           = "/opt/app/api"
         GOTENBERG_URL                           = "http://gotenberg:4000"
         LOGGER_LEVEL                            = var.logger_level
