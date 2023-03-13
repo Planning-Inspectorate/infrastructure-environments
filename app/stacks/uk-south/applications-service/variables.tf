@@ -74,8 +74,64 @@ variable "container_registry_rg" {
   type        = string
 }
 
+variable "database_public_access_enabled" {
+  description = "Specifies whether sql db is exposed over internet or private network only"
+  type        = bool
+  default     = false
+}
+
+variable "documents_host" {
+  description = "Specifies environment specific Wordpress CMS URL Prefix"
+  type        = string
+}
+
 variable "environment" {
   description = "The environment resources are deployed to e.g. 'dev'"
+  type        = string
+}
+
+variable "feature_save_and_exit_option" {
+  description = "Feature toggle for showing the save and exit option on registration form"
+  type        = string
+}
+
+variable "feature_show_affected_area_section" {
+  description = "Feature toggle for showing the affected area section on project page"
+  type        = string
+}
+
+variable "feature_hide_project_timeline_link" {
+  description = "Feature toggle to show / hide the project timeline link on project overview nav bar"
+  type        = string
+}
+
+variable "feature_allow_document_library" {
+  description = "Feature toggle for limiting the web app routes to document library"
+  type        = string
+}
+
+variable "feature_allow_examination_timetable" {
+  description = "Feature toggle for the activation of examination timetable routes and links"
+  type        = string
+}
+
+variable "feature_allow_representation" {
+  description = "Feature toggle for limiting the web app routes to representation"
+  type        = string
+}
+
+variable "feature_redis_session_store" {
+  description = "Feature toggle for using redis to store session data as opposed to default in-memory store"
+  type        = string
+}
+
+variable "feature_enabled_content_security_policy" {
+  description = "Feature toggle to enable/disable content security policy"
+  type        = string
+}
+
+variable "feature_allow_section_51" {
+  description = "Feature toggle to section 51"
   type        = string
 }
 
@@ -186,51 +242,17 @@ variable "srv_notify_service_id" {
   type        = string
 }
 
+variable "sql_server_azuread_administrator" {
+  description = "Azure AD details of database administrator user/group"
+  type        = map(string)
+}
+
+variable "sql_database_configuration" {
+  description = "A map of database configuration options"
+  type        = map(string)
+}
+
 variable "private_beta_v1_routes_only" {
   description = "Feature toggle for limiting web app routes to Private Beta V1 functionality only"
-  type        = string
-}
-
-variable "feature_save_and_exit_option" {
-  description = "Feature toggle for showing the save and exit option on registration form"
-  type        = string
-}
-
-variable "feature_show_affected_area_section" {
-  description = "Feature toggle for showing the affected area section on project page"
-  type        = string
-}
-
-variable "feature_hide_project_timeline_link" {
-  description = "Feature toggle to show / hide the project timeline link on project overview nav bar"
-  type        = string
-}
-
-variable "feature_allow_document_library" {
-  description = "Feature toggle for limiting the web app routes to document library"
-  type        = string
-}
-
-variable "feature_allow_examination_timetable" {
-  description = "Feature toggle for the activation of examination timetable routes and links"
-  type        = string
-}
-
-variable "feature_allow_representation" {
-  description = "Feature toggle for limiting the web app routes to representation"
-  type        = string
-}
-
-variable "feature_redis_session_store" {
-  description = "Feature toggle for using redis to store session data as opposed to default in-memory store"
-  type        = string
-}
-variable "feature_enabled_content_security_policy" {
-  description = "Feature toggle to enable/disable content security policy"
-  type        = string
-}
-
-variable "documents_host" {
-  description = "Specifies environment specific Wordpress CMS URL Prefix"
   type        = string
 }

@@ -28,6 +28,11 @@ variable "applications_service_redis_connection_string_secret_name" {
   type        = string
 }
 
+variable "applications_sql_server_connection_string" {
+  description = "Connection string for applications service sql server"
+  type        = string
+}
+
 variable "back_office_service_bus_namespace_name" {
   description = "Namespace of Back Office Service Bus instance"
   type        = string
@@ -205,6 +210,11 @@ variable "feature_back_office_subscriber_enabled" {
 
 variable "feature_enabled_content_security_policy" {
   description = "Feature toggle to enable/disable content security policy"
+  type        = string
+}
+
+variable "feature_allow_section_51" {
+  description = "Feature toggle to section 51"
   type        = string
 }
 

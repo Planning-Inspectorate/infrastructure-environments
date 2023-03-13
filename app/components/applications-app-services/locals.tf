@@ -28,6 +28,8 @@ locals {
         FEATURE_ALLOW_REPRESENTATION            = var.feature_allow_representation
         FEATURE_REDIS_SESSION_STORE             = var.feature_redis_session_store
         FEATURE_ENABLED_CONTENT_SECURITY_POLICY = var.feature_enabled_content_security_policy
+        FEATURE_ALLOW_SECTION_51                = var.feature_allow_section_51
+
       }
     }
 

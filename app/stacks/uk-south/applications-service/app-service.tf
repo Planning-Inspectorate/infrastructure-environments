@@ -9,6 +9,7 @@ module "app_services" {
   app_service_private_dns_zone_id                                 = data.azurerm_private_dns_zone.app_service.id
   applications_service_public_url                                 = var.applications_service_public_url
   applications_service_redis_connection_string_secret_name        = azurerm_key_vault_secret.redis_cache_connection_string[count.index].name
+  applications_sql_server_connection_string                       = local.sql_connection_string
   back_office_service_bus_namespace_name                          = var.back_office_service_bus_namespace_name
   back_office_service_bus_nsip_project_topic_id                   = var.back_office_service_bus_nsip_project_topic_id
   container_registry_name                                         = var.container_registry_name
@@ -24,6 +25,7 @@ module "app_services" {
   feature_save_and_exit_option                                    = var.feature_save_and_exit_option
   feature_show_affected_area_section                              = var.feature_show_affected_area_section
   feature_enabled_content_security_policy                         = var.feature_enabled_content_security_policy
+  feature_allow_section_51                                        = var.feature_allow_section_51
   function_storage_name                                           = var.function_storage_name
   function_storage_primary_access_key                             = var.function_storage_primary_access_key
   google_analytics_id                                             = var.google_analytics_id

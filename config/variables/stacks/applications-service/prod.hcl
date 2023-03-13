@@ -7,7 +7,8 @@ locals {
   feature_redis_session_store                                     = "true"
   feature_save_and_exit_option                                    = "false"
   feature_show_affected_area_section                              = "false"
-  feature_enabled_content_security_policy                         = "false"
+  feature_enabled_content_security_policy                         = "true"
+  feature_allow_section_51                                        = "false"
   google_analytics_id                                             = "G-DQ9S57CJDP"
   national_infrastructure_gateway_ip                              = "51.140.221.209"
   national_infrastructure_vnet_address_space                      = ["10.224.161.0/24", "192.168.0.0/20"]
@@ -17,4 +18,13 @@ locals {
   srv_notify_magic_link_email_template_id                         = "0f4635cf-eed0-487a-83ff-a325800f9c9c"
   srv_notify_service_id                                           = "2f25f917-c24f-44a6-9d0c-aebac7c98081"
   srv_notify_submission_complete_email_template_id                = "47a18e22-7374-4a3a-8048-8f895e127b93"
+  sql_database_configuration = {
+    max_size_gb               = 1024
+    short_term_retention_days = 30
+    sku_name                  = "S3"
+  }
+  sql_server_azuread_administrator = {
+    login_username = "sunrahman"
+    object_id      = "2af5c723-b22e-4eac-b0e5-ec39675462d6"
+  }
 }

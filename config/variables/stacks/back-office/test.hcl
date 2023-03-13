@@ -1,7 +1,7 @@
 locals {
   node_environment                                 = "production"
   azuread_auth_client_id                           = "dff02ad8-1efc-4f5f-8b1c-58a93edd14f1"
-  azuread_auth_api_client_id                       = "7cab8971-c305-4b9a-82db-21b5fd84efbd"
+  azuread_auth_api_client_id                       = ""
   azuread_appeals_case_officer_group_id            = "5d82e08c-8f05-40ea-a3df-d306f3a2c870"
   azuread_appeals_inspector_group_id               = "c921094a-318f-4996-be5e-9bd2ef9b7bdf"
   azuread_appeals_validation_officer_group_id      = "76d99e25-b02b-4400-96d2-bb9393bbdb9d"
