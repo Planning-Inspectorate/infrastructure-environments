@@ -1,5 +1,5 @@
 variable "app_service_plan_sku" {
-  default     = "P1v2"
+  default     = "P2v2"
   description = "The SKU of the App Service Plan"
   type        = string
 }
