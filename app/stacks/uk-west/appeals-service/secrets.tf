@@ -30,3 +30,13 @@ resource "azurerm_key_vault_secret" "appeals_app_config_endpoint_kv_secret" {
 
   tags = local.tags
 }
+
+resource "azurerm_key_vault_secret" "applications_insights_connection_kv_secret" {
+  name            = "appeals-app-insights-connection-string"
+  value           = data.azurerm_application_insights.function_app_insights.connection_string
+  key_vault_id    = var.key_vault_id
+  content_type    = "text/plain"
+  expiration_date = time_offset.secret_expire_date.rfc3339
+
+  tags = local.tags
+}
