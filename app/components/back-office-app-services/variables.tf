@@ -227,7 +227,7 @@ variable "feature_service_bus_enabled" {
 }
 
 variable "service_plan_sku" {
-  default     = "P1v2"
+  default     = "P2v2"
   description = "The SKU of the App Service Plan providing resources to hosted App Services"
   type        = string
 }
