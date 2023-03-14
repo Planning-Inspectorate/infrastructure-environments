@@ -9,8 +9,9 @@ resource "azurerm_key_vault_secret" "redis_cache_connection_string" {
 }
 
 resource "azurerm_key_vault_secret" "applications_sql_server_password" {
-  #checkov:skip=CKV_AZURE_41
+  count = var.is_dr_deployment ? 1 : 0
 
+  #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   content_type = "text/plain"
   key_vault_id = var.key_vault_id
   name         = "applications-service-sql-server-password"
@@ -20,8 +21,9 @@ resource "azurerm_key_vault_secret" "applications_sql_server_password" {
 }
 
 resource "azurerm_key_vault_secret" "applications_sql_server_username" {
-  #checkov:skip=CKV_AZURE_41
+  count = var.is_dr_deployment ? 1 : 0
 
+  #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   content_type = "text/plain"
   key_vault_id = var.key_vault_id
   name         = "applications-service-sql-server-username"
@@ -31,8 +33,9 @@ resource "azurerm_key_vault_secret" "applications_sql_server_username" {
 }
 
 resource "azurerm_key_vault_secret" "applications_sql_server_connection_string" {
-  #checkov:skip=CKV_AZURE_41
+  count = var.is_dr_deployment ? 1 : 0
 
+  #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   content_type = "text/plain"
   key_vault_id = var.key_vault_id
   name         = "applications-service-sql-server-connection-string"
