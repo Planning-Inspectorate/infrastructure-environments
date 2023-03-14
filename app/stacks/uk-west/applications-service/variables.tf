@@ -135,6 +135,11 @@ variable "feature_allow_section_51" {
   type        = string
 }
 
+variable "feature_enable_generalised_form_sanitisation" {
+  description = "Feature toggle to enable/disable generalised form sanitisation"
+  type        = string
+}
+
 variable "google_analytics_id" {
   description = "The id used to connect the frontend app to Google Analytics"
   type        = string
