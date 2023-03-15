@@ -21,5 +21,4 @@ locals {
   feature_service_bus_enabled                      = "true"
   feature_client_credentials_grant_enabled         = "true"
   feature_document_scanning_enabled                = true
-  feature_document_scanning_enabled                = "true"
 }
