@@ -15,6 +15,8 @@ locals {
         API_HOST                                 = "https://pins-app-${var.service_name}-api-${var.resource_suffix}.azurewebsites.net"
         APPEALS_CASE_OFFICER_GROUP_ID            = var.azuread_appeals_case_officer_group_id
         AUTH_CLIENT_ID                           = var.azuread_auth_client_id
+        AUTH_CLIENT_BACKEND_API_ID               = var.azuread_auth_api_client_id
+        CLIENT_CREDENTIAL_GRANT_ENABLED          = var.feature_client_credentials_grant_enabled
         AUTH_CLIENT_SECRET                       = local.secret_refs["back-office-client-secret"]
         AUTH_CLOUD_INSTANCE_ID                   = "https://login.microsoftonline.com"
         APPEALS_INSPECTOR_GROUP_ID               = var.azuread_appeals_inspector_group_id
@@ -33,28 +35,31 @@ locals {
     }
 
     back_office_api = {
-      app_name                        = "api"
-      app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
-      endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
-      image_name                      = "back-office/back-office-api"
-      inbound_vnet_connectivity       = var.private_endpoint_enabled
-      integration_subnet_id           = var.integration_subnet_id
-      key_vault_access                = true
-      outbound_vnet_connectivity      = true
+      app_name                           = "api"
+      app_service_private_dns_zone_id    = var.app_service_private_dns_zone_id
+      endpoint_subnet_id                 = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
+      image_name                         = "back-office/back-office-api"
+      inbound_vnet_connectivity          = var.private_endpoint_enabled
+      integration_subnet_id              = var.integration_subnet_id
+      key_vault_access                   = true
+      outbound_vnet_connectivity         = true
 
       app_settings = {
-        DATABASE_URL                = var.database_connection_string
-        DOCUMENT_STORAGE_API_HOST   = "https://pins-app-${var.service_name}-document-storage-api-${var.resource_suffix}.azurewebsites.net"
-        DOCUMENT_STORAGE_API_PORT   = "3443"
-        NODE_ENV                    = var.node_environment
-        SERVICE_BUS_HOST            = "${var.service_bus_namespace_name}.servicebus.windows.net"
-        SERVICE_BUS_HOSTNAME        = "${var.service_bus_namespace_name}.servicebus.windows.net"
-        SERVICE_BUS_PASSWORD        = local.secret_refs["back-office-topic-key"]
-        SERVICE_BUS_PORT            = "5671"
-        SERVICE_BUS_RECONNECT_LIMIT = "5"
-        SERVICE_BUS_TRANSPORT       = "tls"
-        SERVICE_BUS_USERNAME        = "back-office-apps"
-        SERVICE_BUS_ENABLED         = var.feature_service_bus_enabled
+        DATABASE_URL                     = var.database_connection_string
+        DOCUMENT_STORAGE_API_HOST        = "https://pins-app-${var.service_name}-document-storage-api-${var.resource_suffix}.azurewebsites.net"
+        DOCUMENT_STORAGE_API_PORT        = "3443"
+        NODE_ENV                         = var.node_environment
+        AUTH_CLIENT_BACKEND_API_ID       = var.azuread_auth_api_client_id
+        CLIENT_CREDENTIAL_GRANT_ENABLED  = var.feature_client_credentials_grant_enabled
+        AUTH_TENANT_ID                   = data.azurerm_client_config.current.tenant_id
+        SERVICE_BUS_HOST                 = "${var.service_bus_namespace_name}.servicebus.windows.net"
+        SERVICE_BUS_HOSTNAME             = "${var.service_bus_namespace_name}.servicebus.windows.net"
+        SERVICE_BUS_PASSWORD             = local.secret_refs["back-office-topic-key"]
+        SERVICE_BUS_PORT                 = "5671"
+        SERVICE_BUS_RECONNECT_LIMIT      = "5"
+        SERVICE_BUS_TRANSPORT            = "tls"
+        SERVICE_BUS_USERNAME             = "back-office-apps"
+        SERVICE_BUS_ENABLED              = var.feature_service_bus_enabled
       }
     }
 
