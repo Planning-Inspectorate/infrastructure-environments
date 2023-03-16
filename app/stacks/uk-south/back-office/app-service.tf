@@ -25,6 +25,7 @@ module "app_services" {
   document_storage_container                         = var.back_office_document_storage_container_name
   document_storage_back_office_documents_id          = var.back_office_document_storage_documents_id
   back_office_document_storage_connection_string     = var.back_office_document_storage_connection_string
+  back_office_service_bus_connection_string          = var.back_office_service_bus_connection_string
   endpoint_subnet_id                                 = azurerm_subnet.back_office_ingress.id
   integration_subnet_id                              = var.integration_subnet_id
   key_vault_id                                       = var.key_vault_id

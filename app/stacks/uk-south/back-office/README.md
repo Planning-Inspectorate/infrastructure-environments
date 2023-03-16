@@ -64,6 +64,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="input_back_office_document_storage_documents_id"></a> [back\_office\_document\_storage\_documents\_id](#input\_back\_office\_document\_storage\_documents\_id) | The back office blob storage resource id | `string` | n/a | yes |
 | <a name="input_back_office_integration_subnet_id"></a> [back\_office\_integration\_subnet\_id](#input\_back\_office\_integration\_subnet\_id) | Integration subnet for back office anti-virus resources | `string` | n/a | yes |
 | <a name="input_back_office_public_url"></a> [back\_office\_public\_url](#input\_back\_office\_public\_url) | The public URL for the Back Office frontend web app | `string` | n/a | yes |
+| <a name="input_back_office_service_bus_connection_string"></a> [back\_office\_service\_bus\_connection\_string](#input\_back\_office\_service\_bus\_connection\_string) | Connection strong for Azure Service Bus in Back Office | `string` | n/a | yes |
 | <a name="input_back_office_sql_database"></a> [back\_office\_sql\_database](#input\_back\_office\_sql\_database) | The ID of the Back Office SQL database | `string` | n/a | yes |
 | <a name="input_common_resource_group_name"></a> [common\_resource\_group\_name](#input\_common\_resource\_group\_name) | The common infrastructure resource group name | `string` | n/a | yes |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | The common resource tags for the project | `map(string)` | n/a | yes |
