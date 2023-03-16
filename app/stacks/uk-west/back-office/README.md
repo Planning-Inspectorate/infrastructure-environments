@@ -47,9 +47,12 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_role_assignment.nsip_project_poc_rbac](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/role_assignment) | resource |
 | [azurerm_servicebus_namespace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_namespace) | resource |
 | [azurerm_servicebus_namespace_network_rule_set.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_namespace_network_rule_set) | resource |
+| [azurerm_servicebus_subscription.documents_to_publish_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_subscription) | resource |
 | [azurerm_servicebus_subscription.nsip_project_poc](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_servicebus_topic.documents_to_publish](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.employee](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_project](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_topic) | resource |
+| [azurerm_servicebus_topic.published_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_storage_account.back_office_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/storage_account) | resource |
 | [azurerm_storage_account.function_storage](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/storage_account) | resource |
 | [azurerm_storage_container.back_office_documents_container](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/storage_container) | resource |
