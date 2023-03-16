@@ -13,6 +13,7 @@ module "publish_document_function" {
   integration_subnet_id                          = var.back_office_integration_subnet_id
   document_storage_back_office_documents_id      = var.document_storage_back_office_documents_id
   back_office_document_storage_connection_string = var.back_office_document_storage_connection_string
+  back_office_service_bus_connection_string      = var.back_office_service_bus_connection_string
   back_office_api_host                           = module.app_service["back_office_api"].default_site_hostname
   function_apps_storage_account                  = var.document_check_function_storage_name
   function_apps_storage_account_access_key       = var.document_check_function_storage_primary_access_key

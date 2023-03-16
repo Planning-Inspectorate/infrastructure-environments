@@ -20,6 +20,7 @@ module "publish_document_functions" {
   app_settings = {
     DOCUMENT_STORAGE_CONNECTION_STRING = var.back_office_document_storage_connection_string
     API_HOST                           = var.back_office_api_host
+    AZURE_SERVICE_BUS_CONNECTION       = var.back_office_service_bus_connection_string
   }
 
   tags = var.tags

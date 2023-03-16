@@ -67,6 +67,12 @@ variable "back_office_document_storage_connection_string" {
   sensitive   = true
 }
 
+variable "back_office_service_bus_connection_string" {
+  description = "Connection strong for Azure Service Bus in Back Office"
+  type        = string
+  sensitive   = true
+}
+
 variable "document_check_function_storage_name" {
   description = "Function Storage name"
   type        = string

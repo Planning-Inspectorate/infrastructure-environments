@@ -9,6 +9,12 @@ variable "back_office_document_storage_connection_string" {
   sensitive   = true
 }
 
+variable "back_office_service_bus_connection_string" {
+  description = "Connection strong for Azure Service Bus in Back Office"
+  type        = string
+  sensitive   = true
+}
+
 variable "back_office_api_host" {
   description = "Back Office Api Host"
   type        = string

@@ -29,6 +29,12 @@ output "back_office_document_storage_connection_string" {
   sensitive   = true
 }
 
+output "back_office_service_bus_connection_string" {
+  description = "Connection strong for Azure Service Bus in Back Office"
+  value       = azurerm_servicebus_namespace.back_office.default_primary_connection_string
+  sensitive   = true
+}
+
 output "back_office_sql_database" {
   description = "The ID of the Back Office SQL database"
   value       = azurerm_mssql_database.back_office.id
