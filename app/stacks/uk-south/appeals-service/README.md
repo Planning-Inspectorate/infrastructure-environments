@@ -9,7 +9,6 @@ This component contains the infrastructure required for the appeals service. Thi
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | 1.1.6 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.6.0 |
-| <a name="requirement_time"></a> [time](#requirement\_time) | ~>0.9 |
 
 ## Providers
 
@@ -17,7 +16,7 @@ This component contains the infrastructure required for the appeals service. Thi
 |------|---------|
 | <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.6.0 |
 | <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 3.6.0 |
-| <a name="provider_time"></a> [time](#provider\_time) | ~>0.9 |
+| <a name="provider_time"></a> [time](#provider\_time) | n/a |
 
 ## Modules
 
@@ -31,7 +30,9 @@ This component contains the infrastructure required for the appeals service. Thi
 | Name | Type |
 |------|------|
 | [azurerm_app_configuration.appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/app_configuration) | resource |
+| [azurerm_application_insights.web_app_insights](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/application_insights) | resource |
 | [azurerm_key_vault_secret.appeals_app_config_endpoint_kv_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.applications_insights_connection_kv_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_log_analytics_workspace.appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/log_analytics_workspace) | resource |
 | [azurerm_private_endpoint.appeals_app_config](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/private_endpoint) | resource |
 | [azurerm_resource_group.appeals_service_stack](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/resource_group) | resource |
