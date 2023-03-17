@@ -34,9 +34,11 @@ This component contains the infrastructure required for the appeals service. Thi
 | [azurerm_advanced_threat_protection.appeal_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/advanced_threat_protection) | resource |
 | [azurerm_app_configuration.appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/app_configuration) | resource |
 | [azurerm_app_configuration_feature.appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/app_configuration_feature) | resource |
+| [azurerm_application_insights.web_app_insights](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/application_insights) | resource |
 | [azurerm_cosmosdb_account.appeals_database](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/cosmosdb_account) | resource |
 | [azurerm_key_vault_secret.app_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.appeals_app_config_endpoint_kv_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.applications_insights_connection_kv_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_log_analytics_workspace.appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/log_analytics_workspace) | resource |
 | [azurerm_private_endpoint.appeals_app_config](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/private_endpoint) | resource |
 | [azurerm_private_endpoint.cosmosdb](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/private_endpoint) | resource |
