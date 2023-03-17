@@ -172,13 +172,18 @@ locals {
     }
   }
 
-  secret_names = [
+  secrets_manual = [
     "appeals-app-config-endpoint",
-    "appeals-app-config-connection-string",
-    "appeals-app-insights-connection-string",
     "appeals-microsoft-provider-authentication-secret",
     "appeals-srv-notify-api-key"
   ]
+
+  secrets_automated = [
+    "appeals-app-config-connection-string",
+    "appeals-app-insights-connection-string"
+  ]
+
+  secret_names = concat(local.secrets_manual, local.secrets_automated)
 
   secret_refs = {
     for name in local.secret_names : name => "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/${name}/)"
