@@ -19,6 +19,7 @@ module "publish_document_functions" {
 
   app_settings = {
     DOCUMENT_STORAGE_CONNECTION_STRING = var.back_office_document_storage_connection_string
+    DOCUMENT_STORAGE_HOST              = var.back_office_document_storage_api_host
     API_HOST                           = var.back_office_api_host
     AZURE_SERVICE_BUS_CONNECTION       = var.back_office_service_bus_connection_string
   }
