@@ -15,6 +15,7 @@ module "app_services" {
   integration_subnet_id                              = var.integration_subnet_id
   back_office_document_storage_connection_string     = azurerm_storage_account.back_office_documents.primary_blob_connection_string
   back_office_service_bus_connection_string          = azurerm_servicebus_namespace.back_office.default_primary_connection_string
+  back_office_document_storage_api_host              = azurerm_storage_account.back_office_documents.primary_blob_endpoint
   back_office_integration_subnet_id                  = var.back_office_integration_subnet_id
   back_office_clamav_subnet_id                       = var.back_office_clamav_subnet_id
   container_registry_name                            = var.container_registry_name
