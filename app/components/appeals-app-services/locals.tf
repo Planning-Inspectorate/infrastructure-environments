@@ -164,7 +164,7 @@ locals {
       image_name                      = "appeal-planning-decision/clamav-api"
       inbound_vnet_connectivity       = var.private_endpoint_enabled
       key_vault_access                = true
-      outbound_vnet_connectivity      = true
+      outbound_vnet_connectivity      = false
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING = local.secret_refs["appeals-app-insights-connection-string"]
