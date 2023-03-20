@@ -15,6 +15,11 @@ variable "back_office_service_bus_connection_string" {
   sensitive   = true
 }
 
+variable "back_office_document_storage_api_host" {
+  description = "Document Storage Host"
+  type        = string
+}
+
 variable "back_office_api_host" {
   description = "Back Office Api Host"
   type        = string
