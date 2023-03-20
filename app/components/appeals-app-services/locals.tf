@@ -167,7 +167,7 @@ locals {
       outbound_vnet_connectivity      = false
 
       app_settings = {
-
+        APPLICATIONINSIGHTS_CONNECTION_STRING = local.secret_refs["appeals-app-insights-connection-string"]
       }
     }
   }
