@@ -4,7 +4,7 @@ resources:
       type: github
       endpoint: Planning-Inspectorate
       name: Planning-Inspectorate/common-pipeline-templates
-      ref: feature/add_variable_group
+      ref: refs/heads/feature/add_variable_group
 
 extends:
   template: stages/wrapper_ci.yml@templates
