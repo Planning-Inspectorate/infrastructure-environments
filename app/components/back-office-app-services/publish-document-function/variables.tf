@@ -68,3 +68,9 @@ variable "app_service_plan_id" {
   description = "The id of the app service plan"
   type        = string
 }
+
+variable "service_bus_namespace_name" {
+  default     = null
+  description = "The name of the Back Office service bus namespace"
+  type        = string
+}
