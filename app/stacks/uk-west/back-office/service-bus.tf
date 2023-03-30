@@ -83,20 +83,15 @@ resource "azurerm_role_assignment" "nsip_project_poc_rbac" {
   principal_id         = data.azurerm_key_vault_secret.odw_synapse_workspace_id.value
 }
 
-resource "azurerm_servicebus_topic" "documents_to_publish" {
-  name                = "documents_to_publish"
+resource "azurerm_servicebus_queue" "documents_to_publish" {
+  name                = "nsip-documents-to-publish"
   namespace_id        = azurerm_servicebus_namespace.back_office.id
+  max_delivery_count  = 1
   default_message_ttl = "P14D"
 }
 
-resource "azurerm_servicebus_subscription" "documents_to_publish_subscription" {
-  name               = "documents_to_publish_subscription"
-  topic_id           = azurerm_servicebus_topic.documents_to_publish.id
-  max_delivery_count = 1
-}
-
 resource "azurerm_servicebus_topic" "published_documents" {
-  name                = "published_documents"
+  name                = "nsip-documents"
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
