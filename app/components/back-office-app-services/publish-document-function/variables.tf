@@ -3,18 +3,6 @@ variable "action_group_low_id" {
   type        = string
 }
 
-variable "back_office_document_storage_connection_string" {
-  description = "The azurerm_storage_account back_office_documents connection string"
-  type        = string
-  sensitive   = true
-}
-
-variable "back_office_service_bus_connection_string" {
-  description = "Connection strong for Azure Service Bus in Back Office"
-  type        = string
-  sensitive   = true
-}
-
 variable "back_office_document_storage_api_host" {
   description = "Document Storage Host"
   type        = string
