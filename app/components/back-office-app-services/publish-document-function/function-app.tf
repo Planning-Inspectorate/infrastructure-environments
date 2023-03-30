@@ -18,8 +18,9 @@ module "publish_document_functions" {
   use_app_insights                         = true
 
   app_settings = {
-    DOCUMENT_STORAGE_HOST = var.back_office_document_storage_api_host
-    API_HOST              = var.back_office_api_host
+    DOCUMENT_STORAGE_HOST                         = var.back_office_document_storage_api_host
+    API_HOST                                      = var.back_office_api_host
+    ServiceBusConnection__fullyQualifiedNamespace = "${var.service_bus_namespace_name}.servicebus.windows.net"
   }
 
   tags = var.tags
