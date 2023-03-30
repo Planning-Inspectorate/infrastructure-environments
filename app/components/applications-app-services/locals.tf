@@ -30,6 +30,7 @@ locals {
         FEATURE_ENABLED_CONTENT_SECURITY_POLICY      = var.feature_enabled_content_security_policy
         FEATURE_ALLOW_SECTION_51                     = var.feature_allow_section_51
         FEATURE_ENABLE_GENERALISED_FORM_SANITISATION = var.feature_enable_generalised_form_sanitisation
+        FEATURE_ALLOW_HAVE_YOU_SAY                   = var.feature_allow_have_your_say
       }
     }
 
