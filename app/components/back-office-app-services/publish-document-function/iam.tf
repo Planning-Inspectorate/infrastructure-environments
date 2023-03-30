@@ -5,7 +5,7 @@ resource "azurerm_role_assignment" "function_blob_data_owner" {
 }
 
 resource "azurerm_role_assignment" "service_bus_data_receiver" {
-  scope                = azurerm_servicebus_queue.nsip_documents_to_publish.id
+  scope                = var.servicebus_queue_nsip_documents_to_publish_id
   role_definition_name = "Azure Service Bus Data Receiver"
   principal_id         = module.publish_document_functions.principal_id
 }

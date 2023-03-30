@@ -17,11 +17,10 @@ module "anti_virus_functions" {
   use_app_insights                         = true
 
   app_settings = {
-    CLAM_AV_HOST                       = var.clamav_host
-    CLAM_AV_PORT                       = "3310"
-    DOCUMENT_STORAGE_CONNECTION_STRING = var.back_office_document_storage_connection_string
-    API_HOST                           = var.back_office_api_host
-    DOCUMENT_STORAGE_API_HOST          = var.back_office_document_api_host
+    CLAM_AV_HOST              = var.clamav_host
+    CLAM_AV_PORT              = "3310"
+    API_HOST                  = var.back_office_api_host
+    DOCUMENT_STORAGE_API_HOST = var.back_office_document_api_host
   }
 
   tags = var.tags

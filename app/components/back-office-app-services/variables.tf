@@ -249,8 +249,7 @@ variable "feature_odw_subscription_enabled" {
   default     = false
 }
 
-variable "back_office_document_storage_connection_string" {
-  description = "The azurerm_storage_account back_office_documents connection string"
+variable "servicebus_queue_nsip_documents_to_publish_id" {
+  description = "Service Bus Queue nsip-documents-to-publish id"
   type        = string
-  sensitive   = true
 }

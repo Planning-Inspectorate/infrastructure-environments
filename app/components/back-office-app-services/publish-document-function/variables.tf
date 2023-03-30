@@ -74,3 +74,8 @@ variable "service_bus_namespace_name" {
   description = "The name of the Back Office service bus namespace"
   type        = string
 }
+
+variable "servicebus_queue_nsip_documents_to_publish_id" {
+  description = "Service Bus Queue nsip-documents-to-publish id"
+  type        = string
+}

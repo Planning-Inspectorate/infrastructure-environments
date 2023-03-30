@@ -109,7 +109,6 @@ This component contains the infrastructure required for the back office service.
 |------|-------------|
 | <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of frontend app service URLs |
 | <a name="output_back_office_document_storage_api_host"></a> [back\_office\_document\_storage\_api\_host](#output\_back\_office\_document\_storage\_api\_host) | The full failover URI to the storage account used for back office documents |
-| <a name="output_back_office_document_storage_connection_string"></a> [back\_office\_document\_storage\_connection\_string](#output\_back\_office\_document\_storage\_connection\_string) | The azurerm\_storage\_account back\_office\_documents connection string |
 | <a name="output_back_office_document_storage_container_name"></a> [back\_office\_document\_storage\_container\_name](#output\_back\_office\_document\_storage\_container\_name) | The back office blob storage container name |
 | <a name="output_back_office_document_storage_documents_id"></a> [back\_office\_document\_storage\_documents\_id](#output\_back\_office\_document\_storage\_documents\_id) | The azurerm\_storage\_account back\_office\_documents resource id |
 | <a name="output_back_office_service_bus_connection_string"></a> [back\_office\_service\_bus\_connection\_string](#output\_back\_office\_service\_bus\_connection\_string) | Connection strong for Azure Service Bus in Back Office |
@@ -121,6 +120,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_service_bus_namespace_id"></a> [service\_bus\_namespace\_id](#output\_service\_bus\_namespace\_id) | The ID of the Service Bus Namespace |
 | <a name="output_service_bus_namespace_name"></a> [service\_bus\_namespace\_name](#output\_service\_bus\_namespace\_name) | The name of the Service Bus Namespace |
 | <a name="output_service_bus_nsip_project_topic_id"></a> [service\_bus\_nsip\_project\_topic\_id](#output\_service\_bus\_nsip\_project\_topic\_id) | ID of the nsip-project Service Bus Topic |
+| <a name="output_servicebus_queue_nsip_documents_to_publish_id"></a> [servicebus\_queue\_nsip\_documents\_to\_publish\_id](#output\_servicebus\_queue\_nsip\_documents\_to\_publish\_id) | Service Bus Queue nsip-documents-to-publish id |
 | <a name="output_sql_server_id"></a> [sql\_server\_id](#output\_sql\_server\_id) | The ID of the Back Office SQL server |
 | <a name="output_sql_server_password"></a> [sql\_server\_password](#output\_sql\_server\_password) | The SQL server administrator password |
 | <a name="output_sql_server_username"></a> [sql\_server\_username](#output\_sql\_server\_username) | The SQL server administrator username |

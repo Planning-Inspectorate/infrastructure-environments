@@ -65,18 +65,6 @@ variable "back_office_document_storage_documents_id" {
   type        = string
 }
 
-variable "back_office_document_storage_connection_string" {
-  description = "The azurerm_storage_account back_office_documents connection string"
-  type        = string
-  sensitive   = true
-}
-
-variable "back_office_service_bus_connection_string" {
-  description = "Connection strong for Azure Service Bus in Back Office"
-  type        = string
-  sensitive   = true
-}
-
 variable "back_office_integration_subnet_id" {
   description = "Integration subnet for back office anti-virus resources"
   type        = string
@@ -245,4 +233,9 @@ variable "feature_service_bus_enabled" {
 variable "feature_document_scanning_enabled" {
   description = "Whether or not Document Scanning is enabled"
   type        = bool
+}
+
+variable "servicebus_queue_nsip_documents_to_publish_id" {
+  description = "Service Bus Queue nsip-documents-to-publish id"
+  type        = string
 }

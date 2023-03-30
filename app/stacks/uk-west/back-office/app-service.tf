@@ -13,10 +13,9 @@ module "app_services" {
   azuread_applications_caseteam_group_id             = var.azuread_applications_caseteam_group_id
   azuread_applications_inspector_group_id            = var.azuread_applications_inspector_group_id
   integration_subnet_id                              = var.integration_subnet_id
-  back_office_document_storage_connection_string     = azurerm_storage_account.back_office_documents.primary_blob_connection_string
-  back_office_service_bus_connection_string          = azurerm_servicebus_namespace.back_office.default_primary_connection_string
   back_office_document_storage_api_host              = azurerm_storage_account.back_office_documents.primary_blob_endpoint
   back_office_integration_subnet_id                  = var.back_office_integration_subnet_id
+  servicebus_queue_nsip_documents_to_publish_id      = azurerm_servicebus_queue.nsip_documents_to_publish.id
   back_office_clamav_subnet_id                       = var.back_office_clamav_subnet_id
   container_registry_name                            = var.container_registry_name
   container_registry_rg                              = var.container_registry_rg

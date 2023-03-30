@@ -24,8 +24,6 @@ module "app_services" {
   document_storage_api_host                          = var.back_office_document_storage_api_host
   document_storage_container                         = var.back_office_document_storage_container_name
   document_storage_back_office_documents_id          = var.back_office_document_storage_documents_id
-  back_office_document_storage_connection_string     = var.back_office_document_storage_connection_string
-  back_office_service_bus_connection_string          = var.back_office_service_bus_connection_string
   back_office_document_storage_api_host              = var.back_office_document_storage_api_host
   endpoint_subnet_id                                 = azurerm_subnet.back_office_ingress.id
   integration_subnet_id                              = var.integration_subnet_id
@@ -48,6 +46,7 @@ module "app_services" {
   document_check_function_storage_name               = var.document_check_function_storage_name
   document_check_function_storage_primary_access_key = var.document_check_function_storage_primary_access_key
   feature_odw_subscription_enabled                   = false
+  servicebus_queue_nsip_documents_to_publish_id      = var.servicebus_queue_nsip_documents_to_publish_id
 
   tags = local.tags
 

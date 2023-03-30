@@ -23,12 +23,6 @@ output "back_office_document_storage_documents_id" {
   value       = azurerm_storage_account.back_office_documents.id
 }
 
-output "back_office_document_storage_connection_string" {
-  description = "The azurerm_storage_account back_office_documents connection string"
-  value       = azurerm_storage_account.back_office_documents.primary_blob_connection_string
-  sensitive   = true
-}
-
 output "back_office_service_bus_connection_string" {
   description = "Connection strong for Azure Service Bus in Back Office"
   value       = azurerm_servicebus_namespace.back_office.default_primary_connection_string
@@ -92,4 +86,9 @@ output "sql_server_username" {
   description = "The SQL server administrator username"
   sensitive   = true
   value       = local.sql_server_username
+}
+
+output "servicebus_queue_nsip_documents_to_publish_id" {
+  description = "Service Bus Queue nsip-documents-to-publish id"
+  value       = azurerm_servicebus_queue.nsip_documents_to_publish.id
 }
