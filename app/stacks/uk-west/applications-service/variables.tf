@@ -135,6 +135,11 @@ variable "feature_allow_section_51" {
   type        = string
 }
 
+variable "feature_allow_have_your_say" {
+  description = "Feature toggle to enable/disable have your say"
+  type        = string
+}
+
 variable "feature_enable_generalised_form_sanitisation" {
   description = "Feature toggle to enable/disable generalised form sanitisation"
   type        = string
