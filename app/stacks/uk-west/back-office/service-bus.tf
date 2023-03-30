@@ -86,7 +86,6 @@ resource "azurerm_role_assignment" "nsip_project_poc_rbac" {
 resource "azurerm_servicebus_queue" "documents_to_publish" {
   name                = "nsip-documents-to-publish"
   namespace_id        = azurerm_servicebus_namespace.back_office.id
-  max_delivery_count  = 1
   default_message_ttl = "P14D"
 }
 
