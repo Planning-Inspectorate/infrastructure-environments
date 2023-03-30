@@ -44,6 +44,7 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_private_endpoint.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/private_endpoint) | resource |
 | [azurerm_private_endpoint.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/private_endpoint) | resource |
 | [azurerm_resource_group.back_office_stack](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/resource_group) | resource |
+| [azurerm_role_assignment.nsip_project_poc_rbac](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/role_assignment) | resource |
 | [azurerm_servicebus_namespace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_namespace) | resource |
 | [azurerm_servicebus_namespace_network_rule_set.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_namespace_network_rule_set) | resource |
 | [azurerm_servicebus_subscription.nsip_project_poc](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_subscription) | resource |
@@ -56,6 +57,7 @@ This component contains the infrastructure required for the back office service.
 | [random_id.username_suffix](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
 | [random_password.back_office_sql_server_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
 | [azurerm_key_vault_certificate.wildcard_certificate](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/data-sources/key_vault_certificate) | data source |
+| [azurerm_key_vault_secret.odw_synapse_workspace_id](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/data-sources/key_vault_secret) | data source |
 | [azurerm_private_dns_zone.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/data-sources/private_dns_zone) | data source |
 | [azurerm_private_dns_zone.database](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/data-sources/private_dns_zone) | data source |
 

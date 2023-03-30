@@ -76,3 +76,9 @@ resource "azurerm_servicebus_subscription" "nsip_project_poc" {
   topic_id           = azurerm_servicebus_topic.nsip_project.id
   max_delivery_count = 1
 }
+
+resource "azurerm_role_assignment" "nsip_project_poc_rbac" {
+  scope                = azurerm_servicebus_subscription.nsip_project_poc.id
+  role_definition_name = "Azure Service Bus Data Receiver"
+  principal_id         = data.azurerm_key_vault_secret.odw_synapse_workspace_id.value
+}
