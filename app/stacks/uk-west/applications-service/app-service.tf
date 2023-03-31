@@ -27,7 +27,7 @@ module "app_services" {
   feature_allow_have_your_say                                     = var.feature_allow_have_your_say
   feature_enable_generalised_form_sanitisation                    = var.feature_enable_generalised_form_sanitisation
   function_storage_name                                           = azurerm_storage_account.function_storage.name
-  function_storage_primary_access_key                             = azurerm_storage_account.function_storage.primary_connection_string
+  function_storage_primary_access_key                             = azurerm_storage_account.function_storage.primary_access_key
   google_analytics_id                                             = var.google_analytics_id
   integration_subnet_id                                           = var.integration_subnet_id
   key_vault_id                                                    = var.key_vault_id
