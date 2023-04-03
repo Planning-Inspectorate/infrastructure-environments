@@ -81,7 +81,7 @@ inputs = {
   primary_service_bus_namespace_id                                     = dependency.back_office_ukw.outputs.service_bus_namespace_id
   primary_sql_server_id                                                = dependency.back_office_ukw.outputs.sql_server_id
   servicebus_topic_nsip_documents_id                                   = dependency.back_office_ukw.outputs.servicebus_topic_nsip_documents_id
-  servicebus_queue_nsip_documents_to_publish_id                        = dependency.back_office_ukw.servicebus_queue_nsip_documents_to_publish_id
+  servicebus_queue_nsip_documents_to_publish_id                        = dependency.back_office_ukw.outputs.servicebus_queue_nsip_documents_to_publish_id
   sql_server_password                                                  = dependency.back_office_ukw.outputs.sql_server_password
   sql_server_username                                                  = dependency.back_office_ukw.outputs.sql_server_username
 }
