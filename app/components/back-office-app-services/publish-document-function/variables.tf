@@ -59,8 +59,8 @@ variable "integration_subnet_id" {
   type        = string
 }
 
-variable "document_storage_back_office_documents_id" {
-  description = "The azurerm_storage_account back_office_documents resource id"
+variable "document_storage_back_office_document_service_uploads_container_id" {
+  description = "ID of private document storage container in back office"
   type        = string
 }
 
@@ -77,5 +77,15 @@ variable "service_bus_namespace_name" {
 
 variable "servicebus_queue_nsip_documents_to_publish_id" {
   description = "Service Bus Queue nsip-documents-to-publish id"
+  type        = string
+}
+
+variable "servicebus_topic_nsip_documents_id" {
+  description = "Service Bus topic nsip-documents id"
+  type        = string
+}
+
+variable "document_storage_back_office_published_documents_container_id" {
+  description = "Back Office published-documents container id"
   type        = string
 }

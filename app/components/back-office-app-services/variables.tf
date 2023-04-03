@@ -130,16 +130,6 @@ variable "document_storage_api_host" {
   type        = string
 }
 
-variable "document_storage_back_office_documents_id" {
-  description = "The azurerm_storage_account back_office_documents resource id"
-  type        = string
-}
-
-variable "document_storage_container" {
-  description = "The container in Blob Storage used for Back Office storage of documents"
-  type        = string
-}
-
 variable "endpoint_subnet_id" {
   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
   type        = string
@@ -251,5 +241,25 @@ variable "feature_odw_subscription_enabled" {
 
 variable "servicebus_queue_nsip_documents_to_publish_id" {
   description = "Service Bus Queue nsip-documents-to-publish id"
+  type        = string
+}
+
+variable "servicebus_topic_nsip_documents_id" {
+  description = "Service Bus Topic nsip-documents id"
+  type        = string
+}
+
+variable "document_storage_back_office_document_service_uploads_container_id" {
+  description = "ID of private document storage container in back office"
+  type        = string
+}
+
+variable "document_storage_back_office_document_service_uploads_container_name" {
+  description = "Document Storage document service uploads container name"
+  type        = string
+}
+
+variable "document_storage_back_office_published_documents_container_id" {
+  description = "Back Office published-documents container id"
   type        = string
 }

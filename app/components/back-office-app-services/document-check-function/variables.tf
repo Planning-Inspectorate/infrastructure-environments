@@ -64,12 +64,12 @@ variable "clamav_host" {
   type        = string
 }
 
-variable "document_storage_back_office_documents_id" {
-  description = "The azurerm_storage_account back_office_documents resource id"
+variable "app_service_plan_id" {
+  description = "The id of the app service plan"
   type        = string
 }
 
-variable "app_service_plan_id" {
-  description = "The id of the app service plan"
+variable "document_storage_back_office_document_service_uploads_container_id" {
+  description = "ID of private document storage container in back office"
   type        = string
 }

@@ -40,7 +40,6 @@ dependency "back_office_ukw" {
 
   mock_outputs = {
     back_office_document_storage_api_host              = "https://mockstorageaccount.blob.core.windows.net/"
-    back_office_document_storage_documents_id          = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Storage/storageAccounts/mockstorageaccount"
     back_office_sql_database                           = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Sql/servers/mock_sql_server/databases/mock_sql_db"
     back_office_document_storage_container_name        = "mock-name"
     document_check_function_storage_name               = "mockstorageaccount"
@@ -57,7 +56,6 @@ inputs = {
   app_service_plan_id                                = try(dependency.common_uks.outputs.app_service_plan_id, null)
   back_office_document_storage_api_host              = dependency.back_office_ukw.outputs.back_office_document_storage_api_host
   back_office_document_storage_container_name        = dependency.back_office_ukw.outputs.back_office_document_storage_container_name
-  back_office_document_storage_documents_id          = dependency.back_office_ukw.outputs.back_office_document_storage_documents_id
   back_office_integration_subnet_id                  = dependency.common_uks.outputs.back_office_integration_subnet_id
   back_office_clamav_subnet_id                       = dependency.common_uks.outputs.back_office_clamav_subnet_id
   back_office_sql_database                           = dependency.back_office_ukw.outputs.back_office_sql_database

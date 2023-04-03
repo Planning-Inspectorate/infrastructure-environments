@@ -15,12 +15,17 @@ output "back_office_document_storage_api_host" {
 
 output "back_office_document_storage_container_name" {
   description = "The back office blob storage container name"
-  value       = azurerm_storage_container.back_office_documents_container.name
+  value       = azurerm_storage_container.back_office_document_service_uploads_container.name
 }
 
-output "back_office_document_storage_documents_id" {
-  description = "The azurerm_storage_account back_office_documents resource id"
-  value       = azurerm_storage_account.back_office_documents.id
+output "document_storage_back_office_document_service_uploads_container_id" {
+  description = "Back Office document-service-uploads container id"
+  value       = azurerm_storage_container.back_office_document_service_uploads_container.id
+}
+
+output "document_storage_back_office_published_documents_container_id" {
+  description = "Back Office published-documents container id"
+  value       = azurerm_storage_container.back_office_published_documents_container.id
 }
 
 output "back_office_service_bus_connection_string" {
@@ -91,4 +96,9 @@ output "sql_server_username" {
 output "servicebus_queue_nsip_documents_to_publish_id" {
   description = "Service Bus Queue nsip-documents-to-publish id"
   value       = azurerm_servicebus_queue.nsip_documents_to_publish.id
+}
+
+output "servicebus_topic_nsip_documents_id" {
+  description = "Service Bus Topic nsip-documents id"
+  value       = azurerm_servicebus_topic.nsip_documents.id
 }
