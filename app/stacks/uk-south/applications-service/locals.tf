@@ -14,6 +14,16 @@ locals {
       "Connection Timeout=30"
     ]
   )
+  sql_jbdc_connection_string = join(
+    ";",
+    [
+      "sqlserver://${azurerm_mssql_server.applications_sql_server.fully_qualified_domain_name}",
+      "database=${azurerm_mssql_database.applications_sql_db.name}",
+      "user=${azurerm_mssql_server.applications_sql_server.administrator_login}",
+      "password=${azurerm_mssql_server.applications_sql_server.administrator_login_password}",
+      "trustServerCertificate=true"
+    ]
+  )
 
   tags = merge(
     var.common_tags,
