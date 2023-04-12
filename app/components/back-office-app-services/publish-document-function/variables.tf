@@ -59,11 +59,6 @@ variable "integration_subnet_id" {
   type        = string
 }
 
-variable "document_storage_back_office_document_service_uploads_container_id" {
-  description = "ID of private document storage container in back office"
-  type        = string
-}
-
 variable "app_service_plan_id" {
   description = "The id of the app service plan"
   type        = string
@@ -85,7 +80,7 @@ variable "servicebus_topic_nsip_documents_id" {
   type        = string
 }
 
-variable "document_storage_back_office_published_documents_container_id" {
-  description = "Back Office published-documents container id"
+variable "document_storage_back_office_document_service_uploads_container_resource_manager_id" {
+  description = "Back Office document-service-uploads container resource_manager_id"
   type        = string
 }
