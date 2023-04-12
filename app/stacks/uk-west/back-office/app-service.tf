@@ -42,10 +42,8 @@ module "app_services" {
   common_vnet_id                                                                      = var.common_vnet_id
   document_check_function_storage_name                                                = azurerm_storage_account.function_storage.name
   document_check_function_storage_primary_access_key                                  = azurerm_storage_account.function_storage.primary_access_key
-  document_storage_back_office_document_service_uploads_container_id                  = azurerm_storage_container.back_office_document_service_uploads_container.id
   document_storage_back_office_document_service_uploads_container_resource_manager_id = azurerm_storage_container.back_office_document_service_uploads_container.resource_manager_id
   document_storage_back_office_document_service_uploads_container_name                = azurerm_storage_container.back_office_document_service_uploads_container.name
-  document_storage_back_office_published_documents_container_id                       = azurerm_storage_container.back_office_published_documents_container.id
   servicebus_topic_nsip_documents_id                                                  = azurerm_servicebus_topic.nsip_documents.id
   tags                                                                                = local.tags
   employee_topic_id                                                                   = azurerm_servicebus_topic.employee.id
