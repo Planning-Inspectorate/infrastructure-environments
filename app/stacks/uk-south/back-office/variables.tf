@@ -55,22 +55,6 @@ variable "back_office_document_storage_api_host" {
   type        = string
 }
 
-variable "back_office_document_storage_container_name" {
-  description = "The back office blob storage container name"
-  type        = string
-}
-
-variable "back_office_document_storage_documents_id" {
-  description = "The back office blob storage resource id"
-  type        = string
-}
-
-variable "back_office_document_storage_connection_string" {
-  description = "The azurerm_storage_account back_office_documents connection string"
-  type        = string
-  sensitive   = true
-}
-
 variable "back_office_integration_subnet_id" {
   description = "Integration subnet for back office anti-virus resources"
   type        = string
@@ -239,4 +223,24 @@ variable "feature_service_bus_enabled" {
 variable "feature_document_scanning_enabled" {
   description = "Whether or not Document Scanning is enabled"
   type        = bool
+}
+
+variable "servicebus_queue_nsip_documents_to_publish_id" {
+  description = "Service Bus Queue nsip-documents-to-publish id"
+  type        = string
+}
+
+variable "document_storage_back_office_document_service_uploads_container_name" {
+  description = "Document Storage document service uploads container name"
+  type        = string
+}
+
+variable "document_storage_back_office_document_service_uploads_container_resource_manager_id" {
+  description = "Back Office document-service-uploads container resource_manager_id"
+  type        = string
+}
+
+variable "servicebus_topic_nsip_documents_id" {
+  description = "Service Bus Topic nsip-documents id"
+  type        = string
 }

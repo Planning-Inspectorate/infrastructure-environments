@@ -3,10 +3,9 @@ variable "action_group_low_id" {
   type        = string
 }
 
-variable "back_office_document_storage_connection_string" {
-  description = "The azurerm_storage_account back_office_documents connection string"
+variable "back_office_document_storage_api_host" {
+  description = "Document Storage Host"
   type        = string
-  sensitive   = true
 }
 
 variable "back_office_api_host" {
@@ -60,12 +59,28 @@ variable "integration_subnet_id" {
   type        = string
 }
 
-variable "document_storage_back_office_documents_id" {
-  description = "The azurerm_storage_account back_office_documents resource id"
+variable "app_service_plan_id" {
+  description = "The id of the app service plan"
   type        = string
 }
 
-variable "app_service_plan_id" {
-  description = "The id of the app service plan"
+variable "service_bus_namespace_name" {
+  default     = ""
+  description = "The name of the Back Office service bus namespace"
+  type        = string
+}
+
+variable "servicebus_queue_nsip_documents_to_publish_id" {
+  description = "Service Bus Queue nsip-documents-to-publish id"
+  type        = string
+}
+
+variable "servicebus_topic_nsip_documents_id" {
+  description = "Service Bus topic nsip-documents id"
+  type        = string
+}
+
+variable "document_storage_back_office_document_service_uploads_container_resource_manager_id" {
+  description = "Back Office document-service-uploads container resource_manager_id"
   type        = string
 }

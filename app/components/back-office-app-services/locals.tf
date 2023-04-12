@@ -70,7 +70,7 @@ locals {
 
       app_settings = {
         AZURE_BLOB_STORE_HOST      = var.document_storage_api_host
-        AZURE_BLOB_STORE_CONTAINER = var.document_storage_container
+        AZURE_BLOB_STORE_CONTAINER = var.document_storage_back_office_document_service_uploads_container_name
         NODE_ENV                   = var.node_environment
       }
     }

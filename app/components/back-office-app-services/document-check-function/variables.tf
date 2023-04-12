@@ -3,12 +3,6 @@ variable "action_group_low_id" {
   type        = string
 }
 
-variable "back_office_document_storage_connection_string" {
-  description = "The azurerm_storage_account back_office_documents connection string"
-  type        = string
-  sensitive   = true
-}
-
 variable "back_office_api_host" {
   description = "Back Office Api Host"
   type        = string
@@ -70,12 +64,12 @@ variable "clamav_host" {
   type        = string
 }
 
-variable "document_storage_back_office_documents_id" {
-  description = "The azurerm_storage_account back_office_documents resource id"
+variable "app_service_plan_id" {
+  description = "The id of the app service plan"
   type        = string
 }
 
-variable "app_service_plan_id" {
-  description = "The id of the app service plan"
+variable "document_storage_back_office_document_service_uploads_container_resource_manager_id" {
+  description = "Back Office document-service-uploads container resource_manager_id"
   type        = string
 }

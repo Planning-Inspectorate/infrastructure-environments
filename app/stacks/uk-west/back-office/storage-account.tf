@@ -28,10 +28,18 @@ resource "azurerm_storage_account" "back_office_documents" {
   }
 }
 
-resource "azurerm_storage_container" "back_office_documents_container" {
+resource "azurerm_storage_container" "back_office_document_service_uploads_container" {
   #TODO: Logging
   #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
   name                  = "document-service-uploads"
+  storage_account_name  = azurerm_storage_account.back_office_documents.name
+  container_access_type = "private"
+}
+
+resource "azurerm_storage_container" "back_office_published_documents_container" {
+  #TODO: Logging
+  #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
+  name                  = "published-documents"
   storage_account_name  = azurerm_storage_account.back_office_documents.name
   container_access_type = "private"
 }
