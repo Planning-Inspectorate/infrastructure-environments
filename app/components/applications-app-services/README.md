@@ -29,6 +29,7 @@ This module contains the App Services resources for the applications service. Th
 |------|------|
 | [azurerm_role_assignment.nsip_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/role_assignment) | resource |
 | [azurerm_servicebus_subscription.nsip_project_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_servicebus_subscription_rule.nsip_project_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_subscription_rule) | resource |
 
 ## Inputs
 
