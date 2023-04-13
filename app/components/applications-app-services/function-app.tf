@@ -35,6 +35,19 @@ resource "azurerm_servicebus_subscription" "nsip_project_topic_subscription" {
   max_delivery_count = 1
 }
 
+resource "azurerm_servicebus_subscription_rule" "nsip_project_topic_subscription_rule" {
+  count = var.feature_back_office_subscriber_enabled ? 1 : 0
+
+  name            = "applications-nsip-project-subscription-rule"
+  subscription_id = azurerm_servicebus_subscription.nsip_project_topic_subscription[0].id
+  filter_type     = "CorrelationFilter"
+  correlation_filter {
+    properties = {
+      type = "Publish"
+    }
+  }
+}
+
 resource "azurerm_role_assignment" "nsip_service_bus_role" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
