@@ -156,12 +156,12 @@ resource "azurerm_private_endpoint" "private_endpoint_staging" {
   subnet_id           = var.endpoint_subnet_id
 
   private_dns_zone_group {
-    name                 = "appserviceprivatednszone"
+    name                 = "appserviceprivatednszone-staging"
     private_dns_zone_ids = [var.app_service_private_dns_zone_id]
   }
 
   private_service_connection {
-    name                           = "privateendpointconnection"
+    name                           = "privateendpointconnection-staging"
     private_connection_resource_id = azurerm_linux_web_app_slot.staging.id
     subresource_names              = ["sites"]
     is_manual_connection           = false
