@@ -163,7 +163,7 @@ resource "azurerm_private_endpoint" "private_endpoint_staging" {
   private_service_connection {
     name                           = "privateendpointconnection-staging"
     private_connection_resource_id = azurerm_linux_web_app_slot.staging.id
-    subresource_names              = ["sites"]
+    subresource_names              = ["sites-staging"]
     is_manual_connection           = false
   }
 
