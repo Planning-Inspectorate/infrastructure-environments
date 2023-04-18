@@ -127,7 +127,7 @@ variable "node_environment" {
 variable "private_endpoint_enabled" {
   description = "A switch to determine if Private Endpoint should be enabled for backend App Services"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "resource_group_id" {
