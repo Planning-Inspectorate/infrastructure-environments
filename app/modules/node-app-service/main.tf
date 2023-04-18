@@ -147,6 +147,29 @@ resource "azurerm_private_endpoint" "private_endpoint" {
   tags = var.tags
 }
 
+resource "azurerm_private_endpoint" "private_endpoint_staging" {
+  count = var.inbound_vnet_connectivity ? 1 : 0
+
+  name                = "pins-pe-st-${var.service_name}-${var.app_name}-${var.resource_suffix}"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+  subnet_id           = var.endpoint_subnet_id
+
+  private_dns_zone_group {
+    name                 = "appserviceprivatednszone"
+    private_dns_zone_ids = [var.app_service_private_dns_zone_id]
+  }
+
+  private_service_connection {
+    name                           = "privateendpointconnection"
+    private_connection_resource_id = azurerm_linux_web_app_slot.staging.id
+    subresource_names              = ["sites"]
+    is_manual_connection           = false
+  }
+
+  tags = var.tags
+}
+
 resource "azurerm_app_service_virtual_network_swift_connection" "vnet_connection" {
   count = var.outbound_vnet_connectivity ? 1 : 0
 
