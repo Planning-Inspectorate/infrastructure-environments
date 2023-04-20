@@ -33,6 +33,11 @@ output "document_storage_back_office_published_documents_container_id" {
   value       = azurerm_storage_container.back_office_published_documents_container.id
 }
 
+output "document_storage_back_office_document_service_uploads_container_name" {
+  description = "Back Office document-service-uploads container name"
+  value       = azurerm_storage_container.back_office_document_service_uploads_container.name
+}
+
 output "back_office_service_bus_connection_string" {
   description = "Connection strong for Azure Service Bus in Back Office"
   value       = azurerm_servicebus_namespace.back_office.default_primary_connection_string
