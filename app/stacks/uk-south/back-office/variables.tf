@@ -220,11 +220,6 @@ variable "feature_service_bus_enabled" {
   type        = string
 }
 
-variable "feature_document_scanning_enabled" {
-  description = "Whether or not Document Scanning is enabled"
-  type        = bool
-}
-
 variable "servicebus_queue_nsip_documents_to_publish_id" {
   description = "Service Bus Queue nsip-documents-to-publish id"
   type        = string
@@ -242,5 +237,10 @@ variable "document_storage_back_office_document_service_uploads_container_resour
 
 variable "servicebus_topic_nsip_documents_id" {
   description = "Service Bus Topic nsip-documents id"
+  type        = string
+}
+
+variable "back_office_documents_system_topic_name" {
+  description = "Back Office Document Storage System Topic Name"
   type        = string
 }

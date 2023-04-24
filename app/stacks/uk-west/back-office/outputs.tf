@@ -112,3 +112,8 @@ output "servicebus_topic_nsip_documents_id" {
   description = "Service Bus Topic nsip-documents id"
   value       = azurerm_servicebus_topic.nsip_documents.id
 }
+
+output "back_office_documents_system_topic_name" {
+  description = "System topic for Back Office Document storage resource"
+  value       = azurerm_eventgrid_system_topic.back_office_documents_system_topic.name
+}

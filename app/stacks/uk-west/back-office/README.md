@@ -29,6 +29,7 @@ This component contains the infrastructure required for the back office service.
 
 | Name | Type |
 |------|------|
+| [azurerm_eventgrid_system_topic.back_office_documents_system_topic](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/eventgrid_system_topic) | resource |
 | [azurerm_key_vault_secret.app_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.back_office_sql_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.back_office_sql_server_password](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/key_vault_secret) | resource |
@@ -111,6 +112,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of frontend app service URLs |
 | <a name="output_back_office_document_storage_api_host"></a> [back\_office\_document\_storage\_api\_host](#output\_back\_office\_document\_storage\_api\_host) | The full failover URI to the storage account used for back office documents |
 | <a name="output_back_office_document_storage_container_name"></a> [back\_office\_document\_storage\_container\_name](#output\_back\_office\_document\_storage\_container\_name) | The back office blob storage container name |
+| <a name="output_back_office_documents_system_topic_name"></a> [back\_office\_documents\_system\_topic\_name](#output\_back\_office\_documents\_system\_topic\_name) | System topic for Back Office Document storage resource |
 | <a name="output_back_office_service_bus_connection_string"></a> [back\_office\_service\_bus\_connection\_string](#output\_back\_office\_service\_bus\_connection\_string) | Connection strong for Azure Service Bus in Back Office |
 | <a name="output_back_office_sql_database"></a> [back\_office\_sql\_database](#output\_back\_office\_sql\_database) | The ID of the Back Office SQL database |
 | <a name="output_document_check_function_storage_name"></a> [document\_check\_function\_storage\_name](#output\_document\_check\_function\_storage\_name) | Function Storage name |

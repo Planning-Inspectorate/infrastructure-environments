@@ -78,7 +78,7 @@ variable "document_check_function_storage_primary_access_key" {
 
 variable "feature_document_scanning_enabled" {
   default     = false
-  description = "Indicates whether ClamAV Document Scanning has been enabled"
+  description = "Whether or not Document Scanning has been enabled. Document Scanning is currently disabled in a DR deployment (in the secondary region), documents will be scanned when the primary comes online."
   type        = bool
 }
 
@@ -256,5 +256,10 @@ variable "document_storage_back_office_document_service_uploads_container_resour
 
 variable "document_storage_back_office_document_service_uploads_container_name" {
   description = "Document Storage document service uploads container name"
+  type        = string
+}
+
+variable "back_office_documents_system_topic_name" {
+  description = "Back Office Document Storage System Topic Name"
   type        = string
 }

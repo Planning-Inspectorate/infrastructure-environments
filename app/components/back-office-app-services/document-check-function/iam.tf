@@ -9,3 +9,9 @@ resource "azurerm_role_assignment" "function_queue_data_contributor" {
   role_definition_name = "Storage Queue Data Contributor"
   principal_id         = module.anti_virus_functions.principal_id
 }
+
+resource "azurerm_role_assignment" "eventgrid_subscription_consumer" {
+  scope                = azurerm_eventgrid_system_topic_event_subscription.uploads_container_create_events.id
+  role_definition_name = "EventGrid EventSubscription Reader"
+  principal_id         = module.anti_virus_functions.principal_id
+}

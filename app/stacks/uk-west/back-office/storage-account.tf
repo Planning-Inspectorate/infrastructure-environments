@@ -28,6 +28,16 @@ resource "azurerm_storage_account" "back_office_documents" {
   }
 }
 
+resource "azurerm_eventgrid_system_topic" "back_office_documents_system_topic" {
+  name                = "upload-blob-events"
+  resource_group_name = azurerm_resource_group.back_office_stack.name
+  location            = azurerm_resource_group.back_office_stack.location
+  # The resource ID can only be scoped to the storage account, not the container. Container filtering is done on the subscription.
+  source_arm_resource_id = azurerm_storage_account.back_office_documents.id
+  topic_type             = "Microsoft.Storage.StorageAccounts"
+}
+
+
 resource "azurerm_storage_container" "back_office_document_service_uploads_container" {
   #TODO: Logging
   #checkov:skip=CKV2_AZURE_21 Logging not implemented yet

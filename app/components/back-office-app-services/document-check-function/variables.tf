@@ -73,3 +73,13 @@ variable "document_storage_back_office_document_service_uploads_container_resour
   description = "Back Office document-service-uploads container resource_manager_id"
   type        = string
 }
+
+variable "back_office_documents_system_topic_name" {
+  description = "Back Office Document Storage System Topic Name"
+  type        = string
+}
+
+variable "document_storage_back_office_document_service_uploads_container_name" {
+  description = "Document Storage document service uploads container name"
+  type        = string
+}
