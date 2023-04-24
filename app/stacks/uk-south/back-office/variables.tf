@@ -239,8 +239,3 @@ variable "servicebus_topic_nsip_documents_id" {
   description = "Service Bus Topic nsip-documents id"
   type        = string
 }
-
-variable "back_office_documents_system_topic_name" {
-  description = "Back Office Document Storage System Topic Name"
-  type        = string
-}

@@ -62,7 +62,6 @@ inputs = {
   app_service_plan_id                                                                 = try(dependency.common_uks.outputs.app_service_plan_id, null)
   back_office_document_storage_api_host                                               = dependency.back_office_ukw.outputs.back_office_document_storage_api_host
   back_office_document_storage_container_name                                         = dependency.back_office_ukw.outputs.back_office_document_storage_container_name
-  back_office_documents_system_topic_name                                             = dependency.back_office_ukw.outputs.back_office_documents_system_topic_name
   back_office_integration_subnet_id                                                   = dependency.common_uks.outputs.back_office_integration_subnet_id
   back_office_clamav_subnet_id                                                        = dependency.common_uks.outputs.back_office_clamav_subnet_id
   back_office_sql_database                                                            = dependency.back_office_ukw.outputs.back_office_sql_database

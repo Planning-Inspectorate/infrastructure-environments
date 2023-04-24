@@ -262,4 +262,5 @@ variable "document_storage_back_office_document_service_uploads_container_name" 
 variable "back_office_documents_system_topic_name" {
   description = "Back Office Document Storage System Topic Name"
   type        = string
+  default     = ""
 }

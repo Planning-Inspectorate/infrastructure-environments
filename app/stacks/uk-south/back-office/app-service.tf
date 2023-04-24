@@ -38,7 +38,7 @@ module "app_services" {
   service_bus_namespace_id                         = azurerm_servicebus_namespace.back_office[0].id
   service_name                                     = local.service_name
   feature_service_bus_enabled                      = var.feature_service_bus_enabled
-  # Document scanning is enabled for the secondary region because the effort to implement it probably isn't worth it compared to just having a degraded service for the duration of an outage
+  # Document scanning is disabled for the secondary region because the effort to implement it probably isn't worth it compared to just having a degraded service for the duration of an outage
   # To be clear, a 'degraded' service here means that end users can still upload documents but they won't be scanned until the primary region is back online (and so the new documents won't be accessible)
   feature_document_scanning_enabled                                                   = false
   common_vnet_id                                                                      = var.common_vnet_id
@@ -50,7 +50,6 @@ module "app_services" {
   servicebus_topic_nsip_documents_id                                                  = var.servicebus_topic_nsip_documents_id
   feature_odw_subscription_enabled                                                    = false
   servicebus_queue_nsip_documents_to_publish_id                                       = var.servicebus_queue_nsip_documents_to_publish_id
-  back_office_documents_system_topic_name                                             = var.back_office_documents_system_topic_name
 
   tags = local.tags
 
