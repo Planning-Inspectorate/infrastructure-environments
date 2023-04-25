@@ -45,6 +45,8 @@ locals {
       outbound_vnet_connectivity      = true
 
       app_settings = {
+        DATABASE_URL                                        = var.applications_sql_server_connection_string_jbdc
+        DOCUMENTS_HOST                                      = var.documents_host
         ENCRYPTION_SECRET_KEY                               = local.secret_refs["applications-service-encryption-secret-key"]
         FILE_UPLOADS_PATH                                   = "/opt/app/uploads"
         HAVING_YOUR_SAY_URL                                 = "https://${var.applications_service_public_url}/having-your-say-guide"
@@ -56,12 +58,12 @@ locals {
         MYSQL_PASSWORD                                      = local.secret_refs["applications-service-mysql-password"]
         MYSQL_PORT                                          = local.secret_refs["applications-service-mysql-port"]
         MYSQL_USERNAME                                      = local.secret_refs["applications-service-mysql-username"]
-        NODE_ENV                                            = var.node_environment
         NI_API_HOST                                         = local.secret_refs["applications-service-ni-api-host"]
         NI_OAUTH_CLIENT_ID                                  = local.secret_refs["applications-service-ni-oauth-client-id"]
         NI_OAUTH_CLIENT_SECRET                              = local.secret_refs["applications-service-ni-oauth-client-secret"]
-        NI_OAUTH_USERNAME                                   = local.secret_refs["applications-service-ni-oauth-username"]
         NI_OAUTH_PASSWORD                                   = local.secret_refs["applications-service-ni-oauth-password"]
+        NI_OAUTH_USERNAME                                   = local.secret_refs["applications-service-ni-oauth-username"]
+        NODE_ENV                                            = var.node_environment
         PRELIMINARY_MEETING_URL                             = "https://${var.applications_service_public_url}/"
         SERVER_PORT                                         = "3000"
         SERVER_SHOW_ERRORS                                  = true
@@ -70,9 +72,8 @@ locals {
         SRV_NOTIFY_BASE_URL                                 = var.srv_notify_base_url
         SRV_NOTIFY_IP_REGISTRATION_CONFIRMATION_EMAIL_TO_IP = var.srv_notify_ip_registration_confirmation_email_to_ip_template_id
         SRV_NOTIFY_MAGIC_LINK_EMAIL                         = var.srv_notify_magic_link_email_template_id
-        SRV_NOTIFY_SUBMISSION_COMPLETE_EMAIL                = var.srv_notify_submission_complete_email_template_id
         SRV_NOTIFY_SERVICE_ID                               = var.srv_notify_service_id
-        DOCUMENTS_HOST                                      = var.documents_host
+        SRV_NOTIFY_SUBMISSION_COMPLETE_EMAIL                = var.srv_notify_submission_complete_email_template_id
       }
     }
   }

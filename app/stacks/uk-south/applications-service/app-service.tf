@@ -10,6 +10,7 @@ module "app_services" {
   applications_service_public_url                                 = var.applications_service_public_url
   applications_service_redis_connection_string_secret_name        = azurerm_key_vault_secret.redis_cache_connection_string[count.index].name
   applications_sql_server_connection_string                       = local.sql_connection_string
+  applications_sql_server_connection_string_jbdc                  = local.sql_jbdc_connection_string
   back_office_service_bus_namespace_name                          = var.back_office_service_bus_namespace_name
   back_office_service_bus_nsip_project_topic_id                   = var.back_office_service_bus_nsip_project_topic_id
   container_registry_name                                         = var.container_registry_name
