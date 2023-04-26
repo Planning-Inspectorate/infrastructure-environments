@@ -48,6 +48,7 @@ module "app_services" {
   tags                                                                                = local.tags
   employee_topic_id                                                                   = azurerm_servicebus_topic.employee.id
   feature_odw_subscription_enabled                                                    = true
+  back_office_documents_system_topic_name                                             = azurerm_eventgrid_system_topic.back_office_documents_system_topic.name
 
   providers = {
     azurerm         = azurerm

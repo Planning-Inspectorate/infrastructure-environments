@@ -11,7 +11,7 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | n/a |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.53.0 |
 
 ## Modules
 
@@ -57,5 +57,6 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_app_id"></a> [app\_id](#output\_app\_id) | The ID of the Function App |
 | <a name="output_principal_id"></a> [principal\_id](#output\_principal\_id) | The ID of the principal associated with the Function App |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

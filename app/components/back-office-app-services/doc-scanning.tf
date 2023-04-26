@@ -38,6 +38,8 @@ module "document_check_function" {
   function_apps_storage_account_access_key                                            = var.document_check_function_storage_primary_access_key
   app_service_plan_id                                                                 = azurerm_service_plan.back_office_functions_plan.id
   document_storage_back_office_document_service_uploads_container_resource_manager_id = var.document_storage_back_office_document_service_uploads_container_resource_manager_id
+  document_storage_back_office_document_service_uploads_container_name                = var.document_storage_back_office_document_service_uploads_container_name
+  back_office_documents_system_topic_name                                             = var.back_office_documents_system_topic_name
 
   providers = {
     azurerm         = azurerm

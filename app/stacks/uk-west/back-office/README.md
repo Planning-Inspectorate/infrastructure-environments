@@ -29,6 +29,7 @@ This component contains the infrastructure required for the back office service.
 
 | Name | Type |
 |------|------|
+| [azurerm_eventgrid_system_topic.back_office_documents_system_topic](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/eventgrid_system_topic) | resource |
 | [azurerm_key_vault_secret.app_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.back_office_sql_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.back_office_sql_server_password](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/key_vault_secret) | resource |
@@ -116,6 +117,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_document_check_function_storage_name"></a> [document\_check\_function\_storage\_name](#output\_document\_check\_function\_storage\_name) | Function Storage name |
 | <a name="output_document_check_function_storage_primary_access_key"></a> [document\_check\_function\_storage\_primary\_access\_key](#output\_document\_check\_function\_storage\_primary\_access\_key) | Function Storage Primary Access Key |
 | <a name="output_document_storage_back_office_document_service_uploads_container_id"></a> [document\_storage\_back\_office\_document\_service\_uploads\_container\_id](#output\_document\_storage\_back\_office\_document\_service\_uploads\_container\_id) | Back Office document-service-uploads container id |
+| <a name="output_document_storage_back_office_document_service_uploads_container_name"></a> [document\_storage\_back\_office\_document\_service\_uploads\_container\_name](#output\_document\_storage\_back\_office\_document\_service\_uploads\_container\_name) | Back Office document-service-uploads container name |
 | <a name="output_document_storage_back_office_document_service_uploads_container_resource_manager_id"></a> [document\_storage\_back\_office\_document\_service\_uploads\_container\_resource\_manager\_id](#output\_document\_storage\_back\_office\_document\_service\_uploads\_container\_resource\_manager\_id) | Back Office document-service-uploads container resource\_manager\_id |
 | <a name="output_document_storage_back_office_published_documents_container_id"></a> [document\_storage\_back\_office\_published\_documents\_container\_id](#output\_document\_storage\_back\_office\_published\_documents\_container\_id) | Back Office published-documents container id |
 | <a name="output_function_apps_storage_account"></a> [function\_apps\_storage\_account](#output\_function\_apps\_storage\_account) | Function app storage account |

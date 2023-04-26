@@ -220,11 +220,6 @@ variable "feature_service_bus_enabled" {
   type        = string
 }
 
-variable "feature_document_scanning_enabled" {
-  description = "Whether or not Document Scanning is enabled"
-  type        = bool
-}
-
 variable "servicebus_queue_nsip_documents_to_publish_id" {
   description = "Service Bus Queue nsip-documents-to-publish id"
   type        = string
