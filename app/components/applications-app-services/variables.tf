@@ -33,6 +33,11 @@ variable "applications_sql_server_connection_string" {
   type        = string
 }
 
+variable "applications_sql_server_connection_string_jbdc" {
+  description = "Connection string for applications service sql server in JBDC format"
+  type        = string
+}
+
 variable "back_office_service_bus_namespace_name" {
   description = "Namespace of Back Office Service Bus instance"
   type        = string
