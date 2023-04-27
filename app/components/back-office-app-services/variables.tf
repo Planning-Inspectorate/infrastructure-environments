@@ -195,7 +195,6 @@ variable "service_bus_namespace_id" {
 }
 
 variable "service_bus_namespace_name" {
-  default     = null
   description = "The name of the Back Office service bus namespace"
   type        = string
 }
