@@ -89,3 +89,8 @@ variable "document_storage_back_office_published_documents_container_resource_ma
   description = "Back Office published-documents container resource_manager_id"
   type        = string
 }
+
+variable "service_bus_nsip_document_topic_name" {
+  description = "Back Office Service Bus name of topic for NSIP docs"
+  type        = string
+}

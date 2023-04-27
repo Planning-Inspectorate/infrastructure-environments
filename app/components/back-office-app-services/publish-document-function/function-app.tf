@@ -21,6 +21,8 @@ module "publish_document_functions" {
     DOCUMENT_STORAGE_HOST                         = var.back_office_document_storage_api_host
     API_HOST                                      = var.back_office_api_host
     ServiceBusConnection__fullyQualifiedNamespace = "${var.service_bus_namespace_name}.servicebus.windows.net"
+    SERVICE_BUS_HOSTNAME                          = "${var.service_bus_namespace_name}.servicebus.windows.net"
+    NSIP_DOC_TOPIC_NAME                           = var.service_bus_nsip_document_topic_name
   }
 
   tags = var.tags
