@@ -5,7 +5,7 @@ resource "azurerm_role_assignment" "function_blob_data_reader" {
 }
 
 resource "azurerm_role_assignment" "function_blob_data_writer" {
-  scope                = var.document_storage_back_office_document_service_uploads_container_resource_manager_id
+  scope                = var.document_storage_back_office_published_documents_container_resource_manager_id
   role_definition_name = "Storage Blob Data Contributor"
   principal_id         = module.publish_document_functions.principal_id
 }
