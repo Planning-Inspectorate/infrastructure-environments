@@ -28,9 +28,9 @@ output "document_storage_back_office_document_service_uploads_container_resource
   value       = azurerm_storage_container.back_office_document_service_uploads_container.resource_manager_id
 }
 
-output "document_storage_back_office_published_documents_container_id" {
+output "document_storage_back_office_published_documents_container_resource_manager_id" {
   description = "Back Office published-documents container id"
-  value       = azurerm_storage_container.back_office_published_documents_container.id
+  value       = azurerm_storage_container.back_office_published_documents_container.resource_manager_id
 }
 
 output "document_storage_back_office_document_service_uploads_container_name" {

@@ -46,6 +46,7 @@ dependency "back_office_ukw" {
     document_check_function_storage_primary_access_key                                  = "mockaccesskey"
     document_storage_back_office_document_service_uploads_container_id                  = "123"
     document_storage_back_office_document_service_uploads_container_resource_manager_id = "123"
+    document_storage_back_office_published_documents_container_resource_manager_id      = "123"
     document_storage_back_office_document_service_uploads_container_name                = "test-container"
     document_storage_back_office_published_documents_container_id                       = "123"
     service_bus_namespace_id                                                            = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock_sb_namespace"
@@ -73,6 +74,7 @@ inputs = {
   document_check_function_storage_primary_access_key                                  = dependency.back_office_ukw.outputs.document_check_function_storage_primary_access_key
   document_storage_back_office_document_service_uploads_container_id                  = dependency.back_office_ukw.outputs.document_storage_back_office_document_service_uploads_container_id
   document_storage_back_office_document_service_uploads_container_resource_manager_id = dependency.back_office_ukw.outputs.document_storage_back_office_document_service_uploads_container_resource_manager_id
+  document_storage_back_office_published_documents_container_resource_manager_id      = dependency.back_office_ukw.outputs.document_storage_back_office_published_documents_container_resource_manager_id
   document_storage_back_office_document_service_uploads_container_name                = dependency.back_office_ukw.outputs.document_storage_back_office_document_service_uploads_container_name
   document_storage_back_office_published_documents_container_id                       = dependency.back_office_ukw.outputs.document_storage_back_office_published_documents_container_id
   function_apps_storage_account                                                       = dependency.back_office_ukw.outputs.function_apps_storage_account

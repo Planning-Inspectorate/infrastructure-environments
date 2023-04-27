@@ -16,6 +16,7 @@ module "publish_document_function" {
   function_apps_storage_account                                                       = var.document_check_function_storage_name
   function_apps_storage_account_access_key                                            = var.document_check_function_storage_primary_access_key
   document_storage_back_office_document_service_uploads_container_resource_manager_id = var.document_storage_back_office_document_service_uploads_container_resource_manager_id
+  document_storage_back_office_published_documents_container_resource_manager_id      = var.document_storage_back_office_published_documents_container_resource_manager_id
   servicebus_queue_nsip_documents_to_publish_id                                       = var.servicebus_queue_nsip_documents_to_publish_id
   servicebus_topic_nsip_documents_id                                                  = var.servicebus_topic_nsip_documents_id
   app_service_plan_id                                                                 = azurerm_service_plan.back_office_functions_plan.id
