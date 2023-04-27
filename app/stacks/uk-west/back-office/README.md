@@ -124,6 +124,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_function_apps_storage_account_access_key"></a> [function\_apps\_storage\_account\_access\_key](#output\_function\_apps\_storage\_account\_access\_key) | Function app storage account access key |
 | <a name="output_service_bus_namespace_id"></a> [service\_bus\_namespace\_id](#output\_service\_bus\_namespace\_id) | The ID of the Service Bus Namespace |
 | <a name="output_service_bus_namespace_name"></a> [service\_bus\_namespace\_name](#output\_service\_bus\_namespace\_name) | The name of the Service Bus Namespace |
+| <a name="output_service_bus_nsip_document_topic_name"></a> [service\_bus\_nsip\_document\_topic\_name](#output\_service\_bus\_nsip\_document\_topic\_name) | Back Office Service Bus name of topic for NSIP docs |
 | <a name="output_service_bus_nsip_project_topic_id"></a> [service\_bus\_nsip\_project\_topic\_id](#output\_service\_bus\_nsip\_project\_topic\_id) | ID of the nsip-project Service Bus Topic |
 | <a name="output_servicebus_queue_nsip_documents_to_publish_id"></a> [servicebus\_queue\_nsip\_documents\_to\_publish\_id](#output\_servicebus\_queue\_nsip\_documents\_to\_publish\_id) | Service Bus Queue nsip-documents-to-publish id |
 | <a name="output_servicebus_topic_nsip_documents_id"></a> [servicebus\_topic\_nsip\_documents\_id](#output\_servicebus\_topic\_nsip\_documents\_id) | Service Bus Topic nsip-documents id |

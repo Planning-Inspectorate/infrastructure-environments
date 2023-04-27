@@ -65,7 +65,6 @@ variable "app_service_plan_id" {
 }
 
 variable "service_bus_namespace_name" {
-  default     = ""
   description = "The name of the Back Office service bus namespace"
   type        = string
 }
@@ -87,5 +86,10 @@ variable "document_storage_back_office_document_service_uploads_container_resour
 
 variable "document_storage_back_office_published_documents_container_resource_manager_id" {
   description = "Back Office published-documents container resource_manager_id"
+  type        = string
+}
+
+variable "service_bus_nsip_document_topic_name" {
+  description = "Back Office Service Bus name of topic for NSIP docs"
   type        = string
 }

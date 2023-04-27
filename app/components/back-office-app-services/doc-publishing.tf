@@ -19,7 +19,9 @@ module "publish_document_function" {
   document_storage_back_office_published_documents_container_resource_manager_id      = var.document_storage_back_office_published_documents_container_resource_manager_id
   servicebus_queue_nsip_documents_to_publish_id                                       = var.servicebus_queue_nsip_documents_to_publish_id
   servicebus_topic_nsip_documents_id                                                  = var.servicebus_topic_nsip_documents_id
+  service_bus_nsip_document_topic_name                                                = var.service_bus_nsip_document_topic_name
   app_service_plan_id                                                                 = azurerm_service_plan.back_office_functions_plan.id
+  service_bus_namespace_name                                                          = var.service_bus_namespace_name
 
   providers = {
     azurerm         = azurerm

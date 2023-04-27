@@ -195,7 +195,6 @@ variable "service_bus_namespace_id" {
 }
 
 variable "service_bus_namespace_name" {
-  default     = null
   description = "The name of the Back Office service bus namespace"
   type        = string
 }
@@ -268,4 +267,9 @@ variable "back_office_documents_system_topic_name" {
   description = "Back Office Document Storage System Topic Name"
   type        = string
   default     = ""
+}
+
+variable "service_bus_nsip_document_topic_name" {
+  description = "Back Office Service Bus name of topic for NSIP docs"
+  type        = string
 }
