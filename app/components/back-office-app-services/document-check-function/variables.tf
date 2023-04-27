@@ -78,3 +78,8 @@ variable "document_storage_back_office_document_service_uploads_container_name" 
   description = "Document Storage document service uploads container name"
   type        = string
 }
+
+variable "back_office_document_api_host" {
+  description = "Back Office Document Api Host"
+  type        = string
+}
