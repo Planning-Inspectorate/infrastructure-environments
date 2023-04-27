@@ -269,3 +269,8 @@ variable "back_office_documents_system_topic_name" {
   type        = string
   default     = ""
 }
+
+variable "service_bus_nsip_document_topic_name" {
+  description = "Back Office Service Bus name of topic for NSIP docs"
+  type        = string
+}

@@ -46,6 +46,7 @@ module "app_services" {
   document_storage_back_office_published_documents_container_resource_manager_id      = azurerm_storage_container.back_office_published_documents_container.resource_manager_id
   document_storage_back_office_document_service_uploads_container_name                = azurerm_storage_container.back_office_document_service_uploads_container.name
   servicebus_topic_nsip_documents_id                                                  = azurerm_servicebus_topic.nsip_documents.id
+  service_bus_nsip_document_topic_name                                                = azurerm_servicebus_topic.nsip_documents.name
   tags                                                                                = local.tags
   employee_topic_id                                                                   = azurerm_servicebus_topic.employee.id
   feature_odw_subscription_enabled                                                    = true

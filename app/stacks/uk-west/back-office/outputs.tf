@@ -112,3 +112,8 @@ output "servicebus_topic_nsip_documents_id" {
   description = "Service Bus Topic nsip-documents id"
   value       = azurerm_servicebus_topic.nsip_documents.id
 }
+
+output "service_bus_nsip_document_topic_name" {
+  description = "Back Office Service Bus name of topic for NSIP docs"
+  value       = azurerm_servicebus_topic.nsip_documents.name
+}
