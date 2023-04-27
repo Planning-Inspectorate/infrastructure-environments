@@ -1,7 +1,7 @@
 locals {
   appeals_feature_flags = [
     {
-      name    = "as-5408-final-comments"
+      name    = "final-comments"
       enabled = false
       targeting = {
         percentage = 100
