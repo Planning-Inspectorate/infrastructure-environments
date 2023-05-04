@@ -40,7 +40,7 @@ locals {
         SESSION_MONGODB_DB_NAME                    = "forms-web-app"
         SESSION_MONGODB_URL                        = var.cosmosdb_connection_string
         SUBDOMAIN_OFFSET                           = "3"
-        USE_SECURE_SESSION_COOKIES                 = false
+        USE_SECURE_SESSION_COOKIES                 = true
       }
     }
 
