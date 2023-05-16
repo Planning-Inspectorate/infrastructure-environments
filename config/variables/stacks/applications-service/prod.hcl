@@ -10,7 +10,7 @@ locals {
   feature_enabled_content_security_policy                         = "true"
   feature_allow_section_51                                        = "true"
   feature_allow_have_your_say                                     = "false"
-  feature_enable_generalised_form_sanitisation                    = "false"
+  feature_enable_generalised_form_sanitisation                    = "true"
   google_analytics_id                                             = "G-DQ9S57CJDP"
   national_infrastructure_gateway_ip                              = "51.140.221.209"
   national_infrastructure_vnet_address_space                      = ["10.224.161.0/24", "192.168.0.0/20"]
