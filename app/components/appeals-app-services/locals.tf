@@ -41,6 +41,7 @@ locals {
         SESSION_MONGODB_URL                        = var.cosmosdb_connection_string
         SUBDOMAIN_OFFSET                           = "3"
         USE_SECURE_SESSION_COOKIES                 = true
+        ALLOW_TESTING_OVERRIDES                    = var.allow_testing_overrides
       }
     }
 
