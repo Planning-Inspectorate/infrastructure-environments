@@ -42,4 +42,5 @@ locals {
   srv_notify_failure_to_upload_to_horizon_template_id                         = "68fbc646-c4b4-4050-be04-1829a0b109dc"
   task_submit_to_horizon_cron_string                                          = "*/15 * * * *"
   task_submit_to_horizon_trigger_active                                       = "true"
+  allow_testing_overrides                                                     = false
 }

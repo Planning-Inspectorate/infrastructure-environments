@@ -209,3 +209,9 @@ variable "task_submit_to_horizon_trigger_active" {
   description = "Task to submit to horizon trigger active"
   type        = string
 }
+
+variable "allow_testing_overrides" {
+  description = "A switch to determine if testing overrides are enabled to allow easier manual testing"
+  type        = bool
+  default     = false
+}

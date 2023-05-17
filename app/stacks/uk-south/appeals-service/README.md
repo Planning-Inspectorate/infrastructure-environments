@@ -9,6 +9,7 @@ This component contains the infrastructure required for the appeals service. Thi
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | 1.1.6 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.6.0 |
+| <a name="requirement_time"></a> [time](#requirement\_time) | ~>0.9 |
 
 ## Providers
 
@@ -16,7 +17,7 @@ This component contains the infrastructure required for the appeals service. Thi
 |------|---------|
 | <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.6.0 |
 | <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 3.6.0 |
-| <a name="provider_time"></a> [time](#provider\_time) | n/a |
+| <a name="provider_time"></a> [time](#provider\_time) | 0.9.1 |
 
 ## Modules
 
@@ -46,6 +47,7 @@ This component contains the infrastructure required for the appeals service. Thi
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_action_group_low_id"></a> [action\_group\_low\_id](#input\_action\_group\_low\_id) | The ID of the Azure Monitor action group for low priority (P4) alerts | `string` | n/a | yes |
+| <a name="input_allow_testing_overrides"></a> [allow\_testing\_overrides](#input\_allow\_testing\_overrides) | A switch to determine if testing overrides are enabled to allow easier manual testing | `bool` | `false` | no |
 | <a name="input_api_timeout"></a> [api\_timeout](#input\_api\_timeout) | The timeout in milliseconds for API calls in the frontend apps | `string` | n/a | yes |
 | <a name="input_app_service_plan_id"></a> [app\_service\_plan\_id](#input\_app\_service\_plan\_id) | The id of the app service plan | `string` | n/a | yes |
 | <a name="input_appeal_documents_primary_blob_connection_string"></a> [appeal\_documents\_primary\_blob\_connection\_string](#input\_appeal\_documents\_primary\_blob\_connection\_string) | The Appeal Documents Storage Account blob connection string associated with the primary location | `string` | n/a | yes |

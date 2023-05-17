@@ -224,3 +224,9 @@ variable "tags" {
   description = "The tags applied to all resources"
   type        = map(string)
 }
+
+variable "allow_testing_overrides" {
+  description = "A switch to determine if testing overrides are enabled to allow easier manual testing"
+  type        = bool
+  default     = false
+}
