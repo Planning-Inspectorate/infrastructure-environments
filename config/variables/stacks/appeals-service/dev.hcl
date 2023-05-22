@@ -25,7 +25,7 @@ locals {
       }
     }
   ]
-  google_analytics_id                                                         = "G-TZBWMVPTHV"
+  google_analytics_id                                                         = "G-HWLKLSJF53"
   google_tag_manager_id                                                       = "GTM-KZN7XP4"
   horizon_url                                                                 = "http://10.0.7.4:8000"
   node_environment                                                            = "development"

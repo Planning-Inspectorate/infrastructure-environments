@@ -21,7 +21,7 @@ locals {
         DOCS_API_PATH                              = "/opt/app/api"
         DOCUMENTS_SERVICE_API_TIMEOUT              = var.api_timeout
         DOCUMENTS_SERVICE_API_URL                  = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net/"
-        FEATURE_FLAG_GOOGLE_TAG_MANAGER            = true
+        FEATURE_FLAG_GOOGLE_TAG_MANAGER            = false
         FEATURE_FLAG_NEW_APPEAL_JOURNEY            = true
         FILE_UPLOAD_DEBUG                          = true
         FILE_UPLOAD_MAX_FILE_SIZE_BYTES            = "15000000"
