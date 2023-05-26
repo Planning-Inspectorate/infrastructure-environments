@@ -34,6 +34,7 @@ locals {
         MICROSOFT_PROVIDER_AUTHENTICATION_SECRET   = local.secret_refs["appeals-microsoft-provider-authentication-secret"]
         PDF_SERVICE_API_URL                        = "https://pins-app-${var.service_name}-pdf-api-${var.resource_suffix}.azurewebsites.net"
         PINS_FEATURE_FLAG_AZURE_ENDPOINT           = local.secret_refs["appeals-app-config-endpoint"]
+        PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING  = local.secret_refs["appeals-app-config-connection-string"]
         PORT                                       = "3000"
         SESSION_KEY                                = "some_key"
         SESSION_MONGODB_COLLECTION                 = "sessions"
