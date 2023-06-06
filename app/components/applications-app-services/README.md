@@ -28,6 +28,7 @@ This module contains the App Services resources for the applications service. Th
 | Name | Type |
 |------|------|
 | [azurerm_role_assignment.nsip_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/role_assignment) | resource |
+| [azurerm_servicebus_subscription.nsip_documents_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_subscription) | resource |
 | [azurerm_servicebus_subscription.nsip_project_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_subscription) | resource |
 | [azurerm_servicebus_subscription_rule.nsip_project_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/servicebus_subscription_rule) | resource |
 
@@ -44,6 +45,7 @@ This module contains the App Services resources for the applications service. Th
 | <a name="input_applications_sql_server_connection_string"></a> [applications\_sql\_server\_connection\_string](#input\_applications\_sql\_server\_connection\_string) | Connection string for applications service sql server | `string` | n/a | yes |
 | <a name="input_applications_sql_server_connection_string_jbdc"></a> [applications\_sql\_server\_connection\_string\_jbdc](#input\_applications\_sql\_server\_connection\_string\_jbdc) | Connection string for applications service sql server in JBDC format | `string` | n/a | yes |
 | <a name="input_back_office_service_bus_namespace_name"></a> [back\_office\_service\_bus\_namespace\_name](#input\_back\_office\_service\_bus\_namespace\_name) | Namespace of Back Office Service Bus instance | `string` | n/a | yes |
+| <a name="input_back_office_service_bus_nsip_documents_topic_id"></a> [back\_office\_service\_bus\_nsip\_documents\_topic\_id](#input\_back\_office\_service\_bus\_nsip\_documents\_topic\_id) | ID for the nsip-documents topic | `string` | n/a | yes |
 | <a name="input_back_office_service_bus_nsip_project_topic_id"></a> [back\_office\_service\_bus\_nsip\_project\_topic\_id](#input\_back\_office\_service\_bus\_nsip\_project\_topic\_id) | ID for the nsip-project topic | `string` | n/a | yes |
 | <a name="input_container_registry_name"></a> [container\_registry\_name](#input\_container\_registry\_name) | The name of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_container_registry_rg"></a> [container\_registry\_rg](#input\_container\_registry\_rg) | The resource group of the container registry that hosts the image | `string` | n/a | yes |
