@@ -52,7 +52,6 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_azuread_applications_inspector_group_id"></a> [azuread\_applications\_inspector\_group\_id](#input\_azuread\_applications\_inspector\_group\_id) | The Azure AD group ID for Applications Back Office inspectors | `string` | `null` | no |
 | <a name="input_azuread_auth_client_id"></a> [azuread\_auth\_client\_id](#input\_azuread\_auth\_client\_id) | The Back Office web frontend app registration ID used for Azure AD authentication | `string` | `null` | no |
 | <a name="input_back_office_clamav_subnet_id"></a> [back\_office\_clamav\_subnet\_id](#input\_back\_office\_clamav\_subnet\_id) | Integration subnet for the clamav container | `string` | n/a | yes |
-| <a name="input_back_office_document_storage_api_host"></a> [back\_office\_document\_storage\_api\_host](#input\_back\_office\_document\_storage\_api\_host) | Document Storage Host | `string` | n/a | yes |
 | <a name="input_back_office_documents_system_topic_name"></a> [back\_office\_documents\_system\_topic\_name](#input\_back\_office\_documents\_system\_topic\_name) | Back Office Document Storage System Topic Name | `string` | `""` | no |
 | <a name="input_back_office_integration_subnet_id"></a> [back\_office\_integration\_subnet\_id](#input\_back\_office\_integration\_subnet\_id) | Integration subnet for back office anti-virus resources | `string` | n/a | yes |
 | <a name="input_common_vnet_id"></a> [common\_vnet\_id](#input\_common\_vnet\_id) | The common infrastructure virtual network id | `string` | n/a | yes |
@@ -85,10 +84,8 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_resource_suffix"></a> [resource\_suffix](#input\_resource\_suffix) | The suffix for resource naming | `string` | n/a | yes |
 | <a name="input_service_bus_namespace_id"></a> [service\_bus\_namespace\_id](#input\_service\_bus\_namespace\_id) | The ID of the Back Office service bus namespace | `string` | `null` | no |
 | <a name="input_service_bus_namespace_name"></a> [service\_bus\_namespace\_name](#input\_service\_bus\_namespace\_name) | The name of the Back Office service bus namespace | `string` | n/a | yes |
-| <a name="input_service_bus_nsip_document_topic_name"></a> [service\_bus\_nsip\_document\_topic\_name](#input\_service\_bus\_nsip\_document\_topic\_name) | Back Office Service Bus name of topic for NSIP docs | `string` | n/a | yes |
 | <a name="input_service_name"></a> [service\_name](#input\_service\_name) | The name of the service the Azure App Services are part of | `string` | n/a | yes |
 | <a name="input_service_plan_sku"></a> [service\_plan\_sku](#input\_service\_plan\_sku) | The SKU of the App Service Plan providing resources to hosted App Services | `string` | `"P2v2"` | no |
-| <a name="input_servicebus_queue_nsip_documents_to_publish_id"></a> [servicebus\_queue\_nsip\_documents\_to\_publish\_id](#input\_servicebus\_queue\_nsip\_documents\_to\_publish\_id) | Service Bus Queue nsip-documents-to-publish id | `string` | n/a | yes |
 | <a name="input_servicebus_topic_nsip_documents_id"></a> [servicebus\_topic\_nsip\_documents\_id](#input\_servicebus\_topic\_nsip\_documents\_id) | Service Bus Topic nsip-documents id | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | The tags applied to all resources | `map(string)` | n/a | yes |
 

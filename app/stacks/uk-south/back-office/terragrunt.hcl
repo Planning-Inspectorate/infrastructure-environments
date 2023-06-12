@@ -51,8 +51,6 @@ dependency "back_office_ukw" {
     document_storage_back_office_published_documents_container_id                       = "123"
     service_bus_namespace_id                                                            = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock_sb_namespace"
     servicebus_topic_nsip_documents_id                                                  = "123"
-    servicebus_queue_nsip_documents_to_publish_id                                       = "123"
-    service_bus_nsip_document_topic_name                                                = "some-topic-name"
     sql_server_id                                                                       = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Sql/servers/mock_sql_server"
     sql_server_password                                                                 = "mockpass"
     sql_server_username                                                                 = "mockuser"
@@ -86,8 +84,6 @@ inputs = {
   primary_service_bus_namespace_id                                                    = dependency.back_office_ukw.outputs.service_bus_namespace_id
   primary_sql_server_id                                                               = dependency.back_office_ukw.outputs.sql_server_id
   servicebus_topic_nsip_documents_id                                                  = dependency.back_office_ukw.outputs.servicebus_topic_nsip_documents_id
-  servicebus_queue_nsip_documents_to_publish_id                                       = dependency.back_office_ukw.outputs.servicebus_queue_nsip_documents_to_publish_id
-  service_bus_nsip_document_topic_name                                                = dependency.back_office_ukw.outputs.service_bus_nsip_document_topic_name
   sql_server_password                                                                 = dependency.back_office_ukw.outputs.sql_server_password
   sql_server_username                                                                 = dependency.back_office_ukw.outputs.sql_server_username
 }

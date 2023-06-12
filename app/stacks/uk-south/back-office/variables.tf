@@ -220,11 +220,6 @@ variable "feature_service_bus_enabled" {
   type        = string
 }
 
-variable "servicebus_queue_nsip_documents_to_publish_id" {
-  description = "Service Bus Queue nsip-documents-to-publish id"
-  type        = string
-}
-
 variable "document_storage_back_office_document_service_uploads_container_name" {
   description = "Document Storage document service uploads container name"
   type        = string
@@ -242,10 +237,5 @@ variable "document_storage_back_office_published_documents_container_resource_ma
 
 variable "servicebus_topic_nsip_documents_id" {
   description = "Service Bus Topic nsip-documents id"
-  type        = string
-}
-
-variable "service_bus_nsip_document_topic_name" {
-  description = "Back Office Service Bus name of topic for NSIP docs"
   type        = string
 }

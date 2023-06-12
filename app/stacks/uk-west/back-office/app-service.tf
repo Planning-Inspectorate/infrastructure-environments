@@ -13,9 +13,7 @@ module "app_services" {
   azuread_applications_caseteam_group_id                                              = var.azuread_applications_caseteam_group_id
   azuread_applications_inspector_group_id                                             = var.azuread_applications_inspector_group_id
   integration_subnet_id                                                               = var.integration_subnet_id
-  back_office_document_storage_api_host                                               = azurerm_storage_account.back_office_documents.primary_blob_endpoint
   back_office_integration_subnet_id                                                   = var.back_office_integration_subnet_id
-  servicebus_queue_nsip_documents_to_publish_id                                       = azurerm_servicebus_queue.nsip_documents_to_publish.id
   back_office_clamav_subnet_id                                                        = var.back_office_clamav_subnet_id
   container_registry_name                                                             = var.container_registry_name
   container_registry_rg                                                               = var.container_registry_rg
@@ -46,7 +44,6 @@ module "app_services" {
   document_storage_back_office_published_documents_container_resource_manager_id      = azurerm_storage_container.back_office_published_documents_container.resource_manager_id
   document_storage_back_office_document_service_uploads_container_name                = azurerm_storage_container.back_office_document_service_uploads_container.name
   servicebus_topic_nsip_documents_id                                                  = azurerm_servicebus_topic.nsip_documents.id
-  service_bus_nsip_document_topic_name                                                = azurerm_servicebus_topic.nsip_documents.name
   tags                                                                                = local.tags
   employee_topic_id                                                                   = azurerm_servicebus_topic.employee.id
   feature_odw_subscription_enabled                                                    = true
