@@ -3,11 +3,6 @@ variable "action_group_low_id" {
   type        = string
 }
 
-variable "back_office_document_storage_api_host" {
-  description = "Document Storage Host"
-  type        = string
-}
-
 variable "back_office_api_host" {
   description = "Back Office Api Host"
   type        = string
@@ -69,11 +64,6 @@ variable "service_bus_namespace_name" {
   type        = string
 }
 
-variable "servicebus_queue_nsip_documents_to_publish_id" {
-  description = "Service Bus Queue nsip-documents-to-publish id"
-  type        = string
-}
-
 variable "servicebus_topic_nsip_documents_id" {
   description = "Service Bus topic nsip-documents id"
   type        = string
@@ -86,10 +76,5 @@ variable "document_storage_back_office_document_service_uploads_container_resour
 
 variable "document_storage_back_office_published_documents_container_resource_manager_id" {
   description = "Back Office published-documents container resource_manager_id"
-  type        = string
-}
-
-variable "service_bus_nsip_document_topic_name" {
-  description = "Back Office Service Bus name of topic for NSIP docs"
   type        = string
 }

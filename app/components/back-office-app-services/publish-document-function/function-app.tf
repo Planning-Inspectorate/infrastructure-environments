@@ -6,7 +6,6 @@ module "publish_document_functions" {
   app_service_plan_id                      = var.app_service_plan_id
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
-  function_node_version                    = 16
   integration_subnet_id                    = var.integration_subnet_id
   location                                 = var.location
   log_analytics_workspace_id               = var.log_analytics_workspace_id
@@ -18,12 +17,26 @@ module "publish_document_functions" {
   use_app_insights                         = true
 
   app_settings = {
-    DOCUMENT_STORAGE_HOST                         = var.back_office_document_storage_api_host
-    API_HOST                                      = var.back_office_api_host
+    # Runtime env variables
     ServiceBusConnection__fullyQualifiedNamespace = "${var.service_bus_namespace_name}.servicebus.windows.net"
-    SERVICE_BUS_HOSTNAME                          = "${var.service_bus_namespace_name}.servicebus.windows.net"
-    NSIP_DOC_TOPIC_NAME                           = var.service_bus_nsip_document_topic_name
+    # Function env variables
+    API_HOST = var.back_office_api_host
   }
 
   tags = var.tags
+}
+
+resource "azurerm_servicebus_subscription" "nsip_document_updated_subscription" {
+  name               = "nsip-document-updated-publishing"
+  topic_id           = var.servicebus_topic_nsip_documents_id
+  max_delivery_count = 1
+}
+
+# Since the document is locked for editing after being set to 'publishing', and then finally updated to 'published', this should only trigger one publish
+# Regardless, publishing is an idempotent operation so duplicate messages won't matter.
+resource "azurerm_servicebus_subscription_rule" "nsip_document_updated_subscription_rule" {
+  name            = "back-office-nsip-document-subscription-rule"
+  subscription_id = azurerm_servicebus_subscription.nsip_document_updated_subscription.id
+  filter_type     = "SqlFilter"
+  sql_filter      = "type = 'Update' AND $.publishedStatus = 'publishing'"
 }

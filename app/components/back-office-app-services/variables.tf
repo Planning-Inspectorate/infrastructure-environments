@@ -61,11 +61,6 @@ variable "azuread_applications_case_admin_officer_group_id" {
   default     = null
 }
 
-variable "back_office_document_storage_api_host" {
-  description = "Document Storage Host"
-  type        = string
-}
-
 variable "document_check_function_storage_name" {
   description = "Function Storage name"
   type        = string
@@ -238,11 +233,6 @@ variable "feature_odw_subscription_enabled" {
   default     = false
 }
 
-variable "servicebus_queue_nsip_documents_to_publish_id" {
-  description = "Service Bus Queue nsip-documents-to-publish id"
-  type        = string
-}
-
 variable "servicebus_topic_nsip_documents_id" {
   description = "Service Bus Topic nsip-documents id"
   type        = string
@@ -267,9 +257,4 @@ variable "back_office_documents_system_topic_name" {
   description = "Back Office Document Storage System Topic Name"
   type        = string
   default     = ""
-}
-
-variable "service_bus_nsip_document_topic_name" {
-  description = "Back Office Service Bus name of topic for NSIP docs"
-  type        = string
 }
