@@ -37,6 +37,11 @@ resource "azurerm_servicebus_subscription" "nsip_document_updated_subscription" 
 resource "azurerm_servicebus_subscription_rule" "nsip_document_updated_subscription_rule" {
   name            = "back-office-nsip-document-subscription-rule"
   subscription_id = azurerm_servicebus_subscription.nsip_document_updated_subscription.id
-  filter_type     = "SqlFilter"
-  sql_filter      = "type = 'Update' AND $.publishedStatus = 'publishing'"
+  filter_type     = "CorrelationFilter"
+  correlation_filter {
+    properties = {
+      type       = "Update"
+      publishing = true
+    }
+  }
 }
