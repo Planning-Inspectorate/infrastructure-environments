@@ -37,6 +37,8 @@ variable "back_office_service_bus_nsip_project_topic_id" {
 variable "back_office_service_bus_nsip_documents_topic_id" {
   description = "ID for the nsip-documents topic"
   type        = string
+  # TODO: DR strategy to figure out how to handle service bus fail-over
+  default = ""
 }
 
 variable "common_resource_group_name" {
