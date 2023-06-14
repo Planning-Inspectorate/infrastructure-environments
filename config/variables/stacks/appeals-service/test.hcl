@@ -48,6 +48,7 @@ locals {
   srv_notify_confirm_email_template_id                                        = "4156c7ac-a235-4577-b976-44020bec4d5f"
   srv_admin_monitoring_email                                                  = "AppealsBetaTeam@planninginspectorate.gov.uk"
   srv_notify_failure_to_upload_to_horizon_template_id                         = "49413491-90fd-4ce8-b061-e2f4758b636b"
+  srv_notify_final_comment_submission_confirmation_email_template_id          = "d8919215-6688-408b-9781-eaf7af033605"
   task_submit_to_horizon_cron_string                                          = "*/10 * * * *"
   task_submit_to_horizon_trigger_active                                       = "true"
   allow_testing_overrides                                                     = true
