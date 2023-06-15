@@ -49,7 +49,7 @@ variable "back_office_service_bus_nsip_project_topic_id" {
 }
 
 variable "back_office_service_bus_nsip_documents_topic_id" {
-  description = "ID for the nsip-documents topic"
+  description = "ID for the nsip-document topic"
   type        = string
 }
 

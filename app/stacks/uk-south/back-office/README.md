@@ -89,7 +89,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="input_primary_sql_server_id"></a> [primary\_sql\_server\_id](#input\_primary\_sql\_server\_id) | The ID of the primary Back Office SQL server | `string` | n/a | yes |
 | <a name="input_private_endpoint_enabled"></a> [private\_endpoint\_enabled](#input\_private\_endpoint\_enabled) | A switch to determine if Private Endpoint should be enabled for backend App Services | `bool` | `true` | no |
 | <a name="input_service_bus_failover_enabled"></a> [service\_bus\_failover\_enabled](#input\_service\_bus\_failover\_enabled) | A switch to determine if Service Bus failover is enabled requiring the Premium SKU | `bool` | `false` | no |
-| <a name="input_servicebus_topic_nsip_documents_id"></a> [servicebus\_topic\_nsip\_documents\_id](#input\_servicebus\_topic\_nsip\_documents\_id) | Service Bus Topic nsip-documents id | `string` | n/a | yes |
+| <a name="input_servicebus_topic_nsip_documents_id"></a> [servicebus\_topic\_nsip\_documents\_id](#input\_servicebus\_topic\_nsip\_documents\_id) | Service Bus Topic nsip-document id | `string` | n/a | yes |
 | <a name="input_sql_server_azuread_administrator"></a> [sql\_server\_azuread\_administrator](#input\_sql\_server\_azuread\_administrator) | A map describing the AzureAD account used for the SQL server administrator | `map(string)` | n/a | yes |
 | <a name="input_sql_server_password"></a> [sql\_server\_password](#input\_sql\_server\_password) | The SQL server administrator password | `string` | n/a | yes |
 | <a name="input_sql_server_username"></a> [sql\_server\_username](#input\_sql\_server\_username) | The SQL server administrator username | `string` | n/a | yes |
