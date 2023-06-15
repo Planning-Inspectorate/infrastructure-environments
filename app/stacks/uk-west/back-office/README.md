@@ -121,7 +121,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_service_bus_namespace_id"></a> [service\_bus\_namespace\_id](#output\_service\_bus\_namespace\_id) | The ID of the Service Bus Namespace |
 | <a name="output_service_bus_namespace_name"></a> [service\_bus\_namespace\_name](#output\_service\_bus\_namespace\_name) | The name of the Service Bus Namespace |
 | <a name="output_service_bus_nsip_project_topic_id"></a> [service\_bus\_nsip\_project\_topic\_id](#output\_service\_bus\_nsip\_project\_topic\_id) | ID of the nsip-project Service Bus Topic |
-| <a name="output_servicebus_topic_nsip_documents_id"></a> [servicebus\_topic\_nsip\_documents\_id](#output\_servicebus\_topic\_nsip\_documents\_id) | Service Bus Topic nsip-documents id |
+| <a name="output_servicebus_topic_nsip_documents_id"></a> [servicebus\_topic\_nsip\_documents\_id](#output\_servicebus\_topic\_nsip\_documents\_id) | Service Bus Topic nsip-document id |
 | <a name="output_sql_server_id"></a> [sql\_server\_id](#output\_sql\_server\_id) | The ID of the Back Office SQL server |
 | <a name="output_sql_server_password"></a> [sql\_server\_password](#output\_sql\_server\_password) | The SQL server administrator password |
 | <a name="output_sql_server_username"></a> [sql\_server\_username](#output\_sql\_server\_username) | The SQL server administrator username |
