@@ -25,6 +25,7 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="module_document_check_function"></a> [document\_check\_function](#module\_document\_check\_function) | ./document-check-function | n/a |
 | <a name="module_odw_subscriber_function"></a> [odw\_subscriber\_function](#module\_odw\_subscriber\_function) | ./odw-subscriber-function | n/a |
 | <a name="module_publish_document_function"></a> [publish\_document\_function](#module\_publish\_document\_function) | ./publish-document-function | n/a |
+| <a name="module_handle_subscriptions_function"></a> [handle\_subscriptions\_function](#module\_handle\_subscriptions\_function) | ./handle-subscriptions-function | n/a |
 
 ## Resources
 

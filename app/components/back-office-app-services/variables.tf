@@ -244,6 +244,12 @@ variable "servicebus_topic_nsip_documents_id" {
   type        = string
 }
 
+variable "servicebus_topic_register_nsip_subscription_id" {
+  description = "Service Bus Topic register-nsip-subscription id"
+  type        = string
+  default     = ""
+}
+
 variable "document_storage_back_office_document_service_uploads_container_resource_manager_id" {
   description = "Back Office document-service-uploads container resource_manager_id"
   type        = string
