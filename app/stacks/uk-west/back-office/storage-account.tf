@@ -37,7 +37,7 @@ resource "azurerm_eventgrid_system_topic" "back_office_documents_system_topic" {
   topic_type             = "Microsoft.Storage.StorageAccounts"
 }
 
-
+# TODO: Separate containers for Applications and Appeals? We won't need to assign permissions to the appeals wfe, just to the appeals group
 resource "azurerm_storage_container" "back_office_document_service_uploads_container" {
   #TODO: Logging
   #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
@@ -54,6 +54,7 @@ resource "azurerm_storage_container" "back_office_published_documents_container"
   container_access_type = "private"
 }
 
+# Shared storage between back office appps for Azure Functions
 resource "azurerm_storage_account" "function_storage" {
   #TODO: Customer Managed Keys
   #checkov:skip=CKV2_AZURE_1: Customer Managed Keys not implemented yet

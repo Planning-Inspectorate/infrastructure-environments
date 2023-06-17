@@ -8,6 +8,11 @@ output "web_frontend_url" {
   value       = module.app_services.web_frontend_url
 }
 
+output "appeals_web_frontend_url" {
+  description = "The URL of the appeals web frontend app service"
+  value       = module.app_services.appeals_web_frontend_url
+}
+
 output "back_office_document_storage_api_host" {
   description = "The full failover URI to the storage account used for back office documents"
   value       = azurerm_storage_account.back_office_documents.primary_blob_endpoint
@@ -47,6 +52,11 @@ output "back_office_service_bus_connection_string" {
 output "back_office_sql_database" {
   description = "The ID of the Back Office SQL database"
   value       = azurerm_mssql_database.back_office.id
+}
+
+output "back_office_appeals_sql_database" {
+  description = "The ID of the Back Office Appeals SQL database"
+  value       = azurerm_mssql_database.back_office_appeals.id
 }
 
 output "document_check_function_storage_name" {

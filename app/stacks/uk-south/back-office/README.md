@@ -57,6 +57,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="input_azuread_applications_caseteam_group_id"></a> [azuread\_applications\_caseteam\_group\_id](#input\_azuread\_applications\_caseteam\_group\_id) | The Azure AD group ID for Applications Back Office case team | `string` | `null` | no |
 | <a name="input_azuread_applications_inspector_group_id"></a> [azuread\_applications\_inspector\_group\_id](#input\_azuread\_applications\_inspector\_group\_id) | The Azure AD group ID for Applications Back Office inspectors | `string` | `null` | no |
 | <a name="input_azuread_auth_client_id"></a> [azuread\_auth\_client\_id](#input\_azuread\_auth\_client\_id) | The Back Office web frontend app registration ID used for Azure AD authentication | `string` | `null` | no |
+| <a name="input_back_office_appeals_sql_database"></a> [back\_office\_appeals\_sql\_database](#input\_back\_office\_appeals\_sql\_database) | The ID of the Back Office Appeals SQL database | `string` | n/a | yes |
 | <a name="input_back_office_clamav_subnet_id"></a> [back\_office\_clamav\_subnet\_id](#input\_back\_office\_clamav\_subnet\_id) | Integration subnet for the clamav container | `string` | n/a | yes |
 | <a name="input_back_office_document_storage_api_host"></a> [back\_office\_document\_storage\_api\_host](#input\_back\_office\_document\_storage\_api\_host) | The full failover URI to the storage account used for back office documents | `string` | n/a | yes |
 | <a name="input_back_office_integration_subnet_id"></a> [back\_office\_integration\_subnet\_id](#input\_back\_office\_integration\_subnet\_id) | Integration subnet for back office anti-virus resources | `string` | n/a | yes |
@@ -100,5 +101,6 @@ This component contains the infrastructure required for the back office service.
 | Name | Description |
 |------|-------------|
 | <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of frontend app service URLs |
+| <a name="output_appeals_web_frontend_url"></a> [appeals\_web\_frontend\_url](#output\_appeals\_web\_frontend\_url) | The URL of the appeals web frontend app service |
 | <a name="output_web_frontend_url"></a> [web\_frontend\_url](#output\_web\_frontend\_url) | The URL of the web frontend app service |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

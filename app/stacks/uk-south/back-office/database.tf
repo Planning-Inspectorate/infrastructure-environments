@@ -43,12 +43,13 @@ resource "azurerm_private_endpoint" "back_office_sql_server" {
 resource "azurerm_mssql_failover_group" "back_office" {
   name      = "pins-sqlag-${local.service_name}-${local.resource_suffix}"
   server_id = var.primary_sql_server_id
-  databases = [var.back_office_sql_database]
+  databases = [var.back_office_sql_database, var.back_office_appeals_sql_database]
 
   partner_server {
     id = azurerm_mssql_server.back_office.id
   }
 
+  # TODO: We either change this to automatic or we put it in the DR docs
   read_write_endpoint_failover_policy {
     mode = "Manual"
   }

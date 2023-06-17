@@ -37,6 +37,7 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_log_analytics_workspace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/log_analytics_workspace) | resource |
 | [azurerm_monitor_diagnostic_setting.back_office_sql_database](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/monitor_diagnostic_setting) | resource |
 | [azurerm_mssql_database.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/mssql_database) | resource |
+| [azurerm_mssql_database.back_office_appeals](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/mssql_database) | resource |
 | [azurerm_mssql_database_extended_auditing_policy.back_office_sql_database](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/mssql_database_extended_auditing_policy) | resource |
 | [azurerm_mssql_server.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/mssql_server) | resource |
 | [azurerm_mssql_server_extended_auditing_policy.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.6.0/docs/resources/mssql_server_extended_auditing_policy) | resource |
@@ -106,6 +107,8 @@ This component contains the infrastructure required for the back office service.
 | Name | Description |
 |------|-------------|
 | <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of frontend app service URLs |
+| <a name="output_appeals_web_frontend_url"></a> [appeals\_web\_frontend\_url](#output\_appeals\_web\_frontend\_url) | The URL of the appeals web frontend app service |
+| <a name="output_back_office_appeals_sql_database"></a> [back\_office\_appeals\_sql\_database](#output\_back\_office\_appeals\_sql\_database) | The ID of the Back Office Appeals SQL database |
 | <a name="output_back_office_document_storage_api_host"></a> [back\_office\_document\_storage\_api\_host](#output\_back\_office\_document\_storage\_api\_host) | The full failover URI to the storage account used for back office documents |
 | <a name="output_back_office_document_storage_container_name"></a> [back\_office\_document\_storage\_container\_name](#output\_back\_office\_document\_storage\_container\_name) | The back office blob storage container name |
 | <a name="output_back_office_service_bus_connection_string"></a> [back\_office\_service\_bus\_connection\_string](#output\_back\_office\_service\_bus\_connection\_string) | Connection strong for Azure Service Bus in Back Office |

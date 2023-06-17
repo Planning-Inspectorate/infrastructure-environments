@@ -64,6 +64,17 @@ variable "back_office_secondary_app_service_url" {
   default     = ""
 }
 
+variable "back_office_appeals_primary_app_service_url" {
+  description = "The primary App Service URL for the Back Office Appeals"
+  type        = string
+}
+
+variable "back_office_appeals_secondary_app_service_url" {
+  description = "The secondary App Service URL for the Back Office Appeals"
+  type        = string
+  default     = ""
+}
+
 variable "common_log_analytics_workspace_id" {
   description = "The ID for the common Log Analytics Workspace"
   type        = string
