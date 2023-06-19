@@ -69,37 +69,37 @@ resource "azurerm_frontdoor" "common" {
 
   # Frontend Endpoints
   frontend_endpoint {
-    name                                    = local.frontend_endpoint_mappings.applications_frontend.frontend_name
-    host_name                               = local.frontend_endpoint_mappings.applications_frontend.frontend_endpoint
+    name                                    = local.applications_frontend.frontend_name
+    host_name                               = local.applications_frontend.frontend_endpoint
     web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
   }
 
   frontend_endpoint {
-    name                                    = local.frontend_endpoint_mappings.back_office_frontend.frontend_name
-    host_name                               = local.frontend_endpoint_mappings.back_office_frontend.frontend_endpoint
+    name                                    = local.back_office_frontend.frontend_name
+    host_name                               = local.back_office_frontend.frontend_endpoint
     web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
   }
 
   frontend_endpoint {
-    name                                    = local.frontend_endpoint_mappings.appeals_frontend.frontend_name
-    host_name                               = local.frontend_endpoint_mappings.appeals_frontend.frontend_endpoint
+    name                                    = local.appeals_frontend.frontend_name
+    host_name                               = local.appeals_frontend.frontend_endpoint
     web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
   }
 
   # Backend Pools
   backend_pool {
-    name                = local.frontend_endpoint_mappings.appeals_frontend.name
+    name                = local.appeals_frontend.name
     load_balancing_name = "Default"
     health_probe_name   = "Http"
 
     dynamic "backend" {
-      for_each = local.frontend_endpoint_mappings.appeals_frontend.app_service_urls
+      for_each = local.appeals_frontend.app_service_urls
       iterator = app_service_url
 
       content {
         enabled     = true
         address     = app_service_url.value["url"]
-        host_header = local.frontend_endpoint_mappings.appeals_frontend.infer_backend_host_header ? "" : app_service_url.value["url"]
+        host_header = local.appeals_frontend.infer_backend_host_header ? "" : app_service_url.value["url"]
         http_port   = 80
         https_port  = 443
         priority    = app_service_url.value["priority"]
@@ -109,18 +109,18 @@ resource "azurerm_frontdoor" "common" {
   }
 
   backend_pool {
-    name                = local.frontend_endpoint_mappings.applications_frontend.name
+    name                = local.applications_frontend.name
     load_balancing_name = "Default"
     health_probe_name   = "Http"
 
     dynamic "backend" {
-      for_each = local.frontend_endpoint_mappings.applications_frontend.app_service_urls
+      for_each = local.applications_frontend.app_service_urls
       iterator = app_service_url
 
       content {
         enabled     = true
         address     = app_service_url.value["url"]
-        host_header = local.frontend_endpoint_mappings.applications_frontend.infer_backend_host_header ? "" : app_service_url.value["url"]
+        host_header = local.applications_frontend.infer_backend_host_header ? "" : app_service_url.value["url"]
         http_port   = 80
         https_port  = 443
         priority    = app_service_url.value["priority"]
@@ -130,18 +130,18 @@ resource "azurerm_frontdoor" "common" {
   }
 
   backend_pool {
-    name                = local.frontend_endpoint_mappings.back_office_frontend.name
+    name                = local.back_office_frontend.name
     load_balancing_name = "Default"
     health_probe_name   = "Http"
 
     dynamic "backend" {
-      for_each = local.frontend_endpoint_mappings.back_office_frontend.app_service_urls
+      for_each = local.back_office_frontend.app_service_urls
       iterator = app_service_url
 
       content {
         enabled     = true
         address     = app_service_url.value["url"]
-        host_header = local.frontend_endpoint_mappings.back_office_frontend.infer_backend_host_header ? "" : app_service_url.value["url"]
+        host_header = local.back_office_frontend.infer_backend_host_header ? "" : app_service_url.value["url"]
         http_port   = 80
         https_port  = 443
         priority    = app_service_url.value["priority"]
@@ -151,18 +151,18 @@ resource "azurerm_frontdoor" "common" {
   }
 
   backend_pool {
-    name                = local.frontend_endpoint_mappings.back_office_appeals_frontend.name
+    name                = local.back_office_appeals_frontend.name
     load_balancing_name = "Default"
     health_probe_name   = "Http"
 
     dynamic "backend" {
-      for_each = local.frontend_endpoint_mappings.back_office_appeals_frontend.app_service_urls
+      for_each = local.back_office_appeals_frontend.app_service_urls
       iterator = app_service_url
 
       content {
         enabled     = true
         address     = app_service_url.value["url"]
-        host_header = local.frontend_endpoint_mappings.back_office_appeals_frontend.infer_backend_host_header ? "" : app_service_url.value["url"]
+        host_header = local.back_office_appeals_frontend.infer_backend_host_header ? "" : app_service_url.value["url"]
         http_port   = 80
         https_port  = 443
         priority    = app_service_url.value["priority"]
@@ -174,13 +174,13 @@ resource "azurerm_frontdoor" "common" {
   # Routing Rules
   routing_rule {
     enabled            = true
-    name               = local.frontend_endpoint_mappings.appeals_frontend.name
+    name               = local.appeals_frontend.name
     accepted_protocols = ["Http", "Https"]
-    patterns_to_match  = local.frontend_endpoint_mappings.appeals_frontend.patterns_to_match
-    frontend_endpoints = [local.frontend_endpoint_mappings.appeals_frontend.frontend_name]
+    patterns_to_match  = local.appeals_frontend.patterns_to_match
+    frontend_endpoints = [local.appeals_frontend.frontend_name]
 
     forwarding_configuration {
-      backend_pool_name      = local.frontend_endpoint_mappings.appeals_frontend.name
+      backend_pool_name      = local.appeals_frontend.name
       cache_enabled          = false
       cache_query_parameters = []
       forwarding_protocol    = "MatchRequest"
@@ -189,13 +189,13 @@ resource "azurerm_frontdoor" "common" {
 
   routing_rule {
     enabled            = true
-    name               = local.frontend_endpoint_mappings.applications_frontend.name
+    name               = local.applications_frontend.name
     accepted_protocols = ["Http", "Https"]
-    patterns_to_match  = local.frontend_endpoint_mappings.applications_frontend.patterns_to_match
-    frontend_endpoints = [local.frontend_endpoint_mappings.applications_frontend.frontend_name]
+    patterns_to_match  = local.applications_frontend.patterns_to_match
+    frontend_endpoints = [local.applications_frontend.frontend_name]
 
     forwarding_configuration {
-      backend_pool_name      = local.frontend_endpoint_mappings.applications_frontend.name
+      backend_pool_name      = local.applications_frontend.name
       cache_enabled          = false
       cache_query_parameters = []
       forwarding_protocol    = "MatchRequest"
@@ -204,13 +204,13 @@ resource "azurerm_frontdoor" "common" {
 
   routing_rule {
     enabled            = true
-    name               = local.frontend_endpoint_mappings.back_office_frontend.name
+    name               = local.back_office_frontend.name
     accepted_protocols = ["Http", "Https"]
-    patterns_to_match  = local.frontend_endpoint_mappings.back_office_frontend.patterns_to_match
-    frontend_endpoints = [local.frontend_endpoint_mappings.back_office_frontend.frontend_name]
+    patterns_to_match  = local.back_office_frontend.patterns_to_match
+    frontend_endpoints = [local.back_office_frontend.frontend_name]
 
     forwarding_configuration {
-      backend_pool_name      = local.frontend_endpoint_mappings.back_office_frontend.name
+      backend_pool_name      = local.back_office_frontend.name
       cache_enabled          = false
       cache_query_parameters = []
       forwarding_protocol    = "MatchRequest"
@@ -219,13 +219,13 @@ resource "azurerm_frontdoor" "common" {
 
   routing_rule {
     enabled            = true
-    name               = local.frontend_endpoint_mappings.back_office_appeals_frontend.name
+    name               = local.back_office_appeals_frontend.name
     accepted_protocols = ["Http", "Https"]
-    patterns_to_match  = local.frontend_endpoint_mappings.back_office_appeals_frontend.patterns_to_match
-    frontend_endpoints = [local.frontend_endpoint_mappings.back_office_appeals_frontend.frontend_name]
+    patterns_to_match  = local.back_office_appeals_frontend.patterns_to_match
+    frontend_endpoints = [local.back_office_appeals_frontend.frontend_name]
 
     forwarding_configuration {
-      backend_pool_name      = local.frontend_endpoint_mappings.back_office_appeals_frontend.name
+      backend_pool_name      = local.back_office_appeals_frontend.name
       cache_enabled          = false
       cache_query_parameters = []
       forwarding_protocol    = "MatchRequest"

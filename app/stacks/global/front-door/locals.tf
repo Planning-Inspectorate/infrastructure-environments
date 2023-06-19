@@ -42,67 +42,75 @@ locals {
     priority = 0
   }
 
-  frontend_endpoint_mappings = {
-    applications_frontend = {
-      frontend_endpoint = var.applications_service_public_url
-      app_service_urls = local.applications_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
-        local.applications_primary_mapping,
-        local.applications_secondary_mapping] : [
-        local.applications_primary_mapping
-      ]
-      infer_backend_host_header = false
-      name                      = "ApplicationsService"
-      frontend_name             = "ApplicationsService"
-      patterns_to_match         = ["/*"]
-      search_indexing           = var.enable_search_indexing_by_default
-      ssl_certificate_name      = var.applications_service_ssl_certificate_name
-    }
-
-    back_office_frontend = {
-      frontend_endpoint = var.back_office_public_url
-      app_service_urls = local.back_office_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
-        local.back_office_primary_mapping,
-        local.back_office_secondary_mapping] : [
-        local.back_office_primary_mapping
-      ]
-      infer_backend_host_header = true
-      name                      = "BackOffice"
-      frontend_name             = "BackOffice"
-      patterns_to_match         = ["/*"]
-      search_indexing           = false
-      ssl_certificate_name      = var.back_office_ssl_certificate_name
-    }
-
-    appeals_frontend = {
-      frontend_endpoint = var.appeals_service_public_url
-      app_service_urls = local.appeals_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
-        local.appeals_primary_mapping,
-        local.appeals_secondary_mapping] : [
-        local.appeals_primary_mapping
-      ]
-      infer_backend_host_header = false
-      name                      = "AppealsService"
-      frontend_name             = "appeal-planning-decision-service-gov-uk"
-      patterns_to_match         = ["/*"]
-      search_indexing           = false
-      ssl_certificate_name      = var.appeals_service_ssl_certificate_name
-    }
-
-    # This is quite confusing now since this isn't used to create a new frotnend endpoint, only a backend pool and routing rule, but we have to do this to maintain ordering (for TF)
-    # It's only temporary, and is another reason to upgrade to Front Door (New)
-    back_office_appeals_frontend = {
-      app_service_urls = local.back_office_appeals_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
-        local.back_office_appeals_primary_mapping,
-        local.back_office_appeals_secondary_mapping] : [
-        local.back_office_appeals_primary_mapping
-      ]
-      infer_backend_host_header = true
-      name                      = "BackOfficeAppeals"
-      frontend_name             = "BackOffice"
-      patterns_to_match         = ["/appeals*"]
-      search_indexing           = false
-    }
+  applications_frontend = {
+    frontend_endpoint = var.applications_service_public_url
+    app_service_urls = local.applications_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
+      local.applications_primary_mapping,
+      local.applications_secondary_mapping] : [
+      local.applications_primary_mapping
+    ]
+    infer_backend_host_header = false
+    name                      = "ApplicationsService"
+    frontend_name             = "ApplicationsService"
+    patterns_to_match         = ["/*"]
+    ssl_certificate_name      = var.applications_service_ssl_certificate_name
   }
+
+  back_office_frontend = {
+    frontend_endpoint = var.back_office_public_url
+    app_service_urls = local.back_office_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
+      local.back_office_primary_mapping,
+      local.back_office_secondary_mapping] : [
+      local.back_office_primary_mapping
+    ]
+    infer_backend_host_header = true
+    name                      = "BackOffice"
+    frontend_name             = "BackOffice"
+    patterns_to_match         = ["/*"]
+    ssl_certificate_name      = var.back_office_ssl_certificate_name
+  }
+
+  appeals_frontend = {
+    frontend_endpoint = var.appeals_service_public_url
+    app_service_urls = local.appeals_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
+      local.appeals_primary_mapping,
+      local.appeals_secondary_mapping] : [
+      local.appeals_primary_mapping
+    ]
+    infer_backend_host_header = false
+    name                      = "AppealsService"
+    frontend_name             = "appeal-planning-decision-service-gov-uk"
+    patterns_to_match         = ["/*"]
+    ssl_certificate_name      = var.appeals_service_ssl_certificate_name
+  }
+
+  # This is quite confusing now since this isn't used to create a new frotnend endpoint, only a backend pool and routing rule, but we have to do this to maintain ordering (for TF)
+  # It's only temporary, and is another reason to upgrade to Front Door (New)
+  back_office_appeals_frontend = {
+    app_service_urls = local.back_office_appeals_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
+      local.back_office_appeals_primary_mapping,
+      local.back_office_appeals_secondary_mapping] : [
+      local.back_office_appeals_primary_mapping
+    ]
+    infer_backend_host_header = true
+    name                      = "BackOfficeAppeals"
+    frontend_name             = "BackOffice"
+    patterns_to_match         = ["/appeals*"]
+  }
+
+  frontend_endpoint_mappings = [{
+    name            = "ApplicationsService"
+    search_indexing = var.enable_search_indexing_by_default
+    }, {
+    name            = "BackOffice"
+    search_indexing = false
+    }, {
+    name            = "AppealsService"
+    search_indexing = false
+    }, {
+    name            = "BackOfficeAppeals"
+    search_indexing = false
+  }]
 
   # This variable is used in a bash script to loop through some Azure CLI commands that cannot conflict
   # We cannot use a terraform for_each loop for the null_resource since these all run in parallel. Hence the loop is done within the command
