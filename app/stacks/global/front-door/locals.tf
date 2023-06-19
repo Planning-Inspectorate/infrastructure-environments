@@ -95,7 +95,7 @@ locals {
     infer_backend_host_header = true
     name                      = "BackOfficeAppeals"
     frontend_name             = "BackOffice"
-    patterns_to_match         = ["/appeals*"]
+    patterns_to_match         = ["/appeals", "/appeals/*"]
   }
 
   frontend_endpoint_mappings = [{
