@@ -71,7 +71,7 @@ resource "azurerm_servicebus_topic" "employee" {
 }
 
 resource "azurerm_servicebus_topic" "nsip_documents" {
-  name                = "nsip-documents"
+  name                = "nsip-document"
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
