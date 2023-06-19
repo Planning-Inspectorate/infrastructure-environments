@@ -70,15 +70,13 @@ locals {
     }
 
     back_office_appeals_frontend = {
-      app_name                              = "appeals-wfe"
-      app_service_plan_resource_group_name  = var.app_service_plan_resource_group_name
-      custom_hostname                       = var.custom_hostname
-      custom_hostname_certificate_secret_id = var.custom_hostname_certificate_secret_id
-      image_name                            = "back-office/appeals-web"
-      inbound_vnet_connectivity             = false
-      integration_subnet_id                 = var.integration_subnet_id
-      key_vault_access                      = true
-      outbound_vnet_connectivity            = true
+      app_name                             = "appeals-wfe"
+      app_service_plan_resource_group_name = var.app_service_plan_resource_group_name
+      image_name                           = "back-office/appeals-web"
+      inbound_vnet_connectivity            = false
+      integration_subnet_id                = var.integration_subnet_id
+      key_vault_access                     = true
+      outbound_vnet_connectivity           = true
 
       app_settings = {
         API_HOST                            = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
@@ -116,6 +114,7 @@ locals {
 
   secret_names = [
     "back-office-client-secret",
+    "back-office-topic-key",
     "os-places-api-key",
     "session-secret"
   ]
