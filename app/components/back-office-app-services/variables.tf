@@ -115,7 +115,13 @@ variable "custom_hostname_certificate_secret_id" {
 }
 
 variable "database_connection_string" {
-  description = "The connection string used to connect to the MySQL database"
+  description = "The connection string used to connect to the Applications Back Office MySQL database"
+  sensitive   = true
+  type        = string
+}
+
+variable "appeals_database_connection_string" {
+  description = "The connection string used to connect to the Back Office Appeals MySQL database"
   sensitive   = true
   type        = string
 }

@@ -12,7 +12,6 @@ locals {
     priority = 0
   }
 
-
   back_office_primary_mapping = {
     url      = var.back_office_primary_app_service_url,
     priority = 1
@@ -30,6 +29,16 @@ locals {
 
   appeals_secondary_mapping = {
     url      = var.appeals_service_secondary_app_service_url,
+    priority = 0
+  }
+
+  back_office_appeals_primary_mapping = {
+    url      = var.back_office_appeals_primary_app_service_url,
+    priority = 1
+  }
+
+  back_office_appeals_secondary_mapping = {
+    url      = var.back_office_appeals_secondary_app_service_url,
     priority = 0
   }
 
@@ -77,6 +86,21 @@ locals {
       patterns_to_match         = ["/*"]
       search_indexing           = false
       ssl_certificate_name      = var.appeals_service_ssl_certificate_name
+    }
+
+    # This is quite confusing now since this isn't used to create a new frotnend endpoint, only a backend pool and routing rule, but we have to do this to maintain ordering (for TF)
+    # It's only temporary, and is another reason to upgrade to Front Door (New)
+    back_office_appeals_frontend = {
+      app_service_urls = local.back_office_appeals_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
+        local.back_office_appeals_primary_mapping,
+        local.back_office_appeals_secondary_mapping] : [
+        local.back_office_appeals_primary_mapping
+      ]
+      infer_backend_host_header = true
+      name                      = "AppealsBackOffice"
+      frontend_name             = "BackOffice"
+      patterns_to_match         = ["/appeals*"]
+      search_indexing           = false
     }
   }
 
