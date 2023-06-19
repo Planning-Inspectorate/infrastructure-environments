@@ -114,6 +114,7 @@ resource "azurerm_app_service_certificate" "custom_hostname" {
   tags = var.tags
 }
 
+# TODO: What is going on with this stuff? Isn't the domain associated with FD?
 resource "azurerm_app_service_custom_hostname_binding" "custom_hostname" {
   count = var.custom_hostname != null ? 1 : 0
 
