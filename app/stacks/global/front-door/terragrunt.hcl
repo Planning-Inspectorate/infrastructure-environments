@@ -61,6 +61,7 @@ dependency "back_office_uks" {
       back_office_frontend_uks         = "mock-wfe-url"
       back_office_appeals_frontend_uks = "mock-wfe-url"
     }
+    appeals_web_frontend_url = "mock-appeals-wfe-url"
   }
 }
 
@@ -74,6 +75,7 @@ dependency "back_office_ukw" {
       back_office_frontend_ukw         = "mock-wfe-url"
       back_office_appeals_frontend_ukw = "mock-wfe-url"
     }
+    appeals_web_frontend_url = "mock-appeals-wfe-url"
   }
 }
 
