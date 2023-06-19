@@ -18,7 +18,6 @@ locals {
         AUTH_CLIENT_SECRET                       = local.secret_refs["back-office-client-secret"]
         AUTH_CLOUD_INSTANCE_ID                   = "https://login.microsoftonline.com"
         APPEALS_INSPECTOR_GROUP_ID               = var.azuread_appeals_inspector_group_id
-        AUTH_REDIRECT_URI                        = "/auth/redirect"
         AUTH_TENANT_ID                           = data.azurerm_client_config.current.tenant_id
         APPEALS_VALIDATION_OFFICER_GROUP_ID      = var.azuread_appeals_validation_officer_group_id
         APPLICATIONS_CASE_ADMIN_OFFICER_GROUP_ID = var.azuread_applications_case_admin_officer_group_id
@@ -88,7 +87,6 @@ locals {
         AUTH_CLIENT_SECRET                  = local.secret_refs["back-office-client-secret"]
         AUTH_CLOUD_INSTANCE_ID              = "https://login.microsoftonline.com"
         APPEALS_INSPECTOR_GROUP_ID          = var.azuread_appeals_inspector_group_id
-        AUTH_REDIRECT_URI                   = "/auth/redirect"
         AUTH_TENANT_ID                      = data.azurerm_client_config.current.tenant_id
         APPEALS_VALIDATION_OFFICER_GROUP_ID = var.azuread_appeals_validation_officer_group_id
         AZURE_BLOB_STORE_HOST               = var.document_storage_api_host # TODO: Replace
