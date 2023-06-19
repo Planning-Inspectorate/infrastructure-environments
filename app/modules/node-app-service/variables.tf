@@ -135,3 +135,11 @@ variable "tags" {
   description = "The tags applied to all resources"
   type        = map(string)
 }
+
+# This is not necessarily a viable solution, because for a fresh environment - the cert may not exist for the first thing skipping creating it
+# Since shared domains are temporary though, we should be ok
+variable "skip_certificate_creation" {
+  description = "If set to false, the certificate will be retrieved instead"
+  type        = bool
+  default     = false
+}

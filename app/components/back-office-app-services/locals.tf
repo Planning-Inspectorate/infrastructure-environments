@@ -74,6 +74,7 @@ locals {
       app_service_plan_resource_group_name  = var.app_service_plan_resource_group_name
       custom_hostname                       = var.custom_hostname
       custom_hostname_certificate_secret_id = var.custom_hostname_certificate_secret_id
+      skip_certificate_creation             = true
       image_name                            = "back-office/appeals-web"
       inbound_vnet_connectivity             = false
       integration_subnet_id                 = var.integration_subnet_id
