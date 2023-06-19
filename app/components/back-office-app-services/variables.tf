@@ -234,7 +234,7 @@ variable "feature_odw_subscription_enabled" {
 }
 
 variable "servicebus_topic_nsip_documents_id" {
-  description = "Service Bus Topic nsip-documents id"
+  description = "Service Bus Topic nsip-document id"
   type        = string
 }
 

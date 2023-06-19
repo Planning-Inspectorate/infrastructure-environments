@@ -65,7 +65,7 @@ variable "service_bus_namespace_name" {
 }
 
 variable "servicebus_topic_nsip_documents_id" {
-  description = "Service Bus topic nsip-documents id"
+  description = "Service Bus topic nsip-document id"
   type        = string
 }
 

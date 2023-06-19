@@ -236,6 +236,6 @@ variable "document_storage_back_office_published_documents_container_resource_ma
 }
 
 variable "servicebus_topic_nsip_documents_id" {
-  description = "Service Bus Topic nsip-documents id"
+  description = "Service Bus Topic nsip-document id"
   type        = string
 }
