@@ -103,8 +103,9 @@ resource "azurerm_linux_web_app_slot" "staging" {
   }
 }
 
+# TODO: I think this is redundant, Front Door does SSL termination for our DNS names and then routs requests to https://*.azurewebsites.net
 resource "azurerm_app_service_certificate" "custom_hostname" {
-  count = var.custom_hostname != null && !var.skip_certificate_creation ? 1 : 0
+  count = var.custom_hostname != null ? 1 : 0
 
   name                = var.custom_hostname
   resource_group_name = var.app_service_plan_resource_group_name
@@ -114,13 +115,6 @@ resource "azurerm_app_service_certificate" "custom_hostname" {
   tags = var.tags
 }
 
-data "azurerm_app_service_certificate" "custom_hostname" {
-  count = var.custom_hostname != null && var.skip_certificate_creation ? 1 : 0
-
-  name                = var.custom_hostname
-  resource_group_name = var.app_service_plan_resource_group_name
-}
-
 resource "azurerm_app_service_custom_hostname_binding" "custom_hostname" {
   count = var.custom_hostname != null ? 1 : 0
 
@@ -128,7 +122,7 @@ resource "azurerm_app_service_custom_hostname_binding" "custom_hostname" {
   app_service_name    = azurerm_linux_web_app.web_app.name
   resource_group_name = var.resource_group_name
   ssl_state           = "SniEnabled"
-  thumbprint          = var.custom_hostname != null && !var.skip_certificate_creation ? azurerm_app_service_certificate.custom_hostname[0].thumbprint : data.azurerm_app_service_certificate.custom_hostname[0].thumbprint
+  thumbprint          = azurerm_app_service_certificate.custom_hostname[0].thumbprint
 }
 
 resource "azurerm_private_endpoint" "private_endpoint" {
