@@ -97,7 +97,7 @@ locals {
         local.back_office_appeals_primary_mapping
       ]
       infer_backend_host_header = true
-      name                      = "AppealsBackOffice"
+      name                      = "BackOfficeAppeals"
       frontend_name             = "BackOffice"
       patterns_to_match         = ["/appeals*"]
       search_indexing           = false
