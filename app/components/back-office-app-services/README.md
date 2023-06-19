@@ -23,9 +23,9 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
 | <a name="module_clam_av_container"></a> [clam\_av\_container](#module\_clam\_av\_container) | ./clamav-container | n/a |
 | <a name="module_document_check_function"></a> [document\_check\_function](#module\_document\_check\_function) | ./document-check-function | n/a |
+| <a name="module_handle_subscriptions_function"></a> [handle\_subscriptions\_function](#module\_handle\_subscriptions\_function) | ./handle-subscriptions-function | n/a |
 | <a name="module_odw_subscriber_function"></a> [odw\_subscriber\_function](#module\_odw\_subscriber\_function) | ./odw-subscriber-function | n/a |
 | <a name="module_publish_document_function"></a> [publish\_document\_function](#module\_publish\_document\_function) | ./publish-document-function | n/a |
-| <a name="module_handle_subscriptions_function"></a> [handle\_subscriptions\_function](#module\_handle\_subscriptions\_function) | ./handle-subscriptions-function | n/a |
 
 ## Resources
 
@@ -89,6 +89,7 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_service_name"></a> [service\_name](#input\_service\_name) | The name of the service the Azure App Services are part of | `string` | n/a | yes |
 | <a name="input_service_plan_sku"></a> [service\_plan\_sku](#input\_service\_plan\_sku) | The SKU of the App Service Plan providing resources to hosted App Services | `string` | `"P2v2"` | no |
 | <a name="input_servicebus_topic_nsip_documents_id"></a> [servicebus\_topic\_nsip\_documents\_id](#input\_servicebus\_topic\_nsip\_documents\_id) | Service Bus Topic nsip-document id | `string` | n/a | yes |
+| <a name="input_servicebus_topic_register_nsip_subscription_id"></a> [servicebus\_topic\_register\_nsip\_subscription\_id](#input\_servicebus\_topic\_register\_nsip\_subscription\_id) | Service Bus Topic register-nsip-subscription id | `string` | `""` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | The tags applied to all resources | `map(string)` | n/a | yes |
 
 ## Outputs
