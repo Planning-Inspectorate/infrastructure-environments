@@ -13,6 +13,7 @@ module "app_service" {
   container_registry_rg                 = var.container_registry_rg
   custom_hostname                       = can(each.value["custom_hostname"]) ? each.value["custom_hostname"] : null
   custom_hostname_certificate_secret_id = can(each.value["custom_hostname_certificate_secret_id"]) ? each.value["custom_hostname_certificate_secret_id"] : null
+  skip_certificate_creation             = can(each.value["skip_certificate_creation"]) ? each.value["skip_certificate_creation"] : null
   endpoint_subnet_id                    = can(each.value["endpoint_subnet_id"]) ? each.value["endpoint_subnet_id"] : null
   image_name                            = each.value["image_name"]
   inbound_vnet_connectivity             = each.value["inbound_vnet_connectivity"]
@@ -25,7 +26,6 @@ module "app_service" {
   resource_group_name                   = var.resource_group_name
   resource_suffix                       = var.resource_suffix
   service_name                          = var.service_name
-  skip_certificate_creation             = each.value["skip_certificate_creation"]
 
   tags = var.tags
 
