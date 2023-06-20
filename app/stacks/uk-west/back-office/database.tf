@@ -97,3 +97,17 @@ resource "azurerm_mssql_database" "back_office" {
 
   tags = local.tags
 }
+
+resource "azurerm_mssql_database" "back_office_appeals" {
+  name        = "pins-sqldb-${local.service_name}-appeals-${local.resource_suffix}"
+  server_id   = azurerm_mssql_server.back_office.id
+  collation   = "SQL_Latin1_General_CP1_CI_AS"
+  sku_name    = var.sql_database_configuration["sku_name"]
+  max_size_gb = var.sql_database_configuration["max_size_gb"]
+
+  short_term_retention_policy {
+    retention_days = var.sql_database_configuration["short_term_retention_days"]
+  }
+
+  tags = local.tags
+}

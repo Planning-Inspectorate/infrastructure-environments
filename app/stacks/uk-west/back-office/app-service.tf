@@ -17,9 +17,8 @@ module "app_services" {
   back_office_clamav_subnet_id                                                        = var.back_office_clamav_subnet_id
   container_registry_name                                                             = var.container_registry_name
   container_registry_rg                                                               = var.container_registry_rg
-  custom_hostname                                                                     = var.back_office_public_url
-  custom_hostname_certificate_secret_id                                               = data.azurerm_key_vault_certificate.wildcard_certificate.id
   database_connection_string                                                          = local.sql_connection_string
+  appeals_database_connection_string                                                  = local.appeals_sql_connection_string
   document_storage_api_host                                                           = azurerm_storage_account.back_office_documents.primary_blob_endpoint
   endpoint_subnet_id                                                                  = azurerm_subnet.back_office_ingress.id
   key_vault_id                                                                        = var.key_vault_id
@@ -44,6 +43,7 @@ module "app_services" {
   document_storage_back_office_published_documents_container_resource_manager_id      = azurerm_storage_container.back_office_published_documents_container.resource_manager_id
   document_storage_back_office_document_service_uploads_container_name                = azurerm_storage_container.back_office_document_service_uploads_container.name
   servicebus_topic_nsip_documents_id                                                  = azurerm_servicebus_topic.nsip_documents.id
+  servicebus_topic_register_nsip_subscription_id                                      = azurerm_servicebus_topic.register_nsip_subscription.id
   tags                                                                                = local.tags
   employee_topic_id                                                                   = azurerm_servicebus_topic.employee.id
   feature_odw_subscription_enabled                                                    = true

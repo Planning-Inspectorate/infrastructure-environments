@@ -65,72 +65,170 @@ resource "azurerm_frontdoor" "common" {
     }
   }
 
-  #========================================================================
-  # Dynamic Service Frontend Endpoints
-  #========================================================================
+  # We can't use loops because then ordering is calculated alphabetically, and then we can't extend without over-writing things
 
-  # Try remove loop, see if we can make order explicit
+  # Frontend Endpoints
   frontend_endpoint {
-    name                                    = local.frontend_endpoint_mappings.applications_frontend.frontend_name
-    host_name                               = local.frontend_endpoint_mappings.applications_frontend.frontend_endpoint
+    name                                    = local.applications_frontend.frontend_name
+    host_name                               = local.applications_frontend.frontend_endpoint
     web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
   }
 
   frontend_endpoint {
-    name                                    = local.frontend_endpoint_mappings.back_office_frontend.frontend_name
-    host_name                               = local.frontend_endpoint_mappings.back_office_frontend.frontend_endpoint
+    name                                    = local.back_office_frontend.frontend_name
+    host_name                               = local.back_office_frontend.frontend_endpoint
     web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
   }
 
   frontend_endpoint {
-    name                                    = local.frontend_endpoint_mappings.appeals_frontend.frontend_name
-    host_name                               = local.frontend_endpoint_mappings.appeals_frontend.frontend_endpoint
+    name                                    = local.appeals_frontend.frontend_name
+    host_name                               = local.appeals_frontend.frontend_endpoint
     web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
   }
 
-  dynamic "backend_pool" {
-    for_each = local.frontend_endpoint_mappings
-    iterator = mapping
+  # Backend Pools
+  backend_pool {
+    name                = local.appeals_frontend.name
+    load_balancing_name = "Default"
+    health_probe_name   = "Http"
 
-    content {
-      name                = mapping.value["name"]
-      load_balancing_name = "Default"
-      health_probe_name   = "Http"
+    dynamic "backend" {
+      for_each = local.appeals_frontend.app_service_urls
+      iterator = app_service_url
 
-      dynamic "backend" {
-        for_each = mapping.value["app_service_urls"]
-        iterator = app_service_url
-
-        content {
-          enabled     = true
-          address     = app_service_url.value["url"]
-          host_header = mapping.value["infer_backend_host_header"] ? "" : app_service_url.value["url"]
-          http_port   = 80
-          https_port  = 443
-          priority    = app_service_url.value["priority"]
-          weight      = 100
-        }
+      content {
+        enabled     = true
+        address     = app_service_url.value["url"]
+        host_header = local.appeals_frontend.infer_backend_host_header ? "" : app_service_url.value["url"]
+        http_port   = 80
+        https_port  = 443
+        priority    = app_service_url.value["priority"]
+        weight      = 100
       }
     }
   }
 
-  dynamic "routing_rule" {
-    for_each = local.frontend_endpoint_mappings
-    iterator = mapping
+  backend_pool {
+    name                = local.applications_frontend.name
+    load_balancing_name = "Default"
+    health_probe_name   = "Http"
 
-    content {
-      enabled            = true
-      name               = mapping.value["name"]
-      accepted_protocols = ["Http", "Https"]
-      patterns_to_match  = mapping.value["patterns_to_match"]
-      frontend_endpoints = [mapping.value["frontend_name"]]
+    dynamic "backend" {
+      for_each = local.applications_frontend.app_service_urls
+      iterator = app_service_url
 
-      forwarding_configuration {
-        backend_pool_name      = mapping.value["name"]
-        cache_enabled          = false
-        cache_query_parameters = []
-        forwarding_protocol    = "MatchRequest"
+      content {
+        enabled     = true
+        address     = app_service_url.value["url"]
+        host_header = local.applications_frontend.infer_backend_host_header ? "" : app_service_url.value["url"]
+        http_port   = 80
+        https_port  = 443
+        priority    = app_service_url.value["priority"]
+        weight      = 100
       }
+    }
+  }
+
+  backend_pool {
+    name                = local.back_office_frontend.name
+    load_balancing_name = "Default"
+    health_probe_name   = "Http"
+
+    dynamic "backend" {
+      for_each = local.back_office_frontend.app_service_urls
+      iterator = app_service_url
+
+      content {
+        enabled     = true
+        address     = app_service_url.value["url"]
+        host_header = local.back_office_frontend.infer_backend_host_header ? "" : app_service_url.value["url"]
+        http_port   = 80
+        https_port  = 443
+        priority    = app_service_url.value["priority"]
+        weight      = 100
+      }
+    }
+  }
+
+  backend_pool {
+    name                = local.back_office_appeals_frontend.name
+    load_balancing_name = "Default"
+    health_probe_name   = "Http"
+
+    dynamic "backend" {
+      for_each = local.back_office_appeals_frontend.app_service_urls
+      iterator = app_service_url
+
+      content {
+        enabled     = true
+        address     = app_service_url.value["url"]
+        host_header = local.back_office_appeals_frontend.infer_backend_host_header ? "" : app_service_url.value["url"]
+        http_port   = 80
+        https_port  = 443
+        priority    = app_service_url.value["priority"]
+        weight      = 100
+      }
+    }
+  }
+
+  # Routing Rules
+  routing_rule {
+    enabled            = true
+    name               = local.appeals_frontend.name
+    accepted_protocols = ["Http", "Https"]
+    patterns_to_match  = local.appeals_frontend.patterns_to_match
+    frontend_endpoints = [local.appeals_frontend.frontend_name]
+
+    forwarding_configuration {
+      backend_pool_name      = local.appeals_frontend.name
+      cache_enabled          = false
+      cache_query_parameters = []
+      forwarding_protocol    = "MatchRequest"
+    }
+  }
+
+  routing_rule {
+    enabled            = true
+    name               = local.applications_frontend.name
+    accepted_protocols = ["Http", "Https"]
+    patterns_to_match  = local.applications_frontend.patterns_to_match
+    frontend_endpoints = [local.applications_frontend.frontend_name]
+
+    forwarding_configuration {
+      backend_pool_name      = local.applications_frontend.name
+      cache_enabled          = false
+      cache_query_parameters = []
+      forwarding_protocol    = "MatchRequest"
+    }
+  }
+
+  routing_rule {
+    enabled            = true
+    name               = local.back_office_appeals_frontend.name
+    accepted_protocols = ["Http", "Https"]
+    patterns_to_match  = local.back_office_appeals_frontend.patterns_to_match
+    frontend_endpoints = [local.back_office_appeals_frontend.frontend_name]
+
+    forwarding_configuration {
+      backend_pool_name      = local.back_office_appeals_frontend.name
+      cache_enabled          = false
+      cache_query_parameters = []
+      forwarding_protocol    = "MatchRequest"
+    }
+  }
+
+  routing_rule {
+    enabled            = true
+    name               = local.back_office_frontend.name
+    accepted_protocols = ["Http", "Https"]
+    patterns_to_match  = local.back_office_frontend.patterns_to_match
+    frontend_endpoints = [local.back_office_frontend.frontend_name]
+
+    forwarding_configuration {
+      backend_pool_name      = local.back_office_frontend.name
+      cache_enabled          = false
+      cache_query_parameters = []
+      forwarding_protocol    = "MatchRequest"
     }
   }
 

@@ -65,13 +65,13 @@ variable "back_office_clamav_subnet_id" {
   type        = string
 }
 
-variable "back_office_public_url" {
-  description = "The public URL for the Back Office frontend web app"
+variable "back_office_sql_database" {
+  description = "The ID of the Back Office SQL database"
   type        = string
 }
 
-variable "back_office_sql_database" {
-  description = "The ID of the Back Office SQL database"
+variable "back_office_appeals_sql_database" {
+  description = "The ID of the Back Office Appeals SQL database"
   type        = string
 }
 

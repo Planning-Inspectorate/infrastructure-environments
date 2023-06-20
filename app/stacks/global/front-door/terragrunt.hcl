@@ -58,8 +58,10 @@ dependency "back_office_uks" {
 
   mock_outputs = {
     app_service_urls = {
-      back_office_frontend_uks = "mock-wfe-url"
+      back_office_frontend_uks         = "mock-wfe-url"
+      back_office_appeals_frontend_uks = "mock-wfe-url"
     }
+    appeals_web_frontend_url = "mock-appeals-wfe-url"
   }
 }
 
@@ -70,8 +72,10 @@ dependency "back_office_ukw" {
 
   mock_outputs = {
     app_service_urls = {
-      back_office_frontend_ukw = "mock-wfe-url"
+      back_office_frontend_ukw         = "mock-wfe-url"
+      back_office_appeals_frontend_ukw = "mock-wfe-url"
     }
+    appeals_web_frontend_url = "mock-appeals-wfe-url"
   }
 }
 
@@ -93,6 +97,8 @@ inputs = {
   applications_service_secondary_app_service_url = dependency.applications_service_uks.outputs.web_frontend_url
   back_office_primary_app_service_url            = dependency.back_office_ukw.outputs.web_frontend_url
   back_office_secondary_app_service_url          = dependency.back_office_uks.outputs.web_frontend_url
+  back_office_appeals_primary_app_service_url    = dependency.back_office_ukw.outputs.appeals_web_frontend_url
+  back_office_appeals_secondary_app_service_url  = dependency.back_office_uks.outputs.appeals_web_frontend_url
   common_key_vault_id                            = dependency.common_ukw.outputs.key_vault_id
   common_log_analytics_workspace_id              = dependency.common_ukw.outputs.log_analytics_workspace_id
 }

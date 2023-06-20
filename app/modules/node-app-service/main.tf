@@ -103,6 +103,7 @@ resource "azurerm_linux_web_app_slot" "staging" {
   }
 }
 
+# TODO: I think this is redundant, Front Door does SSL termination for our DNS names and then routs requests to https://*.azurewebsites.net
 resource "azurerm_app_service_certificate" "custom_hostname" {
   count = var.custom_hostname != null ? 1 : 0
 
