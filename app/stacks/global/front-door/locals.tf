@@ -63,7 +63,7 @@ locals {
       local.back_office_secondary_mapping] : [
       local.back_office_primary_mapping
     ]
-    infer_backend_host_header = true
+    infer_backend_host_header = false
     name                      = "BackOffice"
     frontend_name             = "BackOffice"
     patterns_to_match         = ["/*"]
@@ -92,7 +92,7 @@ locals {
       local.back_office_appeals_secondary_mapping] : [
       local.back_office_appeals_primary_mapping
     ]
-    infer_backend_host_header = true
+    infer_backend_host_header = false
     name                      = "BackOfficeAppeals"
     frontend_name             = "BackOffice"
     patterns_to_match         = ["/appeals", "/appeals/*"]
