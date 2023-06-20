@@ -102,18 +102,6 @@ variable "container_registry_rg" {
   type        = string
 }
 
-variable "custom_hostname" {
-  description = "The custom hostname applied to the App Service required for auth redirection with a reverse proxy"
-  type        = string
-  default     = null
-}
-
-variable "custom_hostname_certificate_secret_id" {
-  description = "The Key Vault secret URL for the custom hostname SSL certificate"
-  type        = string
-  default     = null
-}
-
 variable "database_connection_string" {
   description = "The connection string used to connect to the Applications Back Office MySQL database"
   sensitive   = true

@@ -18,8 +18,6 @@ module "app_services" {
   back_office_clamav_subnet_id                     = var.back_office_clamav_subnet_id
   container_registry_name                          = var.container_registry_name
   container_registry_rg                            = var.container_registry_rg
-  custom_hostname                                  = var.back_office_public_url
-  custom_hostname_certificate_secret_id            = data.azurerm_key_vault_certificate.wildcard_certificate.id
   database_connection_string                       = local.sql_connection_string
   appeals_database_connection_string               = local.appeals_sql_connection_string
   document_storage_api_host                        = var.back_office_document_storage_api_host
