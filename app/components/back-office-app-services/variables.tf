@@ -257,3 +257,8 @@ variable "back_office_documents_system_topic_name" {
   type        = string
   default     = ""
 }
+
+variable "back_office_hostname" {
+  description = "Back Office Hostname"
+  type        = string
+}
