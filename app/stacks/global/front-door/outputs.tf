@@ -18,6 +18,12 @@ output "frontend_endpoint_mappings" {
       frontend_endpoint    = local.appeals_frontend.frontend_endpoint
       patterns_to_match    = local.appeals_frontend.patterns_to_match
       ssl_certificate_name = local.appeals_frontend.ssl_certificate_name
+    },
+    back_office_appeals_frontend = {
+      frontend_name        = local.back_office_appeals_frontend.frontend_name
+      frontend_endpoint    = local.back_office_appeals_frontend.frontend_endpoint
+      patterns_to_match    = local.back_office_appeals_frontend.patterns_to_match
+      ssl_certificate_name = local.back_office_appeals_frontend.ssl_certificate_name
     }
   }
 }

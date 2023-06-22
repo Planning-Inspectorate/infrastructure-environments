@@ -81,7 +81,7 @@ locals {
       app_settings = {
         AUTH_REDIRECT_PATH                  = "/auth/redirect"
         API_HOST                            = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
-        APP_HOSTNAME                        = "pins-app-${var.service_name}-appeals-wfe-${var.resource_suffix}.azurewebsites.net"
+        APP_HOSTNAME                        = var.back_office_appeals_hostname
         APPEALS_CASE_OFFICER_GROUP_ID       = var.azuread_appeals_case_officer_group_id
         AUTH_CLIENT_ID                      = var.azuread_auth_client_id
         AUTH_CLIENT_SECRET                  = local.secret_refs["back-office-client-secret"]
