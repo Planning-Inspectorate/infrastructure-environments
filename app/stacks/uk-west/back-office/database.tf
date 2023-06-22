@@ -42,6 +42,16 @@ resource "azurerm_key_vault_secret" "back_office_sql_connection_string" {
   tags = local.tags
 }
 
+resource "azurerm_key_vault_secret" "back_office_appeals_sql_connection_string" {
+  #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
+  content_type = "text/plain"
+  key_vault_id = var.key_vault_id
+  name         = "back-office-appeals-sql-connection-string"
+  value        = local.appeals_sql_connection_string
+
+  tags = local.tags
+}
+
 resource "azurerm_mssql_server" "back_office" {
   #checkov:skip=CKV_AZURE_113: Public access enabled for testing
   #checkov:skip=CKV_AZURE_23: Auditing to be added later
