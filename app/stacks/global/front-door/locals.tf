@@ -84,9 +84,8 @@ locals {
     ssl_certificate_name      = var.appeals_service_ssl_certificate_name
   }
 
-  # This is quite confusing now since this isn't used to create a new frotnend endpoint, only a backend pool and routing rule, but we have to do this to maintain ordering (for TF)
-  # It's only temporary, and is another reason to upgrade to Front Door (New)
   back_office_appeals_frontend = {
+    frontend_endpoint = var.back_office_appeals_public_url
     app_service_urls = local.back_office_appeals_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
       local.back_office_appeals_primary_mapping,
       local.back_office_appeals_secondary_mapping] : [
@@ -94,8 +93,9 @@ locals {
     ]
     infer_backend_host_header = false
     name                      = "BackOfficeAppeals"
-    frontend_name             = "BackOffice"
-    patterns_to_match         = ["/appeals", "/appeals/*"]
+    frontend_name             = "BackOfficeAppeals"
+    patterns_to_match         = ["/*"]
+    ssl_certificate_name      = var.back_office_appeals_ssl_certificate_name
   }
 
   frontend_endpoint_mappings = [{

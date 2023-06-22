@@ -86,6 +86,12 @@ resource "azurerm_frontdoor" "common" {
     web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
   }
 
+  frontend_endpoint {
+    name                                    = local.back_office_appeals_frontend.frontend_name
+    host_name                               = local.back_office_appeals_frontend.frontend_endpoint
+    web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
+  }
+
   # Backend Pools
   backend_pool {
     name                = local.appeals_frontend.name
@@ -204,13 +210,13 @@ resource "azurerm_frontdoor" "common" {
 
   routing_rule {
     enabled            = true
-    name               = local.back_office_appeals_frontend.name
+    name               = local.back_office_frontend.name
     accepted_protocols = ["Http", "Https"]
-    patterns_to_match  = local.back_office_appeals_frontend.patterns_to_match
-    frontend_endpoints = [local.back_office_appeals_frontend.frontend_name]
+    patterns_to_match  = local.back_office_frontend.patterns_to_match
+    frontend_endpoints = [local.back_office_frontend.frontend_name]
 
     forwarding_configuration {
-      backend_pool_name      = local.back_office_appeals_frontend.name
+      backend_pool_name      = local.back_office_frontend.name
       cache_enabled          = false
       cache_query_parameters = []
       forwarding_protocol    = "MatchRequest"
@@ -219,13 +225,13 @@ resource "azurerm_frontdoor" "common" {
 
   routing_rule {
     enabled            = true
-    name               = local.back_office_frontend.name
+    name               = local.back_office_appeals_frontend.name
     accepted_protocols = ["Http", "Https"]
-    patterns_to_match  = local.back_office_frontend.patterns_to_match
-    frontend_endpoints = [local.back_office_frontend.frontend_name]
+    patterns_to_match  = local.back_office_appeals_frontend.patterns_to_match
+    frontend_endpoints = [local.back_office_appeals_frontend.frontend_name]
 
     forwarding_configuration {
-      backend_pool_name      = local.back_office_frontend.name
+      backend_pool_name      = local.back_office_appeals_frontend.name
       cache_enabled          = false
       cache_query_parameters = []
       forwarding_protocol    = "MatchRequest"

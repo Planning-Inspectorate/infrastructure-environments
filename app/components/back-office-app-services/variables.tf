@@ -262,3 +262,8 @@ variable "back_office_hostname" {
   description = "Back Office Hostname"
   type        = string
 }
+
+variable "back_office_appeals_hostname" {
+  description = "Back Office Hostname"
+  type        = string
+}
