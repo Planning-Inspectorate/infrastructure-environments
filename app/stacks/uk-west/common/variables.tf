@@ -81,3 +81,9 @@ variable "tooling_network_rg" {
   description = "The name of the resource group containing the VNet in the Tooling environment"
   type        = string
 }
+
+variable "create_turbrepo_cache" {
+  description = "Whether or not to create the turborepo cache server. Should only be deployed to one environment."
+  type        = bool
+  default     = false
+}
