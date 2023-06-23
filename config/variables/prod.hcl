@@ -5,6 +5,7 @@ locals {
   appeals_service_ssl_certificate_name = "appealservicecf835e2d-1ed6-460f-aa7c-922922db830e"
   applications_service_public_url      = "national-infrastructure-consenting.planninginspectorate.gov.uk"
   back_office_public_url               = "back-office-prod.planninginspectorate.gov.uk"
+  back_office_appeals_public_url       = "back-office-appeals.planninginspectorate.gov.uk"
   feature_front_door_failover_enaled   = false
   environment                          = "prod"
   enable_search_indexing_by_default    = true

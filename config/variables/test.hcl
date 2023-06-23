@@ -4,6 +4,7 @@ locals {
   appeals_service_public_url         = "appeals-service-test.planninginspectorate.gov.uk"
   applications_service_public_url    = "applications-service-test.planninginspectorate.gov.uk"
   back_office_public_url             = "back-office-test.planninginspectorate.gov.uk"
+  back_office_appeals_public_url     = "back-office-appeals-test.planninginspectorate.gov.uk"
   feature_front_door_failover_enaled = false
   environment                        = "test"
   enable_search_indexing_by_default  = false

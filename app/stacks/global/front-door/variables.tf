@@ -48,8 +48,19 @@ variable "back_office_ssl_certificate_name" {
   default     = "pins-wildcard"
 }
 
+variable "back_office_appeals_ssl_certificate_name" {
+  description = "The SSL certificate name in the environment Key Vault for the back office appeals service"
+  type        = string
+  default     = "pins-wildcard"
+}
+
 variable "back_office_public_url" {
   description = "The public URL for the Back Office frontend web app"
+  type        = string
+}
+
+variable "back_office_appeals_public_url" {
+  description = "The public URL for the Back Office Appeals frontend web app"
   type        = string
 }
 

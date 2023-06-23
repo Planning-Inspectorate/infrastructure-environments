@@ -12,6 +12,8 @@ module "app_services" {
   azuread_applications_case_admin_officer_group_id                                    = var.azuread_applications_case_admin_officer_group_id
   azuread_applications_caseteam_group_id                                              = var.azuread_applications_caseteam_group_id
   azuread_applications_inspector_group_id                                             = var.azuread_applications_inspector_group_id
+  back_office_hostname                                                                = var.back_office_public_url
+  back_office_appeals_hostname                                                        = var.back_office_appeals_public_url
   integration_subnet_id                                                               = var.integration_subnet_id
   back_office_integration_subnet_id                                                   = var.back_office_integration_subnet_id
   back_office_clamav_subnet_id                                                        = var.back_office_clamav_subnet_id
