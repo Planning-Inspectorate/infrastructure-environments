@@ -22,6 +22,7 @@ This component contains the common infrastructure required by each environment. 
 |------|--------|---------|
 | <a name="module_azure_region_ukw"></a> [azure\_region\_ukw](#module\_azure\_region\_ukw) | claranet/regions/azurerm | 4.2.1 |
 | <a name="module_networking"></a> [networking](#module\_networking) | ../../../components/networking | n/a |
+| <a name="module_turborepo_cache"></a> [turborepo\_cache](#module\_turborepo\_cache) | ../../../components/turborepo-cache | n/a |
 
 ## Resources
 
@@ -52,6 +53,7 @@ This component contains the common infrastructure required by each environment. 
 | <a name="input_app_service_principal_id"></a> [app\_service\_principal\_id](#input\_app\_service\_principal\_id) | The ID of the service principal associated with App Service in the tenant | `string` | n/a | yes |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | The common resource tags for the project | `map(string)` | n/a | yes |
 | <a name="input_cosmosdb_enable_public_access"></a> [cosmosdb\_enable\_public\_access](#input\_cosmosdb\_enable\_public\_access) | A flag to indicate if the database can be accessed over the internet | `string` | `false` | no |
+| <a name="input_create_turbrepo_cache"></a> [create\_turbrepo\_cache](#input\_create\_turbrepo\_cache) | Whether or not to create the turborepo cache server. Should only be deployed to one environment. | `bool` | `false` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
 | <a name="input_front_door_principal_id"></a> [front\_door\_principal\_id](#input\_front\_door\_principal\_id) | The ID of the service principal associated with Front Door in the tenant | `string` | n/a | yes |
 | <a name="input_instance"></a> [instance](#input\_instance) | The environment instance for use if multiple environments are deployed to a subscription | `string` | `"001"` | no |
