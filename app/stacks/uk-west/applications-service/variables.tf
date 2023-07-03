@@ -24,6 +24,16 @@ variable "applications_service_public_url" {
   type        = string
 }
 
+variable "back_office_integration_get_documents_case_references" {
+  description = "list of case references (comma separated) that document data is retrieved from back office"
+  type        = string
+}
+
+variable "back_office_integration_get_application_case_references" {
+  description = "list of case references (comma separated) that the application data is retrieved from back office"
+  type        = string
+}
+
 variable "back_office_service_bus_namespace_name" {
   description = "Namespace of Back Office Service Bus instance"
   type        = string
