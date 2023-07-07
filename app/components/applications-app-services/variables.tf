@@ -238,6 +238,11 @@ variable "feature_allow_section_51" {
   type        = string
 }
 
+variable "feature_allow_get_updates" {
+  description = "Feature toggle for get updates"
+  type        = string
+}
+
 variable "feature_enable_generalised_form_sanitisation" {
   description = "Feature toggle to enable/disable generalised form sanitisation"
   type        = string
