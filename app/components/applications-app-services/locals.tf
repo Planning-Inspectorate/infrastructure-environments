@@ -46,15 +46,14 @@ locals {
       outbound_vnet_connectivity      = true
 
       app_settings = {
+        APPLICATIONS_WEB_BASE_URL                               = "https://${var.applications_service_public_url}"
         BACK_OFFICE_INTEGRATION_GET_APPLICATION_CASE_REFERENCES = var.back_office_integration_get_application_case_references
         BACK_OFFICE_INTEGRATION_GET_DOCUMENTS_CASE_REFERENCES   = var.back_office_integration_get_documents_case_references
         DATABASE_URL                                            = var.applications_sql_server_connection_string_jbdc
         DOCUMENTS_HOST                                          = var.documents_host
         ENCRYPTION_SECRET_KEY                                   = local.secret_refs["applications-service-encryption-secret-key"]
         FILE_UPLOADS_PATH                                       = "/opt/app/uploads"
-        HAVING_YOUR_SAY_URL                                     = "https://${var.applications_service_public_url}/having-your-say-guide"
         LOGGER_LEVEL                                            = var.logger_level
-        MAGIC_LINK_DOMAIN                                       = "https://${var.applications_service_public_url}/"
         MYSQL_DATABASE                                          = local.secret_refs["applications-service-mysql-database"]
         MYSQL_DIALECT                                           = local.secret_refs["applications-service-mysql-dialect"]
         MYSQL_HOST                                              = local.secret_refs["applications-service-mysql-host"]
@@ -67,7 +66,6 @@ locals {
         NI_OAUTH_PASSWORD                                       = local.secret_refs["applications-service-ni-oauth-password"]
         NI_OAUTH_USERNAME                                       = local.secret_refs["applications-service-ni-oauth-username"]
         NODE_ENV                                                = var.node_environment
-        PRELIMINARY_MEETING_URL                                 = "https://${var.applications_service_public_url}/"
         SERVER_PORT                                             = "3000"
         SERVER_SHOW_ERRORS                                      = true
         SERVER_TERMINATION_GRACE_PERIOD_SECONDS                 = "0"
@@ -77,6 +75,7 @@ locals {
         SRV_NOTIFY_MAGIC_LINK_EMAIL                             = var.srv_notify_magic_link_email_template_id
         SRV_NOTIFY_SERVICE_ID                                   = var.srv_notify_service_id
         SRV_NOTIFY_SUBMISSION_COMPLETE_EMAIL                    = var.srv_notify_submission_complete_email_template_id
+        SRV_NOTIFY_SUBSCRIPTION_CREATE_EMAIL                    = var.srv_notify_subscription_create_email_template_id
       }
     }
   }
