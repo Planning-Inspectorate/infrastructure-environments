@@ -4,26 +4,32 @@ resource "azurerm_cdn_frontdoor_profile" "common" {
   sku_name            = var.front_door_sku_name
 }
 
-resource "azurerm_cdn_frontdoor_endpoint" "my_endpoint" {
+resource "azurerm_cdn_frontdoor_endpoint" "common" {
   name                     = local.front_door_endpoint_name
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
+
+  tags = local.tags
 }
 
-resource "azurerm_cdn_frontdoor_origin_group" "my_origin_group" {
+resource "azurerm_cdn_frontdoor_origin_group" "common" {
   name                     = local.front_door_origin_group_name
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
   session_affinity_enabled = true
 
   load_balancing {
-    sample_size                 = 4
-    successful_samples_required = 3
+    name                            = "Default"
+    sample_size                     = 4
+    successful_samples_required     = 2
+    additional_latency_milliseconds = 0
   }
 
   health_probe {
+    enabled             = true
+    name                = "Http"
     path                = "/"
-    request_type        = "HEAD"
-    protocol            = "Https"
-    interval_in_seconds = 100
+    protocol            = "Http"
+    probe_method        = "GET"
+    interval_in_seconds = 120
   }
 }
 
