@@ -150,6 +150,12 @@ variable "feature_allow_section_51" {
   type        = string
 }
 
+variable "feature_allow_get_updates" {
+  description = "Feature toggle for get updates"
+  type        = string
+}
+
+
 variable "feature_allow_have_your_say" {
   description = "Feature toggle to enable/disable have your say"
   type        = string
