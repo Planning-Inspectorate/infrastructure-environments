@@ -107,6 +107,15 @@ variable "front_door_waf_mode" {
   default     = "Detection"
 }
 
+variable "front_door_sku_name" {
+  type    = string
+  default = "Standard_AzureFrontDoor"
+  validation {
+    condition     = contains(["Standard_AzureFrontDoor", "Premium_AzureFrontDoor"], var.front_door_sku_name)
+    error_message = "The SKU value must be Standard_AzureFrontDoor or Premium_AzureFrontDoor."
+  }
+}
+
 variable "instance" {
   description = "The environment instance for use if multiple environments are deployed to a subscription"
   type        = string
