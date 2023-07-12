@@ -91,9 +91,19 @@ output "service_bus_namespace_name" {
   value       = azurerm_servicebus_namespace.back_office.name
 }
 
+output "servicebus_topic_nsip_documents_id" {
+  description = "Service Bus Topic nsip-document id"
+  value       = azurerm_servicebus_topic.nsip_documents.id
+}
+
 output "service_bus_nsip_project_topic_id" {
   description = "ID of the nsip-project Service Bus Topic"
   value       = azurerm_servicebus_topic.nsip_project.id
+}
+
+output "servicebus_topic_register_nsip_subscription_id" {
+  description = "Service Bus Topic register_nsip_subscription id"
+  value       = azurerm_servicebus_topic.register_nsip_subscription.id
 }
 
 output "sql_server_id" {
@@ -111,9 +121,4 @@ output "sql_server_username" {
   description = "The SQL server administrator username"
   sensitive   = true
   value       = local.sql_server_username
-}
-
-output "servicebus_topic_nsip_documents_id" {
-  description = "Service Bus Topic nsip-document id"
-  value       = azurerm_servicebus_topic.nsip_documents.id
 }

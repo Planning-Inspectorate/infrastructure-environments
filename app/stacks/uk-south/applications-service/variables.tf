@@ -47,7 +47,14 @@ variable "back_office_service_bus_nsip_project_topic_id" {
 variable "back_office_service_bus_nsip_documents_topic_id" {
   description = "ID for the nsip-document topic"
   type        = string
-  # TODO: DR strategy to figure out how to handle service bus fail-over
+  # TODO: ASB-1171 DR strategy to figure out how to handle service bus fail-over
+  default = ""
+}
+
+variable "back_office_service_bus_register_nsip_subscription_topic_id" {
+  description = "ID for the register-nsip-subscription topic"
+  type        = string
+  # TODO: ASB-1171 DR strategy to figure out how to handle service bus fail-over
   default = ""
 }
 
