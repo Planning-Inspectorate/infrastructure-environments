@@ -1,20 +1,20 @@
 resource "azurerm_cdn_frontdoor_profile" "common" {
-  name                = "pins-fds-${local.service_name}-${local.resource_suffix}"
+  name                = "pins-fdp-${local.service_name}-${local.resource_suffix}"
   resource_group_name = azurerm_resource_group.frontdoor.name
   sku_name            = var.front_door_sku_name
 }
 
-resource "azurerm_cdn_frontdoor_endpoint" "common" {
-  name                     = local.front_door_endpoint_name
+resource "azurerm_cdn_frontdoor_endpoint" "back_office_appeals_frontend" {
+  name                     = local.back_office_appeals_frontend.frontend_name
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
 
   tags = local.tags
 }
 
-resource "azurerm_cdn_frontdoor_origin_group" "common" {
-  name                     = local.front_door_origin_group_name
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
-  session_affinity_enabled = true
+resource "azurerm_cdn_frontdoor_origin_group" "back_office_appeals_frontend" {
+  name                     = "pins-fdp-${local.service_name}-${local.resource_suffix}"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.back_office_appeals_frontend.id
+  session_affinity_enabled = false
 
   load_balancing {
     name                            = "Default"
@@ -33,25 +33,25 @@ resource "azurerm_cdn_frontdoor_origin_group" "common" {
   }
 }
 
-resource "azurerm_cdn_frontdoor_origin" "my_app_service_origin" {
-  name                          = local.front_door_origin_name
-  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.my_origin_group.id
+resource "azurerm_cdn_frontdoor_origin" "app_service_origin" {
+  name                          = "pins-fdp-${local.service_name}-${local.resource_suffix}"
+  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.back_office_appeals_frontend.id
 
   enabled                        = true
-  host_name                      = azurerm_windows_web_app.app.default_hostname
+  host_name                      = "www.gov.uk"
   http_port                      = 80
   https_port                     = 443
-  origin_host_header             = azurerm_windows_web_app.app.default_hostname
-  priority                       = 1
-  weight                         = 1000
+  origin_host_header             = "www.gov.uk"
+  priority                       = 5
+  weight                         = 100
   certificate_name_check_enabled = true
 }
 
 resource "azurerm_cdn_frontdoor_route" "my_route" {
-  name                          = local.front_door_route_name
-  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.my_endpoint.id
-  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.my_origin_group.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.my_app_service_origin.id]
+  name                          = "pins-fdp-${local.service_name}-${local.resource_suffix}"
+  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.back_office_appeals_frontend.id
+  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.back_office_appeals_frontend.id
+  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.app_service_origin.id]
 
   supported_protocols    = ["Http", "Https"]
   patterns_to_match      = ["/*"]
