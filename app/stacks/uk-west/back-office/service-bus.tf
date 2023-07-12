@@ -64,6 +64,12 @@ resource "azurerm_servicebus_topic" "nsip_project" {
   default_message_ttl = "P14D"
 }
 
+resource "azurerm_servicebus_topic" "nsip_project_update" {
+  name                = "nsip-project-update"
+  namespace_id        = azurerm_servicebus_namespace.back_office.id
+  default_message_ttl = "P14D"
+}
+
 resource "azurerm_servicebus_topic" "employee" {
   name                = "employee"
   namespace_id        = azurerm_servicebus_namespace.back_office.id
