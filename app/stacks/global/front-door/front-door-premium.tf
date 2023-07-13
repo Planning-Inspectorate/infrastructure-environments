@@ -61,19 +61,3 @@ resource "azurerm_cdn_frontdoor_route" "back_office_appeals_frontend" {
 
   cdn_frontdoor_origin_path = "/government/organisations/planning-inspectorate"
 }
-
-
-# variable "app_service_plan_sku_name" {
-#   type    = string
-#   default = "S1"
-# }
-
-# variable "app_service_plan_capacity" {
-#   type    = number
-#   default = 1
-# }
-
-# variable "app_service_plan_sku_tier_name" {
-#   type    = string
-#   default = "Standard"
-# }
