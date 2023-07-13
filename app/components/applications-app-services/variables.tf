@@ -63,6 +63,11 @@ variable "back_office_service_bus_nsip_documents_topic_id" {
   type        = string
 }
 
+variable "back_office_service_bus_register_nsip_subscription_topic_id" {
+  description = "ID for the register-nsip-subscription topic"
+  type        = string
+}
+
 variable "container_registry_name" {
   description = "The name of the container registry that hosts the image"
   type        = string

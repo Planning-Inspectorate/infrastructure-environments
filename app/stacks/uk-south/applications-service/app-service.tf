@@ -16,6 +16,7 @@ module "app_services" {
   back_office_service_bus_namespace_name                          = var.back_office_service_bus_namespace_name
   back_office_service_bus_nsip_project_topic_id                   = var.back_office_service_bus_nsip_project_topic_id
   back_office_service_bus_nsip_documents_topic_id                 = var.back_office_service_bus_nsip_documents_topic_id
+  back_office_service_bus_register_nsip_subscription_topic_id     = var.back_office_service_bus_register_nsip_subscription_topic_id
   container_registry_name                                         = var.container_registry_name
   container_registry_rg                                           = var.container_registry_rg
   documents_host                                                  = var.documents_host
