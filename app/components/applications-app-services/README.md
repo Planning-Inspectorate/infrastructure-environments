@@ -90,6 +90,7 @@ This module contains the App Services resources for the applications service. Th
 | <a name="input_srv_notify_magic_link_email_template_id"></a> [srv\_notify\_magic\_link\_email\_template\_id](#input\_srv\_notify\_magic\_link\_email\_template\_id) | The template ID for the magic link email | `string` | n/a | yes |
 | <a name="input_srv_notify_service_id"></a> [srv\_notify\_service\_id](#input\_srv\_notify\_service\_id) | The ID of the Notifications service | `string` | n/a | yes |
 | <a name="input_srv_notify_submission_complete_email_template_id"></a> [srv\_notify\_submission\_complete\_email\_template\_id](#input\_srv\_notify\_submission\_complete\_email\_template\_id) | The template ID for the submission complete email | `string` | n/a | yes |
+| <a name="input_srv_notify_subscription_create_email_template_id"></a> [srv\_notify\_subscription\_create\_email\_template\_id](#input\_srv\_notify\_subscription\_create\_email\_template\_id) | The template ID for the subscription create email | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | The tags applied to all resources | `map(string)` | n/a | yes |
 
 ## Outputs

@@ -277,6 +277,11 @@ variable "srv_notify_submission_complete_email_template_id" {
   type        = string
 }
 
+variable "srv_notify_subscription_create_email_template_id" {
+  description = "The template ID for the subscription create email"
+  type        = string
+}
+
 variable "srv_notify_service_id" {
   description = "The ID of the Notifications service"
   type        = string

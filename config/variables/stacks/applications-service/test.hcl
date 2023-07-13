@@ -1,4 +1,6 @@
 locals {
+  back_office_integration_get_documents_case_references           = ""
+  back_office_integration_get_application_case_references         = ""
   documents_host                                                  = "https://nipreprod.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
   feature_allow_document_library                                  = "true"
   feature_allow_examination_timetable                             = "true"
@@ -21,6 +23,7 @@ locals {
   srv_notify_magic_link_email_template_id                         = "4ca6b93a-4c45-4abe-a8ea-69ba13c80915"
   srv_notify_service_id                                           = "9b89eb93-3071-432c-9c6b-4e07dbda9071"
   srv_notify_submission_complete_email_template_id                = "e900038b-f112-4862-9a93-0b8bbb48a09c"
+  srv_notify_subscription_create_email_template_id                = "cb987449-fad5-485f-aef1-9c5c616c6d42"
   sql_database_configuration = {
     max_size_gb               = 1024
     short_term_retention_days = 7

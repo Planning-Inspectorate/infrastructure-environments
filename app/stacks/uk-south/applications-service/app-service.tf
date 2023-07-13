@@ -55,6 +55,7 @@ module "app_services" {
   srv_notify_magic_link_email_template_id                         = var.srv_notify_magic_link_email_template_id
   srv_notify_service_id                                           = var.srv_notify_service_id
   srv_notify_submission_complete_email_template_id                = var.srv_notify_submission_complete_email_template_id
+  srv_notify_subscription_create_email_template_id                = var.srv_notify_subscription_create_email_template_id
 
   tags = local.tags
 
