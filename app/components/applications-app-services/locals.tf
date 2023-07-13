@@ -49,6 +49,8 @@ locals {
         APPLICATIONS_WEB_BASE_URL                               = "https://${var.applications_service_public_url}"
         BACK_OFFICE_INTEGRATION_GET_APPLICATION_CASE_REFERENCES = var.back_office_integration_get_application_case_references
         BACK_OFFICE_INTEGRATION_GET_DOCUMENTS_CASE_REFERENCES   = var.back_office_integration_get_documents_case_references
+        BACK_OFFICE_SERVICE_BUS_ENABLED                         = "true"
+        BACK_OFFICE_SERVICE_BUS_HOSTNAME                        = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
         DATABASE_URL                                            = var.applications_sql_server_connection_string_jbdc
         DOCUMENTS_HOST                                          = var.documents_host
         ENCRYPTION_SECRET_KEY                                   = local.secret_refs["applications-service-encryption-secret-key"]
