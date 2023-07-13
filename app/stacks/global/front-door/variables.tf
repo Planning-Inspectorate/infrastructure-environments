@@ -108,8 +108,9 @@ variable "front_door_waf_mode" {
 }
 
 variable "front_door_sku_name" {
-  type    = string
-  default = "Premium_AzureFrontDoor"
+  description = "The SKU name of the Front Door"
+  type        = string
+  default     = "Premium_AzureFrontDoor"
   validation {
     condition     = contains(["Standard_AzureFrontDoor", "Premium_AzureFrontDoor"], var.front_door_sku_name)
     error_message = "The SKU value must be Standard_AzureFrontDoor or Premium_AzureFrontDoor."
