@@ -33,7 +33,7 @@ resource "azurerm_cdn_frontdoor_origin_group" "back_office_appeals_frontend" {
   }
 }
 
-resource "azurerm_cdn_frontdoor_origin" "app_service_origin" {
+resource "azurerm_cdn_frontdoor_origin" "back_office_appeals_frontend" {
   name                          = "pins-fdp-${local.service_name}-${local.resource_suffix}"
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.back_office_appeals_frontend.id
 
@@ -47,7 +47,7 @@ resource "azurerm_cdn_frontdoor_origin" "app_service_origin" {
   certificate_name_check_enabled = true
 }
 
-resource "azurerm_cdn_frontdoor_route" "my_route" {
+resource "azurerm_cdn_frontdoor_route" "back_office_appeals_frontend" {
   name                          = "pins-fdp-${local.service_name}-${local.resource_suffix}"
   cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.back_office_appeals_frontend.id
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.back_office_appeals_frontend.id
@@ -58,6 +58,8 @@ resource "azurerm_cdn_frontdoor_route" "my_route" {
   forwarding_protocol    = "HttpsOnly"
   link_to_default_domain = true
   https_redirect_enabled = true
+
+  cdn_frontdoor_origin_path = "/government/organisations/planning-inspectorate"
 }
 
 
