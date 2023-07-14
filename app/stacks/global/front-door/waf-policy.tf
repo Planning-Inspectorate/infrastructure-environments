@@ -154,6 +154,7 @@ resource "azurerm_cdn_frontdoor_firewall_policy" "default" {
   managed_rule {
     type    = "DefaultRuleSet"
     version = "1.0"
+    action  = "Block"
 
     override {
       rule_group_name = "RFI"

@@ -13,22 +13,19 @@ resource "azurerm_cdn_frontdoor_endpoint" "back_office_appeals_frontend" {
 
 resource "azurerm_cdn_frontdoor_origin_group" "back_office_appeals_frontend" {
   name                     = "pins-fdp-${local.service_name}-${local.resource_suffix}"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.back_office_appeals_frontend.id
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
   session_affinity_enabled = false
 
   load_balancing {
-    name                            = "Default"
-    sample_size                     = 4
-    successful_samples_required     = 2
-    additional_latency_milliseconds = 0
+    sample_size                        = 4
+    successful_samples_required        = 2
+    additional_latency_in_milliseconds = 0
   }
 
   health_probe {
-    enabled             = true
-    name                = "Http"
     path                = "/"
     protocol            = "Http"
-    probe_method        = "GET"
+    request_type        = "GET"
     interval_in_seconds = 120
   }
 }
@@ -51,7 +48,7 @@ resource "azurerm_cdn_frontdoor_route" "back_office_appeals_frontend" {
   name                          = "pins-fdp-${local.service_name}-${local.resource_suffix}"
   cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.back_office_appeals_frontend.id
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.back_office_appeals_frontend.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.app_service_origin.id]
+  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.back_office_appeals_frontend.id]
 
   supported_protocols    = ["Http", "Https"]
   patterns_to_match      = ["/*"]
