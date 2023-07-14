@@ -103,6 +103,7 @@ locals {
         SRV_NOTIFY_APPEAL_SUBMISSION_CONFIRMATION_EMAIL_TO_APPELLANT_TEMPLATE_ID    = var.srv_notify_appeal_submission_confirmation_email_to_appellant_template_id
         SRV_NOTIFY_APPEAL_SUBMISSION_RECEIVED_NOTIFICATION_EMAIL_TO_LPA_TEMPLATE_ID = var.srv_notify_appeal_submission_received_notification_email_to_lpa_template_id
         SRV_NOTIFY_START_EMAIL_TO_LPA_TEMPLATE_ID                                   = var.srv_notify_start_email_to_lpa_template_id
+        SRV_NOTIFY_LPA_DASHBOARD_INVITE_TEMPLATE_ID                                 = var.srv_notify_lpa_dashboard_invite_template_id
         TASK_SUBMIT_TO_HORIZON_CRON_STRING                                          = var.task_submit_to_horizon_cron_string
         TASK_SUBMIT_TO_HORIZON_TRIGGER_ACTIVE                                       = var.task_submit_to_horizon_trigger_active
       }
