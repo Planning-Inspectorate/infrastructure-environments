@@ -90,6 +90,7 @@ locals {
         AUTH_TENANT_ID                      = data.azurerm_client_config.current.tenant_id
         APPEALS_VALIDATION_OFFICER_GROUP_ID = var.azuread_appeals_validation_officer_group_id
         AZURE_BLOB_STORE_HOST               = var.document_storage_api_host # TODO: Replace
+        AZURE_BLOB_DEFAULT_CONTAINER        = var.document_storage_back_office_document_service_uploads_container_name
         NODE_ENV                            = var.node_environment
         SESSION_SECRET                      = local.secret_refs["session-secret"] # TODO: Let's create a separate one for Appeals
       }
