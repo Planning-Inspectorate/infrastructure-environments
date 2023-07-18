@@ -30,7 +30,7 @@ resource "azurerm_role_assignment" "back_office_app_send_service_bus_access" {
 }
 
 # As above, assume appeals will choose its own topics to publish to on the same service bus instance
-resource "azurerm_role_assignment" "back_office_app_send_service_bus_access" {
+resource "azurerm_role_assignment" "back_office_appeals_send_service_bus_access" {
   scope                = var.service_bus_namespace_id
   role_definition_name = "Azure Service Bus Data Sender"
   principal_id         = module.app_service["back_office_appeals-api"].principal_id
