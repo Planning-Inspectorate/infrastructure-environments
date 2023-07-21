@@ -58,3 +58,4 @@ resource "azurerm_cdn_frontdoor_route" "back_office_appeals_frontend" {
 
   cdn_frontdoor_origin_path = "/government/organisations/planning-inspectorate"
 }
+
