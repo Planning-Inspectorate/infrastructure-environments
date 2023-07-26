@@ -19,8 +19,9 @@ resource "azurerm_storage_account" "back_office_documents" {
   tags                             = local.tags
   blob_properties {
     cors_rule {
-      allowed_headers    = ["*"]
-      allowed_methods    = ["GET", "OPTIONS", "PUT"]
+      allowed_headers = ["*"]
+      allowed_methods = ["GET", "OPTIONS", "PUT"]
+      # TODO: localhost for dev
       allowed_origins    = ["https://back-office-${var.environment}.planninginspectorate.gov.uk", "https://back-office-appeals-${var.environment}.planninginspectorate.gov.uk"]
       exposed_headers    = ["*"]
       max_age_in_seconds = "600"

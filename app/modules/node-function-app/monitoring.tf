@@ -3,7 +3,7 @@ resource "azurerm_monitor_diagnostic_setting" "function_app_logs" {
   log_analytics_workspace_id = var.log_analytics_workspace_id
   target_resource_id         = azurerm_linux_function_app.function_app.id
 
-  log {
+  enabled_log {
     category = "FunctionAppLogs"
   }
 

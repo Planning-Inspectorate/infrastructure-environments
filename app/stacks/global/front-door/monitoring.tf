@@ -3,9 +3,8 @@ resource "azurerm_monitor_diagnostic_setting" "front_door_waf" {
   target_resource_id         = azurerm_frontdoor.common.id
   log_analytics_workspace_id = var.common_log_analytics_workspace_id
 
-  log {
+  enabled_log {
     category = "FrontdoorWebApplicationFirewallLog"
-    enabled  = true
 
     retention_policy {
       enabled = false

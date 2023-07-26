@@ -13,9 +13,8 @@ resource "azurerm_monitor_diagnostic_setting" "back_office_sql_database" {
   target_resource_id         = azurerm_mssql_database.back_office.id
   log_analytics_workspace_id = azurerm_log_analytics_workspace.back_office.id
 
-  log {
+  enabled_log {
     category = "SQLSecurityAuditEvents"
-    enabled  = true
 
     retention_policy {
       enabled = false
