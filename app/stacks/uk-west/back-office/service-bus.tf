@@ -88,6 +88,12 @@ resource "azurerm_servicebus_topic" "nsip_subscription" {
   default_message_ttl = "P14D"
 }
 
+resource "azurerm_servicebus_topic" "nsip_exam_timetable" {
+  name                = "nsip-exam-timetable"
+  namespace_id        = azurerm_servicebus_namespace.back_office.id
+  default_message_ttl = "P14D"
+}
+
 # Commands
 resource "azurerm_servicebus_topic" "register_nsip_subscription" {
   name                = "register-nsip-subscription"
