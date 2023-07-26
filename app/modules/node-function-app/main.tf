@@ -33,6 +33,8 @@ resource "azurerm_linux_function_app" "function_app" {
     application_stack {
       node_version = var.function_node_version
     }
+
+    application_insights_key = var.use_app_insights ? azurerm_application_insights.function_app_insights.instrumentation_key : null
   }
 
   tags = var.tags

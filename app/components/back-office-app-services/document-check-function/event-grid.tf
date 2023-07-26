@@ -11,6 +11,8 @@ resource "azurerm_eventgrid_system_topic_event_subscription" "uploads_container_
 
   azure_function_endpoint {
     # Because of how the azurerm provider works for function apps, we actually can't create the function itself
-    function_id = "${module.anti_virus_functions.app_id}/functions/check-document"
+    function_id                       = "${module.anti_virus_functions.app_id}/functions/check-document"
+    max_events_per_batch              = 1
+    preferred_batch_size_in_kilobytes = 1
   }
 }
