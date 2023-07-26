@@ -26,8 +26,6 @@ No modules.
 |------|------|
 | [azurerm_app_service_certificate.custom_hostname](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/app_service_certificate) | resource |
 | [azurerm_app_service_custom_hostname_binding.custom_hostname](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/app_service_custom_hostname_binding) | resource |
-| [azurerm_app_service_slot_virtual_network_swift_connection.vnet_connection](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/app_service_slot_virtual_network_swift_connection) | resource |
-| [azurerm_app_service_virtual_network_swift_connection.vnet_connection](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/app_service_virtual_network_swift_connection) | resource |
 | [azurerm_key_vault_access_policy.read_secrets](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/key_vault_access_policy) | resource |
 | [azurerm_key_vault_access_policy.read_secrets_staging_slot](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/key_vault_access_policy) | resource |
 | [azurerm_linux_web_app.web_app](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/linux_web_app) | resource |
