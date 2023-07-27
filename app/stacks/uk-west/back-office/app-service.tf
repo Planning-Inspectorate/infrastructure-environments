@@ -3,7 +3,6 @@ module "app_services" {
 
   action_group_low_id                                                                 = var.action_group_low_id
   app_service_plan_id                                                                 = var.app_service_plan_id
-  app_service_plan_resource_group_name                                                = var.common_resource_group_name
   app_service_private_dns_zone_id                                                     = data.azurerm_private_dns_zone.app_service.id
   azuread_auth_client_id                                                              = var.azuread_auth_client_id
   azuread_appeals_case_officer_group_id                                               = var.azuread_appeals_case_officer_group_id

@@ -13,7 +13,7 @@ This module contains the App Services resources for the Back Office service. The
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.64.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.6.0 |
 
 ## Modules
 
@@ -31,9 +31,12 @@ This module contains the App Services resources for the Back Office service. The
 
 | Name | Type |
 |------|------|
+| [azurerm_role_assignment.appeals_case_officer_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.appeals_inspector_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.applications_case_admin_officer_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.applications_caseteam_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.back_office_app_send_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.back_office_appeals_send_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
 | [azurerm_service_plan.back_office_functions_plan](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/service_plan) | resource |
 | [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/data-sources/client_config) | data source |
 
@@ -43,7 +46,6 @@ This module contains the App Services resources for the Back Office service. The
 |------|-------------|------|---------|:--------:|
 | <a name="input_action_group_low_id"></a> [action\_group\_low\_id](#input\_action\_group\_low\_id) | The ID of the Azure Monitor action group for low priority alerts | `string` | n/a | yes |
 | <a name="input_app_service_plan_id"></a> [app\_service\_plan\_id](#input\_app\_service\_plan\_id) | The id of the app service plan | `string` | n/a | yes |
-| <a name="input_app_service_plan_resource_group_name"></a> [app\_service\_plan\_resource\_group\_name](#input\_app\_service\_plan\_resource\_group\_name) | The App Service Plan resource group name required for custom hostname certificate placement | `string` | `null` | no |
 | <a name="input_app_service_private_dns_zone_id"></a> [app\_service\_private\_dns\_zone\_id](#input\_app\_service\_private\_dns\_zone\_id) | The id of the private DNS zone for App services | `string` | n/a | yes |
 | <a name="input_appeals_database_connection_string"></a> [appeals\_database\_connection\_string](#input\_appeals\_database\_connection\_string) | The connection string used to connect to the Back Office Appeals MySQL database | `string` | n/a | yes |
 | <a name="input_azuread_appeals_case_officer_group_id"></a> [azuread\_appeals\_case\_officer\_group\_id](#input\_azuread\_appeals\_case\_officer\_group\_id) | The Azure AD group ID for Appeals Back Office case officers | `string` | `null` | no |

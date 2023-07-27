@@ -34,7 +34,7 @@ resource "azurerm_linux_web_app" "web_app" {
     http2_enabled = true
 
     application_stack {
-      docker_registry_url = data.azurerm_container_registry.acr.login_server
+      docker_registry_url = "https://${data.azurerm_container_registry.acr.login_server}"
       docker_image_name   = "${var.image_name}:main"
     }
 
@@ -91,7 +91,7 @@ resource "azurerm_linux_web_app_slot" "staging" {
     http2_enabled = true
 
     application_stack {
-      docker_registry_url = data.azurerm_container_registry.acr.login_server
+      docker_registry_url = "https://${data.azurerm_container_registry.acr.login_server}"
       docker_image_name   = "${var.image_name}:main"
     }
   }

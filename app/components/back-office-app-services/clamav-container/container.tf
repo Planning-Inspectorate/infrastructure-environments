@@ -1,10 +1,11 @@
 resource "azurerm_container_group" "back_office_containers" {
+  #checkov:skip=CKV_AZURE_98: The properties covering this rule are deprecated
   name                = "bo-clamav-${var.resource_suffix}"
   location            = var.location
   resource_group_name = var.resource_group_name
   ip_address_type     = "Private"
   os_type             = "Linux"
-  network_profile_id  = azurerm_network_profile.back_office_clamav.id
+  subnet_ids          = [var.back_office_clamav_subnet_id]
 
   identity {
     type = "SystemAssigned"
