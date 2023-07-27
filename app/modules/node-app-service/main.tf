@@ -34,8 +34,8 @@ resource "azurerm_linux_web_app" "web_app" {
     http2_enabled = true
 
     application_stack {
-      docker_image     = "${data.azurerm_container_registry.acr.login_server}/${var.image_name}"
-      docker_image_tag = "main"
+      docker_registry_url = data.azurerm_container_registry.acr.login_server
+      docker_image_name   = "${var.image_name}:main"
     }
 
     dynamic "ip_restriction" {
@@ -91,8 +91,8 @@ resource "azurerm_linux_web_app_slot" "staging" {
     http2_enabled = true
 
     application_stack {
-      docker_image     = "${data.azurerm_container_registry.acr.login_server}/${var.image_name}"
-      docker_image_tag = "main"
+      docker_registry_url = data.azurerm_container_registry.acr.login_server
+      docker_image_name   = "${var.image_name}:main"
     }
   }
 

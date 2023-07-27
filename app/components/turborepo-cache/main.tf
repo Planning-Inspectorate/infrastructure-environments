@@ -63,11 +63,10 @@ resource "azurerm_linux_web_app" "turborepo_remote_cache" {
   https_only                 = true
 
   app_settings = {
-    DOCKER_REGISTRY_SERVER_URL = "https://index.docker.io"
-    PORT                       = 80
-    TURBO_TOKEN                = sensitive(random_password.turborepo_remote_cache.result)
-    ABS_CONNECTION_STRING      = sensitive(azurerm_storage_account.turborepo_remote_cache.primary_blob_connection_string)
-    STORAGE_PATH               = local.container_name
+    PORT                  = 80
+    TURBO_TOKEN           = sensitive(random_password.turborepo_remote_cache.result)
+    ABS_CONNECTION_STRING = sensitive(azurerm_storage_account.turborepo_remote_cache.primary_blob_connection_string)
+    STORAGE_PATH          = local.container_name
   }
 
   identity {
@@ -90,9 +89,10 @@ resource "azurerm_linux_web_app" "turborepo_remote_cache" {
     always_on     = true
     http2_enabled = true
 
+
     application_stack {
-      docker_image     = "ducktors/turborepo-remote-cache"
-      docker_image_tag = "latest"
+      docker_registry_url = "https://index.docker.io"
+      docker_image_name   = "ducktors/turborepo-remote-cache:main"
     }
 
     # TODO: IP Restriction to PINS + K+C VPNs
