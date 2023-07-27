@@ -33,16 +33,13 @@ resource "azurerm_linux_function_app" "function_app" {
     application_stack {
       node_version = var.function_node_version
     }
+
+    application_insights_key = var.use_app_insights ? azurerm_application_insights.function_app_insights.instrumentation_key : null
   }
 
   tags = var.tags
-}
 
-resource "azurerm_app_service_virtual_network_swift_connection" "vnet_connection" {
-  count = var.outbound_vnet_connectivity ? 1 : 0
-
-  app_service_id = azurerm_linux_function_app.function_app.id
-  subnet_id      = var.integration_subnet_id
+  virtual_network_subnet_id = var.outbound_vnet_connectivity ? var.integration_subnet_id : null
 }
 
 resource "azurerm_application_insights" "function_app_insights" {

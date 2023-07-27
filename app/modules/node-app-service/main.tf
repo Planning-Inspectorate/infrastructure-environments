@@ -34,8 +34,8 @@ resource "azurerm_linux_web_app" "web_app" {
     http2_enabled = true
 
     application_stack {
-      docker_image     = "${data.azurerm_container_registry.acr.login_server}/${var.image_name}"
-      docker_image_tag = "main"
+      docker_registry_url = "https://${data.azurerm_container_registry.acr.login_server}"
+      docker_image_name   = "${var.image_name}:main"
     }
 
     dynamic "ip_restriction" {
@@ -57,6 +57,8 @@ resource "azurerm_linux_web_app" "web_app" {
       site_config["application_stack"]
     ]
   }
+
+  virtual_network_subnet_id = var.outbound_vnet_connectivity ? var.integration_subnet_id : null
 }
 
 resource "azurerm_linux_web_app_slot" "staging" {
@@ -89,8 +91,8 @@ resource "azurerm_linux_web_app_slot" "staging" {
     http2_enabled = true
 
     application_stack {
-      docker_image     = "${data.azurerm_container_registry.acr.login_server}/${var.image_name}"
-      docker_image_tag = "main"
+      docker_registry_url = "https://${data.azurerm_container_registry.acr.login_server}"
+      docker_image_name   = "${var.image_name}:main"
     }
   }
 
@@ -101,6 +103,8 @@ resource "azurerm_linux_web_app_slot" "staging" {
       site_config["application_stack"]
     ]
   }
+
+  virtual_network_subnet_id = var.outbound_vnet_connectivity ? var.integration_subnet_id : null
 }
 
 # TODO: I think this is redundant, Front Door does SSL termination for our DNS names and then routs requests to https://*.azurewebsites.net
@@ -169,21 +173,6 @@ resource "azurerm_private_endpoint" "private_endpoint_staging" {
   }
 
   tags = var.tags
-}
-
-resource "azurerm_app_service_virtual_network_swift_connection" "vnet_connection" {
-  count = var.outbound_vnet_connectivity ? 1 : 0
-
-  app_service_id = azurerm_linux_web_app.web_app.id
-  subnet_id      = var.integration_subnet_id
-}
-
-resource "azurerm_app_service_slot_virtual_network_swift_connection" "vnet_connection" {
-  count = var.outbound_vnet_connectivity ? 1 : 0
-
-  app_service_id = azurerm_linux_web_app.web_app.id
-  slot_name      = azurerm_linux_web_app_slot.staging.name
-  subnet_id      = var.integration_subnet_id
 }
 
 resource "azurerm_key_vault_access_policy" "read_secrets" {

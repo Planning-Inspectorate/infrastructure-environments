@@ -5,7 +5,6 @@ module "clam_av_container" {
 
   back_office_clamav_subnet_id = var.back_office_clamav_subnet_id
   location                     = var.location
-  common_resource_group_name   = var.app_service_plan_resource_group_name
   resource_group_name          = var.resource_group_name
   resource_suffix              = var.resource_suffix
   tags                         = var.tags
