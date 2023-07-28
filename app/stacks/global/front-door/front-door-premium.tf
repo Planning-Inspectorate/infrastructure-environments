@@ -5,7 +5,7 @@ resource "azurerm_cdn_frontdoor_profile" "common" {
 }
 
 resource "azurerm_cdn_frontdoor_endpoint" "back_office_appeals_frontend" {
-  name                     = local.back_office_appeals_frontend.frontend_name
+  name                     = "pins-fdp-${local.service_name}-${local.resource_suffix}"
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
 
   tags = local.tags
