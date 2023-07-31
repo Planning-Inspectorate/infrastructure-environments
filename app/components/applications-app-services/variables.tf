@@ -258,6 +258,12 @@ variable "feature_allow_get_updates" {
   type        = string
 }
 
+
+variable "feature_allow_project_information" {
+  description = "Feature toggle for project information"
+  type        = string
+}
+
 variable "feature_enable_generalised_form_sanitisation" {
   description = "Feature toggle to enable/disable generalised form sanitisation"
   type        = string

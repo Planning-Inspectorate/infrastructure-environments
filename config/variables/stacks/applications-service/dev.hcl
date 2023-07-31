@@ -12,6 +12,7 @@ locals {
   feature_enabled_content_security_policy                         = "true"
   feature_allow_section_51                                        = "true"
   feature_allow_get_updates                                       = "true"
+  feature_allow_project_information                               = "true"
   feature_allow_have_your_say                                     = "true"
   feature_enable_generalised_form_sanitisation                    = "true"
   google_analytics_id                                             = "G-X21W2S2FN3"
