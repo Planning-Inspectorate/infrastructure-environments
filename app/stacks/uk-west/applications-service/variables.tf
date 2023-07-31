@@ -54,6 +54,11 @@ variable "back_office_service_bus_register_nsip_subscription_topic_id" {
   type        = string
 }
 
+variable "back_office_service_bus_nsip_project_update_topic_id" {
+  description = "ID for the nsip-project-update topic"
+  type        = string
+}
+
 variable "common_resource_group_name" {
   description = "The common infrastructure resource group name"
   type        = string

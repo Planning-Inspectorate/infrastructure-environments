@@ -36,6 +36,7 @@ dependency "back_office_ukw" {
     service_bus_nsip_project_topic_id              = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
     service_bus_nsip_documents_topic_id            = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
     servicebus_topic_register_nsip_subscription_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
+    service_bus_nsip_project_update_topic_id       = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
   }
 }
 
@@ -47,6 +48,7 @@ inputs = {
   back_office_service_bus_nsip_project_topic_id               = dependency.back_office_ukw.outputs.service_bus_nsip_project_topic_id
   back_office_service_bus_nsip_documents_topic_id             = dependency.back_office_ukw.outputs.servicebus_topic_nsip_documents_id
   back_office_service_bus_register_nsip_subscription_topic_id = dependency.back_office_ukw.outputs.servicebus_topic_register_nsip_subscription_id
+  back_office_service_bus_nsip_project_update_topic_id        = dependency.back_office_ukw.outputs.service_bus_nsip_project_update_topic_id
   common_resource_group_name                                  = dependency.common.outputs.common_resource_group_name
   common_vnet_cidr_blocks                                     = dependency.common.outputs.common_vnet_cidr_blocks
   common_vnet_gateway_id                                      = dependency.common.outputs.common_vnet_gateway_id

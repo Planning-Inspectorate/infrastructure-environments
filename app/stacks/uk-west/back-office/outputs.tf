@@ -111,6 +111,11 @@ output "servicebus_topic_register_nsip_subscription_id" {
   value       = azurerm_servicebus_topic.register_nsip_subscription.id
 }
 
+output "service_bus_nsip_project_update_topic_id" {
+  description = "ID of the nsip-project-update Service Bus Topic"
+  value       = azurerm_servicebus_topic.nsip_project_update.id
+}
+
 output "sql_server_id" {
   description = "The ID of the Back Office SQL server"
   value       = azurerm_mssql_server.back_office.id
