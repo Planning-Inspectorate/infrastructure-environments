@@ -33,6 +33,21 @@ output "document_storage_back_office_document_service_uploads_container_resource
   value       = azurerm_storage_container.back_office_document_service_uploads_container.resource_manager_id
 }
 
+output "back_office_submissions_storage_container_name" {
+  description = "Back office submissions container name"
+  value       = azurerm_storage_container.back_office_submissions_container.name
+}
+
+output "back_office_submissions_storage_container_id" {
+  description = "Back office submissions container ID"
+  value       = azurerm_storage_container.back_office_submissions_container.id
+}
+
+output "back_office_submissions_storage_container_resource_manager_id" {
+  description = "Back office submissions container resource_manager_id"
+  value       = azurerm_storage_container.back_office_submissions_container.resource_manager_id
+}
+
 output "document_storage_back_office_published_documents_container_resource_manager_id" {
   description = "Back Office published-documents container id"
   value       = azurerm_storage_container.back_office_published_documents_container.resource_manager_id
