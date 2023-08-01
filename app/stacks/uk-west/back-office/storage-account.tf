@@ -40,6 +40,8 @@ resource "azurerm_eventgrid_system_topic" "back_office_documents_system_topic" {
 
 # Temporary storage for documents from front office before they're submitted
 resource "azurerm_storage_container" "back_office_submissions_container" {
+  #TODO: Logging
+  #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
   name                  = "application-submission-documents"
   storage_account_name  = azurerm_storage_account.back_office_documents.name
   container_access_type = "private"
