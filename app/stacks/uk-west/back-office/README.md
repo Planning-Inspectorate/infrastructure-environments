@@ -61,6 +61,7 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_storage_account.function_storage](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/storage_account) | resource |
 | [azurerm_storage_container.back_office_document_service_uploads_container](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/storage_container) | resource |
 | [azurerm_storage_container.back_office_published_documents_container](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/storage_container) | resource |
+| [azurerm_storage_container.back_office_submissions_container](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/storage_container) | resource |
 | [azurerm_subnet.back_office_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/subnet) | resource |
 | [random_id.username_suffix](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
 | [random_password.back_office_sql_server_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
@@ -119,6 +120,9 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_back_office_document_storage_container_name"></a> [back\_office\_document\_storage\_container\_name](#output\_back\_office\_document\_storage\_container\_name) | The back office blob storage container name |
 | <a name="output_back_office_service_bus_connection_string"></a> [back\_office\_service\_bus\_connection\_string](#output\_back\_office\_service\_bus\_connection\_string) | Connection strong for Azure Service Bus in Back Office |
 | <a name="output_back_office_sql_database"></a> [back\_office\_sql\_database](#output\_back\_office\_sql\_database) | The ID of the Back Office SQL database |
+| <a name="output_back_office_submissions_storage_container_id"></a> [back\_office\_submissions\_storage\_container\_id](#output\_back\_office\_submissions\_storage\_container\_id) | Back office submissions container ID |
+| <a name="output_back_office_submissions_storage_container_name"></a> [back\_office\_submissions\_storage\_container\_name](#output\_back\_office\_submissions\_storage\_container\_name) | Back office submissions container name |
+| <a name="output_back_office_submissions_storage_container_resource_manager_id"></a> [back\_office\_submissions\_storage\_container\_resource\_manager\_id](#output\_back\_office\_submissions\_storage\_container\_resource\_manager\_id) | Back office submissions container resource\_manager\_id |
 | <a name="output_document_check_function_storage_name"></a> [document\_check\_function\_storage\_name](#output\_document\_check\_function\_storage\_name) | Function Storage name |
 | <a name="output_document_check_function_storage_primary_access_key"></a> [document\_check\_function\_storage\_primary\_access\_key](#output\_document\_check\_function\_storage\_primary\_access\_key) | Function Storage Primary Access Key |
 | <a name="output_document_storage_back_office_document_service_uploads_container_id"></a> [document\_storage\_back\_office\_document\_service\_uploads\_container\_id](#output\_document\_storage\_back\_office\_document\_service\_uploads\_container\_id) | Back Office document-service-uploads container id |
