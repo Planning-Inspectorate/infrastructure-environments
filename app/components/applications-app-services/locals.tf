@@ -32,6 +32,7 @@ locals {
         FEATURE_ENABLE_GENERALISED_FORM_SANITISATION = var.feature_enable_generalised_form_sanitisation
         FEATURE_ALLOW_HAVE_YOUR_SAY                  = var.feature_allow_have_your_say
         FEATURE_GET_UPDATES                          = var.feature_allow_get_updates
+        FEATURE_PROJECT_INFORMATION                  = var.feature_allow_project_information
       }
     }
 

@@ -33,6 +33,7 @@ module "app_services" {
   feature_enabled_content_security_policy                         = var.feature_enabled_content_security_policy
   feature_allow_section_51                                        = var.feature_allow_section_51
   feature_allow_get_updates                                       = var.feature_allow_get_updates
+  feature_allow_project_information                               = var.feature_allow_project_information
   feature_allow_have_your_say                                     = var.feature_allow_have_your_say
   feature_enable_generalised_form_sanitisation                    = var.feature_enable_generalised_form_sanitisation
   function_storage_name                                           = var.function_storage_name
