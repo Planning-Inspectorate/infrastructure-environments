@@ -38,6 +38,13 @@ resource "azurerm_eventgrid_system_topic" "back_office_documents_system_topic" {
   topic_type             = "Microsoft.Storage.StorageAccounts"
 }
 
+# Temporary storage for documents from front office before they're submitted
+resource "azurerm_storage_container" "back_office_submissions_container" {
+  name                  = "application-submission-documents"
+  storage_account_name  = azurerm_storage_account.back_office_documents.name
+  container_access_type = "private"
+}
+
 # TODO: Separate containers for Applications and Appeals? We won't need to assign permissions to the appeals wfe, just to the appeals group
 resource "azurerm_storage_container" "back_office_document_service_uploads_container" {
   #TODO: Logging
