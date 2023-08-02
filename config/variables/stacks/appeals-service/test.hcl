@@ -31,6 +31,14 @@ locals {
         percentage = 100
         users      = []
       }
+    },
+    {
+      name    = "has-questionnaire"
+      enabled = true
+      targeting = {
+        percentage = 100
+        users      = []
+      }
     }
   ]
   google_analytics_id                                                         = "G-HWLKLSJF53"

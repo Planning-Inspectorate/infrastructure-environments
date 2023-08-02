@@ -31,6 +31,14 @@ locals {
         percentage = 100
         users      = []
       }
+    },
+    {
+      name    = "has-questionnaire"
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = []
+      }
     }
   ]
   google_analytics_id                                                         = "G-DW8DW9TQ84"
@@ -49,7 +57,7 @@ locals {
   srv_notify_confirm_email_template_id                                        = "fef50c47-5ce4-4741-b89d-e31768b27bfd"
   srv_admin_monitoring_email                                                  = "appealsbetateam@planninginspectorate.gov.uk"
   srv_notify_failure_to_upload_to_horizon_template_id                         = "68fbc646-c4b4-4050-be04-1829a0b109dc"
-  srv_notify_final_comment_submission_confirmation_email_template_id          ="be8ba2f3-b8ae-4d63-93ea-4b1f725cd3a2"
+  srv_notify_final_comment_submission_confirmation_email_template_id          = "be8ba2f3-b8ae-4d63-93ea-4b1f725cd3a2"
   task_submit_to_horizon_cron_string                                          = "*/15 * * * *"
   task_submit_to_horizon_trigger_active                                       = "true"
   allow_testing_overrides                                                     = false
