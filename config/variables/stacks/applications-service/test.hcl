@@ -1,6 +1,6 @@
 locals {
-  back_office_integration_get_documents_case_references           = ""
-  back_office_integration_get_application_case_references         = ""
+  back_office_integration_get_documents_case_references           = "BC0110001"
+  back_office_integration_get_application_case_references         = "BC0110001"
   documents_host                                                  = "https://nipreprod.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
   feature_allow_document_library                                  = "true"
   feature_allow_examination_timetable                             = "true"
