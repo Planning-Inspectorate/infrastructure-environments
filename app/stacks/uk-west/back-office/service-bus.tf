@@ -94,6 +94,12 @@ resource "azurerm_servicebus_topic" "nsip_exam_timetable" {
   default_message_ttl = "P14D"
 }
 
+resource "azurerm_servicebus_topic" "nsip_representation" {
+  name                = "nsip-representation"
+  namespace_id        = azurerm_servicebus_namespace.back_office.id
+  default_message_ttl = "P14D"
+}
+
 # Commands
 resource "azurerm_servicebus_topic" "register_nsip_subscription" {
   name                = "register-nsip-subscription"

@@ -106,6 +106,11 @@ output "service_bus_nsip_exam_timetable_id" {
   value       = azurerm_servicebus_topic.nsip_exam_timetable.id
 }
 
+output "service_bus_nsip_representation_id" {
+  description = "ID of the nsip-representation Service Bus Topic"
+  value       = azurerm_servicebus_topic.nsip_representation.id
+}
+
 output "servicebus_topic_register_nsip_subscription_id" {
   description = "Service Bus Topic register_nsip_subscription id"
   value       = azurerm_servicebus_topic.register_nsip_subscription.id
