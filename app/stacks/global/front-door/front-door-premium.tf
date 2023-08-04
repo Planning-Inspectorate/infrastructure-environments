@@ -58,3 +58,8 @@ resource "azurerm_cdn_frontdoor_route" "back_office_appeals_frontend" {
 
   cdn_frontdoor_origin_path = "/government/organisations/planning-inspectorate"
 }
+
+resource "azurerm_cdn_frontdoor_rule_set" "common" {
+  name                     = "pins-fdrs-${local.service_name}-${local.resource_suffix}"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
+}
