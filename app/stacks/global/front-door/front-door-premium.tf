@@ -98,28 +98,28 @@ resource "azurerm_cdn_frontdoor_rule_set" "common" {
 #     }
 #   }
 
-  # resource "azurerm_cdn_frontdoor_rule" "search_indexing" {
-  # depends_on = [azurerm_cdn_frontdoor_origin_group.back_office_appeals_frontend, azurerm_cdn_frontdoor_origin.back_office_appeals_frontend]
+# resource "azurerm_cdn_frontdoor_rule" "search_indexing" {
+# depends_on = [azurerm_cdn_frontdoor_origin_group.back_office_appeals_frontend, azurerm_cdn_frontdoor_origin.back_office_appeals_frontend]
 
-  # name                      = "Book Reference File Robots Tag"
-  # cdn_frontdoor_rule_set_id = azurerm_cdn_frontdoor_rule_set.common.id
-  # order                     = 2
-  # behavior_on_match         = "Continue"
+# name                      = "Book Reference File Robots Tag"
+# cdn_frontdoor_rule_set_id = azurerm_cdn_frontdoor_rule_set.common.id
+# order                     = 2
+# behavior_on_match         = "Continue"
 
-  #   conditions {
-  #     url_filename_condition {
-  #       variable  = "RequestFilename"
-  #       operator  = "Contains"
-  #       value     = ["book", "reference"]
-  #       transforms = ["Lowercase"]
-  #     }
-  #   }
+#   conditions {
+#     url_filename_condition {
+#       variable  = "RequestFilename"
+#       operator  = "Contains"
+#       value     = ["book", "reference"]
+#       transforms = ["Lowercase"]
+#     }
+#   }
 
-  #   actions {
-  #     response_header_action {
-  #       header_action_type = "Append"
-  #       header_name        = "X-Robots-Tag"
-  #       value              = "noindex,nofollow"
-  #     }
-  #   }
-  # }
+#   actions {
+#     response_header_action {
+#       header_action_type = "Append"
+#       header_name        = "X-Robots-Tag"
+#       value              = "noindex,nofollow"
+#     }
+#   }
+# }
