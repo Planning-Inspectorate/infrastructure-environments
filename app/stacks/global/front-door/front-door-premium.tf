@@ -78,7 +78,7 @@ resource "azurerm_cdn_frontdoor_custom_domain" "common" {
 }
 
 resource "azurerm_cdn_frontdoor_rule_set" "common" {
-  name                     = "fdrs-${local.service_name}-${local.resource_suffix}"
+  name                     = "${local.service_name}-${local.resource_suffix}"
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
 }
 
