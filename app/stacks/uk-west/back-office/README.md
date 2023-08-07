@@ -49,6 +49,7 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_resource_group.back_office_stack](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/resource_group) | resource |
 | [azurerm_servicebus_namespace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_namespace) | resource |
 | [azurerm_servicebus_namespace_network_rule_set.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_namespace_network_rule_set) | resource |
+| [azurerm_servicebus_topic.deadline_submission_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.employee](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_exam_timetable](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
