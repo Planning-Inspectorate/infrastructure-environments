@@ -1,5 +1,5 @@
 module "publish_document_functions" {
-  source = "https://github.com/Planning-Inspectorate/infrastructure-modules.git/modules/node-function-app?ref=1.1"
+  source = "git@github.com:Planning-Inspectorate/infrastructure-modules.git/modules/node-function-app?ref=1.1"
 
   action_group_low_id                      = var.action_group_low_id
   app_name                                 = "doc-publisher"
