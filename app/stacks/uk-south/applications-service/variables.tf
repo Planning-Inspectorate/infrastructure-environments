@@ -37,6 +37,8 @@ variable "back_office_integration_get_application_case_references" {
 variable "back_office_service_bus_namespace_name" {
   description = "Namespace of Back Office Service Bus instance"
   type        = string
+  # TODO: ASB-1171 DR strategy to figure out how to handle service bus fail-over
+  default = "tbc"
 }
 
 variable "back_office_service_bus_nsip_project_topic_id" {
