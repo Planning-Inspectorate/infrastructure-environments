@@ -102,7 +102,7 @@ resource "azurerm_cdn_frontdoor_rule" "addrobotstagheader" {
 resource "azurerm_cdn_frontdoor_rule" "book_reference_file" {
   depends_on = [azurerm_cdn_frontdoor_origin_group.back_office_appeals_frontend, azurerm_cdn_frontdoor_origin.back_office_appeals_frontend]
 
-  name                      = "Book Reference File Robots Tag"
+  name                      = "BookReferenceFileRobotsTag"
   cdn_frontdoor_rule_set_id = azurerm_cdn_frontdoor_rule_set.search_indexing.id
   order                     = 2
   behavior_on_match         = "Continue"
