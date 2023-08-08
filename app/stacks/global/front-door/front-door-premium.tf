@@ -78,7 +78,7 @@ resource "azurerm_cdn_frontdoor_custom_domain" "common" {
 }
 
 resource "azurerm_cdn_frontdoor_rule_set" "search_indexing" {
-  name                     = replace("pins-fdrs-${local.service_name}-${local.resource_suffix}", "-", "")
+  name                     = "searchindex"
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
 }
 
