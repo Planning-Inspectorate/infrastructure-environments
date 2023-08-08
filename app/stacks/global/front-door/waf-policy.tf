@@ -287,7 +287,7 @@ resource "azurerm_cdn_frontdoor_firewall_policy" "default" {
 }
 
 resource "azurerm_cdn_frontdoor_security_policy" "common" {
-  name                     = "Example-Security-Policy"
+  name                     = "pins-fd-security-policy"
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
 
   security_policies {
