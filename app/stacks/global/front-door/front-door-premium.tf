@@ -77,6 +77,11 @@ resource "azurerm_cdn_frontdoor_custom_domain" "common" {
   }
 }
 
+resource "azurerm_cdn_frontdoor_custom_domain_association" "common" {
+  cdn_frontdoor_custom_domain_id = azurerm_cdn_frontdoor_custom_domain.common.id
+  cdn_frontdoor_route_ids        = [azurerm_cdn_frontdoor_route.back_office_appeals_frontend.id]
+}
+
 resource "azurerm_cdn_frontdoor_rule_set" "search_indexing" {
   name                     = "searchindex"
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
