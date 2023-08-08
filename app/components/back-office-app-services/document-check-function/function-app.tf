@@ -1,5 +1,5 @@
 module "anti_virus_functions" {
-  source = "https://github.com/Planning-Inspectorate/infrastructure-modules/modules/node-function-app.git"
+  source = "git@github.com:Planning-Inspectorate/infrastructure-modules/modules/node-function-app.git?ref=1.1"
 
   action_group_low_id                      = var.action_group_low_id
   app_name                                 = "doc-check"
