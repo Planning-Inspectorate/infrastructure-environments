@@ -128,3 +128,29 @@ resource "azurerm_cdn_frontdoor_rule" "book_reference_file" {
     }
   }
 }
+
+resource "azurerm_cdn_profile" "back_office" {
+  name                = "back-office-test"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.frontdoor.name
+  sku                 = "Standard_Verizon"
+
+  tags = merge(
+    local.tags,
+    {
+      Region = module.azure_region_uks.location
+    }
+  )
+}
+
+resource "azurerm_cdn_endpoint" "example" {
+  name                = "back-office-test"
+  profile_name        = azurerm_cdn_profile.back_office.name
+  location            = var.location
+  resource_group_name = azurerm_resource_group.frontdoor.name
+
+  origin {
+    name      = "gov"
+    host_name = "www.gov.uk"
+  }
+}
