@@ -12,7 +12,7 @@ resource "azurerm_storage_account" "back_office_documents" {
   location                         = azurerm_resource_group.back_office_stack.location
   account_tier                     = "Standard"
   account_replication_type         = "GRS"
-  allow_nested_items_to_be_public  = false
+  allow_nested_items_to_be_public  = true
   cross_tenant_replication_enabled = false
   enable_https_traffic_only        = true
   min_tls_version                  = "TLS1_2"
@@ -59,9 +59,10 @@ resource "azurerm_storage_container" "back_office_document_service_uploads_conta
 resource "azurerm_storage_container" "back_office_published_documents_container" {
   #TODO: Logging
   #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
+  #checkov:skip=CKV_AZURE_34 We want public access to be enabled
   name                  = "published-documents"
   storage_account_name  = azurerm_storage_account.back_office_documents.name
-  container_access_type = "private"
+  container_access_type = "blob"
 }
 
 # Shared storage between back office appps for Azure Functions
