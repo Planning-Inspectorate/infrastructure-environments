@@ -145,7 +145,7 @@ resource "azurerm_cdn_profile" "back_office" {
 }
 
 resource "azurerm_cdn_endpoint" "back_office" {
-  name                = local.back_office_frontend.name
+  name                = local.back_office_frontend
   profile_name        = azurerm_cdn_profile.back_office.name
   location            = var.cdn_location
   resource_group_name = azurerm_resource_group.frontdoor.name
