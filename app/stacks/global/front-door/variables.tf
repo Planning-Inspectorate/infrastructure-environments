@@ -124,9 +124,9 @@ variable "instance" {
 }
 
 variable "location" {
-  description = "The location resources are deployed to in slug format e.g. 'uk-west'"
+  description = "The location resources are deployed to uk-west"
   type        = string
-  default     = "uk-west"
+  default     = "ukwest"
 }
 
 variable "enable_search_indexing_by_default" {
