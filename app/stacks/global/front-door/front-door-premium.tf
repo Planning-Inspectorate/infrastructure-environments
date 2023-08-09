@@ -135,12 +135,7 @@ resource "azurerm_cdn_profile" "back_office" {
   resource_group_name = azurerm_resource_group.frontdoor.name
   sku                 = "Standard_Verizon"
 
-  tags = merge(
-    local.tags,
-    {
-      Region = module.azure_region_uks.location
-    }
-  )
+  tags = var.common_tags
 }
 
 resource "azurerm_cdn_endpoint" "back_office" {
