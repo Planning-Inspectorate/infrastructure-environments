@@ -4,14 +4,14 @@ resource "azurerm_cdn_frontdoor_profile" "common" {
   sku_name            = var.front_door_sku_name
 }
 
-resource "azurerm_cdn_frontdoor_endpoint" "back_office_appeals_frontend" {
+resource "azurerm_cdn_frontdoor_endpoint" "common" {
   name                     = "pins-fdp-${local.service_name}-${local.resource_suffix}"
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
 
   tags = local.tags
 }
 
-resource "azurerm_cdn_frontdoor_origin_group" "back_office_appeals_frontend" {
+resource "azurerm_cdn_frontdoor_origin_group" "common" {
   name                     = "pins-fdp-${local.service_name}-${local.resource_suffix}"
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
   session_affinity_enabled = false
@@ -30,9 +30,9 @@ resource "azurerm_cdn_frontdoor_origin_group" "back_office_appeals_frontend" {
   }
 }
 
-resource "azurerm_cdn_frontdoor_origin" "back_office_appeals_frontend" {
+resource "azurerm_cdn_frontdoor_origin" "common" {
   name                          = "pins-fdp-${local.service_name}-${local.resource_suffix}"
-  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.back_office_appeals_frontend.id
+  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.common.id
 
   enabled                        = true
   host_name                      = "www.gov.uk"
@@ -44,11 +44,11 @@ resource "azurerm_cdn_frontdoor_origin" "back_office_appeals_frontend" {
   certificate_name_check_enabled = true
 }
 
-resource "azurerm_cdn_frontdoor_route" "back_office_appeals_frontend" {
+resource "azurerm_cdn_frontdoor_route" "common" {
   name                          = "pins-fdp-${local.service_name}-${local.resource_suffix}"
-  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.back_office_appeals_frontend.id
-  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.back_office_appeals_frontend.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.back_office_appeals_frontend.id]
+  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.common.id
+  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.common.id
+  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.common.id]
 
   supported_protocols    = ["Http", "Https"]
   patterns_to_match      = ["/*"]
@@ -88,7 +88,7 @@ resource "azurerm_cdn_frontdoor_rule_set" "search_indexing" {
 }
 
 resource "azurerm_cdn_frontdoor_rule" "addrobotstagheader" {
-  depends_on = [azurerm_cdn_frontdoor_origin_group.back_office_appeals_frontend, azurerm_cdn_frontdoor_origin.back_office_appeals_frontend]
+  depends_on = [azurerm_cdn_frontdoor_origin_group.common, azurerm_cdn_frontdoor_origin.common]
 
   name                      = "addrobotstagheader"
   cdn_frontdoor_rule_set_id = azurerm_cdn_frontdoor_rule_set.search_indexing.id
@@ -105,7 +105,7 @@ resource "azurerm_cdn_frontdoor_rule" "addrobotstagheader" {
 }
 
 resource "azurerm_cdn_frontdoor_rule" "book_reference_file" {
-  depends_on = [azurerm_cdn_frontdoor_origin_group.back_office_appeals_frontend, azurerm_cdn_frontdoor_origin.back_office_appeals_frontend]
+  depends_on = [azurerm_cdn_frontdoor_origin_group.common, azurerm_cdn_frontdoor_origin.common]
 
   name                      = "BookReferenceFileRobotsTag"
   cdn_frontdoor_rule_set_id = azurerm_cdn_frontdoor_rule_set.search_indexing.id
@@ -135,7 +135,13 @@ resource "azurerm_cdn_profile" "back_office" {
   resource_group_name = azurerm_resource_group.frontdoor.name
   sku                 = "Standard_Verizon"
 
-  tags = var.common_tags
+  tags = merge(
+    var.common_tags,
+    {
+      ServiceName = local.service_name
+      Region      = "Global"
+    }
+  )
 }
 
 resource "azurerm_cdn_endpoint" "back_office" {
