@@ -130,7 +130,7 @@ resource "azurerm_cdn_frontdoor_rule" "book_reference_file" {
 }
 
 resource "azurerm_cdn_profile" "back_office" {
-  name                = "back-office-test"
+  name                = local.back_office_frontend
   location            = var.cdn_location
   resource_group_name = azurerm_resource_group.frontdoor.name
   sku                 = "Standard_Verizon"
@@ -145,13 +145,13 @@ resource "azurerm_cdn_profile" "back_office" {
 }
 
 resource "azurerm_cdn_endpoint" "back_office" {
-  name                = "back-office-test"
+  name                = local.back_office_frontend
   profile_name        = azurerm_cdn_profile.back_office.name
   location            = var.cdn_location
   resource_group_name = azurerm_resource_group.frontdoor.name
 
   origin {
-    name      = "gov"
-    host_name = "www.gov.uk"
+    name      = var.back_office_ssl_certificate_name
+    host_name = var.back_office_ssl_certificate_name
   }
 }
