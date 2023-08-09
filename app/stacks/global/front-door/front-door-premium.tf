@@ -143,7 +143,7 @@ resource "azurerm_cdn_profile" "back_office" {
   )
 }
 
-resource "azurerm_cdn_endpoint" "example" {
+resource "azurerm_cdn_endpoint" "back_office" {
   name                = "back-office-test"
   profile_name        = azurerm_cdn_profile.back_office.name
   location            = var.location

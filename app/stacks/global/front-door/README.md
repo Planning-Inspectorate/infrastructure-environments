@@ -27,6 +27,7 @@ This component contains the Azure Front Door and WAF resources. The resources in
 
 | Name | Type |
 |------|------|
+| [azurerm_cdn_endpoint.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/cdn_endpoint) | resource |
 | [azurerm_cdn_frontdoor_custom_domain.common](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/cdn_frontdoor_custom_domain) | resource |
 | [azurerm_cdn_frontdoor_endpoint.back_office_appeals_frontend](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/cdn_frontdoor_endpoint) | resource |
 | [azurerm_cdn_frontdoor_firewall_policy.default](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/cdn_frontdoor_firewall_policy) | resource |
@@ -38,6 +39,7 @@ This component contains the Azure Front Door and WAF resources. The resources in
 | [azurerm_cdn_frontdoor_rule.book_reference_file](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/cdn_frontdoor_rule) | resource |
 | [azurerm_cdn_frontdoor_rule_set.search_indexing](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/cdn_frontdoor_rule_set) | resource |
 | [azurerm_cdn_frontdoor_security_policy.common](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/cdn_frontdoor_security_policy) | resource |
+| [azurerm_cdn_profile.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/cdn_profile) | resource |
 | [azurerm_frontdoor.common](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/frontdoor) | resource |
 | [azurerm_frontdoor_firewall_policy.default](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/frontdoor_firewall_policy) | resource |
 | [azurerm_frontdoor_rules_engine.search_indexing](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/frontdoor_rules_engine) | resource |
