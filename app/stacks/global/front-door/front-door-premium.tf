@@ -141,7 +141,7 @@ resource "azurerm_cdn_profile" "back_office" {
 resource "azurerm_cdn_endpoint" "back_office" {
   name                = "back-office-test"
   profile_name        = azurerm_cdn_profile.back_office.name
-  location            = var.location
+  location            = var.cdn_location
   resource_group_name = azurerm_resource_group.frontdoor.name
 
   origin {
