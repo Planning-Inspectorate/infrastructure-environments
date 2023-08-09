@@ -58,3 +58,25 @@ variable "servicebus_topic_deadline_submission_subscription_id" {
   description = "Service Bus Topic register-nsip-subscription id"
   type        = string
 }
+
+variable "back_office_api_host" {
+  description = "Back Office Api Host"
+  type        = string
+}
+
+variable "back_office_storage_account_host" {
+  description = "Back Office Storage Account Hostname (e.g. https://pinsstdocsbodevukw001.blob.core.windows.net)"
+  type        = string
+}
+
+variable "back_office_submissions_container" {
+  description = "Back Office Storage Container name for submissions"
+  type        = string
+  default     = "application-submission-documents"
+}
+
+variable "back_office_document_upload_container" {
+  description = "Back Office Storage Container name for uploads"
+  type        = string
+  default     = "document-service-uploads"
+}
