@@ -86,6 +86,12 @@ variable "back_office_appeals_secondary_app_service_url" {
   default     = ""
 }
 
+variable "cdn_location" {
+  description = "The location resources are deployed for the cdn profiles e.g. 'global'"
+  type        = string
+  default     = "global"
+}
+
 variable "common_log_analytics_workspace_id" {
   description = "The ID for the common Log Analytics Workspace"
   type        = string
@@ -124,9 +130,9 @@ variable "instance" {
 }
 
 variable "location" {
-  description = "The location resources are deployed to uk-west"
+  description = "The location resources are deployed to in slug format e.g. 'uk-west'"
   type        = string
-  default     = "ukwest"
+  default     = "uk-west"
 }
 
 variable "enable_search_indexing_by_default" {

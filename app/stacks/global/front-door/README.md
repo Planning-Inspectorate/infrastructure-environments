@@ -67,6 +67,7 @@ This component contains the Azure Front Door and WAF resources. The resources in
 | <a name="input_back_office_public_url"></a> [back\_office\_public\_url](#input\_back\_office\_public\_url) | The public URL for the Back Office frontend web app | `string` | n/a | yes |
 | <a name="input_back_office_secondary_app_service_url"></a> [back\_office\_secondary\_app\_service\_url](#input\_back\_office\_secondary\_app\_service\_url) | The secondary App Service URL for the Back Office | `string` | `""` | no |
 | <a name="input_back_office_ssl_certificate_name"></a> [back\_office\_ssl\_certificate\_name](#input\_back\_office\_ssl\_certificate\_name) | The SSL certificate name in the environment Key Vault for the back office service | `string` | `"pins-wildcard"` | no |
+| <a name="input_cdn_location"></a> [cdn\_location](#input\_cdn\_location) | The location resources are deployed for the cdn profiles e.g. 'global' | `string` | `"global"` | no |
 | <a name="input_common_log_analytics_workspace_id"></a> [common\_log\_analytics\_workspace\_id](#input\_common\_log\_analytics\_workspace\_id) | The ID for the common Log Analytics Workspace | `string` | n/a | yes |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | The common resource tags for the project | `map(string)` | n/a | yes |
 | <a name="input_enable_search_indexing_by_default"></a> [enable\_search\_indexing\_by\_default](#input\_enable\_search\_indexing\_by\_default) | A flag to indicate if the environment should enable search indexing for frontends by default | `bool` | `false` | no |
@@ -75,7 +76,7 @@ This component contains the Azure Front Door and WAF resources. The resources in
 | <a name="input_front_door_sku_name"></a> [front\_door\_sku\_name](#input\_front\_door\_sku\_name) | The SKU name of the Front Door | `string` | `"Premium_AzureFrontDoor"` | no |
 | <a name="input_front_door_waf_mode"></a> [front\_door\_waf\_mode](#input\_front\_door\_waf\_mode) | Indicates if the Web Application Firewall should be in Detection or Prevention mode | `string` | `"Detection"` | no |
 | <a name="input_instance"></a> [instance](#input\_instance) | The environment instance for use if multiple environments are deployed to a subscription | `string` | `"001"` | no |
-| <a name="input_location"></a> [location](#input\_location) | The location resources are deployed to uk-west | `string` | `"ukwest"` | no |
+| <a name="input_location"></a> [location](#input\_location) | The location resources are deployed to in slug format e.g. 'uk-west' | `string` | `"uk-west"` | no |
 
 ## Outputs
 

@@ -131,7 +131,7 @@ resource "azurerm_cdn_frontdoor_rule" "book_reference_file" {
 
 resource "azurerm_cdn_profile" "back_office" {
   name                = "back-office-test"
-  location            = var.location
+  location            = var.cdn_location
   resource_group_name = azurerm_resource_group.frontdoor.name
   sku                 = "Standard_Verizon"
 
