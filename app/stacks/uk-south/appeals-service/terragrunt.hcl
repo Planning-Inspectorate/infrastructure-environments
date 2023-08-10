@@ -80,5 +80,5 @@ inputs = {
   integration_subnet_id                           = dependency.common_uks.outputs.integration_subnet_id
   key_vault_id                                    = dependency.common_ukw.outputs.key_vault_id
   key_vault_uri                                   = dependency.common_ukw.outputs.key_vault_uri
-  clamav_host                                     = dependency.back_office_uks.outputs.clamav_host
+  clamav_host                                     = dependency.back_office_ukw.outputs.clamav_host
 }
