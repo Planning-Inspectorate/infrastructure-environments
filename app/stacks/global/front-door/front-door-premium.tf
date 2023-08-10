@@ -151,7 +151,7 @@ resource "azurerm_cdn_endpoint" "back_office" {
   resource_group_name = azurerm_resource_group.frontdoor.name
 
   origin {
-    name      = var.back_office_ssl_certificate_name
-    host_name = var.back_office_ssl_certificate_name
+    name      = "*.planninginspectorate.gov.uk"
+    host_name = "*.planninginspectorate.gov.uk"
   }
 }
