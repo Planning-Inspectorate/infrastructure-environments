@@ -47,6 +47,7 @@ module "app_services" {
   task_submit_to_horizon_cron_string                                          = var.task_submit_to_horizon_cron_string
   task_submit_to_horizon_trigger_active                                       = var.task_submit_to_horizon_trigger_active
   allow_testing_overrides                                                     = var.allow_testing_overrides
+  clamav_host                                                                 = var.clamav_host
 
   tags = local.tags
 

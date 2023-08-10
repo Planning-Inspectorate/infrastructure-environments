@@ -24,6 +24,21 @@ dependency "common_ukw" {
   }
 }
 
+dependency "back_office_ukw" {
+  config_path                             = "../back-office"
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
+  mock_outputs_merge_with_state           = true
+
+  mock_outputs = {
+    service_bus_namespace_name                     = "mock-namespace"
+    service_bus_nsip_project_topic_id              = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
+    service_bus_nsip_documents_topic_id            = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
+    servicebus_topic_register_nsip_subscription_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
+    service_bus_nsip_project_update_topic_id       = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
+    clamav_host                                    = "clam.dev"
+  }
+}
+
 inputs = {
   action_group_low_id        = dependency.common_ukw.outputs.action_group_low_id
   app_service_plan_id        = dependency.common_ukw.outputs.app_service_plan_id
@@ -34,4 +49,5 @@ inputs = {
   integration_subnet_id      = dependency.common_ukw.outputs.integration_subnet_id
   key_vault_id               = dependency.common_ukw.outputs.key_vault_id
   key_vault_uri              = dependency.common_ukw.outputs.key_vault_uri
+  clamav_host                = dependency.back_office_ukw.outputs.clamav_host
 }

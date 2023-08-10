@@ -240,3 +240,8 @@ variable "allow_testing_overrides" {
   type        = bool
   default     = false
 }
+
+variable "clamav_host" {
+  description = "The host of the clam av service to use"
+  type        = string
+}
