@@ -151,7 +151,7 @@ resource "azurerm_cdn_endpoint" "back_office" {
   resource_group_name = azurerm_resource_group.frontdoor.name
 
   origin {
-    name      = "planninginspectorate.gov.uk"
+    name      = "planninginspectorate"
     host_name = "planninginspectorate.gov.uk"
   }
 }
