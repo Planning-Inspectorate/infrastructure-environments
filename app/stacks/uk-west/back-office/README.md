@@ -139,6 +139,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_service_bus_nsip_project_topic_id"></a> [service\_bus\_nsip\_project\_topic\_id](#output\_service\_bus\_nsip\_project\_topic\_id) | ID of the nsip-project Service Bus Topic |
 | <a name="output_service_bus_nsip_project_update_topic_id"></a> [service\_bus\_nsip\_project\_update\_topic\_id](#output\_service\_bus\_nsip\_project\_update\_topic\_id) | ID of the nsip-project-update Service Bus Topic |
 | <a name="output_service_bus_nsip_representation_id"></a> [service\_bus\_nsip\_representation\_id](#output\_service\_bus\_nsip\_representation\_id) | ID of the nsip-representation Service Bus Topic |
+| <a name="output_servicebus_topic_deadline_submission_subscription_id"></a> [servicebus\_topic\_deadline\_submission\_subscription\_id](#output\_servicebus\_topic\_deadline\_submission\_subscription\_id) | Service Bus Topic deadline\_submission\_subscription id |
 | <a name="output_servicebus_topic_nsip_documents_id"></a> [servicebus\_topic\_nsip\_documents\_id](#output\_servicebus\_topic\_nsip\_documents\_id) | Service Bus Topic nsip-document id |
 | <a name="output_servicebus_topic_register_nsip_subscription_id"></a> [servicebus\_topic\_register\_nsip\_subscription\_id](#output\_servicebus\_topic\_register\_nsip\_subscription\_id) | Service Bus Topic register\_nsip\_subscription id |
 | <a name="output_sql_server_id"></a> [sql\_server\_id](#output\_sql\_server\_id) | The ID of the Back Office SQL server |
