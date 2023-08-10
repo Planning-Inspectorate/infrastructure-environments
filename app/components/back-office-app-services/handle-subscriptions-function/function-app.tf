@@ -1,6 +1,6 @@
 module "handle_subscriptions_function" {
 
-  source = "git@ssh.dev.azure.com:v3/Planning-Inspectorate/infrastructure-modules/modules/node-function-app.git?ref=1.1"
+  source = "git::ssh://github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app.git?ref=1.1"
 
   action_group_low_id                      = var.action_group_low_id
   app_name                                 = "handle-subs"
