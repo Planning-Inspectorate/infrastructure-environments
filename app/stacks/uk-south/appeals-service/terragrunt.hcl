@@ -48,21 +48,21 @@ dependency "common_ukw" {
     key_vault_uri       = "https://mockvault.vault.azure.net/"
   }
 }
-
 dependency "back_office_ukw" {
-  config_path                             = "../../uk-west/appeals-service"
+  config_path                             = "../../uk-west/back-office"
   mock_outputs_allowed_terraform_commands = ["validate", "plan"]
   mock_outputs_merge_with_state           = true
 
   mock_outputs = {
-    service_bus_namespace_name                     = "mock-namespace"
-    service_bus_nsip_project_topic_id              = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
-    service_bus_nsip_documents_topic_id            = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
-    servicebus_topic_register_nsip_subscription_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
-    service_bus_nsip_project_update_topic_id       = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
-    clamav_host                                    = "clam.dev"
+    app_service_urls = {
+      back_office_frontend_ukw         = "mock-wfe-url"
+      back_office_appeals_frontend_ukw = "mock-wfe-url"
+    }
+    appeals_web_frontend_url = "mock-appeals-wfe-url"
+    clamav_host              = "clam.dev"
   }
 }
+
 
 inputs = {
   action_group_low_id                             = dependency.common_ukw.outputs.action_group_low_id
