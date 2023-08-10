@@ -80,3 +80,8 @@ variable "back_office_document_upload_container" {
   type        = string
   default     = "document-service-uploads"
 }
+
+variable "tags" {
+  description = "The tags applied to all resources"
+  type        = map(string)
+}

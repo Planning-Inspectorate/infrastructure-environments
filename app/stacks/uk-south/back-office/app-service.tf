@@ -49,6 +49,7 @@ module "app_services" {
   document_storage_back_office_document_service_uploads_container_name                = var.document_storage_back_office_document_service_uploads_container_name
   servicebus_topic_nsip_documents_id                                                  = var.servicebus_topic_nsip_documents_id
   servicebus_topic_register_nsip_subscription_id                                      = "" # TODO: DR strategy to figure out how to handle service bus fail-over
+  servicebus_topic_deadline_submission_subscription_id                                = ""
   feature_odw_subscription_enabled                                                    = false
 
   tags = local.tags
