@@ -49,8 +49,8 @@ dependency "common_ukw" {
   }
 }
 
-dependency "back_office_uks" {
-  config_path                             = "../back-office"
+dependency "back_office_ukw" {
+  config_path                             = "../../uk-west/appeals-service"
   mock_outputs_allowed_terraform_commands = ["validate", "plan"]
   mock_outputs_merge_with_state           = true
 
@@ -80,5 +80,5 @@ inputs = {
   integration_subnet_id                           = dependency.common_uks.outputs.integration_subnet_id
   key_vault_id                                    = dependency.common_ukw.outputs.key_vault_id
   key_vault_uri                                   = dependency.common_ukw.outputs.key_vault_uri
-  clamav_host                                     = dependency.back_office_uks.outputs.clamav_host
+  clamav_host                                     = dependency.back_office_ukw.outputs.clamav_host
 }
