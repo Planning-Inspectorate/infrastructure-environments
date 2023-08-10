@@ -49,8 +49,8 @@ dependency "common_ukw" {
   }
 }
 
-dependency "back_office_uks" {
-  config_path                             = "../back-office"
+dependency "back_office_ukw" {
+  config_path                             = "../../uk-west/appeals-service"
   mock_outputs_allowed_terraform_commands = ["validate", "plan"]
   mock_outputs_merge_with_state           = true
 
