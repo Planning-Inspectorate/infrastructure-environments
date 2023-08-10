@@ -1,6 +1,6 @@
 module "odw_subscriber_function" {
 
-  source = "git::ssh://git@github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.3"
+  source = "git::ssh://git@github.com/Planning-Inspectorate/infrastructure-modules/modules/node-function-app.git?ref=1.3"
 
   action_group_low_id                      = var.action_group_low_id
   app_name                                 = "odw-subscriber"
