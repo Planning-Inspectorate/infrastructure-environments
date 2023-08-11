@@ -117,8 +117,12 @@ locals {
   }
 
   secret_names = [
+    # shared with applications, as back office encrypts some payloads for front office to decrypt
+    # this is used for project update nofiticaiton email unsubscribe links
+    "applications-service-encryption-secret-key",
     "back-office-client-secret",
     "back-office-topic-key",
+    "back-office-gov-notify-api-key",
     "os-places-api-key",
     "session-secret"
   ]
