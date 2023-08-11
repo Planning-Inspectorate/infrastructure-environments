@@ -119,7 +119,6 @@ locals {
   secret_names = [
     # shared with applications, as back office encrypts some payloads for front office to decrypt
     # this is used for project update nofiticaiton email unsubscribe links
-    "applications-service-encryption-secret-key",
     "back-office-client-secret",
     "back-office-topic-key",
     "back-office-gov-notify-api-key",
@@ -130,4 +129,7 @@ locals {
   secret_refs = {
     for name in local.secret_names : name => "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/${name}/)"
   }
+
+  # This is created separately because the output of secret_names are intended to be created as secrets. We just need a reference to this one.
+  applications_encryption_key_secret = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/applications-service-encryption-secret-key/)"
 }
