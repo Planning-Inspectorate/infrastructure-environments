@@ -13,6 +13,11 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "integration_functions_app_service_plan_id" {
+  description = "The id of the integration functions app service plan"
+  type        = string
+}
+
 variable "app_service_private_dns_zone_id" {
   description = "The id of the private DNS zone for App services"
   type        = string
@@ -83,6 +88,11 @@ variable "horizon_url" {
 
 variable "integration_subnet_id" {
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
+  type        = string
+}
+
+variable "common_integration_functions_subnet_id" {
+  description = "The id of the subnet for common integration functions app servcie plan"
   type        = string
 }
 
@@ -244,4 +254,26 @@ variable "allow_testing_overrides" {
 variable "clamav_host" {
   description = "The host of the clam av service to use"
   type        = string
+}
+
+
+variable "back_office_service_bus_namespace_name" {
+  description = "Namespace of Back Office Service Bus instance"
+  type        = string
+}
+
+variable "back_office_service_bus_appeals_bo_case_topic_id" {
+  description = "ID for the appeals case data topic"
+  type        = string
+}
+
+variable "back_office_service_bus_appeals_bo_document_topic_id" {
+  description = "ID for the appeals case data topic"
+  type        = string
+}
+
+variable "appeals_feature_back_office_subscriber_enabled" {
+  description = "Feature toggle for appeals back office to front office service topic susbcription using azure functions"
+  type        = bool
+  default     = false
 }

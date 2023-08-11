@@ -126,6 +126,16 @@ output "service_bus_nsip_representation_id" {
   value       = azurerm_servicebus_topic.nsip_representation.id
 }
 
+output "service_bus_appeals_bo_case_topic_id" {
+  description = "ID of the appeals back office case Service Bus Topic"
+  value       = azurerm_servicebus_topic.appeal_bo_case.id
+}
+
+output "service_bus_appeals_bo_document_id" {
+  description = "ID of the appeals back office document Service Bus Topic"
+  value       = azurerm_servicebus_topic.appeal_bo_document.id
+}
+
 output "servicebus_topic_register_nsip_subscription_id" {
   description = "Service Bus Topic register_nsip_subscription id"
   value       = azurerm_servicebus_topic.register_nsip_subscription.id

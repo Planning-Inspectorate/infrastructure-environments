@@ -3,6 +3,11 @@ output "back_office_integration_subnet_id" {
   value       = azurerm_subnet.back_office_integration_subnet.id
 }
 
+output "common_integration_functions_subnet_id" {
+  description = "Integration subnet for back office anti-virus resources"
+  value       = azurerm_subnet.common_integration_functions_subnet.id
+}
+
 output "back_office_clamav_subnet_id" {
   description = "Integration subnet for the clamav container"
   value       = azurerm_subnet.back_office_clamav.id
