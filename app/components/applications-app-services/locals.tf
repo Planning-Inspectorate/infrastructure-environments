@@ -33,6 +33,8 @@ locals {
         FEATURE_ALLOW_HAVE_YOUR_SAY                  = var.feature_allow_have_your_say
         FEATURE_GET_UPDATES                          = var.feature_allow_get_updates
         FEATURE_PROJECT_INFORMATION                  = var.feature_allow_project_information
+        PROJECT_MIGRATION_CASE_REFERENCES            = var.project_migration_case_references
+
       }
     }
 
