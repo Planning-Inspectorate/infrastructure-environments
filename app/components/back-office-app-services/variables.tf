@@ -226,6 +226,11 @@ variable "servicebus_topic_nsip_documents_id" {
   type        = string
 }
 
+variable "servicebus_topic_nsip_project_update_id" {
+  description = "Service Bus Topic nsip-project-update id"
+  type        = string
+}
+
 variable "servicebus_topic_register_nsip_subscription_id" {
   description = "Service Bus Topic register-nsip-subscription id"
   type        = string
@@ -264,5 +269,15 @@ variable "back_office_hostname" {
 
 variable "back_office_appeals_hostname" {
   description = "Back Office Hostname"
+  type        = string
+}
+
+variable "notify_subscribers_function_gov_notify_template_id" {
+  description = "Notify Subscribers Function - GovNotify Template ID"
+  type        = string
+}
+
+variable "applications_front_office_web_url" {
+  description = "Applications Front Office Web URL"
   type        = string
 }
