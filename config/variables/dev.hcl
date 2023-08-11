@@ -16,5 +16,5 @@ locals {
   private_endpoint_enabled           = false
   secondary_vnet_address_space       = ["10.11.0.0/16"]
   srv_notify_base_url                = "https://api.notifications.service.gov.uk/"
-  project_migration_case_references  = ["EN010009", "EN010120", "EN013012"]
+  project_migration_case_references  = "EN010009, EN010120, EN013012"
 }
