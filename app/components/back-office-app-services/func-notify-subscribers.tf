@@ -19,8 +19,8 @@ module "notify_subscribers_function" {
 
   # run-time config
   back_office_api_host              = module.app_service["back_office_api"].default_site_hostname
-  encrypt_key                       = local.applications_encryption_key_secret
-  gov_notify_api_key                = local.secret_refs["back-office-gov-notify-api-key"]
+  encrypt_key                       = local.existing_secret_refs["applications-service-encryption-secret-key"]
+  gov_notify_api_key                = local.existing_secret_refs["back-office-gov-notify-api-key"]
   gov_notify_template_id            = var.notify_subscribers_function_gov_notify_template_id
   applications_front_office_web_url = var.applications_front_office_web_url
 
