@@ -1,6 +1,6 @@
 module "handle_subscriptions_function" {
 
-  source = "git@github.com:Planning-Inspectorate/infrastructure-modules.git//node-function-app?ref=1.3"
+  source = "git::https://github.com/Planning-Inspectorate/infrastructure-modules.git//node-function-app?ref=1.3"
 
   action_group_low_id                      = var.action_group_low_id
   app_name                                 = "handle-subs"
