@@ -286,5 +286,5 @@ variable "documents_host" {
 
 variable "project_migration_case_references" {
   description = "Specifies the case references to migrate to the new project information page"
-  type        = list(string)
+  type        = string
 }

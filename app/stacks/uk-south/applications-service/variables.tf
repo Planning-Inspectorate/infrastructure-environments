@@ -319,5 +319,5 @@ variable "private_beta_v1_routes_only" {
 
 variable "project_migration_case_references" {
   description = "Specifies the case references to migrate to the new project information page"
-  type        = list(string)
+  type        = string
 }
