@@ -43,6 +43,7 @@ module "app_services" {
   document_storage_back_office_document_service_uploads_container_resource_manager_id = azurerm_storage_container.back_office_document_service_uploads_container.resource_manager_id
   document_storage_back_office_published_documents_container_resource_manager_id      = azurerm_storage_container.back_office_published_documents_container.resource_manager_id
   document_storage_back_office_document_service_uploads_container_name                = azurerm_storage_container.back_office_document_service_uploads_container.name
+  servicebus_topic_nsip_project_update_id                                             = azurerm_servicebus_topic.nsip_project_update
   servicebus_topic_nsip_documents_id                                                  = azurerm_servicebus_topic.nsip_documents.id
   servicebus_topic_register_nsip_subscription_id                                      = azurerm_servicebus_topic.register_nsip_subscription.id
   servicebus_topic_deadline_submission_subscription_id                                = azurerm_servicebus_topic.deadline_submission_subscription.id
@@ -50,6 +51,8 @@ module "app_services" {
   employee_topic_id                                                                   = azurerm_servicebus_topic.employee.id
   feature_odw_subscription_enabled                                                    = true
   back_office_documents_system_topic_name                                             = azurerm_eventgrid_system_topic.back_office_documents_system_topic.name
+  notify_subscribers_function_gov_notify_template_id                                  = var.notify_subscribers_function_gov_notify_template_id
+  applications_front_office_web_url                                                   = var.applications_front_office_web_url
 
   providers = {
     azurerm         = azurerm

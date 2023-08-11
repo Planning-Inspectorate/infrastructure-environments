@@ -249,3 +249,13 @@ variable "servicebus_topic_nsip_documents_id" {
   description = "Service Bus Topic nsip-document id"
   type        = string
 }
+
+variable "notify_subscribers_function_gov_notify_template_id" {
+  description = "Notify Subscribers Function - GovNotify Template ID"
+  type        = string
+}
+
+variable "applications_front_office_web_url" {
+  description = "Applications Front Office Web URL"
+  type        = string
+}
