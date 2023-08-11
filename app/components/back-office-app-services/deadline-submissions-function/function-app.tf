@@ -2,7 +2,7 @@ module "deadline_submissions_function" {
   source = "../../../modules/node-function-app"
 
   action_group_low_id                      = var.action_group_low_id
-  app_name                                 = "deadline-submissions"
+  app_name                                 = "deadline-subs"
   app_service_plan_id                      = var.app_service_plan_id
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
@@ -13,7 +13,7 @@ module "deadline_submissions_function" {
   outbound_vnet_connectivity               = true
   resource_group_name                      = var.resource_group_name
   resource_suffix                          = var.resource_suffix
-  service_name                             = "deadline-submissions"
+  service_name                             = "deadline-subs"
   use_app_insights                         = true
 
   app_settings = {
