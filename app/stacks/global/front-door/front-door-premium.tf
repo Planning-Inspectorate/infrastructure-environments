@@ -59,6 +59,12 @@ resource "azurerm_cdn_frontdoor_route" "common" {
   cdn_frontdoor_origin_path = "/government/organisations/planning-inspectorate"
 }
 
+resource "azurerm_cdn_frontdoor_endpoint" "back_office_applications_service" {
+  name                     = local.back_office_frontend.frontend_name
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
+
+  tags = local.tags
+}
 
 resource "azurerm_cdn_frontdoor_origin_group" "back_office_applications_service" {
   name                     = local.back_office_frontend.frontend_name
@@ -95,7 +101,7 @@ resource "azurerm_cdn_frontdoor_origin" "back_office_applications_service" {
 
 resource "azurerm_cdn_frontdoor_route" "back_office_applications_service" {
   name                          = local.back_office_frontend.frontend_name
-  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.common.id
+  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.back_office_applications_service.id
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.back_office_applications_service.id
   cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.back_office_applications_service.id]
 
@@ -104,6 +110,13 @@ resource "azurerm_cdn_frontdoor_route" "back_office_applications_service" {
   forwarding_protocol    = "MatchRequest"
   link_to_default_domain = true
   https_redirect_enabled = true
+}
+
+resource "azurerm_cdn_frontdoor_endpoint" "back_office_appeals_service" {
+  name                     = local.back_office_frontend.frontend_name
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
+
+  tags = local.tags
 }
 
 resource "azurerm_cdn_frontdoor_origin_group" "back_office_appeals_service" {
@@ -141,7 +154,7 @@ resource "azurerm_cdn_frontdoor_origin" "back_office_appeals_service" {
 
 resource "azurerm_cdn_frontdoor_route" "back_office_appeals_service" {
   name                          = local.back_office_appeals_frontend.frontend_name
-  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.common.id
+  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.back_office_appeals_service.id
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.back_office_appeals_service.id
   cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.back_office_appeals_service.id]
 
