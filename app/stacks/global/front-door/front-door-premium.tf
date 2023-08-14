@@ -152,13 +152,6 @@ resource "azurerm_cdn_frontdoor_route" "back_office_appeals_service" {
   https_redirect_enabled = true
 }
 
-# resource "azurerm_cdn_profile" "back_office" {
-#   name                = "back_office"
-#   location            = var.location
-#   resource_group_name = azurerm_resource_group
-#   sku                 = "Standard_Verizon"
-# }
-
 resource "azurerm_cdn_frontdoor_custom_domain" "common" {
   name                     = "pins-fdp-${local.service_name}-${local.resource_suffix}"
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
@@ -221,30 +214,3 @@ resource "azurerm_cdn_frontdoor_rule" "book_reference_file" {
     }
   }
 }
-
-# resource "azurerm_cdn_profile" "back_office" {
-#   name                = local.back_office_frontend.name
-#   location            = var.cdn_location
-#   resource_group_name = azurerm_resource_group.frontdoor.name
-#   sku                 = "Standard_Verizon"
-
-#   tags = merge(
-#     var.common_tags,
-#     {
-#       ServiceName = local.service_name
-#       Region      = "Global"
-#     }
-#   )
-# }
-
-# resource "azurerm_cdn_endpoint" "back_office" {
-#   name                = local.back_office_frontend.name
-#   profile_name        = azurerm_cdn_profile.back_office.name
-#   location            = var.cdn_location
-#   resource_group_name = azurerm_resource_group.frontdoor.name
-
-#   origin {
-#     name      = "backoffice"
-#     host_name = "planninginspectorate.gov.uk"
-#   }
-# }
