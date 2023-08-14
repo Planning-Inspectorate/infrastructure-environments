@@ -138,7 +138,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_function_apps_storage_account"></a> [function\_apps\_storage\_account](#output\_function\_apps\_storage\_account) | Function app storage account |
 | <a name="output_function_apps_storage_account_access_key"></a> [function\_apps\_storage\_account\_access\_key](#output\_function\_apps\_storage\_account\_access\_key) | Function app storage account access key |
 | <a name="output_service_bus_appeals_bo_case_topic_id"></a> [service\_bus\_appeals\_bo\_case\_topic\_id](#output\_service\_bus\_appeals\_bo\_case\_topic\_id) | ID of the appeals back office case Service Bus Topic |
-| <a name="output_service_bus_appeals_bo_document_id"></a> [service\_bus\_appeals\_bo\_document\_id](#output\_service\_bus\_appeals\_bo\_document\_id) | ID of the appeals back office document Service Bus Topic |
+| <a name="output_service_bus_appeals_bo_document_topic_id"></a> [service\_bus\_appeals\_bo\_document\_topic\_id](#output\_service\_bus\_appeals\_bo\_document\_topic\_id) | ID of the appeals back office document Service Bus Topic |
 | <a name="output_service_bus_namespace_id"></a> [service\_bus\_namespace\_id](#output\_service\_bus\_namespace\_id) | The ID of the Service Bus Namespace |
 | <a name="output_service_bus_namespace_name"></a> [service\_bus\_namespace\_name](#output\_service\_bus\_namespace\_name) | The name of the Service Bus Namespace |
 | <a name="output_service_bus_nsip_exam_timetable_id"></a> [service\_bus\_nsip\_exam\_timetable\_id](#output\_service\_bus\_nsip\_exam\_timetable\_id) | ID of the nsip-exam-timetable Service Bus Topic |

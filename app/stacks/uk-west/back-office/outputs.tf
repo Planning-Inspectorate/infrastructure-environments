@@ -131,7 +131,7 @@ output "service_bus_appeals_bo_case_topic_id" {
   value       = azurerm_servicebus_topic.appeal_bo_case.id
 }
 
-output "service_bus_appeals_bo_document_id" {
+output "service_bus_appeals_bo_document_topic_id" {
   description = "ID of the appeals back office document Service Bus Topic"
   value       = azurerm_servicebus_topic.appeal_bo_document.id
 }

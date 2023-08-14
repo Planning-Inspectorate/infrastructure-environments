@@ -250,12 +250,12 @@ variable "back_office_service_bus_namespace_name" {
   type        = string
 }
 
-variable "back_office_service_bus_appeals_bo_case_topic_id" {
+variable "service_bus_appeals_bo_case_topic_id" {
   description = "ID for the appeals case data topic"
   type        = string
 }
 
-variable "back_office_service_bus_appeals_bo_document_topic_id" {
+variable "service_bus_appeals_bo_document_topic_id" {
   description = "ID for the appeals case data topic"
   type        = string
 }

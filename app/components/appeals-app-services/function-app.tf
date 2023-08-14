@@ -74,7 +74,7 @@ resource "azurerm_servicebus_subscription" "appeals_bo_case_topic_subscription" 
   count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
 
   name               = "bo-appeals-case-subscription"
-  topic_id           = var.back_office_service_bus_appeals_bo_case_topic_id
+  topic_id           = var.service_bus_appeals_bo_case_topic_id
   max_delivery_count = 1
 }
 
@@ -83,6 +83,6 @@ resource "azurerm_servicebus_subscription" "appeals_bo_document_topic_subscripti
   count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
 
   name               = "bo-appeals-document-subscription"
-  topic_id           = var.back_office_service_bus_appeals_bo_document_topic_id
+  topic_id           = var.service_bus_appeals_bo_document_topic_id
   max_delivery_count = 1
 }
