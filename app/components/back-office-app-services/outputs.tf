@@ -22,3 +22,8 @@ output "secret_names" {
   description = "List of Key Vault secrets required for this component"
   value       = local.secret_names
 }
+
+output "clamav_host" {
+  description = "Hostname of the ClamAV Container Group"
+  value       = module.clam_av_container[0].clamav_host
+}

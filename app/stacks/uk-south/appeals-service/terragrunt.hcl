@@ -48,6 +48,21 @@ dependency "common_ukw" {
     key_vault_uri       = "https://mockvault.vault.azure.net/"
   }
 }
+dependency "back_office_ukw" {
+  config_path                             = "../../uk-west/back-office"
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
+  mock_outputs_merge_with_state           = true
+
+  mock_outputs = {
+    app_service_urls = {
+      back_office_frontend_ukw         = "mock-wfe-url"
+      back_office_appeals_frontend_ukw = "mock-wfe-url"
+    }
+    appeals_web_frontend_url = "mock-appeals-wfe-url"
+    clamav_host              = "clam.dev"
+  }
+}
+
 
 inputs = {
   action_group_low_id                             = dependency.common_ukw.outputs.action_group_low_id
@@ -65,4 +80,5 @@ inputs = {
   integration_subnet_id                           = dependency.common_uks.outputs.integration_subnet_id
   key_vault_id                                    = dependency.common_ukw.outputs.key_vault_id
   key_vault_uri                                   = dependency.common_ukw.outputs.key_vault_uri
+  clamav_host                                     = dependency.back_office_ukw.outputs.clamav_host
 }

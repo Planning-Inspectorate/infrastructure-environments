@@ -37,6 +37,8 @@ variable "back_office_integration_get_application_case_references" {
 variable "back_office_service_bus_namespace_name" {
   description = "Namespace of Back Office Service Bus instance"
   type        = string
+  # TODO: ASB-1171 DR strategy to figure out how to handle service bus fail-over
+  default = "tbc"
 }
 
 variable "back_office_service_bus_nsip_project_topic_id" {
@@ -312,5 +314,10 @@ variable "sql_database_configuration" {
 
 variable "private_beta_v1_routes_only" {
   description = "Feature toggle for limiting web app routes to Private Beta V1 functionality only"
+  type        = string
+}
+
+variable "project_migration_case_references" {
+  description = "Specifies the case references to migrate to the new project information page"
   type        = string
 }

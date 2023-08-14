@@ -166,12 +166,14 @@ locals {
       app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
       endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
       image_name                      = "appeal-planning-decision/clamav-api"
+      integration_subnet_id           = var.integration_subnet_id
       inbound_vnet_connectivity       = var.private_endpoint_enabled
       key_vault_access                = true
-      outbound_vnet_connectivity      = false
+      outbound_vnet_connectivity      = true
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING = local.secret_refs["appeals-app-insights-connection-string"]
+        CLAMAV_HOST                           = var.clamav_host
       }
     }
   }

@@ -186,3 +186,13 @@ variable "feature_document_scanning_enabled" {
   description = "Whether or not Document Scanning is enabled"
   type        = bool
 }
+
+variable "notify_subscribers_function_gov_notify_template_id" {
+  description = "Notify Subscribers Function - GovNotify Template ID"
+  type        = string
+}
+
+variable "applications_front_office_web_url" {
+  description = "Applications Front Office Web URL"
+  type        = string
+}

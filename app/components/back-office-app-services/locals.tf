@@ -46,6 +46,7 @@ locals {
         DOCUMENT_STORAGE_API_HOST = "https://pins-app-${var.service_name}-document-storage-api-${var.resource_suffix}.azurewebsites.net"
         DOCUMENT_STORAGE_API_PORT = "3443"
         NODE_ENV                  = var.node_environment
+        AZURE_BLOB_STORE_HOST     = var.document_storage_api_host
         SERVICE_BUS_HOSTNAME      = "${var.service_bus_namespace_name}.servicebus.windows.net"
         SERVICE_BUS_ENABLED       = var.feature_service_bus_enabled
       }
@@ -124,5 +125,15 @@ locals {
 
   secret_refs = {
     for name in local.secret_names : name => "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/${name}/)"
+  }
+
+  # These are secrets we don't intend to create, but just need a reference to
+  existing_secret_names = [
+    "applications-service-encryption-secret-key",
+    "back-office-gov-notify-api-key"
+  ]
+
+  existing_secret_refs = {
+    for name in local.existing_secret_names : name => "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/${name}/)"
   }
 }

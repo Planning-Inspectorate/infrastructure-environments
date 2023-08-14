@@ -12,7 +12,7 @@ resource "azurerm_storage_account" "back_office_documents" {
   location                         = azurerm_resource_group.back_office_stack.location
   account_tier                     = "Standard"
   account_replication_type         = "GRS"
-  allow_nested_items_to_be_public  = false
+  allow_nested_items_to_be_public  = true
   cross_tenant_replication_enabled = false
   enable_https_traffic_only        = true
   min_tls_version                  = "TLS1_2"
@@ -38,6 +38,15 @@ resource "azurerm_eventgrid_system_topic" "back_office_documents_system_topic" {
   topic_type             = "Microsoft.Storage.StorageAccounts"
 }
 
+# Temporary storage for documents from front office before they're submitted
+resource "azurerm_storage_container" "back_office_submissions_container" {
+  #TODO: Logging
+  #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
+  name                  = "application-submission-documents"
+  storage_account_name  = azurerm_storage_account.back_office_documents.name
+  container_access_type = "private"
+}
+
 # TODO: Separate containers for Applications and Appeals? We won't need to assign permissions to the appeals wfe, just to the appeals group
 resource "azurerm_storage_container" "back_office_document_service_uploads_container" {
   #TODO: Logging
@@ -50,9 +59,10 @@ resource "azurerm_storage_container" "back_office_document_service_uploads_conta
 resource "azurerm_storage_container" "back_office_published_documents_container" {
   #TODO: Logging
   #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
+  #checkov:skip=CKV_AZURE_34 We want public access to be enabled
   name                  = "published-documents"
   storage_account_name  = azurerm_storage_account.back_office_documents.name
-  container_access_type = "private"
+  container_access_type = "blob"
 }
 
 # Shared storage between back office appps for Azure Functions

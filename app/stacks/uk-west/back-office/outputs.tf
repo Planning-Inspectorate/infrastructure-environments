@@ -33,6 +33,21 @@ output "document_storage_back_office_document_service_uploads_container_resource
   value       = azurerm_storage_container.back_office_document_service_uploads_container.resource_manager_id
 }
 
+output "back_office_submissions_storage_container_name" {
+  description = "Back office submissions container name"
+  value       = azurerm_storage_container.back_office_submissions_container.name
+}
+
+output "back_office_submissions_storage_container_id" {
+  description = "Back office submissions container ID"
+  value       = azurerm_storage_container.back_office_submissions_container.id
+}
+
+output "back_office_submissions_storage_container_resource_manager_id" {
+  description = "Back office submissions container resource_manager_id"
+  value       = azurerm_storage_container.back_office_submissions_container.resource_manager_id
+}
+
 output "document_storage_back_office_published_documents_container_resource_manager_id" {
   description = "Back Office published-documents container id"
   value       = azurerm_storage_container.back_office_published_documents_container.resource_manager_id
@@ -106,9 +121,19 @@ output "service_bus_nsip_exam_timetable_id" {
   value       = azurerm_servicebus_topic.nsip_exam_timetable.id
 }
 
+output "service_bus_nsip_representation_id" {
+  description = "ID of the nsip-representation Service Bus Topic"
+  value       = azurerm_servicebus_topic.nsip_representation.id
+}
+
 output "servicebus_topic_register_nsip_subscription_id" {
   description = "Service Bus Topic register_nsip_subscription id"
   value       = azurerm_servicebus_topic.register_nsip_subscription.id
+}
+
+output "servicebus_topic_deadline_submission_subscription_id" {
+  description = "Service Bus Topic deadline_submission_subscription id"
+  value       = azurerm_servicebus_topic.deadline_submission_subscription.id
 }
 
 output "service_bus_nsip_project_update_topic_id" {
@@ -131,4 +156,10 @@ output "sql_server_username" {
   description = "The SQL server administrator username"
   sensitive   = true
   value       = local.sql_server_username
+}
+
+
+output "clamav_host" {
+  description = "Hostname of the ClamAV Container Group"
+  value       = module.app_services.clamav_host
 }
