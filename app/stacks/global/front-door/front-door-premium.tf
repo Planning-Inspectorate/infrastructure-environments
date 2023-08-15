@@ -1,6 +1,6 @@
 resource "azurerm_cdn_frontdoor_profile" "common" {
   name                = "pins-fdp-${local.service_name}-${local.resource_suffix}"
-  resource_group_name = azurerm_resource_group.frontdoor.name
+  resource_group_name = azurerm_resource_group.frontdoor_premium.name
   sku_name            = var.front_door_sku_name
 }
 

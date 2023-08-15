@@ -9,3 +9,12 @@ resource "azurerm_resource_group" "frontdoor" {
     }
   )
 }
+
+resource "azurerm_resource_group" "frontdoor_premium" {
+  name     = "pins-rg-${local.service_name}-front-door-premium-${var.environment}-${var.instance}"
+  location = "Global"
+
+  tags = merge(
+    local.tags,
+  )
+}
