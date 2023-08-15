@@ -113,7 +113,7 @@ resource "azurerm_cdn_frontdoor_route" "back_office_applications_service" {
 }
 
 resource "azurerm_cdn_frontdoor_endpoint" "back_office_appeals_service" {
-  name                     = local.back_office_frontend.frontend_name
+  name                     = local.back_office_appeals_frontend.frontend_name
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
 
   tags = local.tags
