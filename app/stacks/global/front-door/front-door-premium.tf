@@ -59,59 +59,59 @@ resource "azurerm_cdn_frontdoor_route" "common" {
   cdn_frontdoor_origin_path = "/government/organisations/planning-inspectorate"
 }
 
-# resource "azurerm_cdn_frontdoor_endpoint" "back_office_applications_service" {
-#   name                     = local.back_office_frontend.frontend_name
-#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
+resource "azurerm_cdn_frontdoor_endpoint" "back_office_applications_service" {
+  name                     = local.back_office_frontend.frontend_name
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
 
-#   tags = local.tags
-# }
+  tags = local.tags
+}
 
-# resource "azurerm_cdn_frontdoor_origin_group" "back_office_applications_service" {
-#   # name                     = local.back_office_frontend.frontend_name
-#   name                     = "BackOfficeApplications"
-#   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
-#   session_affinity_enabled = false
+resource "azurerm_cdn_frontdoor_origin_group" "back_office_applications_service" {
+  # name                     = local.back_office_frontend.frontend_name
+  name                     = "BackOfficeApplications"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
+  session_affinity_enabled = false
 
-#   load_balancing {
-#     sample_size                        = 4
-#     successful_samples_required        = 2
-#     additional_latency_in_milliseconds = 0
-#   }
+  load_balancing {
+    sample_size                        = 4
+    successful_samples_required        = 2
+    additional_latency_in_milliseconds = 0
+  }
 
-#   health_probe {
-#     path                = "/"
-#     protocol            = "Http"
-#     request_type        = "GET"
-#     interval_in_seconds = 120
-#   }
-# }
+  health_probe {
+    path                = "/"
+    protocol            = "Http"
+    request_type        = "GET"
+    interval_in_seconds = 120
+  }
+}
 
-# resource "azurerm_cdn_frontdoor_origin" "back_office_applications_service" {
-#   name                          = local.back_office_frontend.frontend_name
-#   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.back_office_applications_service.id
+resource "azurerm_cdn_frontdoor_origin" "back_office_applications_service" {
+  name                          = local.back_office_frontend.frontend_name
+  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.back_office_applications_service.id
 
-#   enabled                        = true
-#   host_name                      = local.back_office_frontend.frontend_endpoint
-#   http_port                      = 80
-#   https_port                     = 443
-#   origin_host_header             = local.back_office_frontend.frontend_endpoint
-#   priority                       = 5
-#   weight                         = 100
-#   certificate_name_check_enabled = true
-# }
+  enabled                        = true
+  host_name                      = local.back_office_frontend.frontend_endpoint
+  http_port                      = 80
+  https_port                     = 443
+  origin_host_header             = local.back_office_frontend.frontend_endpoint
+  priority                       = 5
+  weight                         = 100
+  certificate_name_check_enabled = true
+}
 
-# resource "azurerm_cdn_frontdoor_route" "back_office_applications_service" {
-#   name                          = local.back_office_frontend.frontend_name
-#   cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.back_office_applications_service.id
-#   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.back_office_applications_service.id
-#   cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.back_office_applications_service.id]
+resource "azurerm_cdn_frontdoor_route" "back_office_applications_service" {
+  name                          = local.back_office_frontend.frontend_name
+  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.back_office_applications_service.id
+  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.back_office_applications_service.id
+  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.back_office_applications_service.id]
 
-#   supported_protocols    = ["Http", "Https"]
-#   patterns_to_match      = ["/*"]
-#   forwarding_protocol    = "MatchRequest"
-#   link_to_default_domain = true
-#   https_redirect_enabled = true
-# }
+  supported_protocols    = ["Http", "Https"]
+  patterns_to_match      = ["/*"]
+  forwarding_protocol    = "MatchRequest"
+  link_to_default_domain = true
+  https_redirect_enabled = true
+}
 
 resource "azurerm_cdn_frontdoor_endpoint" "back_office_appeals_service" {
   name                     = local.back_office_frontend.frontend_name
