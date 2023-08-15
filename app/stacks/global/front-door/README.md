@@ -50,7 +50,6 @@ This component contains the Azure Front Door and WAF resources. The resources in
 | [azurerm_frontdoor_rules_engine.search_indexing](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/frontdoor_rules_engine) | resource |
 | [azurerm_monitor_diagnostic_setting.front_door_waf](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/monitor_diagnostic_setting) | resource |
 | [azurerm_resource_group.frontdoor](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/resource_group) | resource |
-| [azurerm_resource_group.frontdoor_premium](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/resource_group) | resource |
 | [null_resource.fd_routing_noindex](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
 
 ## Inputs

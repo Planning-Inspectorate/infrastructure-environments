@@ -1,6 +1,6 @@
 resource "azurerm_cdn_frontdoor_profile" "common" {
   name                = "pins-fdp-${local.service_name}-${local.resource_suffix}"
-  resource_group_name = azurerm_resource_group.frontdoor_premium.name
+  resource_group_name = azurerm_resource_group.frontdoor.name
   sku_name            = var.front_door_sku_name
 }
 
@@ -67,7 +67,8 @@ resource "azurerm_cdn_frontdoor_endpoint" "back_office_applications_service" {
 }
 
 resource "azurerm_cdn_frontdoor_origin_group" "back_office_applications_service" {
-  name                     = local.back_office_frontend.frontend_name
+  # name                     = local.back_office_frontend.frontend_name
+  name                     = "BackOfficeApplications"
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
   session_affinity_enabled = false
 
