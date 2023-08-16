@@ -83,3 +83,13 @@ variable "back_office_document_api_host" {
   description = "Back Office Document Api Host"
   type        = string
 }
+
+variable "service_bus_namespace_name" {
+  description = "Name of Service Bus namespace"
+  type        = string
+}
+
+variable "deadline_submissions_topic_name" {
+  description = "Deadline Submissions Topic Name"
+  type        = string
+}

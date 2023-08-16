@@ -21,6 +21,8 @@ module "anti_virus_functions" {
     CLAM_AV_PORT              = "3310"
     API_HOST                  = var.back_office_api_host
     DOCUMENT_STORAGE_API_HOST = var.back_office_document_api_host
+    SERVICE_BUS_HOST          = "${var.service_bus_namespace_name}.servicebus.windows.net"
+    SERVICE_BUS_TOPIC         = var.deadline_submissions_topic_name
   }
 
   tags = var.tags

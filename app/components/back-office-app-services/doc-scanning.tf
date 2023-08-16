@@ -39,6 +39,8 @@ module "document_check_function" {
   document_storage_back_office_document_service_uploads_container_resource_manager_id = var.document_storage_back_office_document_service_uploads_container_resource_manager_id
   document_storage_back_office_document_service_uploads_container_name                = var.document_storage_back_office_document_service_uploads_container_name
   back_office_documents_system_topic_name                                             = var.back_office_documents_system_topic_name
+  service_bus_namespace_name                                                          = var.service_bus_namespace_name
+  deadline_submissions_topic_name                                                     = var.deadline_submissions_topic_name
 
   providers = {
     azurerm         = azurerm
