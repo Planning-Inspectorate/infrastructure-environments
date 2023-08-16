@@ -16,6 +16,7 @@ module "deadline_submissions_function" {
   service_bus_namespace_name                           = var.service_bus_namespace_name
   back_office_storage_account_host                     = var.document_storage_api_host
   app_service_plan_id                                  = azurerm_service_plan.back_office_functions_plan.id
+  deadline_submissions_topic_name                      = var.deadline_submissions_topic_name
 
   providers = {
     azurerm         = azurerm

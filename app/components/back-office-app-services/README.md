@@ -67,6 +67,7 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_container_registry_name"></a> [container\_registry\_name](#input\_container\_registry\_name) | The name of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_container_registry_rg"></a> [container\_registry\_rg](#input\_container\_registry\_rg) | The resource group of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_database_connection_string"></a> [database\_connection\_string](#input\_database\_connection\_string) | The connection string used to connect to the Applications Back Office MySQL database | `string` | n/a | yes |
+| <a name="input_deadline_submissions_topic_name"></a> [deadline\_submissions\_topic\_name](#input\_deadline\_submissions\_topic\_name) | Deadline Submissions Topic Name | `string` | n/a | yes |
 | <a name="input_document_check_function_storage_name"></a> [document\_check\_function\_storage\_name](#input\_document\_check\_function\_storage\_name) | Function Storage name | `string` | n/a | yes |
 | <a name="input_document_check_function_storage_primary_access_key"></a> [document\_check\_function\_storage\_primary\_access\_key](#input\_document\_check\_function\_storage\_primary\_access\_key) | Function Storage Primary Access Key | `string` | n/a | yes |
 | <a name="input_document_storage_api_host"></a> [document\_storage\_api\_host](#input\_document\_storage\_api\_host) | The full URI to the storage account used for back office documents | `string` | n/a | yes |

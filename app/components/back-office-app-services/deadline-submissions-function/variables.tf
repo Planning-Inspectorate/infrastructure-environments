@@ -59,6 +59,11 @@ variable "servicebus_topic_deadline_submission_subscription_id" {
   type        = string
 }
 
+variable "deadline_submissions_topic_name" {
+  description = "Deadline Submissions Topic Name"
+  type        = string
+}
+
 variable "back_office_api_host" {
   description = "Back Office Api Host"
   type        = string
