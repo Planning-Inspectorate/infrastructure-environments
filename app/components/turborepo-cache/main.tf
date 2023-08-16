@@ -92,7 +92,7 @@ resource "azurerm_linux_web_app" "turborepo_remote_cache" {
 
     application_stack {
       docker_registry_url = "https://index.docker.io"
-      docker_image_name   = "ducktors/turborepo-remote-cache:main"
+      docker_image_name   = "fox1t/turborepo-remote-cache:latest"
     }
 
     # TODO: IP Restriction to PINS + K+C VPNs
