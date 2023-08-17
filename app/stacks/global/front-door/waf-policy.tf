@@ -129,6 +129,18 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
           selector       = "backOfficeProjectUpdateContent"
         }
       }
+
+      rule {
+        # XSS Filter - Category 5: Disallowed HTML Attributes
+        rule_id = "941150"
+        action  = "Block"
+
+        exclusion {
+          match_variable = "RequestBodyPostArgNames"
+          operator       = "Equals"
+          selector       = "backOfficeProjectUpdateContent"
+        }
+      }
     }
   }
 
