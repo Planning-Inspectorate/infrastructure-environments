@@ -176,10 +176,11 @@ resource "azurerm_cdn_frontdoor_custom_domain" "common" {
   }
 }
 
-resource "azurerm_cdn_frontdoor_custom_domain_association" "common" {
-  cdn_frontdoor_custom_domain_id = azurerm_cdn_frontdoor_custom_domain.common.id
-  cdn_frontdoor_route_ids        = [azurerm_cdn_frontdoor_route.common.id, azurerm_cdn_frontdoor_route.back_office_applications_service.id, azurerm_cdn_frontdoor_route.back_office_appeals_service.id]
-}
+# Cannot be added until Front Door Route is associated with the Custom Domain Name. Will come back to this after the records have been added to cloudflare - May not need this block of code as we do not host the records on Azure
+# resource "azurerm_cdn_frontdoor_custom_domain_association" "common" {
+#   cdn_frontdoor_custom_domain_id = azurerm_cdn_frontdoor_custom_domain.common.id
+#   cdn_frontdoor_route_ids        = [azurerm_cdn_frontdoor_route.common.id, azurerm_cdn_frontdoor_route.back_office_applications_service.id, azurerm_cdn_frontdoor_route.back_office_appeals_service.id]
+# }
 
 resource "azurerm_cdn_frontdoor_rule_set" "search_indexing" {
   name                     = "searchindex"
