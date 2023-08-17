@@ -57,6 +57,7 @@ This component contains the Azure Front Door and WAF resources. The resources in
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_app_service_plan_id"></a> [app\_service\_plan\_id](#input\_app\_service\_plan\_id) | The id of the app service plan | `string` | n/a | yes |
 | <a name="input_appeals_service_primary_app_service_url"></a> [appeals\_service\_primary\_app\_service\_url](#input\_appeals\_service\_primary\_app\_service\_url) | The primary App Service URL for the Appeals Service | `string` | n/a | yes |
 | <a name="input_appeals_service_public_url"></a> [appeals\_service\_public\_url](#input\_appeals\_service\_public\_url) | The public URL for the Appeals Service frontend web app | `string` | n/a | yes |
 | <a name="input_appeals_service_secondary_app_service_url"></a> [appeals\_service\_secondary\_app\_service\_url](#input\_appeals\_service\_secondary\_app\_service\_url) | The secondary App Service URL for the Appeals Service | `string` | `""` | no |
@@ -82,6 +83,7 @@ This component contains the Azure Front Door and WAF resources. The resources in
 | <a name="input_front_door_waf_mode"></a> [front\_door\_waf\_mode](#input\_front\_door\_waf\_mode) | Indicates if the Web Application Firewall should be in Detection or Prevention mode | `string` | `"Detection"` | no |
 | <a name="input_instance"></a> [instance](#input\_instance) | The environment instance for use if multiple environments are deployed to a subscription | `string` | `"001"` | no |
 | <a name="input_location"></a> [location](#input\_location) | The location resources are deployed to in slug format e.g. 'uk-west' | `string` | `"uk-west"` | no |
+| <a name="input_private_link_location"></a> [private\_link\_location](#input\_private\_link\_location) | The location private links are deployed to in slug format e.g. 'uk-south'. The location uk-west is not available for this service. | `string` | `"uk-south"` | no |
 
 ## Outputs
 
