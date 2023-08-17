@@ -46,6 +46,7 @@ This component contains the Azure Front Door and WAF resources. The resources in
 | [azurerm_cdn_frontdoor_rule.addrobotstagheader](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/cdn_frontdoor_rule) | resource |
 | [azurerm_cdn_frontdoor_rule.book_reference_file](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/cdn_frontdoor_rule) | resource |
 | [azurerm_cdn_frontdoor_rule_set.search_indexing](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/cdn_frontdoor_rule_set) | resource |
+| [azurerm_cdn_frontdoor_security_policy.common](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/cdn_frontdoor_security_policy) | resource |
 | [azurerm_frontdoor.common](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/frontdoor) | resource |
 | [azurerm_frontdoor_firewall_policy.default](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/frontdoor_firewall_policy) | resource |
 | [azurerm_frontdoor_rules_engine.search_indexing](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/frontdoor_rules_engine) | resource |

@@ -316,3 +316,21 @@ resource "azurerm_cdn_frontdoor_firewall_policy" "default" {
 
   tags = var.common_tags
 }
+
+resource "azurerm_cdn_frontdoor_security_policy" "common" {
+  name                     = "default"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
+
+  security_policies {
+    firewall {
+      cdn_frontdoor_firewall_policy_id = azurerm_cdn_frontdoor_firewall_policy.default.id
+
+      association {
+        domain {
+          cdn_frontdoor_domain_id = azurerm_cdn_frontdoor_custom_domain.common.id
+        }
+        patterns_to_match = ["/*"]
+      }
+    }
+  }
+}
