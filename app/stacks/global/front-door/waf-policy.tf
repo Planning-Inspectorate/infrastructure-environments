@@ -336,7 +336,7 @@ resource "azurerm_cdn_frontdoor_security_policy" "common" {
 }
 
 resource "azurerm_cdn_frontdoor_firewall_policy" "back_office" {
-  name                              = replace("pinscdnwaf${local.service_name}${local.resource_suffix}", "-", "")
+  name                              = replace("pinsbowaf${local.service_name}${local.resource_suffix}", "-", "")
   resource_group_name               = azurerm_resource_group.frontdoor.name
   sku_name                          = azurerm_cdn_frontdoor_profile.common.sku_name
   enabled                           = true
@@ -514,7 +514,7 @@ resource "azurerm_cdn_frontdoor_firewall_policy" "back_office" {
 }
 
 resource "azurerm_cdn_frontdoor_security_policy" "back_office" {
-  name                     = "default"
+  name                     = "back-office"
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
 
   security_policies {
