@@ -1,8 +1,3 @@
-variable "app_service_plan_id" {
-  description = "The id of the app service plan"
-  type        = string
-}
-
 variable "appeals_service_ssl_certificate_name" {
   description = "The SSL certificate name in the environment Key Vault for the appeals service"
   type        = string
