@@ -84,7 +84,6 @@ This component contains the Azure Front Door and WAF resources. The resources in
 | <a name="input_front_door_waf_mode"></a> [front\_door\_waf\_mode](#input\_front\_door\_waf\_mode) | Indicates if the Web Application Firewall should be in Detection or Prevention mode | `string` | `"Detection"` | no |
 | <a name="input_instance"></a> [instance](#input\_instance) | The environment instance for use if multiple environments are deployed to a subscription | `string` | `"001"` | no |
 | <a name="input_location"></a> [location](#input\_location) | The location resources are deployed to in slug format e.g. 'uk-west' | `string` | `"uk-west"` | no |
-| <a name="input_private_link_location"></a> [private\_link\_location](#input\_private\_link\_location) | The location private links are deployed to in slug format e.g. 'uk-south'. The location uk-west is not available for this service. | `string` | `"uk-south"` | no |
 
 ## Outputs
 

@@ -129,11 +129,11 @@ variable "location" {
   default     = "uk-west"
 }
 
-variable "private_link_location" {
-  description = "The location private links are deployed to in slug format e.g. 'uk-south'. The location uk-west is not available for this service."
-  type        = string
-  default     = "uk-south"
-}
+# variable "private_link_location" {
+#   description = "The location private links are deployed to in slug format e.g. 'uk-south'. The location uk-west is not available for this service."
+#   type        = string
+#   default     = "uk-south"
+# }
 
 variable "enable_search_indexing_by_default" {
   description = "A flag to indicate if the environment should enable search indexing for frontends by default"
