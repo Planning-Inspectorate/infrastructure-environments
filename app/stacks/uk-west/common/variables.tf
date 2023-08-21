@@ -9,6 +9,12 @@ variable "app_service_plan_sku" {
   type        = string
 }
 
+variable "integration_functions_app_service_plan_sku" {
+  default     = "P2v2"
+  description = "The SKU of the App Service Plan"
+  type        = string
+}
+
 variable "app_service_principal_id" {
   description = "The ID of the service principal associated with App Service in the tenant"
   type        = string

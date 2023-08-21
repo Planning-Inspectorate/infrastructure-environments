@@ -48,6 +48,12 @@ module "app_services" {
   task_submit_to_horizon_trigger_active                                       = var.task_submit_to_horizon_trigger_active
   allow_testing_overrides                                                     = var.allow_testing_overrides
   clamav_host                                                                 = var.clamav_host
+  integration_functions_app_service_plan_id                                   = var.integration_functions_app_service_plan_id
+  back_office_service_bus_namespace_name                                      = var.back_office_service_bus_namespace_name
+  service_bus_appeals_bo_case_topic_id                                        = var.service_bus_appeals_bo_case_topic_id
+  service_bus_appeals_bo_document_topic_id                                    = var.service_bus_appeals_bo_document_topic_id
+  appeals_feature_back_office_subscriber_enabled                              = var.appeals_feature_back_office_subscriber_enabled
+  common_integration_functions_subnet_id                                      = var.common_integration_functions_subnet_id
 
   tags = local.tags
 

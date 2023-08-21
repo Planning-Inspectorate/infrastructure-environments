@@ -52,6 +52,7 @@ dependency "back_office_ukw" {
     document_storage_back_office_published_documents_container_id                       = "123"
     service_bus_namespace_id                                                            = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock_sb_namespace"
     servicebus_topic_nsip_documents_id                                                  = "123"
+    deadline_submissions_topic_name                                                     = "mock-name"
     sql_server_id                                                                       = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Sql/servers/mock_sql_server"
     sql_server_password                                                                 = "mockpass"
     sql_server_username                                                                 = "mockuser"

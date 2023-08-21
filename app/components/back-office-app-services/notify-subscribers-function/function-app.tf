@@ -20,6 +20,7 @@ module "notify_subscribers_function" {
     # Runtime env variables
     ServiceBusConnection__fullyQualifiedNamespace = "${var.service_bus_namespace_name}.servicebus.windows.net"
     # Function env variables
+    NODE_ENV               = var.node_environment
     API_HOST               = var.back_office_api_host
     GOV_NOTIFY_API_KEY     = var.gov_notify_api_key
     GOV_NOTIFY_TEMPLATE_ID = var.gov_notify_template_id

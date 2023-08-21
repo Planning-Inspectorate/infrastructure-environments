@@ -241,6 +241,11 @@ variable "servicebus_topic_deadline_submission_subscription_id" {
   type        = string
 }
 
+variable "deadline_submissions_topic_name" {
+  description = "Deadline Submissions Topic Name"
+  type        = string
+}
+
 variable "document_storage_back_office_document_service_uploads_container_resource_manager_id" {
   description = "Back Office document-service-uploads container resource_manager_id"
   type        = string

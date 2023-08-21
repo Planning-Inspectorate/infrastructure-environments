@@ -42,6 +42,10 @@ module "vnet_address_space" {
     {
       name     = "back_office_clamav"
       new_bits = 8 # /24 (251 usable) [0 - 255]
+    },
+    {
+      name     = "common_integration_functions_app_service_integration"
+      new_bits = 8 # /24 (251 usable) [0 - 255]
     }
   ]
 }
