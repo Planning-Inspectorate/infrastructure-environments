@@ -4,7 +4,7 @@ output "app_service_plan_id" {
 }
 output "integration_functions_app_service_plan_id" {
   description = "The id of the integration app service plan"
-  value       = azurerm_service_plan.common_integration_functions_service_plan.id
+  value       = length(azurerm_service_plan.common_integration_functions_service_plan) > 0 ? azurerm_service_plan.common_integration_functions_service_plan[0].id : null
 }
 
 output "applications_service_vpn_gateway_shared_key" {
