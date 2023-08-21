@@ -51,7 +51,7 @@ module "front_office_subscribers" {
   outbound_vnet_connectivity               = true
   resource_group_name                      = var.resource_group_name
   resource_suffix                          = var.resource_suffix
-  service_name                             = "appeals-fo-integration"
+  service_name                             = "appeals"
   use_app_insights                         = true
   function_node_version                    = 18
 
