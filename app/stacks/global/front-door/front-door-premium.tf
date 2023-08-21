@@ -70,16 +70,22 @@ resource "azurerm_cdn_frontdoor_custom_domain" "common" {
   }
 }
 
+resource "azurerm_cdn_frontdoor_profile" "back_office_applications_service" {
+  name                = "back-office-applications-service-${local.service_name}-${local.resource_suffix}"
+  resource_group_name = azurerm_resource_group.frontdoor.name
+  sku_name            = var.front_door_sku_name
+}
+
 resource "azurerm_cdn_frontdoor_endpoint" "back_office_applications_service" {
   name                     = local.back_office_frontend.frontend_name
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.back_office_applications_service.id
 
   tags = local.tags
 }
 
 resource "azurerm_cdn_frontdoor_origin_group" "back_office_applications_service" {
   name                     = local.back_office_frontend.frontend_name
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.back_office_applications_service.id
   session_affinity_enabled = false
 
   load_balancing {
@@ -132,7 +138,7 @@ resource "azurerm_cdn_frontdoor_route" "back_office_applications_service" {
 
 resource "azurerm_cdn_frontdoor_custom_domain" "back_office_applications_service" {
   name                     = "bo-applications-${local.service_name}-${local.resource_suffix}"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.back_office_applications_service.id
   host_name                = local.back_office_frontend.frontend_endpoint
 
   tls {
@@ -141,16 +147,22 @@ resource "azurerm_cdn_frontdoor_custom_domain" "back_office_applications_service
   }
 }
 
+resource "azurerm_cdn_frontdoor_profile" "back_office_appeals_service" {
+  name                = "back-office-appeals-service-${local.service_name}-${local.resource_suffix}"
+  resource_group_name = azurerm_resource_group.frontdoor.name
+  sku_name            = var.front_door_sku_name
+}
+
 resource "azurerm_cdn_frontdoor_endpoint" "back_office_appeals_service" {
   name                     = local.back_office_appeals_frontend.frontend_name
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.back_office_appeals_service.id
 
   tags = local.tags
 }
 
 resource "azurerm_cdn_frontdoor_origin_group" "back_office_appeals_service" {
   name                     = local.back_office_appeals_frontend.frontend_name
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.back_office_appeals_service.id
   session_affinity_enabled = false
 
   load_balancing {
@@ -196,7 +208,7 @@ resource "azurerm_cdn_frontdoor_route" "back_office_appeals_service" {
 
 resource "azurerm_cdn_frontdoor_custom_domain" "back_office_appeals_service" {
   name                     = "bo-appeals-${local.service_name}-${local.resource_suffix}"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.back_office_appeals_service.id
   host_name                = local.back_office_appeals_frontend.frontend_endpoint
 
   tls {
