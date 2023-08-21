@@ -270,6 +270,6 @@ variable "integration_functions_app_service_plan_id" {
 }
 
 variable "common_integration_functions_subnet_id" {
-  description = "The id of the subnet for common integration functions app servcie plan"
+  description = "The id of the subnet for common integration functions app service plan"
   type        = string
 }
