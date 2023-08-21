@@ -59,6 +59,6 @@ output "vnet_id" {
 }
 
 output "common_integration_functions_subnet_id" {
-  description = "Integration subnet for back office anti-virus resources"
+  description = "Integration subnet for the common integrations functions subnet"
   value       = module.networking.common_integration_functions_subnet_id
 }

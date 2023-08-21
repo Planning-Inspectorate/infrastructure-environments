@@ -66,7 +66,7 @@ This module contains the networking resources for the PINS ODT environments. The
 |------|-------------|
 | <a name="output_back_office_clamav_subnet_id"></a> [back\_office\_clamav\_subnet\_id](#output\_back\_office\_clamav\_subnet\_id) | Integration subnet for the clamav container |
 | <a name="output_back_office_integration_subnet_id"></a> [back\_office\_integration\_subnet\_id](#output\_back\_office\_integration\_subnet\_id) | Integration subnet for back office anti-virus resources |
-| <a name="output_common_integration_functions_subnet_id"></a> [common\_integration\_functions\_subnet\_id](#output\_common\_integration\_functions\_subnet\_id) | Integration subnet for back office anti-virus resources |
+| <a name="output_common_integration_functions_subnet_id"></a> [common\_integration\_functions\_subnet\_id](#output\_common\_integration\_functions\_subnet\_id) | Integration subnet for the common integrations functions subnet |
 | <a name="output_cosmosdb_subnet_id"></a> [cosmosdb\_subnet\_id](#output\_cosmosdb\_subnet\_id) | The id of the Cosmos DB endpoint subnet |
 | <a name="output_integration_subnet_id"></a> [integration\_subnet\_id](#output\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic |
 | <a name="output_vnet_cidr_blocks"></a> [vnet\_cidr\_blocks](#output\_vnet\_cidr\_blocks) | A map of IP address blocks from the subnet name to the allocated CIDR prefix |
