@@ -59,6 +59,17 @@ resource "azurerm_cdn_frontdoor_route" "common" {
   cdn_frontdoor_origin_path = "/government/organisations/planning-inspectorate"
 }
 
+resource "azurerm_cdn_frontdoor_custom_domain" "common" {
+  name                     = "pins-fdp-${local.service_name}-${local.resource_suffix}"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
+  host_name                = "www.gov.uk"
+
+  tls {
+    certificate_type    = "ManagedCertificate"
+    minimum_tls_version = "TLS12"
+  }
+}
+
 resource "azurerm_cdn_frontdoor_endpoint" "back_office_applications_service" {
   name                     = local.back_office_frontend.frontend_name
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
@@ -119,6 +130,17 @@ resource "azurerm_cdn_frontdoor_route" "back_office_applications_service" {
   https_redirect_enabled = true
 }
 
+resource "azurerm_cdn_frontdoor_custom_domain" "back_office_applications_service" {
+  name                     = "bo-applications-${local.service_name}-${local.resource_suffix}"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
+  host_name                = local.back_office_frontend.frontend_endpoint
+
+  tls {
+    certificate_type    = "ManagedCertificate"
+    minimum_tls_version = "TLS12"
+  }
+}
+
 resource "azurerm_cdn_frontdoor_endpoint" "back_office_appeals_service" {
   name                     = local.back_office_appeals_frontend.frontend_name
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
@@ -172,10 +194,10 @@ resource "azurerm_cdn_frontdoor_route" "back_office_appeals_service" {
   https_redirect_enabled = true
 }
 
-resource "azurerm_cdn_frontdoor_custom_domain" "common" {
-  name                     = "pins-fdp-${local.service_name}-${local.resource_suffix}"
+resource "azurerm_cdn_frontdoor_custom_domain" "back_office_appeals_service" {
+  name                     = "bo-appeals-${local.service_name}-${local.resource_suffix}"
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
-  host_name                = "www.gov.uk"
+  host_name                = local.back_office_appeals_frontend.frontend_endpoint
 
   tls {
     certificate_type    = "ManagedCertificate"
