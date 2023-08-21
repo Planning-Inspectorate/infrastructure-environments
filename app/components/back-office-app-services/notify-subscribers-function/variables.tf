@@ -34,6 +34,12 @@ variable "monitoring_alerts_enabled" {
   type        = bool
 }
 
+variable "node_environment" {
+  description = "The node environment to be used for applications in this environment e.g. development"
+  type        = string
+  default     = "development"
+}
+
 variable "resource_group_name" {
   description = "The name of the resource group that will contain the App Services"
   type        = string
