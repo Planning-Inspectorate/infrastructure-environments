@@ -23,6 +23,7 @@ This module also contains some resources such as Service Bus and Function Apps r
 |------|--------|---------|
 | <a name="module_app_service"></a> [app\_service](#module\_app\_service) | ../../modules/node-app-service | n/a |
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
+| <a name="module_front_office_subscribers"></a> [front\_office\_subscribers](#module\_front\_office\_subscribers) | ../../modules/node-function-app | n/a |
 | <a name="module_horizon_functions"></a> [horizon\_functions](#module\_horizon\_functions) | ../../modules/node-function-app | n/a |
 
 ## Resources
@@ -30,10 +31,14 @@ This module also contains some resources such as Service Bus and Function Apps r
 | Name | Type |
 |------|------|
 | [azurerm_role_assignment.app_configuration_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.appeals_bo_case_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.appeals_bo_document_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
 | [azurerm_servicebus_namespace.horizon](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_namespace) | resource |
 | [azurerm_servicebus_namespace_authorization_rule.horizon_function_apps](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_namespace_authorization_rule) | resource |
 | [azurerm_servicebus_queue.horizon_householder_appeal_publish](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_queue) | resource |
+| [azurerm_servicebus_subscription.appeals_bo_case_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_servicebus_subscription.appeals_bo_document_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_subscription) | resource |
 
 ## Inputs
 
@@ -46,8 +51,11 @@ This module also contains some resources such as Service Bus and Function Apps r
 | <a name="input_app_service_private_dns_zone_id"></a> [app\_service\_private\_dns\_zone\_id](#input\_app\_service\_private\_dns\_zone\_id) | The id of the private DNS zone for App services | `string` | n/a | yes |
 | <a name="input_appeal_documents_primary_blob_connection_string"></a> [appeal\_documents\_primary\_blob\_connection\_string](#input\_appeal\_documents\_primary\_blob\_connection\_string) | The Appeal Documents Storage Account blob connection string associated with the primary location | `string` | n/a | yes |
 | <a name="input_appeal_documents_storage_container_name"></a> [appeal\_documents\_storage\_container\_name](#input\_appeal\_documents\_storage\_container\_name) | The name of the Storage Container for Appeal Documents | `string` | n/a | yes |
+| <a name="input_appeals_feature_back_office_subscriber_enabled"></a> [appeals\_feature\_back\_office\_subscriber\_enabled](#input\_appeals\_feature\_back\_office\_subscriber\_enabled) | Feature toggle for appeals back office to front office service topic susbcription using azure functions | `bool` | `false` | no |
 | <a name="input_appeals_service_public_url"></a> [appeals\_service\_public\_url](#input\_appeals\_service\_public\_url) | The public URL for the Appeals Service frontend web app | `string` | n/a | yes |
+| <a name="input_back_office_service_bus_namespace_name"></a> [back\_office\_service\_bus\_namespace\_name](#input\_back\_office\_service\_bus\_namespace\_name) | Namespace of Back Office Service Bus instance | `string` | n/a | yes |
 | <a name="input_clamav_host"></a> [clamav\_host](#input\_clamav\_host) | The host of the clam av service to use | `string` | n/a | yes |
+| <a name="input_common_integration_functions_subnet_id"></a> [common\_integration\_functions\_subnet\_id](#input\_common\_integration\_functions\_subnet\_id) | The id of the subnet for common integration functions app service plan | `string` | n/a | yes |
 | <a name="input_container_registry_name"></a> [container\_registry\_name](#input\_container\_registry\_name) | The name of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_container_registry_rg"></a> [container\_registry\_rg](#input\_container\_registry\_rg) | The resource group of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_cosmosdb_connection_string"></a> [cosmosdb\_connection\_string](#input\_cosmosdb\_connection\_string) | The connection string of CosmosDB | `string` | n/a | yes |
@@ -57,6 +65,7 @@ This module also contains some resources such as Service Bus and Function Apps r
 | <a name="input_google_analytics_id"></a> [google\_analytics\_id](#input\_google\_analytics\_id) | The id used to connect the frontend app to Google Analytics | `string` | n/a | yes |
 | <a name="input_google_tag_manager_id"></a> [google\_tag\_manager\_id](#input\_google\_tag\_manager\_id) | The id used to connect the frontend app to Google Tag Manager | `string` | n/a | yes |
 | <a name="input_horizon_url"></a> [horizon\_url](#input\_horizon\_url) | The URL used to connect to Horizon | `string` | n/a | yes |
+| <a name="input_integration_functions_app_service_plan_id"></a> [integration\_functions\_app\_service\_plan\_id](#input\_integration\_functions\_app\_service\_plan\_id) | The id of the integration functions app service plan | `string` | n/a | yes |
 | <a name="input_integration_subnet_id"></a> [integration\_subnet\_id](#input\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic | `string` | n/a | yes |
 | <a name="input_key_vault_id"></a> [key\_vault\_id](#input\_key\_vault\_id) | The ID of the key vault so the App Service can pull secret values | `string` | n/a | yes |
 | <a name="input_key_vault_uri"></a> [key\_vault\_uri](#input\_key\_vault\_uri) | The URI of the Key Vault | `string` | n/a | yes |
@@ -69,6 +78,8 @@ This module also contains some resources such as Service Bus and Function Apps r
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | The ID of the resource group that will contain the App Services | `string` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the resource group that will contain the App Services | `string` | n/a | yes |
 | <a name="input_resource_suffix"></a> [resource\_suffix](#input\_resource\_suffix) | The suffix for resource naming | `string` | n/a | yes |
+| <a name="input_service_bus_appeals_bo_case_topic_id"></a> [service\_bus\_appeals\_bo\_case\_topic\_id](#input\_service\_bus\_appeals\_bo\_case\_topic\_id) | ID for the appeals case data topic | `string` | n/a | yes |
+| <a name="input_service_bus_appeals_bo_document_topic_id"></a> [service\_bus\_appeals\_bo\_document\_topic\_id](#input\_service\_bus\_appeals\_bo\_document\_topic\_id) | ID for the appeals case data topic | `string` | n/a | yes |
 | <a name="input_service_name"></a> [service\_name](#input\_service\_name) | The name of the service the Azure App Services are part of | `string` | n/a | yes |
 | <a name="input_srv_admin_monitoring_email"></a> [srv\_admin\_monitoring\_email](#input\_srv\_admin\_monitoring\_email) | Email for the Horizon failure team | `string` | n/a | yes |
 | <a name="input_srv_notify_appeal_submission_confirmation_email_to_appellant_template_id"></a> [srv\_notify\_appeal\_submission\_confirmation\_email\_to\_appellant\_template\_id](#input\_srv\_notify\_appeal\_submission\_confirmation\_email\_to\_appellant\_template\_id) | A template ID required by the Appeals Service API | `string` | n/a | yes |

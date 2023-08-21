@@ -112,3 +112,16 @@ resource "azurerm_servicebus_topic" "deadline_submission_subscription" {
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
+
+# Appeals
+resource "azurerm_servicebus_topic" "appeal_bo_case" {
+  name                = "appeal-bo-case"
+  namespace_id        = azurerm_servicebus_namespace.back_office.id
+  default_message_ttl = "P14D"
+}
+
+resource "azurerm_servicebus_topic" "appeal_bo_document" {
+  name                = "appeal-bo-document"
+  namespace_id        = azurerm_servicebus_namespace.back_office.id
+  default_message_ttl = "P14D"
+}

@@ -74,6 +74,24 @@ resource "azurerm_subnet" "back_office_integration_subnet" {
   }
 }
 
+resource "azurerm_subnet" "common_integration_functions_subnet" {
+  name                 = "pins-common-integration-functions-${var.resource_suffix}"
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = azurerm_virtual_network.common_infrastructure.name
+  address_prefixes     = [module.vnet_address_space.network_cidr_blocks["common_integration_functions_app_service_integration"]]
+
+  delegation {
+    name = "delegation"
+
+    service_delegation {
+      name = "Microsoft.Web/serverFarms"
+      actions = [
+        "Microsoft.Network/virtualNetworks/subnets/action"
+      ]
+    }
+  }
+}
+
 resource "azurerm_subnet" "back_office_clamav" {
   name                 = "pins-snet-${var.service_name}-clam-av-${var.resource_suffix}"
   resource_group_name  = var.resource_group_name

@@ -2,6 +2,10 @@ output "app_service_plan_id" {
   description = "The id of the app service plan"
   value       = length(azurerm_service_plan.common_service_plan) > 0 ? azurerm_service_plan.common_service_plan[0].id : null
 }
+output "integration_functions_app_service_plan_id" {
+  description = "The id of the integration app service plan"
+  value       = azurerm_service_plan.common_integration_functions_service_plan.id
+}
 
 output "applications_service_vpn_gateway_shared_key" {
   description = "The applications service virtual network gateway shared key"
@@ -52,4 +56,9 @@ output "back_office_clamav_subnet_id" {
 output "vnet_id" {
   description = "The ID of the Virtual Network"
   value       = module.networking.vnet_id
+}
+
+output "common_integration_functions_subnet_id" {
+  description = "Integration subnet for the common integrations functions subnet"
+  value       = module.networking.common_integration_functions_subnet_id
 }

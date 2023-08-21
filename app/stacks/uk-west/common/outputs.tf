@@ -8,6 +8,11 @@ output "app_service_plan_id" {
   value       = azurerm_service_plan.common_service_plan.id
 }
 
+output "integration_functions_app_service_plan_id" {
+  description = "The id of the integration app service plan"
+  value       = azurerm_service_plan.common_integration_functions_service_plan.id
+}
+
 output "applications_service_vpn_gateway_shared_key" {
   description = "The applications service virtual network gateway shared key"
   sensitive   = true
@@ -17,6 +22,11 @@ output "applications_service_vpn_gateway_shared_key" {
 output "back_office_integration_subnet_id" {
   description = "Integration subnet for back office anti-virus resources"
   value       = module.networking.back_office_integration_subnet_id
+}
+
+output "common_integration_functions_subnet_id" {
+  description = "Integration subnet for the common integrations functions subnet"
+  value       = module.networking.common_integration_functions_subnet_id
 }
 
 output "back_office_clamav_subnet_id" {
