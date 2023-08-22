@@ -139,8 +139,7 @@ resource "azurerm_cdn_frontdoor_route" "back_office_applications_service" {
 resource "azurerm_cdn_frontdoor_custom_domain" "back_office_applications_service" {
   name                     = "bo-applications-${local.service_name}-${local.resource_suffix}"
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.back_office_applications_service.id
-  host_name                = "backofficeappeals.planninginspectorate.gov.uk"
-  # host_name                = local.back_office_frontend.frontend_endpoint
+  host_name                = local.back_office_frontend.frontend_endpoint
 
   tls {
     certificate_type    = "ManagedCertificate"
@@ -210,8 +209,7 @@ resource "azurerm_cdn_frontdoor_route" "back_office_appeals_service" {
 resource "azurerm_cdn_frontdoor_custom_domain" "back_office_appeals_service" {
   name                     = "bo-appeals-${local.service_name}-${local.resource_suffix}"
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.back_office_appeals_service.id
-  host_name                = "backofficeapptest.planninginspectorate.gov.uk"
-  # host_name                = local.back_office_appeals_frontend.frontend_endpoint
+  host_name                = local.back_office_appeals_frontend.frontend_endpoint
 
   tls {
     certificate_type    = "ManagedCertificate"
