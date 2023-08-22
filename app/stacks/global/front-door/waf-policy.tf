@@ -338,7 +338,7 @@ resource "azurerm_cdn_frontdoor_security_policy" "common" {
 resource "azurerm_cdn_frontdoor_firewall_policy" "back_office_applications_service" {
   name                              = replace("boapplicationsservice${local.service_name}${local.resource_suffix}", "-", "")
   resource_group_name               = azurerm_resource_group.frontdoor.name
-  sku_name                          = azurerm_cdn_frontdoor_profile.common.sku_name
+  sku_name                          = azurerm_cdn_frontdoor_profile.back_office_applications_service.sku_name
   enabled                           = true
   mode                              = var.front_door_waf_mode
   custom_block_response_status_code = 429
@@ -515,7 +515,7 @@ resource "azurerm_cdn_frontdoor_firewall_policy" "back_office_applications_servi
 
 resource "azurerm_cdn_frontdoor_security_policy" "back_office_applications_service" {
   name                     = "back-office-applications-service"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.back_office_applications_service.id
 
   security_policies {
     firewall {
@@ -535,7 +535,7 @@ resource "azurerm_cdn_frontdoor_security_policy" "back_office_applications_servi
 resource "azurerm_cdn_frontdoor_firewall_policy" "back_office_appeals_service" {
   name                              = replace("boappealsservice${local.service_name}${local.resource_suffix}", "-", "")
   resource_group_name               = azurerm_resource_group.frontdoor.name
-  sku_name                          = azurerm_cdn_frontdoor_profile.common.sku_name
+  sku_name                          = azurerm_cdn_frontdoor_profile.back_office_appeals_service.sku_name
   enabled                           = true
   mode                              = var.front_door_waf_mode
   custom_block_response_status_code = 429
@@ -712,7 +712,7 @@ resource "azurerm_cdn_frontdoor_firewall_policy" "back_office_appeals_service" {
 
 resource "azurerm_cdn_frontdoor_security_policy" "back_office_appeals_service" {
   name                     = "back-office-appeals-service"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.back_office_appeals_service.id
 
   security_policies {
     firewall {
