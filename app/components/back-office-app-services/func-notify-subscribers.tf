@@ -13,6 +13,9 @@ module "notify_subscribers_function" {
   function_apps_storage_account_access_key = var.document_check_function_storage_primary_access_key
   app_service_plan_id                      = azurerm_service_plan.back_office_functions_plan.id
 
+  # configure key vault access for secrets below
+  key_vault_id = var.key_vault_id
+
   # service bus config
   service_bus_namespace_name              = var.service_bus_namespace_name
   servicebus_topic_nsip_project_update_id = var.servicebus_topic_nsip_project_update_id

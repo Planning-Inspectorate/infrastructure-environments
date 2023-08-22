@@ -95,3 +95,9 @@ variable "use_app_insights" {
   type        = bool
   default     = false
 }
+
+variable "key_vault_id" {
+  description = "The ID of the key vault so the Function App can pull secret values"
+  type        = string
+  default     = null
+}
