@@ -48,7 +48,7 @@ module "app_services" {
   document_check_function_storage_primary_access_key                                  = var.document_check_function_storage_primary_access_key
   document_storage_back_office_document_service_uploads_container_name                = var.document_storage_back_office_document_service_uploads_container_name
   servicebus_topic_nsip_documents_id                                                  = var.servicebus_topic_nsip_documents_id
-  deadline_submissions_topic_name                                                     = var.deadline_submissions_topic
+  deadline_submissions_topic_name                                                     = ""
   # TODO: DR strategy to figure out how to handle service bus fail-over
   servicebus_topic_nsip_project_update_id              = ""
   servicebus_topic_register_nsip_subscription_id       = ""
