@@ -250,12 +250,6 @@ variable "servicebus_topic_nsip_documents_id" {
   type        = string
 }
 
-
-variable "deadline_submissions_topic" {
-  description = "Deadline Submissions Topic"
-  type        = string
-}
-
 variable "notify_subscribers_function_gov_notify_template_id" {
   description = "Notify Subscribers Function - GovNotify Template ID"
   type        = string
