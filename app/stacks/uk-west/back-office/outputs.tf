@@ -141,9 +141,9 @@ output "servicebus_topic_register_nsip_subscription_id" {
   value       = azurerm_servicebus_topic.register_nsip_subscription.id
 }
 
-output "servicebus_topic_deadline_submission_subscription_id" {
-  description = "Service Bus Topic deadline_submission_subscription id"
-  value       = azurerm_servicebus_topic.deadline_submission_subscription.id
+output "servicebus_topic_deadline_submission_topic_id" {
+  description = "Service Bus Topic deadline_submission_topic id"
+  value       = azurerm_servicebus_topic.deadline_submission_topic.id
 }
 
 output "service_bus_nsip_project_update_topic_id" {

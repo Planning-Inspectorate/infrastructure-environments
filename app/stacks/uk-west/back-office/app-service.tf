@@ -46,8 +46,8 @@ module "app_services" {
   servicebus_topic_nsip_project_update_id                                             = azurerm_servicebus_topic.nsip_project_update.id
   servicebus_topic_nsip_documents_id                                                  = azurerm_servicebus_topic.nsip_documents.id
   servicebus_topic_register_nsip_subscription_id                                      = azurerm_servicebus_topic.register_nsip_subscription.id
-  servicebus_topic_deadline_submission_subscription_id                                = azurerm_servicebus_topic.deadline_submission_subscription.id
-  deadline_submissions_topic_name                                                     = azurerm_servicebus_topic.deadline_submission_subscription.name
+  servicebus_topic_deadline_submission_topic_id                                       = azurerm_servicebus_topic.deadline_submission_topic.id
+  deadline_submissions_topic_name                                                     = azurerm_servicebus_topic.deadline_submission_topic.name
   tags                                                                                = local.tags
   employee_topic_id                                                                   = azurerm_servicebus_topic.employee.id
   feature_odw_subscription_enabled                                                    = true
