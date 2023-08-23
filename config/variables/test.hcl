@@ -13,6 +13,5 @@ locals {
   monitoring_alerts_enabled          = false
   primary_vnet_address_space         = "10.2.0.0/16"
   secondary_vnet_address_space       = "10.12.0.0/16"
-  srv_notify_base_url                = "https://api.notifications.service.gov.uk/",
-  project_migration_case_references  = "EN010009, EN010120, EN013012, BC0110002, BC010060"
+  srv_notify_base_url                = "https://api.notifications.service.gov.uk/"
 }
