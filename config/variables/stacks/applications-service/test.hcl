@@ -1,6 +1,6 @@
 locals {
-  back_office_integration_get_documents_case_references           = "BC0110001"
-  back_office_integration_get_application_case_references         = "BC0110001"
+  back_office_integration_get_documents_case_references           = "BC0110001,BC0110003,BC0110005,BC0110013"
+  back_office_integration_get_application_case_references         = "BC0110001,BC0110003,BC0110005,BC0110013"
   documents_host                                                  = "https://nipreprod.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
   feature_allow_document_library                                  = "true"
   feature_allow_examination_timetable                             = "true"
@@ -20,6 +20,7 @@ locals {
   national_infrastructure_vnet_address_space                      = ["10.0.0.0/20"]
   node_environment                                                = "production"
   private_beta_v1_routes_only                                     = "false"
+  project_migration_case_references                               = "BC0110001,BC0110003,BC0110005,BC0110002,BC0110005,BC0110013,BC030001,BC0310003,EN010095,EN010118,EN010120,TR010054,WA0110001,WS0110027"
   srv_notify_ip_registration_confirmation_email_to_ip_template_id = "830c9c01-1f81-4198-be72-11ab173c128a"
   srv_notify_magic_link_email_template_id                         = "4ca6b93a-4c45-4abe-a8ea-69ba13c80915"
   srv_notify_service_id                                           = "9b89eb93-3071-432c-9c6b-4e07dbda9071"

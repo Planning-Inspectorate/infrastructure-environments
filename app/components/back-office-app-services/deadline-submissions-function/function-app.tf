@@ -31,6 +31,6 @@ module "deadline_submissions_function" {
 
 resource "azurerm_servicebus_subscription" "deadline_submission_subscription" {
   name               = "deadline-submission-subscription"
-  topic_id           = var.servicebus_topic_deadline_submission_subscription_id
+  topic_id           = var.servicebus_topic_deadline_submission_topic_id
   max_delivery_count = 1
 }

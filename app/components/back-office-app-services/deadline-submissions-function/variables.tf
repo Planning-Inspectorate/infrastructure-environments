@@ -54,7 +54,7 @@ variable "service_bus_namespace_name" {
   type        = string
 }
 
-variable "servicebus_topic_deadline_submission_subscription_id" {
+variable "servicebus_topic_deadline_submission_topic_id" {
   description = "Service Bus Topic register-nsip-subscription id"
   type        = string
 }
