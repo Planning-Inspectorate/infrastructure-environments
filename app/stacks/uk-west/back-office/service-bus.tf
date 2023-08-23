@@ -107,8 +107,8 @@ resource "azurerm_servicebus_topic" "register_nsip_subscription" {
   default_message_ttl = "P14D"
 }
 
-resource "azurerm_servicebus_topic" "deadline_submission_subscription" {
-  name                = "deadline-submission-subscription"
+resource "azurerm_servicebus_topic" "deadline_submission_topic" {
+  name                = "deadline-submission-topic"
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
