@@ -112,6 +112,8 @@ locals {
         NODE_ENV             = var.node_environment
         SERVICE_BUS_HOSTNAME = "${var.service_bus_namespace_name}.servicebus.windows.net"
         SERVICE_BUS_ENABLED  = var.feature_service_bus_enabled
+        GOV_NOTIFY_API_KEY   = local.secret_refs["back-office-appeals-gov-notify-api-key"]
+        TEST_MAILBOX         = local.secret_refs["back-office-appeals-test-mailbox"]
       }
     }
   }
@@ -120,7 +122,9 @@ locals {
     "back-office-client-secret",
     "back-office-topic-key",
     "os-places-api-key",
-    "session-secret"
+    "session-secret",
+    "back-office-appeals-gov-notify-api-key",
+    "back-office-appeals-test-mailbox"
   ]
 
   secret_refs = {
