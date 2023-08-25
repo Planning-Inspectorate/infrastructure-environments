@@ -42,6 +42,7 @@ module "app_services" {
   document_check_function_storage_primary_access_key                                  = azurerm_storage_account.function_storage.primary_access_key
   document_storage_back_office_document_service_uploads_container_resource_manager_id = azurerm_storage_container.back_office_document_service_uploads_container.resource_manager_id
   document_storage_back_office_published_documents_container_resource_manager_id      = azurerm_storage_container.back_office_published_documents_container.resource_manager_id
+  document_storage_submissions_container_resource_manager_id                          = azurerm_storage_container.back_office_submissions_container.resource_manager_id
   document_storage_back_office_document_service_uploads_container_name                = azurerm_storage_container.back_office_document_service_uploads_container.name
   servicebus_topic_nsip_project_update_id                                             = azurerm_servicebus_topic.nsip_project_update.id
   servicebus_topic_nsip_documents_id                                                  = azurerm_servicebus_topic.nsip_documents.id
