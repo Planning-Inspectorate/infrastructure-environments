@@ -245,6 +245,11 @@ variable "document_storage_back_office_published_documents_container_resource_ma
   type        = string
 }
 
+variable "document_storage_submissions_container_resource_manager_id" {
+  description = "Submissions container resource_manager_id"
+  type        = string
+}
+
 variable "servicebus_topic_nsip_documents_id" {
   description = "Service Bus Topic nsip-document id"
   type        = string
