@@ -90,3 +90,13 @@ variable "tags" {
   description = "The tags applied to all resources"
   type        = map(string)
 }
+
+variable "document_storage_submissions_container_resource_manager_id" {
+  description = "Submissions container resource_manager_id"
+  type        = string
+}
+
+variable "document_storage_uploads_container_resource_manager_id" {
+  description = "Uploads container resource_manager_id"
+  type        = string
+}
