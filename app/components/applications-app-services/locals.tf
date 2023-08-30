@@ -15,6 +15,8 @@ locals {
         FILE_UPLOADS_PATH                            = "/opt/app/uploads"
         GOOGLE_ANALYTICS_ID                          = var.google_analytics_id
         HOST_URL                                     = "https://${var.applications_service_public_url}/"
+        OS_MAPS_API_KEY                              = local.secret_refs["applications-service-os-maps-api-key"]
+        OS_MAPS_API_SECRET                           = local.secret_refs["applications-service-os-maps-api-secret"]
         REDIS_CONNECTION_STRING                      = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/${var.applications_service_redis_connection_string_secret_name}/)"
         SESSION_KEY                                  = local.secret_refs["applications-service-session-key"]
         SUBDOMAIN_OFFSET                             = "3"
@@ -99,7 +101,9 @@ locals {
     "applications-service-ni-oauth-username",
     "applications-service-ni-oauth-password",
     "applications-srv-notify-api-key",
-    "applications-service-session-key"
+    "applications-service-session-key",
+    "applications-service-os-maps-api-key",
+    "applications-service-os-maps-api-secret"
   ]
 
   secret_refs = {
