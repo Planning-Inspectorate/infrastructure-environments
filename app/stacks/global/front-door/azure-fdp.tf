@@ -1,7 +1,7 @@
 resource "azurerm_cdn_frontdoor_profile" "azure_fdp_test" {
-  name                = "azre-fdp-test-${local.resource_suffix}"
+  name                = "azure-fdp-test-standard${local.resource_suffix}"
   resource_group_name = azurerm_resource_group.frontdoor.name
-  sku_name            = var.front_door_sku_name
+  sku_name            = "Standard_AzureFrontDoor"
 }
 
 resource "azurerm_cdn_frontdoor_endpoint" "back_office_appeals_frontend_endpoint" {
