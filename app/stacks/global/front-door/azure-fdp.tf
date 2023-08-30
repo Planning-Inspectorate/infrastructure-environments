@@ -31,9 +31,9 @@ resource "azurerm_cdn_frontdoor_origin_group" "back_office_appeals_frontend_orig
 }
 
 resource "azurerm_cdn_frontdoor_origin" "back_office_appeals_frontend_origin" {
-  name                           = "azure-fdp-test-${local.resource_suffix}"
-  cdn_frontdoor_origin_group_id  = azurerm_cdn_frontdoor_origin_group.back_office_appeals_frontend_origin_group.id
-  enabled                        = true
+  name                          = "azure-fdp-test-${local.resource_suffix}"
+  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.back_office_appeals_frontend_origin_group.id
+  enabled                       = true
 
   certificate_name_check_enabled = false
 
