@@ -124,7 +124,8 @@ locals {
     "os-places-api-key",
     "session-secret",
     "back-office-appeals-gov-notify-api-key",
-    "back-office-appeals-test-mailbox"
+    "back-office-appeals-test-mailbox",
+    "back-office-applications-gov-notify-api-key"
   ]
 
   secret_refs = {
