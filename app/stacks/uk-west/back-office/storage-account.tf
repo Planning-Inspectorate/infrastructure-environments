@@ -1,6 +1,6 @@
 locals {
   allowed_origins_live  = ["https://back-office-${var.environment}.planninginspectorate.gov.uk", "https://back-office-appeals-${var.environment}.planninginspectorate.gov.uk"]
-  allowed_origins_local = ["https://localhost:3000"]
+  allowed_origins_local = ["https://localhost:8080"]
 
   allowed_origins = var.environment == "dev" ? concat(local.allowed_origins_live, local.allowed_origins_local) : local.allowed_origins_live
 }
