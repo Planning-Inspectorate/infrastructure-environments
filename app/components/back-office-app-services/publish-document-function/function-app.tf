@@ -15,6 +15,7 @@ module "publish_document_functions" {
   resource_suffix                          = var.resource_suffix
   service_name                             = "doc-publisher"
   use_app_insights                         = true
+  function_node_version                    = 18
 
   app_settings = {
     # Runtime env variables
