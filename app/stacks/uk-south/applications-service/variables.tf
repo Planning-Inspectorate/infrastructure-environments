@@ -69,6 +69,13 @@ variable "back_office_service_bus_nsip_project_update_topic_id" {
   default = ""
 }
 
+variable "back_office_service_bus_nsip_representation_topic_id" {
+  description = "ID for the nsip-representation topic"
+  type        = string
+  # TODO: ASB-1171 DR strategy to figure out how to handle service bus fail-over
+  default = ""
+}
+
 variable "common_resource_group_name" {
   description = "The common infrastructure resource group name"
   type        = string
