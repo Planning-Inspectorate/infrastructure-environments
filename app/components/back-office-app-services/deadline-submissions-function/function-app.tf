@@ -15,6 +15,7 @@ module "deadline_submissions_function" {
   resource_suffix                          = var.resource_suffix
   service_name                             = "deadline-subs"
   use_app_insights                         = true
+  function_node_version                    = 18
 
   app_settings = {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.service_bus_namespace_name}.servicebus.windows.net"
