@@ -15,7 +15,8 @@ module "anti_virus_functions" {
   resource_suffix                          = var.resource_suffix
   service_name                             = "doc-check"
   use_app_insights                         = true
-  function_node_version                    = 18
+  # For some reason, the node-clam library only works with Node 14. We'll need to fix this before go-live: BOAS-1114
+  function_node_version = 14
 
   app_settings = {
     CLAM_AV_HOST              = var.clamav_host
