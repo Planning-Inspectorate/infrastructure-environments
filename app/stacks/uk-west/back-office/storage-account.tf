@@ -1,3 +1,10 @@
+locals {
+  allowed_origins_live  = ["https://back-office-${var.environment}.planninginspectorate.gov.uk", "https://back-office-appeals-${var.environment}.planninginspectorate.gov.uk"]
+  allowed_origins_local = ["https://localhost:8080"]
+
+  allowed_origins = var.environment == "dev" ? concat(local.allowed_origins_live, local.allowed_origins_local) : local.allowed_origins_live
+}
+
 resource "azurerm_storage_account" "back_office_documents" {
   #TODO: Customer Managed Keys
   #checkov:skip=CKV2_AZURE_1: Customer Managed Keys not implemented yet
@@ -19,10 +26,9 @@ resource "azurerm_storage_account" "back_office_documents" {
   tags                             = local.tags
   blob_properties {
     cors_rule {
-      allowed_headers = ["*"]
-      allowed_methods = ["GET", "OPTIONS", "PUT"]
-      # TODO: localhost for dev
-      allowed_origins    = ["https://back-office-${var.environment}.planninginspectorate.gov.uk", "https://back-office-appeals-${var.environment}.planninginspectorate.gov.uk"]
+      allowed_headers    = ["*"]
+      allowed_methods    = ["GET", "OPTIONS", "PUT"]
+      allowed_origins    = local.allowed_origins
       exposed_headers    = ["*"]
       max_age_in_seconds = "600"
     }

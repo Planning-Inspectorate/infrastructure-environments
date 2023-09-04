@@ -48,6 +48,7 @@ dependency "back_office_ukw" {
     document_storage_back_office_document_service_uploads_container_id                  = "123"
     document_storage_back_office_document_service_uploads_container_resource_manager_id = "123"
     document_storage_back_office_published_documents_container_resource_manager_id      = "123"
+    document_storage_submissions_container_resource_manager_id                          = "123"
     document_storage_back_office_document_service_uploads_container_name                = "test-container"
     document_storage_back_office_published_documents_container_id                       = "123"
     service_bus_namespace_id                                                            = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock_sb_namespace"
@@ -79,6 +80,7 @@ inputs = {
   document_storage_back_office_published_documents_container_resource_manager_id      = dependency.back_office_ukw.outputs.document_storage_back_office_published_documents_container_resource_manager_id
   document_storage_back_office_document_service_uploads_container_name                = dependency.back_office_ukw.outputs.document_storage_back_office_document_service_uploads_container_name
   document_storage_back_office_published_documents_container_resource_manager_id      = dependency.back_office_ukw.outputs.document_storage_back_office_published_documents_container_resource_manager_id
+  document_storage_submissions_container_resource_manager_id                          = dependency.back_office_ukw.outputs.back_office_submissions_storage_container_resource_manager_id
   function_apps_storage_account                                                       = dependency.back_office_ukw.outputs.function_apps_storage_account
   function_apps_storage_account_access_key                                            = dependency.back_office_ukw.outputs.function_apps_storage_account_access_key
   integration_subnet_id                                                               = dependency.common_uks.outputs.integration_subnet_id

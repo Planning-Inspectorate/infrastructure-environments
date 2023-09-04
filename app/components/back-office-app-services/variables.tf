@@ -286,3 +286,8 @@ variable "applications_front_office_web_url" {
   description = "Applications Front Office Web URL"
   type        = string
 }
+
+variable "document_storage_submissions_container_resource_manager_id" {
+  description = "Submissions container resource_manager_id"
+  type        = string
+}
