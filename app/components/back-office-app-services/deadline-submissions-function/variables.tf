@@ -54,11 +54,6 @@ variable "service_bus_namespace_name" {
   type        = string
 }
 
-variable "servicebus_topic_deadline_submission_topic_id" {
-  description = "Service Bus Topic register-nsip-subscription id"
-  type        = string
-}
-
 variable "deadline_submissions_topic_name" {
   description = "Deadline Submissions Topic Name"
   type        = string
@@ -98,5 +93,10 @@ variable "document_storage_submissions_container_resource_manager_id" {
 
 variable "document_storage_uploads_container_resource_manager_id" {
   description = "Uploads container resource_manager_id"
+  type        = string
+}
+
+variable "deadline_submission_subscription_id" {
+  description = "Deadline submissions subscription id"
   type        = string
 }

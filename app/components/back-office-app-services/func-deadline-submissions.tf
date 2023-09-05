@@ -12,16 +12,22 @@ module "deadline_submissions_function" {
   back_office_api_host                                       = module.app_service["back_office_api"].default_site_hostname
   function_apps_storage_account                              = var.document_check_function_storage_name
   function_apps_storage_account_access_key                   = var.document_check_function_storage_primary_access_key
-  servicebus_topic_deadline_submission_topic_id              = var.servicebus_topic_deadline_submission_topic_id
   service_bus_namespace_name                                 = var.service_bus_namespace_name
   back_office_storage_account_host                           = var.document_storage_api_host
   app_service_plan_id                                        = azurerm_service_plan.back_office_functions_plan.id
   deadline_submissions_topic_name                            = var.deadline_submissions_topic_name
   document_storage_submissions_container_resource_manager_id = var.document_storage_submissions_container_resource_manager_id
   document_storage_uploads_container_resource_manager_id     = var.document_storage_back_office_document_service_uploads_container_resource_manager_id
+  deadline_submission_subscription_id                        = azurerm_servicebus_subscription.deadline_submission_subscription.id
 
   providers = {
     azurerm         = azurerm
     azurerm.tooling = azurerm.tooling
   }
+}
+
+resource "azurerm_servicebus_subscription" "deadline_submission_subscription" {
+  name               = "deadline-submission-subscription"
+  topic_id           = var.servicebus_topic_deadline_submission_topic_id
+  max_delivery_count = 1
 }

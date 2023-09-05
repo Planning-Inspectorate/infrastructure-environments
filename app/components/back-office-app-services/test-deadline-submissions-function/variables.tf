@@ -79,3 +79,8 @@ variable "document_storage_submissions_container_resource_manager_id" {
   description = "Submissions container resource_manager_id"
   type        = string
 }
+
+variable "deadline_submission_subscription_id" {
+  description = "Deadline submissions subscription id"
+  type        = string
+}
