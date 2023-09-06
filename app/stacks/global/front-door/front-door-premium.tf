@@ -114,13 +114,6 @@ resource "azurerm_cdn_frontdoor_origin" "back_office_applications_service" {
   priority                       = 5
   weight                         = 100
   certificate_name_check_enabled = true
-
-  # private_link {
-  #   request_message        = "Request access for CDN Frontdoor Private Link Origin Linux Web App Example"
-  #   target_type            = "sites"
-  #   location               = var.private_link_location
-  #   private_link_target_id = azurerm_linux_web_app.web_app.id
-  # }
 }
 
 resource "azurerm_cdn_frontdoor_route" "back_office_applications_service" {
