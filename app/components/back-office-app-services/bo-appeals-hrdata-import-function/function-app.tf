@@ -26,3 +26,9 @@ module "bo_appeals_hrdata_import_function" {
 
   tags = var.tags
 }
+
+resource "azurerm_servicebus_subscription" "register_odw_hrdata_subscription" {
+  name               = "register-odw-hrdata-subscription"
+  topic_id           = var.employee_topic_id
+  max_delivery_count = 1
+}

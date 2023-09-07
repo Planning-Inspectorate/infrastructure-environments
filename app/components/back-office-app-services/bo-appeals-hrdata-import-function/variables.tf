@@ -63,3 +63,8 @@ variable "service_bus_namespace_name" {
   description = "The name of the Back Office service bus namespace"
   type        = string
 }
+
+variable "employee_topic_id" {
+  description = "Service Bus Topic ID for ODW employee"
+  type        = string
+}
