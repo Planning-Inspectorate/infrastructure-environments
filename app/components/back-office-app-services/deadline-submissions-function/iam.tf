@@ -4,9 +4,15 @@ resource "azurerm_role_assignment" "function_blob_data_reader" {
   principal_id         = module.deadline_submissions_function.principal_id
 }
 
+resource "azurerm_role_assignment" "function_blob_data_submissions_writer" {
+  scope                = var.document_storage_submissions_container_resource_manager_id
+  role_definition_name = "Storage Blob Data Submissions Contributor"
+  principal_id         = module.deadline_submissions_function.principal_id
+}
+
 resource "azurerm_role_assignment" "function_blob_data_writer" {
   scope                = var.document_storage_uploads_container_resource_manager_id
-  role_definition_name = "Storage Blob Data Contributor"
+  role_definition_name = "Storage Blob Data Uploads Contributor"
   principal_id         = module.deadline_submissions_function.principal_id
 }
 
