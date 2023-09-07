@@ -113,13 +113,25 @@ resource "azurerm_servicebus_topic" "deadline_submission_topic" {
   default_message_ttl = "P14D"
 }
 
-# Appeals
+# Appeals FO Producers (Commands)
+resource "azurerm_servicebus_topic" "appeal_fo_appellant_submission" {
+  name                = "appeal-fo-appellant-submission"
+  namespace_id        = azurerm_servicebus_namespace.back_office.id
+  default_message_ttl = "P14D"
+}
+
+resource "azurerm_servicebus_topic" "appeal_fo_lpa_response_submission" {
+  name                = "appeal-fo-lpa-response-submission"
+  namespace_id        = azurerm_servicebus_namespace.back_office.id
+  default_message_ttl = "P14D"
+}
+
+# Appeals BO Producers (Events)
 resource "azurerm_servicebus_topic" "appeal_bo_case" {
   name                = "appeal-bo-case"
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
-
 resource "azurerm_servicebus_topic" "appeal_bo_document" {
   name                = "appeal-bo-document"
   namespace_id        = azurerm_servicebus_namespace.back_office.id

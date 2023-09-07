@@ -8,8 +8,8 @@ locals {
       "philip.philippou@planninginspectorate.gov.uk"
     ]
   }
-  appeals_service_ssl_certificate_name      = "pins-wildcard"
-  applications_service_ssl_certificate_name = "pins-wildcard"
+  appeals_service_ssl_certificate_name      = "pins-wildcard-digicert-221223"
+  applications_service_ssl_certificate_name = "pins-wildcard-digicert-221223"
   primary_vnet_address_space                = "10.3.0.0/16"
   secondary_vnet_address_space              = "10.13.0.0/16"
   create_turbrepo_cache                     = false

@@ -40,7 +40,7 @@ module "front_office_subscribers" {
   source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.3"
 
   action_group_low_id                      = var.action_group_low_id
-  app_name                                 = "appeals-fo-integration"
+  app_name                                 = "fo-integration"
   app_service_plan_id                      = var.integration_functions_app_service_plan_id
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
