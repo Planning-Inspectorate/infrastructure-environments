@@ -51,9 +51,12 @@ module "app_services" {
   servicebus_topic_nsip_documents_id                                                  = var.servicebus_topic_nsip_documents_id
   deadline_submissions_topic_name                                                     = ""
   # TODO: DR strategy to figure out how to handle service bus fail-over
-  servicebus_topic_nsip_project_update_id        = ""
-  servicebus_topic_register_nsip_subscription_id = ""
-  servicebus_topic_deadline_submission_topic_id  = ""
+  servicebus_topic_nsip_project_update_id           = ""
+  servicebus_topic_register_nsip_subscription_id    = ""
+  servicebus_topic_deadline_submission_topic_id     = ""
+  service_bus_appeals_fo_appellant_submission_id    = ""
+  service_bus_appeals_fo_lpa_response_submission_id = ""
+
 
   # notify subscribers configuration
   notify_subscribers_function_gov_notify_template_id = var.notify_subscribers_function_gov_notify_template_id

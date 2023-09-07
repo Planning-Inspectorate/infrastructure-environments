@@ -246,6 +246,16 @@ variable "deadline_submissions_topic_name" {
   type        = string
 }
 
+variable "service_bus_appeals_fo_appellant_submission_id" {
+  description = "Service Bus Topic FO Appellant Case Command"
+  type        = string
+}
+
+variable "service_bus_appeals_fo_lpa_response_submission_id" {
+  description = "Service Bus Topic FO LPA Questionnaire Command"
+  type        = string
+}
+
 variable "document_storage_back_office_document_service_uploads_container_resource_manager_id" {
   description = "Back Office document-service-uploads container resource_manager_id"
   type        = string
