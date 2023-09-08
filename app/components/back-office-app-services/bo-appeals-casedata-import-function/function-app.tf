@@ -1,5 +1,5 @@
 module "bo_appeals_casedata_import_function" {
-  source = "../../../modules/node-function-app"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.3"
 
   action_group_low_id                      = var.action_group_low_id
   app_name                                 = "appellant-case"
