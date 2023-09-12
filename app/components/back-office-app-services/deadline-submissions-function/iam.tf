@@ -18,6 +18,12 @@ resource "azurerm_role_assignment" "function_blob_data_writer" {
 
 resource "azurerm_role_assignment" "service_bus_data_receiver" {
   scope                = azurerm_servicebus_subscription.deadline_submission_subscription.id
-  role_definition_name = "Azure Service Bus Data Owner"
+  role_definition_name = "Azure Service Bus Data Receiver"
+  principal_id         = module.deadline_submissions_function.principal_id
+}
+
+resource "azurerm_role_assignment" "service_bus_data_sender" {
+  scope                = azurerm_servicebus_subscription.deadline_submission_subscription.id
+  role_definition_name = "Azure Service Bus Data Sender"
   principal_id         = module.deadline_submissions_function.principal_id
 }
