@@ -1,8 +1,8 @@
-module "anti_virus_functions" {
+module "bo_appeals_lpaq_import_function" {
   source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.3"
 
   action_group_low_id                      = var.action_group_low_id
-  app_name                                 = "doc-check"
+  app_name                                 = "lpa-questionnaire"
   app_service_plan_id                      = var.app_service_plan_id
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
@@ -13,19 +13,22 @@ module "anti_virus_functions" {
   outbound_vnet_connectivity               = true
   resource_group_name                      = var.resource_group_name
   resource_suffix                          = var.resource_suffix
-  service_name                             = "doc-check"
+  service_name                             = "bo-appeals"
   use_app_insights                         = true
-  # For some reason, the node-clam library only works with Node 14. We'll need to fix this before go-live: BOAS-1114
-  function_node_version = 14
+  function_node_version                    = 18
 
   app_settings = {
-    CLAM_AV_HOST              = var.clamav_host
-    CLAM_AV_PORT              = "3310"
-    API_HOST                  = var.back_office_api_host
-    DOCUMENT_STORAGE_API_HOST = var.back_office_document_api_host
-    SERVICE_BUS_HOST          = "${var.service_bus_namespace_name}.servicebus.windows.net"
-    SERVICE_BUS_TOPIC         = var.deadline_submissions_topic_name
+    # Runtime env variables
+    ServiceBusConnection__fullyQualifiedNamespace = "${var.service_bus_namespace_name}.servicebus.windows.net"
+    # Function env variables
+    API_HOST = var.back_office_api_host
   }
 
   tags = var.tags
+}
+
+resource "azurerm_servicebus_subscription" "register_fo_lpaq_subscription" {
+  name               = "register-fo-lpaq-subscription"
+  topic_id           = var.service_bus_appeals_fo_lpa_response_submission_id
+  max_delivery_count = 1
 }

@@ -1,7 +1,7 @@
 variable "appeals_service_ssl_certificate_name" {
   description = "The SSL certificate name in the environment Key Vault for the appeals service"
   type        = string
-  default     = "pins-wildcard"
+  default     = "pins-wildcard-digicert-221223"
 }
 
 variable "appeals_service_public_url" {
@@ -23,7 +23,7 @@ variable "appeals_service_secondary_app_service_url" {
 variable "applications_service_ssl_certificate_name" {
   description = "The SSL certificate name in the environment Key Vault for the applications service"
   type        = string
-  default     = "pins-wildcard"
+  default     = "pins-wildcard-digicert-221223"
 }
 
 variable "applications_service_public_url" {
@@ -45,13 +45,13 @@ variable "applications_service_secondary_app_service_url" {
 variable "back_office_ssl_certificate_name" {
   description = "The SSL certificate name in the environment Key Vault for the back office service"
   type        = string
-  default     = "pins-wildcard"
+  default     = "pins-wildcard-digicert-221223"
 }
 
 variable "back_office_appeals_ssl_certificate_name" {
   description = "The SSL certificate name in the environment Key Vault for the back office appeals service"
   type        = string
-  default     = "pins-wildcard"
+  default     = "pins-wildcard-digicert-221223"
 }
 
 variable "back_office_public_url" {

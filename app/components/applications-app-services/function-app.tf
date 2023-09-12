@@ -1,7 +1,7 @@
 module "back_office_subscribers" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
-  source = "../../modules/node-function-app"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.3"
 
   action_group_low_id                      = var.action_group_low_id
   app_name                                 = "bo-subscribers"
