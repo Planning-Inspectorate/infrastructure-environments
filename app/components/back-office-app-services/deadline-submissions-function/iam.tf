@@ -23,7 +23,7 @@ resource "azurerm_role_assignment" "service_bus_data_receiver" {
 }
 
 resource "azurerm_role_assignment" "service_bus_data_sender" {
-  scope                = azurerm_servicebus_subscription.deadline_submission_subscription.id
+  scope                = var.servicebus_topic_deadline_submission_topic_id
   role_definition_name = "Azure Service Bus Data Sender"
   principal_id         = module.deadline_submissions_function.principal_id
 }
