@@ -36,9 +36,3 @@ resource "azurerm_servicebus_subscription" "deadline_submission_subscription" {
   topic_id           = var.servicebus_topic_deadline_submission_topic_id
   max_delivery_count = 1
 }
-
-resource "azurerm_servicebus_subscription" "deadline_submission_result_subscription" {
-  name               = "deadline-submission-result-subscription"
-  topic_id           = var.servicebus_topic_deadline_submission_result_id
-  max_delivery_count = 1
-}
