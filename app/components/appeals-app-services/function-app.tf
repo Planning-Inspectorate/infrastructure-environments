@@ -56,15 +56,10 @@ module "front_office_subscribers" {
   function_node_version                    = 18
 
   app_settings = {
-    APPEALS_COSMOSDB_CONNECTION = var.cosmosdb_connection_string
+    APPEALS_COSMOSDB_CONNECTION                   = var.cosmosdb_connection_string
+    ServiceBusConnection__fullyQualifiedNamespace = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
+    FO_APPEALS_API                                = "${module.app_service["appeals_service_api"].default_site_hostname}/api/v1"
   }
-  connection_strings = [
-    {
-      name  = "APPEALS_SERVICE_BUS_CONNECTION"
-      type  = "Custom"
-      value = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
-    }
-  ]
 
   tags = var.tags
 }
