@@ -77,7 +77,7 @@ resource "azurerm_cdn_frontdoor_profile" "back_office_applications_service" {
 }
 
 resource "azurerm_cdn_frontdoor_endpoint" "back_office_applications_service" {
-  name                     = local.back_office_frontend.frontend_name
+  name                     = "back-office-applications-service-${local.resource_suffix}"
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.back_office_applications_service.id
 
   tags = local.tags
@@ -148,7 +148,7 @@ resource "azurerm_cdn_frontdoor_profile" "back_office_appeals_service" {
 }
 
 resource "azurerm_cdn_frontdoor_endpoint" "back_office_appeals_service" {
-  name                     = local.back_office_appeals_frontend.frontend_name
+  name                     = "back-office-appeals-service-${local.resource_suffix}"
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.back_office_appeals_service.id
 
   tags = local.tags
