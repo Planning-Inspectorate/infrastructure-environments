@@ -27,3 +27,9 @@ resource "azurerm_role_assignment" "service_bus_data_sender" {
   role_definition_name = "Azure Service Bus Data Sender"
   principal_id         = module.deadline_submissions_function.principal_id
 }
+
+resource "azurerm_role_assignment" "service_bus_result_data_sender" {
+  scope                = var.servicebus_topic_deadline_submission_result_id
+  role_definition_name = "Azure Service Bus Data Sender"
+  principal_id         = module.deadline_submissions_function.principal_id
+}

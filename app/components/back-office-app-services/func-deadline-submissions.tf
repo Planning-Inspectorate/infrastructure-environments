@@ -13,10 +13,12 @@ module "deadline_submissions_function" {
   function_apps_storage_account                              = var.document_check_function_storage_name
   function_apps_storage_account_access_key                   = var.document_check_function_storage_primary_access_key
   servicebus_topic_deadline_submission_topic_id              = var.servicebus_topic_deadline_submission_topic_id
+  servicebus_topic_deadline_submission_result_id             = var.servicebus_topic_deadline_submission_result_id
   service_bus_namespace_name                                 = var.service_bus_namespace_name
   back_office_storage_account_host                           = var.document_storage_api_host
   app_service_plan_id                                        = azurerm_service_plan.back_office_functions_plan.id
   deadline_submissions_topic_name                            = var.deadline_submissions_topic_name
+  deadline_submissions_result_topic_name                     = var.deadline_submissions_result_topic_name
   document_storage_submissions_container_resource_manager_id = var.document_storage_submissions_container_resource_manager_id
   document_storage_uploads_container_resource_manager_id     = var.document_storage_back_office_document_service_uploads_container_resource_manager_id
 
