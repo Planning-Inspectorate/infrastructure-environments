@@ -15,4 +15,5 @@ module "applications_migration_function" {
   app_service_plan_id                      = azurerm_service_plan.back_office_functions_plan.id
   key_vault_uri                            = var.key_vault_uri
   key_vault_id                             = var.key_vault_id
+  tenant_id                                = data.azurerm_client_config.current.tenant_id
 }
