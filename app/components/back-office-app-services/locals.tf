@@ -49,6 +49,13 @@ locals {
         AZURE_BLOB_STORE_HOST     = var.document_storage_api_host
         SERVICE_BUS_HOSTNAME      = "${var.service_bus_namespace_name}.servicebus.windows.net"
         SERVICE_BUS_ENABLED       = var.feature_service_bus_enabled
+        # Temporary migration variables for Project Updates
+        NI_DB_MYSQL_DATABASE = local.existing_secret_refs["applications-service-mysql-database"]
+        NI_DB_MYSQL_DIALECT  = local.existing_secret_refs["applications-service-mysql-dialect"]
+        NI_DB_MYSQL_HOST     = local.existing_secret_refs["applications-service-mysql-host"]
+        NI_DB_MYSQL_PASSWORD = local.existing_secret_refs["applications-service-mysql-password"]
+        NI_DB_MYSQL_PORT     = local.existing_secret_refs["applications-service-mysql-port"]
+        NI_DB_MYSQL_USERNAME = local.existing_secret_refs["applications-service-mysql-username"]
       }
     }
 
@@ -135,7 +142,14 @@ locals {
   # These are secrets we don't intend to create, but just need a reference to
   existing_secret_names = [
     "applications-service-encryption-secret-key",
-    "back-office-gov-notify-api-key"
+    "back-office-gov-notify-api-key",
+    # Secrets owned by the applications service, soon to be replaced with our own
+    "applications-service-mysql-database",
+    "applications-service-mysql-dialect",
+    "applications-service-mysql-host",
+    "applications-service-mysql-password",
+    "applications-service-mysql-port",
+    "applications-service-mysql-username",
   ]
 
   existing_secret_refs = {
