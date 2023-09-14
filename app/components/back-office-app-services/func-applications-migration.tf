@@ -12,11 +12,5 @@ module "applications_migration_function" {
   back_office_api_host                     = module.app_service["back_office_api"].default_site_hostname
   function_apps_storage_account            = var.document_check_function_storage_name
   function_apps_storage_account_access_key = var.document_check_function_storage_primary_access_key
-  back_office_storage_account_host         = var.document_storage_api_host
   app_service_plan_id                      = azurerm_service_plan.back_office_functions_plan.id
-
-  providers = {
-    azurerm         = azurerm
-    azurerm.tooling = azurerm.tooling
-  }
 }
