@@ -13,4 +13,5 @@ module "applications_migration_function" {
   function_apps_storage_account            = var.document_check_function_storage_name
   function_apps_storage_account_access_key = var.document_check_function_storage_primary_access_key
   app_service_plan_id                      = azurerm_service_plan.back_office_functions_plan.id
+  key_vault_uri                            = var.key_vault_uri
 }
