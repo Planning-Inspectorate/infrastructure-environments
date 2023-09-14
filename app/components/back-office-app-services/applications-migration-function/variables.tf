@@ -68,3 +68,8 @@ variable "key_vault_id" {
   description = "The ID of the key vault so the App Service can pull secret values"
   type        = string
 }
+
+variable "tenant_id" {
+  description = "The Tenant ID for Key Vault"
+  type        = string
+}
