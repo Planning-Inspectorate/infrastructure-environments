@@ -53,6 +53,7 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_servicebus_topic.appeal_bo_document](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.appeal_fo_appellant_submission](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.appeal_fo_lpa_response_submission](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
+| [azurerm_servicebus_topic.deadline_submission_result](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.deadline_submission_topic](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.employee](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
@@ -149,6 +150,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_service_bus_nsip_project_topic_id"></a> [service\_bus\_nsip\_project\_topic\_id](#output\_service\_bus\_nsip\_project\_topic\_id) | ID of the nsip-project Service Bus Topic |
 | <a name="output_service_bus_nsip_project_update_topic_id"></a> [service\_bus\_nsip\_project\_update\_topic\_id](#output\_service\_bus\_nsip\_project\_update\_topic\_id) | ID of the nsip-project-update Service Bus Topic |
 | <a name="output_service_bus_nsip_representation_id"></a> [service\_bus\_nsip\_representation\_id](#output\_service\_bus\_nsip\_representation\_id) | ID of the nsip-representation Service Bus Topic |
+| <a name="output_servicebus_topic_deadline_submission_result_id"></a> [servicebus\_topic\_deadline\_submission\_result\_id](#output\_servicebus\_topic\_deadline\_submission\_result\_id) | Service Bus Topic deadline\_submission\_result id |
 | <a name="output_servicebus_topic_deadline_submission_topic_id"></a> [servicebus\_topic\_deadline\_submission\_topic\_id](#output\_servicebus\_topic\_deadline\_submission\_topic\_id) | Service Bus Topic deadline\_submission\_topic id |
 | <a name="output_servicebus_topic_nsip_documents_id"></a> [servicebus\_topic\_nsip\_documents\_id](#output\_servicebus\_topic\_nsip\_documents\_id) | Service Bus Topic nsip-document id |
 | <a name="output_servicebus_topic_register_nsip_subscription_id"></a> [servicebus\_topic\_register\_nsip\_subscription\_id](#output\_servicebus\_topic\_register\_nsip\_subscription\_id) | Service Bus Topic register\_nsip\_subscription id |

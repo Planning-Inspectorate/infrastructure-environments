@@ -241,8 +241,18 @@ variable "servicebus_topic_deadline_submission_topic_id" {
   type        = string
 }
 
+variable "servicebus_topic_deadline_submission_result_id" {
+  description = "Service Bus Topic deadline-submission-result id"
+  type        = string
+}
+
 variable "deadline_submissions_topic_name" {
   description = "Deadline Submissions Topic Name"
+  type        = string
+}
+
+variable "deadline_submissions_result_topic_name" {
+  description = "Deadline Submissions Result Topic Name"
   type        = string
 }
 

@@ -21,6 +21,7 @@ module "deadline_submissions_function" {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.service_bus_namespace_name}.servicebus.windows.net"
     SERVICE_BUS_HOSTNAME                          = "${var.service_bus_namespace_name}.servicebus.windows.net"
     SERVICE_BUS_TOPIC                             = var.deadline_submissions_topic_name
+    SERVICE_BUS_RESULT_TOPIC                      = var.deadline_submissions_result_topic_name
     API_HOST                                      = var.back_office_api_host
     BLOB_STORAGE_URL                              = var.back_office_storage_account_host
     SUBMISSIONS_BLOB_CONTAINER_NAME               = var.back_office_submissions_container

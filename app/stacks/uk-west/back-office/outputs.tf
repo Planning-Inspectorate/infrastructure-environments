@@ -156,6 +156,11 @@ output "servicebus_topic_deadline_submission_topic_id" {
   value       = azurerm_servicebus_topic.deadline_submission_topic.id
 }
 
+output "servicebus_topic_deadline_submission_result_id" {
+  description = "Service Bus Topic deadline_submission_result id"
+  value       = azurerm_servicebus_topic.deadline_submission_result.id
+}
+
 output "service_bus_nsip_project_update_topic_id" {
   description = "ID of the nsip-project-update Service Bus Topic"
   value       = azurerm_servicebus_topic.nsip_project_update.id
