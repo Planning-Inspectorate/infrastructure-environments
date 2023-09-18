@@ -48,7 +48,7 @@ variable "back_office_service_bus_nsip_project_topic_id" {
   default = ""
 }
 
-variable "back_office_service_bus_nsip_documents_topic_id" {
+variable "back_office_service_bus_nsip_document_topic_id" {
   description = "ID for the nsip-document topic"
   type        = string
   # TODO: ASB-1171 DR strategy to figure out how to handle service bus fail-over

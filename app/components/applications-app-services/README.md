@@ -19,21 +19,21 @@ This module contains the App Services resources for the applications service. Th
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_app_service"></a> [app\_service](#module\_app\_service) | ../../modules/node-app-service | n/a |
+| <a name="module_app_service"></a> [app\_service](#module\_app\_service) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service | 1.3 |
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
-| <a name="module_back_office_subscribers"></a> [back\_office\_subscribers](#module\_back\_office\_subscribers) | ../../modules/node-function-app | n/a |
+| <a name="module_back_office_subscribers"></a> [back\_office\_subscribers](#module\_back\_office\_subscribers) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app | 1.3 |
 
 ## Resources
 
 | Name | Type |
 |------|------|
 | [azurerm_role_assignment.back_office_app_send_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.nsip_documents_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.nsip_document_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.nsip_project_update_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.nsip_project_update_unpublish_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.nsip_representation_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.nsip_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_servicebus_subscription.nsip_documents_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_servicebus_subscription.nsip_document_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_subscription) | resource |
 | [azurerm_servicebus_subscription.nsip_project_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_subscription) | resource |
 | [azurerm_servicebus_subscription.nsip_project_update_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_subscription) | resource |
 | [azurerm_servicebus_subscription.nsip_project_update_unpublish_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_subscription) | resource |
@@ -57,7 +57,7 @@ This module contains the App Services resources for the applications service. Th
 | <a name="input_back_office_integration_get_application_case_references"></a> [back\_office\_integration\_get\_application\_case\_references](#input\_back\_office\_integration\_get\_application\_case\_references) | list of case references (comma separated) that the application data is retrieved from back office | `string` | n/a | yes |
 | <a name="input_back_office_integration_get_documents_case_references"></a> [back\_office\_integration\_get\_documents\_case\_references](#input\_back\_office\_integration\_get\_documents\_case\_references) | list of case references (comma separated) that document data is retrieved from back office | `string` | n/a | yes |
 | <a name="input_back_office_service_bus_namespace_name"></a> [back\_office\_service\_bus\_namespace\_name](#input\_back\_office\_service\_bus\_namespace\_name) | Namespace of Back Office Service Bus instance | `string` | n/a | yes |
-| <a name="input_back_office_service_bus_nsip_documents_topic_id"></a> [back\_office\_service\_bus\_nsip\_documents\_topic\_id](#input\_back\_office\_service\_bus\_nsip\_documents\_topic\_id) | ID for the nsip-document topic | `string` | n/a | yes |
+| <a name="input_back_office_service_bus_nsip_document_topic_id"></a> [back\_office\_service\_bus\_nsip\_document\_topic\_id](#input\_back\_office\_service\_bus\_nsip\_document\_topic\_id) | ID for the nsip-document topic | `string` | n/a | yes |
 | <a name="input_back_office_service_bus_nsip_project_topic_id"></a> [back\_office\_service\_bus\_nsip\_project\_topic\_id](#input\_back\_office\_service\_bus\_nsip\_project\_topic\_id) | ID for the nsip-project topic | `string` | n/a | yes |
 | <a name="input_back_office_service_bus_nsip_project_update_topic_id"></a> [back\_office\_service\_bus\_nsip\_project\_update\_topic\_id](#input\_back\_office\_service\_bus\_nsip\_project\_update\_topic\_id) | ID for the nsip-project-update topic | `string` | n/a | yes |
 | <a name="input_back_office_service_bus_nsip_representation_topic_id"></a> [back\_office\_service\_bus\_nsip\_representation\_topic\_id](#input\_back\_office\_service\_bus\_nsip\_representation\_topic\_id) | ID for the nsip-representation topic | `string` | n/a | yes |
