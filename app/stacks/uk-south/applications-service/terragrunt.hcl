@@ -67,7 +67,7 @@ inputs = {
   # TODO: ASB-1171 - uncomment when service bus in back office uks set up
   #  back_office_service_bus_namespace_name                      = dependency.back_office_uks.outputs.service_bus_namespace_name
   #  back_office_service_bus_nsip_project_topic_id               = dependency.back_office_uks.outputs.service_bus_nsip_project_topic_id
-  #  back_office_service_bus_nsip_documents_topic_id             = dependency.back_office_uks.outputs.servicebus_topic_nsip_documents_id
+  #  back_office_service_bus_nsip_document_topic_id              = dependency.back_office_uks.outputs.servicebus_topic_nsip_documents_id
   #  back_office_service_bus_register_nsip_subscription_topic_id = dependency.back_office_uks.outputs.servicebus_topic_register_nsip_subscription_id
   #  back_office_service_bus_nsip_project_update_topic_id        = dependency.back_office_uks.outputs.service_bus_nsip_project_update_topic_id
   #  back_office_service_bus_nsip_representation_topic_id        = dependency.back_office_uks.outputs.service_bus_nsip_representation_topic_id
