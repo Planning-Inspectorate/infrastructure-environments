@@ -100,6 +100,12 @@ resource "azurerm_servicebus_topic" "nsip_representation" {
   default_message_ttl = "P14D"
 }
 
+resource "azurerm_servicebus_topic" "nsip_s51_advice" {
+  name                = "nsip-s51-advice"
+  namespace_id        = azurerm_servicebus_namespace.back_office.id
+  default_message_ttl = "P14D"
+}
+
 # Commands
 resource "azurerm_servicebus_topic" "register_nsip_subscription" {
   name                = "register-nsip-subscription"
