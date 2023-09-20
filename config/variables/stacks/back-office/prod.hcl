@@ -29,7 +29,7 @@ locals {
   }
   feature_service_bus_enabled                        = "true"
   feature_document_scanning_enabled                  = true
-  notify_subscribers_function_gov_notify_template_id = "94975c1f-43c1-43a0-81be-61763d423601"
+  notify_subscribers_function_gov_notify_template_id = "ee890e9f-5669-40ec-b3f1-f9e6f01024db"
   # not ideal to specify this, but using a dependency with terragrunt would create a dependency cycle,
   # as applications is already dependent on back office
   applications_front_office_web_url = "https://national-infrastructure-consenting.planninginspectorate.gov.uk"
