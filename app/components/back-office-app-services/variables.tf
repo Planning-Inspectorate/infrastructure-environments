@@ -311,3 +311,23 @@ variable "document_storage_submissions_container_resource_manager_id" {
   description = "Submissions container resource_manager_id"
   type        = string
 }
+
+variable "back_office_applications_log_level_file" {
+  description = "Log level for the server.log file - trace, debug, info, warn, error, fatal, silent"
+  type        = string
+}
+
+variable "back_office_applications_log_level_stdout" {
+  description = "Log level for stdout - trace, debug, info, warn, error, fatal, silent"
+  type        = string
+}
+
+variable "back_office_appeals_log_level_file" {
+  description = "Log level for the server.log file - trace, debug, info, warn, error, fatal, silent"
+  type        = string
+}
+
+variable "back_office_appeals_log_level_stdout" {
+  description = "Log level for stdout - trace, debug, info, warn, error, fatal, silent"
+  type        = string
+}

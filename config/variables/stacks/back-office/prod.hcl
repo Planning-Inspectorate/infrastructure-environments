@@ -11,6 +11,12 @@ locals {
   azuread_applications_caseteam_group_id           = "ac136ed4-241a-459e-9b4e-267939fd4f08"
   azuread_applications_inspector_group_id          = "9dbf4271-7823-45ed-b1a7-3712f6f2faa3"
 
+  # logging
+  back_office_applications_log_level_file   = "silent"
+  back_office_applications_log_level_stdout = "info"
+  back_office_appeals_log_level_file        = "silent"
+  back_office_appeals_log_level_stdout      = "info"
+
   service_bus_failover_enabled = true
   sql_database_configuration = {
     max_size_gb               = 1024

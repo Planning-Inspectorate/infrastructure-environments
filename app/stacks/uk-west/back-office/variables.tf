@@ -196,3 +196,23 @@ variable "applications_front_office_web_url" {
   description = "Applications Front Office Web URL"
   type        = string
 }
+
+variable "back_office_applications_log_level_file" {
+  description = "Log level for the server.log file - trace, debug, info, warn, error, fatal, silent"
+  type        = string
+}
+
+variable "back_office_applications_log_level_stdout" {
+  description = "Log level for stdout - trace, debug, info, warn, error, fatal, silent"
+  type        = string
+}
+
+variable "back_office_appeals_log_level_file" {
+  description = "Log level for the server.log file - trace, debug, info, warn, error, fatal, silent"
+  type        = string
+}
+
+variable "back_office_appeals_log_level_stdout" {
+  description = "Log level for stdout - trace, debug, info, warn, error, fatal, silent"
+  type        = string
+}
