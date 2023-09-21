@@ -1,61 +1,111 @@
-resource "azurerm_cdn_frontdoor_profile" "azure_fdp_test" {
-  name                = "azure-fdp-test-standard${local.resource_suffix}"
-  resource_group_name = azurerm_resource_group.frontdoor.name
-  sku_name            = "Standard_AzureFrontDoor"
-}
+# call in the source
 
-resource "azurerm_cdn_frontdoor_endpoint" "back_office_appeals_frontend_endpoint" {
-  name                     = "azure-fdp-test${local.resource_suffix}"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.azure_fdp_test.id
+# you need to fill in the blanks that will launch the resource
 
-  tags = local.tags
-}
+module "azure-front-door" {
+  source = "../"
 
-resource "azurerm_cdn_frontdoor_origin_group" "back_office_appeals_frontend_origin_group" {
-  name                     = "azure-fdp-test${local.resource_suffix}"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.azure_fdp_test.id
-  session_affinity_enabled = true
-
-  health_probe {
-    interval_in_seconds = 240
-    path                = "/healthProbe"
-    protocol            = "Https"
-    request_type        = "HEAD"
+  azure = {
+    resource_group_name = "pins-rg-common-front-door-dev-ukw-001"
+    location            = "uk-south" # does this need to match the rg above and be in west?
   }
 
-  load_balancing {
-    additional_latency_in_milliseconds = 0
-    sample_size                        = 4
-    successful_samples_required        = 1
+  name = "front-door-standard" # this should match the other naming convention
+
+  origin_groups = {
+    # "common-dev" = {
+    #   health_probe             = {}
+    #   session_affinity_enabled = false
+
+    #   origins = {
+    #     webapp-uswest = {
+    #       hostname = "www.gov.uk" # this would be the name of the webapp, or the url?
+    #     }
+    #     webapp-useast = { # backup region
+    #       hostname = "www.gov.uk"
+    #     }
+    #   }
+    # }
+    "back-office-dev" = {
+      health_probe             = {}
+      session_affinity_enabled = false
+
+      origins = {
+        webapp-uswest = {
+          hostname = "back-office-dev.planninginspectorate.gov.uk" # this would be the name of the webapp, or the url?
+        }
+        # webapp-useast = { # backup region
+        #   hostname = "www.gov.uk"
+        # }
+      }
+    }
+    # "back-office-appeals-dev" = {
+    #   health_probe             = {}
+    #   session_affinity_enabled = false
+
+    #   origins = {
+    #     webapp-uswest = {
+    #       hostname = "www.gov.uk" # this would be the name of the webapp, or the url?
+    #     }
+    #   }
+    # }
+    # "applications-service-dev" = {
+    #   health_probe             = {}
+    #   session_affinity_enabled = false
+
+    #   origins = {
+    #     webapp-uswest = {
+    #       hostname = "www.gov.uk" # this would be the name of the webapp, or the url?
+    #     }
+    #   }
+    # }
+    # "appeals-service-dev" = {
+    #   health_probe             = {}
+    #   session_affinity_enabled = false
+
+    #   origins = {
+    #     webapp-uswest = {
+    #       hostname = "www.gov.uk" # this would be the name of the webapp, or the url?
+    #     }
+    #   }
+    # }
+  }
+
+  endpoints = {
+    # "pins-fdp-common-dev-001" = { # or pins-fd-common-dev-001.azurefd.net # is it even needed?
+    #   routes = {
+    #     common-dev-route = { # must define an origin group that is created by the same module
+    #       origin_group_name = "common-dev"
+    #     }
+    #   }
+    # }
+    "back-office-dev.planninginspectorate.gov.uk" = {
+      routes = {
+        back-office-dev-route = { # must define an origin group that is created by the same module
+          origin_group_name = "back-office-dev"
+        }
+      }
+    }
+    # "back-office-appeals-dev.planninginspectorate.gov.uk" = {
+    #   routes = {
+    #     back-office-appeals-dev-route = { # must define an origin group that is created by the same module
+    #       origin_group_name = "back-office-appeals-dev"
+    #     }
+    #   }
+    # }
+    # "applications-service-dev.planninginspectorate.gov.uk" = {
+    #   routes = {
+    #     applications-dev-route = { # must define an origin group that is created by the same module
+    #       origin_group_name = "applications-service-dev"
+    #     }
+    #   }
+    # }
+    # "appeals-service-dev.planninginspectorate.gov.uk" = {
+    #   routes = {
+    #     appeals-dev-route = { # must define an origin group that is created by the same module
+    #       origin_group_name = "appeals-service-dev"
+    #     }
+    #   }
+    # }
   }
 }
-
-resource "azurerm_cdn_frontdoor_origin" "back_office_appeals_frontend_origin" {
-  name                          = "azure-fdp-test-${local.resource_suffix}"
-  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.back_office_appeals_frontend_origin_group.id
-  enabled                       = true
-
-  certificate_name_check_enabled = false
-
-  host_name          = "gov.uk"
-  http_port          = 80
-  https_port         = 443
-  origin_host_header = "www.gov.uk"
-  priority           = 1
-  weight             = 1000
-}
-
-# resource "azurerm_cdn_frontdoor_route" "back_office_appeals_frontend" {
-#   name                          = "pins-fdp-${local.service_name}-${local.resource_suffix}"
-#   cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.back_office_appeals_frontend.id
-#   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.back_office_appeals_frontend.id
-#   cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.back_office_appeals_frontend.id]
-
-#   supported_protocols    = ["Http", "Https"]
-#   patterns_to_match      = ["/*"]
-#   forwarding_protocol    = "HttpsOnly"
-#   link_to_default_domain = true
-#   https_redirect_enabled = true
-
-#   cdn_frontdoor_origin_path = "/government/organisations/planning-inspectorate"
-# }
