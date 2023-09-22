@@ -7,7 +7,7 @@ module "azure-front-door" {
 
   azure = {
     resource_group_name = "pins-rg-common-front-door-dev-ukw-001" # Change this is var?
-    location            = "uk-south" # does this need to match the rg above and be in west?
+    location            = "uk-south"                              # does this need to match the rg above and be in west?
   }
 
   name = "front-door-standard" # this should match the other naming convention
@@ -31,7 +31,7 @@ module "azure-front-door" {
       session_affinity_enabled = false
 
       origins = {
-        webapp-uswest = {
+        back-office-dev-origin = {
           hostname = "back-office-dev.planninginspectorate.gov.uk" # this would be the name of the webapp, or the url?
         }
         # webapp-useast = { # backup region
