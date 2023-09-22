@@ -2,7 +2,7 @@
 
 # you need to fill in the blanks that will launch the resource
 
-module "azure-front-door" {
+module "azure_front_door" {
   source = "./afd-module"
 
   azure = {
