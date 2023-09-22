@@ -3,10 +3,10 @@
 # you need to fill in the blanks that will launch the resource
 
 module "azure-front-door" {
-  source = "../"
+  source = "./afd-module"
 
   azure = {
-    resource_group_name = "pins-rg-common-front-door-dev-ukw-001"
+    resource_group_name = "pins-rg-common-front-door-dev-ukw-001" # Change this is var?
     location            = "uk-south" # does this need to match the rg above and be in west?
   }
 
