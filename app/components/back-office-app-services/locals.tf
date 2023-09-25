@@ -40,13 +40,12 @@ locals {
       outbound_vnet_connectivity      = true
 
       app_settings = {
-        DATABASE_URL              = var.database_connection_string
-        DOCUMENT_STORAGE_API_HOST = "https://pins-app-${var.service_name}-document-storage-api-${var.resource_suffix}.azurewebsites.net"
-        DOCUMENT_STORAGE_API_PORT = "3443"
-        NODE_ENV                  = var.node_environment
-        AZURE_BLOB_STORE_HOST     = var.document_storage_api_host
-        SERVICE_BUS_HOSTNAME      = "${var.service_bus_namespace_name}.servicebus.windows.net"
-        SERVICE_BUS_ENABLED       = var.feature_service_bus_enabled
+        DATABASE_URL               = var.database_connection_string
+        NODE_ENV                   = var.node_environment
+        AZURE_BLOB_STORE_HOST      = var.document_storage_api_host
+        AZURE_BLOB_STORE_CONTAINER = var.document_storage_back_office_document_service_uploads_container_name
+        SERVICE_BUS_HOSTNAME       = "${var.service_bus_namespace_name}.servicebus.windows.net"
+        SERVICE_BUS_ENABLED        = var.feature_service_bus_enabled
         # Temporary migration variables for Project Updates
         NI_DB_MYSQL_DATABASE = local.existing_secret_refs["applications-service-mysql-database"]
         NI_DB_MYSQL_DIALECT  = local.existing_secret_refs["applications-service-mysql-dialect"]
