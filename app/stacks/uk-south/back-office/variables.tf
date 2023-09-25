@@ -26,11 +26,18 @@ variable "azuread_appeals_inspector_group_id" {
   default     = null
 }
 
-variable "azuread_appeals_validation_officer_group_id" {
-  description = "The Azure AD group ID for Appeals Back Office validation officers"
+variable "azuread_appeals_cs_team_group_id" {
+  description = "The Azure AD group ID for Appeals Back Office CS Team"
   type        = string
   default     = null
 }
+
+variable "azuread_appeals_legal_team_group_id" {
+  description = "The Azure AD group ID for Appeals Back Office Legal Team"
+  type        = string
+  default     = null
+}
+
 
 variable "azuread_applications_caseteam_group_id" {
   description = "The Azure AD group ID for Applications Back Office case team"
