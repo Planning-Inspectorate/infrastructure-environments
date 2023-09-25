@@ -3,9 +3,10 @@ locals {
   # Azure AD configuration
   azuread_auth_client_id = "7cab8971-c305-4b9a-82db-21b5fd84efbd"
   # Azure AD Appeals Groups
-  azuread_appeals_case_officer_group_id       = "cc4133e5-2319-4762-8a7b-33413701210a"
-  azuread_appeals_inspector_group_id          = "0724c372-098d-4eef-acfb-bc85cd483dd1"
-  azuread_appeals_validation_officer_group_id = "369caed5-fe22-445e-8cdc-8b2f6746afc7"
+  azuread_appeals_case_officer_group_id = "cc4133e5-2319-4762-8a7b-33413701210a"
+  azuread_appeals_inspector_group_id    = "0724c372-098d-4eef-acfb-bc85cd483dd1"
+  azuread_appeals_cs_team_group_id      = "455cbf03-f92f-4357-8daa-9f513b21fb73"
+  azuread_appeals_legal_team_group_id   = "369caed5-fe22-445e-8cdc-8b2f6746afc7"
   # Azure AD Applications Groups
   azuread_applications_case_admin_officer_group_id = "5420e6d8-b155-4839-ab97-cc9893cdb628"
   azuread_applications_caseteam_group_id           = "3cd1a46e-7b0d-48f4-a342-b5eb15344c42"
