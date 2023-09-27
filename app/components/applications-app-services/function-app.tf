@@ -22,6 +22,7 @@ module "back_office_subscribers" {
   app_settings = {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
     SqlConnectionString                           = var.applications_sql_server_connection_string
+    DATABASE_URL                                  = var.applications_sql_server_connection_string_jbdc
     APPLICATIONS_SERVICE_API_URL                  = "https://pins-app-${var.service_name}-applications-api-${var.resource_suffix}.azurewebsites.net"
   }
 
