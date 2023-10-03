@@ -79,11 +79,6 @@ variable "document_storage_back_office_document_service_uploads_container_name" 
   type        = string
 }
 
-variable "back_office_document_api_host" {
-  description = "Back Office Document Api Host"
-  type        = string
-}
-
 variable "service_bus_namespace_name" {
   description = "Name of Service Bus namespace"
   type        = string
