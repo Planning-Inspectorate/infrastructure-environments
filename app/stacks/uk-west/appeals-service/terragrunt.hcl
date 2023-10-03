@@ -38,23 +38,9 @@ dependency "back_office_ukw" {
     servicebus_topic_register_nsip_subscription_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
     service_bus_nsip_project_update_topic_id       = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
     clamav_host                                    = "clam.dev"
-  }
-}
-
-dependency "back_office_ukw" {
-  config_path                             = "../back-office"
-  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
-  mock_outputs_merge_with_state           = true
-
-  mock_outputs = {
-    service_bus_namespace_name                     = "mock-namespace"
-    service_bus_nsip_project_topic_id              = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
-    service_bus_nsip_documents_topic_id            = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
-    servicebus_topic_register_nsip_subscription_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
-    service_bus_nsip_project_update_topic_id       = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
-    clamav_host                                    = "clam.dev"
     service_bus_appeals_bo_case_topic_id           = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
     service_bus_appeals_bo_document_topic_id       = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
+    service_bus_listed_building_topic_id           = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
   }
 }
 
@@ -64,6 +50,7 @@ inputs = {
   back_office_service_bus_namespace_name    = dependency.back_office_ukw.outputs.service_bus_namespace_name
   service_bus_appeals_bo_case_topic_id      = dependency.back_office_ukw.outputs.service_bus_appeals_bo_case_topic_id
   service_bus_appeals_bo_document_topic_id  = dependency.back_office_ukw.outputs.service_bus_appeals_bo_document_topic_id
+  service_bus_listed_building_topic_id      = dependency.back_office_ukw.outputs.service_bus_listed_building_topic_id
   common_integration_functions_subnet_id    = dependency.common_ukw.outputs.common_integration_functions_subnet_id
   common_resource_group_name                = dependency.common_ukw.outputs.common_resource_group_name
   common_vnet_cidr_blocks                   = dependency.common_ukw.outputs.common_vnet_cidr_blocks

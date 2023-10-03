@@ -56,6 +56,7 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_servicebus_topic.deadline_submission_result](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.deadline_submission_topic](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.employee](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
+| [azurerm_servicebus_topic.listed_building](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_exam_timetable](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_project](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
@@ -150,6 +151,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_service_bus_appeals_bo_document_topic_id"></a> [service\_bus\_appeals\_bo\_document\_topic\_id](#output\_service\_bus\_appeals\_bo\_document\_topic\_id) | ID of the appeals back office document Service Bus Topic |
 | <a name="output_service_bus_appeals_fo_appellant_submission_id"></a> [service\_bus\_appeals\_fo\_appellant\_submission\_id](#output\_service\_bus\_appeals\_fo\_appellant\_submission\_id) | ID of the appeals front office appellant case Service Bus Topic |
 | <a name="output_service_bus_appeals_fo_lpa_response_submission_id"></a> [service\_bus\_appeals\_fo\_lpa\_response\_submission\_id](#output\_service\_bus\_appeals\_fo\_lpa\_response\_submission\_id) | ID of the appeals front office LPA response Service Bus Topic |
+| <a name="output_service_bus_listed_building_topic_id"></a> [service\_bus\_listed\_building\_topic\_id](#output\_service\_bus\_listed\_building\_topic\_id) | ID of the listed-building Service Bus Topic, expected to eventually move to an ODW service bus topic |
 | <a name="output_service_bus_namespace_id"></a> [service\_bus\_namespace\_id](#output\_service\_bus\_namespace\_id) | The ID of the Service Bus Namespace |
 | <a name="output_service_bus_namespace_name"></a> [service\_bus\_namespace\_name](#output\_service\_bus\_namespace\_name) | The name of the Service Bus Namespace |
 | <a name="output_service_bus_nsip_exam_timetable_id"></a> [service\_bus\_nsip\_exam\_timetable\_id](#output\_service\_bus\_nsip\_exam\_timetable\_id) | ID of the nsip-exam-timetable Service Bus Topic |
