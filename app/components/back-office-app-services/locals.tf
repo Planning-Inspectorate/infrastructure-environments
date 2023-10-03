@@ -56,24 +56,6 @@ locals {
       }
     }
 
-    # TODO: Let's delete this and make the document storage API a shared library
-    back_office_document_storage_api = {
-      app_name                        = "document-storage-api"
-      app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
-      endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
-      image_name                      = "back-office/back-office-document-storage-api"
-      inbound_vnet_connectivity       = var.private_endpoint_enabled
-      integration_subnet_id           = var.integration_subnet_id
-      key_vault_access                = true
-      outbound_vnet_connectivity      = true
-
-      app_settings = {
-        AZURE_BLOB_STORE_HOST      = var.document_storage_api_host
-        AZURE_BLOB_STORE_CONTAINER = var.document_storage_back_office_document_service_uploads_container_name
-        NODE_ENV                   = var.node_environment
-      }
-    }
-
     back_office_appeals_frontend = {
       app_name                   = "appeals-wfe"
       front_door_restriction     = true
