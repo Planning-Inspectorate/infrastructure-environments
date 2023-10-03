@@ -166,6 +166,11 @@ output "service_bus_nsip_project_update_topic_id" {
   value       = azurerm_servicebus_topic.nsip_project_update.id
 }
 
+output "service_bus_listed_building_topic_id" {
+  description = "ID of the listed-building Service Bus Topic, expected to eventually move to an ODW service bus topic"
+  value       = azurerm_servicebus_topic.listed_building.id
+}
+
 output "sql_server_id" {
   description = "The ID of the Back Office SQL server"
   value       = azurerm_mssql_server.back_office.id

@@ -259,11 +259,18 @@ variable "service_bus_appeals_bo_document_topic_id" {
   description = "ID for the appeals case data topic"
   type        = string
 }
+
+variable "service_bus_listed_building_topic_id" {
+  description = "ID for the listed building topic"
+  type        = string
+}
+
 variable "appeals_feature_back_office_subscriber_enabled" {
   description = "Feature toggle for appeals back office to front office service topic susbcription using azure functions"
   type        = bool
   default     = false
 }
+
 variable "integration_functions_app_service_plan_id" {
   description = "The id of the common integration functions app service plan"
   type        = string

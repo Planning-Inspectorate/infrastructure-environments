@@ -138,6 +138,12 @@ resource "azurerm_servicebus_topic" "appeal_fo_lpa_response_submission" {
   default_message_ttl = "P14D"
 }
 
+resource "azurerm_servicebus_topic" "listed_building" {
+  name                = "listed-building"
+  namespace_id        = azurerm_servicebus_namespace.back_office.id
+  default_message_ttl = "P14D"
+}
+
 # Appeals BO Producers (Events)
 resource "azurerm_servicebus_topic" "appeal_bo_case" {
   name                = "appeal-bo-case"
