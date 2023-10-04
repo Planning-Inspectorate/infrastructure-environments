@@ -50,3 +50,11 @@ resource "azurerm_storage_account" "function_apps" {
 
   tags = local.tags
 }
+
+resource "azurerm_storage_container" "listedbuildings" {
+  #TODO: Logging
+  #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
+  name                  = "listedbuildings"
+  storage_account_name  = azurerm_storage_account.function_apps.name
+  container_access_type = "private"
+}
