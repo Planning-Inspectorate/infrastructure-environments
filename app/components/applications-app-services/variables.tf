@@ -98,6 +98,11 @@ variable "back_office_submissions_storage_container_resource_manager_id" {
   type        = string
 }
 
+variable "back_office_submissions_storage_container_name" {
+  description = "URL for Back Office submissions storage container"
+  type        = string
+}
+
 variable "container_registry_name" {
   description = "The name of the container registry that hosts the image"
   type        = string

@@ -93,6 +93,13 @@ variable "back_office_service_bus_deadline_submission_topic_id" {
   default = ""
 }
 
+variable "back_office_submissions_storage_container_name" {
+  description = "URL for Back Office submissions storage container"
+  type        = string
+  # TODO: ASB-1171 DR strategy to figure out how to handle service bus fail-over
+  default = ""
+}
+
 variable "back_office_submissions_storage_container_resource_manager_id" {
   description = "Back office submissions container resource_manager_id"
   type        = string
