@@ -74,6 +74,11 @@ variable "back_office_service_bus_nsip_representation_topic_id" {
   type        = string
 }
 
+variable "back_office_submissions_storage_container_resource_manager_id" {
+  description = "Back office submissions container resource_manager_id"
+  type        = string
+}
+
 variable "common_resource_group_name" {
   description = "The common infrastructure resource group name"
   type        = string
