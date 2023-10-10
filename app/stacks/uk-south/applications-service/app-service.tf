@@ -14,6 +14,7 @@ module "app_services" {
   back_office_integration_get_application_case_references         = var.back_office_integration_get_application_case_references
   back_office_integration_get_documents_case_references           = var.back_office_integration_get_documents_case_references
   back_office_integration_post_submissions_case_references        = var.back_office_integration_post_submissions_case_references
+  back_office_integration_get_timetable_case_references           = var.back_office_integration_get_timetable_case_references
   back_office_service_bus_namespace_name                          = var.back_office_service_bus_namespace_name
   back_office_service_bus_nsip_project_topic_id                   = var.back_office_service_bus_nsip_project_topic_id
   back_office_service_bus_nsip_document_topic_id                  = var.back_office_service_bus_nsip_document_topic_id
