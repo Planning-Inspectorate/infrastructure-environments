@@ -12,6 +12,7 @@ locals {
       app_settings = {
         APPLICATIONS_SERVICE_API_TIMEOUT             = var.api_timeout
         APPLICATIONS_SERVICE_API_URL                 = "https://pins-app-${var.service_name}-applications-api-${var.resource_suffix}.azurewebsites.net/"
+        DOCKER_REGISTRY_SERVER_PASSWORD              = local.secret_refs["docker-registry-server-password"]
         FILE_UPLOADS_PATH                            = "/opt/app/uploads"
         GOOGLE_ANALYTICS_ID                          = var.google_analytics_id
         HOST_URL                                     = "https://${var.applications_service_public_url}/"
@@ -60,6 +61,7 @@ locals {
         BACK_OFFICE_SERVICE_BUS_HOSTNAME                         = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
         DATABASE_URL                                             = var.applications_sql_server_connection_string_jbdc
         DOCUMENTS_HOST                                           = var.documents_host
+        DOCKER_REGISTRY_SERVER_PASSWORD                          = local.secret_refs["docker-registry-server-password"]
         ENCRYPTION_SECRET_KEY                                    = local.secret_refs["applications-service-encryption-secret-key"]
         FILE_UPLOADS_PATH                                        = "/opt/app/uploads"
         LOGGER_LEVEL                                             = var.logger_level
