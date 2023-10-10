@@ -81,3 +81,12 @@ resource "azurerm_servicebus_subscription" "appeals_bo_document_topic_subscripti
   topic_id           = var.service_bus_appeals_bo_document_topic_id
   max_delivery_count = 1
 }
+
+# listed building topic subscription
+resource "azurerm_servicebus_subscription" "listed_building_topic_subscription" {
+  count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
+
+  name               = "listed-building-subscription"
+  topic_id           = var.service_bus_listed_building_topic_id
+  max_delivery_count = 1
+}

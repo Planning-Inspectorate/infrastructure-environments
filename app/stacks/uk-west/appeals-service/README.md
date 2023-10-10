@@ -47,6 +47,7 @@ This component contains the infrastructure required for the appeals service. Thi
 | [azurerm_storage_account.appeal_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/storage_account) | resource |
 | [azurerm_storage_account.function_apps](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/storage_account) | resource |
 | [azurerm_storage_container.documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/storage_container) | resource |
+| [azurerm_storage_container.listedbuildings](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/storage_container) | resource |
 | [azurerm_subnet.appeals_service_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/subnet) | resource |
 | [time_offset.secret_expire_date](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/offset) | resource |
 | [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/data-sources/client_config) | data source |
@@ -93,6 +94,7 @@ This component contains the infrastructure required for the appeals service. Thi
 | <a name="input_secondary_location"></a> [secondary\_location](#input\_secondary\_location) | The secondary location resources are deployed to in slug format e.g. 'uk-west' | `string` | `"uk-south"` | no |
 | <a name="input_service_bus_appeals_bo_case_topic_id"></a> [service\_bus\_appeals\_bo\_case\_topic\_id](#input\_service\_bus\_appeals\_bo\_case\_topic\_id) | ID for the appeals case data topic | `string` | n/a | yes |
 | <a name="input_service_bus_appeals_bo_document_topic_id"></a> [service\_bus\_appeals\_bo\_document\_topic\_id](#input\_service\_bus\_appeals\_bo\_document\_topic\_id) | ID for the appeals case data topic | `string` | n/a | yes |
+| <a name="input_service_bus_listed_building_topic_id"></a> [service\_bus\_listed\_building\_topic\_id](#input\_service\_bus\_listed\_building\_topic\_id) | ID for the listed building topic | `string` | n/a | yes |
 | <a name="input_srv_admin_monitoring_email"></a> [srv\_admin\_monitoring\_email](#input\_srv\_admin\_monitoring\_email) | Email for the Horizon failure team | `string` | n/a | yes |
 | <a name="input_srv_notify_appeal_submission_confirmation_email_to_appellant_template_id"></a> [srv\_notify\_appeal\_submission\_confirmation\_email\_to\_appellant\_template\_id](#input\_srv\_notify\_appeal\_submission\_confirmation\_email\_to\_appellant\_template\_id) | A template ID required by the Appeals Service API | `string` | n/a | yes |
 | <a name="input_srv_notify_appeal_submission_received_notification_email_to_lpa_template_id"></a> [srv\_notify\_appeal\_submission\_received\_notification\_email\_to\_lpa\_template\_id](#input\_srv\_notify\_appeal\_submission\_received\_notification\_email\_to\_lpa\_template\_id) | A template ID required by the Appeals Service API | `string` | n/a | yes |

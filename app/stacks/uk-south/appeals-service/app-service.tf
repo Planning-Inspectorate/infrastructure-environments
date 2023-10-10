@@ -54,6 +54,7 @@ module "app_services" {
   back_office_service_bus_namespace_name                                      = var.back_office_service_bus_namespace_name
   service_bus_appeals_bo_case_topic_id                                        = var.service_bus_appeals_bo_case_topic_id
   service_bus_appeals_bo_document_topic_id                                    = var.service_bus_appeals_bo_document_topic_id
+  service_bus_listed_building_topic_id                                        = var.service_bus_listed_building_topic_id
   appeals_feature_back_office_subscriber_enabled                              = var.appeals_feature_back_office_subscriber_enabled
   common_integration_functions_subnet_id                                      = var.common_integration_functions_subnet_id
 

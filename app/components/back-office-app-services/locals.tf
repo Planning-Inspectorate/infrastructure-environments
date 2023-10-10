@@ -40,13 +40,12 @@ locals {
       outbound_vnet_connectivity      = true
 
       app_settings = {
-        DATABASE_URL              = var.database_connection_string
-        DOCUMENT_STORAGE_API_HOST = "https://pins-app-${var.service_name}-document-storage-api-${var.resource_suffix}.azurewebsites.net"
-        DOCUMENT_STORAGE_API_PORT = "3443"
-        NODE_ENV                  = var.node_environment
-        AZURE_BLOB_STORE_HOST     = var.document_storage_api_host
-        SERVICE_BUS_HOSTNAME      = "${var.service_bus_namespace_name}.servicebus.windows.net"
-        SERVICE_BUS_ENABLED       = var.feature_service_bus_enabled
+        DATABASE_URL               = var.database_connection_string
+        NODE_ENV                   = var.node_environment
+        AZURE_BLOB_STORE_HOST      = var.document_storage_api_host
+        AZURE_BLOB_STORE_CONTAINER = var.document_storage_back_office_document_service_uploads_container_name
+        SERVICE_BUS_HOSTNAME       = "${var.service_bus_namespace_name}.servicebus.windows.net"
+        SERVICE_BUS_ENABLED        = var.feature_service_bus_enabled
         # Temporary migration variables for Project Updates
         NI_DB_MYSQL_DATABASE = local.existing_secret_refs["applications-service-mysql-database"]
         NI_DB_MYSQL_DIALECT  = local.existing_secret_refs["applications-service-mysql-dialect"]
@@ -54,24 +53,6 @@ locals {
         NI_DB_MYSQL_PASSWORD = local.existing_secret_refs["applications-service-mysql-password"]
         NI_DB_MYSQL_PORT     = local.existing_secret_refs["applications-service-mysql-port"]
         NI_DB_MYSQL_USERNAME = local.existing_secret_refs["applications-service-mysql-username"]
-      }
-    }
-
-    # TODO: Let's delete this and make the document storage API a shared library
-    back_office_document_storage_api = {
-      app_name                        = "document-storage-api"
-      app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
-      endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
-      image_name                      = "back-office/back-office-document-storage-api"
-      inbound_vnet_connectivity       = var.private_endpoint_enabled
-      integration_subnet_id           = var.integration_subnet_id
-      key_vault_access                = true
-      outbound_vnet_connectivity      = true
-
-      app_settings = {
-        AZURE_BLOB_STORE_HOST      = var.document_storage_api_host
-        AZURE_BLOB_STORE_CONTAINER = var.document_storage_back_office_document_service_uploads_container_name
-        NODE_ENV                   = var.node_environment
       }
     }
 
@@ -85,22 +66,23 @@ locals {
       outbound_vnet_connectivity = true
 
       app_settings = {
-        AUTH_REDIRECT_PATH                  = "/auth/redirect"
-        API_HOST                            = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
-        APP_HOSTNAME                        = var.back_office_appeals_hostname
-        AUTH_CLIENT_ID                      = var.azuread_auth_client_id
-        AUTH_CLIENT_SECRET                  = local.secret_refs["back-office-client-secret"]
-        AUTH_CLOUD_INSTANCE_ID              = "https://login.microsoftonline.com"
-        AUTH_TENANT_ID                      = data.azurerm_client_config.current.tenant_id
-        APPEALS_VALIDATION_OFFICER_GROUP_ID = var.azuread_appeals_validation_officer_group_id
-        APPEALS_INSPECTOR_GROUP_ID          = var.azuread_appeals_inspector_group_id
-        APPEALS_CASE_OFFICER_GROUP_ID       = var.azuread_appeals_case_officer_group_id
-        AZURE_BLOB_STORE_HOST               = var.document_storage_api_host # TODO: Replace
-        AZURE_BLOB_DEFAULT_CONTAINER        = var.document_storage_back_office_document_service_uploads_container_name
-        LOG_LEVEL_FILE                      = var.back_office_appeals_log_level_file
-        LOG_LEVEL_STDOUT                    = var.back_office_appeals_log_level_stdout
-        NODE_ENV                            = var.node_environment
-        SESSION_SECRET                      = local.secret_refs["session-secret"] # TODO: Let's create a separate one for Appeals
+        AUTH_REDIRECT_PATH            = "/auth/redirect"
+        API_HOST                      = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
+        APP_HOSTNAME                  = var.back_office_appeals_hostname
+        AUTH_CLIENT_ID                = var.azuread_auth_client_id
+        AUTH_CLIENT_SECRET            = local.secret_refs["back-office-client-secret"]
+        AUTH_CLOUD_INSTANCE_ID        = "https://login.microsoftonline.com"
+        AUTH_TENANT_ID                = data.azurerm_client_config.current.tenant_id
+        APPEALS_INSPECTOR_GROUP_ID    = var.azuread_appeals_inspector_group_id
+        APPEALS_CASE_OFFICER_GROUP_ID = var.azuread_appeals_case_officer_group_id
+        APPEALS_LEGAL_TEAM_GROUP_ID   = var.azuread_appeals_legal_team_group_id
+        APPEALS_CS_TEAM_GROUP_ID      = var.azuread_appeals_cs_team_group_id
+        AZURE_BLOB_STORE_HOST         = var.document_storage_api_host # TODO: Replace
+        AZURE_BLOB_DEFAULT_CONTAINER  = var.document_storage_back_office_document_service_uploads_container_name
+        LOG_LEVEL_FILE                = var.back_office_appeals_log_level_file
+        LOG_LEVEL_STDOUT              = var.back_office_appeals_log_level_stdout
+        NODE_ENV                      = var.node_environment
+        SESSION_SECRET                = local.secret_refs["session-secret"] # TODO: Let's create a separate one for Appeals
       }
     }
 

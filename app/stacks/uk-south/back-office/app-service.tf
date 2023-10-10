@@ -9,7 +9,8 @@ module "app_services" {
   azuread_auth_client_id                           = var.azuread_auth_client_id
   azuread_appeals_case_officer_group_id            = var.azuread_appeals_case_officer_group_id
   azuread_appeals_inspector_group_id               = var.azuread_appeals_inspector_group_id
-  azuread_appeals_validation_officer_group_id      = var.azuread_appeals_validation_officer_group_id
+  azuread_appeals_cs_team_group_id                 = var.azuread_appeals_cs_team_group_id
+  azuread_appeals_legal_team_group_id              = var.azuread_appeals_legal_team_group_id
   azuread_applications_case_admin_officer_group_id = var.azuread_applications_case_admin_officer_group_id
   azuread_applications_caseteam_group_id           = var.azuread_applications_caseteam_group_id
   azuread_applications_inspector_group_id          = var.azuread_applications_inspector_group_id

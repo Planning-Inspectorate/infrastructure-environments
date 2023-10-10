@@ -106,6 +106,11 @@ output "service_bus_namespace_name" {
   value       = azurerm_servicebus_namespace.back_office.name
 }
 
+output "servicebus_topic_service_user_id" {
+  description = "Service Bus Topic service-user id. Only used by ODW."
+  value       = azurerm_servicebus_topic.service_user.id
+}
+
 output "servicebus_topic_nsip_documents_id" {
   description = "Service Bus Topic nsip-document id"
   value       = azurerm_servicebus_topic.nsip_documents.id
@@ -164,6 +169,11 @@ output "servicebus_topic_deadline_submission_result_id" {
 output "service_bus_nsip_project_update_topic_id" {
   description = "ID of the nsip-project-update Service Bus Topic"
   value       = azurerm_servicebus_topic.nsip_project_update.id
+}
+
+output "service_bus_listed_building_topic_id" {
+  description = "ID of the listed-building Service Bus Topic, expected to eventually move to an ODW service bus topic"
+  value       = azurerm_servicebus_topic.listed_building.id
 }
 
 output "sql_server_id" {

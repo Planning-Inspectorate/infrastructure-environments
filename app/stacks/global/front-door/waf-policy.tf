@@ -112,35 +112,13 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
       }
     }
 
-    # exception for ASB-1692
+    # Exception for ASB-1692 merged with ASB-1928 - Exclude all rules for this selector.
     # POST project update content, which is a strict subset of HTML
     # only applies Back Office, so should be removed from others with new Front Door
-    override {
-      rule_group_name = "XSS"
-
-      rule {
-        # Possible XSS Attack Detected - HTML Tag Handler
-        rule_id = "941320"
-        action  = "Block"
-
-        exclusion {
-          match_variable = "RequestBodyPostArgNames"
-          operator       = "Equals"
-          selector       = "backOfficeProjectUpdateContent"
-        }
-      }
-
-      rule {
-        # XSS Filter - Category 5: Disallowed HTML Attributes
-        rule_id = "941150"
-        action  = "Block"
-
-        exclusion {
-          match_variable = "RequestBodyPostArgNames"
-          operator       = "Equals"
-          selector       = "backOfficeProjectUpdateContent"
-        }
-      }
+    exclusion {
+      match_variable = "RequestBodyPostArgNames"
+      operator       = "Equals"
+      selector       = "backOfficeProjectUpdateContent"
     }
   }
 

@@ -56,6 +56,7 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_servicebus_topic.deadline_submission_result](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.deadline_submission_topic](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.employee](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
+| [azurerm_servicebus_topic.listed_building](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_exam_timetable](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_project](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
@@ -64,6 +65,7 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_servicebus_topic.nsip_s51_advice](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.register_nsip_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
+| [azurerm_servicebus_topic.service_user](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_storage_account.back_office_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/storage_account) | resource |
 | [azurerm_storage_account.function_storage](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/storage_account) | resource |
 | [azurerm_storage_container.back_office_document_service_uploads_container](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/storage_container) | resource |
@@ -83,8 +85,9 @@ This component contains the infrastructure required for the back office service.
 | <a name="input_app_service_plan_id"></a> [app\_service\_plan\_id](#input\_app\_service\_plan\_id) | The id of the app service plan | `string` | n/a | yes |
 | <a name="input_applications_front_office_web_url"></a> [applications\_front\_office\_web\_url](#input\_applications\_front\_office\_web\_url) | Applications Front Office Web URL | `string` | n/a | yes |
 | <a name="input_azuread_appeals_case_officer_group_id"></a> [azuread\_appeals\_case\_officer\_group\_id](#input\_azuread\_appeals\_case\_officer\_group\_id) | The Azure AD group ID for Appeals Back Office case officers | `string` | `null` | no |
+| <a name="input_azuread_appeals_cs_team_group_id"></a> [azuread\_appeals\_cs\_team\_group\_id](#input\_azuread\_appeals\_cs\_team\_group\_id) | The Azure AD group ID for Appeals Back Office CS Team | `string` | `null` | no |
 | <a name="input_azuread_appeals_inspector_group_id"></a> [azuread\_appeals\_inspector\_group\_id](#input\_azuread\_appeals\_inspector\_group\_id) | The Azure AD group ID for Appeals Back Office inspectors | `string` | `null` | no |
-| <a name="input_azuread_appeals_validation_officer_group_id"></a> [azuread\_appeals\_validation\_officer\_group\_id](#input\_azuread\_appeals\_validation\_officer\_group\_id) | The Azure AD group ID for Appeals Back Office validation officers | `string` | `null` | no |
+| <a name="input_azuread_appeals_legal_team_group_id"></a> [azuread\_appeals\_legal\_team\_group\_id](#input\_azuread\_appeals\_legal\_team\_group\_id) | The Azure AD group ID for Appeals Back Office Legal Team | `string` | `null` | no |
 | <a name="input_azuread_applications_case_admin_officer_group_id"></a> [azuread\_applications\_case\_admin\_officer\_group\_id](#input\_azuread\_applications\_case\_admin\_officer\_group\_id) | The Azure AD group ID for Applications Back Office case admin officers | `string` | `null` | no |
 | <a name="input_azuread_applications_caseteam_group_id"></a> [azuread\_applications\_caseteam\_group\_id](#input\_azuread\_applications\_caseteam\_group\_id) | The Azure AD group ID for Applications Back Office case team | `string` | `null` | no |
 | <a name="input_azuread_applications_inspector_group_id"></a> [azuread\_applications\_inspector\_group\_id](#input\_azuread\_applications\_inspector\_group\_id) | The Azure AD group ID for Applications Back Office inspectors | `string` | `null` | no |
@@ -149,6 +152,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_service_bus_appeals_bo_document_topic_id"></a> [service\_bus\_appeals\_bo\_document\_topic\_id](#output\_service\_bus\_appeals\_bo\_document\_topic\_id) | ID of the appeals back office document Service Bus Topic |
 | <a name="output_service_bus_appeals_fo_appellant_submission_id"></a> [service\_bus\_appeals\_fo\_appellant\_submission\_id](#output\_service\_bus\_appeals\_fo\_appellant\_submission\_id) | ID of the appeals front office appellant case Service Bus Topic |
 | <a name="output_service_bus_appeals_fo_lpa_response_submission_id"></a> [service\_bus\_appeals\_fo\_lpa\_response\_submission\_id](#output\_service\_bus\_appeals\_fo\_lpa\_response\_submission\_id) | ID of the appeals front office LPA response Service Bus Topic |
+| <a name="output_service_bus_listed_building_topic_id"></a> [service\_bus\_listed\_building\_topic\_id](#output\_service\_bus\_listed\_building\_topic\_id) | ID of the listed-building Service Bus Topic, expected to eventually move to an ODW service bus topic |
 | <a name="output_service_bus_namespace_id"></a> [service\_bus\_namespace\_id](#output\_service\_bus\_namespace\_id) | The ID of the Service Bus Namespace |
 | <a name="output_service_bus_namespace_name"></a> [service\_bus\_namespace\_name](#output\_service\_bus\_namespace\_name) | The name of the Service Bus Namespace |
 | <a name="output_service_bus_nsip_exam_timetable_id"></a> [service\_bus\_nsip\_exam\_timetable\_id](#output\_service\_bus\_nsip\_exam\_timetable\_id) | ID of the nsip-exam-timetable Service Bus Topic |
@@ -159,6 +163,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_servicebus_topic_deadline_submission_topic_id"></a> [servicebus\_topic\_deadline\_submission\_topic\_id](#output\_servicebus\_topic\_deadline\_submission\_topic\_id) | Service Bus Topic deadline\_submission\_topic id |
 | <a name="output_servicebus_topic_nsip_documents_id"></a> [servicebus\_topic\_nsip\_documents\_id](#output\_servicebus\_topic\_nsip\_documents\_id) | Service Bus Topic nsip-document id |
 | <a name="output_servicebus_topic_register_nsip_subscription_id"></a> [servicebus\_topic\_register\_nsip\_subscription\_id](#output\_servicebus\_topic\_register\_nsip\_subscription\_id) | Service Bus Topic register\_nsip\_subscription id |
+| <a name="output_servicebus_topic_service_user_id"></a> [servicebus\_topic\_service\_user\_id](#output\_servicebus\_topic\_service\_user\_id) | Service Bus Topic service-user id. Only used by ODW. |
 | <a name="output_sql_server_id"></a> [sql\_server\_id](#output\_sql\_server\_id) | The ID of the Back Office SQL server |
 | <a name="output_sql_server_password"></a> [sql\_server\_password](#output\_sql\_server\_password) | The SQL server administrator password |
 | <a name="output_sql_server_username"></a> [sql\_server\_username](#output\_sql\_server\_username) | The SQL server administrator username |

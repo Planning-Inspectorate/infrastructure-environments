@@ -57,6 +57,13 @@ resource "azurerm_private_endpoint" "back_office" {
   tags = local.tags
 }
 
+# Common Topics
+resource "azurerm_servicebus_topic" "service_user" {
+  name                = "service-user"
+  namespace_id        = azurerm_servicebus_namespace.back_office.id
+  default_message_ttl = "P14D"
+}
+
 # Topics
 resource "azurerm_servicebus_topic" "nsip_project" {
   name                = "nsip-project"
@@ -134,6 +141,12 @@ resource "azurerm_servicebus_topic" "appeal_fo_appellant_submission" {
 
 resource "azurerm_servicebus_topic" "appeal_fo_lpa_response_submission" {
   name                = "appeal-fo-lpa-response-submission"
+  namespace_id        = azurerm_servicebus_namespace.back_office.id
+  default_message_ttl = "P14D"
+}
+
+resource "azurerm_servicebus_topic" "listed_building" {
+  name                = "listed-building"
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
