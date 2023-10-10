@@ -19,7 +19,7 @@ This module contains the App Services resources for the Back Office service. The
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_app_service"></a> [app\_service](#module\_app\_service) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service | main |
+| <a name="module_app_service"></a> [app\_service](#module\_app\_service) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service | n/a |
 | <a name="module_applications_migration_function"></a> [applications\_migration\_function](#module\_applications\_migration\_function) | ./applications-migration-function | n/a |
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
 | <a name="module_bo_appeals_casedata_import_function"></a> [bo\_appeals\_casedata\_import\_function](#module\_bo\_appeals\_casedata\_import\_function) | ./bo-appeals-casedata-import-function | n/a |
