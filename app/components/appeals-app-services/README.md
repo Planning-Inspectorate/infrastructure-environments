@@ -21,7 +21,7 @@ This module also contains some resources such as Service Bus and Function Apps r
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_app_service"></a> [app\_service](#module\_app\_service) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service | 437b498 |
+| <a name="module_app_service"></a> [app\_service](#module\_app\_service) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service | 1.3 |
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
 | <a name="module_front_office_subscribers"></a> [front\_office\_subscribers](#module\_front\_office\_subscribers) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app | 1.3 |
 | <a name="module_horizon_functions"></a> [horizon\_functions](#module\_horizon\_functions) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app | 1.3 |
