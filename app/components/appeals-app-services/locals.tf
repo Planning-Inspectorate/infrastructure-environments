@@ -21,7 +21,6 @@ locals {
         DOCS_API_PATH                              = "/opt/app/api"
         DOCUMENTS_SERVICE_API_TIMEOUT              = var.api_timeout
         DOCUMENTS_SERVICE_API_URL                  = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net/"
-        DOCKER_REGISTRY_SERVER_PASSWORD            = local.secret_refs["docker-registry-server-password"]
         FEATURE_FLAG_GOOGLE_TAG_MANAGER            = false
         FEATURE_FLAG_NEW_APPEAL_JOURNEY            = true
         FILE_UPLOAD_DEBUG                          = true
@@ -67,7 +66,6 @@ locals {
         DOCS_API_PATH                                                               = "/opt/app/api"
         DOCUMENTS_SERVICE_API_TIMEOUT                                               = var.api_timeout
         DOCUMENTS_SERVICE_API_URL                                                   = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net"
-        DOCKER_REGISTRY_SERVER_PASSWORD                                             = local.secret_refs["docker-registry-server-password"]
         FEATURE_FLAG_NEW_APPEAL_JOURNEY                                             = true
         HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION                                  = true
         HORIZON_HAS_PUBLISHER_HOST                                                  = "${azurerm_servicebus_namespace.horizon.name}.servicebus.windows.net"
@@ -125,7 +123,6 @@ locals {
         APPLICATIONINSIGHTS_CONNECTION_STRING     = local.secret_refs["appeals-app-insights-connection-string"]
         BLOB_STORAGE_CONNECTION_STRING            = var.appeal_documents_primary_blob_connection_string
         DOCS_API_PATH                             = "/opt/app/api"
-        DOCKER_REGISTRY_SERVER_PASSWORD           = local.secret_refs["docker-registry-server-password"]
         FILE_MAX_SIZE_IN_BYTES                    = "15000000"
         FILE_UPLOAD_PATH                          = "/tmp/upload"
         LOGGER_LEVEL                              = var.logger_level
@@ -155,7 +152,6 @@ locals {
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING   = local.secret_refs["appeals-app-insights-connection-string"]
         DOCS_API_PATH                           = "/opt/app/api"
-        DOCKER_REGISTRY_SERVER_PASSWORD         = local.secret_refs["docker-registry-server-password"]
         GOTENBERG_URL                           = "http://gotenberg:4000"
         LOGGER_LEVEL                            = var.logger_level
         NODE_ENV                                = var.node_environment
@@ -177,7 +173,6 @@ locals {
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING = local.secret_refs["appeals-app-insights-connection-string"]
-        DOCKER_REGISTRY_SERVER_PASSWORD       = local.secret_refs["docker-registry-server-password"]
         CLAMAV_HOST                           = var.clamav_host
       }
     }

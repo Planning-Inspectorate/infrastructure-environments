@@ -21,7 +21,6 @@ locals {
         APPLICATIONS_CASETEAM_GROUP_ID           = var.azuread_applications_caseteam_group_id
         APPLICATIONS_INSPECTOR_GROUP_ID          = var.azuread_applications_inspector_group_id
         AZURE_BLOB_STORE_HOST                    = var.document_storage_api_host
-        DOCKER_REGISTRY_SERVER_PASSWORD          = local.secret_refs["docker-registry-server-password"]
         LOG_LEVEL_FILE                           = var.back_office_applications_log_level_file
         LOG_LEVEL_STDOUT                         = var.back_office_applications_log_level_stdout
         NODE_ENV                                 = var.node_environment
@@ -45,7 +44,6 @@ locals {
         NODE_ENV                        = var.node_environment
         AZURE_BLOB_STORE_HOST           = var.document_storage_api_host
         AZURE_BLOB_STORE_CONTAINER      = var.document_storage_back_office_document_service_uploads_container_name
-        DOCKER_REGISTRY_SERVER_PASSWORD = local.secret_refs["docker-registry-server-password"]
         SERVICE_BUS_HOSTNAME            = "${var.service_bus_namespace_name}.servicebus.windows.net"
         SERVICE_BUS_ENABLED             = var.feature_service_bus_enabled
         # Temporary migration variables for Project Updates
@@ -81,7 +79,6 @@ locals {
         APPEALS_CS_TEAM_GROUP_ID        = var.azuread_appeals_cs_team_group_id
         AZURE_BLOB_STORE_HOST           = var.document_storage_api_host # TODO: Replace
         AZURE_BLOB_DEFAULT_CONTAINER    = var.document_storage_back_office_document_service_uploads_container_name
-        DOCKER_REGISTRY_SERVER_PASSWORD = local.secret_refs["docker-registry-server-password"]
         LOG_LEVEL_FILE                  = var.back_office_appeals_log_level_file
         LOG_LEVEL_STDOUT                = var.back_office_appeals_log_level_stdout
         NODE_ENV                        = var.node_environment
@@ -101,7 +98,6 @@ locals {
 
       app_settings = {
         DATABASE_URL                    = var.appeals_database_connection_string
-        DOCKER_REGISTRY_SERVER_PASSWORD = local.secret_refs["docker-registry-server-password"]
         NODE_ENV                        = var.node_environment
         SERVICE_BUS_HOSTNAME            = "${var.service_bus_namespace_name}.servicebus.windows.net"
         SERVICE_BUS_ENABLED             = var.feature_service_bus_enabled
@@ -119,7 +115,6 @@ locals {
     "back-office-appeals-gov-notify-api-key",
     "back-office-appeals-test-mailbox",
     "back-office-applications-gov-notify-api-key",
-    "docker-registry-server-password"
   ]
 
   secret_refs = {
