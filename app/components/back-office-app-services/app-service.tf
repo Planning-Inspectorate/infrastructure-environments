@@ -1,7 +1,7 @@
 module "app_service" {
   for_each = local.app_services
 
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service?ref=feature/dev-69-add-docker-registry-password-to-kv"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service?ref=437b498"
 
   action_group_low_id                   = var.action_group_low_id
   app_name                              = each.value["app_name"]
