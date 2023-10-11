@@ -118,7 +118,8 @@ locals {
     "session-secret",
     "back-office-appeals-gov-notify-api-key",
     "back-office-appeals-test-mailbox",
-    "back-office-applications-gov-notify-api-key"
+    "back-office-applications-gov-notify-api-key",
+    "docker-registry-server-password"
   ]
 
   secret_refs = {
