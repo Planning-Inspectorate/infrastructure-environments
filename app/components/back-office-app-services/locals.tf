@@ -25,6 +25,7 @@ locals {
         LOG_LEVEL_STDOUT                         = var.back_office_applications_log_level_stdout
         NODE_ENV                                 = var.node_environment
         OS_PLACES_API_KEY                        = local.secret_refs["os-places-api-key"]
+        REDIS_CONNECTION_STRING                  = local.existing_secret_refs[var.back_office_applications_redis_connection_string_secret_name]
         SESSION_SECRET                           = local.secret_refs["session-secret"]
       }
     }
@@ -82,6 +83,7 @@ locals {
         LOG_LEVEL_FILE                = var.back_office_appeals_log_level_file
         LOG_LEVEL_STDOUT              = var.back_office_appeals_log_level_stdout
         NODE_ENV                      = var.node_environment
+        REDIS_CONNECTION_STRING       = local.existing_secret_refs[var.back_office_appeals_redis_connection_string_secret_name]
         SESSION_SECRET                = local.secret_refs["session-secret"] # TODO: Let's create a separate one for Appeals
       }
     }
@@ -114,7 +116,7 @@ locals {
     "session-secret",
     "back-office-appeals-gov-notify-api-key",
     "back-office-appeals-test-mailbox",
-    "back-office-applications-gov-notify-api-key",
+    "back-office-applications-gov-notify-api-key"
   ]
 
   secret_refs = {
@@ -123,6 +125,9 @@ locals {
 
   # These are secrets we don't intend to create, but just need a reference to
   existing_secret_names = [
+    # created as part of redis cache setup
+    var.back_office_applications_redis_connection_string_secret_name,
+    var.back_office_appeals_redis_connection_string_secret_name,
     "applications-service-encryption-secret-key",
     "back-office-gov-notify-api-key",
     # Secrets owned by the applications service, soon to be replaced with our own

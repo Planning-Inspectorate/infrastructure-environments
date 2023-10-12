@@ -337,3 +337,13 @@ variable "back_office_appeals_log_level_stdout" {
   description = "Log level for stdout - trace, debug, info, warn, error, fatal, silent"
   type        = string
 }
+
+variable "back_office_applications_redis_connection_string_secret_name" {
+  description = "The connection string (secret name) used to connect to the Back Office Applications Redis Cache"
+  type        = string
+}
+
+variable "back_office_appeals_redis_connection_string_secret_name" {
+  description = "The connection string (secret name) used to connect to the Back Office Appeals Redis Cache"
+  type        = string
+}
