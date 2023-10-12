@@ -56,6 +56,10 @@ module "app_services" {
   servicebus_topic_nsip_documents_id                                                  = var.servicebus_topic_nsip_documents_id
   deadline_submissions_topic_name                                                     = ""
   deadline_submissions_result_topic_name                                              = ""
+
+  back_office_applications_redis_connection_string_secret_name = azurerm_key_vault_secret.back_office_applications_redis_cache_connection_string_secret[count.index].name
+  back_office_appeals_redis_connection_string_secret_name      = azurerm_key_vault_secret.back_office_appeals_redis_cache_connection_string_secret[count.index].name
+
   # TODO: DR strategy to figure out how to handle service bus fail-over
   servicebus_topic_nsip_project_update_id           = ""
   servicebus_topic_register_nsip_subscription_id    = ""

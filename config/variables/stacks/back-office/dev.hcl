@@ -18,6 +18,11 @@ locals {
   back_office_appeals_log_level_file        = "silent"
   back_office_appeals_log_level_stdout      = "info"
 
+  redis_cache_configuration = {
+    family   = "C"
+    capacity = 0
+    sku_name = "Basic"
+  }
   service_bus_failover_enabled = false
   sql_database_configuration = {
     max_size_gb               = 2

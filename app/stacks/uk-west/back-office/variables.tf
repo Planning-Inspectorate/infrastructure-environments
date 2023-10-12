@@ -223,3 +223,8 @@ variable "back_office_appeals_log_level_stdout" {
   description = "Log level for stdout - trace, debug, info, warn, error, fatal, silent"
   type        = string
 }
+
+variable "redis_cache_configuration" {
+  description = "A map of redis configuration options"
+  type        = map(string)
+}
