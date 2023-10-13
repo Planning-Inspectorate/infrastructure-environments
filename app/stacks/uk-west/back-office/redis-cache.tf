@@ -78,7 +78,7 @@ resource "azurerm_private_dns_zone" "back_office_appeals_redis_cache_dns_zone" {
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "back_office_appeals_redis_cache_dns_link" {
-  name                  = "redis-cache-dns-link"
+  name                  = "appeals-redis-cache-dns-link"
   resource_group_name   = azurerm_resource_group.back_office_stack.name
   private_dns_zone_name = azurerm_private_dns_zone.back_office_appeals_redis_cache_dns_zone.name
   virtual_network_id    = var.common_vnet_id
