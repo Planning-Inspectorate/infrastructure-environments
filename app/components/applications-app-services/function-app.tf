@@ -17,7 +17,7 @@ module "back_office_subscribers" {
   resource_suffix                          = var.resource_suffix
   service_name                             = "applications-service"
   use_app_insights                         = true
-  function_node_version                    = 16
+  function_node_version                    = 18
 
   app_settings = {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
