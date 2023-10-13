@@ -30,12 +30,12 @@ resource "azurerm_private_endpoint" "back_office_applications_redis_cache" {
 }
 
 resource "azurerm_private_dns_zone" "back_office_applications_redis_cache_dns_zone" {
-  name                = "privatelink.redis.cache.windows.net"
+  name                = "privatelink.backoffice.applications.redis.cache.windows.net"
   resource_group_name = azurerm_resource_group.back_office_stack.name
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "back_office_applications_redis_cache_dns_link" {
-  name                  = "redis-cache-dns-link"
+  name                  = "back-office-applications-redis-cache-dns-link"
   resource_group_name   = azurerm_resource_group.back_office_stack.name
   private_dns_zone_name = azurerm_private_dns_zone.back_office_applications_redis_cache_dns_zone.name
   virtual_network_id    = var.common_vnet_id
@@ -73,12 +73,12 @@ resource "azurerm_private_endpoint" "back_office_appeals_redis_cache" {
 }
 
 resource "azurerm_private_dns_zone" "back_office_appeals_redis_cache_dns_zone" {
-  name                = "privatelink.appeals.redis.cache.windows.net"
+  name                = "privatelink.backoffice.appeals.redis.cache.windows.net"
   resource_group_name = azurerm_resource_group.back_office_stack.name
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "back_office_appeals_redis_cache_dns_link" {
-  name                  = "appeals-redis-cache-dns-link"
+  name                  = "back-office-appeals-redis-cache-dns-link"
   resource_group_name   = azurerm_resource_group.back_office_stack.name
   private_dns_zone_name = azurerm_private_dns_zone.back_office_appeals_redis_cache_dns_zone.name
   virtual_network_id    = var.common_vnet_id
