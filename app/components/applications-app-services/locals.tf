@@ -52,8 +52,8 @@ locals {
 
       app_settings = {
         APPLICATIONS_WEB_BASE_URL                                = "https://${var.applications_service_public_url}"
-        BACK_OFFICE_BLOB_STORAGE_DEADLINE_SUBMISSION_URL         = "https://${var.back_office_submissions_storage_container_name}.blob.core.windows.net"
-        BACK_OFFICE_BLOB_STORAGE_DEADLINE_SUBMISSION_CONTAINER   = "application-submission-documents"
+        BACK_OFFICE_BLOB_STORAGE_DEADLINE_SUBMISSION_URL         = "https://${var.back_office_submissions_storage_account_name}.blob.core.windows.net"
+        BACK_OFFICE_BLOB_STORAGE_DEADLINE_SUBMISSION_CONTAINER   = var.back_office_submissions_storage_container_name
         BACK_OFFICE_INTEGRATION_GET_APPLICATION_CASE_REFERENCES  = var.back_office_integration_get_application_case_references
         BACK_OFFICE_INTEGRATION_GET_DOCUMENTS_CASE_REFERENCES    = var.back_office_integration_get_documents_case_references
         BACK_OFFICE_INTEGRATION_POST_SUBMISSIONS_CASE_REFERENCES = var.back_office_integration_post_submissions_case_references

@@ -98,6 +98,11 @@ variable "back_office_submissions_storage_container_resource_manager_id" {
   type        = string
 }
 
+variable "back_office_submissions_storage_account_name" {
+  description = "Back office submissions container storage_account_name"
+  type        = string
+}
+
 variable "back_office_submissions_storage_container_name" {
   description = "URL for Back Office submissions storage container"
   type        = string

@@ -132,6 +132,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of frontend app service URLs |
 | <a name="output_appeals_web_frontend_url"></a> [appeals\_web\_frontend\_url](#output\_appeals\_web\_frontend\_url) | The URL of the appeals web frontend app service |
 | <a name="output_back_office_appeals_sql_database"></a> [back\_office\_appeals\_sql\_database](#output\_back\_office\_appeals\_sql\_database) | The ID of the Back Office Appeals SQL database |
+| <a name="output_back_office_document_storage_account_name"></a> [back\_office\_document\_storage\_account\_name](#output\_back\_office\_document\_storage\_account\_name) | Name of the storage account used for back office documents |
 | <a name="output_back_office_document_storage_api_host"></a> [back\_office\_document\_storage\_api\_host](#output\_back\_office\_document\_storage\_api\_host) | The full failover URI to the storage account used for back office documents |
 | <a name="output_back_office_document_storage_container_name"></a> [back\_office\_document\_storage\_container\_name](#output\_back\_office\_document\_storage\_container\_name) | The back office blob storage container name |
 | <a name="output_back_office_service_bus_connection_string"></a> [back\_office\_service\_bus\_connection\_string](#output\_back\_office\_service\_bus\_connection\_string) | Connection strong for Azure Service Bus in Back Office |

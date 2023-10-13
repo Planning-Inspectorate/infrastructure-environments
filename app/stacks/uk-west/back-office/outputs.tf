@@ -18,6 +18,11 @@ output "back_office_document_storage_api_host" {
   value       = azurerm_storage_account.back_office_documents.primary_blob_endpoint
 }
 
+output "back_office_document_storage_account_name" {
+  description = "Name of the storage account used for back office documents"
+  value       = azurerm_storage_account.back_office_documents.name
+}
+
 output "back_office_document_storage_container_name" {
   description = "The back office blob storage container name"
   value       = azurerm_storage_container.back_office_document_service_uploads_container.name

@@ -107,6 +107,13 @@ variable "back_office_submissions_storage_container_resource_manager_id" {
   default = ""
 }
 
+variable "back_office_submissions_storage_account_name" {
+  description = "Back office submissions storage account name"
+  type        = string
+  # TODO: ASB-1171 DR strategy to figure out how to handle service bus fail-over
+  default = ""
+}
+
 variable "common_resource_group_name" {
   description = "The common infrastructure resource group name"
   type        = string

@@ -89,6 +89,11 @@ variable "back_office_submissions_storage_container_resource_manager_id" {
   type        = string
 }
 
+variable "back_office_submissions_storage_account_name" {
+  description = "Back office submissions storage account name"
+  type        = string
+}
+
 variable "common_resource_group_name" {
   description = "The common infrastructure resource group name"
   type        = string
