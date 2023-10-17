@@ -32,6 +32,7 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="module_notify_subscribers_function"></a> [notify\_subscribers\_function](#module\_notify\_subscribers\_function) | ./notify-subscribers-function | n/a |
 | <a name="module_odw_subscriber_function"></a> [odw\_subscriber\_function](#module\_odw\_subscriber\_function) | ./odw-subscriber-function | n/a |
 | <a name="module_publish_document_function"></a> [publish\_document\_function](#module\_publish\_document\_function) | ./publish-document-function | n/a |
+| <a name="module_unpublish_document_function"></a> [unpublish\_document\_function](#module\_unpublish\_document\_function) | ./unpublish-document-function | n/a |
 
 ## Resources
 
