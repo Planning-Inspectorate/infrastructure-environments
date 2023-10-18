@@ -45,5 +45,5 @@ resource "azurerm_role_assignment" "appeals_fo_send_service_bus_role" {
 resource "azurerm_role_assignment" "appeals_fo_api_send_lpa_submission_service_bus_role" {
   scope                = var.service_bus_appeals_fo_lpa_response_submission_topic_id
   role_definition_name = "Azure Service Bus Data Sender"
-  principal_id         = module.app_service["appeals_api"].principal_id
+  principal_id         = module.app_service["appeals_service_api"].principal_id
 }
