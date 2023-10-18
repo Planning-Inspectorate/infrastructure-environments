@@ -88,6 +88,8 @@ locals {
         SERVER_PORT                                                                 = "3000"
         SERVER_SHOW_ERRORS                                                          = true
         SERVER_TERMINATION_GRACE_PERIOD_SECONDS                                     = "0"
+        SERVICE_BUS_HOSTNAME                                                        = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
+        SERVICE_BUS_ENABLED                                                         = var.appeals_api_service_bus_enabled
         SRV_ADMIN_MONITORING_EMAIL                                                  = var.srv_admin_monitoring_email
         SRV_HORIZON_URL                                                             = var.horizon_url
         SRV_NOTIFY_API_KEY                                                          = local.secret_refs["appeals-srv-notify-api-key"]

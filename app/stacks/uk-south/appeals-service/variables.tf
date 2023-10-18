@@ -239,6 +239,12 @@ variable "allow_testing_overrides" {
   default     = false
 }
 
+variable "appeals_api_service_bus_enabled" {
+  description = "A switch to determine if service bus integration is enabled for the appeals api"
+  type        = bool
+  default     = true
+}
+
 variable "clamav_host" {
   description = "The host of the clam av service to use"
   type        = string
@@ -249,12 +255,15 @@ variable "back_office_service_bus_namespace_name" {
   description = "Namespace of Back Office Service Bus instance"
   type        = string
 }
-
 variable "service_bus_appeals_bo_case_topic_id" {
   description = "ID for the appeals case data topic"
   type        = string
 }
 
+variable "service_bus_appeals_fo_lpa_response_submission_topic_id" {
+  description = "ID for the appeals fo front office LPA response submission topic"
+  type        = string
+}
 variable "service_bus_appeals_bo_document_topic_id" {
   description = "ID for the appeals case data topic"
   type        = string
