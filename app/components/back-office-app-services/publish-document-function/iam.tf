@@ -10,8 +10,14 @@ resource "azurerm_role_assignment" "function_blob_data_writer" {
   principal_id         = module.publish_document_functions.principal_id
 }
 
-resource "azurerm_role_assignment" "service_bus_data_receiver" {
-  scope                = azurerm_servicebus_subscription.nsip_document_updated_subscription.id
+resource "azurerm_role_assignment" "service_bus_data_published_receiver" {
+  scope                = azurerm_servicebus_subscription.nsip_document_published_subscription.id
+  role_definition_name = "Azure Service Bus Data Receiver"
+  principal_id         = module.publish_document_functions.principal_id
+}
+
+resource "azurerm_role_assignment" "service_bus_data_unpublished_receiver" {
+  scope                = azurerm_servicebus_subscription.nsip_document_unpublished_subscription.id
   role_definition_name = "Azure Service Bus Data Receiver"
   principal_id         = module.publish_document_functions.principal_id
 }
