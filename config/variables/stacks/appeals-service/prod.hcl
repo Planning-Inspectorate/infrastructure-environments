@@ -61,4 +61,5 @@ locals {
   task_submit_to_horizon_cron_string                                          = "*/15 * * * *"
   task_submit_to_horizon_trigger_active                                       = "true"
   allow_testing_overrides                                                     = false
+  appeals_feature_back_office_subscriber_enabled                              = false
 }

@@ -57,6 +57,8 @@ module "app_services" {
   service_bus_listed_building_topic_id                                        = var.service_bus_listed_building_topic_id
   appeals_feature_back_office_subscriber_enabled                              = var.appeals_feature_back_office_subscriber_enabled
   common_integration_functions_subnet_id                                      = var.common_integration_functions_subnet_id
+  appeals_api_service_bus_enabled                                             = var.appeals_api_service_bus_enabled
+  service_bus_appeals_fo_lpa_response_submission_topic_id                     = var.service_bus_appeals_fo_lpa_response_submission_topic_id
 
   tags = local.tags
 
