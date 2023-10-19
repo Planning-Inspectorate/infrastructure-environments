@@ -70,7 +70,7 @@ locals {
         HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION                                  = true
         HORIZON_HAS_PUBLISHER_HOST                                                  = "${azurerm_servicebus_namespace.horizon.name}.servicebus.windows.net"
         HORIZON_HAS_PUBLISHER_HOSTNAME                                              = "${azurerm_servicebus_namespace.horizon.name}.servicebus.windows.net"
-        HORIZON_HAS_PUBLISHER_PASSWORD                                              = azurerm_servicebus_namespace_authorization_rule.horizon_function_apps.primary_key
+        HORIZON_HAS_PUBLISHER_PASSWORD                                              = local.secret_refs["appeals-horizon-pub-password"]
         HORIZON_HAS_PUBLISHER_PORT                                                  = "5671"
         HORIZON_HAS_PUBLISHER_QUEUE                                                 = azurerm_servicebus_queue.horizon_householder_appeal_publish.name
         HORIZON_HAS_PUBLISHER_RECONNECT_LIMIT                                       = "5"
@@ -189,7 +189,8 @@ locals {
   secrets_automated = [
     "appeals-app-config-connection-string",
     "appeals-app-insights-connection-string",
-    "appeals-mongo-db-connection-string"
+    "appeals-mongo-db-connection-string",
+    "appeals-horizon-pub-password"
   ]
 
   secret_names = concat(local.secrets_manual, local.secrets_automated)
