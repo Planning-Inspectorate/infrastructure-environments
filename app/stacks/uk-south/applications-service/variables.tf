@@ -311,6 +311,16 @@ variable "node_environment" {
   default     = "development"
 }
 
+variable "primary_applications_sql_server_id" {
+  description = "ID of the primary (ukw) Applications SQL Server"
+  type        = string
+}
+
+variable "primary_applications_sql_database_id" {
+  description = "ID of the primary (ukw) Applications SQL database"
+  type        = string
+}
+
 variable "private_endpoint_enabled" {
   description = "A switch to determine if Private Endpoint should be enabled for backend App Services"
   type        = bool

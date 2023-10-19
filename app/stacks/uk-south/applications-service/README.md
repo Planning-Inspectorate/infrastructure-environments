@@ -36,6 +36,7 @@ This component contains the infrastructure required for the applications service
 | [azurerm_local_network_gateway.national_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/local_network_gateway) | resource |
 | [azurerm_log_analytics_workspace.applcations_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/log_analytics_workspace) | resource |
 | [azurerm_mssql_database.applications_sql_db](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/mssql_database) | resource |
+| [azurerm_mssql_failover_group.applications_sql_server_failover_group](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/mssql_failover_group) | resource |
 | [azurerm_mssql_server.applications_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/mssql_server) | resource |
 | [azurerm_private_dns_zone.redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/private_dns_zone) | resource |
 | [azurerm_private_dns_zone_virtual_network_link.redis_cache_dns](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
@@ -112,6 +113,8 @@ This component contains the infrastructure required for the applications service
 | <a name="input_national_infrastructure_gateway_ip"></a> [national\_infrastructure\_gateway\_ip](#input\_national\_infrastructure\_gateway\_ip) | The public IP address of the National Infrastructure gateway endpoint | `string` | n/a | yes |
 | <a name="input_national_infrastructure_vnet_address_space"></a> [national\_infrastructure\_vnet\_address\_space](#input\_national\_infrastructure\_vnet\_address\_space) | The address space advertised by the National Infrastructure gateway endpoint | `list(string)` | n/a | yes |
 | <a name="input_node_environment"></a> [node\_environment](#input\_node\_environment) | The node environment to be used for applications in this environment e.g. development | `string` | `"development"` | no |
+| <a name="input_primary_applications_sql_database_id"></a> [primary\_applications\_sql\_database\_id](#input\_primary\_applications\_sql\_database\_id) | ID of the primary (ukw) Applications SQL database | `string` | n/a | yes |
+| <a name="input_primary_applications_sql_server_id"></a> [primary\_applications\_sql\_server\_id](#input\_primary\_applications\_sql\_server\_id) | ID of the primary (ukw) Applications SQL Server | `string` | n/a | yes |
 | <a name="input_private_beta_v1_routes_only"></a> [private\_beta\_v1\_routes\_only](#input\_private\_beta\_v1\_routes\_only) | Feature toggle for limiting web app routes to Private Beta V1 functionality only | `string` | n/a | yes |
 | <a name="input_private_endpoint_enabled"></a> [private\_endpoint\_enabled](#input\_private\_endpoint\_enabled) | A switch to determine if Private Endpoint should be enabled for backend App Services | `bool` | `true` | no |
 | <a name="input_project_migration_case_references"></a> [project\_migration\_case\_references](#input\_project\_migration\_case\_references) | Specifies the case references to migrate to the new project information page | `string` | n/a | yes |
