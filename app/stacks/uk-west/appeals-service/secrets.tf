@@ -40,3 +40,13 @@ resource "azurerm_key_vault_secret" "applications_insights_connection_kv_secret"
 
   tags = local.tags
 }
+
+resource "azurerm_key_vault_secret" "appeals_mongo_db_connection_secret" {
+  name            = "appeals-mongo-db-connection-string"
+  value           = azurerm_cosmosdb_account.appeals_database.connection_strings[0]
+  key_vault_id    = var.key_vault_id
+  content_type    = "text/plain"
+  expiration_date = time_offset.secret_expire_date.rfc3339
+
+  tags = local.tags
+}
