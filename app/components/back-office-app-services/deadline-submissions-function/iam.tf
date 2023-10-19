@@ -35,7 +35,7 @@ resource "azurerm_role_assignment" "service_bus_result_data_sender" {
 }
 
 resource "azurerm_role_assignment" "service_bus_test_data_sender" {
-  scope                = var.servicebus_topic_deadline_submission_result_id
+  scope                = "/subscriptions/76cf28c6-6fda-42f1-bcd9-6d7dbed704ef/resourceGroups/pins-rg-back-office-test-ukw-001/providers/Microsoft.ServiceBus/namespaces/pins-sb-back-office-test-ukw-001"
   role_definition_name = "Azure Service Bus Data Sender"
-  principal_id         = "/subscriptions/76cf28c6-6fda-42f1-bcd9-6d7dbed704ef/resourceGroups/pins-rg-back-office-test-ukw-001/providers/Microsoft.ServiceBus/namespaces/pins-sb-back-office-test-ukw-001"
+  principal_id         = module.deadline_submissions_function.principal_id
 }
