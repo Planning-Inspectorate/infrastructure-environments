@@ -49,12 +49,6 @@ variable "container_registry_rg" {
   type        = string
 }
 
-variable "cosmosdb_connection_string" {
-  description = "The connection string of CosmosDB"
-  sensitive   = true
-  type        = string
-}
-
 variable "endpoint_subnet_id" {
   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
   type        = string

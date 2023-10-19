@@ -12,7 +12,6 @@ module "app_services" {
   appeals_service_public_url                                                  = var.appeals_service_public_url
   container_registry_name                                                     = var.container_registry_name
   container_registry_rg                                                       = var.container_registry_rg
-  cosmosdb_connection_string                                                  = var.cosmosdb_connection_string
   endpoint_subnet_id                                                          = azurerm_subnet.appeals_service_ingress.id
   function_apps_storage_account                                               = var.function_apps_storage_account
   function_apps_storage_account_access_key                                    = var.function_apps_storage_account_access_key

@@ -39,7 +39,7 @@ locals {
         SESSION_KEY                                = "some_key"
         SESSION_MONGODB_COLLECTION                 = "sessions"
         SESSION_MONGODB_DB_NAME                    = "forms-web-app"
-        SESSION_MONGODB_URL                        = var.cosmosdb_connection_string
+        SESSION_MONGODB_URL                        = local.secret_refs["appeals-mongo-db-connection-string"]
         SUBDOMAIN_OFFSET                           = "3"
         USE_SECURE_SESSION_COOKIES                 = true
         ALLOW_TESTING_OVERRIDES                    = var.allow_testing_overrides
@@ -81,7 +81,7 @@ locals {
         LPA_TRIALIST_DATA_PATH                                                      = "/opt/app/data/lpa-trialists.json"
         MONGODB_AUTO_INDEX                                                          = true
         MONGODB_NAME                                                                = "appeals-service-api"
-        MONGODB_URL                                                                 = var.cosmosdb_connection_string
+        MONGODB_URL                                                                 = local.secret_refs["appeals-mongo-db-connection-string"]
         NODE_ENV                                                                    = var.node_environment
         PINS_FEATURE_FLAG_AZURE_ENDPOINT                                            = local.secret_refs["appeals-app-config-endpoint"]
         PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING                                   = local.secret_refs["appeals-app-config-connection-string"]
@@ -130,7 +130,7 @@ locals {
         LOGGER_LEVEL                              = var.logger_level
         MONGODB_AUTO_INDEX                        = true
         MONGODB_DB_NAME                           = "documents-service-api"
-        MONGODB_URL                               = var.cosmosdb_connection_string
+        MONGODB_URL                               = local.secret_refs["appeals-mongo-db-connection-string"]
         NODE_ENV                                  = var.node_environment
         PINS_FEATURE_FLAG_AZURE_ENDPOINT          = local.secret_refs["appeals-app-config-endpoint"]
         PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING = local.secret_refs["appeals-app-config-connection-string"]
@@ -188,7 +188,8 @@ locals {
 
   secrets_automated = [
     "appeals-app-config-connection-string",
-    "appeals-app-insights-connection-string"
+    "appeals-app-insights-connection-string",
+    "appeals-mongo-db-connection-string"
   ]
 
   secret_names = concat(local.secrets_manual, local.secrets_automated)
