@@ -153,12 +153,12 @@ resource "azurerm_servicebus_topic" "listed_building" {
 
 # Appeals BO Producers (Events)
 resource "azurerm_servicebus_topic" "appeal_bo_case" {
-  name                = "appeal-bo-case"
+  name                = "appeal"
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
 resource "azurerm_servicebus_topic" "appeal_bo_document" {
-  name                = "appeal-bo-document"
+  name                = "appeal-document"
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
