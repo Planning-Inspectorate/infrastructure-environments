@@ -130,5 +130,7 @@ This component contains the infrastructure required for the applications service
 | <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of frontend app service URLs |
 | <a name="output_function_storage_name"></a> [function\_storage\_name](#output\_function\_storage\_name) | Name of the Storage Account used for Function Apps |
 | <a name="output_function_storage_primary_access_key"></a> [function\_storage\_primary\_access\_key](#output\_function\_storage\_primary\_access\_key) | Primary access key of the Storage Account used for Function Apps |
+| <a name="output_primary_applications_sql_database_id"></a> [primary\_applications\_sql\_database\_id](#output\_primary\_applications\_sql\_database\_id) | ID of the primary (ukw) Applications SQL database |
+| <a name="output_primary_applications_sql_server_id"></a> [primary\_applications\_sql\_server\_id](#output\_primary\_applications\_sql\_server\_id) | ID of the primary (ukw) Applications SQL Server |
 | <a name="output_web_frontend_url"></a> [web\_frontend\_url](#output\_web\_frontend\_url) | The URL of the web frontend app service |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

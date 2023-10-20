@@ -60,6 +60,22 @@ resource "azurerm_private_endpoint" "applications_sql_server" {
   tags = local.tags
 }
 
+resource "azurerm_mssql_failover_group" "applications_sql_server_failover_group" {
+  name      = "pins-sqldb-fog-${local.service_name}-${local.resource_suffix}"
+  server_id = var.primary_applications_sql_server_id
+  databases = [var.primary_applications_sql_database_id]
+
+  partner_server {
+    id = azurerm_mssql_server.applications_sql_server.id
+  }
+
+  read_write_endpoint_failover_policy {
+    mode = "Manual"
+  }
+
+  tags = local.tags
+}
+
 resource "random_password" "applications_sql_server_password" {
   length           = 32
   special          = true
