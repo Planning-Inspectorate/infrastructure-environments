@@ -112,6 +112,5 @@ This module also contains some resources such as Service Bus and Function Apps r
 | <a name="output_app_service_principal_ids"></a> [app\_service\_principal\_ids](#output\_app\_service\_principal\_ids) | A map of App Service principal IDs |
 | <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of App Service URLs |
 | <a name="output_secrets_manual"></a> [secrets\_manual](#output\_secrets\_manual) | List of Key Vault secrets required for this component |
-| <a name="output_service_bus_horizon_publish_key"></a> [service\_bus\_horizon\_publish\_key](#output\_service\_bus\_horizon\_publish\_key) | The shared access policy for publishing messages to the horizon service bus queue |
 | <a name="output_web_frontend_url"></a> [web\_frontend\_url](#output\_web\_frontend\_url) | The URL of the web frontend App Service |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
