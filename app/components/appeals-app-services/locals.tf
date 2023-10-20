@@ -123,7 +123,7 @@ locals {
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING     = local.secret_refs["appeals-app-insights-connection-string"]
-        BLOB_STORAGE_CONNECTION_STRING            = var.appeal_documents_primary_blob_connection_string
+        BLOB_STORAGE_CONNECTION_STRING            = local.secret_refs["appeals-documents-primary-blob-connection-string"]
         DOCS_API_PATH                             = "/opt/app/api"
         FILE_MAX_SIZE_IN_BYTES                    = "15000000"
         FILE_UPLOAD_PATH                          = "/tmp/upload"
@@ -191,7 +191,8 @@ locals {
     "appeals-app-config-connection-string",
     "appeals-app-insights-connection-string",
     "appeals-mongo-db-connection-string",
-    "appeals-horizon-pub-password"
+    "appeals-horizon-pub-password",
+    "appeals-documents-primary-blob-connection-string"
   ]
 
   secret_names = concat(local.secrets_manual, local.secrets_automated)
