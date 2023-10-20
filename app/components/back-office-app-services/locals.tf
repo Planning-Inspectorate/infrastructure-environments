@@ -47,6 +47,8 @@ locals {
         AZURE_BLOB_STORE_CONTAINER = var.document_storage_back_office_document_service_uploads_container_name
         SERVICE_BUS_HOSTNAME       = "${var.service_bus_namespace_name}.servicebus.windows.net"
         SERVICE_BUS_ENABLED        = var.feature_service_bus_enabled
+        # Specific to Prisma to resolve issues with the way relations are fetched
+        QUERY_BATCH_SIZE = 2090
         # Temporary migration variables for Project Updates
         NI_DB_MYSQL_DATABASE = local.existing_secret_refs["applications-service-mysql-database"]
         NI_DB_MYSQL_DIALECT  = local.existing_secret_refs["applications-service-mysql-dialect"]
