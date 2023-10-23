@@ -7,7 +7,6 @@ module "app_services" {
   api_timeout                                                                 = var.api_timeout
   app_service_plan_id                                                         = var.app_service_plan_id
   app_service_private_dns_zone_id                                             = data.azurerm_private_dns_zone.app_service.id
-  appeal_documents_primary_blob_connection_string                             = var.appeal_documents_primary_blob_connection_string
   appeal_documents_storage_container_name                                     = var.appeal_documents_storage_container_name
   appeals_service_public_url                                                  = var.appeals_service_public_url
   container_registry_name                                                     = var.container_registry_name

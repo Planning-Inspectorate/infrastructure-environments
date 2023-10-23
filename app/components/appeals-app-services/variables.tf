@@ -23,12 +23,6 @@ variable "app_service_private_dns_zone_id" {
   type        = string
 }
 
-variable "appeal_documents_primary_blob_connection_string" {
-  description = "The Appeal Documents Storage Account blob connection string associated with the primary location"
-  sensitive   = true
-  type        = string
-}
-
 variable "appeal_documents_storage_container_name" {
   description = "The name of the Storage Container for Appeal Documents"
   type        = string
