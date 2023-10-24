@@ -128,7 +128,7 @@ If you create a new Terraform module, simply add a `README.md` file and add the 
 
 To run Terraform-docs for the whole repository, run:
 ```
-pre-commit run -a terraform-docs
+pre-commit run -a terraform_docs
 ```
 
 <br />
