@@ -35,6 +35,17 @@ resource "azurerm_key_vault_secret" "appeals_mongo_db_connection_secret" {
   tags = local.tags
 }
 
+resource "azurerm_key_vault_secret" "appeals_horizon_service_bus_key" {
+  count           = var.is_dr_deployment ? 1 : 0
+  name            = "appeals-horizon-pub-password"
+  value           = module.app_services[0].service_bus_horizon_publish_key
+  key_vault_id    = var.key_vault_id
+  content_type    = "text/plain"
+  expiration_date = time_offset.secret_expire_date.rfc3339
+
+  tags = local.tags
+}
+
 resource "azurerm_key_vault_secret" "appeals_documents_primary_blob_connection_string" {
   count           = var.is_dr_deployment ? 1 : 0
   name            = "appeals-documents-primary-blob-connection-string"
