@@ -13,6 +13,11 @@ output "applications_service_vpn_gateway_shared_key" {
   value       = var.applications_service_vpn_gateway_shared_key
 }
 
+output "common_redis_cache_dns_zone_id" {
+  description = "The id of the Redis Cache Private DNS Zone"
+  value       = azurerm_private_dns_zone.redis_cache_dns_zone.id
+}
+
 output "common_resource_group_name" {
   description = "The name of the common infrastructure resource group"
   value       = azurerm_resource_group.common_infrastructure.name

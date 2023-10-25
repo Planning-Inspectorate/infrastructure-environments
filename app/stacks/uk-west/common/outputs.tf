@@ -54,6 +54,11 @@ output "common_vnet_name" {
   value       = module.networking.vnet_name
 }
 
+output "common_redis_cache_dns_zone_id" {
+  description = "The id of the Redis Cache Private DNS Zone"
+  value       = azurerm_private_dns_zone.redis_cache_dns_zone.id
+}
+
 output "cosmosdb_subnet_id" {
   description = "The id of the Cosmos DB endpoint subnet"
   value       = module.networking.cosmosdb_subnet_id

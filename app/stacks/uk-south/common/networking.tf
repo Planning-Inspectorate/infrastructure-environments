@@ -21,3 +21,16 @@ module "networking" {
     azurerm.tooling = azurerm.tooling
   }
 }
+
+## common DNS zone for Redis
+resource "azurerm_private_dns_zone" "redis_cache_dns_zone" {
+  name                = "privatelink.redis.cache.windows.net"
+  resource_group_name = azurerm_resource_group.common_infrastructure.name
+}
+
+resource "azurerm_private_dns_zone_virtual_network_link" "redis_cache_vnet_link" {
+  name                  = "redis-cache-dns-link"
+  resource_group_name   = azurerm_resource_group.common_infrastructure.name
+  private_dns_zone_name = azurerm_private_dns_zone.redis_cache_dns_zone.name
+  virtual_network_id    = module.networking.vnet_id
+}

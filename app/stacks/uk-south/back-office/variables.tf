@@ -97,6 +97,11 @@ variable "common_tags" {
   type        = map(string)
 }
 
+variable "common_redis_cache_dns_zone_id" {
+  description = "The id of the common Redis Cache Private DNS Zone"
+  type        = string
+}
+
 variable "common_resource_group_name" {
   description = "The common infrastructure resource group name"
   type        = string

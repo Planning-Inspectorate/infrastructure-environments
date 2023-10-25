@@ -11,6 +11,7 @@ dependency "common_uks" {
     app_service_plan_id               = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pins-rg-common-dev-ukw-001/providers/Microsoft.Web/serverfarms/mock_id"
     back_office_integration_subnet_id = "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/mock_resource_group/mock/mock_id"
     back_office_clamav_subnet_id      = "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/mock_resource_group/mock/mock_id"
+    common_redis_cache_dns_zone_id    = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Network/privateDnsZones/mock_id"
     common_resource_group_name        = "mock_resource_group_name"
     common_vnet_cidr_blocks = {
       back_office_endpoints = "10.1.4.0/24"
@@ -71,6 +72,7 @@ inputs = {
   back_office_clamav_subnet_id                                                        = dependency.common_uks.outputs.back_office_clamav_subnet_id
   back_office_sql_database                                                            = dependency.back_office_ukw.outputs.back_office_sql_database
   back_office_appeals_sql_database                                                    = dependency.back_office_ukw.outputs.back_office_appeals_sql_database
+  common_redis_cache_dns_zone_id                                                      = dependency.common_uks.outputs.common_redis_cache_dns_zone_id
   common_resource_group_name                                                          = dependency.common_uks.outputs.common_resource_group_name
   common_vnet_cidr_blocks                                                             = dependency.common_uks.outputs.common_vnet_cidr_blocks
   common_vnet_id                                                                      = dependency.common_uks.outputs.vnet_id

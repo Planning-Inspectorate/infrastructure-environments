@@ -10,6 +10,7 @@ dependency "common_uks" {
   mock_outputs = {
     app_service_plan_id                         = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pins-rg-common-dev-ukw-001/providers/Microsoft.Web/serverfarms/mock_id"
     applications_service_vpn_gateway_shared_key = "mock_shared_key"
+    common_redis_cache_dns_zone_id              = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Network/privateDnsZones/mock_id"
     common_resource_group_name                  = "mock_resource_group_name"
     common_vnet_cidr_blocks = {
       appeals_service_endpoints = "10.1.2.0/24"
@@ -87,10 +88,10 @@ inputs = {
   #  back_office_service_bus_deadline_submission_topic_id           = dependency.back_office_uks.outputs.servicebus_topic_deadline_submission_topic_id
   #  back_office_service_bus_namespace_name                         = "mock-namespace"
 
+  common_redis_cache_dns_zone_id       = dependency.common_uks.outputs.common_redis_cache_dns_zone_id
   common_resource_group_name           = dependency.common_uks.outputs.common_resource_group_name
   common_vnet_cidr_blocks              = dependency.common_uks.outputs.common_vnet_cidr_blocks
   common_vnet_gateway_id               = try(dependency.common_uks.outputs.common_vnet_gateway_id, null)
-  common_vnet_id                       = dependency.common_uks.outputs.vnet_id
   common_vnet_name                     = dependency.common_uks.outputs.common_vnet_name
   function_storage_name                = dependency.applications_service_ukw.outputs.function_storage_name
   function_storage_primary_access_key  = dependency.applications_service_ukw.outputs.function_storage_primary_access_key
@@ -99,4 +100,5 @@ inputs = {
   key_vault_uri                        = dependency.common_ukw.outputs.key_vault_uri
   primary_applications_sql_server_id   = dependency.applications_service_ukw.outputs.primary_applications_sql_server_id
   primary_applications_sql_database_id = dependency.applications_service_ukw.outputs.primary_applications_sql_database_id
+
 }
