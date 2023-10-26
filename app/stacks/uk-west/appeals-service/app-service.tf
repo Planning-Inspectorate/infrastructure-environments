@@ -55,6 +55,7 @@ module "app_services" {
   common_integration_functions_subnet_id                                      = var.common_integration_functions_subnet_id
   appeals_api_service_bus_enabled                                             = var.appeals_api_service_bus_enabled
   service_bus_appeals_fo_lpa_response_submission_topic_id                     = var.service_bus_appeals_fo_lpa_response_submission_topic_id
+  service_bus_appeals_fo_appellant_submission_topic_id                        = var.service_bus_appeals_fo_appellant_submission_topic_id
 
   tags = local.tags
 

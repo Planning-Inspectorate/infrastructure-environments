@@ -63,6 +63,7 @@ dependency "back_office_ukw" {
     appeals_web_frontend_url                                = "mock-appeals-wfe-url"
     clamav_host                                             = "clam.dev"
     service_bus_appeals_bo_case_topic_id                    = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
+    service_bus_appeals_fo_appellant_submission_topic_id    = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
     service_bus_appeals_fo_lpa_response_submission_topic_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
     service_bus_appeals_bo_document_topic_id                = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
     service_bus_listed_building_topic_id                    = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
@@ -77,6 +78,7 @@ inputs = {
   appeal_documents_storage_container_name                 = dependency.appeals_service_ukw.outputs.appeal_documents_storage_container_name
   back_office_service_bus_namespace_name                  = dependency.back_office_ukw.outputs.service_bus_namespace_name
   service_bus_appeals_bo_case_topic_id                    = dependency.back_office_ukw.outputs.service_bus_appeals_bo_case_topic_id
+  service_bus_appeals_fo_appellant_submission_topic_id    = dependency.back_office_ukw.outputs.service_bus_appeals_fo_appellant_submission_topic_id
   service_bus_appeals_fo_lpa_response_submission_topic_id = dependency.back_office_ukw.outputs.service_bus_appeals_fo_lpa_response_submission_topic_id
   service_bus_appeals_bo_document_topic_id                = dependency.back_office_ukw.outputs.service_bus_appeals_bo_document_topic_id
   service_bus_listed_building_topic_id                    = dependency.back_office_ukw.outputs.service_bus_listed_building_topic_id
