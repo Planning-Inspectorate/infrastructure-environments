@@ -175,3 +175,16 @@ resource "azurerm_role_assignment" "nsip_exam_timetable_service_bus_role" {
   role_definition_name = "Azure Service Bus Data Receiver"
   principal_id         = module.back_office_subscribers[0].principal_id
 }
+
+resource "azurerm_servicebus_subscription_rule" "nsip_exam_timetable_topic_subscription_rule" {
+  count = var.feature_back_office_subscriber_enabled ? 1 : 0
+
+  name            = "applications-nsip-exam-timetable-subscription-rule"
+  subscription_id = azurerm_servicebus_subscription.nsip_exam_timetable_topic_subscription[0].id
+  filter_type     = "CorrelationFilter"
+  correlation_filter {
+    properties = {
+      type = "Publish"
+    }
+  }
+}
