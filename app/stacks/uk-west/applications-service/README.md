@@ -7,15 +7,15 @@ This component contains the infrastructure required for the applications service
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.1.6, < 3.64.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.64.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.7, < 3.74.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.74.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.64.0 |
-| <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 3.64.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.74.0 |
+| <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 3.74.0 |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.5.1 |
 
 ## Modules
@@ -29,28 +29,28 @@ This component contains the infrastructure required for the applications service
 
 | Name | Type |
 |------|------|
-| [azurerm_key_vault_secret.app_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.applications_sql_server_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.applications_sql_server_password](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.applications_sql_server_username](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.redis_cache_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_local_network_gateway.national_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/local_network_gateway) | resource |
-| [azurerm_log_analytics_workspace.applications_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/log_analytics_workspace) | resource |
-| [azurerm_mssql_database.applications_sql_db](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/mssql_database) | resource |
-| [azurerm_mssql_server.applications_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/mssql_server) | resource |
-| [azurerm_private_dns_zone.redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/private_dns_zone) | resource |
-| [azurerm_private_dns_zone_virtual_network_link.redis_cache_dns](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
-| [azurerm_private_endpoint.applications_service_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/private_endpoint) | resource |
-| [azurerm_private_endpoint.applications_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/private_endpoint) | resource |
-| [azurerm_redis_cache.applications_service_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/redis_cache) | resource |
-| [azurerm_resource_group.applications_service_stack](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/resource_group) | resource |
-| [azurerm_storage_account.function_storage](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/storage_account) | resource |
-| [azurerm_subnet.applications_service_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/subnet) | resource |
-| [azurerm_virtual_network_gateway_connection.national_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/virtual_network_gateway_connection) | resource |
+| [azurerm_key_vault_secret.app_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.applications_sql_server_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.applications_sql_server_password](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.applications_sql_server_username](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.redis_cache_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_local_network_gateway.national_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/local_network_gateway) | resource |
+| [azurerm_log_analytics_workspace.applications_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/log_analytics_workspace) | resource |
+| [azurerm_mssql_database.applications_sql_db](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_database) | resource |
+| [azurerm_mssql_server.applications_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_server) | resource |
+| [azurerm_private_dns_zone.redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone) | resource |
+| [azurerm_private_dns_zone_virtual_network_link.redis_cache_dns](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
+| [azurerm_private_endpoint.applications_service_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_endpoint) | resource |
+| [azurerm_private_endpoint.applications_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_endpoint) | resource |
+| [azurerm_redis_cache.applications_service_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/redis_cache) | resource |
+| [azurerm_resource_group.applications_service_stack](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/resource_group) | resource |
+| [azurerm_storage_account.function_storage](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_account) | resource |
+| [azurerm_subnet.applications_service_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/subnet) | resource |
+| [azurerm_virtual_network_gateway_connection.national_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/virtual_network_gateway_connection) | resource |
 | [random_id.username_suffix](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
 | [random_password.applications_sql_server_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
-| [azurerm_private_dns_zone.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/data-sources/private_dns_zone) | data source |
-| [azurerm_private_dns_zone.database](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/data-sources/private_dns_zone) | data source |
+| [azurerm_private_dns_zone.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/private_dns_zone) | data source |
+| [azurerm_private_dns_zone.database](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/private_dns_zone) | data source |
 
 ## Inputs
 

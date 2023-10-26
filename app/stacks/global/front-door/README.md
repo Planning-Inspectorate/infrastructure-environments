@@ -7,14 +7,14 @@ This component contains the Azure Front Door and WAF resources. The resources in
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.1.6, < 3.64.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.64.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.7, < 3.74.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.74.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.64.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.74.0 |
 | <a name="provider_null"></a> [null](#provider\_null) | 3.2.1 |
 
 ## Modules
@@ -27,11 +27,11 @@ This component contains the Azure Front Door and WAF resources. The resources in
 
 | Name | Type |
 |------|------|
-| [azurerm_frontdoor.common](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/frontdoor) | resource |
-| [azurerm_frontdoor_firewall_policy.default](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/frontdoor_firewall_policy) | resource |
-| [azurerm_frontdoor_rules_engine.search_indexing](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/frontdoor_rules_engine) | resource |
-| [azurerm_monitor_diagnostic_setting.front_door_waf](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/monitor_diagnostic_setting) | resource |
-| [azurerm_resource_group.frontdoor](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/resource_group) | resource |
+| [azurerm_frontdoor.common](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/frontdoor) | resource |
+| [azurerm_frontdoor_firewall_policy.default](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/frontdoor_firewall_policy) | resource |
+| [azurerm_frontdoor_rules_engine.search_indexing](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/frontdoor_rules_engine) | resource |
+| [azurerm_monitor_diagnostic_setting.front_door_waf](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_diagnostic_setting) | resource |
+| [azurerm_resource_group.frontdoor](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/resource_group) | resource |
 | [null_resource.fd_routing_noindex](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
 
 ## Inputs

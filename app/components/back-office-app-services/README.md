@@ -7,19 +7,19 @@ This module contains the App Services resources for the Back Office service. The
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.64.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.74.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.64.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.74.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_app_service"></a> [app\_service](#module\_app\_service) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service | 1.3 |
+| <a name="module_app_service"></a> [app\_service](#module\_app\_service) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service | 1.4 |
 | <a name="module_applications_migration_function"></a> [applications\_migration\_function](#module\_applications\_migration\_function) | ./applications-migration-function | n/a |
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
 | <a name="module_bo_appeals_casedata_import_function"></a> [bo\_appeals\_casedata\_import\_function](#module\_bo\_appeals\_casedata\_import\_function) | ./bo-appeals-casedata-import-function | n/a |
@@ -37,14 +37,14 @@ This module contains the App Services resources for the Back Office service. The
 
 | Name | Type |
 |------|------|
-| [azurerm_role_assignment.appeals_case_officer_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.appeals_inspector_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.applications_case_admin_officer_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.applications_caseteam_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.back_office_app_send_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.back_office_appeals_send_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_service_plan.back_office_functions_plan](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/service_plan) | resource |
-| [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/data-sources/client_config) | data source |
+| [azurerm_role_assignment.appeals_case_officer_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.appeals_inspector_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.applications_case_admin_officer_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.applications_caseteam_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.back_office_app_send_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.back_office_appeals_send_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_service_plan.back_office_functions_plan](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/service_plan) | resource |
+| [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/client_config) | data source |
 
 ## Inputs
 

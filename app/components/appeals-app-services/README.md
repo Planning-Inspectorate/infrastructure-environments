@@ -9,19 +9,19 @@ This module also contains some resources such as Service Bus and Function Apps r
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.64.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.74.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.64.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.74.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_app_service"></a> [app\_service](#module\_app\_service) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service | 1.3 |
+| <a name="module_app_service"></a> [app\_service](#module\_app\_service) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service | 1.4 |
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
 | <a name="module_front_office_subscribers"></a> [front\_office\_subscribers](#module\_front\_office\_subscribers) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app | 1.3 |
 | <a name="module_horizon_functions"></a> [horizon\_functions](#module\_horizon\_functions) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app | 1.3 |
@@ -30,20 +30,20 @@ This module also contains some resources such as Service Bus and Function Apps r
 
 | Name | Type |
 |------|------|
-| [azurerm_role_assignment.app_configuration_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.appeals_bo_case_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.appeals_bo_document_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.appeals_fo_api_send_appellant_submission_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.appeals_fo_api_send_lpa_submission_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.appeals_fo_send_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.listed_building_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_servicebus_namespace.horizon](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_namespace) | resource |
-| [azurerm_servicebus_namespace_authorization_rule.horizon_function_apps](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_namespace_authorization_rule) | resource |
-| [azurerm_servicebus_queue.horizon_householder_appeal_publish](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_queue) | resource |
-| [azurerm_servicebus_subscription.appeals_bo_case_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_subscription) | resource |
-| [azurerm_servicebus_subscription.appeals_bo_document_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_subscription) | resource |
-| [azurerm_servicebus_subscription.listed_building_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_role_assignment.app_configuration_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.appeals_bo_case_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.appeals_bo_document_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.appeals_fo_api_send_appellant_submission_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.appeals_fo_api_send_lpa_submission_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.appeals_fo_send_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.listed_building_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_servicebus_namespace.horizon](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_namespace) | resource |
+| [azurerm_servicebus_namespace_authorization_rule.horizon_function_apps](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_namespace_authorization_rule) | resource |
+| [azurerm_servicebus_queue.horizon_householder_appeal_publish](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_queue) | resource |
+| [azurerm_servicebus_subscription.appeals_bo_case_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_servicebus_subscription.appeals_bo_document_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_servicebus_subscription.listed_building_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription) | resource |
 
 ## Inputs
 
