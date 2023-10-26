@@ -257,6 +257,10 @@ variable "service_bus_appeals_fo_lpa_response_submission_topic_id" {
   description = "ID for the appeals fo front office LPA response submission topic"
   type        = string
 }
+variable "service_bus_appeals_fo_appellant_submission_topic_id" {
+  description = "ID for the appeals fo front office LPA response submission topic"
+  type        = string
+}
 
 variable "service_bus_appeals_bo_document_topic_id" {
   description = "ID for the appeals case data topic"
