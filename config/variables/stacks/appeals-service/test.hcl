@@ -9,6 +9,14 @@ locals {
       }
     },
     {
+      name    = "appeals-bo-submission"
+      enabled = true
+      targeting = {
+        percentage = 100
+        users      = ["E69999999"]
+      }
+    },
+    {
       name    = "horizon-document-labelling"
       enabled = true
       targeting = {
