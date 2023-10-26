@@ -1,6 +1,6 @@
 # Infrastructure (Environments)
 
-Terraform Infrastructure as Code (IaC) to provision the required infrastructure for the Planning Inspectorate application environments.
+Terraform Infrastructure as Code (IaC) to provision the required infrastructure for the Planning Inspectorate application environments
 
 - [Infrastructure (Environments)](#infrastructure-environments)
   - [Tooling](#tooling)
@@ -256,7 +256,7 @@ To deploy a stack, follow these steps:
   az login
   az account set --subscription "<subscription_id_or_subscription_name>"
   ```
-  
+
 2. Navigate to the stack you wish to deploy
 
   ```bash
