@@ -7,16 +7,16 @@ This component contains the infrastructure required for the appeals service. Thi
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.1.6, < 3.64.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.64.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.7, < 3.74.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.74.0 |
 | <a name="requirement_time"></a> [time](#requirement\_time) | ~>0.9 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.64.0 |
-| <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 3.64.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.74.0 |
+| <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 3.74.0 |
 | <a name="provider_time"></a> [time](#provider\_time) | 0.9.1 |
 
 ## Modules
@@ -31,32 +31,32 @@ This component contains the infrastructure required for the appeals service. Thi
 
 | Name | Type |
 |------|------|
-| [azurerm_advanced_threat_protection.appeal_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/advanced_threat_protection) | resource |
-| [azurerm_app_configuration.appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/app_configuration) | resource |
-| [azurerm_app_configuration_feature.appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/app_configuration_feature) | resource |
-| [azurerm_application_insights.web_app_insights](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/application_insights) | resource |
-| [azurerm_cosmosdb_account.appeals_database](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/cosmosdb_account) | resource |
-| [azurerm_key_vault_secret.app_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.appeals_app_config_endpoint_kv_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.appeals_documents_primary_blob_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.appeals_horizon_service_bus_key](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.appeals_mongo_db_connection_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.applications_insights_connection_kv_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_log_analytics_workspace.appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/log_analytics_workspace) | resource |
-| [azurerm_private_endpoint.appeals_app_config](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/private_endpoint) | resource |
-| [azurerm_private_endpoint.cosmosdb](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/private_endpoint) | resource |
-| [azurerm_resource_group.appeals_service_stack](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/resource_group) | resource |
-| [azurerm_role_assignment.appeals_app_configuration_terraform](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_storage_account.appeal_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/storage_account) | resource |
-| [azurerm_storage_account.function_apps](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/storage_account) | resource |
-| [azurerm_storage_container.documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/storage_container) | resource |
-| [azurerm_storage_container.listedbuildings](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/storage_container) | resource |
-| [azurerm_subnet.appeals_service_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/subnet) | resource |
+| [azurerm_advanced_threat_protection.appeal_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/advanced_threat_protection) | resource |
+| [azurerm_app_configuration.appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/app_configuration) | resource |
+| [azurerm_app_configuration_feature.appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/app_configuration_feature) | resource |
+| [azurerm_application_insights.web_app_insights](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/application_insights) | resource |
+| [azurerm_cosmosdb_account.appeals_database](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/cosmosdb_account) | resource |
+| [azurerm_key_vault_secret.app_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.appeals_app_config_endpoint_kv_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.appeals_documents_primary_blob_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.appeals_horizon_service_bus_key](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.appeals_mongo_db_connection_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.applications_insights_connection_kv_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_log_analytics_workspace.appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/log_analytics_workspace) | resource |
+| [azurerm_private_endpoint.appeals_app_config](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_endpoint) | resource |
+| [azurerm_private_endpoint.cosmosdb](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_endpoint) | resource |
+| [azurerm_resource_group.appeals_service_stack](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/resource_group) | resource |
+| [azurerm_role_assignment.appeals_app_configuration_terraform](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_storage_account.appeal_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_account) | resource |
+| [azurerm_storage_account.function_apps](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_account) | resource |
+| [azurerm_storage_container.documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_container) | resource |
+| [azurerm_storage_container.listedbuildings](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_container) | resource |
+| [azurerm_subnet.appeals_service_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/subnet) | resource |
 | [time_offset.secret_expire_date](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/offset) | resource |
-| [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/data-sources/client_config) | data source |
-| [azurerm_private_dns_zone.app_config](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/data-sources/private_dns_zone) | data source |
-| [azurerm_private_dns_zone.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/data-sources/private_dns_zone) | data source |
-| [azurerm_private_dns_zone.cosmosdb](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/data-sources/private_dns_zone) | data source |
+| [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/client_config) | data source |
+| [azurerm_private_dns_zone.app_config](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/private_dns_zone) | data source |
+| [azurerm_private_dns_zone.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/private_dns_zone) | data source |
+| [azurerm_private_dns_zone.cosmosdb](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/private_dns_zone) | data source |
 
 ## Inputs
 

@@ -7,19 +7,19 @@ This module contains the App Services resources for the applications service. Th
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.64.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.74.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.64.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.74.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_app_service"></a> [app\_service](#module\_app\_service) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service | 1.3 |
+| <a name="module_app_service"></a> [app\_service](#module\_app\_service) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service | 1.4 |
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
 | <a name="module_back_office_subscribers"></a> [back\_office\_subscribers](#module\_back\_office\_subscribers) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app | 1.3 |
 
@@ -27,25 +27,25 @@ This module contains the App Services resources for the applications service. Th
 
 | Name | Type |
 |------|------|
-| [azurerm_role_assignment.back_office_app_send_deadline_submission_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.back_office_app_send_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.back_office_deadline_documents_blob_storage_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.nsip_document_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.nsip_exam_timetable_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.nsip_project_update_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.nsip_project_update_unpublish_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.nsip_representation_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.nsip_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/role_assignment) | resource |
-| [azurerm_servicebus_subscription.nsip_document_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_subscription) | resource |
-| [azurerm_servicebus_subscription.nsip_exam_timetable_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_subscription) | resource |
-| [azurerm_servicebus_subscription.nsip_project_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_subscription) | resource |
-| [azurerm_servicebus_subscription.nsip_project_update_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_subscription) | resource |
-| [azurerm_servicebus_subscription.nsip_project_update_unpublish_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_subscription) | resource |
-| [azurerm_servicebus_subscription.nsip_representation_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_subscription) | resource |
-| [azurerm_servicebus_subscription_rule.nsip_exam_timetable_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_subscription_rule) | resource |
-| [azurerm_servicebus_subscription_rule.nsip_project_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_subscription_rule) | resource |
-| [azurerm_servicebus_subscription_rule.nsip_project_update_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_subscription_rule) | resource |
-| [azurerm_servicebus_subscription_rule.nsip_project_update_unpublish_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.64.0/docs/resources/servicebus_subscription_rule) | resource |
+| [azurerm_role_assignment.back_office_app_send_deadline_submission_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.back_office_app_send_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.back_office_deadline_documents_blob_storage_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.nsip_document_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.nsip_exam_timetable_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.nsip_project_update_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.nsip_project_update_unpublish_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.nsip_representation_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.nsip_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_servicebus_subscription.nsip_document_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_servicebus_subscription.nsip_exam_timetable_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_servicebus_subscription.nsip_project_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_servicebus_subscription.nsip_project_update_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_servicebus_subscription.nsip_project_update_unpublish_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_servicebus_subscription.nsip_representation_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_servicebus_subscription_rule.nsip_exam_timetable_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription_rule) | resource |
+| [azurerm_servicebus_subscription_rule.nsip_project_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription_rule) | resource |
+| [azurerm_servicebus_subscription_rule.nsip_project_update_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription_rule) | resource |
+| [azurerm_servicebus_subscription_rule.nsip_project_update_unpublish_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription_rule) | resource |
 
 ## Inputs
 
