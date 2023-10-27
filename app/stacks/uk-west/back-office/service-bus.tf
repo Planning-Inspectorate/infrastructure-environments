@@ -4,7 +4,7 @@ resource "azurerm_servicebus_namespace" "back_office" {
   resource_group_name           = azurerm_resource_group.back_office_stack.name
   sku                           = var.service_bus_failover_enabled ? "Premium" : "Standard"
   capacity                      = var.service_bus_failover_enabled ? 1 : 0
-  public_network_access_enabled = var.service_bus_failover_enabled
+  public_network_access_enabled = !var.service_bus_failover_enabled
 
   tags = local.tags
 }
