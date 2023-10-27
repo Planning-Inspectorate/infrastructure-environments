@@ -58,7 +58,6 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_redis_cache.back_office_applications_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/redis_cache) | resource |
 | [azurerm_resource_group.back_office_stack](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/resource_group) | resource |
 | [azurerm_servicebus_namespace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_namespace) | resource |
-| [azurerm_servicebus_namespace_network_rule_set.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_namespace_network_rule_set) | resource |
 | [azurerm_servicebus_topic.appeal_bo_case](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.appeal_bo_document](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.appeal_fo_appellant_submission](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |

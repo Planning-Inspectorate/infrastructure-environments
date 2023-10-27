@@ -1,11 +1,12 @@
 resource "azurerm_servicebus_namespace" "back_office" {
   count = var.service_bus_failover_enabled || var.is_dr_deployment ? 1 : 0
 
-  name                = "pins-sb-${local.service_name}-${local.resource_suffix}"
-  location            = azurerm_resource_group.back_office_stack.location
-  resource_group_name = azurerm_resource_group.back_office_stack.name
-  sku                 = var.service_bus_failover_enabled ? "Premium" : "Standard"
-  capacity            = var.service_bus_failover_enabled ? 1 : 0
+  name                          = "pins-sb-${local.service_name}-${local.resource_suffix}"
+  location                      = azurerm_resource_group.back_office_stack.location
+  resource_group_name           = azurerm_resource_group.back_office_stack.name
+  sku                           = var.service_bus_failover_enabled ? "Premium" : "Standard"
+  capacity                      = var.service_bus_failover_enabled ? 1 : 0
+  public_network_access_enabled = false
 
   tags = local.tags
 }
@@ -18,8 +19,7 @@ resource "azurerm_servicebus_namespace_disaster_recovery_config" "back_office" {
   partner_namespace_id = azurerm_servicebus_namespace.back_office[0].id
 
   depends_on = [
-    azurerm_private_endpoint.back_office,
-    azurerm_servicebus_namespace_network_rule_set.back_office
+    azurerm_private_endpoint.back_office
   ]
 }
 
@@ -42,14 +42,6 @@ resource "azurerm_private_dns_zone_virtual_network_link" "back_office" {
   virtual_network_id    = var.common_vnet_id
 }
 
-
-# Create a network ruleset to disable public access
-resource "azurerm_servicebus_namespace_network_rule_set" "back_office" {
-  count = var.service_bus_failover_enabled ? 1 : 0
-
-  namespace_id                  = azurerm_servicebus_namespace.back_office[0].id
-  public_network_access_enabled = false
-}
 
 # Create a private endpoint for the namespace
 resource "azurerm_private_endpoint" "back_office" {
