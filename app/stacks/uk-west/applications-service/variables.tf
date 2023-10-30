@@ -75,6 +75,11 @@ variable "back_office_service_bus_register_nsip_subscription_topic_id" {
   type        = string
 }
 
+variable "back_office_service_bus_register_representation_topic_id" {
+  description = "ID for the register-representation topic"
+  type        = string
+}
+
 variable "back_office_service_bus_nsip_project_update_topic_id" {
   description = "ID for the nsip-project-update topic"
   type        = string
