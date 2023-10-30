@@ -83,6 +83,13 @@ variable "back_office_service_bus_register_nsip_subscription_topic_id" {
   default = ""
 }
 
+variable "back_office_service_bus_register_representation_topic_id" {
+  description = "ID for the register-representation topic"
+  type        = string
+  # TODO: ASB-1171 DR strategy to figure out how to handle service bus fail-over
+  default = ""
+}
+
 variable "back_office_service_bus_nsip_project_update_topic_id" {
   description = "ID for the nsip-project-update topic"
   type        = string
