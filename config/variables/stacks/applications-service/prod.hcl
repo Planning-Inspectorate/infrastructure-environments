@@ -1,4 +1,5 @@
 locals {
+  activate_planned_outage                                         = "false"
   back_office_integration_get_application_case_references         = ""
   back_office_integration_get_documents_case_references           = ""
   back_office_integration_get_timetable_case_references           = ""

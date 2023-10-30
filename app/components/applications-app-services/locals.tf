@@ -10,6 +10,7 @@ locals {
       outbound_vnet_connectivity = true
 
       app_settings = {
+        ACTIVATE_PLANNED_OUTAGE                      = var.activate_planned_outage
         APPLICATIONS_SERVICE_API_TIMEOUT             = var.api_timeout
         APPLICATIONS_SERVICE_API_URL                 = "https://pins-app-${var.service_name}-applications-api-${var.resource_suffix}.azurewebsites.net/"
         FILE_UPLOADS_PATH                            = "/opt/app/uploads"

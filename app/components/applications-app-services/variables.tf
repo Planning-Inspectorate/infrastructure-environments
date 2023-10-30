@@ -3,6 +3,12 @@ variable "action_group_low_id" {
   type        = string
 }
 
+variable "activate_planned_outage" {
+  description = "A flag to indicate whether or not to activate the planned outage page"
+  type        = bool
+  default     = false
+}
+
 variable "api_timeout" {
   description = "The timeout in milliseconds for API calls in the frontend apps"
   type        = string
