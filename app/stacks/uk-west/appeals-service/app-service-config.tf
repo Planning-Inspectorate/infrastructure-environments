@@ -3,7 +3,7 @@ resource "azurerm_app_configuration" "appeals_service" {
   resource_group_name   = azurerm_resource_group.appeals_service_stack.name
   location              = module.azure_region_primary.location
   sku                   = "standard"
-  public_network_access = "Disabled"
+  public_network_access = "Enabled"
 
   tags = local.tags
 }
