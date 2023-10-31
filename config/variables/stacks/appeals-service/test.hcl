@@ -24,14 +24,14 @@ locals {
         users      = []
       }
     },
-    {
-      name    = "send-appeal-direct-to-horizon-wrapper"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = []
-      }
-    },
+    # {
+    #   name    = "send-appeal-direct-to-horizon-wrapper"
+    #   enabled = true
+    #   targeting = {
+    #     percentage = 100
+    #     users      = []
+    #   }
+    # },
     {
       name    = "lpa-dashboard"
       enabled = true
