@@ -60,6 +60,7 @@ dependency "applications_service_ukw" {
 #    service_bus_nsip_documents_topic_id                            = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
 #    service_bus_nsip_representation_id                             = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
 #    servicebus_topic_register_nsip_subscription_id                 = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
+#    servicebus_topic_register_representation_id                    = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
 #    servicebus_topic_deadline_submission_topic_id                  = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
 #    service_bus_nsip_project_update_topic_id                       = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
 #    service_bus_nsip_exam_timetable_id                       = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
@@ -79,6 +80,7 @@ inputs = {
   #  back_office_service_bus_nsip_project_topic_id                  = dependency.back_office_uks.outputs.service_bus_nsip_project_topic_id
   #  back_office_service_bus_nsip_document_topic_id                 = dependency.back_office_uks.outputs.servicebus_topic_nsip_documents_id
   #  back_office_service_bus_register_nsip_subscription_topic_id    = dependency.back_office_uks.outputs.servicebus_topic_register_nsip_subscription_id
+  #  back_office_service_bus_register_representation_topic_id       = dependency.back_office_uks.outputs.servicebus_topic_register_representation_id
   #  back_office_service_bus_nsip_project_update_topic_id           = dependency.back_office_uks.outputs.service_bus_nsip_project_update_topic_id
   #  back_office_service_bus_nsip_representation_topic_id           = dependency.back_office_uks.outputs.service_bus_nsip_representation_topic_id
   #  back_office_service_bus_nsip_exam_timetable_topic_id           = dependency.back_office_uks.outputs.service_bus_nsip_exam_timetable_id

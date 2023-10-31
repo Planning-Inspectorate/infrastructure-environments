@@ -74,6 +74,7 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_servicebus_topic.nsip_s51_advice](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.register_nsip_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
+| [azurerm_servicebus_topic.register_representation](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.service_user](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_storage_account.back_office_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_account) | resource |
 | [azurerm_storage_account.function_storage](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_account) | resource |
@@ -176,6 +177,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_servicebus_topic_deadline_submission_topic_id"></a> [servicebus\_topic\_deadline\_submission\_topic\_id](#output\_servicebus\_topic\_deadline\_submission\_topic\_id) | Service Bus Topic deadline\_submission\_topic id |
 | <a name="output_servicebus_topic_nsip_documents_id"></a> [servicebus\_topic\_nsip\_documents\_id](#output\_servicebus\_topic\_nsip\_documents\_id) | Service Bus Topic nsip-document id |
 | <a name="output_servicebus_topic_register_nsip_subscription_id"></a> [servicebus\_topic\_register\_nsip\_subscription\_id](#output\_servicebus\_topic\_register\_nsip\_subscription\_id) | Service Bus Topic register\_nsip\_subscription id |
+| <a name="output_servicebus_topic_register_representation_id"></a> [servicebus\_topic\_register\_representation\_id](#output\_servicebus\_topic\_register\_representation\_id) | Service Bus Topic register-representation id |
 | <a name="output_servicebus_topic_service_user_id"></a> [servicebus\_topic\_service\_user\_id](#output\_servicebus\_topic\_service\_user\_id) | Service Bus Topic service-user id. Only used by ODW. |
 | <a name="output_sql_server_id"></a> [sql\_server\_id](#output\_sql\_server\_id) | The ID of the Back Office SQL server |
 | <a name="output_sql_server_password"></a> [sql\_server\_password](#output\_sql\_server\_password) | The SQL server administrator password |
