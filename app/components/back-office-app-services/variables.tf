@@ -347,3 +347,8 @@ variable "back_office_appeals_redis_connection_string_secret_name" {
   description = "The connection string (secret name) used to connect to the Back Office Appeals Redis Cache"
   type        = string
 }
+
+variable "document_storage_account_id" {
+  description = "The ID of the storage account for back office documents"
+  type        = string
+}
