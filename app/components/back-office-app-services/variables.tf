@@ -262,6 +262,11 @@ variable "deadline_submissions_result_topic_name" {
   type        = string
 }
 
+variable "malware_scanning_topic_name" {
+  description = "Topic name for publishing malware scan results"
+  type        = string
+}
+
 variable "service_bus_appeals_fo_appellant_submission_id" {
   description = "Service Bus Topic FO Appellant Case Command"
   type        = string
