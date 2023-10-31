@@ -1,8 +1,9 @@
 resource "azurerm_app_configuration" "appeals_service" {
-  name                = "pins-asc-appeals-${local.resource_suffix}"
-  resource_group_name = azurerm_resource_group.appeals_service_stack.name
-  location            = module.azure_region_primary.location
-  sku                 = "standard"
+  name                  = "pins-asc-appeals-${local.resource_suffix}"
+  resource_group_name   = azurerm_resource_group.appeals_service_stack.name
+  location              = module.azure_region_primary.location
+  sku                   = "standard"
+  public_network_access = false
 
   tags = local.tags
 }
@@ -20,6 +21,8 @@ resource "azurerm_app_configuration_feature" "appeals_service" {
     default_rollout_percentage = try(each.value["targeting"]["percentage"], 100)
     users                      = try(each.value["targeting"]["users"], [])
   }
+
+  tags = local.tags
 
   depends_on = [
     azurerm_role_assignment.appeals_app_configuration_terraform
