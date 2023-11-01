@@ -221,7 +221,6 @@ variable "feature_allow_get_updates" {
   type        = string
 }
 
-
 variable "feature_allow_project_information" {
   description = "Feature toggle for project information"
   type        = string
@@ -229,6 +228,11 @@ variable "feature_allow_project_information" {
 
 variable "feature_allow_have_your_say" {
   description = "Feature toggle to enable/disable have your say"
+  type        = string
+}
+
+variable "feature_application_insights" {
+  description = "Feature toggle to enable/disable application insights"
   type        = string
 }
 
