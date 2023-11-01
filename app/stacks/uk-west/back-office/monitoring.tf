@@ -23,7 +23,7 @@ resource "azurerm_monitor_diagnostic_setting" "back_office_sql_database" {
 
   lifecycle {
     ignore_changes = [
-      log,
+      enabled_log,
       metric
     ]
   }
