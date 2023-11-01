@@ -4,6 +4,7 @@ module "app_services" {
   source = "../../../components/applications-app-services"
 
   action_group_low_id                                             = var.action_group_low_id
+  activate_planned_outage                                         = var.activate_planned_outage
   api_timeout                                                     = var.api_timeout
   app_service_plan_id                                             = var.app_service_plan_id
   app_service_private_dns_zone_id                                 = data.azurerm_private_dns_zone.app_service.id
@@ -21,6 +22,7 @@ module "app_services" {
   back_office_service_bus_nsip_project_topic_id                   = var.back_office_service_bus_nsip_project_topic_id
   back_office_service_bus_nsip_document_topic_id                  = var.back_office_service_bus_nsip_document_topic_id
   back_office_service_bus_register_nsip_subscription_topic_id     = var.back_office_service_bus_register_nsip_subscription_topic_id
+  back_office_service_bus_register_representation_topic_id        = var.back_office_service_bus_register_representation_topic_id
   back_office_service_bus_nsip_project_update_topic_id            = var.back_office_service_bus_nsip_project_update_topic_id
   back_office_service_bus_nsip_representation_topic_id            = var.back_office_service_bus_nsip_representation_topic_id
   back_office_service_bus_nsip_exam_timetable_topic_id            = var.back_office_service_bus_nsip_exam_timetable_topic_id

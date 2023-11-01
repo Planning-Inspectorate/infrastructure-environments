@@ -3,6 +3,12 @@ variable "action_group_low_id" {
   type        = string
 }
 
+variable "activate_planned_outage" {
+  description = "A flag to indicate whether or not to activate the planned outage page"
+  type        = bool
+  default     = false
+}
+
 variable "api_timeout" {
   description = "The timeout in milliseconds for API calls in the frontend apps"
   type        = string
@@ -95,6 +101,11 @@ variable "back_office_service_bus_nsip_exam_timetable_topic_id" {
 
 variable "back_office_service_bus_register_nsip_subscription_topic_id" {
   description = "ID for the register-nsip-subscription topic"
+  type        = string
+}
+
+variable "back_office_service_bus_register_representation_topic_id" {
+  description = "ID for the register-representation topic"
   type        = string
 }
 
