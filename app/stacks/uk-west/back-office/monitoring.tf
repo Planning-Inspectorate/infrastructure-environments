@@ -15,18 +15,10 @@ resource "azurerm_monitor_diagnostic_setting" "back_office_sql_database" {
 
   enabled_log {
     category = "SQLSecurityAuditEvents"
-
-    retention_policy {
-      enabled = false
-    }
   }
 
   metric {
     category = "AllMetrics"
-
-    retention_policy {
-      enabled = false
-    }
   }
 
   lifecycle {

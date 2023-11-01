@@ -5,18 +5,10 @@ resource "azurerm_monitor_diagnostic_setting" "front_door_waf" {
 
   enabled_log {
     category = "FrontdoorWebApplicationFirewallLog"
-
-    retention_policy {
-      enabled = false
-    }
   }
 
   metric {
     category = "AllMetrics"
-
-    retention_policy {
-      enabled = false
-    }
   }
 
   lifecycle {
