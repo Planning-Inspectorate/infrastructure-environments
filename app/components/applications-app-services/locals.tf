@@ -11,6 +11,7 @@ locals {
 
       app_settings = {
         ACTIVATE_PLANNED_OUTAGE                      = var.activate_planned_outage
+        APPLICATIONINSIGHTS_CONNECTION_STRING        = local.secret_refs["applications-service-app-insights-connection-string"]
         APPLICATIONS_SERVICE_API_TIMEOUT             = var.api_timeout
         APPLICATIONS_SERVICE_API_URL                 = "https://pins-app-${var.service_name}-applications-api-${var.resource_suffix}.azurewebsites.net/"
         FILE_UPLOADS_PATH                            = "/opt/app/uploads"
@@ -52,6 +53,7 @@ locals {
       outbound_vnet_connectivity      = true
 
       app_settings = {
+        APPLICATIONINSIGHTS_CONNECTION_STRING                         = local.secret_refs["applications-service-app-insights-connection-string"]
         APPLICATIONS_WEB_BASE_URL                                     = "https://${var.applications_service_public_url}"
         BACK_OFFICE_BLOB_STORAGE_DEADLINE_SUBMISSION_URL              = "https://${var.back_office_submissions_storage_account_name}.blob.core.windows.net"
         BACK_OFFICE_BLOB_STORAGE_DEADLINE_SUBMISSION_CONTAINER        = var.back_office_submissions_storage_container_name
@@ -94,6 +96,7 @@ locals {
   }
 
   secret_names = [
+    "applications-service-app-insights-connection-string",
     "applications-service-encryption-secret-key",
     "applications-service-mysql-database",
     "applications-service-mysql-dialect",
