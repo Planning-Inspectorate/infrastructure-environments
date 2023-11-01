@@ -13,7 +13,7 @@ resource "azurerm_monitor_diagnostic_setting" "front_door_waf" {
 
   lifecycle {
     ignore_changes = [
-      log,
+      enabled_log,
       metric
     ]
   }
