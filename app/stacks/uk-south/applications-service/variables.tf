@@ -340,6 +340,11 @@ variable "node_environment" {
   default     = "development"
 }
 
+variable "planned_outage_resume_text" {
+  description = "Optional text to be displayed when planned outage page is active"
+  type        = string
+}
+
 variable "primary_applications_sql_server_id" {
   description = "ID of the primary (ukw) Applications SQL Server"
   type        = string

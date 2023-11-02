@@ -24,6 +24,7 @@ locals {
   national_infrastructure_gateway_ip                              = "51.104.42.155"
   national_infrastructure_vnet_address_space                      = ["10.222.0.0/26"]
   node_environment                                                = "development"
+  planned_outage_resume_text                                      = ""
   private_beta_v1_routes_only                                     = "false"
   project_migration_case_references                               = "BC0110001,BC0110003,BC0110005,EN010009,EN010120,EN013012,BC010060,BC0110002"
   srv_notify_ip_registration_confirmation_email_to_ip_template_id = "830c9c01-1f81-4198-be72-11ab173c128a"
