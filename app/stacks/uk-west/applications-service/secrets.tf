@@ -11,8 +11,7 @@ resource "azurerm_key_vault_secret" "app_secret" {
 
   lifecycle {
     ignore_changes = [
-      value,
-      version
+      value
     ]
   }
 }
