@@ -106,8 +106,7 @@ resource "azurerm_key_vault_secret" "applications_service_vpn_gateway_shared_key
 
   lifecycle {
     ignore_changes = [
-      value,
-      version
+      value
     ]
   }
 }

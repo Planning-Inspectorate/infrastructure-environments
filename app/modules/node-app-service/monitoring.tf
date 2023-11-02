@@ -13,7 +13,7 @@ resource "azurerm_monitor_diagnostic_setting" "web_app_logs" {
 
   lifecycle {
     ignore_changes = [
-      log,
+      enabled_log,
       metric
     ]
   }
