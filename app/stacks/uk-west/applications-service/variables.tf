@@ -301,6 +301,11 @@ variable "node_environment" {
   default     = "development"
 }
 
+variable "planned_outage_resume_text" {
+  description = "Optional text to be displayed when planned outage page is active"
+  type        = string
+}
+
 variable "private_endpoint_enabled" {
   description = "A switch to determine if Private Endpoint should be enabled for backend App Services"
   type        = bool
