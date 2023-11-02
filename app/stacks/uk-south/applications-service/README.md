@@ -29,6 +29,8 @@ This component contains the infrastructure required for the applications service
 
 | Name | Type |
 |------|------|
+| [azurerm_application_insights.applications_app_insights](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/application_insights) | resource |
+| [azurerm_key_vault_secret.applications_app_insights_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.applications_sql_server_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.applications_sql_server_password](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.applications_sql_server_username](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
@@ -57,7 +59,7 @@ This component contains the infrastructure required for the applications service
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_action_group_low_id"></a> [action\_group\_low\_id](#input\_action\_group\_low\_id) | The ID of the Azure Monitor action group for low priority (P4) alerts | `string` | n/a | yes |
-| <a name="activate_planned_outage"></a> [activate\_planned\_outage](#input\_action\_group\_low\_id) | Feature toggle to enable/disable display of planned outage page | `bool` | false | yes |
+| <a name="input_activate_planned_outage"></a> [activate\_planned\_outage](#input\_activate\_planned\_outage) | A flag to indicate whether or not to activate the planned outage page | `bool` | `false` | no |
 | <a name="input_api_timeout"></a> [api\_timeout](#input\_api\_timeout) | The timeout in milliseconds for API calls in the frontend apps | `string` | n/a | yes |
 | <a name="input_app_service_plan_id"></a> [app\_service\_plan\_id](#input\_app\_service\_plan\_id) | The id of the app service plan | `string` | n/a | yes |
 | <a name="input_applications_service_public_url"></a> [applications\_service\_public\_url](#input\_applications\_service\_public\_url) | The public URL for the Applications Service frontend web app | `string` | n/a | yes |
@@ -97,6 +99,7 @@ This component contains the infrastructure required for the applications service
 | <a name="input_feature_allow_project_information"></a> [feature\_allow\_project\_information](#input\_feature\_allow\_project\_information) | Feature toggle for project information | `string` | n/a | yes |
 | <a name="input_feature_allow_representation"></a> [feature\_allow\_representation](#input\_feature\_allow\_representation) | Feature toggle for limiting the web app routes to representation | `string` | n/a | yes |
 | <a name="input_feature_allow_section_51"></a> [feature\_allow\_section\_51](#input\_feature\_allow\_section\_51) | Feature toggle to section 51 | `string` | n/a | yes |
+| <a name="input_feature_application_insights"></a> [feature\_application\_insights](#input\_feature\_application\_insights) | Feature toggle to enable/disable application insights | `string` | n/a | yes |
 | <a name="input_feature_enable_generalised_form_sanitisation"></a> [feature\_enable\_generalised\_form\_sanitisation](#input\_feature\_enable\_generalised\_form\_sanitisation) | Feature toggle to enable/disable generalised form sanitisation | `string` | n/a | yes |
 | <a name="input_feature_enabled_content_security_policy"></a> [feature\_enabled\_content\_security\_policy](#input\_feature\_enabled\_content\_security\_policy) | Feature toggle to enable/disable content security policy | `string` | n/a | yes |
 | <a name="input_feature_hide_project_timeline_link"></a> [feature\_hide\_project\_timeline\_link](#input\_feature\_hide\_project\_timeline\_link) | Feature toggle to show / hide the project timeline link on project overview nav bar | `string` | n/a | yes |

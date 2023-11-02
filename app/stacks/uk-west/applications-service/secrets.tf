@@ -16,12 +16,15 @@ resource "azurerm_key_vault_secret" "app_secret" {
   }
 }
 
-resource "azurerm_key_vault_secret" "redis_cache_connection_string" {
-  #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
-  #checkov:skip=CKV_AZURE_114
+resource "azurerm_key_vault_secret" "applications_app_insights_connection_string" {
+  #checkov:skip=CKV_AZURE_41
+
+  content_type = "text/plain"
   key_vault_id = var.key_vault_id
-  name         = "applications-service-redis-cache-connection-string"
-  value        = azurerm_redis_cache.applications_service_redis_cache.primary_connection_string
+  name         = "applications-service-app-insights-connection-string"
+  value        = azurerm_application_insights.applications_app_insights.connection_string
+
+  tags = local.tags
 }
 
 resource "azurerm_key_vault_secret" "applications_sql_server_password" {
@@ -55,4 +58,12 @@ resource "azurerm_key_vault_secret" "applications_sql_server_connection_string" 
   value        = local.sql_jdbc_connection_string
 
   tags = local.tags
+}
+
+resource "azurerm_key_vault_secret" "redis_cache_connection_string" {
+  #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
+  #checkov:skip=CKV_AZURE_114
+  key_vault_id = var.key_vault_id
+  name         = "applications-service-redis-cache-connection-string"
+  value        = azurerm_redis_cache.applications_service_redis_cache.primary_connection_string
 }

@@ -11,33 +11,34 @@ locals {
 
       app_settings = {
         ACTIVATE_PLANNED_OUTAGE                      = var.activate_planned_outage
+        APPLICATIONINSIGHTS_CONNECTION_STRING        = local.secret_refs["applications-service-app-insights-connection-string"]
         APPLICATIONS_SERVICE_API_TIMEOUT             = var.api_timeout
         APPLICATIONS_SERVICE_API_URL                 = "https://pins-app-${var.service_name}-applications-api-${var.resource_suffix}.azurewebsites.net/"
+        FEATURE_ALLOW_DOCUMENT_LIBRARY               = var.feature_allow_document_library
+        FEATURE_ALLOW_EXAMINATION_TIMETABLE          = var.feature_allow_examination_timetable
+        FEATURE_ALLOW_HAVE_YOUR_SAY                  = var.feature_allow_have_your_say
+        FEATURE_ALLOW_REPRESENTATION                 = var.feature_allow_representation
+        FEATURE_ALLOW_SECTION_51                     = var.feature_allow_section_51
+        FEATURE_APPLICATION_INSIGHTS                 = var.feature_application_insights
+        FEATURE_ENABLE_GENERALISED_FORM_SANITISATION = var.feature_enable_generalised_form_sanitisation
+        FEATURE_ENABLED_CONTENT_SECURITY_POLICY      = var.feature_enabled_content_security_policy
+        FEATURE_GET_UPDATES                          = var.feature_allow_get_updates
+        FEATURE_PROJECT_INFORMATION                  = var.feature_allow_project_information
+        FEATURE_PROJECT_TIMELINE_LINK                = var.feature_hide_project_timeline_link
+        FEATURE_REDIS_SESSION_STORE                  = var.feature_redis_session_store
+        FEATURE_SAVE_AND_EXIT_OPTION                 = var.feature_save_and_exit_option
+        FEATURE_SHOW_AFFECTED_AREA_SECTION           = var.feature_show_affected_area_section
         FILE_UPLOADS_PATH                            = "/opt/app/uploads"
         GOOGLE_ANALYTICS_ID                          = var.google_analytics_id
         HOST_URL                                     = "https://${var.applications_service_public_url}/"
         OS_MAPS_API_KEY                              = local.secret_refs["applications-service-os-maps-api-key"]
         OS_MAPS_API_SECRET                           = local.secret_refs["applications-service-os-maps-api-secret"]
+        PRIVATE_BETA_V1_ROUTES_ONLY                  = var.private_beta_v1_routes_only
+        PROJECT_MIGRATION_CASE_REFERENCES            = var.project_migration_case_references
         REDIS_CONNECTION_STRING                      = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/${var.applications_service_redis_connection_string_secret_name}/)"
         SESSION_KEY                                  = local.secret_refs["applications-service-session-key"]
         SUBDOMAIN_OFFSET                             = "3"
         USE_SECURE_SESSION_COOKIES                   = true
-        PRIVATE_BETA_V1_ROUTES_ONLY                  = var.private_beta_v1_routes_only
-        FEATURE_SAVE_AND_EXIT_OPTION                 = var.feature_save_and_exit_option
-        FEATURE_SHOW_AFFECTED_AREA_SECTION           = var.feature_show_affected_area_section
-        FEATURE_PROJECT_TIMELINE_LINK                = var.feature_hide_project_timeline_link
-        FEATURE_ALLOW_DOCUMENT_LIBRARY               = var.feature_allow_document_library
-        FEATURE_ALLOW_EXAMINATION_TIMETABLE          = var.feature_allow_examination_timetable
-        FEATURE_ALLOW_REPRESENTATION                 = var.feature_allow_representation
-        FEATURE_REDIS_SESSION_STORE                  = var.feature_redis_session_store
-        FEATURE_ENABLED_CONTENT_SECURITY_POLICY      = var.feature_enabled_content_security_policy
-        FEATURE_ALLOW_SECTION_51                     = var.feature_allow_section_51
-        FEATURE_ENABLE_GENERALISED_FORM_SANITISATION = var.feature_enable_generalised_form_sanitisation
-        FEATURE_ALLOW_HAVE_YOUR_SAY                  = var.feature_allow_have_your_say
-        FEATURE_GET_UPDATES                          = var.feature_allow_get_updates
-        FEATURE_PROJECT_INFORMATION                  = var.feature_allow_project_information
-        PROJECT_MIGRATION_CASE_REFERENCES            = var.project_migration_case_references
-
       }
     }
 
@@ -52,6 +53,7 @@ locals {
       outbound_vnet_connectivity      = true
 
       app_settings = {
+        APPLICATIONINSIGHTS_CONNECTION_STRING                         = local.secret_refs["applications-service-app-insights-connection-string"]
         APPLICATIONS_WEB_BASE_URL                                     = "https://${var.applications_service_public_url}"
         BACK_OFFICE_BLOB_STORAGE_DEADLINE_SUBMISSION_URL              = "https://${var.back_office_submissions_storage_account_name}.blob.core.windows.net"
         BACK_OFFICE_BLOB_STORAGE_DEADLINE_SUBMISSION_CONTAINER        = var.back_office_submissions_storage_container_name
@@ -65,6 +67,7 @@ locals {
         DATABASE_URL                                                  = var.applications_sql_server_connection_string_jbdc
         DOCUMENTS_HOST                                                = var.documents_host
         ENCRYPTION_SECRET_KEY                                         = local.secret_refs["applications-service-encryption-secret-key"]
+        FEATURE_APPLICATION_INSIGHTS                                  = var.feature_application_insights
         FILE_UPLOADS_PATH                                             = "/opt/app/uploads"
         LOGGER_LEVEL                                                  = var.logger_level
         MYSQL_DATABASE                                                = local.secret_refs["applications-service-mysql-database"]
@@ -94,6 +97,7 @@ locals {
   }
 
   secret_names = [
+    "applications-service-app-insights-connection-string",
     "applications-service-encryption-secret-key",
     "applications-service-mysql-database",
     "applications-service-mysql-dialect",
