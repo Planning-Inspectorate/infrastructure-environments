@@ -57,7 +57,7 @@ module "app_services" {
   servicebus_topic_deadline_submission_result_id                                      = azurerm_servicebus_topic.deadline_submission_result.id
   deadline_submissions_topic_name                                                     = azurerm_servicebus_topic.deadline_submission_topic.name
   deadline_submissions_result_topic_name                                              = azurerm_servicebus_topic.deadline_submission_result.name
-  malware_scanning_topic_name                                                         = azurerm_servicebus_topic.malware_scanning_topic.name
+  malware_scanning_topic_name                                                         = azurerm_eventgrid_topic.malware_scanning_topic.name
   #service_bus_appeals_bo_case_topic_id                                                = azurerm_servicebus_topic.appeal_bo_case.id
   #service_bus_appeals_bo_document_topic_id                                            = azurerm_servicebus_topic.appeal_bo_document.id
   service_bus_appeals_fo_appellant_submission_id               = azurerm_servicebus_topic.appeal_fo_appellant_submission.id

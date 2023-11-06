@@ -263,7 +263,7 @@ variable "deadline_submissions_result_topic_name" {
 }
 
 variable "malware_scanning_topic_name" {
-  description = "Topic name for publishing malware scan results"
+  description = "Event grid topic name for publishing malware scan results"
   type        = string
 }
 
