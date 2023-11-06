@@ -132,12 +132,6 @@ resource "azurerm_servicebus_topic" "deadline_submission_result" {
   default_message_ttl = "P14D"
 }
 
-resource "azurerm_servicebus_topic" "malware_scanning_topic" {
-  name                = "malware-scanning-topic"
-  namespace_id        = azurerm_servicebus_namespace.back_office.id
-  default_message_ttl = "P14D"
-}
-
 # Appeals FO Producers (Commands)
 resource "azurerm_servicebus_topic" "appeal_fo_appellant_submission" {
   name                = "appeal-fo-appellant-submission"
