@@ -39,7 +39,7 @@ resource "azurerm_servicebus_subscription" "nsip_document_published_subscription
 # Since the document is locked for editing after being set to 'publishing', and then finally updated to 'published', this should only trigger one publish
 # Regardless, publishing is an idempotent operation so duplicate messages won't matter.
 resource "azurerm_servicebus_subscription_rule" "nsip_document_pub_subscription_rule" {
-  name            = "back-office-nsip-document-subscription-rule"
+  name            = "back-office-nsip-document-pub-subscription-rule"
   subscription_id = azurerm_servicebus_subscription.nsip_document_published_subscription.id
   filter_type     = "CorrelationFilter"
   correlation_filter {
@@ -57,7 +57,7 @@ resource "azurerm_servicebus_subscription" "nsip_document_unpublished_subscripti
 }
 
 resource "azurerm_servicebus_subscription_rule" "nsip_document_unpub_subscription_rule" {
-  name            = "back-office-nsip-document-subscription-rule"
+  name            = "back-office-nsip-document-unpub-subscription-rule"
   subscription_id = azurerm_servicebus_subscription.nsip_document_unpublished_subscription.id
   filter_type     = "CorrelationFilter"
   correlation_filter {
