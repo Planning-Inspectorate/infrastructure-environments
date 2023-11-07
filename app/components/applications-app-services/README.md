@@ -13,7 +13,7 @@ This module contains the App Services resources for the applications service. Th
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.64.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.74.0 |
 
 ## Modules
 
@@ -60,7 +60,6 @@ This module contains the App Services resources for the applications service. Th
 | <a name="input_applications_service_public_url"></a> [applications\_service\_public\_url](#input\_applications\_service\_public\_url) | The public URL for the Applications Service frontend web app | `string` | n/a | yes |
 | <a name="input_applications_service_redis_connection_string_secret_name"></a> [applications\_service\_redis\_connection\_string\_secret\_name](#input\_applications\_service\_redis\_connection\_string\_secret\_name) | Name of the secret in Key Vault that stores the redis connection string | `string` | n/a | yes |
 | <a name="input_applications_sql_server_connection_string"></a> [applications\_sql\_server\_connection\_string](#input\_applications\_sql\_server\_connection\_string) | Connection string for applications service sql server | `string` | n/a | yes |
-| <a name="input_applications_sql_server_connection_string_jbdc"></a> [applications\_sql\_server\_connection\_string\_jbdc](#input\_applications\_sql\_server\_connection\_string\_jbdc) | Connection string for applications service sql server in JBDC format | `string` | n/a | yes |
 | <a name="input_back_office_integration_get_application_case_references"></a> [back\_office\_integration\_get\_application\_case\_references](#input\_back\_office\_integration\_get\_application\_case\_references) | list of case references (comma separated) that the application data is retrieved from back office | `string` | n/a | yes |
 | <a name="input_back_office_integration_get_documents_case_references"></a> [back\_office\_integration\_get\_documents\_case\_references](#input\_back\_office\_integration\_get\_documents\_case\_references) | list of case references (comma separated) that document data is retrieved from back office | `string` | n/a | yes |
 | <a name="input_back_office_integration_get_timetable_case_references"></a> [back\_office\_integration\_get\_timetable\_case\_references](#input\_back\_office\_integration\_get\_timetable\_case\_references) | list of case references (comma separated) that timetable data is retrieved from back office | `string` | n/a | yes |

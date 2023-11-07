@@ -39,11 +39,6 @@ variable "applications_sql_server_connection_string" {
   type        = string
 }
 
-variable "applications_sql_server_connection_string_jbdc" {
-  description = "Connection string for applications service sql server in JBDC format"
-  type        = string
-}
-
 variable "back_office_integration_get_documents_case_references" {
   description = "list of case references (comma separated) that document data is retrieved from back office"
   type        = string

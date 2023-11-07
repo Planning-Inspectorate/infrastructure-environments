@@ -5,18 +5,6 @@ locals {
   sql_connection_string = join(
     ";",
     [
-      "Server=tcp:${azurerm_mssql_server.applications_sql_server.fully_qualified_domain_name},1433",
-      "Initial Catalog=${azurerm_mssql_database.applications_sql_db.name}",
-      "User ID=${azurerm_mssql_server.applications_sql_server.administrator_login}",
-      "Password=${azurerm_mssql_server.applications_sql_server.administrator_login_password}",
-      "Encrypt=True",
-      "TrustServerCertificate=False",
-      "Connection Timeout=30"
-    ]
-  )
-  sql_jbdc_connection_string = join(
-    ";",
-    [
       "sqlserver://${azurerm_mssql_server.applications_sql_server.fully_qualified_domain_name}",
       "database=${azurerm_mssql_database.applications_sql_db.name}",
       "user=${azurerm_mssql_server.applications_sql_server.administrator_login}",
