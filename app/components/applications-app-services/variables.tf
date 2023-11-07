@@ -34,11 +34,6 @@ variable "applications_service_redis_connection_string_secret_name" {
   type        = string
 }
 
-variable "applications_sql_server_connection_string" {
-  description = "Connection string for applications service sql server"
-  type        = string
-}
-
 variable "back_office_integration_get_documents_case_references" {
   description = "list of case references (comma separated) that document data is retrieved from back office"
   type        = string
