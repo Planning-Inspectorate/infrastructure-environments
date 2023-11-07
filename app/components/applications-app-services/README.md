@@ -27,6 +27,7 @@ This module contains the App Services resources for the applications service. Th
 
 | Name | Type |
 |------|------|
+| [azurerm_key_vault_access_policy.bo_subscribers_read_secrets](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_access_policy) | resource |
 | [azurerm_role_assignment.back_office_app_send_deadline_submission_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.back_office_app_send_register_representation](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.back_office_app_send_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
@@ -47,6 +48,7 @@ This module contains the App Services resources for the applications service. Th
 | [azurerm_servicebus_subscription_rule.nsip_project_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription_rule) | resource |
 | [azurerm_servicebus_subscription_rule.nsip_project_update_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription_rule) | resource |
 | [azurerm_servicebus_subscription_rule.nsip_project_update_unpublish_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription_rule) | resource |
+| [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/client_config) | data source |
 
 ## Inputs
 
