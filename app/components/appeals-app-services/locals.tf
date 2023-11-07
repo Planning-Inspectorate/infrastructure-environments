@@ -63,6 +63,7 @@ locals {
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING                                       = local.secret_refs["appeals-app-insights-connection-string"]
         APP_APPEALS_BASE_URL                                                        = "https://${var.appeals_service_public_url}"
+        BLOB_STORAGE_CONNECTION_STRING                                              = local.secret_refs["appeals-documents-primary-blob-connection-string"]
         DOCS_API_PATH                                                               = "/opt/app/api"
         DOCUMENTS_SERVICE_API_TIMEOUT                                               = var.api_timeout
         DOCUMENTS_SERVICE_API_URL                                                   = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net"
@@ -106,6 +107,7 @@ locals {
         SRV_NOTIFY_APPEAL_SUBMISSION_RECEIVED_NOTIFICATION_EMAIL_TO_LPA_TEMPLATE_ID = var.srv_notify_appeal_submission_received_notification_email_to_lpa_template_id
         SRV_NOTIFY_START_EMAIL_TO_LPA_TEMPLATE_ID                                   = var.srv_notify_start_email_to_lpa_template_id
         SRV_NOTIFY_LPA_DASHBOARD_INVITE_TEMPLATE_ID                                 = var.srv_notify_lpa_dashboard_invite_template_id
+        STORAGE_CONTAINER_NAME                                                      = var.appeal_documents_storage_container_name
         TASK_SUBMIT_TO_HORIZON_CRON_STRING                                          = var.task_submit_to_horizon_cron_string
         TASK_SUBMIT_TO_HORIZON_TRIGGER_ACTIVE                                       = var.task_submit_to_horizon_trigger_active
       }
