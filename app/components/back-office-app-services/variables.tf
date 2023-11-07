@@ -262,6 +262,11 @@ variable "deadline_submissions_result_topic_name" {
   type        = string
 }
 
+variable "malware_scanning_topic_name" {
+  description = "Event grid topic name for publishing malware scan results"
+  type        = string
+}
+
 variable "service_bus_appeals_fo_appellant_submission_id" {
   description = "Service Bus Topic FO Appellant Case Command"
   type        = string
@@ -345,5 +350,10 @@ variable "back_office_applications_redis_connection_string_secret_name" {
 
 variable "back_office_appeals_redis_connection_string_secret_name" {
   description = "The connection string (secret name) used to connect to the Back Office Appeals Redis Cache"
+  type        = string
+}
+
+variable "document_storage_account_id" {
+  description = "The ID of the storage account for back office documents"
   type        = string
 }

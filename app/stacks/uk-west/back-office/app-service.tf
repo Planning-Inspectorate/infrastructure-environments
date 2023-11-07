@@ -26,6 +26,7 @@ module "app_services" {
   database_connection_string                                                          = local.sql_connection_string
   appeals_database_connection_string                                                  = local.appeals_sql_connection_string
   document_storage_api_host                                                           = azurerm_storage_account.back_office_documents.primary_blob_endpoint
+  document_storage_account_id                                                         = azurerm_storage_account.back_office_documents.id
   endpoint_subnet_id                                                                  = azurerm_subnet.back_office_ingress.id
   key_vault_id                                                                        = var.key_vault_id
   key_vault_uri                                                                       = var.key_vault_uri
@@ -56,6 +57,7 @@ module "app_services" {
   servicebus_topic_deadline_submission_result_id                                      = azurerm_servicebus_topic.deadline_submission_result.id
   deadline_submissions_topic_name                                                     = azurerm_servicebus_topic.deadline_submission_topic.name
   deadline_submissions_result_topic_name                                              = azurerm_servicebus_topic.deadline_submission_result.name
+  malware_scanning_topic_name                                                         = azurerm_eventgrid_topic.malware_scanning_topic.name
   #service_bus_appeals_bo_case_topic_id                                                = azurerm_servicebus_topic.appeal_bo_case.id
   #service_bus_appeals_bo_document_topic_id                                            = azurerm_servicebus_topic.appeal_bo_document.id
   service_bus_appeals_fo_appellant_submission_id               = azurerm_servicebus_topic.appeal_fo_appellant_submission.id
