@@ -26,7 +26,7 @@ module "app_services" {
   database_connection_string                                                          = local.sql_connection_string
   appeals_database_connection_string                                                  = local.appeals_sql_connection_string
   document_storage_api_host                                                           = azurerm_storage_account.back_office_documents.primary_blob_endpoint
-  document_storage_account_id                                                         = azurerm_storage_account.back_office_documents.id
+  document_storage_account_name                                                       = azurerm_storage_account.back_office_documents.name
   endpoint_subnet_id                                                                  = azurerm_subnet.back_office_ingress.id
   key_vault_id                                                                        = var.key_vault_id
   key_vault_uri                                                                       = var.key_vault_uri
