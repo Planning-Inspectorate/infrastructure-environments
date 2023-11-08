@@ -57,7 +57,7 @@ module "app_services" {
   deadline_submissions_topic_name                                                     = ""
   deadline_submissions_result_topic_name                                              = ""
   malware_scanning_topic_name                                                         = ""
-  document_storage_account_id                                                         = ""
+  document_storage_account_name                                                       = ""
 
   back_office_applications_redis_connection_string_secret_name = azurerm_key_vault_secret.back_office_applications_redis_cache_connection_string_secret[count.index].name
   back_office_appeals_redis_connection_string_secret_name      = azurerm_key_vault_secret.back_office_appeals_redis_cache_connection_string_secret[count.index].name
