@@ -278,6 +278,11 @@ variable "feature_hide_project_timeline_link" {
   type        = string
 }
 
+variable "feature_home_page" {
+  description = "Feature toggle to enable/disable routing to the home page"
+  type        = string
+}
+
 variable "feature_allow_document_library" {
   description = "Feature toggle for limiting the web app routes to document library"
   type        = string
