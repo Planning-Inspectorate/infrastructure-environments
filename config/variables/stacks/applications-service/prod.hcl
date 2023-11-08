@@ -17,6 +17,7 @@ locals {
   feature_enable_generalised_form_sanitisation                    = "true"
   feature_enabled_content_security_policy                         = "true"
   feature_hide_project_timeline_link                              = "false"
+  feature_home_page                                               = "false"
   feature_redis_session_store                                     = "true"
   feature_save_and_exit_option                                    = "false"
   feature_show_affected_area_section                              = "false"
