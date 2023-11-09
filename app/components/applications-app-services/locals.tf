@@ -23,6 +23,7 @@ locals {
         FEATURE_ENABLE_GENERALISED_FORM_SANITISATION = var.feature_enable_generalised_form_sanitisation
         FEATURE_ENABLED_CONTENT_SECURITY_POLICY      = var.feature_enabled_content_security_policy
         FEATURE_GET_UPDATES                          = var.feature_allow_get_updates
+        FEATURE_HOME_PAGE                            = var.feature_home_page
         FEATURE_PROJECT_INFORMATION                  = var.feature_allow_project_information
         FEATURE_PROJECT_TIMELINE_LINK                = var.feature_hide_project_timeline_link
         FEATURE_REDIS_SESSION_STORE                  = var.feature_redis_session_store
