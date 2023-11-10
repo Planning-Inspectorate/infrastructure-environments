@@ -29,6 +29,12 @@ resource "azurerm_role_assignment" "back_office_app_send_service_bus_access" {
   principal_id         = module.app_service["back_office_api"].principal_id
 }
 
+resource "azurerm_role_assignment" "back_office_app_send_event_grid" {
+  scope                = var.malware_scanning_topic_id
+  role_definition_name = "EventGrid Data Sender"
+  principal_id         = module.app_service["back_office_api"].principal_id
+}
+
 # As above, assume appeals will choose its own topics to publish to on the same service bus instance
 resource "azurerm_role_assignment" "back_office_appeals_send_service_bus_access" {
   scope                = var.service_bus_namespace_id
