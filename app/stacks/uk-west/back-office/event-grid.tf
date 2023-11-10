@@ -7,6 +7,5 @@ resource "azurerm_eventgrid_topic" "malware_scanning_topic" {
     type = "SystemAssigned"
   }
 
-  local_auth_enabled            = false
   public_network_access_enabled = false
 }
