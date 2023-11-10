@@ -14,6 +14,7 @@ locals {
       outbound_vnet_connectivity = true
 
       app_settings = {
+        ALLOW_TESTING_OVERRIDES                    = var.allow_testing_overrides
         APPLICATIONINSIGHTS_CONNECTION_STRING      = local.secret_refs["appeals-app-insights-connection-string"]
         APPEALS_SERVICE_API_TIMEOUT                = var.api_timeout
         APPEALS_SERVICE_API_URL                    = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
@@ -42,7 +43,6 @@ locals {
         SESSION_MONGODB_URL                        = local.secret_refs["appeals-mongo-db-connection-string"]
         SUBDOMAIN_OFFSET                           = "3"
         USE_SECURE_SESSION_COOKIES                 = true
-        ALLOW_TESTING_OVERRIDES                    = var.allow_testing_overrides
       }
     }
 
@@ -91,6 +91,7 @@ locals {
         SERVER_TERMINATION_GRACE_PERIOD_SECONDS                                     = "0"
         SERVICE_BUS_HOSTNAME                                                        = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
         SERVICE_BUS_ENABLED                                                         = var.appeals_api_service_bus_enabled
+        SQL_CONNECTION_STRING                                                       = local.secret_refs["appeals-sql-server-connection-string-admin"]
         SRV_ADMIN_MONITORING_EMAIL                                                  = var.srv_admin_monitoring_email
         SRV_HORIZON_URL                                                             = var.horizon_url
         SRV_NOTIFY_API_KEY                                                          = local.secret_refs["appeals-srv-notify-api-key"]
@@ -194,7 +195,8 @@ locals {
     "appeals-app-insights-connection-string",
     "appeals-mongo-db-connection-string",
     "appeals-horizon-pub-password",
-    "appeals-documents-primary-blob-connection-string"
+    "appeals-documents-primary-blob-connection-string",
+    "appeals-sql-server-connection-string-admin"
   ]
 
   secret_names = concat(local.secrets_manual, local.secrets_automated)
