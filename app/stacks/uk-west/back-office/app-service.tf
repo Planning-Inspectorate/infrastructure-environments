@@ -37,6 +37,7 @@ module "app_services" {
   environment                                                                         = var.environment
   private_endpoint_enabled                                                            = var.private_endpoint_enabled
   resource_group_name                                                                 = azurerm_resource_group.back_office_stack.name
+  resource_group_id                                                                   = azurerm_resource_group.back_office_stack.id
   resource_suffix                                                                     = local.resource_suffix
   service_bus_namespace_name                                                          = azurerm_servicebus_namespace.back_office.name
   service_bus_namespace_id                                                            = azurerm_servicebus_namespace.back_office.id

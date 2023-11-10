@@ -172,6 +172,11 @@ variable "resource_group_name" {
   type        = string
 }
 
+variable "resource_group_id" {
+  description = "The id of the resource group that will contain the App Services"
+  type        = string
+}
+
 variable "resource_suffix" {
   description = "The suffix for resource naming"
   type        = string
