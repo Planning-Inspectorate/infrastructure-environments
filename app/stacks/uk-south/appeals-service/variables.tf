@@ -54,6 +54,12 @@ variable "container_registry_name" {
   type        = string
 }
 
+variable "database_public_access_enabled" {
+  description = "A switch indicating if databases should have public access enabled"
+  type        = bool
+  default     = false
+}
+
 variable "container_registry_rg" {
   description = "The resource group of the container registry that hosts the image"
   type        = string
@@ -292,4 +298,24 @@ variable "integration_functions_app_service_plan_id" {
 variable "common_integration_functions_subnet_id" {
   description = "The id of the subnet for common integration functions app service plan"
   type        = string
+}
+
+variable "primary_appeals_sql_server_id" {
+  description = "ID of the primary (ukw) Appeals SQL Server"
+  type        = string
+}
+
+variable "primary_appeals_sql_database_id" {
+  description = "ID of the primary (ukw) Appeals SQL database"
+  type        = string
+}
+
+variable "sql_server_azuread_administrator" {
+  description = "Azure AD details of database administrator user/group"
+  type        = map(string)
+}
+
+variable "sql_database_configuration" {
+  description = "A map of database configuration options"
+  type        = map(string)
 }

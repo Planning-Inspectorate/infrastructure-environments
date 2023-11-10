@@ -282,3 +282,13 @@ variable "common_integration_functions_subnet_id" {
   description = "The id of the subnet for common integration functions app service plan"
   type        = string
 }
+
+variable "sql_server_azuread_administrator" {
+  description = "Azure AD details of database administrator user/group"
+  type        = map(string)
+}
+
+variable "sql_database_configuration" {
+  description = "A map of database configuration options"
+  type        = map(string)
+}

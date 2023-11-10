@@ -69,3 +69,36 @@ resource "azurerm_key_vault_secret" "appeals_documents_primary_blob_connection_s
 
   tags = local.tags
 }
+
+resource "azurerm_key_vault_secret" "appeals_sql_server_password_admin" {
+  #checkov:skip=CKV_AZURE_41
+
+  content_type = "text/plain"
+  key_vault_id = var.key_vault_id
+  name         = "appeals-service-sql-server-password-admin"
+  value        = azurerm_mssql_server.appeals_sql_server.administrator_login_password
+
+  tags = local.tags
+}
+
+resource "azurerm_key_vault_secret" "appeals_sql_server_username_admin" {
+  #checkov:skip=CKV_AZURE_41
+
+  content_type = "text/plain"
+  key_vault_id = var.key_vault_id
+  name         = "appeals-service-sql-server-username-admin"
+  value        = azurerm_mssql_server.appeals_sql_server.administrator_login
+
+  tags = local.tags
+}
+
+resource "azurerm_key_vault_secret" "appeals_sql_server_connection_string_admin" {
+  #checkov:skip=CKV_AZURE_41
+
+  content_type = "text/plain"
+  key_vault_id = var.key_vault_id
+  name         = "appeals-sql-server-connection-string-admin"
+  value        = local.sql_connection_string_admin
+
+  tags = local.tags
+}
