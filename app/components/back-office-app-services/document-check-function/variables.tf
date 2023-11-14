@@ -88,3 +88,8 @@ variable "deadline_submissions_topic_name" {
   description = "Deadline Submissions Topic Name"
   type        = string
 }
+
+variable "document_storage_account_name" {
+  description = "Document Storage Account name"
+  type        = string
+}
