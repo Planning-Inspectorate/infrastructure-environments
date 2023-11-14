@@ -18,7 +18,9 @@ dependency "appeals_service_ukw" {
     primary_appeals_sql_database_id                 = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Sql/servers/mock_sql_server/databases/mock_sql_db"
     primary_appeals_sql_database_name               = "mock-db-name"
     sql_server_password_admin                       = "mockpass"
+    sql_server_password_app                         = "mockpass2"
     sql_server_username_admin                       = "mockuser"
+    sql_server_username_app                         = "mockuser2"
   }
 }
 
@@ -105,5 +107,7 @@ inputs = {
   primary_appeals_sql_database_id                         = dependency.appeals_service_ukw.outputs.primary_appeals_sql_database_id
   primary_appeals_sql_database_name                       = dependency.appeals_service_ukw.outputs.primary_appeals_sql_database_name
   sql_server_password_admin                               = dependency.appeals_service_ukw.outputs.sql_server_password_admin
+  sql_server_password_app                                 = dependency.appeals_service_ukw.outputs.sql_server_password_app
   sql_server_username_admin                               = dependency.appeals_service_ukw.outputs.sql_server_username_admin
+  sql_server_username_app                                 = dependency.appeals_service_ukw.outputs.sql_server_username_app
 }

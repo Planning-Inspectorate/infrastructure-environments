@@ -68,6 +68,17 @@ resource "azurerm_key_vault_secret" "appeals_sql_server_password_admin" {
   tags = local.tags
 }
 
+resource "azurerm_key_vault_secret" "appeals_sql_server_password_app" {
+  #checkov:skip=CKV_AZURE_41
+  count        = var.is_dr_deployment ? 1 : 0
+  content_type = "text/plain"
+  key_vault_id = var.key_vault_id
+  name         = "appeals-service-sql-server-password-app"
+  value        = var.sql_server_password_app
+
+  tags = local.tags
+}
+
 resource "azurerm_key_vault_secret" "appeals_sql_server_username_admin" {
   #checkov:skip=CKV_AZURE_41
   count        = var.is_dr_deployment ? 1 : 0
@@ -79,6 +90,17 @@ resource "azurerm_key_vault_secret" "appeals_sql_server_username_admin" {
   tags = local.tags
 }
 
+resource "azurerm_key_vault_secret" "appeals_sql_server_username_app" {
+  #checkov:skip=CKV_AZURE_41
+  count        = var.is_dr_deployment ? 1 : 0
+  content_type = "text/plain"
+  key_vault_id = var.key_vault_id
+  name         = "appeals-service-sql-server-username-app"
+  value        = var.sql_server_username_app
+
+  tags = local.tags
+}
+
 resource "azurerm_key_vault_secret" "appeals_sql_server_connection_string_admin" {
   #checkov:skip=CKV_AZURE_41
   count        = var.is_dr_deployment ? 1 : 0
@@ -86,6 +108,17 @@ resource "azurerm_key_vault_secret" "appeals_sql_server_connection_string_admin"
   key_vault_id = var.key_vault_id
   name         = "appeals-sql-server-connection-string-admin"
   value        = local.sql_connection_string_admin
+
+  tags = local.tags
+}
+
+resource "azurerm_key_vault_secret" "appeals_sql_server_connection_string_app" {
+  #checkov:skip=CKV_AZURE_41
+  count        = var.is_dr_deployment ? 1 : 0
+  content_type = "text/plain"
+  key_vault_id = var.key_vault_id
+  name         = "appeals-sql-server-connection-string-app"
+  value        = local.sql_connection_string_app
 
   tags = local.tags
 }

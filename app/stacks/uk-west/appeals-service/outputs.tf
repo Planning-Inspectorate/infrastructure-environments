@@ -62,8 +62,20 @@ output "sql_server_password_admin" {
   value       = random_password.appeals_sql_server_password_admin.result
 }
 
+output "sql_server_password_app" {
+  description = "The SQL server app password"
+  sensitive   = true
+  value       = random_password.appeals_sql_server_password_app.result
+}
+
 output "sql_server_username_admin" {
   description = "The SQL server administrator username"
   sensitive   = true
   value       = local.sql_server_username_admin
+}
+
+output "sql_server_username_app" {
+  description = "The SQL server app username"
+  sensitive   = true
+  value       = local.sql_server_username_app
 }

@@ -326,8 +326,20 @@ variable "sql_server_password_admin" {
   type        = string
 }
 
+variable "sql_server_password_app" {
+  description = "The SQL server app password"
+  sensitive   = true
+  type        = string
+}
+
 variable "sql_server_username_admin" {
   description = "The SQL server administrator username"
+  sensitive   = true
+  type        = string
+}
+
+variable "sql_server_username_app" {
+  description = "The SQL server app username"
   sensitive   = true
   type        = string
 }
