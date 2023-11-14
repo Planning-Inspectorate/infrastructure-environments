@@ -40,6 +40,7 @@ module "document_check_function" {
   back_office_documents_system_topic_name                                             = var.back_office_documents_system_topic_name
   service_bus_namespace_name                                                          = var.service_bus_namespace_name
   deadline_submissions_topic_name                                                     = var.deadline_submissions_topic_name
+  document_storage_account_name                                                       = var.document_storage_account_name
 
   providers = {
     azurerm         = azurerm
