@@ -80,3 +80,17 @@ resource "random_password" "appeals_sql_server_password_admin" {
 resource "random_id" "username_suffix_admin" {
   byte_length = 6
 }
+
+resource "random_password" "appeals_sql_server_password_app" {
+  length           = 32
+  special          = true
+  override_special = "#&-_+"
+  min_lower        = 2
+  min_upper        = 2
+  min_numeric      = 2
+  min_special      = 2
+}
+
+resource "random_id" "username_suffix_app" {
+  byte_length = 6
+}

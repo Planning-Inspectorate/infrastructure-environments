@@ -91,7 +91,8 @@ locals {
         SERVER_TERMINATION_GRACE_PERIOD_SECONDS                                     = "0"
         SERVICE_BUS_HOSTNAME                                                        = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
         SERVICE_BUS_ENABLED                                                         = var.appeals_api_service_bus_enabled
-        SQL_CONNECTION_STRING                                                       = local.secret_refs["appeals-sql-server-connection-string-admin"]
+        SQL_CONNECTION_STRING_ADMIN                                                 = local.secret_refs["appeals-sql-server-connection-string-admin"]
+        SQL_CONNECTION_STRING                                                       = local.secret_refs["appeals-sql-server-connection-string-app"]
         SRV_ADMIN_MONITORING_EMAIL                                                  = var.srv_admin_monitoring_email
         SRV_HORIZON_URL                                                             = var.horizon_url
         SRV_NOTIFY_API_KEY                                                          = local.secret_refs["appeals-srv-notify-api-key"]
@@ -196,7 +197,8 @@ locals {
     "appeals-mongo-db-connection-string",
     "appeals-horizon-pub-password",
     "appeals-documents-primary-blob-connection-string",
-    "appeals-sql-server-connection-string-admin"
+    "appeals-sql-server-connection-string-admin",
+    "appeals-sql-server-connection-string-app"
   ]
 
   secret_names = concat(local.secrets_manual, local.secrets_automated)
