@@ -40,3 +40,13 @@ output "function_apps_storage_account_access_key" {
   sensitive   = true
   value       = azurerm_storage_account.function_apps.primary_access_key
 }
+
+output "primary_appeals_sql_server_id" {
+  description = "ID of the primary (ukw) Appeals SQL Server"
+  value       = azurerm_mssql_server.appeals_sql_server.id
+}
+
+output "primary_appeals_sql_database_id" {
+  description = "ID of the primary (ukw) Appeals SQL Database"
+  value       = azurerm_mssql_database.appeals_sql_db.id
+}

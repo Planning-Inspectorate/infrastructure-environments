@@ -70,4 +70,16 @@ locals {
   task_submit_to_horizon_trigger_active                                       = "true"
   allow_testing_overrides                                                     = false
   appeals_feature_back_office_subscriber_enabled                              = false
+  sql_database_configuration = {
+    max_size_gb                 = 250
+    short_term_retention_days   = 30
+    long_term_retention_weekly  = "P1W"
+    long_term_retention_monthly = "P1M"
+    long_term_retention_yearly  = "P1Y"
+    sku_name                    = "S0"
+  }
+  sql_server_azuread_administrator = {
+    login_username = "sunrahman"
+    object_id      = "2af5c723-b22e-4eac-b0e5-ec39675462d6"
+  }
 }
