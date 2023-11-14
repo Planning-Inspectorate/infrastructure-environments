@@ -40,6 +40,7 @@ resource "azurerm_mssql_database" "appeals_sql_db" {
     weekly_retention  = var.sql_database_configuration["long_term_retention_weekly"]
     monthly_retention = var.sql_database_configuration["long_term_retention_monthly"]
     yearly_retention  = var.sql_database_configuration["long_term_retention_yearly"]
+    week_of_year      = var.sql_database_configuration["long_term_week_of_year"]
   }
 
   tags = local.tags
