@@ -143,6 +143,9 @@ This component contains the infrastructure required for the appeals service. Thi
 | <a name="output_function_apps_storage_account"></a> [function\_apps\_storage\_account](#output\_function\_apps\_storage\_account) | The name of the storage account used by the Function Apps |
 | <a name="output_function_apps_storage_account_access_key"></a> [function\_apps\_storage\_account\_access\_key](#output\_function\_apps\_storage\_account\_access\_key) | The access key for the storage account used by the Function Apps |
 | <a name="output_primary_appeals_sql_database_id"></a> [primary\_appeals\_sql\_database\_id](#output\_primary\_appeals\_sql\_database\_id) | ID of the primary (ukw) Appeals SQL Database |
+| <a name="output_primary_appeals_sql_database_name"></a> [primary\_appeals\_sql\_database\_name](#output\_primary\_appeals\_sql\_database\_name) | Name of the primary (ukw) Appeals SQL Database |
 | <a name="output_primary_appeals_sql_server_id"></a> [primary\_appeals\_sql\_server\_id](#output\_primary\_appeals\_sql\_server\_id) | ID of the primary (ukw) Appeals SQL Server |
+| <a name="output_sql_server_password_admin"></a> [sql\_server\_password\_admin](#output\_sql\_server\_password\_admin) | The SQL server administrator password |
+| <a name="output_sql_server_username_admin"></a> [sql\_server\_username\_admin](#output\_sql\_server\_username\_admin) | The SQL server administrator username |
 | <a name="output_web_frontend_url"></a> [web\_frontend\_url](#output\_web\_frontend\_url) | The URL of the web frontend app service |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
