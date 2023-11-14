@@ -16,6 +16,9 @@ dependency "appeals_service_ukw" {
     function_apps_storage_account_access_key        = "mockaccesskey"
     primary_appeals_sql_server_id                   = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Sql/servers/mock_sql_server"
     primary_appeals_sql_database_id                 = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Sql/servers/mock_sql_server/databases/mock_sql_db"
+    primary_appeals_sql_database_name               = "mock-db-name"
+    sql_server_password_admin                       = "mockpass"
+    sql_server_username_admin                       = "mockuser"
   }
 }
 
@@ -100,4 +103,7 @@ inputs = {
   clamav_host                                             = dependency.back_office_ukw.outputs.clamav_host
   primary_appeals_sql_server_id                           = dependency.appeals_service_ukw.outputs.primary_appeals_sql_server_id
   primary_appeals_sql_database_id                         = dependency.appeals_service_ukw.outputs.primary_appeals_sql_database_id
+  primary_appeals_sql_database_name                       = dependency.appeals_service_ukw.outputs.primary_appeals_sql_database_name
+  sql_server_password_admin                               = dependency.appeals_service_ukw.outputs.sql_server_password_admin
+  sql_server_username_admin                               = dependency.appeals_service_ukw.outputs.sql_server_username_admin
 }

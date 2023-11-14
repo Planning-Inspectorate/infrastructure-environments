@@ -10,8 +10,8 @@ resource "azurerm_mssql_server" "appeals_sql_server" {
   minimum_tls_version           = "1.2"
   public_network_access_enabled = var.database_public_access_enabled
 
-  administrator_login          = local.sql_server_username_admin
-  administrator_login_password = random_password.appeals_sql_server_password_admin.result
+  administrator_login          = var.sql_server_username_admin
+  administrator_login_password = var.sql_server_password_admin
 
   azuread_administrator {
     login_username = var.sql_server_azuread_administrator["login_username"]
@@ -20,27 +20,6 @@ resource "azurerm_mssql_server" "appeals_sql_server" {
 
   identity {
     type = "SystemAssigned"
-  }
-
-  tags = local.tags
-}
-
-resource "azurerm_mssql_database" "appeals_sql_db" {
-  name        = "pins-sqldb-${local.service_name}-${local.resource_suffix}"
-  server_id   = azurerm_mssql_server.appeals_sql_server.id
-  collation   = "SQL_Latin1_General_CP1_CI_AS"
-  sku_name    = var.sql_database_configuration["sku_name"]
-  max_size_gb = var.sql_database_configuration["max_size_gb"]
-
-  short_term_retention_policy {
-    retention_days = var.sql_database_configuration["short_term_retention_days"]
-  }
-
-  long_term_retention_policy {
-    weekly_retention  = var.sql_database_configuration["long_term_retention_weekly"]
-    monthly_retention = var.sql_database_configuration["long_term_retention_monthly"]
-    yearly_retention  = var.sql_database_configuration["long_term_retention_yearly"]
-    week_of_year      = var.sql_database_configuration["long_term_week_of_year"]
   }
 
   tags = local.tags
@@ -81,18 +60,4 @@ resource "azurerm_mssql_failover_group" "appeals_sql_server_failover_group" {
   }
 
   tags = local.tags
-}
-
-resource "random_password" "appeals_sql_server_password_admin" {
-  length           = 32
-  special          = true
-  override_special = "#&-_+"
-  min_lower        = 2
-  min_upper        = 2
-  min_numeric      = 2
-  min_special      = 2
-}
-
-resource "random_id" "username_suffix_admin" {
-  byte_length = 6
 }

@@ -50,3 +50,20 @@ output "primary_appeals_sql_database_id" {
   description = "ID of the primary (ukw) Appeals SQL Database"
   value       = azurerm_mssql_database.appeals_sql_db.id
 }
+
+output "primary_appeals_sql_database_name" {
+  description = "Name of the primary (ukw) Appeals SQL Database"
+  value       = azurerm_mssql_database.appeals_sql_db.name
+}
+
+output "sql_server_password_admin" {
+  description = "The SQL server administrator password"
+  sensitive   = true
+  value       = random_password.appeals_sql_server_password_admin.result
+}
+
+output "sql_server_username_admin" {
+  description = "The SQL server administrator username"
+  sensitive   = true
+  value       = local.sql_server_username_admin
+}
