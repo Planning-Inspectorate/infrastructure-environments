@@ -41,9 +41,8 @@ resource "azurerm_key_vault_secret" "applications_sql_server_connection_string" 
   content_type = "text/plain"
   key_vault_id = var.key_vault_id
   name         = "applications-service-sql-server-connection-string"
-  value        = local.sql_jbdc_connection_string
-
-  tags = local.tags
+  value        = local.sql_connection_string
+  tags         = local.tags
 }
 
 resource "azurerm_key_vault_secret" "redis_cache_connection_string" {

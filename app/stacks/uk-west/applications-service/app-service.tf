@@ -8,8 +8,6 @@ module "app_services" {
   app_service_private_dns_zone_id                                 = data.azurerm_private_dns_zone.app_service.id
   applications_service_public_url                                 = var.applications_service_public_url
   applications_service_redis_connection_string_secret_name        = azurerm_key_vault_secret.redis_cache_connection_string.name
-  applications_sql_server_connection_string                       = local.sql_connection_string
-  applications_sql_server_connection_string_jbdc                  = local.sql_jdbc_connection_string
   back_office_integration_get_application_case_references         = var.back_office_integration_get_application_case_references
   back_office_integration_get_documents_case_references           = var.back_office_integration_get_documents_case_references
   back_office_integration_get_timetable_case_references           = var.back_office_integration_get_timetable_case_references
