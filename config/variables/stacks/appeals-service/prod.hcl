@@ -77,6 +77,7 @@ locals {
     long_term_retention_monthly = "P1M"
     long_term_retention_yearly  = "P1Y"
     long_term_week_of_year      = 1
+    audit_retention_days        = 120
     sku_name                    = "S0"
   }
   sql_server_azuread_administrator = {

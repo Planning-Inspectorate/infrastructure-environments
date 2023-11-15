@@ -3,6 +3,11 @@ variable "action_group_low_id" {
   type        = string
 }
 
+variable "alert_recipients" {
+  description = "The email recipients for monitoring alerts"
+  type        = map(list(string))
+}
+
 variable "api_timeout" {
   description = "The timeout in milliseconds for API calls in the frontend apps"
   type        = string

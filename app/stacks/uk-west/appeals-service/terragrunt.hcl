@@ -9,6 +9,7 @@ dependency "common_ukw" {
 
   mock_outputs = {
     action_group_low_id                       = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock"
+    alert_recipients                          = { low = ["test@example.com"] }
     app_service_plan_id                       = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pins-rg-common-dev-ukw-001/providers/Microsoft.Web/serverfarms/mock_id"
     common_resource_group_name                = "mock_resource_group_name"
     integration_functions_app_service_plan_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pins-rg-common-dev-ukw-001/providers/Microsoft.Web/serverfarms/mock_id"
@@ -49,6 +50,7 @@ dependency "back_office_ukw" {
 
 inputs = {
   action_group_low_id                                     = dependency.common_ukw.outputs.action_group_low_id
+  alert_recipients                                        = dependency.common_ukw.outputs.alert_recipients
   app_service_plan_id                                     = dependency.common_ukw.outputs.app_service_plan_id
   back_office_service_bus_namespace_name                  = dependency.back_office_ukw.outputs.service_bus_namespace_name
   service_bus_appeals_bo_case_topic_id                    = dependency.back_office_ukw.outputs.service_bus_appeals_bo_case_topic_id
