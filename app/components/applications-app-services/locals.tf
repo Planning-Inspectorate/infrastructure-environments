@@ -77,7 +77,6 @@ locals {
         MYSQL_DIALECT                                                 = local.secret_refs["applications-service-mysql-dialect"]
         MYSQL_HOST                                                    = local.secret_refs["applications-service-mysql-host"]
         MYSQL_PASSWORD                                                = local.secret_refs["applications-service-mysql-password"]
-        MYSQL_PASSWORD                                                = local.secret_refs["applications-service-mysql-password"]
         MYSQL_PORT                                                    = local.secret_refs["applications-service-mysql-port"]
         MYSQL_USERNAME                                                = local.secret_refs["applications-service-mysql-username"]
         NI_API_HOST                                                   = local.secret_refs["applications-service-ni-api-host"]
