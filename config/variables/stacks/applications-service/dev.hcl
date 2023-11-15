@@ -5,6 +5,7 @@ locals {
   back_office_integration_get_timetable_case_references           = "BC0110001,BC0110003,BC0110005"
   back_office_integration_post_interested_party_case_references   = "BC0110001,BC0110003,BC0110005"
   back_office_integration_post_submissions_case_references        = "BC0110001,BC0110003,BC0110005"
+  back_office_integration_get_s51_case_references                 = "BC0110001,BC0110003,BC0110005"
   documents_host                                                  = "https://nitestaz.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
   feature_allow_document_library                                  = "true"
   feature_allow_examination_timetable                             = "true"

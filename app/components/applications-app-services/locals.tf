@@ -62,6 +62,7 @@ locals {
         BACK_OFFICE_INTEGRATION_GET_APPLICATION_CASE_REFERENCES       = var.back_office_integration_get_application_case_references
         BACK_OFFICE_INTEGRATION_GET_DOCUMENTS_CASE_REFERENCES         = var.back_office_integration_get_documents_case_references
         BACK_OFFICE_INTEGRATION_GET_TIMETABLE_CASE_REFERENCES         = var.back_office_integration_get_timetable_case_references
+        BACK_OFFICE_INTEGRATION_GET_S51_CASE_REFERENCES               = var.back_office_integration_get_s51_case_references
         BACK_OFFICE_INTEGRATION_POST_INTERESTED_PARTY_CASE_REFERENCES = var.back_office_integration_post_interested_party_case_references
         BACK_OFFICE_INTEGRATION_POST_SUBMISSIONS_CASE_REFERENCES      = var.back_office_integration_post_submissions_case_references
         BACK_OFFICE_SERVICE_BUS_ENABLED                               = "true"
@@ -75,6 +76,7 @@ locals {
         MYSQL_DATABASE                                                = local.secret_refs["applications-service-mysql-database"]
         MYSQL_DIALECT                                                 = local.secret_refs["applications-service-mysql-dialect"]
         MYSQL_HOST                                                    = local.secret_refs["applications-service-mysql-host"]
+        MYSQL_PASSWORD                                                = local.secret_refs["applications-service-mysql-password"]
         MYSQL_PASSWORD                                                = local.secret_refs["applications-service-mysql-password"]
         MYSQL_PORT                                                    = local.secret_refs["applications-service-mysql-port"]
         MYSQL_USERNAME                                                = local.secret_refs["applications-service-mysql-username"]

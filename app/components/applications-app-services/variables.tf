@@ -54,6 +54,11 @@ variable "back_office_integration_get_timetable_case_references" {
   type        = string
 }
 
+variable "back_office_integration_get_s51_case_references" {
+  description = "list of case references (comma separated) that s51 data is retrieved from back office"
+  type        = string
+}
+
 variable "back_office_integration_get_application_case_references" {
   description = "list of case references (comma separated) that the application data is retrieved from back office"
   type        = string
