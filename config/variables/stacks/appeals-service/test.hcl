@@ -72,11 +72,12 @@ locals {
   appeals_feature_back_office_subscriber_enabled                              = true
   sql_database_configuration = {
     max_size_gb                 = 250
-    short_term_retention_days   = 30
+    short_term_retention_days   = 7
     long_term_retention_weekly  = "P1W"
     long_term_retention_monthly = "P1M"
     long_term_retention_yearly  = "P1Y"
     long_term_week_of_year      = 1
+    audit_retention_days        = 30
     sku_name                    = "S0"
   }
   sql_server_azuread_administrator = {
