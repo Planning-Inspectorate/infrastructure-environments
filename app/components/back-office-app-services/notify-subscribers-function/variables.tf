@@ -94,8 +94,3 @@ variable "applications_front_office_web_url" {
   description = "Applications Front Office Web URL"
   type        = string
 }
-
-variable "key_vault_id" {
-  description = "The ID of the key vault so the Function App can pull secret values"
-  type        = string
-}
