@@ -7,6 +7,7 @@ module "notify_subscribers_function" {
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
   integration_subnet_id                    = var.integration_subnet_id
+  key_vault_id                             = var.key_vault_id
   location                                 = var.location
   log_analytics_workspace_id               = var.log_analytics_workspace_id
   monitoring_alerts_enabled                = var.monitoring_alerts_enabled
