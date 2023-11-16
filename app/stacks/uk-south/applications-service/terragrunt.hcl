@@ -85,7 +85,7 @@ inputs = {
   #  back_office_service_bus_nsip_project_update_topic_id           = dependency.back_office_uks.outputs.service_bus_nsip_project_update_topic_id
   #  back_office_service_bus_nsip_representation_topic_id           = dependency.back_office_uks.outputs.service_bus_nsip_representation_topic_id
   #  back_office_service_bus_nsip_exam_timetable_topic_id           = dependency.back_office_uks.outputs.service_bus_nsip_exam_timetable_id
-  #  back_office_service_bus_nsip_advice_topic_id                   = dependency.back_office_uks.outputs.service_bus_nsip_advice_id
+  #  back_office_service_bus_nsip_advice_topic_id                   = dependency.back_office_uks.outputs.service_bus_nsip_advice_topic_id
   #  back_office_service_bus_deadline_submission_topic_id           = dependency.back_office_uks.outputs.servicebus_topic_deadline_submission_topic_id
   #  back_office_service_bus_namespace_name                         = "mock-namespace"
 
