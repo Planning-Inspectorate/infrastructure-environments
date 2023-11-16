@@ -3,6 +3,7 @@ locals {
   back_office_integration_get_application_case_references         = ""
   back_office_integration_get_documents_case_references           = ""
   back_office_integration_get_timetable_case_references           = ""
+  back_office_integration_get_advice_case_references              = ""
   back_office_integration_post_interested_party_case_references   = ""
   back_office_integration_post_submissions_case_references        = ""
   documents_host                                                  = "https://infrastructure.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
