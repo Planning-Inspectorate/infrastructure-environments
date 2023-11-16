@@ -14,35 +14,34 @@ locals {
       outbound_vnet_connectivity = true
 
       app_settings = {
-        ALLOW_TESTING_OVERRIDES                    = var.allow_testing_overrides
-        APPLICATIONINSIGHTS_CONNECTION_STRING      = local.secret_refs["appeals-app-insights-connection-string"]
-        APPEALS_SERVICE_API_TIMEOUT                = var.api_timeout
-        APPEALS_SERVICE_API_URL                    = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
-        CLAM_AV_HOST                               = "https://pins-app-${var.service_name}-clamav-api-${var.resource_suffix}.azurewebsites.net"
-        DOCS_API_PATH                              = "/opt/app/api"
-        DOCUMENTS_SERVICE_API_TIMEOUT              = var.api_timeout
-        DOCUMENTS_SERVICE_API_URL                  = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net/"
-        FEATURE_FLAG_GOOGLE_TAG_MANAGER            = false
-        FEATURE_FLAG_NEW_APPEAL_JOURNEY            = true
-        FILE_UPLOAD_DEBUG                          = true
-        FILE_UPLOAD_MAX_FILE_SIZE_BYTES            = "15000000"
-        FILE_UPLOAD_TMP_PATH                       = "/tmp"
-        FILE_UPLOAD_USE_TEMP_FILES                 = true
-        GOOGLE_ANALYTICS_ID                        = var.google_analytics_id
-        GOOGLE_TAG_MANAGER_ID                      = var.google_tag_manager_id
-        HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION = true
-        HOST_URL                                   = "https://${var.appeals_service_public_url}"
-        MICROSOFT_PROVIDER_AUTHENTICATION_SECRET   = local.secret_refs["appeals-microsoft-provider-authentication-secret"]
-        PDF_SERVICE_API_URL                        = "https://pins-app-${var.service_name}-pdf-api-${var.resource_suffix}.azurewebsites.net"
-        PINS_FEATURE_FLAG_AZURE_ENDPOINT           = local.secret_refs["appeals-app-config-endpoint"]
-        PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING  = local.secret_refs["appeals-app-config-connection-string"]
-        PORT                                       = "3000"
-        SESSION_KEY                                = local.secret_refs["appeals-wfe-session-key"]
-        SESSION_MONGODB_COLLECTION                 = "sessions"
-        SESSION_MONGODB_DB_NAME                    = "forms-web-app"
-        SESSION_MONGODB_URL                        = local.secret_refs["appeals-mongo-db-connection-string"]
-        SUBDOMAIN_OFFSET                           = "3"
-        USE_SECURE_SESSION_COOKIES                 = true
+        ALLOW_TESTING_OVERRIDES                   = var.allow_testing_overrides
+        APPLICATIONINSIGHTS_CONNECTION_STRING     = local.secret_refs["appeals-app-insights-connection-string"]
+        APPEALS_SERVICE_API_TIMEOUT               = var.api_timeout
+        APPEALS_SERVICE_API_URL                   = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
+        CLAM_AV_HOST                              = "https://pins-app-${var.service_name}-clamav-api-${var.resource_suffix}.azurewebsites.net"
+        DOCS_API_PATH                             = "/opt/app/api"
+        DOCUMENTS_SERVICE_API_TIMEOUT             = var.api_timeout
+        DOCUMENTS_SERVICE_API_URL                 = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net/"
+        FEATURE_FLAG_GOOGLE_TAG_MANAGER           = false
+        FEATURE_FLAG_NEW_APPEAL_JOURNEY           = true
+        FILE_UPLOAD_DEBUG                         = true
+        FILE_UPLOAD_MAX_FILE_SIZE_BYTES           = "15000000"
+        FILE_UPLOAD_TMP_PATH                      = "/tmp"
+        FILE_UPLOAD_USE_TEMP_FILES                = true
+        GOOGLE_ANALYTICS_ID                       = var.google_analytics_id
+        GOOGLE_TAG_MANAGER_ID                     = var.google_tag_manager_id
+        HOST_URL                                  = "https://${var.appeals_service_public_url}"
+        MICROSOFT_PROVIDER_AUTHENTICATION_SECRET  = local.secret_refs["appeals-microsoft-provider-authentication-secret"]
+        PDF_SERVICE_API_URL                       = "https://pins-app-${var.service_name}-pdf-api-${var.resource_suffix}.azurewebsites.net"
+        PINS_FEATURE_FLAG_AZURE_ENDPOINT          = local.secret_refs["appeals-app-config-endpoint"]
+        PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING = local.secret_refs["appeals-app-config-connection-string"]
+        PORT                                      = "3000"
+        SESSION_KEY                               = local.secret_refs["appeals-wfe-session-key"]
+        SESSION_MONGODB_COLLECTION                = "sessions"
+        SESSION_MONGODB_DB_NAME                   = "forms-web-app"
+        SESSION_MONGODB_URL                       = local.secret_refs["appeals-mongo-db-connection-string"]
+        SUBDOMAIN_OFFSET                          = "3"
+        USE_SECURE_SESSION_COOKIES                = true
       }
     }
 
@@ -68,15 +67,6 @@ locals {
         DOCUMENTS_SERVICE_API_TIMEOUT                                               = var.api_timeout
         DOCUMENTS_SERVICE_API_URL                                                   = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net"
         FEATURE_FLAG_NEW_APPEAL_JOURNEY                                             = true
-        HORIZON_HAS_PUBLISHER_ATTEMPT_RECONNECTION                                  = true
-        HORIZON_HAS_PUBLISHER_HOST                                                  = "${azurerm_servicebus_namespace.horizon.name}.servicebus.windows.net"
-        HORIZON_HAS_PUBLISHER_HOSTNAME                                              = "${azurerm_servicebus_namespace.horizon.name}.servicebus.windows.net"
-        HORIZON_HAS_PUBLISHER_PASSWORD                                              = local.secret_refs["appeals-horizon-pub-password"]
-        HORIZON_HAS_PUBLISHER_PORT                                                  = "5671"
-        HORIZON_HAS_PUBLISHER_QUEUE                                                 = azurerm_servicebus_queue.horizon_householder_appeal_publish.name
-        HORIZON_HAS_PUBLISHER_RECONNECT_LIMIT                                       = "5"
-        HORIZON_HAS_PUBLISHER_TRANSPORT                                             = "tls"
-        HORIZON_HAS_PUBLISHER_USERNAME                                              = azurerm_servicebus_namespace_authorization_rule.horizon_function_apps.name
         LOGGER_LEVEL                                                                = var.logger_level
         LPA_DATA_PATH                                                               = "/opt/app/data/lpa-list.csv"
         LPA_TRIALIST_DATA_PATH                                                      = "/opt/app/data/lpa-trialists.json"
@@ -195,7 +185,6 @@ locals {
     "appeals-app-config-connection-string",
     "appeals-app-insights-connection-string",
     "appeals-mongo-db-connection-string",
-    "appeals-horizon-pub-password",
     "appeals-documents-primary-blob-connection-string",
     "appeals-sql-server-connection-string-admin",
     "appeals-sql-server-connection-string-app"

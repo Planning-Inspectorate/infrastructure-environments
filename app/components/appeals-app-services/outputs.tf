@@ -17,9 +17,3 @@ output "secrets_manual" {
   description = "List of Key Vault secrets required for this component"
   value       = local.secrets_manual
 }
-
-output "service_bus_horizon_publish_key" {
-  description = "The shared access policy for publishing messages to the horizon service bus queue"
-  sensitive   = true
-  value       = azurerm_servicebus_namespace_authorization_rule.horizon_function_apps.primary_key
-}

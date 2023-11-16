@@ -57,7 +57,7 @@ echo 'export PATH="$HOME/.tfenv/bin:$PATH"' >> ~/.bash_profile
 
 Install Terraform using tfenv:
 ```
-tfenv install 1.1.6
+tfenv install 1.5.7
 ```
 
 <br />
