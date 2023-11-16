@@ -95,6 +95,11 @@ variable "back_office_service_bus_nsip_exam_timetable_topic_id" {
   type        = string
 }
 
+variable "back_office_service_bus_nsip_advice_topic_id" {
+  description = "ID for the nsip-advice topic"
+  type        = string
+}
+
 variable "back_office_integration_get_advice_case_references" {
   description = "list of case references (comma separated) that use back office for advice"
   type        = string
