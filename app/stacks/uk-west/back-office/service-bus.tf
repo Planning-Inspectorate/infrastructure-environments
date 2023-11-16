@@ -162,3 +162,13 @@ resource "azurerm_servicebus_topic" "appeal_bo_document" {
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
+
+# Temporary permission to enable development for ODW
+# This is for POC work so will be better formalised once we know what we're building
+resource "azurerm_role_assignment" "odw_consumer_permission" {
+  count = var.environment == "dev" ? 1 : 0
+
+  scope                = azurerm_servicebus_namespace.back_office.id
+  role_definition_name = "Azure Service Bus Data Receiver"
+  principal_id         = "e157655b-90a8-43d9-a429-4273b6074e0d"
+}
