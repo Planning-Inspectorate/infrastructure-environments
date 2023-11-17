@@ -115,6 +115,12 @@ variable "back_office_service_bus_nsip_exam_timetable_topic_id" {
   default     = ""
 }
 
+variable "back_office_service_bus_nsip_advice_topic_id" {
+  description = "ID for the nsip-advice topic"
+  type        = string
+  default     = ""
+}
+
 variable "back_office_service_bus_deadline_submission_topic_id" {
   description = "ID for the deadline-submission topic"
   type        = string

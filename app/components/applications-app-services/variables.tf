@@ -94,6 +94,11 @@ variable "back_office_service_bus_nsip_exam_timetable_topic_id" {
   type        = string
 }
 
+variable "back_office_service_bus_nsip_advice_topic_id" {
+  description = "ID for the nsip-advice topic"
+  type        = string
+}
+
 variable "back_office_service_bus_register_nsip_subscription_topic_id" {
   description = "ID for the register-nsip-subscription topic"
   type        = string
