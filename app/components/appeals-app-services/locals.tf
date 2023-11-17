@@ -37,7 +37,7 @@ locals {
         PINS_FEATURE_FLAG_AZURE_ENDPOINT           = local.secret_refs["appeals-app-config-endpoint"]
         PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING  = local.secret_refs["appeals-app-config-connection-string"]
         PORT                                       = "3000"
-        SESSION_KEY                                = "some_key"
+        SESSION_KEY                                = local.secret_refs["appeals-wfe-session-key"]
         SESSION_MONGODB_COLLECTION                 = "sessions"
         SESSION_MONGODB_DB_NAME                    = "forms-web-app"
         SESSION_MONGODB_URL                        = local.secret_refs["appeals-mongo-db-connection-string"]
