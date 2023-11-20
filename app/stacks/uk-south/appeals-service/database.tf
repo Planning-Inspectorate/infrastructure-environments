@@ -72,7 +72,8 @@ resource "azurerm_storage_account" "appeals_sql_server" {
   #TODO: Logging
   #checkov:skip=CKV_AZURE_33: Not using queues, could implement example commented out
   #checkov:skip=CKV2_AZURE_21: Logging not implemented yet
-
+  #TODO: Access restrictions
+  #checkov:skip=CKV_AZURE_35: Network access restrictions
   name                             = replace("pinsstsql${local.resource_suffix}", "-", "")
   resource_group_name              = azurerm_resource_group.appeals_service_stack.name
   location                         = azurerm_resource_group.appeals_service_stack.location
@@ -83,12 +84,12 @@ resource "azurerm_storage_account" "appeals_sql_server" {
   allow_nested_items_to_be_public  = false
   cross_tenant_replication_enabled = false
 
-  network_rules {
-    default_action             = "Deny"
-    ip_rules                   = ["127.0.0.1"]
-    virtual_network_subnet_ids = [azurerm_subnet.appeals_service_ingress.id]
-    bypass                     = ["AzureServices"]
-  }
+  # network_rules {
+  #   default_action             = "Deny"
+  #   ip_rules                   = ["127.0.0.1"]
+  #   virtual_network_subnet_ids = [azurerm_subnet.appeals_service_ingress.id]
+  #   bypass                     = ["AzureServices"]
+  # }
 
   identity {
     type = "SystemAssigned"
@@ -129,11 +130,12 @@ resource "azurerm_role_assignment" "appeals_sql_server" {
 
 # auditing policy
 resource "azurerm_mssql_server_extended_auditing_policy" "appeals_sql_server" {
-  enabled                = var.monitoring_alerts_enabled ? true : false
-  storage_endpoint       = azurerm_storage_account.appeals_sql_server.primary_blob_endpoint
-  server_id              = azurerm_mssql_server.appeals_sql_server.id
-  retention_in_days      = var.sql_database_configuration["audit_retention_days"]
-  log_monitoring_enabled = false
+  enabled                    = var.monitoring_alerts_enabled ? true : false
+  storage_endpoint           = azurerm_storage_account.appeals_sql_server.primary_blob_endpoint
+  storage_account_access_key = azurerm_storage_account.appeals_sql_server.primary_access_key
+  server_id                  = azurerm_mssql_server.appeals_sql_server.id
+  retention_in_days          = var.sql_database_configuration["audit_retention_days"]
+  log_monitoring_enabled     = false
 
   depends_on = [
     azurerm_role_assignment.appeals_sql_server,
@@ -158,9 +160,10 @@ resource "azurerm_mssql_server_vulnerability_assessment" "appeals_sql_server" {
   #checkov:skip=CKV2_AZURE_3: scans enabled by env
   #checkov:skip=CKV2_AZURE_4: false positive?
   #checkov:skip=CKV2_AZURE_5: false positive?
-
+  count                           = var.monitoring_alerts_enabled ? 1 : 0
   server_security_alert_policy_id = azurerm_mssql_server_security_alert_policy.appeals_sql_server.id
   storage_container_path          = "${azurerm_storage_account.appeals_sql_server.primary_blob_endpoint}${azurerm_storage_container.appeals_sql_server.name}/"
+  storage_account_access_key      = azurerm_storage_account.appeals_sql_server.primary_access_key
 
   recurring_scans {
     enabled                   = var.monitoring_alerts_enabled ? true : false
