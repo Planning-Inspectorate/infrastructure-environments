@@ -17,4 +17,9 @@ module "applications_migration_function" {
   key_vault_id                             = var.key_vault_id
   tenant_id                                = data.azurerm_client_config.current.tenant_id
   node_environment                         = var.node_environment
+
+  providers = {
+    azurerm     = azurerm
+    azurerm.odw = azurerm.odw
+  }
 }

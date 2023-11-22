@@ -24,3 +24,15 @@ variable "tooling_subscription_id" {
   description = "The ID for the Tooling subscription that houses the Container Registry"
   type        = string
 }
+
+provider "azurerm" {
+  alias           = "odw"
+  subscription_id = var.odw_subscription_id
+
+  features {}
+}
+
+variable "odw_subscription_id" {
+  description = "The ID for the ODW subscription that houses the Synapse Workspace."
+  type        = string
+}

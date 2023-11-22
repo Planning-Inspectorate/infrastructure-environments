@@ -79,3 +79,21 @@ variable "node_environment" {
   type        = string
   default     = "development"
 }
+
+variable "odw_resource_group_name" {
+  description = "Resource Group Name where ODW Synapse Workspace and Data Lake Storage Account live"
+  type        = string
+  default     = ""
+}
+
+variable "odw_data_lake_storage_account_name" {
+  description = "Storage Account Name for the ODW Data Lake"
+  type        = string
+  default     = ""
+}
+
+variable "odw_synapse_sql_pool_host" {
+  description = "Serverless SQL Endpoint for ODW Synapse Workspace"
+  type        = string
+  default     = ""
+}

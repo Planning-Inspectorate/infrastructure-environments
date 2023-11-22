@@ -70,9 +70,13 @@ module "app_services" {
   applications_front_office_web_url                            = var.applications_front_office_web_url
   back_office_applications_redis_connection_string_secret_name = azurerm_key_vault_secret.back_office_applications_redis_cache_connection_string_secret.name
   back_office_appeals_redis_connection_string_secret_name      = azurerm_key_vault_secret.back_office_appeals_redis_cache_connection_string_secret.name
+  odw_resource_group_name                                      = var.odw_resource_group_name
+  odw_data_lake_storage_account_name                           = var.odw_data_lake_storage_account_name
+  odw_synapse_sql_pool_host                                    = var.odw_synapse_sql_pool_host
 
   providers = {
     azurerm         = azurerm
     azurerm.tooling = azurerm.tooling
+    azurerm.odw     = azurerm.odw
   }
 }
