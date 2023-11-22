@@ -221,6 +221,12 @@ variable "employee_topic_id" {
   default     = ""
 }
 
+variable "serviceuser_topic_id" {
+  description = "The ID of the service user topic"
+  type        = string
+  default     = ""
+}
+
 variable "feature_odw_subscription_enabled" {
   description = "Temporary flag to enable/disable ODW subscription integration. Always disabled for uk-south for now."
   type        = bool
@@ -274,6 +280,26 @@ variable "service_bus_appeals_fo_appellant_submission_id" {
 
 variable "service_bus_appeals_fo_lpa_response_submission_id" {
   description = "Service Bus Topic FO LPA Questionnaire Command"
+  type        = string
+}
+
+variable "front_office_storage_account_host" {
+  description = "Front Office storage account"
+  type        = string
+}
+
+variable "back_office_storage_account_host" {
+  description = "Back Office storage account"
+  type        = string
+}
+
+variable "front_office_storage_container" {
+  description = "Front Office upload container"
+  type        = string
+}
+
+variable "back_office_storage_container" {
+  description = "Back Office document container"
   type        = string
 }
 

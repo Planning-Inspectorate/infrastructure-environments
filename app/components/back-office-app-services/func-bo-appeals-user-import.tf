@@ -1,5 +1,5 @@
-module "bo_appeals_hrdata_import_function" {
-  source = "./bo-appeals-hrdata-import-function"
+module "bo_appeals_user_import_function" {
+  source = "./bo-appeals-user-import-function"
 
   action_group_low_id                      = var.action_group_low_id
   location                                 = var.location
@@ -15,6 +15,7 @@ module "bo_appeals_hrdata_import_function" {
   integration_subnet_id                    = var.back_office_integration_subnet_id
   service_bus_namespace_name               = var.service_bus_namespace_name
   employee_topic_id                        = var.employee_topic_id
+  serviceuser_topic_id                     = var.serviceuser_topic_id
 
   providers = {
     azurerm         = azurerm

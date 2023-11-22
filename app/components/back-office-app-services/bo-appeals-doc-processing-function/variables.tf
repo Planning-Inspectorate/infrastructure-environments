@@ -64,7 +64,29 @@ variable "service_bus_namespace_name" {
   type        = string
 }
 
-variable "service_bus_appeals_fo_lpa_response_submission_id" {
-  description = "Service Bus Topic ID for front office appellant case"
+variable "front_office_storage_account_host" {
+  description = "Front Office Storage Account Hostname (e.g. https://pinsstdocsbodevukw001.blob.core.windows.net)"
+  type        = string
+}
+
+variable "back_office_storage_account_host" {
+  description = "Back Office Storage Account Hostname (e.g. https://pinsstdocsbodevukw001.blob.core.windows.net)"
+  type        = string
+}
+
+variable "front_office_document_upload_container" {
+  description = "Front Office Storage Container name for uploads"
+  type        = string
+  default     = "document-service-uploads"
+}
+
+variable "back_office_appeals_document_container" {
+  description = "Back Office Storage Container name for documents"
+  type        = string
+  default     = "published-documents"
+}
+
+variable "malware_scanning_topic_id" {
+  description = "The ID of the Event Grid topic to listen on for malware detection"
   type        = string
 }

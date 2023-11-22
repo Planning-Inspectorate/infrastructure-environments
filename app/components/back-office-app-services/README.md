@@ -23,8 +23,8 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="module_applications_migration_function"></a> [applications\_migration\_function](#module\_applications\_migration\_function) | ./applications-migration-function | n/a |
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
 | <a name="module_bo_appeals_casedata_import_function"></a> [bo\_appeals\_casedata\_import\_function](#module\_bo\_appeals\_casedata\_import\_function) | ./bo-appeals-casedata-import-function | n/a |
-| <a name="module_bo_appeals_hrdata_import_function"></a> [bo\_appeals\_hrdata\_import\_function](#module\_bo\_appeals\_hrdata\_import\_function) | ./bo-appeals-hrdata-import-function | n/a |
-| <a name="module_bo_appeals_lpaq_import_function"></a> [bo\_appeals\_lpaq\_import\_function](#module\_bo\_appeals\_lpaq\_import\_function) | ./bo-appeals-lpaq-import-function | n/a |
+| <a name="module_bo_appeals_doc_processing_function"></a> [bo\_appeals\_doc\_processing\_function](#module\_bo\_appeals\_doc\_processing\_function) | ./bo-appeals-doc-processing-function | n/a |
+| <a name="module_bo_appeals_user_import_function"></a> [bo\_appeals\_user\_import\_function](#module\_bo\_appeals\_user\_import\_function) | ./bo-appeals-user-import-function | n/a |
 | <a name="module_clam_av_container"></a> [clam\_av\_container](#module\_clam\_av\_container) | ./clamav-container | n/a |
 | <a name="module_deadline_submissions_function"></a> [deadline\_submissions\_function](#module\_deadline\_submissions\_function) | ./deadline-submissions-function | n/a |
 | <a name="module_document_check_function"></a> [document\_check\_function](#module\_document\_check\_function) | ./document-check-function | n/a |
@@ -78,6 +78,8 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_back_office_documents_system_topic_name"></a> [back\_office\_documents\_system\_topic\_name](#input\_back\_office\_documents\_system\_topic\_name) | Back Office Document Storage System Topic Name | `string` | `""` | no |
 | <a name="input_back_office_hostname"></a> [back\_office\_hostname](#input\_back\_office\_hostname) | Back Office Hostname | `string` | n/a | yes |
 | <a name="input_back_office_integration_subnet_id"></a> [back\_office\_integration\_subnet\_id](#input\_back\_office\_integration\_subnet\_id) | Integration subnet for back office anti-virus resources | `string` | n/a | yes |
+| <a name="input_back_office_storage_account_host"></a> [back\_office\_storage\_account\_host](#input\_back\_office\_storage\_account\_host) | Back Office storage account | `string` | n/a | yes |
+| <a name="input_back_office_storage_container"></a> [back\_office\_storage\_container](#input\_back\_office\_storage\_container) | Back Office document container | `string` | n/a | yes |
 | <a name="input_common_vnet_id"></a> [common\_vnet\_id](#input\_common\_vnet\_id) | The common infrastructure virtual network id | `string` | n/a | yes |
 | <a name="input_container_registry_name"></a> [container\_registry\_name](#input\_container\_registry\_name) | The name of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_container_registry_rg"></a> [container\_registry\_rg](#input\_container\_registry\_rg) | The resource group of the container registry that hosts the image | `string` | n/a | yes |
@@ -98,6 +100,8 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_feature_document_scanning_enabled"></a> [feature\_document\_scanning\_enabled](#input\_feature\_document\_scanning\_enabled) | Whether or not Document Scanning has been enabled. Document Scanning is currently disabled in a DR deployment (in the secondary region), documents will be scanned when the primary comes online. | `bool` | `false` | no |
 | <a name="input_feature_odw_subscription_enabled"></a> [feature\_odw\_subscription\_enabled](#input\_feature\_odw\_subscription\_enabled) | Temporary flag to enable/disable ODW subscription integration. Always disabled for uk-south for now. | `bool` | `false` | no |
 | <a name="input_feature_service_bus_enabled"></a> [feature\_service\_bus\_enabled](#input\_feature\_service\_bus\_enabled) | Whether or not Service Bus events are enabled | `string` | n/a | yes |
+| <a name="input_front_office_storage_account_host"></a> [front\_office\_storage\_account\_host](#input\_front\_office\_storage\_account\_host) | Front Office storage account | `string` | n/a | yes |
+| <a name="input_front_office_storage_container"></a> [front\_office\_storage\_container](#input\_front\_office\_storage\_container) | Front Office upload container | `string` | n/a | yes |
 | <a name="input_integration_subnet_id"></a> [integration\_subnet\_id](#input\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic | `string` | n/a | yes |
 | <a name="input_key_vault_id"></a> [key\_vault\_id](#input\_key\_vault\_id) | The ID of the key vault so the App Service can pull secret values | `string` | n/a | yes |
 | <a name="input_key_vault_uri"></a> [key\_vault\_uri](#input\_key\_vault\_uri) | The URI of the Key Vault | `string` | n/a | yes |
@@ -121,6 +125,7 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_servicebus_topic_nsip_documents_id"></a> [servicebus\_topic\_nsip\_documents\_id](#input\_servicebus\_topic\_nsip\_documents\_id) | Service Bus Topic nsip-document id | `string` | n/a | yes |
 | <a name="input_servicebus_topic_nsip_project_update_id"></a> [servicebus\_topic\_nsip\_project\_update\_id](#input\_servicebus\_topic\_nsip\_project\_update\_id) | Service Bus Topic nsip-project-update id | `string` | n/a | yes |
 | <a name="input_servicebus_topic_register_nsip_subscription_id"></a> [servicebus\_topic\_register\_nsip\_subscription\_id](#input\_servicebus\_topic\_register\_nsip\_subscription\_id) | Service Bus Topic register-nsip-subscription id | `string` | n/a | yes |
+| <a name="input_serviceuser_topic_id"></a> [serviceuser\_topic\_id](#input\_serviceuser\_topic\_id) | The ID of the service user topic | `string` | `""` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | The tags applied to all resources | `map(string)` | n/a | yes |
 
 ## Outputs

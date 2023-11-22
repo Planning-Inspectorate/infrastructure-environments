@@ -53,11 +53,18 @@ resource "azurerm_storage_container" "back_office_submissions_container" {
   container_access_type = "private"
 }
 
-# TODO: Separate containers for Applications and Appeals? We won't need to assign permissions to the appeals wfe, just to the appeals group
 resource "azurerm_storage_container" "back_office_document_service_uploads_container" {
   #TODO: Logging
   #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
   name                  = "document-service-uploads"
+  storage_account_name  = azurerm_storage_account.back_office_documents.name
+  container_access_type = "private"
+}
+
+resource "azurerm_storage_container" "back_office_appeals_document_container" {
+  #TODO: Logging
+  #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
+  name                  = "bo-appeals-documents"
   storage_account_name  = azurerm_storage_account.back_office_documents.name
   container_access_type = "private"
 }
