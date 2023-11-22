@@ -1,14 +1,6 @@
 locals {
   appeals_feature_flags = [
     {
-      name    = "final-comments"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = ["E69999999"]
-      }
-    },
-    {
       name    = "appeals-bo-submission"
       enabled = true
       targeting = {
@@ -17,7 +9,7 @@ locals {
       }
     },
     {
-      name    = "horizon-document-labelling"
+      name    = "enrol-users"
       enabled = true
       targeting = {
         percentage = 100
@@ -25,7 +17,23 @@ locals {
       }
     },
     {
-      name    = "send-appeal-direct-to-horizon-wrapper"
+      name    = "final-comments"
+      enabled = true
+      targeting = {
+        percentage = 100
+        users      = ["E69999999"]
+      }
+    },
+    {
+      name    = "has-questionnaire"
+      enabled = true
+      targeting = {
+        percentage = 100
+        users      = []
+      }
+    },
+    {
+      name    = "horizon-document-labelling"
       enabled = true
       targeting = {
         percentage = 100
@@ -41,7 +49,7 @@ locals {
       }
     },
     {
-      name    = "has-questionnaire"
+      name    = "send-appeal-direct-to-horizon-wrapper"
       enabled = true
       targeting = {
         percentage = 100
@@ -49,6 +57,9 @@ locals {
       }
     }
   ]
+  allow_testing_overrides                                                     = true
+  appeals_feature_back_office_subscriber_enabled                              = true
+  deploy_interested_parties                                                   = true
   google_analytics_id                                                         = "G-HWLKLSJF53"
   google_tag_manager_id                                                       = "GTM-KZN7XP4"
   horizon_url                                                                 = "http://10.0.7.4:8000"
@@ -66,11 +77,6 @@ locals {
   srv_admin_monitoring_email                                                  = "AppealsBetaTeam@planninginspectorate.gov.uk"
   srv_notify_failure_to_upload_to_horizon_template_id                         = "49413491-90fd-4ce8-b061-e2f4758b636b"
   srv_notify_final_comment_submission_confirmation_email_template_id          = "d8919215-6688-408b-9781-eaf7af033605"
-  task_submit_to_horizon_cron_string                                          = "*/10 * * * *"
-  task_submit_to_horizon_trigger_active                                       = "true"
-  allow_testing_overrides                                                     = true
-  deploy_interested_parties                                                   = true
-  appeals_feature_back_office_subscriber_enabled                              = true
   sql_database_configuration = {
     max_size_gb                 = 2
     short_term_retention_days   = 7
@@ -85,4 +91,6 @@ locals {
     login_username = "sunrahman"
     object_id      = "2af5c723-b22e-4eac-b0e5-ec39675462d6"
   }
+  task_submit_to_horizon_cron_string    = "*/10 * * * *"
+  task_submit_to_horizon_trigger_active = "true"
 }
