@@ -82,5 +82,6 @@ module "app_services" {
   providers = {
     azurerm         = azurerm
     azurerm.tooling = azurerm.tooling
+    azurerm.odw     = azurerm.odw
   }
 }
