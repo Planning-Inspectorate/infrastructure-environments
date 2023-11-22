@@ -10,17 +10,10 @@ resource "azurerm_key_vault_access_policy" "read_secrets" {
   storage_permissions     = []
 }
 
-# Read permissions for Synapse Storage Account curated_db container
-data "azurerm_storage_account" "odw_data_lake_storage_account" {
-  provider            = azurerm.odw
-  resource_group_name = var.odw_resource_group_name
-  name                = var.odw_data_lake_storage_account_name
-}
-
 # Annoyingly it doesn't look like you can get a data "azurerm_storage_container" resource in a different Subscription and RG
-# So we can get the storage account identifier and add on the container manually.
+# So we need to build the resource ID dynamically
 resource "azurerm_role_assignment" "read_data_lake_storage" {
-  scope                = "/${data.azurerm_storage_account.odw_data_lake_storage_account.id}/blobServices/default/containers/odw_curated"
+  scope                = "/subscriptions/${var.odw_subscription_id}/resourceGroups/${var.odw_resource_group_name}/providers/Microsoft.Storage/storageAccounts/${var.odw_data_lake_storage_account_name}/blobServices/default/containers/odw_curated"
   role_definition_name = "Storage Blob Data Reader"
   principal_id         = module.applications_migration_function.principal_id
 }

@@ -73,10 +73,10 @@ module "app_services" {
   odw_resource_group_name                                      = var.odw_resource_group_name
   odw_data_lake_storage_account_name                           = var.odw_data_lake_storage_account_name
   odw_synapse_sql_pool_host                                    = var.odw_synapse_sql_pool_host
+  odw_subscription_id                                          = var.odw_subscription_id
 
   providers = {
     azurerm         = azurerm
     azurerm.tooling = azurerm.tooling
-    azurerm.odw     = azurerm.odw
   }
 }

@@ -80,6 +80,12 @@ variable "node_environment" {
   default     = "development"
 }
 
+variable "odw_subscription_id" {
+  description = "Resource Group Name where ODW Synapse Workspace and Data Lake Storage Account live"
+  type        = string
+  default     = ""
+}
+
 variable "odw_resource_group_name" {
   description = "Resource Group Name where ODW Synapse Workspace and Data Lake Storage Account live"
   type        = string

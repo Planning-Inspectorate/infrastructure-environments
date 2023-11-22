@@ -230,6 +230,11 @@ variable "redis_cache_configuration" {
 }
 
 # Migration-specific variables which will be removed post-migration
+variable "odw_subscription_id" {
+  description = "The ID for the ODW subscription that houses the Synapse Workspace."
+  type        = string
+}
+
 variable "odw_resource_group_name" {
   description = "Resource Group Name where ODW Synapse Workspace and Data Lake Storage Account live"
   type        = string
