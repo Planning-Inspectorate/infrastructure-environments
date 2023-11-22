@@ -18,6 +18,10 @@ module "applications_migration_function" {
   tenant_id                                = data.azurerm_client_config.current.tenant_id
   node_environment                         = var.node_environment
 
+  odw_resource_group_name            = var.odw_resource_group_name
+  odw_data_lake_storage_account_name = var.odw_data_lake_storage_account_name
+  odw_synapse_sql_pool_host          = var.odw_synapse_sql_pool_host
+
   providers = {
     azurerm     = azurerm
     azurerm.odw = azurerm.odw

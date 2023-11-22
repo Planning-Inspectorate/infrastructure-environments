@@ -38,17 +38,17 @@ This module contains the App Services resources for the Back Office service. The
 
 | Name | Type |
 |------|------|
-| [azurerm_resource_group_template_deployment.malware_scanning](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group_template_deployment) | resource |
-| [azurerm_role_assignment.appeals_case_officer_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.appeals_inspector_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.applications_case_admin_officer_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.applications_caseteam_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.back_office_app_send_event_grid](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.back_office_app_send_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.back_office_appeals_send_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_service_plan.back_office_functions_plan](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan) | resource |
-| [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config) | data source |
-| [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
+| [azurerm_resource_group_template_deployment.malware_scanning](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/resource_group_template_deployment) | resource |
+| [azurerm_role_assignment.appeals_case_officer_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.appeals_inspector_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.applications_case_admin_officer_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.applications_caseteam_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.back_office_app_send_event_grid](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.back_office_app_send_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.back_office_appeals_send_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_service_plan.back_office_functions_plan](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/service_plan) | resource |
+| [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/client_config) | data source |
+| [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/subscription) | data source |
 
 ## Inputs
 
