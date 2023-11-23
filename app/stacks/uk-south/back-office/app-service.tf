@@ -58,9 +58,8 @@ module "app_services" {
   deadline_submissions_result_topic_name                                              = ""
   malware_scanning_topic_id                                                           = ""
   document_storage_account_name                                                       = ""
-  front_office_storage_account_host                                                   = ""
+  front_office_storage_account_id                                                     = ""
   back_office_storage_account_host                                                    = ""
-  front_office_storage_container                                                      = ""
   back_office_storage_container                                                       = ""
 
 
