@@ -39,4 +39,10 @@ locals {
   # not ideal to specify this, but using a dependency with terragrunt would create a dependency cycle,
   # as applications is already dependent on back office
   applications_front_office_web_url = "https://applications-service-test.planninginspectorate.gov.uk"
+  # Migration requirements for integrating with ODW
+  # Currently unable to use pipeline environment variables
+  odw_subscription_id                = ""
+  odw_data_lake_storage_account_name = ""
+  odw_resource_group_name            = ""
+  odw_synapse_sql_pool_host          = ""
 }
