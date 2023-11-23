@@ -37,4 +37,5 @@ inputs = {
   integration_subnet_id             = dependency.common.outputs.integration_subnet_id
   key_vault_uri                     = dependency.common.outputs.key_vault_uri
   key_vault_id                      = dependency.common.outputs.key_vault_id
+  front_office_storage_account_id   = dependency.appeals_service_ukw.outputs.appeal_documents_storage_container_id
 }

@@ -64,20 +64,14 @@ variable "service_bus_namespace_name" {
   type        = string
 }
 
-variable "front_office_storage_account_host" {
-  description = "Front Office Storage Account Hostname (e.g. https://pinsstdocsbodevukw001.blob.core.windows.net)"
-  type        = string
-}
-
 variable "back_office_storage_account_host" {
   description = "Back Office Storage Account Hostname (e.g. https://pinsstdocsbodevukw001.blob.core.windows.net)"
   type        = string
 }
 
-variable "front_office_document_upload_container" {
-  description = "Front Office Storage Container name for uploads"
+variable "front_office_storage_account_id" {
+  description = "Front Office Storage Container id for uploads"
   type        = string
-  default     = "document-service-uploads"
 }
 
 variable "back_office_appeals_document_container" {

@@ -8,6 +8,11 @@ output "web_frontend_url" {
   value       = module.app_services.web_frontend_url
 }
 
+output "appeal_documents_storage_container_id" {
+  description = "The Appeal Documents Storage Account container ID"
+  value       = azurerm_storage_account.appeal_documents.id
+}
+
 output "appeal_documents_storage_container_name" {
   description = "The Appeal Documents Storage Account container name"
   value       = azurerm_storage_account.appeal_documents.name

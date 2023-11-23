@@ -15,9 +15,8 @@ module "bo_appeals_doc_processing_function" {
   app_service_plan_id                      = azurerm_service_plan.back_office_functions_plan.id
   service_bus_namespace_name               = var.service_bus_namespace_name
   malware_scanning_topic_id                = var.malware_scanning_topic_id
-  front_office_storage_account_host        = var.front_office_storage_account_host
+  front_office_storage_account_id          = var.front_office_storage_account_id
   back_office_storage_account_host         = var.back_office_storage_account_host
-  front_office_document_upload_container   = var.front_office_storage_container
   back_office_appeals_document_container   = var.back_office_storage_container
 
 

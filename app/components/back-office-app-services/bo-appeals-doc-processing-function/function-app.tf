@@ -22,9 +22,7 @@ module "bo_appeals_doc_processing_function" {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.service_bus_namespace_name}.servicebus.windows.net"
     # Function env variables
     API_HOST                     = var.back_office_api_host
-    FO_BLOB_STORAGE_ACCOUNT_HOST = var.front_office_storage_account_host
     BO_BLOB_STORAGE_ACCOUNT_HOST = var.back_office_storage_account_host
-    FO_BLOB_SOURCE_CONTAINER     = var.front_office_document_upload_container
     BO_BLOB_PUBLISH_CONTAINER    = var.back_office_appeals_document_container
   }
 
