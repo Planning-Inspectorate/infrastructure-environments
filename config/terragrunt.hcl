@@ -55,10 +55,12 @@ inputs = merge(
   local.global_variables,
   local.environment_variables,
   local.stack_variables,
-  local.odw_subscription_id,
-  local.odw_data_lake_storage_account_name,
-  local.odw_resource_group_name,
-  local.odw_synapse_sql_pool_host,
+  {
+    odw_subscription_id                = local.odw_subscription_id,
+    odw_data_lake_storage_account_name = local.odw_data_lake_storage_account_name,
+    odw_resource_group_name            = local.odw_resource_group_name,
+    odw_synapse_sql_pool_host          = local.odw_synapse_sql_pool_host
+  },
   {
     common_tags = {
       CostCentre  = "90117"
