@@ -92,6 +92,12 @@ resource "azurerm_frontdoor" "common" {
     web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
   }
 
+  frontend_endpoint {
+    name                                    = local.comment_planning_appeals_frontend.frontend_name
+    host_name                               = local.comment_planning_appeals_frontend.frontend_endpoint
+    web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
+  }
+
   # Backend Pools
   backend_pool {
     name                = local.appeals_frontend.name
@@ -177,6 +183,27 @@ resource "azurerm_frontdoor" "common" {
     }
   }
 
+  backend_pool {
+    name                = local.comment_planning_appeals_frontend.name
+    load_balancing_name = "Default"
+    health_probe_name   = "Http"
+
+    dynamic "backend" {
+      for_each = local.comment_planning_appeals_frontend.app_service_urls
+      iterator = app_service_url
+
+      content {
+        enabled     = true
+        address     = app_service_url.value["url"]
+        host_header = local.comment_planning_appeals_frontend.infer_backend_host_header ? "" : app_service_url.value["url"]
+        http_port   = 80
+        https_port  = 443
+        priority    = app_service_url.value["priority"]
+        weight      = 100
+      }
+    }
+  }
+
   # Routing Rules
   routing_rule {
     enabled            = true
@@ -232,6 +259,21 @@ resource "azurerm_frontdoor" "common" {
 
     forwarding_configuration {
       backend_pool_name      = local.back_office_appeals_frontend.name
+      cache_enabled          = false
+      cache_query_parameters = []
+      forwarding_protocol    = "MatchRequest"
+    }
+  }
+
+  routing_rule {
+    enabled            = true
+    name               = local.comment_planning_appeals_frontend.name
+    accepted_protocols = ["Http", "Https"]
+    patterns_to_match  = local.comment_planning_appeals_frontend.patterns_to_match
+    frontend_endpoints = [local.comment_planning_appeals_frontend.frontend_name]
+
+    forwarding_configuration {
+      backend_pool_name      = local.comment_planning_appeals_frontend.name
       cache_enabled          = false
       cache_query_parameters = []
       forwarding_protocol    = "MatchRequest"
