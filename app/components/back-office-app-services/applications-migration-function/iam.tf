@@ -16,7 +16,7 @@ resource "azurerm_role_assignment" "read_data_lake_storage" {
   # We're only deploying the synapse migration functionality on Dev right now
   count = var.odw_subscription_id != "" ? 1 : 0
 
-  scope                = join("/", "/subscriptions", var.odw_subscription_id, "resourceGroups", var.odw_resource_group_name, "providers/Microsoft.Storage/storageAccounts", var.odw_data_lake_storage_account_name, "blobServices/default/containers/odw_curated")
+  scope                = join("/", ["/subscriptions", var.odw_subscription_id, "resourceGroups", var.odw_resource_group_name, "providers/Microsoft.Storage/storageAccounts", var.odw_data_lake_storage_account_name, "blobServices/default/containers/odw_curated"])
   role_definition_name = "Storage Blob Data Reader"
   principal_id         = module.applications_migration_function.principal_id
 }
