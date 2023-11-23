@@ -250,6 +250,12 @@ variable "allow_testing_overrides" {
   default     = false
 }
 
+variable "deploy_interested_parties" {
+  description = "A switch to determine if the interested parties app service should be deployed"
+  type        = bool
+  default     = false
+}
+
 variable "appeals_api_service_bus_enabled" {
   description = "A switch to determine if service bus integration is enabled for the appeals api"
   type        = bool
