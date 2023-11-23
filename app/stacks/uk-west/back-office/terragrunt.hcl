@@ -30,7 +30,7 @@ dependency "appeals_service_ukw" {
   mock_outputs_merge_with_state           = true
 
   mock_outputs = {
-    appeal_documents_storage_container_id = ""
+    appeal_documents_storage_container_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/mock/mock_id"
   }
 }
 
