@@ -228,3 +228,8 @@ variable "redis_cache_configuration" {
   description = "A map of redis configuration options"
   type        = map(string)
 }
+
+variable "front_office_storage_account_id" {
+  description = "The ID of the appeals front office storage account"
+  type        = string
+}

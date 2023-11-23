@@ -68,7 +68,7 @@ module "app_services" {
   applications_front_office_web_url                                                   = var.applications_front_office_web_url
   back_office_applications_redis_connection_string_secret_name                        = azurerm_key_vault_secret.back_office_applications_redis_cache_connection_string_secret.name
   back_office_appeals_redis_connection_string_secret_name                             = azurerm_key_vault_secret.back_office_appeals_redis_cache_connection_string_secret.name
-  front_office_storage_account_id                                                     = azurerm_storage_account.back_office_documents.primary_blob_endpoint
+  front_office_storage_account_id                                                     = var.front_office_storage_account_id
   back_office_storage_account_host                                                    = azurerm_storage_account.back_office_documents.primary_blob_endpoint
   back_office_storage_container                                                       = azurerm_storage_container.back_office_appeals_document_container.name
 
