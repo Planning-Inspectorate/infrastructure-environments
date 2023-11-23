@@ -63,10 +63,6 @@ extends:
                     artifactName: terraform-config-files
                     environmentVariables:
                       ENV: $(ENVIRONMENT)
-                      ODW_SUBSCRIPTION_ID: $(ODW_SUBSCRIPTION_ID)
-                      ODW_DATA_LAKE_STORAGE_ACCOUNT_NAME: $(ODW_DATA_LAKE_STORAGE_ACCOUNT_NAME)
-                      ODW_RESOURCE_GROUP_NAME: $(ODW_RESOURCE_GROUP_NAME)
-                      ODW_SYNAPSE_SQL_POOL_HOST: $(ODW_SYNAPSE_SQL_POOL_HOST)
                       ${{ if eq(parameters.DRDeployment, 'true') }}:
                         DR_DEPLOYMENT: true
                     subscriptionId: $(SUBSCRIPTION_ID)
@@ -80,10 +76,6 @@ extends:
                     artifactName: terraform-plan-$(ENVIRONMENT)
                     environmentVariables:
                       ENV: $(ENVIRONMENT)
-                      ODW_SUBSCRIPTION_ID: $(ODW_SUBSCRIPTION_ID)
-                      ODW_DATA_LAKE_STORAGE_ACCOUNT_NAME: $(ODW_DATA_LAKE_STORAGE_ACCOUNT_NAME)
-                      ODW_RESOURCE_GROUP_NAME: $(ODW_RESOURCE_GROUP_NAME)
-                      ODW_SYNAPSE_SQL_POOL_HOST: $(ODW_SYNAPSE_SQL_POOL_HOST)
                       ${{ if eq(parameters.DRDeployment, 'true') }}:
                         DR_DEPLOYMENT: true
                     region: ${{ parameters.region }}
@@ -102,10 +94,6 @@ extends:
                     artifactname: terraform-config-files
                     environmentVariables:
                       ENV: $(ENVIRONMENT)
-                      ODW_SUBSCRIPTION_ID: $(ODW_SUBSCRIPTION_ID)
-                      ODW_DATA_LAKE_STORAGE_ACCOUNT_NAME: $(ODW_DATA_LAKE_STORAGE_ACCOUNT_NAME)
-                      ODW_RESOURCE_GROUP_NAME: $(ODW_RESOURCE_GROUP_NAME)
-                      ODW_SYNAPSE_SQL_POOL_HOST: $(ODW_SYNAPSE_SQL_POOL_HOST)
                       ${{ if eq(parameters.DRDeployment, 'true') }}:
                         DR_DEPLOYMENT: true
                     subscriptionId: $(SUBSCRIPTION_ID)
