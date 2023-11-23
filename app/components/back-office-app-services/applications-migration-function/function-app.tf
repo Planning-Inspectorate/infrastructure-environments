@@ -28,6 +28,8 @@ module "applications_migration_function" {
     NI_DB_MYSQL_PASSWORD = local.secret_refs["applications-service-mysql-password"]
     NI_DB_MYSQL_PORT     = local.secret_refs["applications-service-mysql-port"]
     NI_DB_MYSQL_USERNAME = local.secret_refs["applications-service-mysql-username"]
+    # ODW Synapse Configuration
+    SYNAPSE_SQL_HOST = var.odw_synapse_sql_pool_host
   }
 
   tags = var.tags

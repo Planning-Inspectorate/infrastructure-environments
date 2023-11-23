@@ -357,3 +357,28 @@ variable "document_storage_account_name" {
   description = "The ID of the storage account for back office documents"
   type        = string
 }
+
+# Migration-specific variables which will be removed post-migration. Not needed for uk-south.
+variable "odw_subscription_id" {
+  description = "The ID for the ODW subscription that houses the Synapse Workspace."
+  type        = string
+  default     = ""
+}
+
+variable "odw_resource_group_name" {
+  description = "Resource Group Name where ODW Synapse Workspace and Data Lake Storage Account live"
+  type        = string
+  default     = ""
+}
+
+variable "odw_data_lake_storage_account_name" {
+  description = "Storage Account Name for the ODW Data Lake"
+  type        = string
+  default     = ""
+}
+
+variable "odw_synapse_sql_pool_host" {
+  description = "Serverless SQL Endpoint for ODW Synapse Workspace"
+  type        = string
+  default     = ""
+}
