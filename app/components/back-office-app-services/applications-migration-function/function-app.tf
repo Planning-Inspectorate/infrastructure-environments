@@ -29,7 +29,7 @@ module "applications_migration_function" {
     NI_DB_MYSQL_PORT     = local.secret_refs["applications-service-mysql-port"]
     NI_DB_MYSQL_USERNAME = local.secret_refs["applications-service-mysql-username"]
     # ODW Synapse Configuration
-    SYNAPSE_SQL_HOST = var.odw_synapse_sql_pool_host
+    SYNAPSE_SQL_HOST = "${var.odw_synapse_workspace_name}-ondemand.sql.azuresynapse.net"
   }
 
   tags = var.tags

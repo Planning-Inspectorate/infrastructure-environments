@@ -44,5 +44,5 @@ locals {
   odw_subscription_id                = ""
   odw_data_lake_storage_account_name = ""
   odw_resource_group_name            = ""
-  odw_synapse_sql_pool_host          = ""
+  odw_synapse_workspace_name         = ""
 }
