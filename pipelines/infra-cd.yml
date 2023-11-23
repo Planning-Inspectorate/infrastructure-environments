@@ -63,10 +63,10 @@ extends:
                     artifactName: terraform-config-files
                     environmentVariables:
                       ENV: $(ENVIRONMENT)
-                      TF_ENV_odw_subscription_id: ${ODW_SUBSCRIPTION_ID}
-                      TF_ENV_odw_data_lake_storage_account_name: ${ODW_DATA_LAKE_STORAGE_ACCOUNT_NAME}
-                      TF_ENV_odw_resource_group_name: ${ODW_RESOURCE_GROUP_NAME}
-                      TF_ENV_odw_synapse_sql_pool_host: ${ODW_SYNAPSE_SQL_POOL_HOST}
+                      ODW_SUBSCRIPTION_ID: $(ODW_SUBSCRIPTION_ID)
+                      ODW_DATA_LAKE_STORAGE_ACCOUNT_NAME: $(ODW_DATA_LAKE_STORAGE_ACCOUNT_NAME)
+                      ODW_RESOURCE_GROUP_NAME: $(ODW_RESOURCE_GROUP_NAME)
+                      ODW_SYNAPSE_SQL_POOL_HOST: $(ODW_SYNAPSE_SQL_POOL_HOST)
                       ${{ if eq(parameters.DRDeployment, 'true') }}:
                         DR_DEPLOYMENT: true
                     subscriptionId: $(SUBSCRIPTION_ID)
@@ -80,10 +80,10 @@ extends:
                     artifactName: terraform-plan-$(ENVIRONMENT)
                     environmentVariables:
                       ENV: $(ENVIRONMENT)
-                      ODW_SUBSCRIPTION_ID: ${ODW_SUBSCRIPTION_ID}
-                      ODW_DATA_LAKE_STORAGE_ACCOUNT_NAME: ${ODW_DATA_LAKE_STORAGE_ACCOUNT_NAME}
-                      ODW_RESOURCE_GROUP_NAME: ${ODW_RESOURCE_GROUP_NAME}
-                      ODW_SYNAPSE_SQL_POOL_HOST: ${ODW_SYNAPSE_SQL_POOL_HOST}
+                      ODW_SUBSCRIPTION_ID: $(ODW_SUBSCRIPTION_ID)
+                      ODW_DATA_LAKE_STORAGE_ACCOUNT_NAME: $(ODW_DATA_LAKE_STORAGE_ACCOUNT_NAME)
+                      ODW_RESOURCE_GROUP_NAME: $(ODW_RESOURCE_GROUP_NAME)
+                      ODW_SYNAPSE_SQL_POOL_HOST: $(ODW_SYNAPSE_SQL_POOL_HOST)
                       ${{ if eq(parameters.DRDeployment, 'true') }}:
                         DR_DEPLOYMENT: true
                     region: ${{ parameters.region }}
@@ -102,10 +102,10 @@ extends:
                     artifactname: terraform-config-files
                     environmentVariables:
                       ENV: $(ENVIRONMENT)
-                      TF_ENV_odw_subscription_id: ${ODW_SUBSCRIPTION_ID}
-                      TF_ENV_odw_data_lake_storage_account_name: ${ODW_DATA_LAKE_STORAGE_ACCOUNT_NAME}
-                      TF_ENV_odw_resource_group_name: ${ODW_RESOURCE_GROUP_NAME}
-                      TF_ENV_odw_synapse_sql_pool_host: ${ODW_SYNAPSE_SQL_POOL_HOST}
+                      ODW_SUBSCRIPTION_ID: $(ODW_SUBSCRIPTION_ID)
+                      ODW_DATA_LAKE_STORAGE_ACCOUNT_NAME: $(ODW_DATA_LAKE_STORAGE_ACCOUNT_NAME)
+                      ODW_RESOURCE_GROUP_NAME: $(ODW_RESOURCE_GROUP_NAME)
+                      ODW_SYNAPSE_SQL_POOL_HOST: $(ODW_SYNAPSE_SQL_POOL_HOST)
                       ${{ if eq(parameters.DRDeployment, 'true') }}:
                         DR_DEPLOYMENT: true
                     subscriptionId: $(SUBSCRIPTION_ID)
