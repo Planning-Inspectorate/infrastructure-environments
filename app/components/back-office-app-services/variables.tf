@@ -221,6 +221,13 @@ variable "employee_topic_id" {
   default     = ""
 }
 
+# Setting this to empty string for now whilst we figure out DR plans
+variable "service_user_topic_id" {
+  description = "The ID of the employee topic"
+  type        = string
+  default     = ""
+}
+
 variable "feature_odw_subscription_enabled" {
   description = "Temporary flag to enable/disable ODW subscription integration. Always disabled for uk-south for now."
   type        = bool
@@ -355,6 +362,15 @@ variable "back_office_appeals_redis_connection_string_secret_name" {
 
 variable "document_storage_account_name" {
   description = "The ID of the storage account for back office documents"
+  type        = string
+}
+variable "bo_appeals_storage_account_name" {
+  description = "The ID of the appeals back office storage account"
+  type        = string
+}
+
+variable "bo_appeals_document_container" {
+  description = "The default container name for appeals back office documents"
   type        = string
 }
 

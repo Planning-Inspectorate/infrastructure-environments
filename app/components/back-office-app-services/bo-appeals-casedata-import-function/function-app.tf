@@ -2,7 +2,7 @@ module "bo_appeals_casedata_import_function" {
   source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.7"
 
   action_group_low_id                      = var.action_group_low_id
-  app_name                                 = "appellant-case"
+  app_name                                 = "casedata-import"
   app_service_plan_id                      = var.app_service_plan_id
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
@@ -30,5 +30,11 @@ module "bo_appeals_casedata_import_function" {
 resource "azurerm_servicebus_subscription" "register_fo_casedata_subscription" {
   name               = "register-fo-casedata-subscription"
   topic_id           = var.service_bus_appeals_fo_appellant_submission_id
+  max_delivery_count = 1
+}
+
+resource "azurerm_servicebus_subscription" "register_fo_lpaq_subscription" {
+  name               = "register-fo-lpaq-subscription"
+  topic_id           = var.service_bus_appeals_fo_lpa_response_submission_id
   max_delivery_count = 1
 }
