@@ -1,6 +1,10 @@
 locals {
   child_terragrunt_dir_absolute_path_parts = split("/", get_terragrunt_dir())
-  environment                              = get_env("ENV", "dev")
+  environment                              = get_env("ODW_SUBSCRIPTION_ID", "dev")
+  odw_subscription_id                      = get_env("ODW_SUBSCRIPTION_ID")
+  odw_data_lake_storage_account_name       = get_env("ODW_DATA_LAKE_STORAGE_ACCOUNT_NAME")
+  odw_resource_group_name                  = get_env("ODW_RESOURCE_GROUP_NAME")
+  odw_synapse_sql_pool_host                = get_env("ODW_SYNAPSE_SQL_POOL_HOST")
   location                                 = element(local.child_terragrunt_dir_absolute_path_parts, length(local.child_terragrunt_dir_absolute_path_parts) - 2)
   stack                                    = basename(get_terragrunt_dir())
   global_variables                         = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/global.hcl").locals
@@ -51,6 +55,10 @@ inputs = merge(
   local.global_variables,
   local.environment_variables,
   local.stack_variables,
+  local.odw_subscription_id,
+  local.odw_data_lake_storage_account_name,
+  local.odw_resource_group_name,
+  local.odw_synapse_sql_pool_host,
   {
     common_tags = {
       CostCentre  = "90117"
