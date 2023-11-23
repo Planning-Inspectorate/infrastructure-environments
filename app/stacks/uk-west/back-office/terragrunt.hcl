@@ -24,6 +24,16 @@ dependency "common" {
   }
 }
 
+dependency "appeals_service_ukw" {
+  config_path                             = "../appeals-service"
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
+  mock_outputs_merge_with_state           = true
+
+  mock_outputs = {
+    appeal_documents_storage_container_id = ""
+  }
+}
+
 inputs = {
   action_group_low_id               = dependency.common.outputs.action_group_low_id
   app_service_plan_id               = dependency.common.outputs.app_service_plan_id
