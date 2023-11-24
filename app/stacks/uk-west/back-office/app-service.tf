@@ -72,7 +72,7 @@ module "app_services" {
   back_office_appeals_redis_connection_string_secret_name      = azurerm_key_vault_secret.back_office_appeals_redis_cache_connection_string_secret.name
   odw_resource_group_name                                      = var.odw_resource_group_name
   odw_data_lake_storage_account_name                           = var.odw_data_lake_storage_account_name
-  odw_synapse_sql_pool_host                                    = var.odw_synapse_sql_pool_host
+  odw_synapse_workspace_name                                   = var.odw_synapse_workspace_name
   odw_subscription_id                                          = var.odw_subscription_id
 
   providers = {

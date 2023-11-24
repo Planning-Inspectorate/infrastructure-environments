@@ -245,7 +245,7 @@ variable "odw_data_lake_storage_account_name" {
   type        = string
 }
 
-variable "odw_synapse_sql_pool_host" {
-  description = "Serverless SQL Endpoint for ODW Synapse Workspace"
+variable "odw_synapse_workspace_name" {
+  description = "ODW Synapse Workspace Name"
   type        = string
 }

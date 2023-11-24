@@ -110,7 +110,7 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_odw_data_lake_storage_account_name"></a> [odw\_data\_lake\_storage\_account\_name](#input\_odw\_data\_lake\_storage\_account\_name) | Storage Account Name for the ODW Data Lake | `string` | `""` | no |
 | <a name="input_odw_resource_group_name"></a> [odw\_resource\_group\_name](#input\_odw\_resource\_group\_name) | Resource Group Name where ODW Synapse Workspace and Data Lake Storage Account live | `string` | `""` | no |
 | <a name="input_odw_subscription_id"></a> [odw\_subscription\_id](#input\_odw\_subscription\_id) | The ID for the ODW subscription that houses the Synapse Workspace. | `string` | `""` | no |
-| <a name="input_odw_synapse_sql_pool_host"></a> [odw\_synapse\_sql\_pool\_host](#input\_odw\_synapse\_sql\_pool\_host) | Serverless SQL Endpoint for ODW Synapse Workspace | `string` | `""` | no |
+| <a name="input_odw_synapse_workspace_name"></a> [odw\_synapse\_workspace\_name](#input\_odw\_synapse\_workspace\_name) | ODW Synapse Workspace Name | `string` | `""` | no |
 | <a name="input_private_endpoint_enabled"></a> [private\_endpoint\_enabled](#input\_private\_endpoint\_enabled) | A switch to determine if Private Endpoint should be enabled for backend App Services | `bool` | `true` | no |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the resource group that will contain the App Services | `string` | n/a | yes |
 | <a name="input_resource_suffix"></a> [resource\_suffix](#input\_resource\_suffix) | The suffix for resource naming | `string` | n/a | yes |
