@@ -15,3 +15,14 @@ resource "azurerm_key_vault_secret" "app_secret" {
     ]
   }
 }
+
+resource "azurerm_key_vault_secret" "bo_app_insights_connection_string" {
+  #checkov:skip=CKV_AZURE_41
+
+  content_type = "text/plain"
+  key_vault_id = var.key_vault_id
+  name         = "back-office-app-insights-connection-string"
+  value        = azurerm_application_insights.back_office_app_insights.connection_string
+
+  tags = local.tags
+}
