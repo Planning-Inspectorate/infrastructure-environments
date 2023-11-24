@@ -86,7 +86,7 @@ variable "back_office_appeals_secondary_app_service_url" {
   default     = ""
 }
 
-variable "comment_planning_appeal_service_ssl_certificate_name" {
+variable "comment_planning_appeal_ssl_certificate_name" {
   description = "The SSL certificate name in the environment Key Vault for the Comment Planning Appeal Service"
   type        = string
   default     = "pins-wildcard-digicert-221223"
