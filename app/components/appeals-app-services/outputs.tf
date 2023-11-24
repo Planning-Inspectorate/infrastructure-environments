@@ -10,7 +10,7 @@ output "web_frontend_url" {
 
 output "web_comment_frontend_url" {
   description = "The URL of the web frontend App Service"
-  value       = module.app_services["interested_parties_frontend"].default_site_hostname
+  value       = module.app_service["interested_parties_frontend"].default_site_hostname
 }
 
 output "app_service_principal_ids" {
