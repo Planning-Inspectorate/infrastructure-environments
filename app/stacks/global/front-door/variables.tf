@@ -86,24 +86,24 @@ variable "back_office_appeals_secondary_app_service_url" {
   default     = ""
 }
 
-variable "comment_planning_appeal_service_ssl_certificate_name" {
-  description = "The SSL certificate name in the environment Key Vault for the Comment Planning Appeal Service"
+variable "comment_planning_appeals_service_ssl_certificate_name" {
+  description = "The SSL certificate name in the environment Key Vault for the Comment Planning Appeals Service"
   type        = string
   default     = "pins-wildcard-digicert-221223"
 }
 
-variable "comment_planning_appeal_service_public_url" {
-  description = "The public URL for the Comment Planning Appeal Service frontend web app"
+variable "comment_planning_appeals_service_public_url" {
+  description = "The public URL for the Comment Planning Appeals Service frontend web app"
   type        = string
 }
 
-variable "comment_planning_appeal_service_primary_app_service_url" {
-  description = "The primary App Service URL for the Comment Planning Appeal Service"
+variable "comment_planning_appeals_service_primary_app_service_url" {
+  description = "The primary App Service URL for the Comment Planning Appeals Service"
   type        = string
 }
 
-variable "comment_planning_appeal_service_secondary_app_service_url" {
-  description = "The secondary App Service URL for the Comment Planning Appeal Service"
+variable "comment_planning_appeals_service_secondary_app_service_url" {
+  description = "The secondary App Service URL for the Comment Planning Appeals Service"
   type        = string
   default     = ""
 }

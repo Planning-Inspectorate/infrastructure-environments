@@ -93,8 +93,8 @@ resource "azurerm_frontdoor" "common" {
   }
 
   frontend_endpoint {
-    name                                    = local.comment_planning_appeal_frontend.frontend_name
-    host_name                               = local.comment_planning_appeal_frontend.frontend_endpoint
+    name                                    = local.comment_planning_appeals_frontend.frontend_name
+    host_name                               = local.comment_planning_appeals_frontend.frontend_endpoint
     web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
   }
 
@@ -184,18 +184,18 @@ resource "azurerm_frontdoor" "common" {
   }
 
   backend_pool {
-    name                = local.comment_planning_appeal_frontend.name
+    name                = local.comment_planning_appeals_frontend.name
     load_balancing_name = "Default"
     health_probe_name   = "Http"
 
     dynamic "backend" {
-      for_each = local.comment_planning_appeal_frontend.app_service_urls
+      for_each = local.comment_planning_appeals_frontend.app_service_urls
       iterator = app_service_url
 
       content {
         enabled     = true
         address     = app_service_url.value["url"]
-        host_header = local.comment_planning_appeal_frontend.infer_backend_host_header ? "" : app_service_url.value["url"]
+        host_header = local.comment_planning_appeals_frontend.infer_backend_host_header ? "" : app_service_url.value["url"]
         http_port   = 80
         https_port  = 443
         priority    = app_service_url.value["priority"]
@@ -267,13 +267,13 @@ resource "azurerm_frontdoor" "common" {
 
   routing_rule {
     enabled            = true
-    name               = local.comment_planning_appeal_frontend.name
+    name               = local.comment_planning_appeals_frontend.name
     accepted_protocols = ["Http", "Https"]
-    patterns_to_match  = local.comment_planning_appeal_frontend.patterns_to_match
-    frontend_endpoints = [local.comment_planning_appeal_frontend.frontend_name]
+    patterns_to_match  = local.comment_planning_appeals_frontend.patterns_to_match
+    frontend_endpoints = [local.comment_planning_appeals_frontend.frontend_name]
 
     forwarding_configuration {
-      backend_pool_name      = local.comment_planning_appeal_frontend.name
+      backend_pool_name      = local.comment_planning_appeals_frontend.name
       cache_enabled          = false
       cache_query_parameters = []
       forwarding_protocol    = "MatchRequest"
