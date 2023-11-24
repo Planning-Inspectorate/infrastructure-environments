@@ -7,6 +7,7 @@ module "app_services" {
   app_service_private_dns_zone_id                                             = data.azurerm_private_dns_zone.app_service.id
   appeal_documents_storage_container_name                                     = azurerm_storage_container.documents.name
   appeals_service_public_url                                                  = var.appeals_service_public_url
+  comment_planning_appeal_public_url                                          = var.comment_planning_appeal_public_url
   container_registry_name                                                     = var.container_registry_name
   container_registry_rg                                                       = var.container_registry_rg
   endpoint_subnet_id                                                          = azurerm_subnet.appeals_service_ingress.id

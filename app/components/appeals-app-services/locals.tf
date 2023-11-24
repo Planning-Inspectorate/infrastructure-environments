@@ -72,6 +72,7 @@ locals {
         FILE_UPLOAD_USE_TEMP_FILES                = true
         GOOGLE_ANALYTICS_ID                       = var.google_analytics_id
         GOOGLE_TAG_MANAGER_ID                     = var.google_tag_manager_id
+        HOST_URL                                  = "https://${var.comment_planning_appeal_public_url}"
         MICROSOFT_PROVIDER_AUTHENTICATION_SECRET  = local.secret_refs["appeals-microsoft-provider-authentication-secret"]
         PDF_SERVICE_API_URL                       = "https://pins-app-${var.service_name}-pdf-api-${var.resource_suffix}.azurewebsites.net"
         PINS_FEATURE_FLAG_AZURE_ENDPOINT          = local.secret_refs["appeals-app-config-endpoint"]
