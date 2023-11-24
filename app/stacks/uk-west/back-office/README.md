@@ -48,13 +48,16 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_private_dns_zone.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone) | resource |
 | [azurerm_private_dns_zone.back_office_appeals_redis_cache_dns_zone](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone) | resource |
 | [azurerm_private_dns_zone.back_office_applications_redis_cache_dns_zone](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone) | resource |
+| [azurerm_private_dns_zone.sql_synase_dns_zone](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone) | resource |
 | [azurerm_private_dns_zone_virtual_network_link.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
 | [azurerm_private_dns_zone_virtual_network_link.back_office_appeals_redis_cache_dns_link](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
 | [azurerm_private_dns_zone_virtual_network_link.back_office_applications_redis_cache_dns_link](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
+| [azurerm_private_dns_zone_virtual_network_link.zone_sql_link](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
 | [azurerm_private_endpoint.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_endpoint) | resource |
 | [azurerm_private_endpoint.back_office_appeals_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_endpoint) | resource |
 | [azurerm_private_endpoint.back_office_applications_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_endpoint) | resource |
 | [azurerm_private_endpoint.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_endpoint) | resource |
+| [azurerm_private_endpoint.private_endpoint](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_endpoint) | resource |
 | [azurerm_redis_cache.back_office_appeals_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/redis_cache) | resource |
 | [azurerm_redis_cache.back_office_applications_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/redis_cache) | resource |
 | [azurerm_resource_group.back_office_stack](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/resource_group) | resource |
@@ -136,7 +139,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="input_odw_data_lake_storage_account_name"></a> [odw\_data\_lake\_storage\_account\_name](#input\_odw\_data\_lake\_storage\_account\_name) | Storage Account Name for the ODW Data Lake | `string` | n/a | yes |
 | <a name="input_odw_resource_group_name"></a> [odw\_resource\_group\_name](#input\_odw\_resource\_group\_name) | Resource Group Name where ODW Synapse Workspace and Data Lake Storage Account live | `string` | n/a | yes |
 | <a name="input_odw_subscription_id"></a> [odw\_subscription\_id](#input\_odw\_subscription\_id) | The ID for the ODW subscription that houses the Synapse Workspace. | `string` | n/a | yes |
-| <a name="input_odw_synapse_sql_pool_host"></a> [odw\_synapse\_sql\_pool\_host](#input\_odw\_synapse\_sql\_pool\_host) | Serverless SQL Endpoint for ODW Synapse Workspace | `string` | n/a | yes |
+| <a name="input_odw_synapse_workspace_name"></a> [odw\_synapse\_workspace\_name](#input\_odw\_synapse\_workspace\_name) | ODW Synapse Workspace Name | `string` | n/a | yes |
 | <a name="input_private_endpoint_enabled"></a> [private\_endpoint\_enabled](#input\_private\_endpoint\_enabled) | A switch to determine if Private Endpoint should be enabled for backend App Services | `bool` | `true` | no |
 | <a name="input_redis_cache_configuration"></a> [redis\_cache\_configuration](#input\_redis\_cache\_configuration) | A map of redis configuration options | `map(string)` | n/a | yes |
 | <a name="input_service_bus_failover_enabled"></a> [service\_bus\_failover\_enabled](#input\_service\_bus\_failover\_enabled) | A switch to determine if Service Bus failover is enabled requiring the Premium SKU | `bool` | `false` | no |

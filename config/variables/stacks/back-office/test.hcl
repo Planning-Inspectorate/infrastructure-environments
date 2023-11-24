@@ -41,8 +41,8 @@ locals {
   applications_front_office_web_url = "https://applications-service-test.planninginspectorate.gov.uk"
   # Migration requirements for integrating with ODW
   # Currently unable to use pipeline environment variables
-  odw_subscription_id                = ""
-  odw_data_lake_storage_account_name = ""
-  odw_resource_group_name            = ""
-  odw_synapse_sql_pool_host          = ""
+  odw_subscription_id                = "6b18ba9d-2399-48b5-a834-e0f267be122d"
+  odw_data_lake_storage_account_name = "pinsstodwtestukswic3ai"
+  odw_resource_group_name            = "pins-rg-data-odw-test-uks"
+  odw_synapse_workspace_name         = "pins-synw-odw-test-uks"
 }
