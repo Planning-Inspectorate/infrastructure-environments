@@ -204,6 +204,7 @@ resource "azurerm_frontdoor" "common" {
     }
   }
 
+
   # Routing Rules
   routing_rule {
     enabled            = true

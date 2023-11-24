@@ -41,14 +41,12 @@ locals {
     url      = var.back_office_appeals_secondary_app_service_url,
     priority = 0
   }
-
   comment_planning_appeal_primary_mapping = {
-    url      = var.comment_planning_appeal_service_primary_app_service_url,
+    url      = var.comment_planning_appeal_primary_app_service_url,
     priority = 1
   }
-
   comment_planning_appeal_secondary_mapping = {
-    url      = var.comment_planning_appeal_service_secondary_app_service_url,
+    url      = var.comment_planning_appeal_secondary_app_service_url,
     priority = 0
   }
 
@@ -109,7 +107,7 @@ locals {
   }
 
   comment_planning_appeal_frontend = {
-    frontend_endpoint = var.comment_planning_appeal_service_public_url
+    frontend_endpoint = var.comment_planning_appeal_public_url
     app_service_urls = local.comment_planning_appeal_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
       local.comment_planning_appeal_primary_mapping,
       local.comment_planning_appeal_secondary_mapping] : [
@@ -117,9 +115,9 @@ locals {
     ]
     infer_backend_host_header = false
     name                      = "CommentPlanningAppeal"
-    frontend_name             = "comment-planning-appeal-service-gov-uk"
+    frontend_name             = "comment-planning-appeal-gov-uk"
     patterns_to_match         = ["/*"]
-    ssl_certificate_name      = var.comment_planning_appeal_service_ssl_certificate_name
+    ssl_certificate_name      = var.comment_planning_appeal_ssl_certificate_name
   }
 
   frontend_endpoint_mappings = [{
