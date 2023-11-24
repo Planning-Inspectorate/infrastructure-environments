@@ -33,7 +33,6 @@ output "frontend_endpoint_mappings" {
     }
   }
 }
-
 output "frontend_endpoints" {
   description = "A map of frontend endpoints within the Front Door instance"
   value       = azurerm_frontdoor.common.frontend_endpoints

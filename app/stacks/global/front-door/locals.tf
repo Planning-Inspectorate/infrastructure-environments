@@ -41,12 +41,10 @@ locals {
     url      = var.back_office_appeals_secondary_app_service_url,
     priority = 0
   }
-
   comment_planning_appeal_primary_mapping = {
     url      = var.comment_planning_appeal_primary_app_service_url,
     priority = 1
   }
-
   comment_planning_appeal_secondary_mapping = {
     url      = var.comment_planning_appeal_secondary_app_service_url,
     priority = 0
