@@ -19,7 +19,7 @@ resource "azurerm_private_endpoint" "private_endpoint" {
 
   private_service_connection {
     name = "pins-psc-${local.service_name}-synapse-sql-${local.resource_suffix}"
-    # TODO: After POC is working, look at using terraform_remote_state instead
+    # TODO: After POC is working, look at using terraform_remote_state or data blocks instead
     private_connection_resource_id = join("/", ["/subscriptions", var.odw_subscription_id, "resourceGroups", var.odw_resource_group_name, "providers/Microsoft.Synapse/workspaces", var.odw_synapse_workspace_name])
     subresource_names              = ["sqlondemand"]
     is_manual_connection           = false
