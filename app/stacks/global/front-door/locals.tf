@@ -109,7 +109,7 @@ locals {
   }
 
   comment_planning_appeal_frontend = {
-    frontend_endpoint = var.comment_planning_appeal_service_public_url
+    frontend_endpoint = var.comment_planning_appeal_public_url
     app_service_urls = local.comment_planning_appeal_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
       local.comment_planning_appeal_primary_mapping,
       local.comment_planning_appeal_secondary_mapping] : [

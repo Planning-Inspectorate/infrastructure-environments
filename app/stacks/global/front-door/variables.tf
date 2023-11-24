@@ -92,8 +92,8 @@ variable "comment_planning_appeal_service_ssl_certificate_name" {
   default     = "pins-wildcard-digicert-221223"
 }
 
-variable "comment_planning_appeal_service_public_url" {
-  description = "The public URL for the Comment Planning Appeal Service frontend web app"
+variable "comment_planning_appeal_public_url" {
+  description = "The public URL for the Comment Planning Appeal frontend web app"
   type        = string
 }
 
