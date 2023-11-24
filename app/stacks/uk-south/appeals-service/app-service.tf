@@ -47,6 +47,7 @@ module "app_services" {
   task_submit_to_horizon_cron_string                                          = var.task_submit_to_horizon_cron_string
   task_submit_to_horizon_trigger_active                                       = var.task_submit_to_horizon_trigger_active
   allow_testing_overrides                                                     = var.allow_testing_overrides
+  deploy_interested_parties                                                   = var.deploy_interested_parties
   clamav_host                                                                 = var.clamav_host
   integration_functions_app_service_plan_id                                   = var.integration_functions_app_service_plan_id
   back_office_service_bus_namespace_name                                      = var.back_office_service_bus_namespace_name
