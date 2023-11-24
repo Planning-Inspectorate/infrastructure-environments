@@ -86,7 +86,7 @@ dependency "comment_planning_appeal_uks" {
 
   mock_outputs = {
     app_service_urls = {
-      comment_planning_appeal_uks = "mock-wfe-url"
+      web_comment_frontend_url = "mock-wfe-url"
     }
   }
 }
@@ -98,7 +98,7 @@ dependency "comment_planning_appeal_ukw" {
 
   mock_outputs = {
     app_service_urls = {
-      comment_planning_appeal_ukw = "mock-wfe-url"
+      web_comment_frontend_url = "mock-wfe-url"
     }
   }
 }
@@ -123,8 +123,8 @@ inputs = {
   back_office_secondary_app_service_url             = dependency.back_office_uks.outputs.web_frontend_url
   back_office_appeals_primary_app_service_url       = dependency.back_office_ukw.outputs.appeals_web_frontend_url
   back_office_appeals_secondary_app_service_url     = dependency.back_office_uks.outputs.appeals_web_frontend_url
-  comment_planning_appeal_primary_app_service_url   = dependency.comment_planning_appeal_ukw.outputs.appeals_web_frontend_url
-  comment_planning_appeal_secondary_app_service_url = dependency.comment_planning_appeal_uks.outputs.appeals_web_frontend_url
+  comment_planning_appeal_primary_app_service_url   = dependency.comment_planning_appeal_ukw.outputs.web_comment_frontend_url
+  comment_planning_appeal_secondary_app_service_url = dependency.comment_planning_appeal_uks.outputs.web_comment_frontend_url
   common_key_vault_id                               = dependency.common_ukw.outputs.key_vault_id
   common_log_analytics_workspace_id                 = dependency.common_ukw.outputs.log_analytics_workspace_id
 }
