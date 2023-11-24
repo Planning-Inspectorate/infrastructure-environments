@@ -97,13 +97,13 @@ variable "comment_planning_appeal_public_url" {
   type        = string
 }
 
-variable "comment_planning_appeal_service_primary_app_service_url" {
-  description = "The primary App Service URL for the Comment Planning Appeal Service"
+variable "comment_planning_appeal_primary_app_service_url" {
+  description = "The primary App Service URL for the Comment Planning Appeal"
   type        = string
 }
 
-variable "comment_planning_appeal_service_secondary_app_service_url" {
-  description = "The secondary App Service URL for the Comment Planning Appeal Service"
+variable "comment_planning_appeal_secondary_app_service_url" {
+  description = "The secondary App Service URL for the Comment Planning Appeal"
   type        = string
   default     = ""
 }

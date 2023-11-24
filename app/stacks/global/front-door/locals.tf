@@ -43,12 +43,12 @@ locals {
   }
 
   comment_planning_appeal_primary_mapping = {
-    url      = var.comment_planning_appeal_service_primary_app_service_url,
+    url      = var.comment_planning_appeal_primary_app_service_url,
     priority = 1
   }
 
   comment_planning_appeal_secondary_mapping = {
-    url      = var.comment_planning_appeal_service_secondary_app_service_url,
+    url      = var.comment_planning_appeal_secondary_app_service_url,
     priority = 0
   }
 
