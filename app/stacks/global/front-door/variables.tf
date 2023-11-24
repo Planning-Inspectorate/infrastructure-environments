@@ -86,6 +86,28 @@ variable "back_office_appeals_secondary_app_service_url" {
   default     = ""
 }
 
+variable "comment_planning_appeal_public_url" {
+  description = "The public URL for the Comment Planning Appeal frontend web app"
+  type        = string
+}
+
+variable "comment_planning_appeal_primary_app_service_url" {
+  description = "The primary App Service URL for the Comment Planning Appeal"
+  type        = string
+}
+
+variable "comment_planning_appeal_secondary_app_service_url" {
+  description = "The secondary App Service URL for the Comment Planning Appeal"
+  type        = string
+  default     = ""
+}
+
+variable "comment_planning_appeal_ssl_certificate_name" {
+  description = "The SSL certificate name in the environment Key Vault for the Comment Planning Appeal"
+  type        = string
+  default     = "pins-wildcard-digicert-221223"
+}
+
 variable "common_log_analytics_workspace_id" {
   description = "The ID for the common Log Analytics Workspace"
   type        = string
