@@ -42,16 +42,6 @@ locals {
     priority = 0
   }
 
-  comment_planning_appeals_primary_mapping = {
-    url      = var.comment_planning_appeals_service_primary_app_service_url,
-    priority = 1
-  }
-
-  comment_planning_appeals_secondary_mapping = {
-    url      = var.comment_planning_appeals_service_secondary_app_service_url,
-    priority = 0
-  }
-
   applications_frontend = {
     frontend_endpoint = var.applications_service_public_url
     app_service_urls = local.applications_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
@@ -108,20 +98,6 @@ locals {
     ssl_certificate_name      = var.back_office_appeals_ssl_certificate_name
   }
 
-  comment_planning_appeals_frontend = {
-    frontend_endpoint = var.comment_planning_appeals_service_public_url
-    app_service_urls = local.appeals_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
-      local.comment_planning_appeals_primary_mapping,
-      local.comment_planning_appeals_secondary_mapping] : [
-      local.comment_planning_appeals_primary_mapping
-    ]
-    infer_backend_host_header = false
-    name                      = "CommentPlanningAppeals"
-    frontend_name             = "comment-planning-appeals-service-gov-uk"
-    patterns_to_match         = ["/*"]
-    ssl_certificate_name      = var.comment_planning_appeals_service_ssl_certificate_name
-  }
-
   frontend_endpoint_mappings = [{
     name            = "ApplicationsService"
     search_indexing = var.enable_search_indexing_by_default
@@ -133,9 +109,6 @@ locals {
     search_indexing = false
     }, {
     name            = "BackOfficeAppeals"
-    search_indexing = false
-    }, {
-    name            = "CommentPlanningAppeals"
     search_indexing = false
   }]
 
