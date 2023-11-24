@@ -44,5 +44,5 @@ locals {
   odw_subscription_id                = "a82fd28d-5989-4e06-a0bb-1a5d859f9e0c"
   odw_data_lake_storage_account_name = "pinsstodwprodukson83nw"
   odw_resource_group_name            = "pins-rg-data-odw-prod-uks"
-  odw_synapse_workspace_name         = "pins-synw-odw-prod-uks-ondemand"
+  odw_synapse_workspace_name         = "pins-synw-odw-prod-uks"
 }
