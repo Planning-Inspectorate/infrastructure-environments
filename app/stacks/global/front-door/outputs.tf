@@ -24,12 +24,6 @@ output "frontend_endpoint_mappings" {
       frontend_endpoint    = local.back_office_appeals_frontend.frontend_endpoint
       patterns_to_match    = local.back_office_appeals_frontend.patterns_to_match
       ssl_certificate_name = local.back_office_appeals_frontend.ssl_certificate_name
-    },
-    appeals_frontend = {
-      frontend_name        = local.comment_planning_appeals_frontend.frontend_name
-      frontend_endpoint    = local.comment_planning_appeals_frontend.frontend_endpoint
-      patterns_to_match    = local.comment_planning_appeals_frontend.patterns_to_match
-      ssl_certificate_name = local.comment_planning_appeals_frontend.ssl_certificate_name
     }
   }
 }
