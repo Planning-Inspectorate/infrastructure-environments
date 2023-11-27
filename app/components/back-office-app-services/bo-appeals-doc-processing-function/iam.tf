@@ -10,7 +10,7 @@ resource "azurerm_role_assignment" "function_blob_data_writer" {
 }
 
 resource "azurerm_role_assignment" "function_blob_data_reader" {
-  scope                = data.azurerm_storage_container.fo_documents
+  scope                = data.azurerm_storage_container.fo_documents.id
   role_definition_name = "Storage Blob Data Reader"
   principal_id         = module.bo_appeals_doc_processing_function.principal_id
 }

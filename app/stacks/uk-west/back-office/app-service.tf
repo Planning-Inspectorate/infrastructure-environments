@@ -66,6 +66,7 @@ module "app_services" {
   service_bus_appeals_fo_lpa_response_submission_id            = azurerm_servicebus_topic.appeal_fo_lpa_response_submission.id
   tags                                                         = local.tags
   employee_topic_id                                            = azurerm_servicebus_topic.employee.id
+  service_user_topic_id                                        = azurerm_servicebus_topic.service_user.id
   feature_odw_subscription_enabled                             = true
   back_office_documents_system_topic_name                      = azurerm_eventgrid_system_topic.back_office_documents_system_topic.name
   notify_subscribers_function_gov_notify_template_id           = var.notify_subscribers_function_gov_notify_template_id
