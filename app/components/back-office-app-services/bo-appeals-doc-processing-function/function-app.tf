@@ -23,7 +23,7 @@ module "bo_appeals_doc_processing_function" {
     # Function env variables
     API_HOST                = var.back_office_api_host
     BO_BLOB_STORAGE_ACCOUNT = var.bo_appeals_storage_account_name
-    BO_BLOB_CONTAINER       = var.bo_appeals_document_container
+    BO_BLOB_CONTAINER       = var.bo_appeals_document_container_name
   }
 
   tags = var.tags

@@ -78,7 +78,8 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_back_office_documents_system_topic_name"></a> [back\_office\_documents\_system\_topic\_name](#input\_back\_office\_documents\_system\_topic\_name) | Back Office Document Storage System Topic Name | `string` | `""` | no |
 | <a name="input_back_office_hostname"></a> [back\_office\_hostname](#input\_back\_office\_hostname) | Back Office Hostname | `string` | n/a | yes |
 | <a name="input_back_office_integration_subnet_id"></a> [back\_office\_integration\_subnet\_id](#input\_back\_office\_integration\_subnet\_id) | Integration subnet for back office anti-virus resources | `string` | n/a | yes |
-| <a name="input_bo_appeals_document_container"></a> [bo\_appeals\_document\_container](#input\_bo\_appeals\_document\_container) | The default container name for appeals back office documents | `string` | n/a | yes |
+| <a name="input_bo_appeals_document_container_id"></a> [bo\_appeals\_document\_container\_id](#input\_bo\_appeals\_document\_container\_id) | Back Office Storage Container ID for documents | `string` | `"bo-appeals-documents"` | no |
+| <a name="input_bo_appeals_document_container_name"></a> [bo\_appeals\_document\_container\_name](#input\_bo\_appeals\_document\_container\_name) | Back Office Storage Container name for documents | `string` | `"bo-appeals-documents"` | no |
 | <a name="input_bo_appeals_storage_account_name"></a> [bo\_appeals\_storage\_account\_name](#input\_bo\_appeals\_storage\_account\_name) | The ID of the appeals back office storage account | `string` | n/a | yes |
 | <a name="input_common_vnet_id"></a> [common\_vnet\_id](#input\_common\_vnet\_id) | The common infrastructure virtual network id | `string` | n/a | yes |
 | <a name="input_container_registry_name"></a> [container\_registry\_name](#input\_container\_registry\_name) | The name of the container registry that hosts the image | `string` | n/a | yes |
