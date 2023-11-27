@@ -71,6 +71,14 @@ resource "azurerm_storage_container" "back_office_published_documents_container"
   container_access_type = "blob"
 }
 
+resource "azurerm_storage_container" "back_office_appeals_document_container" {
+  #TODO: Logging
+  #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
+  name                  = "bo-appeals-documents"
+  storage_account_name  = azurerm_storage_account.back_office_documents.name
+  container_access_type = "private"
+}
+
 # Shared storage between back office appps for Azure Functions
 resource "azurerm_storage_account" "function_storage" {
   #TODO: Customer Managed Keys

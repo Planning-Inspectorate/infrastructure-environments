@@ -68,3 +68,8 @@ variable "service_bus_appeals_fo_appellant_submission_id" {
   description = "Service Bus Topic ID for front office appellant case"
   type        = string
 }
+
+variable "service_bus_appeals_fo_lpa_response_submission_id" {
+  description = "Service Bus Topic ID for front office LPA questionnaire"
+  type        = string
+}
