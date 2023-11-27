@@ -69,7 +69,13 @@ variable "bo_appeals_storage_account_name" {
   type        = string
 }
 
-variable "bo_appeals_document_container" {
+variable "bo_appeals_document_container_id" {
+  description = "Back Office Storage Container ID for documents"
+  type        = string
+  default     = "bo-appeals-documents"
+}
+
+variable "bo_appeals_document_container_name" {
   description = "Back Office Storage Container name for documents"
   type        = string
   default     = "bo-appeals-documents"
