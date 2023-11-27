@@ -299,6 +299,11 @@ variable "document_storage_back_office_document_service_uploads_container_name" 
   type        = string
 }
 
+variable "document_storage_back_office_appeals_document_container_name" {
+  description = "Document Storage container name for BO appeals"
+  type        = string
+}
+
 variable "back_office_documents_system_topic_name" {
   description = "Back Office Document Storage System Topic Name"
   type        = string

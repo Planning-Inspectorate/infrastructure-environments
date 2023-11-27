@@ -72,7 +72,7 @@ variable "bo_appeals_storage_account_name" {
 variable "bo_appeals_document_container" {
   description = "Back Office Storage Container name for documents"
   type        = string
-  default     = "published-documents"
+  default     = "bo-appeals-documents"
 }
 
 variable "malware_scanning_topic_id" {

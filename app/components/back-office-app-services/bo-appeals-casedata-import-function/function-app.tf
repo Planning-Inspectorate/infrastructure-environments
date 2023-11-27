@@ -27,14 +27,14 @@ module "bo_appeals_casedata_import_function" {
   tags = var.tags
 }
 
-resource "azurerm_servicebus_subscription" "register_fo_casedata_subscription" {
-  name               = "register-fo-casedata-subscription"
+resource "azurerm_servicebus_subscription" "fo_appellant_submission_subscription" {
+  name               = "fo-appellant-submission-subscription"
   topic_id           = var.service_bus_appeals_fo_appellant_submission_id
   max_delivery_count = 1
 }
 
-resource "azurerm_servicebus_subscription" "register_fo_lpaq_subscription" {
-  name               = "register-fo-lpaq-subscription"
+resource "azurerm_servicebus_subscription" "fo_lpaq_submission_subscription" {
+  name               = "fo-lpaq-submission-subscription"
   topic_id           = var.service_bus_appeals_fo_lpa_response_submission_id
   max_delivery_count = 1
 }
