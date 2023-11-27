@@ -69,6 +69,8 @@ module "app_services" {
   servicebus_topic_deadline_submission_result_id    = ""
   service_bus_appeals_fo_appellant_submission_id    = ""
   service_bus_appeals_fo_lpa_response_submission_id = ""
+  bo_appeals_document_container                     = ""
+  bo_appeals_storage_account_name                   = ""
 
 
   # notify subscribers configuration

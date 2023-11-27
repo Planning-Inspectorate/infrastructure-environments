@@ -64,7 +64,12 @@ variable "service_bus_namespace_name" {
   type        = string
 }
 
-variable "service_bus_appeals_fo_lpa_response_submission_id" {
-  description = "Service Bus Topic ID for front office appellant case"
+variable "employee_topic_id" {
+  description = "Service Bus Topic ID for ODW employee"
+  type        = string
+}
+
+variable "serviceuser_topic_id" {
+  description = "Service Bus Topic ID for ODW employee"
   type        = string
 }

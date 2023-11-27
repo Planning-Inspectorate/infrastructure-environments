@@ -23,8 +23,8 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="module_applications_migration_function"></a> [applications\_migration\_function](#module\_applications\_migration\_function) | ./applications-migration-function | n/a |
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
 | <a name="module_bo_appeals_casedata_import_function"></a> [bo\_appeals\_casedata\_import\_function](#module\_bo\_appeals\_casedata\_import\_function) | ./bo-appeals-casedata-import-function | n/a |
-| <a name="module_bo_appeals_hrdata_import_function"></a> [bo\_appeals\_hrdata\_import\_function](#module\_bo\_appeals\_hrdata\_import\_function) | ./bo-appeals-hrdata-import-function | n/a |
-| <a name="module_bo_appeals_lpaq_import_function"></a> [bo\_appeals\_lpaq\_import\_function](#module\_bo\_appeals\_lpaq\_import\_function) | ./bo-appeals-lpaq-import-function | n/a |
+| <a name="module_bo_appeals_doc_processing_function"></a> [bo\_appeals\_doc\_processing\_function](#module\_bo\_appeals\_doc\_processing\_function) | ./bo-appeals-doc-processing-function | n/a |
+| <a name="module_bo_appeals_user_import_function"></a> [bo\_appeals\_user\_import\_function](#module\_bo\_appeals\_user\_import\_function) | ./bo-appeals-userdata-import-function | n/a |
 | <a name="module_clam_av_container"></a> [clam\_av\_container](#module\_clam\_av\_container) | ./clamav-container | n/a |
 | <a name="module_deadline_submissions_function"></a> [deadline\_submissions\_function](#module\_deadline\_submissions\_function) | ./deadline-submissions-function | n/a |
 | <a name="module_document_check_function"></a> [document\_check\_function](#module\_document\_check\_function) | ./document-check-function | n/a |
@@ -78,6 +78,8 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_back_office_documents_system_topic_name"></a> [back\_office\_documents\_system\_topic\_name](#input\_back\_office\_documents\_system\_topic\_name) | Back Office Document Storage System Topic Name | `string` | `""` | no |
 | <a name="input_back_office_hostname"></a> [back\_office\_hostname](#input\_back\_office\_hostname) | Back Office Hostname | `string` | n/a | yes |
 | <a name="input_back_office_integration_subnet_id"></a> [back\_office\_integration\_subnet\_id](#input\_back\_office\_integration\_subnet\_id) | Integration subnet for back office anti-virus resources | `string` | n/a | yes |
+| <a name="input_bo_appeals_document_container"></a> [bo\_appeals\_document\_container](#input\_bo\_appeals\_document\_container) | The default container name for appeals back office documents | `string` | n/a | yes |
+| <a name="input_bo_appeals_storage_account_name"></a> [bo\_appeals\_storage\_account\_name](#input\_bo\_appeals\_storage\_account\_name) | The ID of the appeals back office storage account | `string` | n/a | yes |
 | <a name="input_common_vnet_id"></a> [common\_vnet\_id](#input\_common\_vnet\_id) | The common infrastructure virtual network id | `string` | n/a | yes |
 | <a name="input_container_registry_name"></a> [container\_registry\_name](#input\_container\_registry\_name) | The name of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_container_registry_rg"></a> [container\_registry\_rg](#input\_container\_registry\_rg) | The resource group of the container registry that hosts the image | `string` | n/a | yes |
@@ -120,6 +122,7 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_service_bus_namespace_name"></a> [service\_bus\_namespace\_name](#input\_service\_bus\_namespace\_name) | The name of the Back Office service bus namespace | `string` | n/a | yes |
 | <a name="input_service_name"></a> [service\_name](#input\_service\_name) | The name of the service the Azure App Services are part of | `string` | n/a | yes |
 | <a name="input_service_plan_sku"></a> [service\_plan\_sku](#input\_service\_plan\_sku) | The SKU of the App Service Plan providing resources to hosted App Services | `string` | `"P2v2"` | no |
+| <a name="input_service_user_topic_id"></a> [service\_user\_topic\_id](#input\_service\_user\_topic\_id) | The ID of the employee topic | `string` | `""` | no |
 | <a name="input_servicebus_topic_deadline_submission_result_id"></a> [servicebus\_topic\_deadline\_submission\_result\_id](#input\_servicebus\_topic\_deadline\_submission\_result\_id) | Service Bus Topic deadline-submission-result id | `string` | n/a | yes |
 | <a name="input_servicebus_topic_deadline_submission_topic_id"></a> [servicebus\_topic\_deadline\_submission\_topic\_id](#input\_servicebus\_topic\_deadline\_submission\_topic\_id) | Service Bus Topic deadline-submission-topic id | `string` | n/a | yes |
 | <a name="input_servicebus_topic_nsip_documents_id"></a> [servicebus\_topic\_nsip\_documents\_id](#input\_servicebus\_topic\_nsip\_documents\_id) | Service Bus Topic nsip-document id | `string` | n/a | yes |
