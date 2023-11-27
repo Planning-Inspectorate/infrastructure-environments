@@ -33,6 +33,11 @@ variable "appeals_service_public_url" {
   type        = string
 }
 
+variable "comment_planning_appeal_public_url" {
+  description = "The public URL for the Comment Planning Appeal frontend web app"
+  type        = string
+}
+
 variable "common_resource_group_name" {
   description = "The common infrastructure resource group name"
   type        = string

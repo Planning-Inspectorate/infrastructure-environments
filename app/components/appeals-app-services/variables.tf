@@ -33,6 +33,11 @@ variable "appeals_service_public_url" {
   type        = string
 }
 
+variable "comment_planning_appeal_public_url" {
+  description = "The public URL for the Comment Planning Appeal frontend web app"
+  type        = string
+}
+
 variable "container_registry_name" {
   description = "The name of the container registry that hosts the image"
   type        = string
