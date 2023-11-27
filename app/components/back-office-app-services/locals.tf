@@ -82,7 +82,7 @@ locals {
         APPEALS_LEGAL_TEAM_GROUP_ID   = var.azuread_appeals_legal_team_group_id
         APPEALS_CS_TEAM_GROUP_ID      = var.azuread_appeals_cs_team_group_id
         AZURE_BLOB_STORE_HOST         = var.document_storage_api_host # TODO: Replace
-        AZURE_BLOB_DEFAULT_CONTAINER  = var.document_storage_back_office_appeals_document_container_name
+        AZURE_BLOB_DEFAULT_CONTAINER  = var.bo_appeals_document_container
         LOG_LEVEL_FILE                = var.back_office_appeals_log_level_file
         LOG_LEVEL_STDOUT              = var.back_office_appeals_log_level_stdout
         NODE_ENV                      = var.node_environment
