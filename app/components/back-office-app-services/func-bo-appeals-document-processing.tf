@@ -16,7 +16,7 @@ module "bo_appeals_doc_processing_function" {
   service_bus_namespace_name               = var.service_bus_namespace_name
   malware_scanning_topic_id                = var.malware_scanning_topic_id
   bo_appeals_storage_account_name          = var.bo_appeals_storage_account_name
-  bo_appeals_document_container            = var.bo_appeals_document_container
+  bo_appeals_document_container_id         = var.bo_appeals_document_container_id
 
 
   providers = {

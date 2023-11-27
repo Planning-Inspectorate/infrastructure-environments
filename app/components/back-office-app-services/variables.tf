@@ -369,9 +369,16 @@ variable "bo_appeals_storage_account_name" {
   type        = string
 }
 
-variable "bo_appeals_document_container" {
-  description = "The default container name for appeals back office documents"
+variable "bo_appeals_document_container_id" {
+  description = "Back Office Storage Container ID for documents"
   type        = string
+  default     = "bo-appeals-documents"
+}
+
+variable "bo_appeals_document_container_name" {
+  description = "Back Office Storage Container name for documents"
+  type        = string
+  default     = "bo-appeals-documents"
 }
 
 # Migration-specific variables which will be removed post-migration. Not needed for uk-south.
