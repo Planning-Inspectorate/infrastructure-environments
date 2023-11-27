@@ -103,3 +103,8 @@ variable "odw_synapse_workspace_name" {
   type        = string
   default     = ""
 }
+
+variable "environment" {
+  description = "The environment resources are deployed to e.g. 'dev'"
+  type        = string
+}

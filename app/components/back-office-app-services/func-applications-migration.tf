@@ -21,6 +21,7 @@ module "applications_migration_function" {
   odw_resource_group_name                  = var.odw_resource_group_name
   odw_data_lake_storage_account_name       = var.odw_data_lake_storage_account_name
   odw_synapse_workspace_name               = var.odw_synapse_workspace_name
+  environment                              = var.environment
 
   providers = {
     azurerm = azurerm
