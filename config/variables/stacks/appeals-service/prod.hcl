@@ -1,6 +1,22 @@
 locals {
   appeals_feature_flags = [
     {
+      name    = "appeals-bo-submission"
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = []
+      }
+    },
+    {
+      name    = "enrol-users"
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = []
+      }
+    },
+    {
       name    = "final-comments"
       enabled = false
       targeting = {
@@ -9,7 +25,7 @@ locals {
       }
     },
     {
-      name    = "appeals-bo-submission"
+      name    = "has-questionnaire"
       enabled = false
       targeting = {
         percentage = 100
@@ -25,14 +41,6 @@ locals {
       }
     },
     {
-      name    = "send-appeal-direct-to-horizon-wrapper"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = []
-      }
-    },
-    {
       name    = "lpa-dashboard"
       enabled = false
       targeting = {
@@ -41,14 +49,16 @@ locals {
       }
     },
     {
-      name    = "has-questionnaire"
-      enabled = false
+      name    = "send-appeal-direct-to-horizon-wrapper"
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
       }
     }
   ]
+  allow_testing_overrides                                                     = false
+  appeals_feature_back_office_subscriber_enabled                              = false
   google_analytics_id                                                         = "G-DW8DW9TQ84"
   google_tag_manager_id                                                       = "GTM-KZN7XP4"
   horizon_url                                                                 = "http://10.224.161.68:8000"
@@ -66,10 +76,6 @@ locals {
   srv_admin_monitoring_email                                                  = "appealsbetateam@planninginspectorate.gov.uk"
   srv_notify_failure_to_upload_to_horizon_template_id                         = "68fbc646-c4b4-4050-be04-1829a0b109dc"
   srv_notify_final_comment_submission_confirmation_email_template_id          = "be8ba2f3-b8ae-4d63-93ea-4b1f725cd3a2"
-  task_submit_to_horizon_cron_string                                          = "*/15 * * * *"
-  task_submit_to_horizon_trigger_active                                       = "true"
-  allow_testing_overrides                                                     = false
-  appeals_feature_back_office_subscriber_enabled                              = false
   sql_database_configuration = {
     max_size_gb                 = 250
     short_term_retention_days   = 30
@@ -84,4 +90,6 @@ locals {
     login_username = "sunrahman"
     object_id      = "2af5c723-b22e-4eac-b0e5-ec39675462d6"
   }
+  task_submit_to_horizon_cron_string    = "*/15 * * * *"
+  task_submit_to_horizon_trigger_active = "true"
 }

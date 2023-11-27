@@ -1,3 +1,12 @@
+resource "azurerm_application_insights" "back_office_app_insights" {
+  name                 = "pins-ai-${local.service_name}-${local.resource_suffix}-app-insights"
+  location             = azurerm_resource_group.back_office_stack.location
+  resource_group_name  = azurerm_resource_group.back_office_stack.name
+  workspace_id         = azurerm_log_analytics_workspace.back_office.id
+  application_type     = "web"
+  daily_data_cap_in_gb = 10
+}
+
 resource "azurerm_log_analytics_workspace" "back_office" {
   name                = "pins-log-${local.service_name}-${local.resource_suffix}"
   resource_group_name = azurerm_resource_group.back_office_stack.name
