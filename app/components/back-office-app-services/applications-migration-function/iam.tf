@@ -10,14 +10,18 @@ resource "azurerm_key_vault_access_policy" "read_secrets" {
   storage_permissions     = []
 }
 
+locals {
+  data_lake_account_id = join("/", ["/subscriptions", var.odw_subscription_id, "resourceGroups", var.odw_resource_group_name, "providers/Microsoft.Storage/storageAccounts", var.odw_data_lake_storage_account_name])
+}
+
 # Annoyingly it doesn't look like you can get a data "azurerm_storage_container" resource in a different Subscription and RG
 # So we need to build the resource ID dynamically
 resource "azurerm_role_assignment" "read_data_lake_storage" {
   # We're only deploying the synapse migration functionality on Dev right now
   count = var.odw_subscription_id != "" ? 1 : 0
 
-  scope                = join("/", ["/subscriptions", var.odw_subscription_id, "resourceGroups", var.odw_resource_group_name, "providers/Microsoft.Storage/storageAccounts", var.odw_data_lake_storage_account_name, "blobServices/default/containers/odw_curated"])
-  role_definition_name = "Storage Blob Data Owner"
+  scope                = var.environment == "foo" ? local.data_lake_account_id : data.terraform_remote_state.odw.outputs.data_lake_account_id
+  role_definition_name = "Storage Blob Data Reader"
   principal_id         = module.applications_migration_function.principal_id
 }
 
