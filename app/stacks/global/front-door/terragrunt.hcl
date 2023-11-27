@@ -10,6 +10,7 @@ dependency "appeals_service_uks" {
   mock_outputs = {
     app_service_urls = {
       appeals_frontend_uks = "mock-wfe-url"
+      comment_planning_appeal_frontend_uks = "mock-wfe-url"
     }
   }
 }
@@ -23,6 +24,7 @@ dependency "appeals_service_ukw" {
   mock_outputs = {
     app_service_urls = {
       appeals_frontend_ukw = "mock-wfe-url"
+      comment_planning_appeal_frontend_ukw = "mock-wfe-url"
     }
   }
 }
