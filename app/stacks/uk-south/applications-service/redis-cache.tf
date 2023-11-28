@@ -33,17 +33,13 @@ resource "azurerm_private_endpoint" "applications_service_redis_cache" {
 }
 
 resource "azurerm_private_dns_zone" "redis_cache" {
-  count = var.is_dr_deployment ? 1 : 0
-
   name                = "privatelink.redis.cache.windows.net"
   resource_group_name = azurerm_resource_group.applications_service_stack.name
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "redis_cache_dns" {
-  count = var.is_dr_deployment ? 1 : 0
-
   name                  = "redis-cache-dns-link"
   resource_group_name   = azurerm_resource_group.applications_service_stack.name
-  private_dns_zone_name = azurerm_private_dns_zone.redis_cache[count.index].name
+  private_dns_zone_name = azurerm_private_dns_zone.redis_cache.name
   virtual_network_id    = var.common_vnet_id
 }
