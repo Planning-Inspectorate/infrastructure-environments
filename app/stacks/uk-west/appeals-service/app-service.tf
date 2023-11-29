@@ -1,18 +1,18 @@
 module "app_services" {
   source = "../../../components/appeals-app-services"
 
-  action_group_low_id                                                         = var.action_group_low_id
-  allow_testing_overrides                                                     = var.allow_testing_overrides
-  api_timeout                                                                 = var.api_timeout
-  app_service_plan_id                                                         = var.app_service_plan_id
-  app_service_private_dns_zone_id                                             = data.azurerm_private_dns_zone.app_service.id
-  appeals_api_service_bus_enabled                                             = var.appeals_api_service_bus_enabled
-  appeals_feature_back_office_subscriber_enabled                              = var.appeals_feature_back_office_subscriber_enabled
-  appeal_documents_storage_container_name                                     = azurerm_storage_container.documents.name
-  appeals_service_public_url                                                  = var.appeals_service_public_url
-  back_office_service_bus_namespace_name                                      = var.back_office_service_bus_namespace_name
-  clamav_host                                                                 = var.clamav_host
-  comment_planning_appeal_public_url                                          = var.comment_planning_appeal_public_url
+  action_group_low_id                            = var.action_group_low_id
+  allow_testing_overrides                        = var.allow_testing_overrides
+  api_timeout                                    = var.api_timeout
+  app_service_plan_id                            = var.app_service_plan_id
+  app_service_private_dns_zone_id                = data.azurerm_private_dns_zone.app_service.id
+  appeals_api_service_bus_enabled                = var.appeals_api_service_bus_enabled
+  appeals_feature_back_office_subscriber_enabled = var.appeals_feature_back_office_subscriber_enabled
+  appeal_documents_storage_container_name        = azurerm_storage_container.documents.name
+  appeals_service_public_url                     = var.appeals_service_public_url
+  back_office_service_bus_namespace_name         = var.back_office_service_bus_namespace_name
+  clamav_host                                    = var.clamav_host
+  # comment_planning_appeal_public_url                                          = var.comment_planning_appeal_public_url
   common_integration_functions_subnet_id                                      = var.common_integration_functions_subnet_id
   container_registry_name                                                     = var.container_registry_name
   container_registry_rg                                                       = var.container_registry_rg
