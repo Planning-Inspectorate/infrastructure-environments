@@ -13,7 +13,7 @@ resource "azurerm_frontdoor" "common" {
   backend_pool_health_probe {
     enabled             = true
     name                = "Http"
-    path                = "/health"
+    path                = "/"
     protocol            = "Http"
     probe_method        = "GET"
     interval_in_seconds = 120
