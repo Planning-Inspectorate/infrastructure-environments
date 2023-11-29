@@ -41,14 +41,14 @@ locals {
     url      = var.back_office_appeals_secondary_app_service_url,
     priority = 0
   }
-  comment_planning_appeal_primary_mapping = {
-    url      = var.comment_planning_appeal_primary_app_service_url,
-    priority = 1
-  }
-  comment_planning_appeal_secondary_mapping = {
-    url      = var.comment_planning_appeal_secondary_app_service_url,
-    priority = 0
-  }
+  # comment_planning_appeal_primary_mapping = {
+  #   url      = var.comment_planning_appeal_primary_app_service_url,
+  #   priority = 1
+  # }
+  # comment_planning_appeal_secondary_mapping = {
+  #   url      = var.comment_planning_appeal_secondary_app_service_url,
+  #   priority = 0
+  # }
 
   applications_frontend = {
     frontend_endpoint = var.applications_service_public_url
@@ -106,19 +106,19 @@ locals {
     ssl_certificate_name      = var.back_office_appeals_ssl_certificate_name
   }
 
-  comment_planning_appeal_frontend = {
-    frontend_endpoint = var.comment_planning_appeal_public_url
-    app_service_urls = local.comment_planning_appeal_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
-      local.comment_planning_appeal_primary_mapping,
-      local.comment_planning_appeal_secondary_mapping] : [
-      local.comment_planning_appeal_primary_mapping
-    ]
-    infer_backend_host_header = false
-    name                      = "CommentPlanningAppeal"
-    frontend_name             = "CommentPlanningAppeal"
-    patterns_to_match         = ["/*"]
-    ssl_certificate_name      = var.comment_planning_appeal_ssl_certificate_name
-  }
+  # comment_planning_appeal_frontend = {
+  #   frontend_endpoint = var.comment_planning_appeal_public_url
+  #   app_service_urls = local.comment_planning_appeal_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
+  #     local.comment_planning_appeal_primary_mapping,
+  #     local.comment_planning_appeal_secondary_mapping] : [
+  #     local.comment_planning_appeal_primary_mapping
+  #   ]
+  #   infer_backend_host_header = false
+  #   name                      = "CommentPlanningAppeal"
+  #   frontend_name             = "CommentPlanningAppeal"
+  #   patterns_to_match         = ["/*"]
+  #   ssl_certificate_name      = var.comment_planning_appeal_ssl_certificate_name
+  # }
 
   frontend_endpoint_mappings = [{
     name            = "ApplicationsService"
@@ -132,10 +132,11 @@ locals {
     }, {
     name            = "BackOfficeAppeals"
     search_indexing = false
-    }, {
-    name            = "CommentPlanningAppeal"
-    search_indexing = false
   }]
+  #   , {
+  #   name            = "CommentPlanningAppeal"
+  #   search_indexing = false
+  # }]
 
   # This variable is used in a bash script to loop through some Azure CLI commands that cannot conflict
   # We cannot use a terraform for_each loop for the null_resource since these all run in parallel. Hence the loop is done within the command
