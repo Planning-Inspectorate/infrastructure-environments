@@ -115,7 +115,7 @@ locals {
     ]
     infer_backend_host_header = false
     name                      = "CommentPlanningAppeal"
-    frontend_name             = "CommentPlanningAppeal"
+    frontend_name             = "comment-planning-appeal-gov-uk"
     patterns_to_match         = ["/*"]
     ssl_certificate_name      = var.comment_planning_appeal_ssl_certificate_name
   }
