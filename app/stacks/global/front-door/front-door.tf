@@ -13,7 +13,7 @@ resource "azurerm_frontdoor" "common" {
   backend_pool_health_probe {
     enabled             = true
     name                = "Http"
-    path                = "/"
+    path                = "/health"
     protocol            = "Http"
     probe_method        = "GET"
     interval_in_seconds = 120
@@ -92,11 +92,11 @@ resource "azurerm_frontdoor" "common" {
     web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
   }
 
-  frontend_endpoint {
-    name                                    = local.comment_planning_appeal_frontend.frontend_name
-    host_name                               = local.comment_planning_appeal_frontend.frontend_endpoint
-    web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
-  }
+  # frontend_endpoint {
+  #   name                                    = local.comment_planning_appeal_frontend.frontend_name
+  #   host_name                               = local.comment_planning_appeal_frontend.frontend_endpoint
+  #   web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
+  # }
 
   # Backend Pools
   backend_pool {
