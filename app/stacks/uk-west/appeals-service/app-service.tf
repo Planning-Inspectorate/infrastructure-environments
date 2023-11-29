@@ -12,7 +12,6 @@ module "app_services" {
   appeals_service_public_url                                                  = var.appeals_service_public_url
   back_office_service_bus_namespace_name                                      = var.back_office_service_bus_namespace_name
   clamav_host                                                                 = var.clamav_host
-  comment_planning_appeal_public_url                                          = var.comment_planning_appeal_public_url
   common_integration_functions_subnet_id                                      = var.common_integration_functions_subnet_id
   container_registry_name                                                     = var.container_registry_name
   container_registry_rg                                                       = var.container_registry_rg
