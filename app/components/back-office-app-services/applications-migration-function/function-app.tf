@@ -29,7 +29,8 @@ module "applications_migration_function" {
     NI_DB_MYSQL_PORT     = local.secret_refs["applications-service-mysql-port"]
     NI_DB_MYSQL_USERNAME = local.secret_refs["applications-service-mysql-username"]
     # ODW Synapse Configuration
-    SYNAPSE_SQL_HOST = "${var.odw_synapse_workspace_name}-ondemand.sql.azuresynapse.net"
+    # We only provide this if there is an endpoint available, and it will currently only be available in dev
+    SYNAPSE_SQL_HOST = local.synapse_integration_enabled ? data.terraform_remote_state.odw.outputs.synapse_ssql_endpoint : ""
   }
 
   tags = var.tags

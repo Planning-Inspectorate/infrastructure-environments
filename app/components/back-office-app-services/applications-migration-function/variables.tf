@@ -80,31 +80,17 @@ variable "node_environment" {
   default     = "development"
 }
 
-variable "odw_subscription_id" {
-  description = "Resource Group Name where ODW Synapse Workspace and Data Lake Storage Account live"
-  type        = string
-  default     = ""
-}
-
-variable "odw_resource_group_name" {
-  description = "Resource Group Name where ODW Synapse Workspace and Data Lake Storage Account live"
-  type        = string
-  default     = ""
-}
-
-variable "odw_data_lake_storage_account_name" {
-  description = "Storage Account Name for the ODW Data Lake"
-  type        = string
-  default     = ""
-}
-
-variable "odw_synapse_workspace_name" {
-  description = "ODW Synapse Workspace Name"
-  type        = string
-  default     = ""
-}
-
 variable "environment" {
   description = "The environment resources are deployed to e.g. 'dev'"
+  type        = string
+}
+
+variable "common_vnet_id" {
+  description = "The common infrastructure virtual network id"
+  type        = string
+
+}
+variable "endpoint_subnet_id" {
+  description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
   type        = string
 }

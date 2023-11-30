@@ -17,11 +17,9 @@ module "applications_migration_function" {
   key_vault_id                             = var.key_vault_id
   tenant_id                                = data.azurerm_client_config.current.tenant_id
   node_environment                         = var.node_environment
-  odw_subscription_id                      = var.odw_subscription_id
-  odw_resource_group_name                  = var.odw_resource_group_name
-  odw_data_lake_storage_account_name       = var.odw_data_lake_storage_account_name
-  odw_synapse_workspace_name               = var.odw_synapse_workspace_name
   environment                              = var.environment
+  common_vnet_id                           = var.common_vnet_id
+  endpoint_subnet_id                       = var.endpoint_subnet_id
 
   providers = {
     azurerm = azurerm
