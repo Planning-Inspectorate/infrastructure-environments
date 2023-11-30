@@ -18,10 +18,10 @@ variable "app_service_plan_id" {
   type        = string
 }
 
-# variable "comment_planning_appeal_public_url" {
-#   description = "The public URL for the Comment Planning Appeal frontend web app"
-#   type        = string
-# }
+variable "comment_planning_appeal_public_url" {
+  description = "The public URL for the Comment Planning Appeal frontend web app"
+  type        = string
+}
 
 variable "integration_functions_app_service_plan_id" {
   description = "The id of the common integration functions app service plan"
