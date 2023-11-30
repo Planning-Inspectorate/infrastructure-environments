@@ -85,3 +85,8 @@ variable "malware_scanning_topic_id" {
   description = "The ID of the Event Grid topic to listen on for malware detection"
   type        = string
 }
+
+variable "service_bus_appeals_bo_document_copy_topic_id" {
+  description = "Back Office Storage Container name for documents"
+  type        = string
+}
