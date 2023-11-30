@@ -87,6 +87,6 @@ variable "malware_scanning_topic_id" {
 }
 
 variable "service_bus_appeals_bo_document_copy_topic_id" {
-  description = "Back Office Storage Container name for documents"
+  description = "ID of the appeals back office document copy Service Bus Topic"
   type        = string
 }
