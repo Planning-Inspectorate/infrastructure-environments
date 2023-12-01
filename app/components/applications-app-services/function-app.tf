@@ -301,6 +301,6 @@ resource "azurerm_servicebus_subscription_rule" "nsip_service_user_topic_subscri
 
   name            = "applications-nsip-service_user-subscription-rule"
   subscription_id = azurerm_servicebus_subscription.nsip_service_user_topic_subscription[0].id
-  filter_type     = "sqlFilter"
+  filter_type     = "SqlFilter"
   sql_filter      = "type = 'Publish' AND entityType IN ('Applicant', 'Represented', 'Representative')"
 }
