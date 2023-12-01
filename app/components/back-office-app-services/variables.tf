@@ -284,8 +284,8 @@ variable "service_bus_appeals_fo_lpa_response_submission_id" {
   type        = string
 }
 
-variable "service_bus_appeals_bo_document_copy_topic_id" {
-  description = "ID of the appeals back office document copy Service Bus Topic"
+variable "service_bus_appeals_bo_document_to_move_topic_id" {
+  description = "ID of the appeals back office document to move Service Bus Topic"
   type        = string
 }
 

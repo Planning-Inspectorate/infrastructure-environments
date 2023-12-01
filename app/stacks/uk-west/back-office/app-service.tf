@@ -63,7 +63,7 @@ module "app_services" {
   malware_scanning_topic_id                                                           = azurerm_eventgrid_topic.malware_scanning_topic.id
   service_bus_appeals_fo_appellant_submission_id                                      = azurerm_servicebus_topic.appeal_fo_appellant_submission.id
   service_bus_appeals_fo_lpa_response_submission_id                                   = azurerm_servicebus_topic.appeal_fo_lpa_response_submission.id
-  service_bus_appeals_bo_document_copy_topic_id                                       = azurerm_servicebus_topic.appeal_bo_document_copy.id
+  service_bus_appeals_bo_document_to_move_topic_id                                    = azurerm_servicebus_topic.appeal_bo_document_to_move.id
   tags                                                                                = local.tags
   employee_topic_id                                                                   = azurerm_servicebus_topic.employee.id
   service_user_topic_id                                                               = azurerm_servicebus_topic.service_user.id

@@ -167,9 +167,9 @@ output "service_bus_appeals_bo_document_topic_id" {
   value       = azurerm_servicebus_topic.appeal_bo_document.id
 }
 
-output "service_bus_appeals_bo_document_copy_topic_id" {
-  description = "ID of the appeals back office document copy Service Bus Topic"
-  value       = azurerm_servicebus_topic.appeal_bo_document_copy.id
+output "service_bus_appeals_bo_document_to_move_topic_id" {
+  description = "ID of the appeals back office document to move Service Bus Topic"
+  value       = azurerm_servicebus_topic.appeal_bo_document_to_move.id
 }
 
 output "service_bus_appeals_fo_appellant_submission_id" {
