@@ -90,7 +90,6 @@ resource "azurerm_servicebus_subscription_rule" "nsip_project_unpublish_topic_su
 }
 
 
-
 # nsip-document
 
 resource "azurerm_servicebus_subscription" "nsip_document_topic_subscription" {
@@ -302,11 +301,6 @@ resource "azurerm_servicebus_subscription_rule" "nsip_service_user_topic_subscri
 
   name            = "applications-nsip-service_user-subscription-rule"
   subscription_id = azurerm_servicebus_subscription.nsip_service_user_topic_subscription[0].id
-  filter_type     = "CorrelationFilter"
-  correlation_filter {
-    properties = {
-      type       = "Publish",
-      entityType = ["Applicant", "Represented", "Representative"]
-    }
-  }
+  filter_type     = "sqlFilter"
+  sql_filter      = "type = 'Publish' AND entityType IN ('Applicant', 'Represented', 'Representative')"
 }
