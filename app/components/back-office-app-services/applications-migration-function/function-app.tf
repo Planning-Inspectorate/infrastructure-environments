@@ -2,7 +2,7 @@ module "applications_migration_function" {
   source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.9"
 
   action_group_low_id                      = var.action_group_low_id
-  app_name                                 = "apps-migration"
+  app_name                                 = local.service_name
   app_service_plan_id                      = var.app_service_plan_id
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
@@ -13,7 +13,7 @@ module "applications_migration_function" {
   outbound_vnet_connectivity               = true
   resource_group_name                      = var.resource_group_name
   resource_suffix                          = var.resource_suffix
-  service_name                             = "apps-migration"
+  service_name                             = local.service_name
   use_app_insights                         = true
   function_node_version                    = 18
 
@@ -30,7 +30,7 @@ module "applications_migration_function" {
     NI_DB_MYSQL_USERNAME = local.secret_refs["applications-service-mysql-username"]
     # ODW Synapse Configuration
     # We only provide this if there is an endpoint available, and it will currently only be available in dev
-    SYNAPSE_SQL_HOST = local.synapse_integration_enabled ? data.terraform_remote_state.odw.outputs.synapse_ssql_endpoint : ""
+    SYNAPSE_SQL_HOST = var.odw_synapse_ssql_endpoint
   }
 
   tags = var.tags

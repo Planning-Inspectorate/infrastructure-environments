@@ -11,9 +11,9 @@ resource "azurerm_key_vault_access_policy" "read_secrets" {
 }
 
 resource "azurerm_role_assignment" "read_data_lake_storage" {
-  count = local.synapse_integration_enabled ? 1 : 0
+  count = var.odw_synapse_integration_enabled ? 1 : 0
 
-  scope                = data.terraform_remote_state.odw.outputs.data_lake_account_id
+  scope                = var.odw_data_lake_storage_account_id
   role_definition_name = "Storage Blob Data Reader"
   principal_id         = module.applications_migration_function.principal_id
 }

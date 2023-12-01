@@ -80,17 +80,20 @@ variable "node_environment" {
   default     = "development"
 }
 
-variable "environment" {
-  description = "The environment resources are deployed to e.g. 'dev'"
-  type        = string
+variable "odw_synapse_integration_enabled" {
+  description = "Whether or not Synapse Migration Integration is enabled"
+  type        = bool
+  default     = false
 }
 
-variable "common_vnet_id" {
-  description = "The common infrastructure virtual network id"
+variable "odw_synapse_ssql_endpoint" {
+  description = "Serverless SQL Endpoint for ODW Synapse"
   type        = string
-
+  default     = ""
 }
-variable "endpoint_subnet_id" {
-  description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
+
+variable "odw_data_lake_storage_account_id" {
+  description = "Storage Account ID for ODW Data Lake"
   type        = string
+  default     = ""
 }

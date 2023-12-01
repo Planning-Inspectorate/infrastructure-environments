@@ -1,4 +1,6 @@
 data "terraform_remote_state" "odw" {
+  count = var.odw_synapse_integration_enabled ? 1 : 0
+
   backend = "azurerm"
 
   config = {

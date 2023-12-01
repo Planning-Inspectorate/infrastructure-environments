@@ -234,3 +234,9 @@ variable "redis_cache_configuration" {
   description = "A map of redis configuration options"
   type        = map(string)
 }
+
+variable "odw_synapse_integration_enabled" {
+  description = "Whether or not Synapse Migration Integration is enabled"
+  type        = bool
+  default     = false
+}

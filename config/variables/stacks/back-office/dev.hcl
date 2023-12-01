@@ -39,4 +39,5 @@ locals {
   # not ideal to specify this, but using a dependency with terragrunt would create a dependency cycle,
   # as applications is already dependent on back office
   applications_front_office_web_url = "https://applications-service-dev.planninginspectorate.gov.uk"
+  odw_synapse_integration_enabled   = true
 }
