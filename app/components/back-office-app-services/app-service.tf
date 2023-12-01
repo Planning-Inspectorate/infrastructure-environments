@@ -25,6 +25,7 @@ module "app_service" {
   resource_group_name                   = var.resource_group_name
   resource_suffix                       = var.resource_suffix
   service_name                          = var.service_name
+  health_check_path                     = "/health"
 
   tags = var.tags
 
