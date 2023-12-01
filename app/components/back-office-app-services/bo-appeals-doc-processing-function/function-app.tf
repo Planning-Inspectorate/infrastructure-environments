@@ -28,3 +28,9 @@ module "bo_appeals_doc_processing_function" {
 
   tags = var.tags
 }
+
+resource "azurerm_servicebus_subscription" "register_bo_document_to_move_subscription" {
+  name               = "appeal-document-to-move-subscription"
+  topic_id           = var.service_bus_appeals_bo_document_to_move_topic_id
+  max_delivery_count = 1
+}

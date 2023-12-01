@@ -157,8 +157,15 @@ resource "azurerm_servicebus_topic" "appeal_bo_case" {
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
+
 resource "azurerm_servicebus_topic" "appeal_bo_document" {
   name                = "appeal-document"
+  namespace_id        = azurerm_servicebus_namespace.back_office.id
+  default_message_ttl = "P14D"
+}
+
+resource "azurerm_servicebus_topic" "appeal_bo_document_to_move" {
+  name                = "appeal-document-to-move"
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }

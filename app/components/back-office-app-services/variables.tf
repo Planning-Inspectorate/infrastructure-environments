@@ -284,6 +284,11 @@ variable "service_bus_appeals_fo_lpa_response_submission_id" {
   type        = string
 }
 
+variable "service_bus_appeals_bo_document_to_move_topic_id" {
+  description = "ID of the appeals back office document to move Service Bus Topic"
+  type        = string
+}
+
 variable "document_storage_back_office_document_service_uploads_container_resource_manager_id" {
   description = "Back Office document-service-uploads container resource_manager_id"
   type        = string
