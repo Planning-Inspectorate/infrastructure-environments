@@ -1,7 +1,7 @@
 module "app_service" {
   for_each = local.app_services
 
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service?ref=1.5"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service?ref=1.8"
 
   action_group_low_id                   = var.action_group_low_id
   app_name                              = each.value["app_name"]
@@ -25,6 +25,7 @@ module "app_service" {
   resource_group_name                   = var.resource_group_name
   resource_suffix                       = var.resource_suffix
   service_name                          = var.service_name
+  health_check_path                     = "/health"
 
   tags = var.tags
 
