@@ -305,7 +305,8 @@ resource "azurerm_servicebus_subscription_rule" "nsip_service_user_topic_subscri
   filter_type     = "CorrelationFilter"
   correlation_filter {
     properties = {
-      type = "Publish"
+      type       = "Publish",
+      entityType = ["Applicant", "Represented", "Representative"]
     }
   }
 }
