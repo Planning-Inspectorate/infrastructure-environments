@@ -14,7 +14,6 @@ module "app_service" {
   custom_hostname                       = can(each.value["custom_hostname"]) ? each.value["custom_hostname"] : null
   custom_hostname_certificate_secret_id = can(each.value["custom_hostname_certificate_secret_id"]) ? each.value["custom_hostname_certificate_secret_id"] : null
   endpoint_subnet_id                    = can(each.value["endpoint_subnet_id"]) ? each.value["endpoint_subnet_id"] : null
-  health_check_path                     = var.health_check_path
   image_name                            = each.value["image_name"]
   inbound_vnet_connectivity             = each.value["inbound_vnet_connectivity"]
   integration_subnet_id                 = can(each.value["integration_subnet_id"]) ? each.value["integration_subnet_id"] : null
