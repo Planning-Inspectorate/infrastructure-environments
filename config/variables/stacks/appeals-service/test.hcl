@@ -10,7 +10,7 @@ locals {
     },
     {
       name    = "enrol-users"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
