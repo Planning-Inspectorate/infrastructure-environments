@@ -151,7 +151,7 @@ variable "environment" {
 variable "health_check_path" {
   description = "The path of the service's health check endpoint"
   type        = string
-  default     = "/health"
+  default     = "/api/health"
 }
 
 variable "instance" {
