@@ -124,6 +124,12 @@ variable "endpoint_subnet_id" {
   type        = string
 }
 
+variable "health_check_path" {
+  description = "The path of the service's health check endpoint"
+  type        = string
+  default     = null
+}
+
 variable "key_vault_id" {
   description = "The ID of the key vault so the App Service can pull secret values"
   type        = string
