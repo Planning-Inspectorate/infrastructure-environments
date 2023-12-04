@@ -41,6 +41,7 @@ This module contains the App Services resources for the applications service. Th
 | [azurerm_role_assignment.nsip_project_update_unpublish_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.nsip_representation_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.nsip_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.nsip_service_user_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
 | [azurerm_servicebus_subscription.nsip_advice_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription) | resource |
 | [azurerm_servicebus_subscription.nsip_document_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription) | resource |
 | [azurerm_servicebus_subscription.nsip_document_unpublish_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription) | resource |
@@ -50,6 +51,7 @@ This module contains the App Services resources for the applications service. Th
 | [azurerm_servicebus_subscription.nsip_project_update_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription) | resource |
 | [azurerm_servicebus_subscription.nsip_project_update_unpublish_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription) | resource |
 | [azurerm_servicebus_subscription.nsip_representation_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_servicebus_subscription.nsip_service_user_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription) | resource |
 | [azurerm_servicebus_subscription_rule.nsip_advice_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription_rule) | resource |
 | [azurerm_servicebus_subscription_rule.nsip_document_unpublish_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription_rule) | resource |
 | [azurerm_servicebus_subscription_rule.nsip_exam_timetable_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription_rule) | resource |
@@ -57,6 +59,7 @@ This module contains the App Services resources for the applications service. Th
 | [azurerm_servicebus_subscription_rule.nsip_project_unpublish_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription_rule) | resource |
 | [azurerm_servicebus_subscription_rule.nsip_project_update_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription_rule) | resource |
 | [azurerm_servicebus_subscription_rule.nsip_project_update_unpublish_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription_rule) | resource |
+| [azurerm_servicebus_subscription_rule.nsip_service_user_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription_rule) | resource |
 | [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/client_config) | data source |
 
 ## Inputs
@@ -84,6 +87,7 @@ This module contains the App Services resources for the applications service. Th
 | <a name="input_back_office_service_bus_nsip_project_topic_id"></a> [back\_office\_service\_bus\_nsip\_project\_topic\_id](#input\_back\_office\_service\_bus\_nsip\_project\_topic\_id) | ID for the nsip-project topic | `string` | n/a | yes |
 | <a name="input_back_office_service_bus_nsip_project_update_topic_id"></a> [back\_office\_service\_bus\_nsip\_project\_update\_topic\_id](#input\_back\_office\_service\_bus\_nsip\_project\_update\_topic\_id) | ID for the nsip-project-update topic | `string` | n/a | yes |
 | <a name="input_back_office_service_bus_nsip_representation_topic_id"></a> [back\_office\_service\_bus\_nsip\_representation\_topic\_id](#input\_back\_office\_service\_bus\_nsip\_representation\_topic\_id) | ID for the nsip-representation topic | `string` | n/a | yes |
+| <a name="input_back_office_service_bus_nsip_service_user_topic_id"></a> [back\_office\_service\_bus\_nsip\_service\_user\_topic\_id](#input\_back\_office\_service\_bus\_nsip\_service\_user\_topic\_id) | ID for the nsip-service-user topic | `string` | n/a | yes |
 | <a name="input_back_office_service_bus_register_nsip_subscription_topic_id"></a> [back\_office\_service\_bus\_register\_nsip\_subscription\_topic\_id](#input\_back\_office\_service\_bus\_register\_nsip\_subscription\_topic\_id) | ID for the register-nsip-subscription topic | `string` | n/a | yes |
 | <a name="input_back_office_service_bus_register_representation_topic_id"></a> [back\_office\_service\_bus\_register\_representation\_topic\_id](#input\_back\_office\_service\_bus\_register\_representation\_topic\_id) | ID for the register-representation topic | `string` | n/a | yes |
 | <a name="input_back_office_submissions_storage_account_name"></a> [back\_office\_submissions\_storage\_account\_name](#input\_back\_office\_submissions\_storage\_account\_name) | Back office submissions container storage\_account\_name | `string` | n/a | yes |
