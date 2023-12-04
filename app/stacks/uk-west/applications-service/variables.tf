@@ -103,7 +103,6 @@ variable "back_office_service_bus_nsip_advice_topic_id" {
 variable "back_office_service_bus_nsip_service_user_topic_id" {
   description = "ID for the nsip-service-user topic"
   type        = string
-  default     = ""
 }
 
 variable "back_office_integration_get_advice_case_references" {
