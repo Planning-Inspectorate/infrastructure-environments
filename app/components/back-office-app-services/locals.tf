@@ -43,14 +43,15 @@ locals {
       health_check_path               = var.health_check_path
 
       app_settings = {
-        APPLICATIONINSIGHTS_CONNECTION_STRING = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/back-office-app-insights-connection-string/)"
-        DATABASE_URL                          = var.database_connection_string
-        NODE_ENV                              = var.node_environment
-        AZURE_BLOB_STORE_HOST                 = var.document_storage_api_host
-        AZURE_BLOB_STORE_CONTAINER            = var.document_storage_back_office_document_service_uploads_container_name
-        SERVICE_BUS_HOSTNAME                  = "${var.service_bus_namespace_name}.servicebus.windows.net"
-        HEALTH_CHECK_PATH                     = var.health_check_path
-        SERVICE_BUS_ENABLED                   = var.feature_service_bus_enabled
+        APPLICATIONINSIGHTS_CONNECTION_STRING      = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/back-office-app-insights-connection-string/)"
+        ApplicationInsightsAgent_EXTENSION_VERSION = "~3"
+        DATABASE_URL                               = var.database_connection_string
+        NODE_ENV                                   = var.node_environment
+        AZURE_BLOB_STORE_HOST                      = var.document_storage_api_host
+        AZURE_BLOB_STORE_CONTAINER                 = var.document_storage_back_office_document_service_uploads_container_name
+        SERVICE_BUS_HOSTNAME                       = "${var.service_bus_namespace_name}.servicebus.windows.net"
+        HEALTH_CHECK_PATH                          = var.health_check_path
+        SERVICE_BUS_ENABLED                        = var.feature_service_bus_enabled
         # Specific to Prisma to resolve issues with the way relations are fetched
         QUERY_BATCH_SIZE = 2090
         # Temporary migration variables for Project Updates
