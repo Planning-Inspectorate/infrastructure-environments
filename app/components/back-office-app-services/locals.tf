@@ -52,6 +52,7 @@ locals {
         SERVICE_BUS_HOSTNAME                       = "${var.service_bus_namespace_name}.servicebus.windows.net"
         HEALTH_CHECK_PATH                          = var.health_check_path
         SERVICE_BUS_ENABLED                        = var.feature_service_bus_enabled
+        DATABASE_NAME                              = var.database_name
         # Specific to Prisma to resolve issues with the way relations are fetched
         QUERY_BATCH_SIZE = 2090
         # Temporary migration variables for Project Updates
