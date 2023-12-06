@@ -25,6 +25,7 @@ module "app_services" {
   container_registry_name                          = var.container_registry_name
   container_registry_rg                            = var.container_registry_rg
   database_connection_string                       = local.sql_connection_string
+  database_name                                    = var.back_office_sql_database
   appeals_database_connection_string               = local.appeals_sql_connection_string
   document_storage_api_host                        = var.back_office_document_storage_api_host
   endpoint_subnet_id                               = azurerm_subnet.back_office_ingress.id

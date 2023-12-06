@@ -8,26 +8,28 @@ locals {
       integration_subnet_id      = var.integration_subnet_id
       key_vault_access           = true
       outbound_vnet_connectivity = true
+      health_check_path          = var.health_check_path
 
       app_settings = {
-        AUTH_REDIRECT_PATH                       = "/auth/redirect"
-        API_HOST                                 = "https://pins-app-${var.service_name}-api-${var.resource_suffix}.azurewebsites.net"
-        APP_HOSTNAME                             = var.back_office_hostname
-        AUTH_CLIENT_ID                           = var.azuread_auth_client_id
-        AUTH_CLIENT_SECRET                       = local.secret_refs["back-office-client-secret"]
-        AUTH_CLOUD_INSTANCE_ID                   = "https://login.microsoftonline.com"
-        AUTH_TENANT_ID                           = data.azurerm_client_config.current.tenant_id
-        APPLICATIONS_CASE_ADMIN_OFFICER_GROUP_ID = var.azuread_applications_case_admin_officer_group_id
-        APPLICATIONS_CASETEAM_GROUP_ID           = var.azuread_applications_caseteam_group_id
-        APPLICATIONS_INSPECTOR_GROUP_ID          = var.azuread_applications_inspector_group_id
-        AZURE_BLOB_STORE_HOST                    = var.document_storage_api_host
-        HEALTH_CHECK_PATH                        = var.health_check_path
-        LOG_LEVEL_FILE                           = var.back_office_applications_log_level_file
-        LOG_LEVEL_STDOUT                         = var.back_office_applications_log_level_stdout
-        NODE_ENV                                 = var.node_environment
-        OS_PLACES_API_KEY                        = local.secret_refs["os-places-api-key"]
-        REDIS_CONNECTION_STRING                  = local.existing_secret_refs[var.back_office_applications_redis_connection_string_secret_name]
-        SESSION_SECRET                           = local.secret_refs["session-secret"]
+        APPLICATIONINSIGHTS_CONNECTION_STRING      = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/back-office-app-insights-connection-string/)"
+        ApplicationInsightsAgent_EXTENSION_VERSION = "~3"
+        AUTH_REDIRECT_PATH                         = "/auth/redirect"
+        API_HOST                                   = "https://pins-app-${var.service_name}-api-${var.resource_suffix}.azurewebsites.net"
+        APP_HOSTNAME                               = var.back_office_hostname
+        AUTH_CLIENT_ID                             = var.azuread_auth_client_id
+        AUTH_CLIENT_SECRET                         = local.secret_refs["back-office-client-secret"]
+        AUTH_CLOUD_INSTANCE_ID                     = "https://login.microsoftonline.com"
+        AUTH_TENANT_ID                             = data.azurerm_client_config.current.tenant_id
+        APPLICATIONS_CASE_ADMIN_OFFICER_GROUP_ID   = var.azuread_applications_case_admin_officer_group_id
+        APPLICATIONS_CASETEAM_GROUP_ID             = var.azuread_applications_caseteam_group_id
+        APPLICATIONS_INSPECTOR_GROUP_ID            = var.azuread_applications_inspector_group_id
+        AZURE_BLOB_STORE_HOST                      = var.document_storage_api_host
+        LOG_LEVEL_FILE                             = var.back_office_applications_log_level_file
+        LOG_LEVEL_STDOUT                           = var.back_office_applications_log_level_stdout
+        NODE_ENV                                   = var.node_environment
+        OS_PLACES_API_KEY                          = local.secret_refs["os-places-api-key"]
+        REDIS_CONNECTION_STRING                    = local.existing_secret_refs[var.back_office_applications_redis_connection_string_secret_name]
+        SESSION_SECRET                             = local.secret_refs["session-secret"]
       }
     }
 
@@ -50,8 +52,8 @@ locals {
         AZURE_BLOB_STORE_HOST                      = var.document_storage_api_host
         AZURE_BLOB_STORE_CONTAINER                 = var.document_storage_back_office_document_service_uploads_container_name
         SERVICE_BUS_HOSTNAME                       = "${var.service_bus_namespace_name}.servicebus.windows.net"
-        HEALTH_CHECK_PATH                          = var.health_check_path
         SERVICE_BUS_ENABLED                        = var.feature_service_bus_enabled
+        DATABASE_NAME                              = var.database_name
         # Specific to Prisma to resolve issues with the way relations are fetched
         QUERY_BATCH_SIZE = 2090
         # Temporary migration variables for Project Updates
@@ -87,7 +89,6 @@ locals {
         APPEALS_CS_TEAM_GROUP_ID      = var.azuread_appeals_cs_team_group_id
         AZURE_BLOB_STORE_HOST         = var.document_storage_api_host # TODO: Replace
         AZURE_BLOB_DEFAULT_CONTAINER  = var.bo_appeals_document_container_name
-        HEALTH_CHECK_PATH             = var.health_check_path
         LOG_LEVEL_FILE                = var.back_office_appeals_log_level_file
         LOG_LEVEL_STDOUT              = var.back_office_appeals_log_level_stdout
         NODE_ENV                      = var.node_environment
@@ -111,7 +112,6 @@ locals {
         NODE_ENV             = var.node_environment
         SERVICE_BUS_HOSTNAME = "${var.service_bus_namespace_name}.servicebus.windows.net"
         SERVICE_BUS_ENABLED  = var.feature_service_bus_enabled
-        HEALTH_CHECK_PATH    = var.health_check_path
         GOV_NOTIFY_API_KEY   = local.secret_refs["back-office-appeals-gov-notify-api-key"]
         TEST_MAILBOX         = local.secret_refs["back-office-appeals-test-mailbox"]
       }
