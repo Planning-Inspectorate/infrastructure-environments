@@ -59,6 +59,11 @@ variable "back_office_integration_get_advice_case_references" {
   type        = string
 }
 
+variable "back_office_integration_get_representation_case_references" {
+  description = "list of case references (comma separated) that representation data is retrieved from back office"
+  type        = string
+}
+
 variable "back_office_integration_get_application_case_references" {
   description = "list of case references (comma separated) that the application data is retrieved from back office"
   type        = string
@@ -118,6 +123,7 @@ variable "back_office_service_bus_nsip_service_user_topic_id" {
   description = "ID for the nsip-service-user topic"
   type        = string
 }
+
 
 variable "back_office_submissions_storage_container_resource_manager_id" {
   description = "Back office submissions container resource_manager_id"
