@@ -24,6 +24,7 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
 | <a name="module_bo_appeals_casedata_import_function"></a> [bo\_appeals\_casedata\_import\_function](#module\_bo\_appeals\_casedata\_import\_function) | ./bo-appeals-casedata-import-function | n/a |
 | <a name="module_bo_appeals_doc_processing_function"></a> [bo\_appeals\_doc\_processing\_function](#module\_bo\_appeals\_doc\_processing\_function) | ./bo-appeals-doc-processing-function | n/a |
+| <a name="module_bo_appeals_scheduler_function"></a> [bo\_appeals\_scheduler\_function](#module\_bo\_appeals\_scheduler\_function) | ./bo-appeals-scheduler-function | n/a |
 | <a name="module_bo_appeals_user_import_function"></a> [bo\_appeals\_user\_import\_function](#module\_bo\_appeals\_user\_import\_function) | ./bo-appeals-userdata-import-function | n/a |
 | <a name="module_clam_av_container"></a> [clam\_av\_container](#module\_clam\_av\_container) | ./clamav-container | n/a |
 | <a name="module_deadline_submissions_function"></a> [deadline\_submissions\_function](#module\_deadline\_submissions\_function) | ./deadline-submissions-function | n/a |
