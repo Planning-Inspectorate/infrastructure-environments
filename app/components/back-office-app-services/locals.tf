@@ -76,24 +76,26 @@ locals {
       outbound_vnet_connectivity = true
 
       app_settings = {
-        AUTH_REDIRECT_PATH            = "/auth/redirect"
-        API_HOST                      = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
-        APP_HOSTNAME                  = var.back_office_appeals_hostname
-        AUTH_CLIENT_ID                = var.azuread_auth_client_id
-        AUTH_CLIENT_SECRET            = local.secret_refs["back-office-client-secret"]
-        AUTH_CLOUD_INSTANCE_ID        = "https://login.microsoftonline.com"
-        AUTH_TENANT_ID                = data.azurerm_client_config.current.tenant_id
-        APPEALS_INSPECTOR_GROUP_ID    = var.azuread_appeals_inspector_group_id
-        APPEALS_CASE_OFFICER_GROUP_ID = var.azuread_appeals_case_officer_group_id
-        APPEALS_LEGAL_TEAM_GROUP_ID   = var.azuread_appeals_legal_team_group_id
-        APPEALS_CS_TEAM_GROUP_ID      = var.azuread_appeals_cs_team_group_id
-        AZURE_BLOB_STORE_HOST         = var.document_storage_api_host # TODO: Replace
-        AZURE_BLOB_DEFAULT_CONTAINER  = var.bo_appeals_document_container_name
-        LOG_LEVEL_FILE                = var.back_office_appeals_log_level_file
-        LOG_LEVEL_STDOUT              = var.back_office_appeals_log_level_stdout
-        NODE_ENV                      = var.node_environment
-        REDIS_CONNECTION_STRING       = local.existing_secret_refs[var.back_office_appeals_redis_connection_string_secret_name]
-        SESSION_SECRET                = local.secret_refs["session-secret"] # TODO: Let's create a separate one for Appeals
+        APPLICATIONINSIGHTS_CONNECTION_STRING      = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/back-office-appeals-insights-connection-string/)"
+        ApplicationInsightsAgent_EXTENSION_VERSION = "~3"
+        AUTH_REDIRECT_PATH                         = "/auth/redirect"
+        API_HOST                                   = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
+        APP_HOSTNAME                               = var.back_office_appeals_hostname
+        AUTH_CLIENT_ID                             = var.azuread_auth_client_id
+        AUTH_CLIENT_SECRET                         = local.secret_refs["back-office-client-secret"]
+        AUTH_CLOUD_INSTANCE_ID                     = "https://login.microsoftonline.com"
+        AUTH_TENANT_ID                             = data.azurerm_client_config.current.tenant_id
+        APPEALS_INSPECTOR_GROUP_ID                 = var.azuread_appeals_inspector_group_id
+        APPEALS_CASE_OFFICER_GROUP_ID              = var.azuread_appeals_case_officer_group_id
+        APPEALS_LEGAL_TEAM_GROUP_ID                = var.azuread_appeals_legal_team_group_id
+        APPEALS_CS_TEAM_GROUP_ID                   = var.azuread_appeals_cs_team_group_id
+        AZURE_BLOB_STORE_HOST                      = var.document_storage_api_host # TODO: Replace
+        AZURE_BLOB_DEFAULT_CONTAINER               = var.bo_appeals_document_container_name
+        LOG_LEVEL_FILE                             = var.back_office_appeals_log_level_file
+        LOG_LEVEL_STDOUT                           = var.back_office_appeals_log_level_stdout
+        NODE_ENV                                   = var.node_environment
+        REDIS_CONNECTION_STRING                    = local.existing_secret_refs[var.back_office_appeals_redis_connection_string_secret_name]
+        SESSION_SECRET                             = local.secret_refs["session-secret"] # TODO: Let's create a separate one for Appeals
       }
     }
 
@@ -108,12 +110,15 @@ locals {
       outbound_vnet_connectivity      = true
 
       app_settings = {
-        DATABASE_URL         = var.appeals_database_connection_string
-        NODE_ENV             = var.node_environment
-        SERVICE_BUS_HOSTNAME = "${var.service_bus_namespace_name}.servicebus.windows.net"
-        SERVICE_BUS_ENABLED  = var.feature_service_bus_enabled
-        GOV_NOTIFY_API_KEY   = local.secret_refs["back-office-appeals-gov-notify-api-key"]
-        TEST_MAILBOX         = local.secret_refs["back-office-appeals-test-mailbox"]
+        APPLICATIONINSIGHTS_CONNECTION_STRING      = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/back-office-appeals-insights-connection-string/)"
+        ApplicationInsightsAgent_EXTENSION_VERSION = "~3"
+        DATABASE_URL                               = var.appeals_database_connection_string
+        DATABASE_NAME                              = var.appeals_database_name
+        NODE_ENV                                   = var.node_environment
+        SERVICE_BUS_HOSTNAME                       = "${var.service_bus_namespace_name}.servicebus.windows.net"
+        SERVICE_BUS_ENABLED                        = var.feature_service_bus_enabled
+        GOV_NOTIFY_API_KEY                         = local.secret_refs["back-office-appeals-gov-notify-api-key"]
+        TEST_MAILBOX                               = local.secret_refs["back-office-appeals-test-mailbox"]
       }
     }
   }

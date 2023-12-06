@@ -30,6 +30,7 @@ This component contains the infrastructure required for the back office service.
 | Name | Type |
 |------|------|
 | [azurerm_application_insights.back_office_app_insights](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/application_insights) | resource |
+| [azurerm_application_insights.back_office_appeals_insights](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/application_insights) | resource |
 | [azurerm_eventgrid_system_topic.back_office_documents_system_topic](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/eventgrid_system_topic) | resource |
 | [azurerm_eventgrid_topic.malware_scanning_topic](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/eventgrid_topic) | resource |
 | [azurerm_key_vault_secret.app_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
@@ -40,6 +41,7 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_key_vault_secret.back_office_sql_server_password](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.back_office_sql_server_username](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.bo_app_insights_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.bo_appeals_insights_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_log_analytics_workspace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/log_analytics_workspace) | resource |
 | [azurerm_monitor_diagnostic_setting.back_office_sql_database](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_diagnostic_setting) | resource |
 | [azurerm_mssql_database.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_database) | resource |
