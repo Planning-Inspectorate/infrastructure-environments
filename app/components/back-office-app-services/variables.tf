@@ -113,6 +113,11 @@ variable "database_name" {
   type        = string
 }
 
+variable "appeals_database_name" {
+  description = "The name of the Appeals Back Office database"
+  type        = string
+}
+
 variable "appeals_database_connection_string" {
   description = "The connection string used to connect to the Back Office Appeals MySQL database"
   sensitive   = true

@@ -58,6 +58,7 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_app_service_plan_id"></a> [app\_service\_plan\_id](#input\_app\_service\_plan\_id) | The id of the app service plan | `string` | n/a | yes |
 | <a name="input_app_service_private_dns_zone_id"></a> [app\_service\_private\_dns\_zone\_id](#input\_app\_service\_private\_dns\_zone\_id) | The id of the private DNS zone for App services | `string` | n/a | yes |
 | <a name="input_appeals_database_connection_string"></a> [appeals\_database\_connection\_string](#input\_appeals\_database\_connection\_string) | The connection string used to connect to the Back Office Appeals MySQL database | `string` | n/a | yes |
+| <a name="input_appeals_database_name"></a> [appeals\_database\_name](#input\_appeals\_database\_name) | The name of the Appeals Back Office database | `string` | n/a | yes |
 | <a name="input_applications_front_office_web_url"></a> [applications\_front\_office\_web\_url](#input\_applications\_front\_office\_web\_url) | Applications Front Office Web URL | `string` | n/a | yes |
 | <a name="input_azuread_appeals_case_officer_group_id"></a> [azuread\_appeals\_case\_officer\_group\_id](#input\_azuread\_appeals\_case\_officer\_group\_id) | The Azure AD group ID for Appeals Back Office case officers | `string` | `null` | no |
 | <a name="input_azuread_appeals_cs_team_group_id"></a> [azuread\_appeals\_cs\_team\_group\_id](#input\_azuread\_appeals\_cs\_team\_group\_id) | The Azure AD group ID for Appeals Back Office CS Team | `string` | `null` | no |
