@@ -55,6 +55,7 @@ module "app_services" {
   srv_notify_confirm_email_template_id                                        = var.srv_notify_confirm_email_template_id
   srv_notify_appeal_submission_confirmation_email_to_appellant_template_id    = var.srv_notify_appeal_submission_confirmation_email_to_appellant_template_id
   srv_notify_appeal_submission_received_notification_email_to_lpa_template_id = var.srv_notify_appeal_submission_received_notification_email_to_lpa_template_id
+  srv_notify_appellant_login_confirm_registration_template_id                 = var.srv_notify_appellant_login_confirm_registration_template_id
   srv_notify_start_email_to_lpa_template_id                                   = var.srv_notify_start_email_to_lpa_template_id
   srv_notify_lpa_dashboard_invite_template_id                                 = var.srv_notify_lpa_dashboard_invite_template_id
   srv_notify_service_id                                                       = var.srv_notify_service_id

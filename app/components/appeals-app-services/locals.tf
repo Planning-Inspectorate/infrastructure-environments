@@ -134,6 +134,7 @@ locals {
         SRV_NOTIFY_SERVICE_ID                                                       = var.srv_notify_service_id
         SRV_NOTIFY_APPEAL_SUBMISSION_CONFIRMATION_EMAIL_TO_APPELLANT_TEMPLATE_ID    = var.srv_notify_appeal_submission_confirmation_email_to_appellant_template_id
         SRV_NOTIFY_APPEAL_SUBMISSION_RECEIVED_NOTIFICATION_EMAIL_TO_LPA_TEMPLATE_ID = var.srv_notify_appeal_submission_received_notification_email_to_lpa_template_id
+        SRV_NOTIFY_APPELLANT_LOGIN_CONFIRM_REGISTRATION_TEMPLATE_ID                 = var.srv_notify_appellant_login_confirm_registration_template_id
         SRV_NOTIFY_START_EMAIL_TO_LPA_TEMPLATE_ID                                   = var.srv_notify_start_email_to_lpa_template_id
         SRV_NOTIFY_LPA_DASHBOARD_INVITE_TEMPLATE_ID                                 = var.srv_notify_lpa_dashboard_invite_template_id
         STORAGE_CONTAINER_NAME                                                      = var.appeal_documents_storage_container_name
