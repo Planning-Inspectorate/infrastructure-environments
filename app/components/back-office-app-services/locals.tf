@@ -89,7 +89,7 @@ locals {
         APPEALS_CASE_OFFICER_GROUP_ID              = var.azuread_appeals_case_officer_group_id
         APPEALS_LEGAL_TEAM_GROUP_ID                = var.azuread_appeals_legal_team_group_id
         APPEALS_CS_TEAM_GROUP_ID                   = var.azuread_appeals_cs_team_group_id
-        AZURE_BLOB_STORE_HOST                      = var.document_storage_api_host # TODO: Replace
+        AZURE_BLOB_STORE_HOST                      = var.bo_appeals_storage_account_endpoint
         AZURE_BLOB_DEFAULT_CONTAINER               = var.bo_appeals_document_container_name
         LOG_LEVEL_FILE                             = var.back_office_appeals_log_level_file
         LOG_LEVEL_STDOUT                           = var.back_office_appeals_log_level_stdout
@@ -119,6 +119,8 @@ locals {
         SERVICE_BUS_ENABLED                        = var.feature_service_bus_enabled
         GOV_NOTIFY_API_KEY                         = local.secret_refs["back-office-appeals-gov-notify-api-key"]
         TEST_MAILBOX                               = local.secret_refs["back-office-appeals-test-mailbox"]
+        BO_BLOB_STORAGE_ACCOUNT                    = var.bo_appeals_storage_account_endpoint
+        BO_BLOB_CONTAINER                          = var.bo_appeals_document_container_name
       }
     }
   }

@@ -19,7 +19,7 @@ This module contains the App Services resources for the Back Office service. The
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_app_service"></a> [app\_service](#module\_app\_service) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service | 1.8 |
+| <a name="module_app_service"></a> [app\_service](#module\_app\_service) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service | 1.9 |
 | <a name="module_applications_migration_function"></a> [applications\_migration\_function](#module\_applications\_migration\_function) | ./applications-migration-function | n/a |
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
 | <a name="module_bo_appeals_casedata_import_function"></a> [bo\_appeals\_casedata\_import\_function](#module\_bo\_appeals\_casedata\_import\_function) | ./bo-appeals-casedata-import-function | n/a |
@@ -80,9 +80,9 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_back_office_documents_system_topic_name"></a> [back\_office\_documents\_system\_topic\_name](#input\_back\_office\_documents\_system\_topic\_name) | Back Office Document Storage System Topic Name | `string` | `""` | no |
 | <a name="input_back_office_hostname"></a> [back\_office\_hostname](#input\_back\_office\_hostname) | Back Office Hostname | `string` | n/a | yes |
 | <a name="input_back_office_integration_subnet_id"></a> [back\_office\_integration\_subnet\_id](#input\_back\_office\_integration\_subnet\_id) | Integration subnet for back office anti-virus resources | `string` | n/a | yes |
-| <a name="input_bo_appeals_document_container_id"></a> [bo\_appeals\_document\_container\_id](#input\_bo\_appeals\_document\_container\_id) | Back Office Storage Container ID for documents | `string` | `"bo-appeals-documents"` | no |
-| <a name="input_bo_appeals_document_container_name"></a> [bo\_appeals\_document\_container\_name](#input\_bo\_appeals\_document\_container\_name) | Back Office Storage Container name for documents | `string` | `"bo-appeals-documents"` | no |
-| <a name="input_bo_appeals_storage_account_name"></a> [bo\_appeals\_storage\_account\_name](#input\_bo\_appeals\_storage\_account\_name) | The ID of the appeals back office storage account | `string` | n/a | yes |
+| <a name="input_bo_appeals_document_container_id"></a> [bo\_appeals\_document\_container\_id](#input\_bo\_appeals\_document\_container\_id) | The container ID for the appeals back office documents | `string` | n/a | yes |
+| <a name="input_bo_appeals_document_container_name"></a> [bo\_appeals\_document\_container\_name](#input\_bo\_appeals\_document\_container\_name) | The container name for the appeals back office documents | `string` | `"bo-appeals-documents"` | no |
+| <a name="input_bo_appeals_storage_account_endpoint"></a> [bo\_appeals\_storage\_account\_endpoint](#input\_bo\_appeals\_storage\_account\_endpoint) | The endpoint of the appeals back office storage account | `string` | n/a | yes |
 | <a name="input_common_vnet_id"></a> [common\_vnet\_id](#input\_common\_vnet\_id) | The common infrastructure virtual network id | `string` | n/a | yes |
 | <a name="input_container_registry_name"></a> [container\_registry\_name](#input\_container\_registry\_name) | The name of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_container_registry_rg"></a> [container\_registry\_rg](#input\_container\_registry\_rg) | The resource group of the container registry that hosts the image | `string` | n/a | yes |
