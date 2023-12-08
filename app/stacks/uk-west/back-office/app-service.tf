@@ -61,6 +61,8 @@ module "app_services" {
   servicebus_topic_register_nsip_subscription_id                                      = azurerm_servicebus_topic.register_nsip_subscription.id
   servicebus_topic_deadline_submission_topic_id                                       = azurerm_servicebus_topic.deadline_submission_topic.id
   servicebus_topic_deadline_submission_result_id                                      = azurerm_servicebus_topic.deadline_submission_result.id
+  servicebus_topic_register_representation_id                                         = azurerm_servicebus_topic.register_representation.id
+  register_representation_topic_name                                                  = azurerm_servicebus_topic.register_representation.name
   deadline_submissions_topic_name                                                     = azurerm_servicebus_topic.deadline_submission_topic.name
   deadline_submissions_result_topic_name                                              = azurerm_servicebus_topic.deadline_submission_result.name
   malware_scanning_topic_id                                                           = azurerm_eventgrid_topic.malware_scanning_topic.id

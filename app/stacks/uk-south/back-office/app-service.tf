@@ -57,6 +57,7 @@ module "app_services" {
   document_check_function_storage_primary_access_key                                  = var.document_check_function_storage_primary_access_key
   document_storage_back_office_document_service_uploads_container_name                = var.document_storage_back_office_document_service_uploads_container_name
   servicebus_topic_nsip_documents_id                                                  = var.servicebus_topic_nsip_documents_id
+  register_representation_topic_name                                                  = ""
   deadline_submissions_topic_name                                                     = ""
   deadline_submissions_result_topic_name                                              = ""
   malware_scanning_topic_id                                                           = ""
@@ -70,6 +71,7 @@ module "app_services" {
   servicebus_topic_register_nsip_subscription_id    = ""
   servicebus_topic_deadline_submission_topic_id     = ""
   servicebus_topic_deadline_submission_result_id    = ""
+  servicebus_topic_register_representation_id       = ""
   service_bus_appeals_bo_document_to_move_topic_id  = ""
   service_bus_appeals_fo_appellant_submission_id    = ""
   service_bus_appeals_fo_lpa_response_submission_id = ""
