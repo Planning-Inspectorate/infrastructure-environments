@@ -25,6 +25,7 @@ This component contains the infrastructure required for the back office service.
 |------|--------|---------|
 | <a name="module_app_services"></a> [app\_services](#module\_app\_services) | ../../../components/back-office-app-services | n/a |
 | <a name="module_azure_region_ukw"></a> [azure\_region\_ukw](#module\_azure\_region\_ukw) | claranet/regions/azurerm | 4.2.1 |
+| <a name="module_front_door"></a> [front\_door](#module\_front\_door) | ../../../components/back-office-app-services | n/a |
 
 ## Resources
 
