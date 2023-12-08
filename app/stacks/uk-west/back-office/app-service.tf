@@ -47,7 +47,7 @@ module "app_services" {
   feature_service_bus_enabled                                                         = var.feature_service_bus_enabled
   feature_document_scanning_enabled                                                   = var.feature_document_scanning_enabled
   common_vnet_id                                                                      = var.common_vnet_id
-  bo_appeals_storage_account_name                                                     = azurerm_storage_account.back_office_documents.name
+  bo_appeals_storage_account_endpoint                                                 = azurerm_storage_account.back_office_documents.primary_blob_endpoint
   bo_appeals_document_container_name                                                  = azurerm_storage_container.back_office_appeals_document_container.name
   bo_appeals_document_container_id                                                    = azurerm_storage_container.back_office_appeals_document_container.resource_manager_id
   document_check_function_storage_name                                                = azurerm_storage_account.function_storage.name

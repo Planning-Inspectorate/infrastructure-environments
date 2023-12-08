@@ -385,19 +385,18 @@ variable "document_storage_account_name" {
   description = "The ID of the storage account for back office documents"
   type        = string
 }
-variable "bo_appeals_storage_account_name" {
-  description = "The ID of the appeals back office storage account"
+variable "bo_appeals_storage_account_endpoint" {
+  description = "The endpoint of the appeals back office storage account"
   type        = string
 }
 
 variable "bo_appeals_document_container_id" {
-  description = "Back Office Storage Container ID for documents"
+  description = "The container ID for the appeals back office documents"
   type        = string
-  default     = "bo-appeals-documents"
 }
 
 variable "bo_appeals_document_container_name" {
-  description = "Back Office Storage Container name for documents"
+  description = "The container name for the appeals back office documents"
   type        = string
   default     = "bo-appeals-documents"
 }

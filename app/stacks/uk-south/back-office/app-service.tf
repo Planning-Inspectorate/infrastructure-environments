@@ -73,8 +73,9 @@ module "app_services" {
   service_bus_appeals_bo_document_to_move_topic_id  = ""
   service_bus_appeals_fo_appellant_submission_id    = ""
   service_bus_appeals_fo_lpa_response_submission_id = ""
+  bo_appeals_document_container_id                  = ""
   bo_appeals_document_container_name                = ""
-  bo_appeals_storage_account_name                   = ""
+  bo_appeals_storage_account_endpoint               = ""
 
 
   # notify subscribers configuration
