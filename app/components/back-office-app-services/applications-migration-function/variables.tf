@@ -80,26 +80,20 @@ variable "node_environment" {
   default     = "development"
 }
 
-variable "odw_subscription_id" {
-  description = "Resource Group Name where ODW Synapse Workspace and Data Lake Storage Account live"
+variable "odw_synapse_integration_enabled" {
+  description = "Whether or not Synapse Migration Integration is enabled"
+  type        = bool
+  default     = false
+}
+
+variable "odw_synapse_ssql_endpoint" {
+  description = "Serverless SQL Endpoint for ODW Synapse"
   type        = string
   default     = ""
 }
 
-variable "odw_resource_group_name" {
-  description = "Resource Group Name where ODW Synapse Workspace and Data Lake Storage Account live"
-  type        = string
-  default     = ""
-}
-
-variable "odw_data_lake_storage_account_name" {
-  description = "Storage Account Name for the ODW Data Lake"
-  type        = string
-  default     = ""
-}
-
-variable "odw_synapse_workspace_name" {
-  description = "ODW Synapse Workspace Name"
+variable "odw_data_lake_storage_account_id" {
+  description = "Storage Account ID for ODW Data Lake"
   type        = string
   default     = ""
 }

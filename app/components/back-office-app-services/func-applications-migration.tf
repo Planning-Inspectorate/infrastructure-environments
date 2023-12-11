@@ -17,10 +17,12 @@ module "applications_migration_function" {
   key_vault_id                             = var.key_vault_id
   tenant_id                                = data.azurerm_client_config.current.tenant_id
   node_environment                         = var.node_environment
-  odw_subscription_id                      = var.odw_subscription_id
-  odw_resource_group_name                  = var.odw_resource_group_name
-  odw_data_lake_storage_account_name       = var.odw_data_lake_storage_account_name
-  odw_synapse_workspace_name               = var.odw_synapse_workspace_name
+
+  # Synapse Migration Variables
+  odw_synapse_integration_enabled  = var.odw_synapse_integration_enabled
+  odw_synapse_ssql_endpoint        = var.odw_synapse_ssql_endpoint
+  odw_data_lake_storage_account_id = var.odw_data_lake_storage_account_id
+
 
   providers = {
     azurerm = azurerm

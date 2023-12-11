@@ -39,10 +39,5 @@ locals {
   # not ideal to specify this, but using a dependency with terragrunt would create a dependency cycle,
   # as applications is already dependent on back office
   applications_front_office_web_url = "https://national-infrastructure-consenting.planninginspectorate.gov.uk"
-  # Migration requirements for integrating with ODW
-  # Currently unable to use pipeline environment variables
-  odw_subscription_id                = "a82fd28d-5989-4e06-a0bb-1a5d859f9e0c"
-  odw_data_lake_storage_account_name = "pinsstodwprodukson83nw"
-  odw_resource_group_name            = "pins-rg-data-odw-prod-uks"
-  odw_synapse_workspace_name         = "pins-synw-odw-prod-uks"
+  odw_synapse_integration_enabled   = false
 }
