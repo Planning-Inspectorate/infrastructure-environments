@@ -1,15 +1,6 @@
-# Private DNS Zones should live in the common
-# These resources will be moved to the top-level stack (so only created for uk-west)
-resource "azurerm_private_dns_zone" "sql_synase_dns_zone" {
+data "azurerm_private_dns_zone" "sql_synase_dns_zone" {
   name                = "privatelink.sql.azuresynapse.net"
-  resource_group_name = azurerm_resource_group.back_office_stack.name
-}
-
-resource "azurerm_private_dns_zone_virtual_network_link" "zone_sql_link" {
-  name                  = "synapse-dns-link"
-  resource_group_name   = azurerm_resource_group.back_office_stack.name
-  private_dns_zone_name = azurerm_private_dns_zone.sql_synase_dns_zone.name
-  virtual_network_id    = var.common_vnet_id
+  resource_group_name = var.common_resource_group_name
 }
 
 resource "azurerm_private_endpoint" "private_endpoint" {
@@ -29,6 +20,6 @@ resource "azurerm_private_endpoint" "private_endpoint" {
 
   private_dns_zone_group {
     name                 = "pins-pdns-${local.service_name}-synapse-sql-${local.resource_suffix}"
-    private_dns_zone_ids = [azurerm_private_dns_zone.sql_synase_dns_zone.id]
+    private_dns_zone_ids = [data.azurerm_private_dns_zone.sql_synase_dns_zone.id]
   }
 }

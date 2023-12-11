@@ -26,9 +26,11 @@ This module contains the networking resources for the PINS ODT environments. The
 
 | Name | Type |
 |------|------|
+| [azurerm_private_dns_zone.sql_synase_dns_zone](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone) | resource |
 | [azurerm_private_dns_zone_virtual_network_link.app_service_vnet_link](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
 | [azurerm_private_dns_zone_virtual_network_link.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
 | [azurerm_private_dns_zone_virtual_network_link.cosmosdb_vnet_link](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
+| [azurerm_private_dns_zone_virtual_network_link.sql_synapse_vnet_link](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
 | [azurerm_public_ip.vnet_gateway](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/public_ip) | resource |
 | [azurerm_subnet.back_office_clamav](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/subnet) | resource |
 | [azurerm_subnet.back_office_integration_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/subnet) | resource |

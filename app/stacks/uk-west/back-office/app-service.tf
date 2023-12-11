@@ -78,10 +78,9 @@ module "app_services" {
   applications_front_office_web_url                                                   = var.applications_front_office_web_url
   back_office_applications_redis_connection_string_secret_name                        = azurerm_key_vault_secret.back_office_applications_redis_cache_connection_string_secret.name
   back_office_appeals_redis_connection_string_secret_name                             = azurerm_key_vault_secret.back_office_appeals_redis_cache_connection_string_secret.name
-  odw_resource_group_name                                                             = var.odw_resource_group_name
-  odw_data_lake_storage_account_name                                                  = var.odw_data_lake_storage_account_name
-  odw_synapse_workspace_name                                                          = var.odw_synapse_workspace_name
-  odw_subscription_id                                                                 = var.odw_subscription_id
+  odw_synapse_integration_enabled                                                     = var.odw_synapse_integration_enabled
+  odw_synapse_ssql_endpoint                                                           = var.odw_synapse_integration_enabled ? one(data.terraform_remote_state.odw).outputs.synapse_ssql_endpoint : ""
+  odw_data_lake_storage_account_id                                                    = var.odw_synapse_integration_enabled ? one(data.terraform_remote_state.odw).outputs.data_lake_account_id : ""
 
   providers = {
     azurerm         = azurerm
