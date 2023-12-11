@@ -275,6 +275,16 @@ variable "servicebus_topic_deadline_submission_result_id" {
   type        = string
 }
 
+variable "servicebus_topic_register_representation_id" {
+  description = "Service Bus Topic register-representation id"
+  type        = string
+}
+
+variable "register_representation_topic_name" {
+  description = "Register Representation Topic Name"
+  type        = string
+}
+
 variable "deadline_submissions_topic_name" {
   description = "Deadline Submissions Topic Name"
   type        = string

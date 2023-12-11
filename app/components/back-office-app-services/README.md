@@ -34,6 +34,7 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="module_notify_subscribers_function"></a> [notify\_subscribers\_function](#module\_notify\_subscribers\_function) | ./notify-subscribers-function | n/a |
 | <a name="module_odw_subscriber_function"></a> [odw\_subscriber\_function](#module\_odw\_subscriber\_function) | ./odw-subscriber-function | n/a |
 | <a name="module_publish_document_function"></a> [publish\_document\_function](#module\_publish\_document\_function) | ./publish-document-function | n/a |
+| <a name="module_register_representation_function"></a> [register\_representation\_function](#module\_register\_representation\_function) | ./register-representation-function | n/a |
 
 ## Resources
 
@@ -119,6 +120,7 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_odw_subscription_id"></a> [odw\_subscription\_id](#input\_odw\_subscription\_id) | The ID for the ODW subscription that houses the Synapse Workspace. | `string` | `""` | no |
 | <a name="input_odw_synapse_workspace_name"></a> [odw\_synapse\_workspace\_name](#input\_odw\_synapse\_workspace\_name) | ODW Synapse Workspace Name | `string` | `""` | no |
 | <a name="input_private_endpoint_enabled"></a> [private\_endpoint\_enabled](#input\_private\_endpoint\_enabled) | A switch to determine if Private Endpoint should be enabled for backend App Services | `bool` | `true` | no |
+| <a name="input_register_representation_topic_name"></a> [register\_representation\_topic\_name](#input\_register\_representation\_topic\_name) | Register Representation Topic Name | `string` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the resource group that will contain the App Services | `string` | n/a | yes |
 | <a name="input_resource_suffix"></a> [resource\_suffix](#input\_resource\_suffix) | The suffix for resource naming | `string` | n/a | yes |
 | <a name="input_service_bus_appeals_bo_document_to_move_topic_id"></a> [service\_bus\_appeals\_bo\_document\_to\_move\_topic\_id](#input\_service\_bus\_appeals\_bo\_document\_to\_move\_topic\_id) | ID of the appeals back office document to move Service Bus Topic | `string` | n/a | yes |
@@ -134,6 +136,7 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_servicebus_topic_nsip_documents_id"></a> [servicebus\_topic\_nsip\_documents\_id](#input\_servicebus\_topic\_nsip\_documents\_id) | Service Bus Topic nsip-document id | `string` | n/a | yes |
 | <a name="input_servicebus_topic_nsip_project_update_id"></a> [servicebus\_topic\_nsip\_project\_update\_id](#input\_servicebus\_topic\_nsip\_project\_update\_id) | Service Bus Topic nsip-project-update id | `string` | n/a | yes |
 | <a name="input_servicebus_topic_register_nsip_subscription_id"></a> [servicebus\_topic\_register\_nsip\_subscription\_id](#input\_servicebus\_topic\_register\_nsip\_subscription\_id) | Service Bus Topic register-nsip-subscription id | `string` | n/a | yes |
+| <a name="input_servicebus_topic_register_representation_id"></a> [servicebus\_topic\_register\_representation\_id](#input\_servicebus\_topic\_register\_representation\_id) | Service Bus Topic register-representation id | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | The tags applied to all resources | `map(string)` | n/a | yes |
 
 ## Outputs
