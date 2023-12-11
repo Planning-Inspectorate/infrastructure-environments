@@ -14,3 +14,9 @@ resource "azurerm_role_assignment" "function_blob_data_reader" {
   role_definition_name = "Storage Blob Data Reader"
   principal_id         = module.bo_appeals_doc_processing_function.principal_id
 }
+
+resource "azurerm_role_assignment" "service_bus_data_receiver_documents_to_move" {
+  scope                = azurerm_servicebus_subscription.register_bo_document_to_move_subscription.id
+  role_definition_name = "Azure Service Bus Data Receiver"
+  principal_id         = module.bo_appeals_doc_processing_function.principal_id
+}
