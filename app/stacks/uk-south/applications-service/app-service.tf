@@ -48,6 +48,7 @@ module "app_services" {
   feature_enabled_content_security_policy                         = var.feature_enabled_content_security_policy
   feature_hide_project_timeline_link                              = var.feature_hide_project_timeline_link
   feature_home_page                                               = var.feature_home_page
+  feature_primary_navigation                                      = var.feature_primary_navigation
   feature_redis_session_store                                     = var.feature_redis_session_store
   feature_save_and_exit_option                                    = var.feature_save_and_exit_option
   feature_show_affected_area_section                              = var.feature_show_affected_area_section

@@ -236,6 +236,11 @@ variable "feature_home_page" {
   type        = string
 }
 
+variable "feature_primary_navigation" {
+  description = "Feature toggle to enable/disable display of primary navigation"
+  type        = string
+}
+
 variable "feature_allow_document_library" {
   description = "Feature toggle for limiting the web app routes to document library"
   type        = string
