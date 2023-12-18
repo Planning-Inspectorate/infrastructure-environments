@@ -125,18 +125,6 @@ locals {
     }
   }
 
-  front_door = {
-    back_office_appeals_endpoint = {
-      cdn_frontdoor_origin_path         = var.cdn_frontdoor_origin_path
-      common_tags                       = local.tags
-      common_log_analytics_workspace_id = var.common_log_analytics_workspace_id
-      name                              = var.name
-      host_name                         = var.host_name
-      resource_group_name               = var.resource_group_name
-      service_name                      = var.service_name
-    }
-  }
-
   secret_names = [
     "back-office-client-secret",
     "back-office-topic-key",
@@ -170,12 +158,4 @@ locals {
   existing_secret_refs = {
     for name in local.existing_secret_names : name => "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/${name}/)"
   }
-
-  tags = merge(
-    var.common_tags,
-    {
-      ServiceName = local.service_name
-      Region      = "Global"
-    }
-  )
 }

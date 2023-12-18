@@ -29,7 +29,6 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="module_clam_av_container"></a> [clam\_av\_container](#module\_clam\_av\_container) | ./clamav-container | n/a |
 | <a name="module_deadline_submissions_function"></a> [deadline\_submissions\_function](#module\_deadline\_submissions\_function) | ./deadline-submissions-function | n/a |
 | <a name="module_document_check_function"></a> [document\_check\_function](#module\_document\_check\_function) | ./document-check-function | n/a |
-| <a name="module_front_door"></a> [front\_door](#module\_front\_door) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/azure-front-door | 1.9 |
 | <a name="module_handle_subscriptions_function"></a> [handle\_subscriptions\_function](#module\_handle\_subscriptions\_function) | ./handle-subscriptions-function | n/a |
 | <a name="module_malware_detected_function"></a> [malware\_detected\_function](#module\_malware\_detected\_function) | ./malware-detected-function | n/a |
 | <a name="module_notify_subscribers_function"></a> [notify\_subscribers\_function](#module\_notify\_subscribers\_function) | ./notify-subscribers-function | n/a |
