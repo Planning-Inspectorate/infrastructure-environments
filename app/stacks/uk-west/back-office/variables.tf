@@ -274,115 +274,229 @@ variable "odw_synapse_integration_enabled" {
 variable "endpoints" {
   description = "CDN FrontDoor Endpoints configurations."
   type = map(object({
-    back_office_appeals = {
-      name                     = string
-      origin_group_name        = optional(string)
-      prefix                   = optional(string)
-      custom_resource_name     = optional(string)
-      session_affinity_enabled = optional(bool, true)
-      forwarding_protocol      = optional(string)
-      patterns_to_match        = optional(map(string))
-      accepted_protocols       = optional(map(string))
-      origin_path              = optional(string)
-      https_redirect_enabled   = optional(bool)
-      link_to_default_domain   = optional(bool)
-      custom_domains           = optional(list(string))
+    name                     = string
+    origin_group_name        = optional(string)
+    prefix                   = optional(string)
+    custom_resource_name     = optional(string)
+    session_affinity_enabled = optional(bool, true)
+    forwarding_protocol      = optional(string)
+    patterns_to_match        = optional(map(string))
+    accepted_protocols       = optional(map(string))
+    origin_path              = optional(string)
+    https_redirect_enabled   = optional(bool)
+    link_to_default_domain   = optional(bool)
+    custom_domains           = optional(list(string))
 
-      tags = optional(map(string))
-    }
+    tags = optional(map(string))
   }))
+  default = {}
 }
 
 variable "origin_groups" {
   description = "CDN FrontDoor Origin Groups configurations."
   type = map(object({
-    back_office_appeals = {
-      name                                                      = string
-      custom_resource_name                                      = optional(string)
-      session_affinity_enabled                                  = optional(bool, false)
-      restore_traffic_time_to_healed_or_new_endpoint_in_minutes = optional(number, 10)
-      load_balancing = optional(object({
-        sample_size                        = optional(number, 4)
-        successful_samples_required        = optional(number, 2)
-        additional_latency_in_milliseconds = optional(number, 0)
-      }), {})
-      health_probe = optional(object({
-        path                = optional(string, "/")
-        protocol            = optional(string, "Http")
-        request_type        = optional(string, "GET")
-        interval_in_seconds = optional(number, 120)
-      }))
-    }
+    name                                                      = optional(string)
+    custom_resource_name                                      = optional(string)
+    session_affinity_enabled                                  = optional(bool, false)
+    restore_traffic_time_to_healed_or_new_endpoint_in_minutes = optional(number, 10)
+    load_balancing = optional(object({
+      sample_size                        = optional(number, 4)
+      successful_samples_required        = optional(number, 2)
+      additional_latency_in_milliseconds = optional(number, 0)
+    }), {})
+    health_probe = optional(object({
+      path                = optional(string, "/")
+      protocol            = optional(string, "Http")
+      request_type        = optional(string, "GET")
+      interval_in_seconds = optional(number, 120)
+    }))
   }))
+  default = {}
 }
-
 
 variable "origins" {
   description = "CDN FrontDoor Origins configurations."
   type = map(object({
-    back_office_appeals = {
-      name                           = string
-      custom_resource_name           = optional(string)
-      origin_group_name              = string
-      enabled                        = optional(bool, true)
-      certificate_name_check_enabled = optional(bool, false)
+    name                           = optional(string)
+    custom_resource_name           = optional(string)
+    origin_group_name              = string
+    enabled                        = optional(bool, true)
+    certificate_name_check_enabled = optional(bool, false)
 
-      host_name          = string
-      http_port          = optional(number, 80)
-      https_port         = optional(number, 443)
-      origin_host_header = optional(string)
-      priority           = optional(number, 5)
-      weight             = optional(number, 100)
+    host_name          = string
+    http_port          = optional(number, 80)
+    https_port         = optional(number, 443)
+    origin_host_header = optional(string)
+    priority           = optional(number, 5)
+    weight             = optional(number, 100)
 
-      private_link = optional(object({
-        request_message        = optional(string)
-        target_type            = optional(string)
-        location               = string
-        private_link_target_id = string
-      }))
-    }
+    private_link = optional(object({
+      request_message        = optional(string)
+      target_type            = optional(string)
+      location               = string
+      private_link_target_id = string
+    }))
   }))
+  default = {}
 }
 
 variable "routes" {
   description = "CDN FrontDoor Routes configurations."
   type = map(object({
-    back_office_appeals = {
-      name                 = string
-      custom_resource_name = optional(string)
-      enabled              = optional(bool, true)
+    name                 = string
+    custom_resource_name = optional(string)
+    enabled              = optional(bool, true)
 
-      endpoint_name     = string
-      origin_group_name = string
-      origins_names     = list(string)
+    endpoint_name     = string
+    origin_group_name = string
+    origins_names     = list(string)
 
-      forwarding_protocol = optional(string, "MatchRequest")
-      patterns_to_match   = optional(list(string), ["/*"])
-      supported_protocols = optional(list(string), ["Http", "Https"])
-      cache = optional(object({
-        query_string_caching_behavior = optional(string, "IgnoreQueryString")
-        query_strings                 = optional(list(string))
-        compression_enabled           = optional(bool, false)
-        content_types_to_compress     = optional(list(string))
-      }))
+    # forwarding_protocol = optional(string, "MatchRequest")
+    # patterns_to_match   = optional(list(string), ["/*"])
+    # supported_protocols = optional(list(string), ["Http", "Https"])
+    # cache = optional(object({
+    #   query_string_caching_behavior = optional(string, "IgnoreQueryString")
+    #   query_strings                 = optional(list(string))
+    #   compression_enabled           = optional(bool, false)
+    #   content_types_to_compress     = optional(list(string))
+    # }))
 
-      custom_domains_names = optional(list(string), [])
-      origin_path          = optional(string, "/")
-      rule_sets_names      = optional(list(string), [])
+    # custom_domains_names = optional(list(string), [])
+    # origin_path          = optional(string, "/")
+    # rule_sets_names      = optional(list(string), [])
 
-      https_redirect_enabled = optional(bool, true)
-      link_to_default_domain = optional(bool, true)
-    }
+    # https_redirect_enabled = optional(bool, true)
+    # link_to_default_domain = optional(bool, true)
   }))
 }
 
 variable "custom_domain" {
   description = "Front Door Custom Domains"
   type = map(object({
-    back_office_appeals = {
-      name        = string
-      host_name   = string
-      dns_zone_id = optional(string)
-    }
+    name        = string
+    host_name   = string
+    dns_zone_id = optional(string)
+
+    # tls = optional(object({
+    #   certificate_type    = optional(string, "ManagedCertificate")
+    #   minimum_tls_version = optional(string, "TLS12")
+    # }))
   }))
 }
+
+
+# variable "endpoints" {
+#   description = "CDN FrontDoor Endpoints configurations."
+#   type = map(object({
+#     back_office_appeals = {
+#       name                     = string
+#       origin_group_name        = optional(string)
+#       prefix                   = optional(string)
+#       custom_resource_name     = optional(string)
+#       session_affinity_enabled = optional(bool, true)
+#       forwarding_protocol      = optional(string)
+#       patterns_to_match        = optional(map(string))
+#       accepted_protocols       = optional(map(string))
+#       origin_path              = optional(string)
+#       https_redirect_enabled   = optional(bool)
+#       link_to_default_domain   = optional(bool)
+#       custom_domains           = optional(list(string))
+
+#       tags = optional(map(string))
+#     }
+#   }))
+# }
+
+# variable "origin_groups" {
+#   description = "CDN FrontDoor Origin Groups configurations."
+#   type = map(object({
+#     back_office_appeals = {
+#       name                                                      = string
+#       custom_resource_name                                      = optional(string)
+#       session_affinity_enabled                                  = optional(bool, false)
+#       restore_traffic_time_to_healed_or_new_endpoint_in_minutes = optional(number, 10)
+#       load_balancing = optional(object({
+#         sample_size                        = optional(number, 4)
+#         successful_samples_required        = optional(number, 2)
+#         additional_latency_in_milliseconds = optional(number, 0)
+#       }), {})
+#       health_probe = optional(object({
+#         path                = optional(string, "/")
+#         protocol            = optional(string, "Http")
+#         request_type        = optional(string, "GET")
+#         interval_in_seconds = optional(number, 120)
+#       }))
+#     }
+#   }))
+# }
+
+
+# variable "origins" {
+#   description = "CDN FrontDoor Origins configurations."
+#   type = map(object({
+#     back_office_appeals = {
+#       name                           = string
+#       custom_resource_name           = optional(string)
+#       origin_group_name              = string
+#       enabled                        = optional(bool, true)
+#       certificate_name_check_enabled = optional(bool, false)
+
+#       host_name          = string
+#       http_port          = optional(number, 80)
+#       https_port         = optional(number, 443)
+#       origin_host_header = optional(string)
+#       priority           = optional(number, 5)
+#       weight             = optional(number, 100)
+
+#       private_link = optional(object({
+#         request_message        = optional(string)
+#         target_type            = optional(string)
+#         location               = string
+#         private_link_target_id = string
+#       }))
+#     }
+#   }))
+# }
+
+# variable "routes" {
+#   description = "CDN FrontDoor Routes configurations."
+#   type = map(object({
+#     back_office_appeals = {
+#       name                 = string
+#       custom_resource_name = optional(string)
+#       enabled              = optional(bool, true)
+
+#       endpoint_name     = string
+#       origin_group_name = string
+#       origins_names     = list(string)
+
+#       forwarding_protocol = optional(string, "MatchRequest")
+#       patterns_to_match   = optional(list(string), ["/*"])
+#       supported_protocols = optional(list(string), ["Http", "Https"])
+#       cache = optional(object({
+#         query_string_caching_behavior = optional(string, "IgnoreQueryString")
+#         query_strings                 = optional(list(string))
+#         compression_enabled           = optional(bool, false)
+#         content_types_to_compress     = optional(list(string))
+#       }))
+
+#       custom_domains_names = optional(list(string), [])
+#       origin_path          = optional(string, "/")
+#       rule_sets_names      = optional(list(string), [])
+
+#       https_redirect_enabled = optional(bool, true)
+#       link_to_default_domain = optional(bool, true)
+#     }
+#   }))
+# }
+
+# variable "custom_domain" {
+#   description = "Front Door Custom Domains"
+#   type = map(object({
+#     back_office_appeals = {
+#       name        = string
+#       host_name   = string
+#       dns_zone_id = optional(string)
+#     }
+#   }))
+# }
