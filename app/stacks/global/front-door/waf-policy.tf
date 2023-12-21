@@ -110,6 +110,19 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
           selector       = "code"
         }
       }
+
+      rule {
+        # SQL Hex Encoding Identified
+        rule_id = "942450"
+        action  = "Block"
+
+        exclusion {
+          # Exclusion to allow cookie connect.sid
+          match_variable = "RequestCookieNames" # "CookieValue:connect.sid"
+          operator       = "Equals"
+          selector       = "connect.sid"
+        }
+      }
     }
 
     # Exception for ASB-1692 merged with ASB-1928 - Exclude all rules for this selector.
