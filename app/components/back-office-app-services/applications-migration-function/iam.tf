@@ -10,6 +10,7 @@ resource "azurerm_key_vault_access_policy" "read_secrets" {
   storage_permissions     = []
 }
 
+# also requires granting db_datareader role on the database directly
 resource "azurerm_role_assignment" "read_data_lake_storage" {
   count = var.odw_synapse_integration_enabled ? 1 : 0
 
