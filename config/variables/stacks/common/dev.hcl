@@ -3,7 +3,7 @@ locals {
     low = [
       "benjamin.jacobs@planninginspectorate.gov.uk",
       "anthony.walsh@planninginspectorate.gov.uk",
-      "david.whiten@planninginspectorate.gov.uk",
+      "david.white@planninginspectorate.gov.uk",
       "emil.placheta@planninginspectorate.gov.uk",
       "philip.philippou@planninginspectorate.gov.uk"
     ]
