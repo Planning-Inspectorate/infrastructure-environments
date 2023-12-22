@@ -1,15 +1,15 @@
 locals {
   alert_recipients = {
     low = [
-      "Alexander.douglas@planninginspectorate.gov.uk",
+      "benjamin.jacobs@planninginspectorate.gov.uk",
       "anthony.walsh@planninginspectorate.gov.uk",
-      "Gregg.Barron@planninginspectorate.gov.uk",
-      "john.roberts@planninginspectorate.gov.uk",
+      "david.whiten@planninginspectorate.gov.uk",
+      "emil.placheta@planninginspectorate.gov.uk",
       "philip.philippou@planninginspectorate.gov.uk"
     ]
   }
-  appeals_service_ssl_certificate_name      = "pins-wildcard-digicert-221223"
-  applications_service_ssl_certificate_name = "pins-wildcard-digicert-221223"
+  appeals_service_ssl_certificate_name      = "pins-wildcard-cert-2025-01-02"
+  applications_service_ssl_certificate_name = "pins-wildcard-cert-2025-01-02"
   primary_vnet_address_space                = "10.1.0.0/16"
   secondary_vnet_address_space              = "10.11.0.0/16"
   create_turbrepo_cache                     = false
