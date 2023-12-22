@@ -125,6 +125,13 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
       }
     }
 
+    # Exception for ASB-2059 - Exclude all rules for this selector.
+    exclusion {
+      match_variable = "RequestBodyPostArgNames"
+      operator       = "Equals"
+      selector       = "comment"
+    }
+
     # Exception for ASB-1692 merged with ASB-1928 - Exclude all rules for this selector.
     # POST project update content, which is a strict subset of HTML
     # only applies Back Office, so should be removed from others with new Front Door
