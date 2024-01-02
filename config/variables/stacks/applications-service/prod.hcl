@@ -30,7 +30,7 @@ locals {
   node_environment                                                = "production"
   planned_outage_resume_text                                      = ""
   private_beta_v1_routes_only                                     = "true"
-  project_migration_case_references                               = "BC010001,EN010117,EN070008,TR030008,EN010138,EN010143"
+  project_migration_case_references                               = "BC010001,EN010117,EN070008,TR030008,EN010138,EN010143,EN010139,TR050009,EN010111,EN010122,EN010126,EN010135,TR020003,TR040012,TR050003,WA010004,TR020004,WS010002,TR010045,WA020001,EN010074,EN010058,TR040010,TR010061,TR010033,EN010034,TR030004,TR010033,EN020023,EN070006"
   srv_notify_ip_registration_confirmation_email_to_ip_template_id = "442ee953-7bd2-4b44-aa38-9dc8a3e42ab4"
   srv_notify_magic_link_email_template_id                         = "0f4635cf-eed0-487a-83ff-a325800f9c9c"
   srv_notify_service_id                                           = "2f25f917-c24f-44a6-9d0c-aebac7c98081"
