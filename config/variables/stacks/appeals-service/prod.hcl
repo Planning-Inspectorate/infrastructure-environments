@@ -66,7 +66,7 @@ locals {
   node_environment                                                            = "production"
   srv_notify_appeal_submission_confirmation_email_to_appellant_template_id    = "27cddb5b-aa1e-453e-a511-f8eab31c3bb3"
   srv_notify_appeal_submission_received_notification_email_to_lpa_template_id = "b8c7a449-3bc1-4ce1-b07c-4e90f4bd9c17"
-  srv_notify_appellant_login_confirm_registration_template_id                 = "todo"
+  srv_notify_appellant_login_confirm_registration_template_id                 = "c7e08c14-c45c-45e5-b0d1-460de0006215"
   srv_notify_start_email_to_lpa_template_id                                   = "22a6d662-3bbe-404f-8bca-c4b5c67ad346"
   srv_notify_lpa_dashboard_invite_template_id                                 = "762e0926-112f-4c71-b4fd-ad847aa1c63c"
   srv_notify_full_appeal_confirmation_email_to_appellant_template_id          = "d7535a2e-425c-4254-9f09-2b0eb460368c"
