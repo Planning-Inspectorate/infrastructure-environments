@@ -1,4 +1,4 @@
-data "azurerm_private_dns_zone" "sql_synapse_dns_zone" {
+data "azurerm_private_dns_zone" "sql_synase_dns_zone" {
   name                = "privatelink.sql.azuresynapse.net"
   resource_group_name = var.common_resource_group_name
 }
@@ -20,6 +20,6 @@ resource "azurerm_private_endpoint" "private_endpoint" {
 
   private_dns_zone_group {
     name                 = "pins-pdns-${local.service_name}-synapse-sql-${local.resource_suffix}"
-    private_dns_zone_ids = [data.azurerm_private_dns_zone.sql_synapse_dns_zone.id]
+    private_dns_zone_ids = [data.azurerm_private_dns_zone.sql_synase_dns_zone.id]
   }
 }
