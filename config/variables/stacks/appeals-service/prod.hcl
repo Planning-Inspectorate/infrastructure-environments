@@ -59,6 +59,7 @@ locals {
   ]
   allow_testing_overrides                                                     = false
   appeals_feature_back_office_subscriber_enabled                              = false
+  deploy_interested_parties                                                   = true
   google_analytics_id                                                         = "G-DW8DW9TQ84"
   google_tag_manager_id                                                       = "GTM-KZN7XP4"
   horizon_url                                                                 = "http://10.224.161.68:8000"
