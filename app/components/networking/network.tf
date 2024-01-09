@@ -131,7 +131,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "back_office_sql_server
 }
 
 # Private DNS zone is different for namespaces going forward - we create one in each common group per environment, not just one cross-env one in tooling
-resource "azurerm_private_dns_zone" "sql_synase_dns_zone" {
+resource "azurerm_private_dns_zone" "sql_synase_dns_zone" { # typo in name left here to avoid delete + create
   name                = "privatelink.sql.azuresynapse.net"
   resource_group_name = var.resource_group_name
 }

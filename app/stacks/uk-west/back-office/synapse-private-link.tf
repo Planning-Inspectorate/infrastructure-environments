@@ -1,4 +1,4 @@
-data "azurerm_private_dns_zone" "sql_synase_dns_zone" {
+data "azurerm_private_dns_zone" "sql_synase_dns_zone" { # typo in name left here to avoid delete + create
   name                = "privatelink.sql.azuresynapse.net"
   resource_group_name = var.common_resource_group_name
 }
