@@ -23,7 +23,6 @@ module "app_services" {
   back_office_clamav_subnet_id                                                        = var.back_office_clamav_subnet_id
   container_registry_name                                                             = var.container_registry_name
   container_registry_rg                                                               = var.container_registry_rg
-  database_connection_string                                                          = local.sql_connection_string
   database_name                                                                       = azurerm_mssql_database.back_office.name
   appeals_database_name                                                               = azurerm_mssql_database.back_office_appeals.name
   appeals_database_connection_string                                                  = local.appeals_sql_connection_string

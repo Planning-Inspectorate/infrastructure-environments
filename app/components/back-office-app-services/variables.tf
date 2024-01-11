@@ -102,12 +102,6 @@ variable "container_registry_rg" {
   type        = string
 }
 
-variable "database_connection_string" {
-  description = "The connection string used to connect to the Applications Back Office MySQL database"
-  sensitive   = true
-  type        = string
-}
-
 variable "database_name" {
   description = "The name of the Applications Back Office database"
   type        = string
