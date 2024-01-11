@@ -241,7 +241,7 @@ resource "azurerm_servicebus_subscription" "nsip_update_representation_topic_sub
   max_delivery_count = 1
 }
 
-resource "azurerm_role_assignment" "nsip_representation_service_bus_role" {
+resource "azurerm_role_assignment" "nsip_representation_update_service_bus_role" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
   scope                = azurerm_servicebus_subscription.nsip_update_representation_topic_subscription[0].id
