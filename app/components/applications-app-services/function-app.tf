@@ -252,7 +252,7 @@ resource "azurerm_role_assignment" "nsip_representation_update_service_bus_role"
 resource "azurerm_servicebus_subscription_rule" "nsip_update_representation_topic_subscription_rule" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
-  name            = "applications-nsip-representation-update-subscription-rule"
+  name            = "applications-nsip-rep-update-subscription-rule"
   subscription_id = azurerm_servicebus_subscription.nsip_update_representation_topic_subscription[0].id
   filter_type     = "CorrelationFilter"
   correlation_filter {
