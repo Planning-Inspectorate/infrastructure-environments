@@ -25,7 +25,7 @@ locals {
         FEATURE_FLAG_GOOGLE_TAG_MANAGER           = false
         FEATURE_FLAG_NEW_APPEAL_JOURNEY           = true
         FILE_UPLOAD_DEBUG                         = true
-        FILE_UPLOAD_MAX_FILE_SIZE_BYTES           = "15000000"
+        FILE_UPLOAD_MAX_FILE_SIZE_BYTES           = var.max_file_upload_size_in_bytes
         FILE_UPLOAD_TMP_PATH                      = "/tmp"
         FILE_UPLOAD_USE_TEMP_FILES                = true
         GOOGLE_ANALYTICS_ID                       = var.google_analytics_id
@@ -67,7 +67,7 @@ locals {
         FEATURE_FLAG_GOOGLE_TAG_MANAGER           = false
         FEATURE_FLAG_NEW_APPEAL_JOURNEY           = true
         FILE_UPLOAD_DEBUG                         = true
-        FILE_UPLOAD_MAX_FILE_SIZE_BYTES           = "15000000"
+        FILE_UPLOAD_MAX_FILE_SIZE_BYTES           = var.max_file_upload_size_in_bytes
         FILE_UPLOAD_TMP_PATH                      = "/tmp"
         FILE_UPLOAD_USE_TEMP_FILES                = true
         GOOGLE_ANALYTICS_ID                       = var.google_analytics_id
@@ -157,7 +157,7 @@ locals {
         APPLICATIONINSIGHTS_CONNECTION_STRING     = local.secret_refs["appeals-app-insights-connection-string"]
         BLOB_STORAGE_CONNECTION_STRING            = local.secret_refs["appeals-documents-primary-blob-connection-string"]
         DOCS_API_PATH                             = "/opt/app/api"
-        FILE_MAX_SIZE_IN_BYTES                    = "15000000"
+        FILE_MAX_SIZE_IN_BYTES                    = var.max_file_upload_size_in_bytes
         FILE_UPLOAD_PATH                          = "/tmp/upload"
         LOGGER_LEVEL                              = var.logger_level
         MONGODB_AUTO_INDEX                        = true
