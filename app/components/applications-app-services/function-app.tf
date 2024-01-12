@@ -233,7 +233,7 @@ resource "azurerm_servicebus_subscription_rule" "nsip_representation_topic_subsc
 
 # nsip-representation - UPDATE
 
-resource "azurerm_servicebus_subscription" "nsip_update_representation_topic_subscription" {
+resource "azurerm_servicebus_subscription" "nsip_representation_update_topic_subscription" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
   name               = "applications-nsip-representation-update"
@@ -244,16 +244,16 @@ resource "azurerm_servicebus_subscription" "nsip_update_representation_topic_sub
 resource "azurerm_role_assignment" "nsip_representation_update_service_bus_role" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
-  scope                = azurerm_servicebus_subscription.nsip_update_representation_topic_subscription[0].id
+  scope                = azurerm_servicebus_subscription.nsip_representation_update_topic_subscription[0].id
   role_definition_name = "Azure Service Bus Data Receiver"
   principal_id         = module.back_office_subscribers[0].principal_id
 }
 
-resource "azurerm_servicebus_subscription_rule" "nsip_update_representation_topic_subscription_rule" {
+resource "azurerm_servicebus_subscription_rule" "nsip_representation_update_topic_subscription_rule" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
   name            = "applications-nsip-rep-update-subscription-rule"
-  subscription_id = azurerm_servicebus_subscription.nsip_update_representation_topic_subscription[0].id
+  subscription_id = azurerm_servicebus_subscription.nsip_representation_update_topic_subscription[0].id
   filter_type     = "CorrelationFilter"
   correlation_filter {
     properties = {
