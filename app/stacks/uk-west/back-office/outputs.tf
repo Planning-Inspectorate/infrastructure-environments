@@ -229,7 +229,6 @@ output "sql_server_username" {
   value       = local.sql_server_username
 }
 
-
 output "clamav_host" {
   description = "Hostname of the ClamAV Container Group"
   value       = module.app_services.clamav_host
