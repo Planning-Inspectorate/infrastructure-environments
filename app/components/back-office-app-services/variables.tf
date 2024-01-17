@@ -274,11 +274,6 @@ variable "servicebus_topic_register_representation_id" {
   type        = string
 }
 
-variable "register_representation_topic_name" {
-  description = "Register Representation Topic Name"
-  type        = string
-}
-
 variable "deadline_submissions_topic_name" {
   description = "Deadline Submissions Topic Name"
   type        = string

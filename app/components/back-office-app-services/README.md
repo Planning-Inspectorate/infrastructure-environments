@@ -20,6 +20,7 @@ This module contains the App Services resources for the Back Office service. The
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_app_service"></a> [app\_service](#module\_app\_service) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service | 1.9 |
+| <a name="module_applications_background_job_functions"></a> [applications\_background\_job\_functions](#module\_applications\_background\_job\_functions) | ./applications-background-job-functions | n/a |
 | <a name="module_applications_migration_function"></a> [applications\_migration\_function](#module\_applications\_migration\_function) | ./applications-migration-function | n/a |
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
 | <a name="module_bo_appeals_casedata_import_function"></a> [bo\_appeals\_casedata\_import\_function](#module\_bo\_appeals\_casedata\_import\_function) | ./bo-appeals-casedata-import-function | n/a |
@@ -27,14 +28,11 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="module_bo_appeals_scheduler_function"></a> [bo\_appeals\_scheduler\_function](#module\_bo\_appeals\_scheduler\_function) | ./bo-appeals-scheduler-function | n/a |
 | <a name="module_bo_appeals_user_import_function"></a> [bo\_appeals\_user\_import\_function](#module\_bo\_appeals\_user\_import\_function) | ./bo-appeals-userdata-import-function | n/a |
 | <a name="module_clam_av_container"></a> [clam\_av\_container](#module\_clam\_av\_container) | ./clamav-container | n/a |
-| <a name="module_deadline_submissions_function"></a> [deadline\_submissions\_function](#module\_deadline\_submissions\_function) | ./deadline-submissions-function | n/a |
 | <a name="module_document_check_function"></a> [document\_check\_function](#module\_document\_check\_function) | ./document-check-function | n/a |
-| <a name="module_handle_subscriptions_function"></a> [handle\_subscriptions\_function](#module\_handle\_subscriptions\_function) | ./handle-subscriptions-function | n/a |
 | <a name="module_malware_detected_function"></a> [malware\_detected\_function](#module\_malware\_detected\_function) | ./malware-detected-function | n/a |
 | <a name="module_notify_subscribers_function"></a> [notify\_subscribers\_function](#module\_notify\_subscribers\_function) | ./notify-subscribers-function | n/a |
 | <a name="module_odw_subscriber_function"></a> [odw\_subscriber\_function](#module\_odw\_subscriber\_function) | ./odw-subscriber-function | n/a |
 | <a name="module_publish_document_function"></a> [publish\_document\_function](#module\_publish\_document\_function) | ./publish-document-function | n/a |
-| <a name="module_register_representation_function"></a> [register\_representation\_function](#module\_register\_representation\_function) | ./register-representation-function | n/a |
 
 ## Resources
 
@@ -119,7 +117,6 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_odw_synapse_integration_enabled"></a> [odw\_synapse\_integration\_enabled](#input\_odw\_synapse\_integration\_enabled) | Whether or not Synapse Migration Integration is enabled | `bool` | `false` | no |
 | <a name="input_odw_synapse_ssql_endpoint"></a> [odw\_synapse\_ssql\_endpoint](#input\_odw\_synapse\_ssql\_endpoint) | Serverless SQL Endpoint for ODW Synapse | `string` | `""` | no |
 | <a name="input_private_endpoint_enabled"></a> [private\_endpoint\_enabled](#input\_private\_endpoint\_enabled) | A switch to determine if Private Endpoint should be enabled for backend App Services | `bool` | `true` | no |
-| <a name="input_register_representation_topic_name"></a> [register\_representation\_topic\_name](#input\_register\_representation\_topic\_name) | Register Representation Topic Name | `string` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the resource group that will contain the App Services | `string` | n/a | yes |
 | <a name="input_resource_suffix"></a> [resource\_suffix](#input\_resource\_suffix) | The suffix for resource naming | `string` | n/a | yes |
 | <a name="input_service_bus_appeals_bo_document_to_move_topic_id"></a> [service\_bus\_appeals\_bo\_document\_to\_move\_topic\_id](#input\_service\_bus\_appeals\_bo\_document\_to\_move\_topic\_id) | ID of the appeals back office document to move Service Bus Topic | `string` | n/a | yes |

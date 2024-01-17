@@ -56,7 +56,6 @@ module "app_services" {
   document_check_function_storage_primary_access_key                                  = var.document_check_function_storage_primary_access_key
   document_storage_back_office_document_service_uploads_container_name                = var.document_storage_back_office_document_service_uploads_container_name
   servicebus_topic_nsip_documents_id                                                  = var.servicebus_topic_nsip_documents_id
-  register_representation_topic_name                                                  = ""
   deadline_submissions_topic_name                                                     = ""
   deadline_submissions_result_topic_name                                              = ""
   malware_scanning_topic_id                                                           = ""
