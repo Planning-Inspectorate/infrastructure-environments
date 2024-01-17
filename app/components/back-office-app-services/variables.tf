@@ -62,12 +62,12 @@ variable "azuread_applications_case_admin_officer_group_id" {
 }
 
 variable "document_check_function_storage_name" {
-  description = "Function Storage name"
+  description = "Function Storage name. NOTE: This is storage for all functions."
   type        = string
 }
 
 variable "document_check_function_storage_primary_access_key" {
-  description = "Function Storage Primary Access Key"
+  description = "Function Storage Primary Access Key. NOTE: This is storage for all functions."
   type        = string
 }
 

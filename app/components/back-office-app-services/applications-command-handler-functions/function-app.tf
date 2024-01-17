@@ -13,7 +13,7 @@ module "applications_command_handler_functions" {
   outbound_vnet_connectivity               = true
   resource_group_name                      = var.resource_group_name
   resource_suffix                          = var.resource_suffix
-  service_name                             = "applications-command-handler-functions"
+  service_name                             = "back-office"
   use_app_insights                         = true
   function_node_version                    = 18
 

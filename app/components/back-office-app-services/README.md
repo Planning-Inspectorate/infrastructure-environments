@@ -20,6 +20,7 @@ This module contains the App Services resources for the Back Office service. The
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_app_service"></a> [app\_service](#module\_app\_service) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service | 1.9 |
+| <a name="module_applications_background_job_functions"></a> [applications\_background\_job\_functions](#module\_applications\_background\_job\_functions) | ./applications-background-job-functions | n/a |
 | <a name="module_applications_command_handler_functions"></a> [applications\_command\_handler\_functions](#module\_applications\_command\_handler\_functions) | ./applications-command-handler-functions | n/a |
 | <a name="module_applications_migration_function"></a> [applications\_migration\_function](#module\_applications\_migration\_function) | ./applications-migration-function | n/a |
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
@@ -28,9 +29,6 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="module_bo_appeals_scheduler_function"></a> [bo\_appeals\_scheduler\_function](#module\_bo\_appeals\_scheduler\_function) | ./bo-appeals-scheduler-function | n/a |
 | <a name="module_bo_appeals_user_import_function"></a> [bo\_appeals\_user\_import\_function](#module\_bo\_appeals\_user\_import\_function) | ./bo-appeals-userdata-import-function | n/a |
 | <a name="module_clam_av_container"></a> [clam\_av\_container](#module\_clam\_av\_container) | ./clamav-container | n/a |
-| <a name="module_malware_detected_function"></a> [malware\_detected\_function](#module\_malware\_detected\_function) | ./malware-detected-function | n/a |
-| <a name="module_notify_subscribers_function"></a> [notify\_subscribers\_function](#module\_notify\_subscribers\_function) | ./notify-subscribers-function | n/a |
-| <a name="module_publish_document_function"></a> [publish\_document\_function](#module\_publish\_document\_function) | ./publish-document-function | n/a |
 
 ## Resources
 
@@ -85,8 +83,8 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_container_registry_rg"></a> [container\_registry\_rg](#input\_container\_registry\_rg) | The resource group of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_database_name"></a> [database\_name](#input\_database\_name) | The name of the Applications Back Office database | `string` | n/a | yes |
 | <a name="input_deadline_submissions_result_topic_name"></a> [deadline\_submissions\_result\_topic\_name](#input\_deadline\_submissions\_result\_topic\_name) | Deadline Submissions Result Topic Name | `string` | n/a | yes |
-| <a name="input_document_check_function_storage_name"></a> [document\_check\_function\_storage\_name](#input\_document\_check\_function\_storage\_name) | Function Storage name | `string` | n/a | yes |
-| <a name="input_document_check_function_storage_primary_access_key"></a> [document\_check\_function\_storage\_primary\_access\_key](#input\_document\_check\_function\_storage\_primary\_access\_key) | Function Storage Primary Access Key | `string` | n/a | yes |
+| <a name="input_document_check_function_storage_name"></a> [document\_check\_function\_storage\_name](#input\_document\_check\_function\_storage\_name) | Function Storage name. NOTE: This is storage for all functions. | `string` | n/a | yes |
+| <a name="input_document_check_function_storage_primary_access_key"></a> [document\_check\_function\_storage\_primary\_access\_key](#input\_document\_check\_function\_storage\_primary\_access\_key) | Function Storage Primary Access Key. NOTE: This is storage for all functions. | `string` | n/a | yes |
 | <a name="input_document_storage_account_name"></a> [document\_storage\_account\_name](#input\_document\_storage\_account\_name) | The ID of the storage account for back office documents | `string` | n/a | yes |
 | <a name="input_document_storage_api_host"></a> [document\_storage\_api\_host](#input\_document\_storage\_api\_host) | The full URI to the storage account used for back office documents | `string` | n/a | yes |
 | <a name="input_document_storage_back_office_document_service_uploads_container_name"></a> [document\_storage\_back\_office\_document\_service\_uploads\_container\_name](#input\_document\_storage\_back\_office\_document\_service\_uploads\_container\_name) | Document Storage document service uploads container name | `string` | n/a | yes |
