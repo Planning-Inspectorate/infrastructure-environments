@@ -1,5 +1,5 @@
-module "applications_background_job_functions" {
-  source = "./applications-background-job-functions"
+module "applications_command_handler_functions" {
+  source = "./applications-command-handler-functions"
 
   action_group_low_id                                        = var.action_group_low_id
   location                                                   = var.location

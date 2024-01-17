@@ -1,8 +1,8 @@
-module "applications_background_job_functions" {
+module "applications_command_handler_functions" {
   source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.9"
 
   action_group_low_id                      = var.action_group_low_id
-  app_name                                 = "applications-background-job-functions"
+  app_name                                 = "applications-command-handler-functions"
   app_service_plan_id                      = var.app_service_plan_id
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
@@ -13,7 +13,7 @@ module "applications_background_job_functions" {
   outbound_vnet_connectivity               = true
   resource_group_name                      = var.resource_group_name
   resource_suffix                          = var.resource_suffix
-  service_name                             = "applications-background-job-functions"
+  service_name                             = "applications-command-handler-functions"
   use_app_insights                         = true
   function_node_version                    = 18
 
