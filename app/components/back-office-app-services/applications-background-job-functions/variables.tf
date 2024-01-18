@@ -125,3 +125,8 @@ variable "back_office_file_publish_container" {
   type        = string
   default     = "published-documents"
 }
+
+variable "service_bus_namespace_name" {
+  description = "The name of the Back Office service bus namespace"
+  type        = string
+}
