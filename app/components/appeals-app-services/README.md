@@ -110,6 +110,7 @@ This module also contains some resources such as Service Bus and Function Apps r
 
 | Name | Description |
 |------|-------------|
+| <a name="output_app_service_ids"></a> [app\_service\_ids](#output\_app\_service\_ids) | A map of App Service IDs |
 | <a name="output_app_service_principal_ids"></a> [app\_service\_principal\_ids](#output\_app\_service\_principal\_ids) | A map of App Service principal IDs |
 | <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of App Service URLs |
 | <a name="output_secrets_manual"></a> [secrets\_manual](#output\_secrets\_manual) | List of Key Vault secrets required for this component |
