@@ -20,6 +20,8 @@ This module contains the App Services resources for the Back Office service. The
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_app_service"></a> [app\_service](#module\_app\_service) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service | 1.9 |
+| <a name="module_applications_background_job_functions"></a> [applications\_background\_job\_functions](#module\_applications\_background\_job\_functions) | ./applications-background-job-functions | n/a |
+| <a name="module_applications_command_handler_functions"></a> [applications\_command\_handler\_functions](#module\_applications\_command\_handler\_functions) | ./applications-command-handler-functions | n/a |
 | <a name="module_applications_migration_function"></a> [applications\_migration\_function](#module\_applications\_migration\_function) | ./applications-migration-function | n/a |
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
 | <a name="module_bo_appeals_casedata_import_function"></a> [bo\_appeals\_casedata\_import\_function](#module\_bo\_appeals\_casedata\_import\_function) | ./bo-appeals-casedata-import-function | n/a |
@@ -27,14 +29,6 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="module_bo_appeals_scheduler_function"></a> [bo\_appeals\_scheduler\_function](#module\_bo\_appeals\_scheduler\_function) | ./bo-appeals-scheduler-function | n/a |
 | <a name="module_bo_appeals_user_import_function"></a> [bo\_appeals\_user\_import\_function](#module\_bo\_appeals\_user\_import\_function) | ./bo-appeals-userdata-import-function | n/a |
 | <a name="module_clam_av_container"></a> [clam\_av\_container](#module\_clam\_av\_container) | ./clamav-container | n/a |
-| <a name="module_deadline_submissions_function"></a> [deadline\_submissions\_function](#module\_deadline\_submissions\_function) | ./deadline-submissions-function | n/a |
-| <a name="module_document_check_function"></a> [document\_check\_function](#module\_document\_check\_function) | ./document-check-function | n/a |
-| <a name="module_handle_subscriptions_function"></a> [handle\_subscriptions\_function](#module\_handle\_subscriptions\_function) | ./handle-subscriptions-function | n/a |
-| <a name="module_malware_detected_function"></a> [malware\_detected\_function](#module\_malware\_detected\_function) | ./malware-detected-function | n/a |
-| <a name="module_notify_subscribers_function"></a> [notify\_subscribers\_function](#module\_notify\_subscribers\_function) | ./notify-subscribers-function | n/a |
-| <a name="module_odw_subscriber_function"></a> [odw\_subscriber\_function](#module\_odw\_subscriber\_function) | ./odw-subscriber-function | n/a |
-| <a name="module_publish_document_function"></a> [publish\_document\_function](#module\_publish\_document\_function) | ./publish-document-function | n/a |
-| <a name="module_register_representation_function"></a> [register\_representation\_function](#module\_register\_representation\_function) | ./register-representation-function | n/a |
 
 ## Resources
 
@@ -79,7 +73,6 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_back_office_applications_log_level_stdout"></a> [back\_office\_applications\_log\_level\_stdout](#input\_back\_office\_applications\_log\_level\_stdout) | Log level for stdout - trace, debug, info, warn, error, fatal, silent | `string` | n/a | yes |
 | <a name="input_back_office_applications_redis_connection_string_secret_name"></a> [back\_office\_applications\_redis\_connection\_string\_secret\_name](#input\_back\_office\_applications\_redis\_connection\_string\_secret\_name) | The connection string (secret name) used to connect to the Back Office Applications Redis Cache | `string` | n/a | yes |
 | <a name="input_back_office_clamav_subnet_id"></a> [back\_office\_clamav\_subnet\_id](#input\_back\_office\_clamav\_subnet\_id) | Integration subnet for the clamav container | `string` | n/a | yes |
-| <a name="input_back_office_documents_system_topic_name"></a> [back\_office\_documents\_system\_topic\_name](#input\_back\_office\_documents\_system\_topic\_name) | Back Office Document Storage System Topic Name | `string` | `""` | no |
 | <a name="input_back_office_hostname"></a> [back\_office\_hostname](#input\_back\_office\_hostname) | Back Office Hostname | `string` | n/a | yes |
 | <a name="input_back_office_integration_subnet_id"></a> [back\_office\_integration\_subnet\_id](#input\_back\_office\_integration\_subnet\_id) | Integration subnet for back office anti-virus resources | `string` | n/a | yes |
 | <a name="input_bo_appeals_document_container_id"></a> [bo\_appeals\_document\_container\_id](#input\_bo\_appeals\_document\_container\_id) | The container ID for the appeals back office documents | `string` | n/a | yes |
@@ -90,9 +83,8 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_container_registry_rg"></a> [container\_registry\_rg](#input\_container\_registry\_rg) | The resource group of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_database_name"></a> [database\_name](#input\_database\_name) | The name of the Applications Back Office database | `string` | n/a | yes |
 | <a name="input_deadline_submissions_result_topic_name"></a> [deadline\_submissions\_result\_topic\_name](#input\_deadline\_submissions\_result\_topic\_name) | Deadline Submissions Result Topic Name | `string` | n/a | yes |
-| <a name="input_deadline_submissions_topic_name"></a> [deadline\_submissions\_topic\_name](#input\_deadline\_submissions\_topic\_name) | Deadline Submissions Topic Name | `string` | n/a | yes |
-| <a name="input_document_check_function_storage_name"></a> [document\_check\_function\_storage\_name](#input\_document\_check\_function\_storage\_name) | Function Storage name | `string` | n/a | yes |
-| <a name="input_document_check_function_storage_primary_access_key"></a> [document\_check\_function\_storage\_primary\_access\_key](#input\_document\_check\_function\_storage\_primary\_access\_key) | Function Storage Primary Access Key | `string` | n/a | yes |
+| <a name="input_document_check_function_storage_name"></a> [document\_check\_function\_storage\_name](#input\_document\_check\_function\_storage\_name) | Function Storage name. NOTE: This is storage for all functions. | `string` | n/a | yes |
+| <a name="input_document_check_function_storage_primary_access_key"></a> [document\_check\_function\_storage\_primary\_access\_key](#input\_document\_check\_function\_storage\_primary\_access\_key) | Function Storage Primary Access Key. NOTE: This is storage for all functions. | `string` | n/a | yes |
 | <a name="input_document_storage_account_name"></a> [document\_storage\_account\_name](#input\_document\_storage\_account\_name) | The ID of the storage account for back office documents | `string` | n/a | yes |
 | <a name="input_document_storage_api_host"></a> [document\_storage\_api\_host](#input\_document\_storage\_api\_host) | The full URI to the storage account used for back office documents | `string` | n/a | yes |
 | <a name="input_document_storage_back_office_document_service_uploads_container_name"></a> [document\_storage\_back\_office\_document\_service\_uploads\_container\_name](#input\_document\_storage\_back\_office\_document\_service\_uploads\_container\_name) | Document Storage document service uploads container name | `string` | n/a | yes |
@@ -103,7 +95,6 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_endpoint_subnet_id"></a> [endpoint\_subnet\_id](#input\_endpoint\_subnet\_id) | The id of the private endpoint subnet the app service is linked to for ingress traffic | `string` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
 | <a name="input_feature_document_scanning_enabled"></a> [feature\_document\_scanning\_enabled](#input\_feature\_document\_scanning\_enabled) | Whether or not Document Scanning has been enabled. Document Scanning is currently disabled in a DR deployment (in the secondary region), documents will be scanned when the primary comes online. | `bool` | `false` | no |
-| <a name="input_feature_odw_subscription_enabled"></a> [feature\_odw\_subscription\_enabled](#input\_feature\_odw\_subscription\_enabled) | Temporary flag to enable/disable ODW subscription integration. Always disabled for uk-south for now. | `bool` | `false` | no |
 | <a name="input_feature_service_bus_enabled"></a> [feature\_service\_bus\_enabled](#input\_feature\_service\_bus\_enabled) | Whether or not Service Bus events are enabled | `string` | n/a | yes |
 | <a name="input_health_check_path"></a> [health\_check\_path](#input\_health\_check\_path) | The path of the service's health check endpoint | `string` | `null` | no |
 | <a name="input_integration_subnet_id"></a> [integration\_subnet\_id](#input\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic | `string` | n/a | yes |
@@ -119,7 +110,6 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_odw_synapse_integration_enabled"></a> [odw\_synapse\_integration\_enabled](#input\_odw\_synapse\_integration\_enabled) | Whether or not Synapse Migration Integration is enabled | `bool` | `false` | no |
 | <a name="input_odw_synapse_ssql_endpoint"></a> [odw\_synapse\_ssql\_endpoint](#input\_odw\_synapse\_ssql\_endpoint) | Serverless SQL Endpoint for ODW Synapse | `string` | `""` | no |
 | <a name="input_private_endpoint_enabled"></a> [private\_endpoint\_enabled](#input\_private\_endpoint\_enabled) | A switch to determine if Private Endpoint should be enabled for backend App Services | `bool` | `true` | no |
-| <a name="input_register_representation_topic_name"></a> [register\_representation\_topic\_name](#input\_register\_representation\_topic\_name) | Register Representation Topic Name | `string` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the resource group that will contain the App Services | `string` | n/a | yes |
 | <a name="input_resource_suffix"></a> [resource\_suffix](#input\_resource\_suffix) | The suffix for resource naming | `string` | n/a | yes |
 | <a name="input_service_bus_appeals_bo_document_to_move_topic_id"></a> [service\_bus\_appeals\_bo\_document\_to\_move\_topic\_id](#input\_service\_bus\_appeals\_bo\_document\_to\_move\_topic\_id) | ID of the appeals back office document to move Service Bus Topic | `string` | n/a | yes |

@@ -64,11 +64,6 @@ variable "servicebus_topic_deadline_submission_result_id" {
   type        = string
 }
 
-variable "deadline_submissions_topic_name" {
-  description = "Deadline Submissions Topic Name"
-  type        = string
-}
-
 variable "deadline_submissions_result_topic_name" {
   description = "Deadline Submissions Result Topic Name"
   type        = string
@@ -108,5 +103,15 @@ variable "document_storage_submissions_container_resource_manager_id" {
 
 variable "document_storage_uploads_container_resource_manager_id" {
   description = "Uploads container resource_manager_id"
+  type        = string
+}
+
+variable "servicebus_topic_register_nsip_subscription_id" {
+  description = "Service Bus Topic register-nsip-subscription id"
+  type        = string
+}
+
+variable "servicebus_topic_register_representation_id" {
+  description = "Service Bus Topic register-representation id"
   type        = string
 }

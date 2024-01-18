@@ -1,8 +1,8 @@
-module "deadline_submissions_function" {
+module "applications_background_job_functions" {
   source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.11"
 
   action_group_low_id                      = var.action_group_low_id
-  app_name                                 = "deadline-subs"
+  app_name                                 = "apps-background-jobs"
   app_service_plan_id                      = var.app_service_plan_id
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
@@ -13,26 +13,32 @@ module "deadline_submissions_function" {
   outbound_vnet_connectivity               = true
   resource_group_name                      = var.resource_group_name
   resource_suffix                          = var.resource_suffix
-  service_name                             = "deadline-subs"
+  service_name                             = "back-office"
   use_app_insights                         = true
+  key_vault_id                             = var.key_vault_id
   function_node_version                    = 18
 
   app_settings = {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.service_bus_namespace_name}.servicebus.windows.net"
-    SERVICE_BUS_HOSTNAME                          = "${var.service_bus_namespace_name}.servicebus.windows.net"
-    SERVICE_BUS_TOPIC                             = var.deadline_submissions_topic_name
-    SERVICE_BUS_RESULT_TOPIC                      = var.deadline_submissions_result_topic_name
-    API_HOST                                      = var.back_office_api_host
-    BLOB_STORAGE_URL                              = var.back_office_storage_account_host
-    SUBMISSIONS_BLOB_CONTAINER_NAME               = var.back_office_submissions_container
-    UPLOADS_BLOB_CONTAINER_NAME                   = var.back_office_document_upload_container
+
+    # Malware Detection
+    API_HOST = var.back_office_api_host
+
+    # Notify Subscribers
+    NODE_ENV                = var.node_environment
+    API_HOST                = var.back_office_api_host
+    GOV_NOTIFY_API_KEY      = var.gov_notify_api_key
+    GOV_NOTIFY_TEMPLATE_ID  = var.gov_notify_template_id
+    ENCRYPT_KEY             = var.encrypt_key
+    FRONT_OFFICE_URL        = var.applications_front_office_web_url
+    SUBSCRIPTIONS_PER_BATCH = 100
+    WAIT_PER_BATCH_SECONDS  = 4
+
+    # Publish Documents
+    BLOB_STORAGE_ACCOUNT_HOST = var.back_office_storage_account_host
+    BLOB_SOURCE_CONTAINER     = var.back_office_document_upload_container
+    BLOB_PUBLISH_CONTAINER    = var.back_office_file_publish_container
   }
 
   tags = var.tags
-}
-
-resource "azurerm_servicebus_subscription" "deadline_submission_subscription" {
-  name               = "deadline-submission-subscription"
-  topic_id           = var.servicebus_topic_deadline_submission_topic_id
-  max_delivery_count = 1
 }

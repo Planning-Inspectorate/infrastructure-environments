@@ -62,12 +62,12 @@ variable "azuread_applications_case_admin_officer_group_id" {
 }
 
 variable "document_check_function_storage_name" {
-  description = "Function Storage name"
+  description = "Function Storage name. NOTE: This is storage for all functions."
   type        = string
 }
 
 variable "document_check_function_storage_primary_access_key" {
-  description = "Function Storage Primary Access Key"
+  description = "Function Storage Primary Access Key. NOTE: This is storage for all functions."
   type        = string
 }
 
@@ -238,12 +238,6 @@ variable "service_user_topic_id" {
   default     = ""
 }
 
-variable "feature_odw_subscription_enabled" {
-  description = "Temporary flag to enable/disable ODW subscription integration. Always disabled for uk-south for now."
-  type        = bool
-  default     = false
-}
-
 variable "servicebus_topic_nsip_documents_id" {
   description = "Service Bus Topic nsip-document id"
   type        = string
@@ -271,16 +265,6 @@ variable "servicebus_topic_deadline_submission_result_id" {
 
 variable "servicebus_topic_register_representation_id" {
   description = "Service Bus Topic register-representation id"
-  type        = string
-}
-
-variable "register_representation_topic_name" {
-  description = "Register Representation Topic Name"
-  type        = string
-}
-
-variable "deadline_submissions_topic_name" {
-  description = "Deadline Submissions Topic Name"
   type        = string
 }
 
@@ -322,12 +306,6 @@ variable "document_storage_back_office_published_documents_container_resource_ma
 variable "document_storage_back_office_document_service_uploads_container_name" {
   description = "Document Storage document service uploads container name"
   type        = string
-}
-
-variable "back_office_documents_system_topic_name" {
-  description = "Back Office Document Storage System Topic Name"
-  type        = string
-  default     = ""
 }
 
 variable "back_office_hostname" {
