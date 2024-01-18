@@ -3,6 +3,11 @@ output "app_service_urls" {
   value       = { for k, v in module.app_service : "${k}_${module.azure_region.location_short}" => v.default_site_hostname }
 }
 
+output "app_service_ids" {
+  description = "A map of App Service IDs"
+  value       = { for k, v in module.app_service : "${k}_${module.azure_region.location_short}" => v.id }
+}
+
 output "app_service_principal_ids" {
   description = "A map of App Service principal IDs"
   value       = { for k, v in module.app_service : "${k}_${module.azure_region.location_short}" => v.principal_id }
