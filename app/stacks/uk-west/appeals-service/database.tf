@@ -170,7 +170,7 @@ resource "azurerm_role_assignment" "appeals_sql_server" {
 
 # auditing policy
 resource "azurerm_mssql_server_extended_auditing_policy" "appeals_sql_server" {
-  enabled                    = var.monitoring_alerts_enabled ? true : false
+  enabled                    = var.monitoring_alerts_enabled
   storage_endpoint           = azurerm_storage_account.appeals_sql_server.primary_blob_endpoint
   storage_account_access_key = azurerm_storage_account.appeals_sql_server.primary_access_key
   server_id                  = azurerm_mssql_server.appeals_sql_server.id
@@ -206,7 +206,7 @@ resource "azurerm_mssql_server_vulnerability_assessment" "appeals_sql_server" {
   storage_account_access_key      = azurerm_storage_account.appeals_sql_server.primary_access_key
 
   recurring_scans {
-    enabled                   = var.monitoring_alerts_enabled ? true : false
+    enabled                   = var.monitoring_alerts_enabled
     email_subscription_admins = true
     emails                    = var.alert_recipients["low"]
   }
