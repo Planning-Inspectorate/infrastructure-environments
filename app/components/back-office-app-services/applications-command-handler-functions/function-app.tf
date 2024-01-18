@@ -1,5 +1,5 @@
 module "applications_command_handler_functions" {
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.9"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.11"
 
   action_group_low_id                      = var.action_group_low_id
   app_name                                 = "apps-command-handlers"
