@@ -265,7 +265,7 @@ resource "azurerm_monitor_metric_alert" "appeals_sql_db_log_io_alert" {
   name                = "${local.service_name} SQL Log IO Alert ${local.resource_suffix}"
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
   scopes              = [azurerm_mssql_database.appeals_sql_db.id]
-  description         = "Action will be triggered when DTU percent is greater than 80."
+  description         = "Action will be triggered when Log write percent is greater than 80."
   window_size         = "PT5M"
   frequency           = "PT1M"
   severity            = 3
