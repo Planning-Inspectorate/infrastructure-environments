@@ -2,7 +2,7 @@ module "applications_background_job_functions" {
   source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.11"
 
   action_group_low_id                      = var.action_group_low_id
-  app_name                                 = "applications-background-job-functions"
+  app_name                                 = "apps-background-jobs"
   app_service_plan_id                      = var.app_service_plan_id
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
