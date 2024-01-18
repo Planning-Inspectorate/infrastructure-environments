@@ -130,3 +130,9 @@ variable "service_bus_namespace_name" {
   description = "The name of the Back Office service bus namespace"
   type        = string
 }
+
+variable "node_environment" {
+  description = "The node environment to be used for applications in this environment e.g. development"
+  type        = string
+  default     = "development"
+}
