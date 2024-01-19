@@ -14,6 +14,11 @@ variable "frontend_endpoint_mappings" {
 }
 
 variable "frontend_endpoints" {
-  description = "A map of frontend endpoints within the Front Door instance"
+  description = "Frontend endpoints within the Front Door instance, mapped to resource ID"
   type        = map(string)
+}
+
+variable "use_managed_cert_map" {
+  description = "A map of front end name to a boolean that represents if that front end should use an Azure managed SSL cert"
+  type        = map(bool)
 }
