@@ -31,6 +31,7 @@ module "applications_background_job_functions" {
     GOV_NOTIFY_TEMPLATE_ID  = var.gov_notify_template_id
     ENCRYPT_KEY             = var.encrypt_key
     FRONT_OFFICE_URL        = var.applications_front_office_web_url
+    KEY_VAULT_URI           = var.key_vault_uri
     SUBSCRIPTIONS_PER_BATCH = 100
     WAIT_PER_BATCH_SECONDS  = 4
 

@@ -23,6 +23,11 @@ variable "integration_subnet_id" {
   type        = string
 }
 
+variable "key_vault_uri" {
+  description = "The URI of the Key Vault for api key access"
+  type        = string
+}
+
 variable "location" {
   description = "The location the App Services are deployed to in slug format e.g. 'uk-south'"
   type        = string
