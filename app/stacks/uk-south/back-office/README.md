@@ -54,6 +54,7 @@ This component contains the infrastructure required for the back office service.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_action_group_low_id"></a> [action\_group\_low\_id](#input\_action\_group\_low\_id) | The ID of the Azure Monitor action group for low priority (P4) alerts | `string` | n/a | yes |
+| <a name="input_api_key_vault_authorization_enabled"></a> [api\_key\_vault\_authorization\_enabled](#input\_api\_key\_vault\_authorization\_enabled) | Whether or not Key Vault is used to access secrets from the app | `string` | n/a | yes |
 | <a name="input_app_service_plan_id"></a> [app\_service\_plan\_id](#input\_app\_service\_plan\_id) | The id of the app service plan | `string` | n/a | yes |
 | <a name="input_applications_front_office_web_url"></a> [applications\_front\_office\_web\_url](#input\_applications\_front\_office\_web\_url) | Applications Front Office Web URL | `string` | n/a | yes |
 | <a name="input_azuread_appeals_case_officer_group_id"></a> [azuread\_appeals\_case\_officer\_group\_id](#input\_azuread\_appeals\_case\_officer\_group\_id) | The Azure AD group ID for Appeals Back Office case officers | `string` | `null` | no |

@@ -3,6 +3,11 @@ variable "action_group_low_id" {
   type        = string
 }
 
+variable "api_key_vault_authorization_enabled" {
+  description = "Whether or not Key Vault is used to access secrets from the app"
+  type        = string
+}
+
 variable "app_service_plan_id" {
   description = "The id of the app service plan"
   type        = string

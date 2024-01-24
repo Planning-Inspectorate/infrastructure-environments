@@ -1,5 +1,6 @@
 locals {
-  node_environment = "production"
+  node_environment                    = "production"
+  api_key_vault_authorization_enabled = "true"
   # Azure AD configuration
   azuread_auth_client_id = "7cab8971-c305-4b9a-82db-21b5fd84efbd"
   # Azure AD Appeals Groups
