@@ -24,6 +24,8 @@ locals {
         APPLICATIONS_CASETEAM_GROUP_ID             = var.azuread_applications_caseteam_group_id
         APPLICATIONS_INSPECTOR_GROUP_ID            = var.azuread_applications_inspector_group_id
         AZURE_BLOB_STORE_HOST                      = var.document_storage_api_host
+        KEY_VAULT_ENABLED                          = var.api_key_vault_authorization_enabled
+        KEY_VAULT_URI                              = var.key_vault_uri
         LOG_LEVEL_FILE                             = var.back_office_applications_log_level_file
         LOG_LEVEL_STDOUT                           = var.back_office_applications_log_level_stdout
         NODE_ENV                                   = var.node_environment
@@ -51,6 +53,8 @@ locals {
         NODE_ENV                                   = var.node_environment
         AZURE_BLOB_STORE_HOST                      = var.document_storage_api_host
         AZURE_BLOB_STORE_CONTAINER                 = var.document_storage_back_office_document_service_uploads_container_name
+        KEY_VAULT_ENABLED                          = var.api_key_vault_authorization_enabled
+        KEY_VAULT_URI                              = var.key_vault_uri
         SERVICE_BUS_HOSTNAME                       = "${var.service_bus_namespace_name}.servicebus.windows.net"
         SERVICE_BUS_ENABLED                        = var.feature_service_bus_enabled
         DATABASE_NAME                              = var.database_name

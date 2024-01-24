@@ -12,6 +12,7 @@ module "applications_command_handler_functions" {
   back_office_api_host                                       = module.app_service["back_office_api"].default_site_hostname
   function_apps_storage_account                              = var.document_check_function_storage_name
   function_apps_storage_account_access_key                   = var.document_check_function_storage_primary_access_key
+  key_vault_uri                                              = var.key_vault_uri
   servicebus_topic_deadline_submission_topic_id              = var.servicebus_topic_deadline_submission_topic_id
   servicebus_topic_register_nsip_subscription_id             = var.servicebus_topic_register_nsip_subscription_id
   servicebus_topic_register_representation_id                = var.servicebus_topic_register_representation_id

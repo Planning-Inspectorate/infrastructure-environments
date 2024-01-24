@@ -48,3 +48,25 @@ resource "azurerm_key_vault_secret" "back_office_sql_server_connection_string" {
 
   tags = local.tags
 }
+
+resource "azurerm_key_vault_secret" "back_office_applications_api_key_web" {
+  #checkov:skip=CKV_AZURE_41
+
+  content_type = "array"
+  key_vault_id = var.key_vault_id
+  name         = "backoffice-applications-api-key-web"
+  value        = ""
+
+  tags = local.tags
+}
+
+resource "azurerm_key_vault_secret" "back_office_applications_api_key_function" {
+  #checkov:skip=CKV_AZURE_41
+
+  content_type = "array"
+  key_vault_id = var.key_vault_id
+  name         = "backoffice-applications-api-key-function"
+  value        = ""
+
+  tags = local.tags
+}

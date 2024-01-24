@@ -94,6 +94,11 @@ variable "key_vault_id" {
   type        = string
 }
 
+variable "key_vault_uri" {
+  description = "The URI of the Key Vault for api key access"
+  type        = string
+}
+
 variable "servicebus_topic_nsip_documents_id" {
   description = "Service Bus topic nsip-document id"
   type        = string
