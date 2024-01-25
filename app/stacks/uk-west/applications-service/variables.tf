@@ -135,6 +135,11 @@ variable "back_office_submissions_storage_account_name" {
   type        = string
 }
 
+variable "back_office_integration_get_applications" {
+  description = "indicate if applications are retrieved from back office"
+  type        = string
+}
+
 variable "common_resource_group_name" {
   description = "The common infrastructure resource group name"
   type        = string

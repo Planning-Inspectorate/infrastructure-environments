@@ -67,6 +67,7 @@ locals {
         BACK_OFFICE_INTEGRATION_GET_REPRESENTATION_CASE_REFERENCES    = var.back_office_integration_get_representation_case_references
         BACK_OFFICE_INTEGRATION_POST_INTERESTED_PARTY_CASE_REFERENCES = var.back_office_integration_post_interested_party_case_references
         BACK_OFFICE_INTEGRATION_POST_SUBMISSIONS_CASE_REFERENCES      = var.back_office_integration_post_submissions_case_references
+        BACK_OFFICE_INTEGRATION_GET_APPLICATIONS                      = var.back_office_integration_get_applications
         BACK_OFFICE_SERVICE_BUS_ENABLED                               = "true"
         BACK_OFFICE_SERVICE_BUS_HOSTNAME                              = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
         DATABASE_URL                                                  = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/applications-service-sql-server-connection-string/)"
