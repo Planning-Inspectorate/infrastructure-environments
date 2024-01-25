@@ -68,6 +68,11 @@ output "bo_appeals_document_container_id" {
   value       = azurerm_storage_container.back_office_appeals_document_container.resource_manager_id
 }
 
+output "bo_appeals_document_container_name" {
+  description = "Back Office appeals container resource_manager_id"
+  value       = azurerm_storage_container.back_office_appeals_document_container.name
+}
+
 output "back_office_service_bus_connection_string" {
   description = "Connection strong for Azure Service Bus in Back Office"
   value       = azurerm_servicebus_namespace.back_office.default_primary_connection_string

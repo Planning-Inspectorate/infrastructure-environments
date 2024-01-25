@@ -282,6 +282,22 @@ variable "back_office_service_bus_namespace_name" {
   description = "Namespace of Back Office Service Bus instance"
   type        = string
 }
+
+variable "bo_appeals_document_container_id" {
+  description = "ID of the Back Office storage container for appeals docs"
+  type        = string
+}
+
+variable "bo_appeals_document_container_name" {
+  description = "Name of the Back Office storage container for appeals docs"
+  type        = string
+}
+
+variable "back_office_document_storage_api_host" {
+  description = "The full URI for the storage account used for back office documents"
+  type        = string
+}
+
 variable "service_bus_appeals_bo_case_topic_id" {
   description = "ID for the appeals case data topic"
   type        = string

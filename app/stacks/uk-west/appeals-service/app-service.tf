@@ -11,6 +11,9 @@ module "app_services" {
   appeal_documents_storage_container_name                                     = azurerm_storage_container.documents.name
   appeals_service_public_url                                                  = var.appeals_service_public_url
   back_office_service_bus_namespace_name                                      = var.back_office_service_bus_namespace_name
+  bo_appeals_document_container_id                                            = var.bo_appeals_document_container_id
+  bo_appeals_document_container_name                                          = var.bo_appeals_document_container_name
+  back_office_document_storage_api_host                                       = var.back_office_document_storage_api_host
   clamav_host                                                                 = var.clamav_host
   comment_planning_appeal_public_url                                          = var.comment_planning_appeal_public_url
   common_integration_functions_subnet_id                                      = var.common_integration_functions_subnet_id

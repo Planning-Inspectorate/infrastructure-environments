@@ -44,7 +44,9 @@ dependency "back_office_ukw" {
     service_bus_listed_building_topic_id                    = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
     service_bus_appeals_fo_lpa_response_submission_topic_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
     service_bus_appeals_fo_appellant_submission_topic_id    = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.ServiceBus/namespaces/mock-namespace/topics/mock-topic"
-
+    bo_appeals_document_container_id                        = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Storage/storageAccounts/mock-account/blobServices/default/containers/mock-container"
+    bo_appeals_document_container_name                      = "mockcontainername"
+    back_office_document_storage_api_host                   = "https://mockstorageaccount.blob.core.windows.net/"
   }
 }
 
@@ -53,6 +55,9 @@ inputs = {
   alert_recipients                                        = dependency.common_ukw.outputs.alert_recipients
   app_service_plan_id                                     = dependency.common_ukw.outputs.app_service_plan_id
   back_office_service_bus_namespace_name                  = dependency.back_office_ukw.outputs.service_bus_namespace_name
+  bo_appeals_document_container_id                        = dependency.back_office_ukw.outputs.bo_appeals_document_container_id
+  bo_appeals_document_container_name                      = dependency.back_office_ukw.outputs.bo_appeals_document_container_name
+  back_office_document_storage_api_host                   = dependency.back_office_ukw.outputs.back_office_document_storage_api_host
   service_bus_appeals_bo_case_topic_id                    = dependency.back_office_ukw.outputs.service_bus_appeals_bo_case_topic_id
   service_bus_appeals_bo_document_topic_id                = dependency.back_office_ukw.outputs.service_bus_appeals_bo_document_topic_id
   service_bus_appeals_fo_appellant_submission_topic_id    = dependency.back_office_ukw.outputs.service_bus_appeals_fo_appellant_submission_topic_id
