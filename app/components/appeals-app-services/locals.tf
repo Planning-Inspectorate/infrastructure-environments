@@ -158,6 +158,8 @@ locals {
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING     = local.secret_refs["appeals-app-insights-connection-string"]
         BLOB_STORAGE_CONNECTION_STRING            = local.secret_refs["appeals-documents-primary-blob-connection-string"]
+        BO_STORAGE_CONTAINER_HOST                 = var.back_office_document_storage_api_host
+        BO_STORAGE_CONTAINER_NAME                 = var.bo_appeals_document_container_name
         DOCS_API_PATH                             = "/opt/app/api"
         FILE_MAX_SIZE_IN_BYTES                    = var.max_file_upload_size_in_bytes
         FILE_UPLOAD_PATH                          = "/tmp/upload"

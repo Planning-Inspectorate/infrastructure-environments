@@ -53,3 +53,10 @@ resource "azurerm_role_assignment" "appeals_fo_api_send_appellant_submission_ser
   role_definition_name = "Azure Service Bus Data Sender"
   principal_id         = module.app_service["appeals_service_api"].principal_id
 }
+
+resource "azurerm_role_assignment" "appeals_docs_api_bo_storage_role" {
+  # access to appeal documents on back office for docs api
+  scope                = var.bo_appeals_document_container_id
+  role_definition_name = "Storage Blob Data Reader"
+  principal_id         = module.app_service["appeal_documents_service_api"].principal_id
+}

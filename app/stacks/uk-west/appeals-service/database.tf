@@ -164,8 +164,6 @@ resource "azurerm_role_assignment" "appeals_sql_server" {
   scope                = azurerm_storage_account.appeals_sql_server.id
   role_definition_name = "Storage Blob Data Contributor"
   principal_id         = azurerm_mssql_server.appeals_sql_server.identity[0].principal_id
-  #will this work, use a data block if not?
-  #https://github.com/Azure/azure-rest-api-specs/issues/23249
 }
 
 # auditing policy
