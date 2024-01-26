@@ -65,6 +65,11 @@ variable "back_office_integration_post_submissions_case_references" {
   type        = string
 }
 
+variable "back_office_integration_get_applications" {
+  description = "indicate if applications are retrieved from back office"
+  type        = string
+}
+
 variable "back_office_service_bus_namespace_name" {
   description = "Namespace of Back Office Service Bus instance"
   type        = string
