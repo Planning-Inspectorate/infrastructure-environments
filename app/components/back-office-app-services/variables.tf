@@ -248,6 +248,11 @@ variable "servicebus_topic_nsip_documents_id" {
   type        = string
 }
 
+variable "servicebus_topic_nsip_project_id" {
+  description = "Service BUs Topic nsip-project id"
+  type        = string
+}
+
 variable "servicebus_topic_nsip_project_update_id" {
   description = "Service Bus Topic nsip-project-update id"
   type        = string

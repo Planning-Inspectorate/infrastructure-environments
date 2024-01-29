@@ -21,6 +21,7 @@ module "applications_background_job_functions" {
   back_office_storage_account_host                                                    = var.document_storage_api_host
   key_vault_uri                                                                       = var.key_vault_uri
   key_vault_id                                                                        = var.key_vault_id
+  servicebus_topic_nsip_project_id                                                    = var.servicebus_topic_nsip_project_id
   servicebus_topic_nsip_project_update_id                                             = var.servicebus_topic_nsip_project_update_id
   encrypt_key                                                                         = local.existing_secret_refs["applications-service-encryption-secret-key"]
   gov_notify_api_key                                                                  = local.secret_refs["back-office-applications-gov-notify-api-key"]

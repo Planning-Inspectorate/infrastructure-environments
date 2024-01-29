@@ -1,3 +1,9 @@
+resource "azurerm_servicebus_subscription" "nsip_project_training_subscription" {
+  name               = "nsip-project-training-sub"
+  topic_id           = var.servicebus_topic_nsip_project_id
+  max_delivery_count = 1
+}
+
 resource "azurerm_servicebus_subscription" "nsip_project_update_subscription" {
   name               = "nsip-project-update-notify-subscribers-sub" # note name must be <=50 chars
   topic_id           = var.servicebus_topic_nsip_project_update_id
