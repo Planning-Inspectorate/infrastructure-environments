@@ -18,7 +18,8 @@ locals {
         APPLICATIONINSIGHTS_CONNECTION_STRING     = local.secret_refs["appeals-app-insights-connection-string"]
         APPEALS_SERVICE_API_TIMEOUT               = var.api_timeout
         APPEALS_SERVICE_API_URL                   = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
-        CLAM_AV_HOST                              = "https://pins-app-${var.service_name}-clamav-api-${var.resource_suffix}.azurewebsites.net"
+        CLAMAV_HOST                               = var.clamav_host
+        CLAMAV_PORT                               = "3310"
         DOCS_API_PATH                             = "/opt/app/api"
         DOCUMENTS_SERVICE_API_TIMEOUT             = var.api_timeout
         DOCUMENTS_SERVICE_API_URL                 = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net/"
@@ -60,7 +61,8 @@ locals {
         APPLICATIONINSIGHTS_CONNECTION_STRING     = local.secret_refs["appeals-app-insights-connection-string"]
         APPEALS_SERVICE_API_TIMEOUT               = var.api_timeout
         APPEALS_SERVICE_API_URL                   = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
-        CLAM_AV_HOST                              = "https://pins-app-${var.service_name}-clamav-api-${var.resource_suffix}.azurewebsites.net"
+        CLAMAV_HOST                               = var.clamav_host
+        CLAMAV_PORT                               = "3310"
         DOCS_API_PATH                             = "/opt/app/api"
         DOCUMENTS_SERVICE_API_TIMEOUT             = var.api_timeout
         DOCUMENTS_SERVICE_API_URL                 = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net/"
@@ -192,22 +194,6 @@ locals {
         SERVER_PORT                             = "3000"
         SERVER_SHOW_ERRORS                      = true
         SERVER_TERMINATION_GRACE_PERIOD_SECONDS = "0"
-      }
-    }
-
-    clam_av_service_api = {
-      app_name                        = "clamav-api"
-      app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
-      endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
-      image_name                      = "appeal-planning-decision/clamav-api"
-      integration_subnet_id           = var.integration_subnet_id
-      inbound_vnet_connectivity       = var.private_endpoint_enabled
-      key_vault_access                = true
-      outbound_vnet_connectivity      = true
-
-      app_settings = {
-        APPLICATIONINSIGHTS_CONNECTION_STRING = local.secret_refs["appeals-app-insights-connection-string"]
-        CLAMAV_HOST                           = var.clamav_host
       }
     }
   }
