@@ -24,7 +24,7 @@ locals {
         DOCUMENTS_SERVICE_API_URL                 = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net/"
         FEATURE_FLAG_GOOGLE_TAG_MANAGER           = false
         FEATURE_FLAG_NEW_APPEAL_JOURNEY           = true
-        FILE_UPLOAD_DEBUG                         = true
+        FILE_UPLOAD_DEBUG                         = false
         FILE_UPLOAD_MAX_FILE_SIZE_BYTES           = var.max_file_upload_size_in_bytes
         FILE_UPLOAD_TMP_PATH                      = "/tmp"
         FILE_UPLOAD_USE_TEMP_FILES                = true
