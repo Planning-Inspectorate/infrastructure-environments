@@ -369,3 +369,9 @@ variable "sql_database_configuration" {
   description = "A map of database configuration options"
   type        = map(string)
 }
+
+variable "appeals_frontend_file_upload_debug_logging_enabled" {
+  description = "Toggles debug logging for file upload middleware"
+  type        = bool
+  default     = true
+}
