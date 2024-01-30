@@ -32,9 +32,12 @@ This component contains the infrastructure required for the applications service
 | [azurerm_application_insights.applications_app_insights](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/application_insights) | resource |
 | [azurerm_key_vault_secret.app_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.applications_app_insights_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.applications_sql_server_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.applications_sql_server_password](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.applications_sql_server_username](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.applications_sql_server_connection_string_admin](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.applications_sql_server_connection_string_app](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.applications_sql_server_password_admin](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.applications_sql_server_password_app](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.applications_sql_server_username_admin](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.applications_sql_server_username_app](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.redis_cache_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_local_network_gateway.national_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/local_network_gateway) | resource |
 | [azurerm_log_analytics_workspace.applications_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/log_analytics_workspace) | resource |
@@ -49,8 +52,10 @@ This component contains the infrastructure required for the applications service
 | [azurerm_storage_account.function_storage](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_account) | resource |
 | [azurerm_subnet.applications_service_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/subnet) | resource |
 | [azurerm_virtual_network_gateway_connection.national_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/virtual_network_gateway_connection) | resource |
-| [random_id.username_suffix](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
-| [random_password.applications_sql_server_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
+| [random_id.username_suffix_admin](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
+| [random_id.username_suffix_app](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
+| [random_password.applications_sql_server_password_admin](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
+| [random_password.applications_sql_server_password_app](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
 | [azurerm_private_dns_zone.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/private_dns_zone) | data source |
 | [azurerm_private_dns_zone.database](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/private_dns_zone) | data source |
 
@@ -146,6 +151,11 @@ This component contains the infrastructure required for the applications service
 | <a name="output_function_storage_name"></a> [function\_storage\_name](#output\_function\_storage\_name) | Name of the Storage Account used for Function Apps |
 | <a name="output_function_storage_primary_access_key"></a> [function\_storage\_primary\_access\_key](#output\_function\_storage\_primary\_access\_key) | Primary access key of the Storage Account used for Function Apps |
 | <a name="output_primary_applications_sql_database_id"></a> [primary\_applications\_sql\_database\_id](#output\_primary\_applications\_sql\_database\_id) | ID of the primary (ukw) Applications SQL database |
+| <a name="output_primary_applications_sql_database_name"></a> [primary\_applications\_sql\_database\_name](#output\_primary\_applications\_sql\_database\_name) | Name of the primary (ukw) Applications SQL Database |
 | <a name="output_primary_applications_sql_server_id"></a> [primary\_applications\_sql\_server\_id](#output\_primary\_applications\_sql\_server\_id) | ID of the primary (ukw) Applications SQL Server |
+| <a name="output_sql_server_password_admin"></a> [sql\_server\_password\_admin](#output\_sql\_server\_password\_admin) | The SQL server administrator password |
+| <a name="output_sql_server_password_app"></a> [sql\_server\_password\_app](#output\_sql\_server\_password\_app) | The SQL server app password |
+| <a name="output_sql_server_username_admin"></a> [sql\_server\_username\_admin](#output\_sql\_server\_username\_admin) | The SQL server administrator username |
+| <a name="output_sql_server_username_app"></a> [sql\_server\_username\_app](#output\_sql\_server\_username\_app) | The SQL server app username |
 | <a name="output_web_frontend_url"></a> [web\_frontend\_url](#output\_web\_frontend\_url) | The URL of the web frontend app service |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

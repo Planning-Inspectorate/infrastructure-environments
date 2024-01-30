@@ -12,7 +12,7 @@ dependency "common_uks" {
     applications_service_vpn_gateway_shared_key = "mock_shared_key"
     common_resource_group_name                  = "mock_resource_group_name"
     common_vnet_cidr_blocks = {
-      appeals_service_endpoints = "10.1.2.0/24"
+      applications_service_endpoints = "10.1.2.0/24"
     }
     common_vnet_gateway_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Network/virtualNetworkGateways/mock_id"
     common_vnet_name       = "mock_vnet_name"
@@ -38,10 +38,15 @@ dependency "applications_service_ukw" {
   mock_outputs_merge_with_state           = true
 
   mock_outputs = {
-    function_storage_name                = "mock-storage-name"
-    function_storage_primary_access_key  = "mock-storage-key"
-    primary_applications_sql_server_id   = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Sql/servers/mock_sql_server"
-    primary_applications_sql_database_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Sql/servers/mock_sql_server/databases/mock_sql_db"
+    function_storage_name                  = "mock-storage-name"
+    function_storage_primary_access_key    = "mock-storage-key"
+    primary_applications_sql_server_id     = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Sql/servers/mock_sql_server"
+    primary_applications_sql_database_id   = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Sql/servers/mock_sql_server/databases/mock_sql_db"
+    primary_applications_sql_database_name = "mock-db-name"
+    sql_server_password_admin              = "mockpass"
+    sql_server_password_app                = "mockpass2"
+    sql_server_username_admin              = "mockuser"
+    sql_server_username_app                = "mockuser2"
   }
 }
 
@@ -91,16 +96,21 @@ inputs = {
   #  back_office_service_bus_deadline_submission_topic_id           = dependency.back_office_uks.outputs.servicebus_topic_deadline_submission_topic_id
   #  back_office_service_bus_namespace_name                         = "mock-namespace"
 
-  common_resource_group_name           = dependency.common_uks.outputs.common_resource_group_name
-  common_vnet_cidr_blocks              = dependency.common_uks.outputs.common_vnet_cidr_blocks
-  common_vnet_gateway_id               = try(dependency.common_uks.outputs.common_vnet_gateway_id, null)
-  common_vnet_id                       = dependency.common_uks.outputs.vnet_id
-  common_vnet_name                     = dependency.common_uks.outputs.common_vnet_name
-  function_storage_name                = dependency.applications_service_ukw.outputs.function_storage_name
-  function_storage_primary_access_key  = dependency.applications_service_ukw.outputs.function_storage_primary_access_key
-  integration_subnet_id                = dependency.common_uks.outputs.integration_subnet_id
-  key_vault_id                         = dependency.common_ukw.outputs.key_vault_id
-  key_vault_uri                        = dependency.common_ukw.outputs.key_vault_uri
-  primary_applications_sql_server_id   = dependency.applications_service_ukw.outputs.primary_applications_sql_server_id
-  primary_applications_sql_database_id = dependency.applications_service_ukw.outputs.primary_applications_sql_database_id
+  common_resource_group_name             = dependency.common_uks.outputs.common_resource_group_name
+  common_vnet_cidr_blocks                = dependency.common_uks.outputs.common_vnet_cidr_blocks
+  common_vnet_gateway_id                 = try(dependency.common_uks.outputs.common_vnet_gateway_id, null)
+  common_vnet_id                         = dependency.common_uks.outputs.vnet_id
+  common_vnet_name                       = dependency.common_uks.outputs.common_vnet_name
+  function_storage_name                  = dependency.applications_service_ukw.outputs.function_storage_name
+  function_storage_primary_access_key    = dependency.applications_service_ukw.outputs.function_storage_primary_access_key
+  integration_subnet_id                  = dependency.common_uks.outputs.integration_subnet_id
+  key_vault_id                           = dependency.common_ukw.outputs.key_vault_id
+  key_vault_uri                          = dependency.common_ukw.outputs.key_vault_uri
+  primary_applications_sql_server_id     = dependency.applications_service_ukw.outputs.primary_applications_sql_server_id
+  primary_applications_sql_database_id   = dependency.applications_service_ukw.outputs.primary_applications_sql_database_id
+  primary_applications_sql_database_name = dependency.applications_service_ukw.outputs.primary_applications_sql_database_name
+  sql_server_password_admin              = dependency.applications_service_ukw.outputs.sql_server_password_admin
+  sql_server_password_app                = dependency.applications_service_ukw.outputs.sql_server_password_app
+  sql_server_username_admin              = dependency.applications_service_ukw.outputs.sql_server_username_admin
+  sql_server_username_app                = dependency.applications_service_ukw.outputs.sql_server_username_app
 }

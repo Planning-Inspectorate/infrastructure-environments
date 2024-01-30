@@ -1,14 +1,25 @@
 locals {
-  service_name        = "applications-service"
-  resource_suffix     = "${var.environment}-${module.azure_region_uks.location_short}-${var.instance}"
-  sql_server_username = "pins-sql-${local.service_name}-${local.resource_suffix}-admin-${random_id.username_suffix.id}"
-  sql_connection_string = join(
+  service_name    = "applications-service"
+  resource_suffix = "${var.environment}-${module.azure_region_uks.location_short}-${var.instance}"
+
+  sql_connection_string_admin = join(
     ";",
     [
       "sqlserver://${azurerm_mssql_server.applications_sql_server.fully_qualified_domain_name}",
-      "database=${azurerm_mssql_database.applications_sql_db.name}",
+      "database=${var.primary_applications_sql_database_name}",
       "user=${azurerm_mssql_server.applications_sql_server.administrator_login}",
       "password=${azurerm_mssql_server.applications_sql_server.administrator_login_password}",
+      "trustServerCertificate=true"
+    ]
+  )
+
+  sql_connection_string_app = join(
+    ";",
+    [
+      "sqlserver://${azurerm_mssql_server.applications_sql_server.fully_qualified_domain_name}",
+      "database=${var.primary_applications_sql_database_name}",
+      "user=${var.sql_server_username_app}",
+      "password=${var.sql_server_password_app}",
       "trustServerCertificate=true"
     ]
   )

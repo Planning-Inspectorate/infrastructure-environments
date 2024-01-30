@@ -16,7 +16,6 @@ This component contains the infrastructure required for the applications service
 |------|---------|
 | <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.74.0 |
 | <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 3.74.0 |
-| <a name="provider_random"></a> [random](#provider\_random) | 3.5.1 |
 
 ## Modules
 
@@ -31,13 +30,15 @@ This component contains the infrastructure required for the applications service
 |------|------|
 | [azurerm_application_insights.applications_app_insights](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/application_insights) | resource |
 | [azurerm_key_vault_secret.applications_app_insights_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.applications_sql_server_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.applications_sql_server_password](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.applications_sql_server_username](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.applications_sql_server_connection_string_admin](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.applications_sql_server_connection_string_app](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.applications_sql_server_password_admin](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.applications_sql_server_password_app](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.applications_sql_server_username_admin](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.applications_sql_server_username_app](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.redis_cache_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_local_network_gateway.national_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/local_network_gateway) | resource |
 | [azurerm_log_analytics_workspace.applcations_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/log_analytics_workspace) | resource |
-| [azurerm_mssql_database.applications_sql_db](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_database) | resource |
 | [azurerm_mssql_failover_group.applications_sql_server_failover_group](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_failover_group) | resource |
 | [azurerm_mssql_server.applications_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_server) | resource |
 | [azurerm_private_dns_zone.redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone) | resource |
@@ -49,8 +50,6 @@ This component contains the infrastructure required for the applications service
 | [azurerm_storage_account.function_storage](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_account) | resource |
 | [azurerm_subnet.applications_service_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/subnet) | resource |
 | [azurerm_virtual_network_gateway_connection.national_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/virtual_network_gateway_connection) | resource |
-| [random_id.username_suffix](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
-| [random_password.applications_sql_server_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
 | [azurerm_private_dns_zone.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/private_dns_zone) | data source |
 | [azurerm_private_dns_zone.database](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/private_dns_zone) | data source |
 
@@ -129,12 +128,16 @@ This component contains the infrastructure required for the applications service
 | <a name="input_node_environment"></a> [node\_environment](#input\_node\_environment) | The node environment to be used for applications in this environment e.g. development | `string` | `"development"` | no |
 | <a name="input_planned_outage_resume_text"></a> [planned\_outage\_resume\_text](#input\_planned\_outage\_resume\_text) | Optional text to be displayed when planned outage page is active | `string` | n/a | yes |
 | <a name="input_primary_applications_sql_database_id"></a> [primary\_applications\_sql\_database\_id](#input\_primary\_applications\_sql\_database\_id) | ID of the primary (ukw) Applications SQL database | `string` | n/a | yes |
+| <a name="input_primary_applications_sql_database_name"></a> [primary\_applications\_sql\_database\_name](#input\_primary\_applications\_sql\_database\_name) | Name of the primary (ukw) Applications SQL database | `string` | n/a | yes |
 | <a name="input_primary_applications_sql_server_id"></a> [primary\_applications\_sql\_server\_id](#input\_primary\_applications\_sql\_server\_id) | ID of the primary (ukw) Applications SQL Server | `string` | n/a | yes |
 | <a name="input_private_beta_v1_routes_only"></a> [private\_beta\_v1\_routes\_only](#input\_private\_beta\_v1\_routes\_only) | Feature toggle for limiting web app routes to Private Beta V1 functionality only | `string` | n/a | yes |
 | <a name="input_private_endpoint_enabled"></a> [private\_endpoint\_enabled](#input\_private\_endpoint\_enabled) | A switch to determine if Private Endpoint should be enabled for backend App Services | `bool` | `true` | no |
 | <a name="input_project_migration_case_references"></a> [project\_migration\_case\_references](#input\_project\_migration\_case\_references) | Specifies the case references to migrate to the new project information page | `string` | n/a | yes |
-| <a name="input_sql_database_configuration"></a> [sql\_database\_configuration](#input\_sql\_database\_configuration) | A map of database configuration options | `map(string)` | n/a | yes |
 | <a name="input_sql_server_azuread_administrator"></a> [sql\_server\_azuread\_administrator](#input\_sql\_server\_azuread\_administrator) | Azure AD details of database administrator user/group | `map(string)` | n/a | yes |
+| <a name="input_sql_server_password_admin"></a> [sql\_server\_password\_admin](#input\_sql\_server\_password\_admin) | The SQL server administrator password | `string` | n/a | yes |
+| <a name="input_sql_server_password_app"></a> [sql\_server\_password\_app](#input\_sql\_server\_password\_app) | The SQL server app password | `string` | n/a | yes |
+| <a name="input_sql_server_username_admin"></a> [sql\_server\_username\_admin](#input\_sql\_server\_username\_admin) | The SQL server administrator username | `string` | n/a | yes |
+| <a name="input_sql_server_username_app"></a> [sql\_server\_username\_app](#input\_sql\_server\_username\_app) | The SQL server app username | `string` | n/a | yes |
 | <a name="input_srv_notify_base_url"></a> [srv\_notify\_base\_url](#input\_srv\_notify\_base\_url) | The base URL for the Notifications service | `string` | n/a | yes |
 | <a name="input_srv_notify_ip_registration_confirmation_email_to_ip_template_id"></a> [srv\_notify\_ip\_registration\_confirmation\_email\_to\_ip\_template\_id](#input\_srv\_notify\_ip\_registration\_confirmation\_email\_to\_ip\_template\_id) | The template ID for the IP registration confirmation email | `string` | n/a | yes |
 | <a name="input_srv_notify_magic_link_email_template_id"></a> [srv\_notify\_magic\_link\_email\_template\_id](#input\_srv\_notify\_magic\_link\_email\_template\_id) | The template ID for the magic link email | `string` | n/a | yes |

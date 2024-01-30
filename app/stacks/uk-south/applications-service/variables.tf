@@ -428,14 +428,38 @@ variable "srv_notify_service_id" {
   type        = string
 }
 
+variable "primary_applications_sql_database_name" {
+  description = "Name of the primary (ukw) Applications SQL database"
+  type        = string
+}
+
 variable "sql_server_azuread_administrator" {
   description = "Azure AD details of database administrator user/group"
   type        = map(string)
 }
 
-variable "sql_database_configuration" {
-  description = "A map of database configuration options"
-  type        = map(string)
+variable "sql_server_password_admin" {
+  description = "The SQL server administrator password"
+  sensitive   = true
+  type        = string
+}
+
+variable "sql_server_password_app" {
+  description = "The SQL server app password"
+  sensitive   = true
+  type        = string
+}
+
+variable "sql_server_username_admin" {
+  description = "The SQL server administrator username"
+  sensitive   = true
+  type        = string
+}
+
+variable "sql_server_username_app" {
+  description = "The SQL server app username"
+  sensitive   = true
+  type        = string
 }
 
 variable "private_beta_v1_routes_only" {
