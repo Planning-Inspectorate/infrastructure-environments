@@ -140,14 +140,14 @@ resource "azurerm_storage_account" "back_office_sql_server" {
   allow_nested_items_to_be_public  = false
   cross_tenant_replication_enabled = false
 
-  network_rules = {
+  network_rules {
     default_action             = "Deny"
     ip_rules                   = ["127.0.0.1"]
     virtual_network_subnet_ids = [azurerm_subnet.back_office_ingress.id]
     bypass                     = ["AzureServices"]
   }
 
-  identity = {
+  identity {
     type = "SystemAssigned"
   }
 
@@ -160,15 +160,4 @@ resource "azurerm_storage_container" "back_office_sql_server" {
   name                  = "sqlvulnerabilityassessment"
   storage_account_name  = azurerm_storage_account.back_office_sql_server.name
   container_access_type = "private"
-}
-
-resource "azurerm_advanced_threat_protection" "back_office_sql_server" {
-  target_resource_id = azurerm_storage_account.back_office_sql_server.id
-  enabled            = true
-}
-
-resource "azurerm_role_assignment" "back_office_sql_server" {
-  scope                = azurerm_storage_account.back_office_sql_server.id
-  role_definition_name = "Storage Blob Data Contributor"
-  principal_id         = azurerm_mssql_server.back_office_sql_server.identity[0].principal_id
 }
