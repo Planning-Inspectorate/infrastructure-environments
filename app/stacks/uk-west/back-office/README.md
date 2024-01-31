@@ -30,6 +30,7 @@ This component contains the infrastructure required for the back office service.
 
 | Name | Type |
 |------|------|
+| [azurerm_advanced_threat_protection.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/advanced_threat_protection) | resource |
 | [azurerm_application_insights.back_office_app_insights](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/application_insights) | resource |
 | [azurerm_application_insights.back_office_appeals_insights](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/application_insights) | resource |
 | [azurerm_eventgrid_system_topic.back_office_documents_system_topic](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/eventgrid_system_topic) | resource |
@@ -64,6 +65,7 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_redis_cache.back_office_appeals_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/redis_cache) | resource |
 | [azurerm_redis_cache.back_office_applications_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/redis_cache) | resource |
 | [azurerm_resource_group.back_office_stack](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/resource_group) | resource |
+| [azurerm_role_assignment.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.odw_consumer_permission](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.odw_user_permission](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
 | [azurerm_servicebus_namespace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_namespace) | resource |
@@ -87,10 +89,12 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_servicebus_topic.register_representation](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.service_user](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_storage_account.back_office_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_account) | resource |
+| [azurerm_storage_account.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_account) | resource |
 | [azurerm_storage_account.function_storage](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_account) | resource |
 | [azurerm_storage_container.back_office_appeals_document_container](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_container) | resource |
 | [azurerm_storage_container.back_office_document_service_uploads_container](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_container) | resource |
 | [azurerm_storage_container.back_office_published_documents_container](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_container) | resource |
+| [azurerm_storage_container.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_container) | resource |
 | [azurerm_storage_container.back_office_submissions_container](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_container) | resource |
 | [azurerm_subnet.back_office_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/subnet) | resource |
 | [random_id.username_suffix](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
