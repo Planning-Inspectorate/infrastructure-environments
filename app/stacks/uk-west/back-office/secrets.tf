@@ -70,3 +70,15 @@ resource "azurerm_key_vault_secret" "back_office_applications_api_key_function" 
 
   tags = local.tags
 }
+
+resource "azurerm_key_vault_secret" "back_office_applications_api_key_swagger" {
+  #checkov:skip=CKV_AZURE_41
+
+  content_type = "array"
+  count        = var.environment == "dev" ? 1 : 0
+  key_vault_id = var.key_vault_id
+  name         = "backoffice-applications-api-key-swagger"
+  value        = ""
+
+  tags = local.tags
+}
