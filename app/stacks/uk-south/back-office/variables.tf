@@ -307,3 +307,13 @@ variable "redis_cache_configuration" {
   description = "A map of redis configuration options"
   type        = map(string)
 }
+
+variable "alert_recipients" {
+  description = "The email recipients for monitoring alerts"
+  type        = map(list(string))
+}
+
+variable "sql_database_configuration" {
+  description = "A map of database configuration options"
+  type        = map(string)
+}
