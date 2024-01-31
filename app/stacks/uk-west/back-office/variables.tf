@@ -245,3 +245,8 @@ variable "odw_synapse_integration_enabled" {
   type        = bool
   default     = false
 }
+
+variable "alert_recipients" {
+  description = "The email recipients for monitoring alerts"
+  type        = map(list(string))
+}
