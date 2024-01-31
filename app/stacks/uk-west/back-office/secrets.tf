@@ -58,6 +58,11 @@ resource "azurerm_key_vault_secret" "back_office_applications_api_key_web" {
   value        = ""
 
   tags = local.tags
+
+  lifecycle {
+    # api key rotation is handled by pipeline script
+    ignore_changes = [value]
+  }
 }
 
 resource "azurerm_key_vault_secret" "back_office_applications_api_key_function" {
@@ -69,6 +74,11 @@ resource "azurerm_key_vault_secret" "back_office_applications_api_key_function" 
   value        = ""
 
   tags = local.tags
+
+  lifecycle {
+    # api key rotation is handled by pipeline script
+    ignore_changes = [value]
+  }
 }
 
 resource "azurerm_key_vault_secret" "back_office_applications_api_key_swagger" {
@@ -81,4 +91,9 @@ resource "azurerm_key_vault_secret" "back_office_applications_api_key_swagger" {
   value        = ""
 
   tags = local.tags
+
+  lifecycle {
+    # api key rotation is handled by pipeline script
+    ignore_changes = [value]
+  }
 }
