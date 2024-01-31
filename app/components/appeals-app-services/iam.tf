@@ -54,8 +54,19 @@ resource "azurerm_role_assignment" "appeals_fo_api_send_appellant_submission_ser
   principal_id         = module.app_service["appeals_service_api"].principal_id
 }
 
-resource "azurerm_role_assignment" "appeals_docs_api_bo_storage_role" {
+resource "azurerm_role_assignment" "appeals_docs_api_bo_storage_account_role" {
   # access to appeal documents on back office for docs api
+  # allows generation of user delgation key for the account
+  # https://learn.microsoft.com/en-us/rest/api/storageservices/get-user-delegation-key#permissions
+  scope                = var.bo_storage_account_id
+  role_definition_name = "Storage Blob Delegator"
+  principal_id         = module.app_service["appeal_documents_service_api"].principal_id
+}
+
+resource "azurerm_role_assignment" "appeals_docs_api_bo_storage_container_role" {
+  # access to appeal documents on back office for docs api
+  # allows read access to the appeals container only
+  #https://learn.microsoft.com/en-us/rest/api/storageservices/get-user-delegation-key#permissions
   scope                = var.bo_appeals_document_container_id
   role_definition_name = "Storage Blob Data Reader"
   principal_id         = module.app_service["appeal_documents_service_api"].principal_id

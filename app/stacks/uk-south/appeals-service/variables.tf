@@ -283,6 +283,11 @@ variable "back_office_service_bus_namespace_name" {
   type        = string
 }
 
+variable "bo_storage_account_id" {
+  description = "Id of the Back Office storage account"
+  type        = string
+}
+
 variable "bo_appeals_document_container_id" {
   description = "ID of the Back Office storage container for appeals docs"
   type        = string
