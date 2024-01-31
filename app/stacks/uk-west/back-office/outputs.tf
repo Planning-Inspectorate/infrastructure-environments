@@ -63,6 +63,11 @@ output "document_storage_back_office_document_service_uploads_container_name" {
   value       = azurerm_storage_container.back_office_document_service_uploads_container.name
 }
 
+output "bo_storage_account_id" {
+  description = "Back Office storage account id"
+  value       = azurerm_storage_account.back_office_documents.id
+}
+
 output "bo_appeals_document_container_id" {
   description = "Back Office appeals container resource_manager_id"
   value       = azurerm_storage_container.back_office_appeals_document_container.resource_manager_id
