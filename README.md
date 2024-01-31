@@ -65,6 +65,11 @@ tfenv install 1.5.7
 ### Install tgenv and Terragrunt
 --------------------------------
 
+Install tgenv ([Homebrew](https://brew.sh/)):
+```
+brew install tgenv
+```
+
 Install tgenv:
 ```
 git clone https://github.com/cunymatthieu/tgenv.git ~/.tgenv

@@ -307,3 +307,9 @@ variable "appeals_feature_back_office_subscriber_enabled" {
   type        = bool
   default     = false
 }
+
+variable "appeals_frontend_file_upload_debug_logging_enabled" {
+  description = "Toggles debug logging for file upload middleware"
+  type        = bool
+  default     = true
+}

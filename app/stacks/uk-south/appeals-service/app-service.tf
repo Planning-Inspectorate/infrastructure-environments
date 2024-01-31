@@ -61,6 +61,7 @@ module "app_services" {
   srv_notify_service_id                                                       = var.srv_notify_service_id
   task_submit_to_horizon_cron_string                                          = var.task_submit_to_horizon_cron_string
   task_submit_to_horizon_trigger_active                                       = var.task_submit_to_horizon_trigger_active
+  appeals_frontend_file_upload_debug_logging_enabled                          = var.appeals_frontend_file_upload_debug_logging_enabled
 
   tags = local.tags
 
