@@ -55,6 +55,14 @@ locals {
         percentage = 100
         users      = []
       }
+    },
+    {
+      name    = "serve-back-office-documents"
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = []
+      }
     }
   ]
   allow_testing_overrides                                                     = false
