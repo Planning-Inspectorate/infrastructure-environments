@@ -405,3 +405,8 @@ variable "odw_data_lake_storage_account_id" {
   type        = string
   default     = ""
 }
+
+variable "horizon_url" {
+  description = "The URL used to connect to Horizon"
+  type        = string
+}

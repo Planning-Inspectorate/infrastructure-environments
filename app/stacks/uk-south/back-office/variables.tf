@@ -317,3 +317,8 @@ variable "sql_database_configuration" {
   description = "A map of database configuration options"
   type        = map(string)
 }
+
+variable "horizon_url" {
+  description = "The URL used to connect to Horizon"
+  type        = string
+}
