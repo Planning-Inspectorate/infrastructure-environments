@@ -99,6 +99,11 @@ variable "key_vault_uri" {
   type        = string
 }
 
+variable "tenant_id" {
+  description = "The Tenant ID for Key Vault"
+  type        = string
+}
+
 variable "servicebus_topic_nsip_documents_id" {
   description = "Service Bus topic nsip-document id"
   type        = string

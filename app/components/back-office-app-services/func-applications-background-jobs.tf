@@ -22,6 +22,7 @@ module "applications_background_job_functions" {
   key_vault_uri                                                                       = var.key_vault_uri
   key_vault_id                                                                        = var.key_vault_id
   servicebus_topic_nsip_project_update_id                                             = var.servicebus_topic_nsip_project_update_id
+  tenant_id                                                                           = data.azurerm_client_config.current.tenant_id
   encrypt_key                                                                         = local.existing_secret_refs["applications-service-encryption-secret-key"]
   gov_notify_api_key                                                                  = local.secret_refs["back-office-applications-gov-notify-api-key"]
   gov_notify_template_id                                                              = var.notify_subscribers_function_gov_notify_template_id
