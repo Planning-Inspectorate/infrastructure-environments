@@ -21,6 +21,7 @@ extends:
   parameters:
     validateName: Validate Terraform
     validationSteps:
+      - bash: sqlcmd --version
       - template: steps/terraform_format.yml@templates
       - template: steps/terragrunt_hclfmt.yml@templates
       - template: steps/terraform_tflint.yml@templates
