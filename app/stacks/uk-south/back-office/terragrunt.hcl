@@ -28,7 +28,6 @@ dependency "common_ukw" {
 
   mock_outputs = {
     action_group_low_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock"
-    alert_recipients    = { low = ["test@example.com"] }
     key_vault_id        = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
     key_vault_uri       = "https://mockvault.vault.azure.net/"
   }
@@ -64,7 +63,6 @@ dependency "back_office_ukw" {
 
 inputs = {
   action_group_low_id                                                                 = dependency.common_ukw.outputs.action_group_low_id
-  alert_recipients                                                                    = dependency.common_ukw.outputs.alert_recipients
   app_service_plan_id                                                                 = try(dependency.common_uks.outputs.app_service_plan_id, null)
   back_office_document_storage_api_host                                               = dependency.back_office_ukw.outputs.back_office_document_storage_api_host
   back_office_document_storage_container_name                                         = dependency.back_office_ukw.outputs.back_office_document_storage_container_name
