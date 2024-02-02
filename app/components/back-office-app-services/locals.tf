@@ -118,6 +118,7 @@ locals {
         ApplicationInsightsAgent_EXTENSION_VERSION = "~3"
         DATABASE_URL                               = var.appeals_database_connection_string
         DATABASE_NAME                              = var.appeals_database_name
+        SRV_HORIZON_URL                            = var.horizon_url
         NODE_ENV                                   = var.node_environment
         SERVICE_BUS_HOSTNAME                       = "${var.service_bus_namespace_name}.servicebus.windows.net"
         SERVICE_BUS_ENABLED                        = var.feature_service_bus_enabled
