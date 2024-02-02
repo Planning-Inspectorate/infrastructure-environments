@@ -70,6 +70,10 @@ resource "azurerm_mssql_server" "back_office" {
     object_id      = var.sql_server_azuread_administrator["object_id"]
   }
 
+  identity {
+    type = "SystemAssigned"
+  }
+
   tags = local.tags
 }
 
