@@ -46,7 +46,6 @@ module "app_services" {
   service_name                                     = local.service_name
   feature_service_bus_enabled                      = var.feature_service_bus_enabled
   horizon_url                                      = var.horizon_url
-  
   # Document scanning is disabled for the secondary region because the effort to implement it probably isn't worth it compared to just having a degraded service for the duration of an outage
   # To be clear, a 'degraded' service here means that end users can still upload documents but they won't be scanned until the primary region is back online (and so the new documents won't be accessible)
   feature_document_scanning_enabled                                                   = false
