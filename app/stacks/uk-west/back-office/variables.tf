@@ -246,11 +246,6 @@ variable "odw_synapse_integration_enabled" {
   default     = false
 }
 
-variable "alert_recipients" {
-  description = "The email recipients for monitoring alerts"
-  type        = map(list(string))
-}
-
 variable "horizon_url" {
   description = "The URL used to connect to Horizon"
   type        = string
