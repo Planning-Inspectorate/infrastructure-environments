@@ -12,12 +12,14 @@ module "applications_command_handler_functions" {
   back_office_api_host                                       = module.app_service["back_office_api"].default_site_hostname
   function_apps_storage_account                              = var.document_check_function_storage_name
   function_apps_storage_account_access_key                   = var.document_check_function_storage_primary_access_key
+  key_vault_id                                               = var.key_vault_id
   key_vault_uri                                              = var.key_vault_uri
   servicebus_topic_deadline_submission_topic_id              = var.servicebus_topic_deadline_submission_topic_id
   servicebus_topic_register_nsip_subscription_id             = var.servicebus_topic_register_nsip_subscription_id
   servicebus_topic_register_representation_id                = var.servicebus_topic_register_representation_id
   servicebus_topic_deadline_submission_result_id             = var.servicebus_topic_deadline_submission_result_id
   service_bus_namespace_name                                 = var.service_bus_namespace_name
+  tenant_id                                                  = data.azurerm_client_config.current.tenant_id
   back_office_storage_account_host                           = var.document_storage_api_host
   app_service_plan_id                                        = azurerm_service_plan.back_office_functions_plan.id
   deadline_submissions_result_topic_name                     = var.deadline_submissions_result_topic_name
