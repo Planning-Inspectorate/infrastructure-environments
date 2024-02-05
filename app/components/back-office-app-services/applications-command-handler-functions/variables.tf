@@ -33,11 +33,6 @@ variable "key_vault_id" {
   type        = string
 }
 
-variable "tenant_id" {
-  description = "The Tenant ID for Key Vault"
-  type        = string
-}
-
 variable "location" {
   description = "The location the App Services are deployed to in slug format e.g. 'uk-south'"
   type        = string

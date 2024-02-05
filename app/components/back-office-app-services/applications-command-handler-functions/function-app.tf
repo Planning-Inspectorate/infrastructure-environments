@@ -7,15 +7,17 @@ module "applications_command_handler_functions" {
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
   integration_subnet_id                    = var.integration_subnet_id
-  location                                 = var.location
-  log_analytics_workspace_id               = var.log_analytics_workspace_id
-  monitoring_alerts_enabled                = var.monitoring_alerts_enabled
-  outbound_vnet_connectivity               = true
-  resource_group_name                      = var.resource_group_name
-  resource_suffix                          = var.resource_suffix
-  service_name                             = "back-office"
-  use_app_insights                         = true
-  function_node_version                    = 18
+  # adding key_vault_id creates a read_secrets permission (see import)
+  key_vault_id               = var.key_vault_id
+  location                   = var.location
+  log_analytics_workspace_id = var.log_analytics_workspace_id
+  monitoring_alerts_enabled  = var.monitoring_alerts_enabled
+  outbound_vnet_connectivity = true
+  resource_group_name        = var.resource_group_name
+  resource_suffix            = var.resource_suffix
+  service_name               = "back-office"
+  use_app_insights           = true
+  function_node_version      = 18
 
   app_settings = {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.service_bus_namespace_name}.servicebus.windows.net"
