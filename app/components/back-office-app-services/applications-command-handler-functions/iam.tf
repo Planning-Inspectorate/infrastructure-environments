@@ -1,15 +1,3 @@
-resource "azurerm_key_vault_access_policy" "read_secrets" {
-
-  key_vault_id = var.key_vault_id
-  tenant_id    = var.tenant_id
-  object_id    = module.applications_command_handler_functions.principal_id
-
-  certificate_permissions = []
-  key_permissions         = []
-  secret_permissions      = ["Get"]
-  storage_permissions     = []
-}
-
 resource "azurerm_role_assignment" "function_blob_data_reader" {
   scope                = var.document_storage_submissions_container_resource_manager_id
   role_definition_name = "Storage Blob Data Reader"

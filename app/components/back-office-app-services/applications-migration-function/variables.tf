@@ -69,11 +69,6 @@ variable "key_vault_id" {
   type        = string
 }
 
-variable "tenant_id" {
-  description = "The Tenant ID for Key Vault"
-  type        = string
-}
-
 variable "node_environment" {
   description = "The node environment to be used for applications in this environment e.g. development"
   type        = string

@@ -19,7 +19,6 @@ module "applications_command_handler_functions" {
   servicebus_topic_register_representation_id                = var.servicebus_topic_register_representation_id
   servicebus_topic_deadline_submission_result_id             = var.servicebus_topic_deadline_submission_result_id
   service_bus_namespace_name                                 = var.service_bus_namespace_name
-  tenant_id                                                  = data.azurerm_client_config.current.tenant_id
   back_office_storage_account_host                           = var.document_storage_api_host
   app_service_plan_id                                        = azurerm_service_plan.back_office_functions_plan.id
   deadline_submissions_result_topic_name                     = var.deadline_submissions_result_topic_name
