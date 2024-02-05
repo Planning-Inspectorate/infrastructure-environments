@@ -11,6 +11,9 @@ locals {
   enable_search_indexing_by_default  = false
   environment                        = "dev"
   front_door_waf_mode                = "Prevention"
+  front_door_waf_redirect_url        = "appeals-service-dev.planninginspectorate.gov.uk/errors/firewall-error"
+  front_door_waf_rule_942110_action  = "Redirect"
+  front_door_waf_rule_942400_action  = "Redirect"
   logger_level                       = "debug"
   monitoring_alerts_enabled          = false
   primary_vnet_address_space         = ["10.1.0.0/16"]

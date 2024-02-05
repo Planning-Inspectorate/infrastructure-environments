@@ -64,6 +64,9 @@ This component contains the Azure Front Door and WAF resources. The resources in
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
 | <a name="input_feature_front_door_failover_enaled"></a> [feature\_front\_door\_failover\_enaled](#input\_feature\_front\_door\_failover\_enaled) | Whether or not the backend pools should be created with both the primary and secondary app service urls. This feature flag is temporary. | `bool` | `false` | no |
 | <a name="input_front_door_waf_mode"></a> [front\_door\_waf\_mode](#input\_front\_door\_waf\_mode) | Indicates if the Web Application Firewall should be in Detection or Prevention mode | `string` | `"Detection"` | no |
+| <a name="input_front_door_waf_redirect_url"></a> [front\_door\_waf\_redirect\_url](#input\_front\_door\_waf\_redirect\_url) | The URL to redirect a user to if a rule's action is Redirect | `string` | n/a | yes |
+| <a name="input_front_door_waf_rule_942110_action"></a> [front\_door\_waf\_rule\_942110\_action](#input\_front\_door\_waf\_rule\_942110\_action) | The action the Web Application Firewall should take when a violation of managed rule 942110 occurs | `string` | `"Block"` | no |
+| <a name="input_front_door_waf_rule_942400_action"></a> [front\_door\_waf\_rule\_942400\_action](#input\_front\_door\_waf\_rule\_942400\_action) | The action the Web Application Firewall should take when a violation of managed rule 942400 occurs | `string` | `"Block"` | no |
 | <a name="input_instance"></a> [instance](#input\_instance) | The environment instance for use if multiple environments are deployed to a subscription | `string` | `"001"` | no |
 | <a name="input_location"></a> [location](#input\_location) | The location resources are deployed to in slug format e.g. 'uk-west' | `string` | `"uk-west"` | no |
 

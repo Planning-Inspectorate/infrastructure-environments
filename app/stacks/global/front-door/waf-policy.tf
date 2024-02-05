@@ -3,6 +3,7 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
   resource_group_name               = azurerm_resource_group.frontdoor.name
   enabled                           = true
   mode                              = var.front_door_waf_mode
+  redirect_url                      = var.front_door_waf_redirect_url
   custom_block_response_status_code = 429
 
   managed_rule {
@@ -60,6 +61,12 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
       rule_group_name = "SQLI"
 
       rule {
+        # Common SQL injection testing
+        rule_id = "942110"
+        action  = var.front_door_waf_rule_942110_action
+      }
+
+      rule {
         # Detects MySQL comment-/space-obfuscated injections and backtick termination
         rule_id = "942200"
         action  = "Block"
@@ -83,6 +90,12 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
           operator       = "Equals"
           selector       = "cookie_policy"
         }
+      }
+
+      rule {
+        # Suspisious use of SQL keywords
+        rule_id = "942400"
+        action  = var.front_door_waf_rule_942400_action
       }
 
       rule {
