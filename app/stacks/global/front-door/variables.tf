@@ -129,21 +129,9 @@ variable "front_door_waf_mode" {
   default     = "Detection"
 }
 
-variable "front_door_waf_redirect_url" {
+variable "front_door_waf_appeals_redirect_url" {
   description = "The URL to redirect a user to if a rule's action is Redirect"
   type        = string
-}
-
-variable "front_door_waf_rule_942110_action" {
-  description = "The action the Web Application Firewall should take when a violation of managed rule 942110 occurs"
-  type        = string
-  default     = "Block"
-}
-
-variable "front_door_waf_rule_942400_action" {
-  description = "The action the Web Application Firewall should take when a violation of managed rule 942400 occurs"
-  type        = string
-  default     = "Block"
 }
 
 variable "instance" {
