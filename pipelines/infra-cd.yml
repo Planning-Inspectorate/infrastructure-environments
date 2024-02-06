@@ -5,6 +5,7 @@ parameters:
     default: all
     values:
       - all
+      - back-office
       - global
       - uk-south
       - uk-west
