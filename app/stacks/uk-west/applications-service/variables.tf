@@ -140,6 +140,11 @@ variable "back_office_integration_get_applications" {
   type        = string
 }
 
+variable "back_office_integration_case_references" {
+  description = "list of case references (comma separated) that use back office for submissions"
+  type        = string
+}
+
 variable "common_resource_group_name" {
   description = "The common infrastructure resource group name"
   type        = string

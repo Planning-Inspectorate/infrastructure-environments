@@ -34,6 +34,11 @@ variable "applications_service_redis_connection_string_secret_name" {
   type        = string
 }
 
+variable "back_office_integration_case_references" {
+  description = "list of case references (comma separated) that use back office"
+  type        = string
+}
+
 variable "back_office_integration_get_documents_case_references" {
   description = "list of case references (comma separated) that document data is retrieved from back office"
   type        = string

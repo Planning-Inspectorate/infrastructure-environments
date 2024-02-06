@@ -70,6 +70,11 @@ variable "back_office_integration_get_applications" {
   type        = string
 }
 
+variable "back_office_integration_case_references" {
+  description = "list of case references (comma separated) that use back office for submissions"
+  type        = string
+}
+
 variable "back_office_service_bus_namespace_name" {
   description = "Namespace of Back Office Service Bus instance"
   type        = string
