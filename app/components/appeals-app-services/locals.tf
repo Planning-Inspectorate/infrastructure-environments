@@ -45,7 +45,7 @@ locals {
         SUBDOMAIN_OFFSET                          = "3"
         USE_SECURE_SESSION_COOKIES                = true,
         RETRY_MAX_ATTEMPTS                        = "3"
-        RETRY_STATUS_CODES                         = "500,502,503,504"
+        RETRY_STATUS_CODES                        = "500,502,503,504"
 
       }
     }
