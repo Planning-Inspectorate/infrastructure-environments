@@ -157,3 +157,9 @@ variable "feature_front_door_failover_enaled" {
   type        = bool
   default     = false
 }
+
+variable "monitoring_alerts_enabled" {
+  default     = false
+  description = "Indicates whether Azure Monitor alerts are enabled for Front Door"
+  type        = bool
+}
