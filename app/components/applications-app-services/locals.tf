@@ -41,7 +41,9 @@ locals {
         REDIS_CONNECTION_STRING                      = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/${var.applications_service_redis_connection_string_secret_name}/)"
         SESSION_KEY                                  = local.secret_refs["applications-service-session-key"]
         SUBDOMAIN_OFFSET                             = "3"
-        USE_SECURE_SESSION_COOKIES                   = true
+        USE_SECURE_SESSION_COOKIES                   = true,
+        RETRY_MAX_ATTEMPTS                           = "3"
+        RETRY_STATUS_CODES                           = "500,502,503,504"
       }
     }
 
