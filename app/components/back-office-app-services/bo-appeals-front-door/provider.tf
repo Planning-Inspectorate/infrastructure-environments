@@ -9,14 +9,3 @@ terraform {
 
   required_version = ">= 1.5.7, < 3.74.0"
 }
-
-provider "azurerm" {
-  features {}
-}
-
-provider "azurerm" {
-  alias           = "tooling"
-  subscription_id = var.tooling_subscription_id
-
-  features {}
-}
