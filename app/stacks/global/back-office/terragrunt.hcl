@@ -55,16 +55,16 @@ dependency "front_door" {
       }
     }
     frontend_endpoints = {
-     BackOfficeAppeals = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock-rg/providers/Microsoft.Network/frontDoors/mock_front_door/frontendEndpoints/mock_id"
+      BackOfficeAppeals = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock-rg/providers/Microsoft.Network/frontDoors/mock_front_door/frontendEndpoints/mock_id"
     }
   }
 }
 
 inputs = {
-  back_office_appeals_primary_app_service_url       = dependency.back_office_ukw.outputs.appeals_web_frontend_url
-  back_office_appeals_secondary_app_service_url     = dependency.back_office_uks.outputs.appeals_web_frontend_url
-  common_key_vault_id                               = dependency.common_ukw.outputs.key_vault_id
-  common_log_analytics_workspace_id                 = dependency.common_ukw.outputs.log_analytics_workspace_id
-  frontend_endpoint_mappings                        = dependency.front_door.outputs.frontend_endpoint_mappings
-  frontend_endpoints                                = dependency.front_door.outputs.frontend_endpoints
+  back_office_appeals_primary_app_service_url   = dependency.back_office_ukw.outputs.appeals_web_frontend_url
+  back_office_appeals_secondary_app_service_url = dependency.back_office_uks.outputs.appeals_web_frontend_url
+  common_key_vault_id                           = dependency.common_ukw.outputs.key_vault_id
+  common_log_analytics_workspace_id             = dependency.common_ukw.outputs.log_analytics_workspace_id
+  frontend_endpoint_mappings                    = dependency.front_door.outputs.frontend_endpoint_mappings
+  frontend_endpoints                            = dependency.front_door.outputs.frontend_endpoints
 }
