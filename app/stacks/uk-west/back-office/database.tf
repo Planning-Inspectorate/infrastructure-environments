@@ -134,7 +134,7 @@ resource "azurerm_storage_account" "back_office_sql_server" {
   #checkov:skip=CKV_AZURE_33: Not using queues, could implement example commented out
   #checkov:skip=CKV2_AZURE_21: Logging not implemented yet
 
-  name                             = replace("pinsstsql${local.resource_suffix}", "-", "")
+  name                             = replace("pinsstsqlapps${local.resource_suffix}", "-", "")
   resource_group_name              = azurerm_resource_group.back_office_stack.name
   location                         = azurerm_resource_group.back_office_stack.location
   account_tier                     = "Standard"
