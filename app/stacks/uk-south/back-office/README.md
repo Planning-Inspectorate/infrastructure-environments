@@ -33,9 +33,6 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_log_analytics_workspace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/log_analytics_workspace) | resource |
 | [azurerm_mssql_failover_group.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_failover_group) | resource |
 | [azurerm_mssql_server.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_server) | resource |
-| [azurerm_mssql_server_extended_auditing_policy.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_server_extended_auditing_policy) | resource |
-| [azurerm_mssql_server_security_alert_policy.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_server_security_alert_policy) | resource |
-| [azurerm_mssql_server_vulnerability_assessment.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_server_vulnerability_assessment) | resource |
 | [azurerm_private_dns_zone.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone) | resource |
 | [azurerm_private_dns_zone_virtual_network_link.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
 | [azurerm_private_endpoint.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_endpoint) | resource |
@@ -45,11 +42,9 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_redis_cache.back_office_appeals_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/redis_cache) | resource |
 | [azurerm_redis_cache.back_office_applications_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/redis_cache) | resource |
 | [azurerm_resource_group.back_office_stack](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/resource_group) | resource |
-| [azurerm_role_assignment.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
 | [azurerm_servicebus_namespace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_namespace) | resource |
 | [azurerm_servicebus_namespace_disaster_recovery_config.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_namespace_disaster_recovery_config) | resource |
 | [azurerm_storage_account.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_account) | resource |
-| [azurerm_storage_container.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_container) | resource |
 | [azurerm_subnet.back_office_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/subnet) | resource |
 | [azurerm_private_dns_zone.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/private_dns_zone) | data source |
 | [azurerm_private_dns_zone.database](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/private_dns_zone) | data source |
@@ -60,7 +55,6 @@ This component contains the infrastructure required for the back office service.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_action_group_low_id"></a> [action\_group\_low\_id](#input\_action\_group\_low\_id) | The ID of the Azure Monitor action group for low priority (P4) alerts | `string` | n/a | yes |
-| <a name="input_alert_recipients"></a> [alert\_recipients](#input\_alert\_recipients) | The email recipients for monitoring alerts | `map(list(string))` | n/a | yes |
 | <a name="input_api_key_vault_authorization_enabled"></a> [api\_key\_vault\_authorization\_enabled](#input\_api\_key\_vault\_authorization\_enabled) | Whether or not Key Vault is used to access secrets from the app | `string` | n/a | yes |
 | <a name="input_app_service_plan_id"></a> [app\_service\_plan\_id](#input\_app\_service\_plan\_id) | The id of the app service plan | `string` | n/a | yes |
 | <a name="input_applications_front_office_web_url"></a> [applications\_front\_office\_web\_url](#input\_applications\_front\_office\_web\_url) | Applications Front Office Web URL | `string` | n/a | yes |
@@ -116,7 +110,6 @@ This component contains the infrastructure required for the back office service.
 | <a name="input_redis_cache_configuration"></a> [redis\_cache\_configuration](#input\_redis\_cache\_configuration) | A map of redis configuration options | `map(string)` | n/a | yes |
 | <a name="input_service_bus_failover_enabled"></a> [service\_bus\_failover\_enabled](#input\_service\_bus\_failover\_enabled) | A switch to determine if Service Bus failover is enabled requiring the Premium SKU | `bool` | `false` | no |
 | <a name="input_servicebus_topic_nsip_documents_id"></a> [servicebus\_topic\_nsip\_documents\_id](#input\_servicebus\_topic\_nsip\_documents\_id) | Service Bus Topic nsip-document id | `string` | n/a | yes |
-| <a name="input_sql_database_configuration"></a> [sql\_database\_configuration](#input\_sql\_database\_configuration) | A map of database configuration options | `map(string)` | n/a | yes |
 | <a name="input_sql_server_azuread_administrator"></a> [sql\_server\_azuread\_administrator](#input\_sql\_server\_azuread\_administrator) | A map describing the AzureAD account used for the SQL server administrator | `map(string)` | n/a | yes |
 | <a name="input_sql_server_password"></a> [sql\_server\_password](#input\_sql\_server\_password) | The SQL server administrator password | `string` | n/a | yes |
 | <a name="input_sql_server_username"></a> [sql\_server\_username](#input\_sql\_server\_username) | The SQL server administrator username | `string` | n/a | yes |
