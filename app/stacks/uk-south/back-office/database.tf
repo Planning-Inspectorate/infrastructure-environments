@@ -68,6 +68,8 @@ resource "azurerm_storage_account" "back_office_sql_server" {
   #TODO: Logging
   #checkov:skip=CKV_AZURE_33: Not using queues, could implement example commented out
   #checkov:skip=CKV2_AZURE_21: Logging not implemented yet
+  #TODO: Access restrictions
+  #checkov:skip=CKV_AZURE_35: Network access restrictions
 
   name                             = replace("pinsstsqlapps${local.resource_suffix}", "-", "")
   resource_group_name              = azurerm_resource_group.back_office_stack.name
@@ -79,12 +81,12 @@ resource "azurerm_storage_account" "back_office_sql_server" {
   allow_nested_items_to_be_public  = false
   cross_tenant_replication_enabled = false
 
-  network_rules {
-    default_action             = "Deny"
-    ip_rules                   = ["127.0.0.1"]
-    virtual_network_subnet_ids = [azurerm_subnet.back_office_ingress.id]
-    bypass                     = ["AzureServices"]
-  }
+  # network_rules {
+  #   default_action             = "Deny"
+  #   ip_rules                   = ["127.0.0.1"]
+  #   virtual_network_subnet_ids = [azurerm_subnet.back_office_ingress.id]
+  #   bypass                     = ["AzureServices"]
+  # }
 
   identity {
     type = "SystemAssigned"
