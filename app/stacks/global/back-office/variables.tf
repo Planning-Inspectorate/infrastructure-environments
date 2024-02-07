@@ -62,9 +62,4 @@ variable "feature_front_door_failover_enabled" {
   description = "Whether or not the backend pools should be created with both the primary and secondary app service urls. This feature flag is temporary."
   type        = bool
   default     = false
-}
 
-variable "tooling_subscription_id" {
-  description = "The ID for the Tooling subscription that houses the Container Registry"
-  type        = string
-}
