@@ -49,11 +49,14 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_key_vault_secret.bo_appeals_insights_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_log_analytics_workspace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/log_analytics_workspace) | resource |
 | [azurerm_monitor_diagnostic_setting.back_office_sql_database](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_diagnostic_setting) | resource |
+| [azurerm_monitor_metric_alert.back_office_sql_db_cpu_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
+| [azurerm_monitor_metric_alert.back_office_sql_db_deadlock_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
+| [azurerm_monitor_metric_alert.back_office_sql_db_dtu_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
+| [azurerm_monitor_metric_alert.back_office_sql_db_log_io_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_mssql_database.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_database) | resource |
 | [azurerm_mssql_database.back_office_appeals](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_database) | resource |
 | [azurerm_mssql_database_extended_auditing_policy.back_office_sql_database](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_database_extended_auditing_policy) | resource |
 | [azurerm_mssql_server.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_server) | resource |
-| [azurerm_mssql_server_extended_auditing_policy.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_server_extended_auditing_policy) | resource |
 | [azurerm_private_dns_zone.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone) | resource |
 | [azurerm_private_dns_zone_virtual_network_link.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
 | [azurerm_private_endpoint.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_endpoint) | resource |
@@ -87,6 +90,7 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_servicebus_topic.register_representation](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.service_user](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_storage_account.back_office_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_account) | resource |
+| [azurerm_storage_account.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_account) | resource |
 | [azurerm_storage_account.function_storage](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_account) | resource |
 | [azurerm_storage_container.back_office_appeals_document_container](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_container) | resource |
 | [azurerm_storage_container.back_office_document_service_uploads_container](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_container) | resource |

@@ -62,6 +62,7 @@ locals {
         APPLICATIONS_WEB_BASE_URL                                     = "https://${var.applications_service_public_url}"
         BACK_OFFICE_BLOB_STORAGE_DEADLINE_SUBMISSION_URL              = "https://${var.back_office_submissions_storage_account_name}.blob.core.windows.net"
         BACK_OFFICE_BLOB_STORAGE_DEADLINE_SUBMISSION_CONTAINER        = var.back_office_submissions_storage_container_name
+        BACK_OFFICE_API_INTEGRATION_CASE_REFERENCES                   = var.back_office_integration_case_references
         BACK_OFFICE_INTEGRATION_GET_APPLICATION_CASE_REFERENCES       = var.back_office_integration_get_application_case_references
         BACK_OFFICE_INTEGRATION_GET_DOCUMENTS_CASE_REFERENCES         = var.back_office_integration_get_documents_case_references
         BACK_OFFICE_INTEGRATION_GET_TIMETABLE_CASE_REFERENCES         = var.back_office_integration_get_timetable_case_references

@@ -308,6 +308,16 @@ variable "redis_cache_configuration" {
   type        = map(string)
 }
 
+#variable "alert_recipients" {
+#description = "The email recipients for monitoring alerts"
+#type        = map(list(string))
+#}
+
+#variable "sql_database_configuration" {
+#description = "A map of database configuration options"
+#type        = map(string)
+#}
+
 variable "horizon_url" {
   description = "The URL used to connect to Horizon"
   type        = string
