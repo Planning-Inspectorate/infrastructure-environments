@@ -71,7 +71,7 @@ variable "back_office_integration_get_applications" {
 }
 
 variable "back_office_integration_case_references" {
-  description = "list of case references (comma separated) that use back office for submissions"
+  description = "list of case references (comma separated) that use back office"
   type        = string
 }
 
