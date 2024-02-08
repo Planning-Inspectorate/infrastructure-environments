@@ -93,8 +93,10 @@ resource "azurerm_mssql_server_vulnerability_assessment" "back_office_sql_server
   #checkov:skip=CKV2_AZURE_4: false positive?
   #checkov:skip=CKV2_AZURE_5: false positive?
 
+  count                           = var.monitoring_alerts_enabled ? 1 : 0
   server_security_alert_policy_id = azurerm_mssql_server_security_alert_policy.back_office_sql_server.id
   storage_container_path          = "${azurerm_storage_account.back_office_sql_server.primary_blob_endpoint}${azurerm_storage_container.back_office_sql_server.name}/"
+  storage_account_access_key      = azurerm_storage_account.back_office_sql_server.primary_access_key
 
   recurring_scans {
     enabled                   = var.monitoring_alerts_enabled
