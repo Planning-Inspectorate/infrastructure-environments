@@ -95,16 +95,16 @@ resource "azurerm_storage_account" "back_office_sql_server" {
   tags = local.tags
 }
 
-#resource "azurerm_storage_container" "back_office_sql_server" {
-##TODO: Logging
-##checkov:skip=CKV2_AZURE_21 Logging not implemented yet
-#name                  = "sqlvulnerabilityassessment"
-#storage_account_name  = azurerm_storage_account.back_office_sql_server.name
-#container_access_type = "private"
-#}
+resource "azurerm_storage_container" "back_office_sql_server" {
+  #TODO: Logging
+  #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
+  name                  = "sqlvulnerabilityassessment"
+  storage_account_name  = azurerm_storage_account.back_office_sql_server.name
+  container_access_type = "private"
+}
 
-#resource "azurerm_role_assignment" "back_office_sql_server" {
-#scope                = azurerm_storage_account.back_office_sql_server.id
-#role_definition_name = "Storage Blob Data Contributor"
-#principal_id         = azurerm_mssql_server.back_office.identity[0].principal_id
-#}
+resource "azurerm_role_assignment" "back_office_sql_server" {
+  scope                = azurerm_storage_account.back_office_sql_server.id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = azurerm_mssql_server.back_office.identity[0].principal_id
+}
