@@ -128,6 +128,12 @@ variable "front_door_waf_mode" {
   type        = string
   default     = "Detection"
 }
+
+variable "front_door_waf_appeals_redirect_path" {
+  description = "The URL to redirect a user to if a rule's action is Redirect"
+  type        = string
+}
+
 variable "instance" {
   description = "The environment instance for use if multiple environments are deployed to a subscription"
   type        = string
