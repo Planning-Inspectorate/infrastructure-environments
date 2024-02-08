@@ -11,6 +11,7 @@ locals {
   environment                          = "prod"
   enable_search_indexing_by_default    = true
   front_door_waf_mode                  = "Prevention"
+  front_door_waf_appeals_redirect_path = "/errors/firewall-error"
   logger_level                         = "info"
   monitoring_alerts_enabled            = true
   primary_vnet_address_space           = "10.3.0.0/16"
