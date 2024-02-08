@@ -129,7 +129,7 @@ variable "front_door_waf_mode" {
   default     = "Detection"
 }
 
-variable "front_door_waf_appeals_redirect_url" {
+variable "front_door_waf_appeals_redirect_path" {
   description = "The URL to redirect a user to if a rule's action is Redirect"
   type        = string
 }

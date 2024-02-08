@@ -170,12 +170,12 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
   tags = var.common_tags
 }
 
-resource "azurerm_frontdoor_firewall_policy" "applications_frontend" {
-  name                              = replace("pinswafapplicationsfrontend${local.resource_suffix}", "-", "")
+resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
+  name                              = replace("pinswafappealsfrontend${local.resource_suffix}", "-", "")
   resource_group_name               = azurerm_resource_group.frontdoor.name
   enabled                           = true
   mode                              = var.front_door_waf_mode
-  redirect_url                      = var.front_door_waf_appeals_redirect_url
+  redirect_url                      = "https://${var.appeals_service_public_url}${var.front_door_waf_appeals_redirect_path}"
   custom_block_response_status_code = 429
 
   managed_rule {
@@ -315,15 +315,6 @@ resource "azurerm_frontdoor_firewall_policy" "applications_frontend" {
       match_variable = "RequestBodyPostArgNames"
       operator       = "Equals"
       selector       = "comment"
-    }
-
-    # Exception for ASB-1692 merged with ASB-1928 - Exclude all rules for this selector.
-    # POST project update content, which is a strict subset of HTML
-    # only applies Back Office, so should be removed from others with new Front Door
-    exclusion {
-      match_variable = "RequestBodyPostArgNames"
-      operator       = "Equals"
-      selector       = "backOfficeProjectUpdateContent"
     }
   }
 
