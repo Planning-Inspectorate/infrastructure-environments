@@ -86,12 +86,22 @@ resource "azurerm_key_vault_secret" "back_office_sql_sql_connection_string_app" 
   tags = local.tags
 }
 
-resource "azurerm_key_vault_secret" "back_office_appeals_sql_connection_string" {
+resource "azurerm_key_vault_secret" "back_office_appeals_sql_connection_string_admin" {
   #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   content_type = "text/plain"
   key_vault_id = var.key_vault_id
-  name         = "back-office-appeals-sql-connection-string"
-  value        = local.appeals_sql_connection_string
+  name         = "back-office-appeals-sql-connection-string-admin"
+  value        = local.appeals_sql_connection_string_admin
+
+  tags = local.tags
+}
+
+resource "azurerm_key_vault_secret" "back_office_appeals_sql_connection_string_app" {
+  #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
+  content_type = "text/plain"
+  key_vault_id = var.key_vault_id
+  name         = "back-office-appeals-sql-connection-string-app"
+  value        = local.appeals_sql_connection_string_app
 
   tags = local.tags
 }
