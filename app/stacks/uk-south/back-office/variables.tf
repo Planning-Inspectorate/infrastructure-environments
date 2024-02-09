@@ -325,5 +325,5 @@ variable "horizon_url" {
 
 variable "mock_horizon" {
   description = "Whether or not to mock Horizon"
-  type        = string
+  type        = bool
 }
