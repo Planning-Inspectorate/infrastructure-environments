@@ -76,6 +76,7 @@ This module contains the App Services resources for the applications service. Th
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_action_group_ids"></a> [action\_group\_ids](#input\_action\_group\_ids) | The IDs of the Azure Monitor action groups for different alert types | <pre>object({<br>    tech            = string,<br>    service_manager = string,<br>    iap             = string,<br>    its             = string,<br>    info_sec        = string<br>  })</pre> | n/a | yes |
 | <a name="input_action_group_low_id"></a> [action\_group\_low\_id](#input\_action\_group\_low\_id) | The ID of the Azure Monitor action group for low priority alerts | `string` | n/a | yes |
 | <a name="input_activate_planned_outage"></a> [activate\_planned\_outage](#input\_activate\_planned\_outage) | A flag to indicate whether or not to activate the planned outage page | `bool` | `false` | no |
 | <a name="input_api_timeout"></a> [api\_timeout](#input\_api\_timeout) | The timeout in milliseconds for API calls in the frontend apps | `string` | n/a | yes |
