@@ -3,7 +3,6 @@ variable "action_group_low_id" {
   type        = string
 }
 
-# tflint-ignore: terraform_unused_declarations
 variable "action_group_ids" {
   description = "The IDs of the Azure Monitor action groups for different alert types"
   type = object({

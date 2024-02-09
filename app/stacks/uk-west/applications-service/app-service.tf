@@ -2,6 +2,7 @@ module "app_services" {
   source = "../../../components/applications-app-services"
 
   action_group_low_id                                             = var.action_group_low_id
+  action_group_ids                                                = var.action_group_ids
   activate_planned_outage                                         = var.activate_planned_outage
   api_timeout                                                     = var.api_timeout
   app_service_plan_id                                             = var.app_service_plan_id
