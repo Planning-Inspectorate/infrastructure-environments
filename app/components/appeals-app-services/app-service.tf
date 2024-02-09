@@ -1,9 +1,9 @@
 module "app_service" {
   for_each = local.app_services
 
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service?ref=1.13"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service?ref=1.14"
 
-  action_group_low_id             = var.action_group_low_id
+  action_group_ids                = var.action_group_ids
   app_name                        = each.value["app_name"]
   app_service_plan_id             = var.app_service_plan_id
   app_service_private_dns_zone_id = can(each.value["app_service_private_dns_zone_id"]) ? each.value["app_service_private_dns_zone_id"] : null
