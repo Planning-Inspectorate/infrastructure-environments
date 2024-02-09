@@ -410,3 +410,8 @@ variable "horizon_url" {
   description = "The URL used to connect to Horizon"
   type        = string
 }
+
+variable "mock_horizon" {
+  description = "Whether or not to mock Horizon"
+  type        = string
+}
