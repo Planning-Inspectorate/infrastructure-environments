@@ -9,6 +9,7 @@ locals {
       key_vault_access           = true
       outbound_vnet_connectivity = true
       health_check_path          = var.health_check_path
+      action_group_ids           = local.bo_applications_action_group_ids
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING      = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/back-office-app-insights-connection-string/)"
@@ -45,6 +46,7 @@ locals {
       key_vault_access                = true
       outbound_vnet_connectivity      = true
       health_check_path               = var.health_check_path
+      action_group_ids                = local.bo_applications_action_group_ids
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING      = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/back-office-app-insights-connection-string/)"
@@ -78,6 +80,7 @@ locals {
       integration_subnet_id      = var.integration_subnet_id
       key_vault_access           = true
       outbound_vnet_connectivity = true
+      action_group_ids           = local.bo_appeals_action_group_ids
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING      = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/back-office-appeals-insights-connection-string/)"
@@ -112,6 +115,7 @@ locals {
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = true
       outbound_vnet_connectivity      = true
+      action_group_ids                = local.bo_appeals_action_group_ids
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING      = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/back-office-appeals-insights-connection-string/)"
@@ -165,5 +169,23 @@ locals {
 
   existing_secret_refs = {
     for name in local.existing_secret_names : name => "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/${name}/)"
+  }
+
+  # action group id objects for passing to node-app-service module
+  bo_applications_action_group_ids = {
+    tech            = var.action_group_ids.bo_applications_tech,
+    service_manager = var.action_group_ids.bo_applications_service_manager,
+    iap             = var.action_group_ids.iap,
+    its             = var.action_group_ids.its,
+    info_sec        = var.action_group_ids.info_sec
+  }
+
+  # action group id object for passing to node-app-service module
+  bo_appeals_action_group_ids = {
+    tech            = var.action_group_ids.bo_appeals_tech,
+    service_manager = var.action_group_ids.bo_appeals_service_manager,
+    iap             = var.action_group_ids.iap,
+    its             = var.action_group_ids.its,
+    info_sec        = var.action_group_ids.info_sec
   }
 }
