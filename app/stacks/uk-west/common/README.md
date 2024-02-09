@@ -38,6 +38,7 @@ This component contains the common infrastructure required by each environment. 
 | [azurerm_key_vault_access_policy.terraform](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_access_policy) | resource |
 | [azurerm_key_vault_secret.applications_service_vpn_gateway_shared_key](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_log_analytics_workspace.common](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/log_analytics_workspace) | resource |
+| [azurerm_monitor_action_group.all_action_groups](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_action_group) | resource |
 | [azurerm_monitor_action_group.low](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_action_group) | resource |
 | [azurerm_resource_group.common_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/resource_group) | resource |
 | [azurerm_service_plan.common_integration_functions_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/service_plan) | resource |
@@ -73,6 +74,7 @@ This component contains the common infrastructure required by each environment. 
 
 | Name | Description |
 |------|-------------|
+| <a name="output_action_group_ids"></a> [action\_group\_ids](#output\_action\_group\_ids) | The Action Group IDs for the created groups, as k:v map |
 | <a name="output_action_group_low_id"></a> [action\_group\_low\_id](#output\_action\_group\_low\_id) | The Action Group ID for sending low priority (P4) alerts |
 | <a name="output_alert_recipients"></a> [alert\_recipients](#output\_alert\_recipients) | The email recipients for monitoring alerts |
 | <a name="output_app_service_plan_id"></a> [app\_service\_plan\_id](#output\_app\_service\_plan\_id) | The id of the app service plan |
