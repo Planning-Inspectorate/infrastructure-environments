@@ -131,6 +131,11 @@ output "servicebus_topic_service_user_id" {
   value       = azurerm_servicebus_topic.service_user.id
 }
 
+output "servicebus_topic_folders_id" {
+  description = "Service Bus Topic folder id"
+  value       = azurerm_servicebus_topic.folders.id
+}
+
 output "servicebus_topic_nsip_documents_id" {
   description = "Service Bus Topic nsip-document id"
   value       = azurerm_servicebus_topic.nsip_documents.id

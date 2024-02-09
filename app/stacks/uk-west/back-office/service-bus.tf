@@ -83,6 +83,12 @@ resource "azurerm_servicebus_topic" "nsip_documents" {
   default_message_ttl = "P14D"
 }
 
+resource "azurerm_servicebus_topic" "folders" {
+  name                = "folder"
+  namespace_id        = azurerm_servicebus_namespace.back_office.id
+  default_message_ttl = "P14D"
+}
+
 resource "azurerm_servicebus_topic" "nsip_subscription" {
   name                = "nsip-subscription"
   namespace_id        = azurerm_servicebus_namespace.back_office.id

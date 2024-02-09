@@ -84,6 +84,7 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_servicebus_topic.deadline_submission_topic](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.employee](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.listed_building](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
+| [azurerm_servicebus_topic.folders](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_exam_timetable](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_project](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
@@ -209,6 +210,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_service_bus_nsip_s51_advice_topic_id"></a> [service\_bus\_nsip\_s51\_advice\_topic\_id](#output\_service\_bus\_nsip\_s51\_advice\_topic\_id) | ID of the nsip-s51-advice Service Bus Topic |
 | <a name="output_servicebus_topic_deadline_submission_result_id"></a> [servicebus\_topic\_deadline\_submission\_result\_id](#output\_servicebus\_topic\_deadline\_submission\_result\_id) | Service Bus Topic deadline\_submission\_result id |
 | <a name="output_servicebus_topic_deadline_submission_topic_id"></a> [servicebus\_topic\_deadline\_submission\_topic\_id](#output\_servicebus\_topic\_deadline\_submission\_topic\_id) | Service Bus Topic deadline\_submission\_topic id |
+| <a name="output_servicebus_topic_folders_id"></a> [servicebus\_topic\_folders\_id](#output\_servicebus\_topic\_folders\_id) | Service Bus Topic folder id |
 | <a name="output_servicebus_topic_nsip_documents_id"></a> [servicebus\_topic\_nsip\_documents\_id](#output\_servicebus\_topic\_nsip\_documents\_id) | Service Bus Topic nsip-document id |
 | <a name="output_servicebus_topic_register_nsip_subscription_id"></a> [servicebus\_topic\_register\_nsip\_subscription\_id](#output\_servicebus\_topic\_register\_nsip\_subscription\_id) | Service Bus Topic register\_nsip\_subscription id |
 | <a name="output_servicebus_topic_register_representation_id"></a> [servicebus\_topic\_register\_representation\_id](#output\_servicebus\_topic\_register\_representation\_id) | Service Bus Topic register-representation id |
