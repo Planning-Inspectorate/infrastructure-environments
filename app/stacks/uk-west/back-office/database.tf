@@ -1,4 +1,4 @@
-resource "random_password" "back_office_sql_server_password" {
+resource "random_password" "back_office_sql_server_password_admin" {
   length           = 32
   special          = true
   override_special = "#&-_+"
@@ -8,7 +8,7 @@ resource "random_password" "back_office_sql_server_password" {
   min_special      = 2
 }
 
-resource "random_id" "username_suffix" {
+resource "random_id" "username_suffix_admin" {
   byte_length = 6
 }
 
@@ -37,7 +37,7 @@ resource "azurerm_key_vault_secret" "back_office_sql_connection_string" {
   content_type = "text/plain"
   key_vault_id = var.key_vault_id
   name         = "back-office-sql-connection-string"
-  value        = local.sql_connection_string
+  value        = local.sql_connection_string_admin
 
   tags = local.tags
 }
@@ -60,8 +60,8 @@ resource "azurerm_mssql_server" "back_office" {
   resource_group_name           = azurerm_resource_group.back_office_stack.name
   location                      = azurerm_resource_group.back_office_stack.location
   version                       = "12.0"
-  administrator_login           = local.sql_server_username
-  administrator_login_password  = random_password.back_office_sql_server_password.result
+  administrator_login           = local.sql_server_username_admin
+  administrator_login_password  = random_password.back_office_sql_server_password_admin.result
   minimum_tls_version           = "1.2"
   public_network_access_enabled = var.database_public_access_enabled
 
