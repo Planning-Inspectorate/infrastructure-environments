@@ -8,6 +8,18 @@ variable "alert_recipients" {
   type        = map(list(string))
 }
 
+# tflint-ignore: terraform_unused_declarations
+variable "action_group_ids" {
+  description = "The IDs of the Azure Monitor action groups for different alert types"
+  type = object({
+    tech            = string,
+    service_manager = string,
+    iap             = string,
+    its             = string,
+    info_sec        = string
+  })
+}
+
 variable "api_timeout" {
   description = "The timeout in milliseconds for API calls in the frontend apps"
   type        = string

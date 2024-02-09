@@ -28,9 +28,22 @@ dependency "common_ukw" {
 
   mock_outputs = {
     action_group_low_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock"
-    alert_recipients    = { low = ["test@example.com"] }
-    key_vault_id        = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
-    key_vault_uri       = "https://mockvault.vault.azure.net/"
+    action_group_ids = {
+      "appeals-fo-tech"                 = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "appeals-bo-tech"                 = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "applications-fo-tech"            = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "applications-bo-tech"            = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "appeals-fo-service-manager"      = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "appeals-bo-service-manager"      = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "applications-fo-service-manager" = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "applications-bo-service-manager" = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "iap"                             = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "its"                             = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "info-sec"                        = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock"
+    }
+    alert_recipients = { low = ["test@example.com"] }
+    key_vault_id     = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
+    key_vault_uri    = "https://mockvault.vault.azure.net/"
   }
 }
 
@@ -63,7 +76,16 @@ dependency "back_office_ukw" {
 }
 
 inputs = {
-  action_group_low_id                                                                 = dependency.common_ukw.outputs.action_group_low_id
+  action_group_low_id = dependency.common_ukw.outputs.action_group_low_id
+  action_group_ids = {
+    bo_appeals_tech                 = dependency.common_ukw.outputs.action_group_ids["appeals-bo-tech"]
+    bo_appeals_service_manager      = dependency.common_ukw.outputs.action_group_ids["appeals-bo-service-manager"]
+    bo_applications_tech            = dependency.common_ukw.outputs.action_group_ids["applications-bo-tech"]
+    bo_applications_service_manager = dependency.common_ukw.outputs.action_group_ids["applications-bo-service-manager"]
+    iap                             = dependency.common_ukw.outputs.action_group_ids["iap"]
+    its                             = dependency.common_ukw.outputs.action_group_ids["its"]
+    info_sec                        = dependency.common_ukw.outputs.action_group_ids["info-sec"]
+  }
   alert_recipients                                                                    = dependency.common_ukw.outputs.alert_recipients
   app_service_plan_id                                                                 = try(dependency.common_uks.outputs.app_service_plan_id, null)
   back_office_document_storage_api_host                                               = dependency.back_office_ukw.outputs.back_office_document_storage_api_host

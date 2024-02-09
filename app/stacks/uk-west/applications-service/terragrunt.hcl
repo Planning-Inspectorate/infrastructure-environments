@@ -8,7 +8,20 @@ dependency "common" {
   mock_outputs_merge_with_state           = true
 
   mock_outputs = {
-    action_group_low_id                         = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock"
+    action_group_low_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock"
+    action_group_ids = {
+      "appeals-fo-tech"                 = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "appeals-bo-tech"                 = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "applications-fo-tech"            = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "applications-bo-tech"            = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "appeals-fo-service-manager"      = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "appeals-bo-service-manager"      = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "applications-fo-service-manager" = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "applications-bo-service-manager" = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "iap"                             = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "its"                             = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "info-sec"                        = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock"
+    }
     app_service_plan_id                         = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pins-rg-common-dev-ukw-001/providers/Microsoft.Web/serverfarms/mock_id"
     applications_service_vpn_gateway_shared_key = "mock_shared_key"
     common_resource_group_name                  = "mock_resource_group_name"
@@ -50,7 +63,14 @@ dependency "back_office_ukw" {
 }
 
 inputs = {
-  action_group_low_id                                           = dependency.common.outputs.action_group_low_id
+  action_group_low_id = dependency.common.outputs.action_group_low_id
+  action_group_ids = {
+    tech            = dependency.common.outputs.action_group_ids["applications-fo-tech"]
+    service_manager = dependency.common.outputs.action_group_ids["applications-fo-service-manager"]
+    iap             = dependency.common.outputs.action_group_ids["iap"]
+    its             = dependency.common.outputs.action_group_ids["its"]
+    info_sec        = dependency.common.outputs.action_group_ids["info-sec"]
+  }
   app_service_plan_id                                           = dependency.common.outputs.app_service_plan_id
   applications_service_vpn_gateway_shared_key                   = dependency.common.outputs.applications_service_vpn_gateway_shared_key
   back_office_service_bus_namespace_name                        = dependency.back_office_ukw.outputs.service_bus_namespace_name

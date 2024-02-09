@@ -53,9 +53,22 @@ dependency "common_ukw" {
 
   mock_outputs = {
     action_group_low_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock"
-    alert_recipients    = { low = ["test@example.com"] }
-    key_vault_id        = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
-    key_vault_uri       = "https://mockvault.vault.azure.net/"
+    action_group_ids = {
+      "appeals-fo-tech"                 = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "appeals-bo-tech"                 = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "applications-fo-tech"            = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "applications-bo-tech"            = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "appeals-fo-service-manager"      = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "appeals-bo-service-manager"      = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "applications-fo-service-manager" = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "applications-bo-service-manager" = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "iap"                             = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "its"                             = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
+      "info-sec"                        = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock"
+    }
+    alert_recipients = { low = ["test@example.com"] }
+    key_vault_id     = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
+    key_vault_uri    = "https://mockvault.vault.azure.net/"
   }
 }
 dependency "back_office_ukw" {
@@ -84,7 +97,14 @@ dependency "back_office_ukw" {
 
 
 inputs = {
-  action_group_low_id                                     = dependency.common_ukw.outputs.action_group_low_id
+  action_group_low_id = dependency.common_ukw.outputs.action_group_low_id
+  action_group_ids = {
+    tech            = dependency.common_ukw.outputs.action_group_ids["applications-fo-tech"]
+    service_manager = dependency.common_ukw.outputs.action_group_ids["applications-fo-service-manager"]
+    iap             = dependency.common_ukw.outputs.action_group_ids["iap"]
+    its             = dependency.common_ukw.outputs.action_group_ids["its"]
+    info_sec        = dependency.common_ukw.outputs.action_group_ids["info-sec"]
+  }
   alert_recipients                                        = dependency.common_ukw.outputs.alert_recipients
   app_service_plan_id                                     = try(dependency.common_uks.outputs.app_service_plan_id, null)
   appeal_documents_primary_blob_connection_string         = dependency.appeals_service_ukw.outputs.appeal_documents_primary_blob_connection_string
