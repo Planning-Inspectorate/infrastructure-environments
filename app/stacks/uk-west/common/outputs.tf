@@ -1,3 +1,10 @@
+output "action_group_ids" {
+  description = "The Action Group IDs for the created groups, as k:v map"
+  value = {
+    for k, v in local.all_action_groups : k => azurerm_monitor_action_group.all_action_groups[k].id
+  }
+}
+
 output "action_group_low_id" {
   description = "The Action Group ID for sending low priority (P4) alerts"
   value       = azurerm_monitor_action_group.low.id
