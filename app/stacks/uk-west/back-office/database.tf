@@ -26,32 +26,62 @@ resource "random_id" "username_suffix_app" {
   byte_length = 6
 }
 
-resource "azurerm_key_vault_secret" "back_office_sql_server_password" {
+resource "azurerm_key_vault_secret" "back_office_sql_server_password_admin" {
   #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   content_type = "text/plain"
   key_vault_id = var.key_vault_id
-  name         = "back-office-sql-server-password"
+  name         = "back-office-sql-server-password-admin"
   value        = azurerm_mssql_server.back_office.administrator_login_password
 
   tags = local.tags
 }
 
-resource "azurerm_key_vault_secret" "back_office_sql_server_username" {
+resource "azurerm_key_vault_secret" "back_office_sql_server_password_app" {
   #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   content_type = "text/plain"
   key_vault_id = var.key_vault_id
-  name         = "back-office-sql-server-username"
+  name         = "back-office-sql-server-password-app"
+  value        = random_password.back_office_sql_server_password_app.result
+
+  tags = local.tags
+}
+
+resource "azurerm_key_vault_secret" "back_office_sql_server_username_admin" {
+  #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
+  content_type = "text/plain"
+  key_vault_id = var.key_vault_id
+  name         = "back-office-sql-server-username-admin"
   value        = azurerm_mssql_server.back_office.administrator_login
 
   tags = local.tags
 }
 
-resource "azurerm_key_vault_secret" "back_office_sql_connection_string" {
+resource "azurerm_key_vault_secret" "back_office_sql_connection_string_admin" {
   #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   content_type = "text/plain"
   key_vault_id = var.key_vault_id
-  name         = "back-office-sql-connection-string"
+  name         = "back-office-sql-connection-string-admin"
   value        = local.sql_connection_string_admin
+
+  tags = local.tags
+}
+
+resource "azurerm_key_vault_secret" "back_office_sql_server_username_app" {
+  #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
+  content_type = "text/plain"
+  key_vault_id = var.key_vault_id
+  name         = "back-office-sql-server-username-app"
+  value        = local.sql_server_username_app
+
+  tags = local.tags
+}
+
+resource "azurerm_key_vault_secret" "back_office_sql_sql_connection_string_app" {
+  #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
+  content_type = "text/plain"
+  key_vault_id = var.key_vault_id
+  name         = "back-office-sql-connection-string-app"
+  value        = local.sql_connection_string_app
 
   tags = local.tags
 }

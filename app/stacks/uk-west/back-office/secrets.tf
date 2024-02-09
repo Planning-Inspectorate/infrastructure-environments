@@ -38,13 +38,24 @@ resource "azurerm_key_vault_secret" "bo_appeals_insights_connection_string" {
   tags = local.tags
 }
 
-resource "azurerm_key_vault_secret" "back_office_sql_server_connection_string" {
+resource "azurerm_key_vault_secret" "back_office_sql_server_connection_string_admin" {
   #checkov:skip=CKV_AZURE_41
 
   content_type = "text/plain"
   key_vault_id = var.key_vault_id
-  name         = "back-office-sql-server-connection-string"
-  value        = local.sql_connection_string
+  name         = "back-office-sql-server-connection-string-admin"
+  value        = local.sql_connection_string_admin
+
+  tags = local.tags
+}
+
+resource "azurerm_key_vault_secret" "back_office_sql_server_connection_string_app" {
+  #checkov:skip=CKV_AZURE_41
+
+  content_type = "text/plain"
+  key_vault_id = var.key_vault_id
+  name         = "back-office-sql-server-connection-string-app"
+  value        = local.sql_connection_string_app
 
   tags = local.tags
 }
