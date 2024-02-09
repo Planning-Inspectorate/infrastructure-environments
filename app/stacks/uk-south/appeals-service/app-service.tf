@@ -3,7 +3,6 @@ module "app_services" {
 
   source = "../../../components/appeals-app-services"
 
-  action_group_low_id                                                         = var.action_group_low_id
   action_group_ids                                                            = var.action_group_ids
   allow_testing_overrides                                                     = var.allow_testing_overrides
   api_timeout                                                                 = var.api_timeout

@@ -1,8 +1,3 @@
-variable "action_group_low_id" {
-  description = "The ID of the Azure Monitor action group for low priority alerts"
-  type        = string
-}
-
 variable "action_group_ids" {
   description = "The IDs of the Azure Monitor action groups for different alert types"
   type = object({

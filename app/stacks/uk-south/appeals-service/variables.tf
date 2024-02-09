@@ -1,8 +1,3 @@
-variable "action_group_low_id" {
-  description = "The ID of the Azure Monitor action group for low priority (P4) alerts"
-  type        = string
-}
-
 variable "alert_recipients" {
   description = "The email recipients for monitoring alerts"
   type        = map(list(string))
