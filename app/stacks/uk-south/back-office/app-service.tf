@@ -3,7 +3,6 @@ module "app_services" {
 
   source = "../../../components/back-office-app-services"
 
-  action_group_low_id                              = var.action_group_low_id
   action_group_ids                                 = var.action_group_ids
   api_key_vault_authorization_enabled              = var.api_key_vault_authorization_enabled
   app_service_plan_id                              = var.app_service_plan_id

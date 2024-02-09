@@ -1,7 +1,7 @@
 module "bo_appeals_scheduler_function" {
   source = "./bo-appeals-scheduler-function"
 
-  action_group_low_id                      = var.action_group_low_id
+  action_group_ids                         = local.bo_appeals_action_group_ids
   location                                 = var.location
   log_analytics_workspace_id               = var.log_analytics_workspace_id
   monitoring_alerts_enabled                = var.monitoring_alerts_enabled

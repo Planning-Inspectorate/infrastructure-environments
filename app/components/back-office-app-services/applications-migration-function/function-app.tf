@@ -1,7 +1,7 @@
 module "applications_migration_function" {
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.11"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.14"
 
-  action_group_low_id                      = var.action_group_low_id
+  action_group_ids                         = var.action_group_ids
   app_name                                 = local.service_name
   app_service_plan_id                      = var.app_service_plan_id
   function_apps_storage_account            = var.function_apps_storage_account

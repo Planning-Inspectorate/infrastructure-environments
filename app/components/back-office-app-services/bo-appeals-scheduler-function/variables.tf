@@ -1,8 +1,13 @@
-variable "action_group_low_id" {
-  description = "The ID of the Azure Monitor action group for low priority alerts"
-  type        = string
+variable "action_group_ids" {
+  description = "The IDs of the Azure Monitor action groups for different alert types"
+  type = object({
+    tech            = string,
+    service_manager = string,
+    iap             = string,
+    its             = string,
+    info_sec        = string
+  })
 }
-
 variable "back_office_api_host" {
   description = "Back Office Api Host"
   type        = string
