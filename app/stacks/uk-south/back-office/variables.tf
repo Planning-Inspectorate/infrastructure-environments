@@ -3,6 +3,20 @@ variable "action_group_low_id" {
   type        = string
 }
 
+# tflint-ignore: terraform_unused_declarations
+variable "action_group_ids" {
+  description = "The IDs of the Azure Monitor action groups for different alert types"
+  type = object({
+    bo_appeals_tech                 = string,
+    bo_appeals_service_manager      = string,
+    bo_applications_tech            = string,
+    bo_applications_service_manager = string,
+    iap                             = string,
+    its                             = string,
+    info_sec                        = string
+  })
+}
+
 variable "api_key_vault_authorization_enabled" {
   description = "Whether or not Key Vault is used to access secrets from the app"
   type        = string
