@@ -21,9 +21,10 @@ module "applications_migration_function" {
 
   app_settings = {
     # Function env variables
-    API_HOST      = var.back_office_api_host
-    KEY_VAULT_URI = var.key_vault_uri
-    NODE_ENV      = var.node_environment
+    API_HOST          = var.back_office_api_host
+    KEY_VAULT_ENABLED = var.api_key_vault_authorization_enabled
+    KEY_VAULT_URI     = var.key_vault_uri
+    NODE_ENV          = var.node_environment
     # Temporary migration variables for Project Updates
     NI_DB_MYSQL_DATABASE = local.secret_refs["applications-service-mysql-database"]
     NI_DB_MYSQL_DIALECT  = local.secret_refs["applications-service-mysql-dialect"]

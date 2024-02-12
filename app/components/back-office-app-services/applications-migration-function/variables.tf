@@ -9,6 +9,11 @@ variable "action_group_ids" {
   })
 }
 
+variable "api_key_vault_authorization_enabled" {
+  description = "Whether or not Key Vault is used to access secrets from the app"
+  type        = string
+}
+
 variable "back_office_api_host" {
   description = "Back Office Api Host"
   type        = string
