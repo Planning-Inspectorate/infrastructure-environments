@@ -73,7 +73,7 @@ locals {
         BACK_OFFICE_INTEGRATION_GET_APPLICATIONS                      = var.back_office_integration_get_applications
         BACK_OFFICE_SERVICE_BUS_ENABLED                               = "true"
         BACK_OFFICE_SERVICE_BUS_HOSTNAME                              = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
-        DATABASE_URL                                                  = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/applications-service-sql-server-connection-string/)"
+        DATABASE_URL                                                  = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/applications-service-sql-server-connection-string-app/)"
         DOCUMENTS_HOST                                                = var.documents_host
         ENCRYPTION_SECRET_KEY                                         = local.secret_refs["applications-service-encryption-secret-key"]
         FEATURE_APPLICATION_INSIGHTS                                  = var.feature_application_insights
