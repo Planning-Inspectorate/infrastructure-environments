@@ -27,12 +27,6 @@ module "bo_appeals_user_import_function" {
   tags = var.tags
 }
 
-resource "azurerm_servicebus_subscription" "register_odw_employee_subscription" {
-  name               = "register-odw-employee-subscription"
-  topic_id           = var.employee_topic_id
-  max_delivery_count = 1
-}
-
 resource "azurerm_servicebus_subscription" "register_odw_serviceuser_subscription" {
   name               = "register-odw-serviceuser-subscription"
   topic_id           = var.serviceuser_topic_id
