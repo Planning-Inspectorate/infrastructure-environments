@@ -37,15 +37,18 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_eventgrid_topic.malware_scanning_topic](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/eventgrid_topic) | resource |
 | [azurerm_key_vault_secret.app_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.back_office_appeals_redis_cache_connection_string_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.back_office_appeals_sql_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.back_office_appeals_sql_connection_string_admin](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.back_office_appeals_sql_connection_string_app](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.back_office_applications_api_key_function](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.back_office_applications_api_key_swagger](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.back_office_applications_api_key_web](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.back_office_applications_redis_cache_connection_string_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.back_office_sql_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.back_office_sql_server_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.back_office_sql_server_password](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.back_office_sql_server_username](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.back_office_sql_connection_string_admin](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.back_office_sql_server_password_admin](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.back_office_sql_server_password_app](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.back_office_sql_server_username_admin](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.back_office_sql_server_username_app](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_key_vault_secret.back_office_sql_sql_connection_string_app](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.bo_app_insights_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.bo_appeals_insights_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_log_analytics_workspace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/log_analytics_workspace) | resource |
@@ -83,8 +86,8 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_servicebus_topic.deadline_submission_result](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.deadline_submission_topic](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.employee](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
-| [azurerm_servicebus_topic.listed_building](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.folders](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
+| [azurerm_servicebus_topic.listed_building](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_exam_timetable](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_project](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
@@ -104,8 +107,10 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_storage_container.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_container) | resource |
 | [azurerm_storage_container.back_office_submissions_container](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_container) | resource |
 | [azurerm_subnet.back_office_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/subnet) | resource |
-| [random_id.username_suffix](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
-| [random_password.back_office_sql_server_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
+| [random_id.username_suffix_admin](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
+| [random_id.username_suffix_app](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
+| [random_password.back_office_sql_server_password_admin](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
+| [random_password.back_office_sql_server_password_app](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
 | [azurerm_private_dns_zone.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/private_dns_zone) | data source |
 | [azurerm_private_dns_zone.database](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/private_dns_zone) | data source |
 | [azurerm_private_dns_zone.redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/private_dns_zone) | data source |
@@ -156,6 +161,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="input_key_vault_id"></a> [key\_vault\_id](#input\_key\_vault\_id) | The ID of the key vault so the App Service can pull secret values | `string` | n/a | yes |
 | <a name="input_key_vault_uri"></a> [key\_vault\_uri](#input\_key\_vault\_uri) | The URI of the Key Vault | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | The location resources are deployed to in slug format e.g. 'uk-south' | `string` | `"uk-west"` | no |
+| <a name="input_mock_horizon"></a> [mock\_horizon](#input\_mock\_horizon) | Whether or not to mock Horizon | `bool` | n/a | yes |
 | <a name="input_monitoring_alerts_enabled"></a> [monitoring\_alerts\_enabled](#input\_monitoring\_alerts\_enabled) | Indicates whether Azure Monitor alerts are enabled for App Service | `bool` | `false` | no |
 | <a name="input_node_environment"></a> [node\_environment](#input\_node\_environment) | The node environment to be used for applications in this environment e.g. development | `string` | `"development"` | no |
 | <a name="input_notify_subscribers_function_gov_notify_template_id"></a> [notify\_subscribers\_function\_gov\_notify\_template\_id](#input\_notify\_subscribers\_function\_gov\_notify\_template\_id) | Notify Subscribers Function - GovNotify Template ID | `string` | n/a | yes |
@@ -217,7 +223,9 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_servicebus_topic_register_representation_id"></a> [servicebus\_topic\_register\_representation\_id](#output\_servicebus\_topic\_register\_representation\_id) | Service Bus Topic register-representation id |
 | <a name="output_servicebus_topic_service_user_id"></a> [servicebus\_topic\_service\_user\_id](#output\_servicebus\_topic\_service\_user\_id) | Service Bus Topic service-user id. Only used by ODW. |
 | <a name="output_sql_server_id"></a> [sql\_server\_id](#output\_sql\_server\_id) | The ID of the Back Office SQL server |
-| <a name="output_sql_server_password"></a> [sql\_server\_password](#output\_sql\_server\_password) | The SQL server administrator password |
-| <a name="output_sql_server_username"></a> [sql\_server\_username](#output\_sql\_server\_username) | The SQL server administrator username |
+| <a name="output_sql_server_password_admin"></a> [sql\_server\_password\_admin](#output\_sql\_server\_password\_admin) | The SQL server administrator password |
+| <a name="output_sql_server_password_app"></a> [sql\_server\_password\_app](#output\_sql\_server\_password\_app) | The SQL server app password |
+| <a name="output_sql_server_username_admin"></a> [sql\_server\_username\_admin](#output\_sql\_server\_username\_admin) | The SQL server administrator username |
+| <a name="output_sql_server_username_app"></a> [sql\_server\_username\_app](#output\_sql\_server\_username\_app) | The SQL server app username |
 | <a name="output_web_frontend_url"></a> [web\_frontend\_url](#output\_web\_frontend\_url) | The URL of the web frontend app service |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

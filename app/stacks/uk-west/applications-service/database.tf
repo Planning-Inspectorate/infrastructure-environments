@@ -10,8 +10,8 @@ resource "azurerm_mssql_server" "applications_sql_server" {
   minimum_tls_version           = "1.2"
   public_network_access_enabled = var.database_public_access_enabled
 
-  administrator_login          = local.sql_server_username
-  administrator_login_password = random_password.applications_sql_server_password.result
+  administrator_login          = local.sql_server_username_admin
+  administrator_login_password = random_password.applications_sql_server_password_admin.result
 
   azuread_administrator {
     login_username = var.sql_server_azuread_administrator["login_username"]
@@ -60,12 +60,22 @@ resource "azurerm_private_endpoint" "applications_sql_server" {
   tags = local.tags
 }
 
-resource "random_password" "applications_sql_server_password" {
+resource "random_password" "applications_sql_server_password_admin" {
   length           = 32
   special          = true
   override_special = "#&-_+"
 }
 
-resource "random_id" "username_suffix" {
+resource "random_id" "username_suffix_admin" {
+  byte_length = 6
+}
+
+resource "random_password" "applications_sql_server_password_app" {
+  length           = 32
+  special          = true
+  override_special = "#&-_+"
+}
+
+resource "random_id" "username_suffix_app" {
   byte_length = 6
 }
