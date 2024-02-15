@@ -2,10 +2,10 @@ locals {
   service_name    = "applications-service"
   resource_suffix = "${var.environment}-${module.azure_region_ukw.location_short}-${var.instance}"
 
-  sql_server_username_admin = "pins-sql-${local.service_name}-${local.resource_suffix}-admin-${random_id.username_suffix_admin.id}"
-  sql_server_username_app   = "pins-sql-${local.service_name}-${local.resource_suffix}-app-${random_id.username_suffix_app.id}"
+  sql_server_username     = "pins-sql-${local.service_name}-${local.resource_suffix}-admin-${random_id.username_suffix.id}"
+  sql_server_username_app = "pins-sql-${local.service_name}-${local.resource_suffix}-app-${random_id.username_suffix_app.id}"
 
-  sql_connection_string_admin = join(
+  sql_connection_string = join(
     ";",
     [
       "sqlserver://${azurerm_mssql_server.applications_sql_server.fully_qualified_domain_name}",

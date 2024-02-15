@@ -1,4 +1,4 @@
-resource "random_password" "back_office_sql_server_password_admin" {
+resource "random_password" "back_office_sql_server_password" {
   length           = 32
   special          = true
   override_special = "#&-_+"
@@ -8,7 +8,7 @@ resource "random_password" "back_office_sql_server_password_admin" {
   min_special      = 2
 }
 
-resource "random_id" "username_suffix_admin" {
+resource "random_id" "username_suffix" {
   byte_length = 6
 }
 
@@ -26,11 +26,11 @@ resource "random_id" "username_suffix_app" {
   byte_length = 6
 }
 
-resource "azurerm_key_vault_secret" "back_office_sql_server_password_admin" {
+resource "azurerm_key_vault_secret" "back_office_sql_server_password" {
   #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   content_type = "text/plain"
   key_vault_id = var.key_vault_id
-  name         = "back-office-sql-server-password-admin"
+  name         = "back-office-sql-server-password"
   value        = azurerm_mssql_server.back_office.administrator_login_password
 
   tags = local.tags
@@ -46,22 +46,22 @@ resource "azurerm_key_vault_secret" "back_office_sql_server_password_app" {
   tags = local.tags
 }
 
-resource "azurerm_key_vault_secret" "back_office_sql_server_username_admin" {
+resource "azurerm_key_vault_secret" "back_office_sql_server_username" {
   #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   content_type = "text/plain"
   key_vault_id = var.key_vault_id
-  name         = "back-office-sql-server-username-admin"
+  name         = "back-office-sql-server-username"
   value        = azurerm_mssql_server.back_office.administrator_login
 
   tags = local.tags
 }
 
-resource "azurerm_key_vault_secret" "back_office_sql_connection_string_admin" {
+resource "azurerm_key_vault_secret" "back_office_sql_connection_string" {
   #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   content_type = "text/plain"
   key_vault_id = var.key_vault_id
-  name         = "back-office-sql-connection-string-admin"
-  value        = local.sql_connection_string_admin
+  name         = "back-office-sql-server-connection-string"
+  value        = local.sql_connection_string
 
   tags = local.tags
 }
@@ -76,22 +76,22 @@ resource "azurerm_key_vault_secret" "back_office_sql_server_username_app" {
   tags = local.tags
 }
 
-resource "azurerm_key_vault_secret" "back_office_sql_sql_connection_string_app" {
+resource "azurerm_key_vault_secret" "back_office_sql_connection_string_app" {
   #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   content_type = "text/plain"
   key_vault_id = var.key_vault_id
-  name         = "back-office-sql-connection-string-app"
+  name         = "back-office-sql-server-connection-string-app"
   value        = local.sql_connection_string_app
 
   tags = local.tags
 }
 
-resource "azurerm_key_vault_secret" "back_office_appeals_sql_connection_string_admin" {
+resource "azurerm_key_vault_secret" "back_office_appeals_sql_connection_string" {
   #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   content_type = "text/plain"
   key_vault_id = var.key_vault_id
-  name         = "back-office-appeals-sql-connection-string-admin"
-  value        = local.appeals_sql_connection_string_admin
+  name         = "back-office-appeals-sql-connection-string"
+  value        = local.appeals_sql_connection_string
 
   tags = local.tags
 }
@@ -114,8 +114,8 @@ resource "azurerm_mssql_server" "back_office" {
   resource_group_name           = azurerm_resource_group.back_office_stack.name
   location                      = azurerm_resource_group.back_office_stack.location
   version                       = "12.0"
-  administrator_login           = local.sql_server_username_admin
-  administrator_login_password  = random_password.back_office_sql_server_password_admin.result
+  administrator_login           = local.sql_server_username
+  administrator_login_password  = random_password.back_office_sql_server_password.result
   minimum_tls_version           = "1.2"
   public_network_access_enabled = var.database_public_access_enabled
 

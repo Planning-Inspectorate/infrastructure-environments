@@ -27,12 +27,12 @@ resource "azurerm_key_vault_secret" "applications_app_insights_connection_string
   tags = local.tags
 }
 
-resource "azurerm_key_vault_secret" "applications_sql_server_password_admin" {
+resource "azurerm_key_vault_secret" "applications_sql_server_password" {
   #checkov:skip=CKV_AZURE_41
 
   content_type = "text/plain"
   key_vault_id = var.key_vault_id
-  name         = "applications-service-sql-server-password-admin"
+  name         = "applications-service-sql-server-password"
   value        = azurerm_mssql_server.applications_sql_server.administrator_login_password
 
   tags = local.tags
@@ -49,12 +49,12 @@ resource "azurerm_key_vault_secret" "applications_sql_server_password_app" {
   tags = local.tags
 }
 
-resource "azurerm_key_vault_secret" "applications_sql_server_username_admin" {
+resource "azurerm_key_vault_secret" "applications_sql_server_username" {
   #checkov:skip=CKV_AZURE_41
 
   content_type = "text/plain"
   key_vault_id = var.key_vault_id
-  name         = "applications-service-sql-server-username-admin"
+  name         = "applications-service-sql-server-username"
   value        = azurerm_mssql_server.applications_sql_server.administrator_login
 
   tags = local.tags
@@ -69,13 +69,13 @@ resource "azurerm_key_vault_secret" "applications_sql_server_username_app" {
   value        = local.sql_server_username_app
 }
 
-resource "azurerm_key_vault_secret" "applications_sql_server_connection_string_admin" {
+resource "azurerm_key_vault_secret" "applications_sql_server_connection_string" {
   #checkov:skip=CKV_AZURE_41
 
   content_type = "text/plain"
   key_vault_id = var.key_vault_id
-  name         = "applications-service-sql-server-connection-string-admin"
-  value        = local.sql_connection_string_admin
+  name         = "applications-service-sql-server-connection-string"
+  value        = local.sql_connection_string
 
   tags = local.tags
 }
