@@ -238,22 +238,10 @@ output "sql_server_password" {
   value       = random_password.back_office_sql_server_password.result
 }
 
-output "sql_server_password_app" {
-  description = "The SQL server app password"
-  sensitive   = true
-  value       = random_password.back_office_sql_server_password_app.result
-}
-
 output "sql_server_username" {
   description = "The SQL server administrator username"
   sensitive   = true
   value       = local.sql_server_username
-}
-
-output "sql_server_username_app" {
-  description = "The SQL server app username"
-  sensitive   = true
-  value       = local.sql_server_username_app
 }
 
 output "clamav_host" {
