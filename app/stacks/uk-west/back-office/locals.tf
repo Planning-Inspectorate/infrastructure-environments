@@ -2,8 +2,9 @@ locals {
   service_name = "back-office"
   # TODO: Let's create database-specific users and passwords instead for connection strings
   # Also, let's store this in Key Vault rather than just spitting it into env variables!
-  sql_server_username     = "backofficeadmin_${random_id.username_suffix.id}"
-  sql_server_username_app = "backofficeapp_${random_id.username_suffix_app.id}"
+  sql_server_username             = "backofficeadmin_${random_id.username_suffix.id}"
+  sql_server_username_app         = "backofficeapp_${random_id.username_suffix_app.id}"
+  sql_server_username_appeals_app = "backofficeapp_${random_id.username_suffix_appeals_app.id}"
 
   sql_connection_string = join(
     ";",
@@ -41,8 +42,8 @@ locals {
     [
       "sqlserver://${azurerm_mssql_server.back_office.fully_qualified_domain_name}",
       "database=${azurerm_mssql_database.back_office_appeals.name}",
-      "user=${local.sql_server_username_app}",
-      "password=${random_password.back_office_sql_server_password_app.result}",
+      "user=${local.sql_server_username_appeals_app}",
+      "password=${random_password.back_office_sql_server_password_appeals_app.result}",
       "trustServerCertificate=true"
     ]
   )
