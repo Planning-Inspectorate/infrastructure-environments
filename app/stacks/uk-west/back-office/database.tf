@@ -26,6 +26,20 @@ resource "random_id" "username_suffix_app" {
   byte_length = 6
 }
 
+resource "random_password" "back_office_sql_server_password_appeals_app" {
+  length           = 32
+  special          = true
+  override_special = "#&-_+"
+  min_lower        = 2
+  min_upper        = 2
+  min_numeric      = 2
+  min_special      = 2
+}
+
+resource "random_id" "username_suffix_appeals_app" {
+  byte_length = 6
+}
+
 resource "azurerm_key_vault_secret" "back_office_sql_server_password" {
   #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   content_type = "text/plain"
@@ -42,6 +56,16 @@ resource "azurerm_key_vault_secret" "back_office_sql_server_password_app" {
   key_vault_id = var.key_vault_id
   name         = "back-office-sql-server-password-app"
   value        = random_password.back_office_sql_server_password_app.result
+
+  tags = local.tags
+}
+
+resource "azurerm_key_vault_secret" "back_office_sql_server_password_appeals_app" {
+  #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
+  content_type = "text/plain"
+  key_vault_id = var.key_vault_id
+  name         = "back-office-sql-server-password-appeals-app"
+  value        = random_password.back_office_sql_server_password_appeals_app.result
 
   tags = local.tags
 }
@@ -72,6 +96,16 @@ resource "azurerm_key_vault_secret" "back_office_sql_server_username_app" {
   key_vault_id = var.key_vault_id
   name         = "back-office-sql-server-username-app"
   value        = local.sql_server_username_app
+
+  tags = local.tags
+}
+
+resource "azurerm_key_vault_secret" "back_office_sql_server_username_appeals_app" {
+  #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
+  content_type = "text/plain"
+  key_vault_id = var.key_vault_id
+  name         = "back-office-sql-server-username-appeals-app"
+  value        = local.sql_server_username_appeals_app
 
   tags = local.tags
 }
