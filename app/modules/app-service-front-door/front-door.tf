@@ -1,4 +1,6 @@
 resource "azurerm_cdn_frontdoor_profile" "default" {
+  count = var.environment == dev ? 1 : 0
+
   name                = "${var.service_name}-${var.environment}"
   resource_group_name = azurerm_resource_group.frontdoor.name
   sku_name            = "Premium_AzureFrontDoor"
@@ -30,8 +32,8 @@ resource "azurerm_cdn_frontdoor_origin" "default" {
   name                          = var.service_name
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.default.id
 
-  enabled                        = true
-  host_name                      = var.app_service_url
+  enabled   = true
+  host_name = var.app_service_url
 }
 # TODO Private Link, will require certificate_name_check_enabled
 

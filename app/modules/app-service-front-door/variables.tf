@@ -1,15 +1,15 @@
-variable "service_name" {
-  description = "Public domain name"
+variable "app_service_url" {
+  description = "Domain of the primary app service"
+  type        = string
+}
+
+variable "common_log_analytics_workspace_id" {
+  description = "The ID for the common Log Analytics Workspace"
   type        = string
 }
 
 variable "domain_name" {
   description = "Public domain name"
-  type        = string
-}
-
-variable "app_service_url" {
-  description = "Domain of the primary app service"
   type        = string
 }
 
@@ -24,7 +24,7 @@ variable "enable_search_indexing_by_default" {
   default     = false
 }
 
-variable "common_log_analytics_workspace_id" {
-  description = "The ID for the common Log Analytics Workspace"
+variable "service_name" {
+  description = "Public domain name"
   type        = string
 }
