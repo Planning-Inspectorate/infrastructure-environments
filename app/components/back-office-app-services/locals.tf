@@ -165,6 +165,7 @@ locals {
     "applications-service-mysql-username",
     # This would ideally be in the secret_names list, but there's no way to add a value to the secret generation loop
     "back-office-sql-server-connection-string",
+    "back-office-sql-server-connection-string-app",
   ]
 
   existing_secret_refs = {

@@ -14,8 +14,9 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
 
       rule {
         # Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link
-        rule_id = "931130"
         action  = "Block"
+        enabled = true
+        rule_id = "931130"
 
         exclusion {
           # Exclusion to fix BOAS-153
@@ -31,8 +32,9 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
 
       rule {
         # Path Traversal Attack (/../)
-        rule_id = "930100"
         action  = "Block"
+        enabled = true
+        rule_id = "930100"
 
         exclusion {
           # Exclusion to allow acceptance of cookies
@@ -44,8 +46,9 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
 
       rule {
         # Path Traversal Attack (/../)
-        rule_id = "930110"
         action  = "Block"
+        enabled = true
+        rule_id = "930110"
 
         exclusion {
           # Exclusion to allow acceptance of cookies
@@ -61,8 +64,9 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
 
       rule {
         # Detects MySQL comment-/space-obfuscated injections and backtick termination
-        rule_id = "942200"
         action  = "Block"
+        enabled = true
+        rule_id = "942200"
 
         exclusion {
           # Exclusion to allow acceptance of cookies
@@ -74,8 +78,9 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
 
       rule {
         # Detects basic SQL authentication bypass attempts 2/3
-        rule_id = "942260"
         action  = "Block"
+        enabled = true
+        rule_id = "942260"
 
         exclusion {
           # Exclusion to allow acceptance of cookies
@@ -87,8 +92,9 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
 
       rule {
         # Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)
-        rule_id = "942430"
         action  = "Block"
+        enabled = true
+        rule_id = "942430"
 
         exclusion {
           # Exclusion to allow Azure AD authentication redirection
@@ -100,8 +106,9 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
 
       rule {
         # SQL Comment Sequence Detected
-        rule_id = "942440"
         action  = "Block"
+        enabled = true
+        rule_id = "942440"
 
         exclusion {
           # Exclusion to allow Azure AD authentication redirection
@@ -113,8 +120,9 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
 
       rule {
         # SQL Hex Encoding Identified
-        rule_id = "942450"
         action  = "Block"
+        enabled = true
+        rule_id = "942450"
 
         exclusion {
           # Exclusion to allow cookie connect.sid
@@ -187,8 +195,9 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
 
       rule {
         # Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link
-        rule_id = "931130"
         action  = "Block"
+        enabled = true
+        rule_id = "931130"
 
         exclusion {
           # Exclusion to fix BOAS-153
@@ -204,8 +213,9 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
 
       rule {
         # Path Traversal Attack (/../)
-        rule_id = "930100"
         action  = "Block"
+        enabled = true
+        rule_id = "930100"
 
         exclusion {
           # Exclusion to allow acceptance of cookies
@@ -217,8 +227,9 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
 
       rule {
         # Path Traversal Attack (/../)
-        rule_id = "930110"
         action  = "Block"
+        enabled = true
+        rule_id = "930110"
 
         exclusion {
           # Exclusion to allow acceptance of cookies
@@ -234,14 +245,16 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
 
       rule {
         # Common SQL injection testing
-        rule_id = "942110"
         action  = "Redirect"
+        enabled = true
+        rule_id = "942110"
       }
 
       rule {
         # Detects MySQL comment-/space-obfuscated injections and backtick termination
-        rule_id = "942200"
         action  = "Block"
+        enabled = true
+        rule_id = "942200"
 
         exclusion {
           # Exclusion to allow acceptance of cookies
@@ -266,14 +279,16 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
 
       rule {
         # Suspisious use of SQL keywords
-        rule_id = "942400"
         action  = "Redirect"
+        enabled = true
+        rule_id = "942400"
       }
 
       rule {
         # Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)
-        rule_id = "942430"
         action  = "Block"
+        enabled = true
+        rule_id = "942430"
 
         exclusion {
           # Exclusion to allow Azure AD authentication redirection
@@ -285,8 +300,9 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
 
       rule {
         # SQL Comment Sequence Detected
-        rule_id = "942440"
         action  = "Block"
+        enabled = true
+        rule_id = "942440"
 
         exclusion {
           # Exclusion to allow Azure AD authentication redirection
@@ -298,8 +314,9 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
 
       rule {
         # SQL Hex Encoding Identified
-        rule_id = "942450"
         action  = "Block"
+        enabled = true
+        rule_id = "942450"
 
         exclusion {
           # Exclusion to allow cookie connect.sid
