@@ -31,6 +31,4 @@ dependency "back_office_ukw" {
 inputs = {
   back_office_appeals_primary_app_service_url   = dependency.back_office_ukw.outputs.appeals_web_frontend_url
   back_office_appeals_secondary_app_service_url = dependency.back_office_uks.outputs.appeals_web_frontend_url
-  common_key_vault_id                           = dependency.common_ukw.outputs.key_vault_id
-  common_log_analytics_workspace_id             = dependency.common_ukw.outputs.log_analytics_workspace_id
 }
