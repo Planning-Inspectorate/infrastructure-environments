@@ -1,10 +1,10 @@
 module "applications_app_service_front_door" {
   source = "../"
 
-  domain_name                       = "back-office.com"
-  app_service_domain                = "primary_app_service"
-  environment                       = "dev"
-  enable_search_indexing_by_default = true
+  # domain_name                       = "back-office.com"
+  # app_service_domain                = "primary_app_service"
+  # environment                       = "dev"
+  # enable_search_indexing_by_default = true
 }
 
 # resource "azurerm_cdn_frontdoor_firewall_policy" "applications" {
