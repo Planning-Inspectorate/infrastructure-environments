@@ -29,6 +29,7 @@ This component contains the Azure Front Door and WAF resources. The resources in
 |------|------|
 | [azurerm_frontdoor.common](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/frontdoor) | resource |
 | [azurerm_frontdoor_firewall_policy.appeals_frontend](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/frontdoor_firewall_policy) | resource |
+| [azurerm_frontdoor_firewall_policy.back_office_applications_frontend](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/frontdoor_firewall_policy) | resource |
 | [azurerm_frontdoor_firewall_policy.default](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/frontdoor_firewall_policy) | resource |
 | [azurerm_frontdoor_rules_engine.search_indexing](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/frontdoor_rules_engine) | resource |
 | [azurerm_monitor_diagnostic_setting.front_door_waf](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_diagnostic_setting) | resource |

@@ -26,7 +26,7 @@ module "app_services" {
   container_registry_rg                                                               = var.container_registry_rg
   database_name                                                                       = azurerm_mssql_database.back_office.name
   appeals_database_name                                                               = azurerm_mssql_database.back_office_appeals.name
-  appeals_database_connection_string                                                  = local.appeals_sql_connection_string_admin
+  appeals_database_connection_string                                                  = local.appeals_sql_connection_string
   document_storage_api_host                                                           = azurerm_storage_account.back_office_documents.primary_blob_endpoint
   document_storage_account_name                                                       = azurerm_storage_account.back_office_documents.name
   endpoint_subnet_id                                                                  = azurerm_subnet.back_office_ingress.id
@@ -70,7 +70,6 @@ module "app_services" {
   service_bus_appeals_fo_lpa_response_submission_id                                   = azurerm_servicebus_topic.appeal_fo_lpa_response_submission.id
   service_bus_appeals_bo_document_to_move_topic_id                                    = azurerm_servicebus_topic.appeal_bo_document_to_move.id
   tags                                                                                = local.tags
-  employee_topic_id                                                                   = azurerm_servicebus_topic.employee.id
   service_user_topic_id                                                               = azurerm_servicebus_topic.service_user.id
   notify_subscribers_function_gov_notify_template_id                                  = var.notify_subscribers_function_gov_notify_template_id
   applications_front_office_web_url                                                   = var.applications_front_office_web_url
