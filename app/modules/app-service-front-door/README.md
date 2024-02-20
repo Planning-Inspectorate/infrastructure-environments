@@ -43,7 +43,6 @@ This component contains the Azure Front Door and WAF resources. The resources in
 | <a name="input_app_service_url"></a> [app\_service\_url](#input\_app\_service\_url) | Domain of the primary app service | `string` | n/a | yes |
 | <a name="input_common_log_analytics_workspace_id"></a> [common\_log\_analytics\_workspace\_id](#input\_common\_log\_analytics\_workspace\_id) | The ID for the common Log Analytics Workspace | `string` | n/a | yes |
 | <a name="input_domain_name"></a> [domain\_name](#input\_domain\_name) | Public domain name | `string` | n/a | yes |
-| <a name="input_enable_search_indexing_by_default"></a> [enable\_search\_indexing\_by\_default](#input\_enable\_search\_indexing\_by\_default) | A flag to indicate if the environment should enable search indexing for frontends by default | `bool` | `false` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | Environment Name | `string` | n/a | yes |
 | <a name="input_service_name"></a> [service\_name](#input\_service\_name) | Public domain name | `string` | n/a | yes |
 
