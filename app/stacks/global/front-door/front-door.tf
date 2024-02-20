@@ -77,7 +77,7 @@ resource "azurerm_frontdoor" "common" {
   frontend_endpoint {
     name                                    = local.back_office_frontend.frontend_name
     host_name                               = local.back_office_frontend.frontend_endpoint
-    web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
+    web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.back_office_applications_frontend.id
   }
 
   frontend_endpoint {

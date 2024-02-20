@@ -238,13 +238,6 @@ variable "common_vnet_id" {
 }
 
 # Setting this to empty string for now whilst we figure out DR plans
-variable "employee_topic_id" {
-  description = "The ID of the employee topic"
-  type        = string
-  default     = ""
-}
-
-# Setting this to empty string for now whilst we figure out DR plans
 variable "service_user_topic_id" {
   description = "The ID of the employee topic"
   type        = string

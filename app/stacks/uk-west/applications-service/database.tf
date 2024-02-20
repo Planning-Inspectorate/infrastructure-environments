@@ -69,3 +69,13 @@ resource "random_password" "applications_sql_server_password" {
 resource "random_id" "username_suffix" {
   byte_length = 6
 }
+
+resource "random_password" "applications_sql_server_password_app" {
+  length           = 32
+  special          = true
+  override_special = "#&-_+"
+}
+
+resource "random_id" "username_suffix_app" {
+  byte_length = 6
+}

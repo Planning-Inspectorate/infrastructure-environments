@@ -70,11 +70,6 @@ variable "service_bus_namespace_name" {
   type        = string
 }
 
-variable "employee_topic_id" {
-  description = "Service Bus Topic ID for ODW employee"
-  type        = string
-}
-
 variable "serviceuser_topic_id" {
   description = "Service Bus Topic ID for ODW employee"
   type        = string

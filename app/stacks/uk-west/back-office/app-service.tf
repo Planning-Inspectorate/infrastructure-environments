@@ -70,7 +70,6 @@ module "app_services" {
   service_bus_appeals_fo_lpa_response_submission_id                                   = azurerm_servicebus_topic.appeal_fo_lpa_response_submission.id
   service_bus_appeals_bo_document_to_move_topic_id                                    = azurerm_servicebus_topic.appeal_bo_document_to_move.id
   tags                                                                                = local.tags
-  employee_topic_id                                                                   = azurerm_servicebus_topic.employee.id
   service_user_topic_id                                                               = azurerm_servicebus_topic.service_user.id
   notify_subscribers_function_gov_notify_template_id                                  = var.notify_subscribers_function_gov_notify_template_id
   applications_front_office_web_url                                                   = var.applications_front_office_web_url
