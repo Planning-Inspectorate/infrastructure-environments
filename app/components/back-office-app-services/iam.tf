@@ -1,30 +1,30 @@
 resource "azurerm_role_assignment" "applications_case_admin_officer_documents_access" {
   scope                = var.document_storage_back_office_document_service_uploads_container_resource_manager_id
-  role_definition_name = local.blob_storage_role_readwrite_custom_name
+  role_definition_name = "Storage Blob Data Contributor"
   principal_id         = var.azuread_applications_case_admin_officer_group_id
 }
 
 resource "azurerm_role_assignment" "applications_caseteam_documents_access" {
   scope                = var.document_storage_back_office_document_service_uploads_container_resource_manager_id
-  role_definition_name = local.blob_storage_role_readwrite_custom_name
+  role_definition_name = "Storage Blob Data Contributor"
   principal_id         = var.azuread_applications_caseteam_group_id
 }
 
 resource "azurerm_role_assignment" "applications_inspector_documents_access" {
   scope                = var.document_storage_back_office_document_service_uploads_container_resource_manager_id
-  role_definition_name = local.blob_storage_role_readwrite_custom_name
+  role_definition_name = "Storage Blob Data Contributor"
   principal_id         = var.azuread_applications_inspector_group_id
 }
 
 resource "azurerm_role_assignment" "appeals_case_officer_documents_access" {
   scope                = var.bo_appeals_document_container_id
-  role_definition_name = local.blob_storage_role_readwrite_custom_name
+  role_definition_name = "Storage Blob Data Contributor"
   principal_id         = var.azuread_appeals_case_officer_group_id
 }
 
 resource "azurerm_role_assignment" "appeals_inspector_documents_access" {
   scope                = var.bo_appeals_document_container_id
-  role_definition_name = local.blob_storage_role_readwrite_custom_name
+  role_definition_name = "Storage Blob Data Contributor"
   principal_id         = var.azuread_appeals_inspector_group_id
 }
 
