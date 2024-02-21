@@ -55,6 +55,10 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_key_vault_secret.bo_appeals_insights_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_log_analytics_workspace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/log_analytics_workspace) | resource |
 | [azurerm_monitor_diagnostic_setting.back_office_sql_database](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_diagnostic_setting) | resource |
+| [azurerm_monitor_metric_alert.back_office_appeals_sql_db_cpu_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
+| [azurerm_monitor_metric_alert.back_office_appeals_sql_db_deadlock_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
+| [azurerm_monitor_metric_alert.back_office_appeals_sql_db_dtu_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
+| [azurerm_monitor_metric_alert.back_office_appeals_sql_db_log_io_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_monitor_metric_alert.back_office_sql_db_cpu_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_monitor_metric_alert.back_office_sql_db_deadlock_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_monitor_metric_alert.back_office_sql_db_dtu_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
