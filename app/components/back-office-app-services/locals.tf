@@ -189,4 +189,6 @@ locals {
     its             = var.action_group_ids.its,
     info_sec        = var.action_group_ids.info_sec
   }
+
+  blob_storage_role_readwrite_custom_name = "Storage Blob Read Write (custom) - ${var.environment}"
 }
