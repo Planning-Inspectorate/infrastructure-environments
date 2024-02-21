@@ -218,7 +218,7 @@ resource "azurerm_monitor_metric_alert" "appeals_sql_db_cpu_alert" {
   description         = "Action will be triggered when cpu percent is greater than 80."
   window_size         = "PT5M"
   frequency           = "PT1M"
-  severity            = 3
+  severity            = 2
 
   criteria {
     metric_namespace = "Microsoft.Sql/servers/databases"
@@ -229,7 +229,7 @@ resource "azurerm_monitor_metric_alert" "appeals_sql_db_cpu_alert" {
   }
 
   action {
-    action_group_id = var.action_group_low_id
+    action_group_id = var.action_group_ids.tech
   }
 
   tags = local.tags
@@ -242,7 +242,7 @@ resource "azurerm_monitor_metric_alert" "appeals_sql_db_dtu_alert" {
   description         = "Action will be triggered when DTU percent is greater than 80."
   window_size         = "PT5M"
   frequency           = "PT1M"
-  severity            = 3
+  severity            = 2
 
   criteria {
     metric_namespace = "Microsoft.Sql/servers/databases"
@@ -253,7 +253,7 @@ resource "azurerm_monitor_metric_alert" "appeals_sql_db_dtu_alert" {
   }
 
   action {
-    action_group_id = var.action_group_low_id
+    action_group_id = var.action_group_ids.tech
   }
 
   tags = local.tags
@@ -266,7 +266,7 @@ resource "azurerm_monitor_metric_alert" "appeals_sql_db_log_io_alert" {
   description         = "Action will be triggered when Log write percent is greater than 80."
   window_size         = "PT5M"
   frequency           = "PT1M"
-  severity            = 3
+  severity            = 2
 
   criteria {
     metric_namespace = "Microsoft.Sql/servers/databases"
@@ -277,7 +277,7 @@ resource "azurerm_monitor_metric_alert" "appeals_sql_db_log_io_alert" {
   }
 
   action {
-    action_group_id = var.action_group_low_id
+    action_group_id = var.action_group_ids.tech
   }
 
   tags = local.tags
@@ -290,7 +290,7 @@ resource "azurerm_monitor_metric_alert" "appeals_sql_db_deadlock_alert" {
   description         = "Action will be triggered whenever the count of deadlocks is greater than 1."
   window_size         = "PT5M"
   frequency           = "PT1M"
-  severity            = 4
+  severity            = 2
 
   criteria {
     metric_namespace = "Microsoft.Sql/servers/databases"
@@ -301,7 +301,7 @@ resource "azurerm_monitor_metric_alert" "appeals_sql_db_deadlock_alert" {
   }
 
   action {
-    action_group_id = var.action_group_low_id
+    action_group_id = var.action_group_ids.tech
   }
 
   tags = local.tags
