@@ -6,7 +6,8 @@ resource "azurerm_role_definition" "storage_blob_read_write_custom" {
   permissions {
     data_actions = [
       "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
-      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
+      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
+      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
     ]
   }
 
