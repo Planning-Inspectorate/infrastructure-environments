@@ -65,7 +65,6 @@ dependency "back_office_ukw" {
 }
 
 inputs = {
-  action_group_low_id = dependency.common_ukw.outputs.action_group_low_id
   action_group_ids = {
     tech            = dependency.common_ukw.outputs.action_group_ids["appeals-fo-tech"]
     service_manager = dependency.common_ukw.outputs.action_group_ids["appeals-fo-service-manager"]

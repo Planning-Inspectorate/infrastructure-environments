@@ -45,8 +45,12 @@ resource "azurerm_monitor_scheduled_query_rules_alert_v2" "web_app_insights" {
     operator                = "GreaterThan"
   }
 
-  severity = 2
+  severity = 1
   action {
-    action_groups = [var.action_group_low_id]
+    action_groups = [
+      var.action_group_ids.tech,
+      var.action_group_ids.service_manager,
+      var.action_group_ids.its
+    ]
   }
 }
