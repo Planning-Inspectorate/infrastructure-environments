@@ -1,5 +1,5 @@
 module "applications_background_job_functions" {
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.14"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.16"
 
   action_group_ids                         = var.action_group_ids
   app_name                                 = "apps-background-jobs"

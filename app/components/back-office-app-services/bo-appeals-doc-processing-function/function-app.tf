@@ -1,5 +1,5 @@
 module "bo_appeals_doc_processing_function" {
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.14"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.16"
 
   action_group_ids                         = var.action_group_ids
   app_name                                 = "doc-processing"
