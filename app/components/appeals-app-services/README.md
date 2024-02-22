@@ -81,7 +81,7 @@ This module also contains some resources such as Service Bus and Function Apps r
 | <a name="input_location"></a> [location](#input\_location) | The location the App Services are deployed to in slug format e.g. 'uk-south' | `string` | n/a | yes |
 | <a name="input_log_analytics_workspace_id"></a> [log\_analytics\_workspace\_id](#input\_log\_analytics\_workspace\_id) | The ID of the Azure Monitor Log Analytics Workspace | `string` | n/a | yes |
 | <a name="input_logger_level"></a> [logger\_level](#input\_logger\_level) | The level of logging enabled for applications in the environment e.g. info | `string` | `"info"` | no |
-| <a name="input_max_file_upload_size_in_bytes"></a> [max\_file\_upload\_size\_in\_bytes](#input\_max\_file\_upload\_size\_in\_bytes) | Max number of bytes allowed in a file upload | `string` | `"26214400"` | no |
+| <a name="input_max_file_upload_size_in_bytes"></a> [max\_file\_upload\_size\_in\_bytes](#input\_max\_file\_upload\_size\_in\_bytes) | Max number of bytes allowed in a file upload | `string` | `"15000000"` | no |
 | <a name="input_monitoring_alerts_enabled"></a> [monitoring\_alerts\_enabled](#input\_monitoring\_alerts\_enabled) | Indicates whether Azure Monitor alerts are enabled for App Service | `bool` | `false` | no |
 | <a name="input_node_environment"></a> [node\_environment](#input\_node\_environment) | The node environment to be used for applications in this environment e.g. development | `string` | `"development"` | no |
 | <a name="input_private_endpoint_enabled"></a> [private\_endpoint\_enabled](#input\_private\_endpoint\_enabled) | A switch to determine if Private Endpoint should be enabled for backend App Services | `bool` | `true` | no |

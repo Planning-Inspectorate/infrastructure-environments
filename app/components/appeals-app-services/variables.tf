@@ -122,7 +122,7 @@ variable "logger_level" {
 }
 
 variable "max_file_upload_size_in_bytes" {
-  default     = "26214400" #25MB
+  default     = "15000000" #15MB
   description = "Max number of bytes allowed in a file upload"
   type        = string
 }
