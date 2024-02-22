@@ -1,7 +1,7 @@
 module "app_service" {
   for_each = local.app_services
 
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service?ref=1.14"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service?ref=1.16"
 
   action_group_ids                = var.action_group_ids
   app_name                        = each.value["app_name"]
