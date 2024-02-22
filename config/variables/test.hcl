@@ -12,7 +12,7 @@ locals {
   front_door_waf_mode                  = "Prevention"
   front_door_waf_appeals_redirect_path = "/errors/firewall-error"
   logger_level                         = "info"
-  monitoring_alerts_enabled            = false
+  monitoring_alerts_enabled            = true
   primary_vnet_address_space           = "10.2.0.0/16"
   secondary_vnet_address_space         = "10.12.0.0/16"
   srv_notify_base_url                  = "https://api.notifications.service.gov.uk/"
