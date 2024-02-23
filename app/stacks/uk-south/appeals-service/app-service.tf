@@ -13,7 +13,7 @@ module "app_services" {
   appeal_documents_storage_container_name                                     = var.appeal_documents_storage_container_name
   appeals_service_public_url                                                  = var.appeals_service_public_url
   back_office_service_bus_namespace_name                                      = var.back_office_service_bus_namespace_name
-  back_office_appelant_submission_topic                                       = var.back_office_appelant_submission_topic
+  back_office_appellant_submission_topic                                       = var.back_office_appellant_submission_topic
   back_office_lpa_response_submission_topic                                   = var.back_office_lpa_response_submission_topic
   bo_storage_account_id                                                       = var.bo_storage_account_id
   bo_appeals_document_container_id                                            = var.bo_appeals_document_container_id

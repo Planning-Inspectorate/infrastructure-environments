@@ -134,7 +134,7 @@ resource "azurerm_servicebus_topic" "deadline_submission_result" {
 
 # Appeals FO Producers (Commands)
 resource "azurerm_servicebus_topic" "appeal_fo_appellant_submission" {
-  name                = var.back_office_appelant_submission_topic
+  name                = var.back_office_appellant_submission_topic
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }

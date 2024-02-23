@@ -1,6 +1,6 @@
 locals {
   app_service_principal_id                          = "c1dc4452-3f0f-4e5e-9c64-9be49eac75f4"
-  back_office_appelant_submission_topic             = "appeal-fo-appellant-submission"
+  back_office_appellant_submission_topic            = "appeal-fo-appellant-submission"
   back_office_lpa_response_submission_topic         = "appeal-fo-lpa-response-submission"
   container_registry_name                           = "pinscrsharedtoolinguks"
   container_registry_rg                             = "pins-rg-shared-tooling-uks"

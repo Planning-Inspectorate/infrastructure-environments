@@ -346,8 +346,8 @@ variable "appeals_frontend_file_upload_debug_logging_enabled" {
   default     = true
 }
 
-variable "back_office_appelant_submission_topic" {
-  description = "Event bus topic name to send appelant submissions to"
+variable "back_office_appellant_submission_topic" {
+  description = "Event bus topic name to send appellant submissions to"
   type        = string
 }
 
