@@ -345,3 +345,13 @@ variable "appeals_frontend_file_upload_debug_logging_enabled" {
   type        = bool
   default     = true
 }
+
+variable "back_office_appelant_submission_topic" {
+  description = "Event bus topic name to send appelant submissions to"
+  type        = string
+}
+
+variable "back_office_lpa_response_submission_topic" {
+  description = "Event bus topic name to send lpa submissions to"
+  type        = string
+}
