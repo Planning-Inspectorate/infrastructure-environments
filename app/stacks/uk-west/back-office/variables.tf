@@ -268,3 +268,14 @@ variable "mock_horizon" {
   description = "Whether or not to mock Horizon"
   type        = bool
 }
+
+
+variable "back_office_appelant_submission_topic" {
+  description = "Event bus topic name to send appelant submissions to"
+  type        = string
+}
+
+variable "back_office_lpa_response_submission_topic" {
+  description = "Event bus topic name to send lpa submissions to"
+  type        = string
+}
