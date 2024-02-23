@@ -24,6 +24,14 @@ resource "azurerm_storage_account" "back_office_documents" {
   enable_https_traffic_only        = true
   min_tls_version                  = "TLS1_2"
   tags                             = local.tags
+  immutability_policy {
+    allow_protected_append_writes = false
+    # max = 400 years
+    period_since_creation_in_days = 146000
+    # State set to unlocked while testing - this can be set to locked once confirmed
+    # to be working correctly, which is an irreversible action
+    state = "Unlocked"
+  }
   blob_properties {
     cors_rule {
       allowed_headers    = ["*"]
