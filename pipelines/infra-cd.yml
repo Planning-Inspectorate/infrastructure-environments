@@ -42,16 +42,18 @@ resources:
       type: github
       endpoint: Planning-Inspectorate
       name: Planning-Inspectorate/common-pipeline-templates
-      ref: refs/tags/release/3.1.0
+      ref: refs/tags/release/3.9.0
 
 extends:
   template: stages/wrapper_cd.yml@templates
   parameters:
+    variableGroupPrefix: 'core_services_cd'
     deploymentStages:
       - name: Terraform Plan
         deploymentJobs:
           - name: Plan
             isDeployment: false
+            timeoutInMinutes: 30
             steps:
               - script: |
                   echo "##vso[build.addbuildtag]stack=${{ parameters.stack }}"
