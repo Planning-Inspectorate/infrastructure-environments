@@ -24,6 +24,7 @@ This component contains the infrastructure required for the back office service.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_app_services"></a> [app\_services](#module\_app\_services) | ../../../components/back-office-app-services | n/a |
+| <a name="module_apply_blob_container_legal_hold"></a> [apply\_blob\_container\_legal\_hold](#module\_apply\_blob\_container\_legal\_hold) | ../../../components/apply-blob-container-legal-hold | n/a |
 | <a name="module_azure_region_ukw"></a> [azure\_region\_ukw](#module\_azure\_region\_ukw) | claranet/regions/azurerm | 4.2.1 |
 
 ## Resources
