@@ -35,7 +35,6 @@ This component contains the common infrastructure required by each environment. 
 | [azurerm_key_vault_access_policy.pipeline_appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_access_policy) | resource |
 | [azurerm_key_vault_access_policy.pipeline_applications_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_access_policy) | resource |
 | [azurerm_key_vault_access_policy.pipeline_back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_access_policy) | resource |
-| [azurerm_key_vault_access_policy.terraform](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_access_policy) | resource |
 | [azurerm_key_vault_secret.applications_service_vpn_gateway_shared_key](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_log_analytics_workspace.common](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/log_analytics_workspace) | resource |
 | [azurerm_monitor_action_group.all_action_groups](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_action_group) | resource |

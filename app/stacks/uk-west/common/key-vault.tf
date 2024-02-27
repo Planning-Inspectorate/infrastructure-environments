@@ -14,16 +14,17 @@ resource "azurerm_key_vault" "environment_key_vault" {
   tags = local.tags
 }
 
-resource "azurerm_key_vault_access_policy" "terraform" {
-  key_vault_id = azurerm_key_vault.environment_key_vault.id
-  object_id    = data.azurerm_client_config.current.object_id
-  tenant_id    = data.azurerm_client_config.current.tenant_id
+# managed manually in Portal, to avoid a race condition where the pipeline needs to read secrets as well as create this
+# resource "azurerm_key_vault_access_policy" "terraform" {
+#   key_vault_id = azurerm_key_vault.environment_key_vault.id
+#   object_id    = data.azurerm_client_config.current.object_id
+#   tenant_id    = data.azurerm_client_config.current.tenant_id
 
-  certificate_permissions = ["Create", "Delete", "Get", "Import", "List", "Purge", "Recover", "Update"]
-  key_permissions         = ["Create", "Delete", "Get", "List", "Purge", "Recover"]
-  secret_permissions      = ["Delete", "Get", "List", "Set", "Purge", "Recover"]
-  storage_permissions     = ["Delete", "Get", "List", "Set", "Purge", "Recover"]
-}
+#   certificate_permissions = ["Create", "Delete", "Get", "Import", "List", "Purge", "Recover", "Update"]
+#   key_permissions         = ["Create", "Delete", "Get", "List", "Purge", "Recover"]
+#   secret_permissions      = ["Delete", "Get", "List", "Set", "Purge", "Recover"]
+#   storage_permissions     = ["Delete", "Get", "List", "Set", "Purge", "Recover"]
+# }
 
 resource "azurerm_key_vault_access_policy" "admins" {
   key_vault_id = azurerm_key_vault.environment_key_vault.id
@@ -99,10 +100,6 @@ resource "azurerm_key_vault_secret" "applications_service_vpn_gateway_shared_key
   value        = "<enter_value>"
 
   tags = local.tags
-
-  depends_on = [
-    azurerm_key_vault_access_policy.terraform
-  ]
 
   lifecycle {
     ignore_changes = [
