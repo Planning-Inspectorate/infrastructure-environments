@@ -7,8 +7,8 @@ resource "null_resource" "apply_blob_container_legal_hold" {
   count = length(var.blob_store_account_container_pairs)
 
   triggers = {
-    blob_account_name   = var.blob_store_account_container_pairs[count.index].blob_account
-    blob_container_name = var.blob_store_account_container_pairs[count.index].blob_container
+    blob_account_name   = var.blob_store_account_container_pairs[count.index].blob_account_name
+    blob_container_name = var.blob_store_account_container_pairs[count.index].blob_container_name
   }
 
   provisioner "local-exec" {
