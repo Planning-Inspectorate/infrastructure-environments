@@ -106,8 +106,8 @@ resource "azurerm_storage_account" "function_storage" {
 module "apply_blob_container_legal_hold" {
   blob_store_account_container_pairs = [
     {
-      blob_account : azurerm_storage_account.back_office_documents,
-      blob_container : azurerm_storage_container.back_office_document_service_uploads_container
+      blob_account_name : azurerm_storage_account.back_office_documents.name,
+      blob_container_name : azurerm_storage_container.back_office_document_service_uploads_container.name
     }
   ]
   # depends_on property guarantees that the containers and account

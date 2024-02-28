@@ -1,18 +1,18 @@
 variable "blob_store_account_container_pairs" {
-  description = "A list of blob storage account name and container pairs"
-  type        = list(object({ blob_account = string, blob_container = string }))
+  description = "A list of blob storage account and container name pairs"
+  type        = list(object({ blob_account_name = string, blob_container_name = string }))
   default = [
     {
-      blob_account   = "account1",
-      blob_container = "container1"
+      blob_account_name   = "blob-account1",
+      blob_container_name = "blob-container1"
     },
     {
-      blob_account   = "account1",
-      blob_container = "container2"
+      blob_account_name   = "blob-account1",
+      blob_container_name = "blob-container2"
     },
     {
-      blob_account   = "account2",
-      blob_container = "container3"
+      blob_account_name   = "blob-account2",
+      blob_container_name = "blob-container3"
     }
   ]
 }
