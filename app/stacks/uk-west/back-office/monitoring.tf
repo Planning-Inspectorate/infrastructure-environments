@@ -112,7 +112,7 @@ resource "azurerm_monitor_metric_alert" "back_office_sql_db_cpu_alert" {
   description         = "Action will be triggered when cpu percent is greater than 80."
   window_size         = "PT5M"
   frequency           = "PT1M"
-  severity            = 3
+  severity            = 2
 
   criteria {
     metric_namespace = "Microsoft.Sql/servers/databases"
@@ -123,7 +123,7 @@ resource "azurerm_monitor_metric_alert" "back_office_sql_db_cpu_alert" {
   }
 
   action {
-    action_group_id = var.action_group_low_id
+    action_group_id = var.action_group_ids.bo_applications_tech
   }
 
   tags = local.tags
@@ -136,7 +136,7 @@ resource "azurerm_monitor_metric_alert" "back_office_sql_db_dtu_alert" {
   description         = "Action will be triggered when DTU percent is greater than 80."
   window_size         = "PT5M"
   frequency           = "PT1M"
-  severity            = 3
+  severity            = 2
 
   criteria {
     metric_namespace = "Microsoft.Sql/servers/databases"
@@ -147,7 +147,7 @@ resource "azurerm_monitor_metric_alert" "back_office_sql_db_dtu_alert" {
   }
 
   action {
-    action_group_id = var.action_group_low_id
+    action_group_id = var.action_group_ids.bo_applications_tech
   }
 
   tags = local.tags
@@ -160,7 +160,7 @@ resource "azurerm_monitor_metric_alert" "back_office_sql_db_log_io_alert" {
   description         = "Action will be triggered when DTU percent is greater than 80."
   window_size         = "PT5M"
   frequency           = "PT1M"
-  severity            = 3
+  severity            = 2
 
   criteria {
     metric_namespace = "Microsoft.Sql/servers/databases"
@@ -171,7 +171,7 @@ resource "azurerm_monitor_metric_alert" "back_office_sql_db_log_io_alert" {
   }
 
   action {
-    action_group_id = var.action_group_low_id
+    action_group_id = var.action_group_ids.bo_applications_tech
   }
 
   tags = local.tags
@@ -184,7 +184,7 @@ resource "azurerm_monitor_metric_alert" "back_office_sql_db_deadlock_alert" {
   description         = "Action will be triggered whenever the count of deadlocks is greater than 1."
   window_size         = "PT5M"
   frequency           = "PT1M"
-  severity            = 4
+  severity            = 2
 
   criteria {
     metric_namespace = "Microsoft.Sql/servers/databases"
@@ -195,7 +195,104 @@ resource "azurerm_monitor_metric_alert" "back_office_sql_db_deadlock_alert" {
   }
 
   action {
-    action_group_id = var.action_group_low_id
+    action_group_id = var.action_group_ids.bo_applications_tech
+  }
+
+  tags = local.tags
+}
+
+# appeals DB alerts
+resource "azurerm_monitor_metric_alert" "back_office_appeals_sql_db_cpu_alert" {
+  name                = "${local.service_name} Appeals SQL CPU Alert ${local.resource_suffix}"
+  resource_group_name = azurerm_resource_group.back_office_stack.name
+  scopes              = [azurerm_mssql_database.back_office_appeals.id]
+  description         = "Action will be triggered when cpu percent is greater than 80."
+  window_size         = "PT5M"
+  frequency           = "PT1M"
+  severity            = 2
+
+  criteria {
+    metric_namespace = "Microsoft.Sql/servers/databases"
+    metric_name      = "cpu_percent"
+    aggregation      = "Average"
+    operator         = "GreaterThan"
+    threshold        = 80
+  }
+
+  action {
+    action_group_id = var.action_group_ids.bo_appeals_tech
+  }
+
+  tags = local.tags
+}
+
+resource "azurerm_monitor_metric_alert" "back_office_appeals_sql_db_dtu_alert" {
+  name                = "${local.service_name} Appeals SQL DTU Alert ${local.resource_suffix}"
+  resource_group_name = azurerm_resource_group.back_office_stack.name
+  scopes              = [azurerm_mssql_database.back_office_appeals.id]
+  description         = "Action will be triggered when DTU percent is greater than 80."
+  window_size         = "PT5M"
+  frequency           = "PT1M"
+  severity            = 2
+
+  criteria {
+    metric_namespace = "Microsoft.Sql/servers/databases"
+    metric_name      = "dtu_consumption_percent"
+    aggregation      = "Average"
+    operator         = "GreaterThan"
+    threshold        = 80
+  }
+
+  action {
+    action_group_id = var.action_group_ids.bo_appeals_tech
+  }
+
+  tags = local.tags
+}
+
+resource "azurerm_monitor_metric_alert" "back_office_appeals_sql_db_log_io_alert" {
+  name                = "${local.service_name} Appeals SQL Log IO Alert ${local.resource_suffix}"
+  resource_group_name = azurerm_resource_group.back_office_stack.name
+  scopes              = [azurerm_mssql_database.back_office_appeals.id]
+  description         = "Action will be triggered when DTU percent is greater than 80."
+  window_size         = "PT5M"
+  frequency           = "PT1M"
+  severity            = 2
+
+  criteria {
+    metric_namespace = "Microsoft.Sql/servers/databases"
+    metric_name      = "log_write_percent"
+    aggregation      = "Average"
+    operator         = "GreaterThan"
+    threshold        = 80
+  }
+
+  action {
+    action_group_id = var.action_group_ids.bo_appeals_tech
+  }
+
+  tags = local.tags
+}
+
+resource "azurerm_monitor_metric_alert" "back_office_appeals_sql_db_deadlock_alert" {
+  name                = "${local.service_name} Appeals SQL Deadlock Alert ${local.resource_suffix}"
+  resource_group_name = azurerm_resource_group.back_office_stack.name
+  scopes              = [azurerm_mssql_database.back_office_appeals.id]
+  description         = "Action will be triggered whenever the count of deadlocks is greater than 1."
+  window_size         = "PT5M"
+  frequency           = "PT1M"
+  severity            = 2
+
+  criteria {
+    metric_namespace = "Microsoft.Sql/servers/databases"
+    metric_name      = "deadlock"
+    aggregation      = "Count"
+    operator         = "GreaterThanOrEqual"
+    threshold        = 1
+  }
+
+  action {
+    action_group_id = var.action_group_ids.bo_appeals_tech
   }
 
   tags = local.tags

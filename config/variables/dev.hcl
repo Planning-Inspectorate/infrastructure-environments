@@ -13,7 +13,7 @@ locals {
   front_door_waf_appeals_redirect_path = "/errors/firewall-error"
   front_door_waf_mode                  = "Prevention"
   logger_level                         = "debug"
-  monitoring_alerts_enabled            = false
+  monitoring_alerts_enabled            = true
   primary_vnet_address_space           = ["10.1.0.0/16"]
   private_endpoint_enabled             = false
   secondary_vnet_address_space         = ["10.11.0.0/16"]

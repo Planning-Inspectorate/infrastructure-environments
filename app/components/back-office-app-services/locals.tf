@@ -51,7 +51,7 @@ locals {
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING      = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/back-office-app-insights-connection-string/)"
         ApplicationInsightsAgent_EXTENSION_VERSION = "~3"
-        DATABASE_URL                               = local.existing_secret_refs["back-office-sql-server-connection-string"]
+        DATABASE_URL                               = local.existing_secret_refs["back-office-sql-server-connection-string-app"]
         NODE_ENV                                   = var.node_environment
         AZURE_BLOB_STORE_HOST                      = var.document_storage_api_host
         AZURE_BLOB_STORE_CONTAINER                 = var.document_storage_back_office_document_service_uploads_container_name

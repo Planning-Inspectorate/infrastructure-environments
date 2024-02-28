@@ -72,7 +72,7 @@ variable "back_office_integration_post_submissions_case_references" {
 }
 
 variable "back_office_integration_get_applications" {
-  description = "indicate if applications are retrieved from back office"
+  description = "indicate if applications are retrieved from BO or NI or MERGE"
   type        = string
 }
 

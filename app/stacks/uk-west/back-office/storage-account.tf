@@ -102,3 +102,20 @@ resource "azurerm_storage_account" "function_storage" {
 
   tags = local.tags
 }
+
+module "apply_blob_container_legal_hold" {
+  blob_store_account_container_pairs = [
+    {
+      blob_account_name : azurerm_storage_account.back_office_documents.name,
+      blob_container_name : azurerm_storage_container.back_office_document_service_uploads_container.name
+    }
+  ]
+  # depends_on property guarantees that the containers and account
+  # exists before the script runs
+  depends_on = [
+    azurerm_storage_account.back_office_documents,
+    azurerm_storage_container.back_office_document_service_uploads_container
+  ]
+  legal_hold_tags = ["LegalHold"]
+  source          = "../../../components/apply-blob-container-legal-hold"
+}

@@ -5,11 +5,6 @@ output "action_group_ids" {
   }
 }
 
-output "action_group_low_id" {
-  description = "The Action Group ID for sending low priority (P4) alerts"
-  value       = azurerm_monitor_action_group.low.id
-}
-
 output "alert_recipients" {
   description = "The email recipients for monitoring alerts"
   value       = var.alert_recipients

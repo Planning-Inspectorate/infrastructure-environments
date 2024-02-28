@@ -2,7 +2,7 @@
 module "front_office_subscribers" {
   count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
 
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.14"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.16"
 
   action_group_ids                         = var.action_group_ids
   app_name                                 = "fo-integration"

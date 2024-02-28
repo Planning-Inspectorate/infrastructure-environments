@@ -142,7 +142,7 @@ variable "back_office_submissions_storage_account_name" {
 }
 
 variable "back_office_integration_get_applications" {
-  description = "indicate if applications are retrieved from back office"
+  description = "indicate if applications are retrieved from BO or NI or MERGE"
   type        = string
 }
 

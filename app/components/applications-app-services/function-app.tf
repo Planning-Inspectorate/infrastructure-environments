@@ -1,7 +1,7 @@
 module "back_office_subscribers" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.14"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.16"
 
   action_group_ids                         = var.action_group_ids
   app_name                                 = "bo-subscribers"
@@ -106,6 +106,19 @@ resource "azurerm_role_assignment" "nsip_document_service_bus_role" {
   scope                = azurerm_servicebus_subscription.nsip_document_topic_subscription[0].id
   role_definition_name = "Azure Service Bus Data Receiver"
   principal_id         = module.back_office_subscribers[0].principal_id
+}
+
+resource "azurerm_servicebus_subscription_rule" "nsip_document_topic_subscription_rule" {
+  count = var.feature_back_office_subscriber_enabled ? 1 : 0
+
+  name            = "applications-nsip-document-subscription-rule"
+  subscription_id = azurerm_servicebus_subscription.nsip_document_topic_subscription[0].id
+  filter_type     = "CorrelationFilter"
+  correlation_filter {
+    properties = {
+      type = "Publish"
+    }
+  }
 }
 
 # nsip-document-unpublish

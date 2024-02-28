@@ -19,9 +19,9 @@ This module contains the App Services resources for the applications service. Th
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_app_service"></a> [app\_service](#module\_app\_service) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service | 1.14 |
+| <a name="module_app_service"></a> [app\_service](#module\_app\_service) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service | 1.16 |
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
-| <a name="module_back_office_subscribers"></a> [back\_office\_subscribers](#module\_back\_office\_subscribers) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app | 1.14 |
+| <a name="module_back_office_subscribers"></a> [back\_office\_subscribers](#module\_back\_office\_subscribers) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app | 1.16 |
 
 ## Resources
 
@@ -62,6 +62,7 @@ This module contains the App Services resources for the applications service. Th
 | [azurerm_servicebus_subscription.nsip_service_user_unpublish_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription) | resource |
 | [azurerm_servicebus_subscription_rule.nsip_advice_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription_rule) | resource |
 | [azurerm_servicebus_subscription_rule.nsip_advice_unpublish_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription_rule) | resource |
+| [azurerm_servicebus_subscription_rule.nsip_document_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription_rule) | resource |
 | [azurerm_servicebus_subscription_rule.nsip_document_unpublish_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription_rule) | resource |
 | [azurerm_servicebus_subscription_rule.nsip_exam_timetable_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription_rule) | resource |
 | [azurerm_servicebus_subscription_rule.nsip_exam_timetable_unpublish_topic_subscription_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_subscription_rule) | resource |
@@ -89,7 +90,7 @@ This module contains the App Services resources for the applications service. Th
 | <a name="input_back_office_integration_case_references"></a> [back\_office\_integration\_case\_references](#input\_back\_office\_integration\_case\_references) | list of case references (comma separated) that use back office | `string` | n/a | yes |
 | <a name="input_back_office_integration_get_advice_case_references"></a> [back\_office\_integration\_get\_advice\_case\_references](#input\_back\_office\_integration\_get\_advice\_case\_references) | list of case references (comma separated) that advice data is retrieved from back office | `string` | n/a | yes |
 | <a name="input_back_office_integration_get_application_case_references"></a> [back\_office\_integration\_get\_application\_case\_references](#input\_back\_office\_integration\_get\_application\_case\_references) | list of case references (comma separated) that the application data is retrieved from back office | `string` | n/a | yes |
-| <a name="input_back_office_integration_get_applications"></a> [back\_office\_integration\_get\_applications](#input\_back\_office\_integration\_get\_applications) | indicate if applications are retrieved from back office | `string` | n/a | yes |
+| <a name="input_back_office_integration_get_applications"></a> [back\_office\_integration\_get\_applications](#input\_back\_office\_integration\_get\_applications) | indicate if applications are retrieved from BO or NI or MERGE | `string` | n/a | yes |
 | <a name="input_back_office_integration_get_documents_case_references"></a> [back\_office\_integration\_get\_documents\_case\_references](#input\_back\_office\_integration\_get\_documents\_case\_references) | list of case references (comma separated) that document data is retrieved from back office | `string` | n/a | yes |
 | <a name="input_back_office_integration_get_representation_case_references"></a> [back\_office\_integration\_get\_representation\_case\_references](#input\_back\_office\_integration\_get\_representation\_case\_references) | list of case references (comma separated) that representation data is retrieved from back office | `string` | n/a | yes |
 | <a name="input_back_office_integration_get_timetable_case_references"></a> [back\_office\_integration\_get\_timetable\_case\_references](#input\_back\_office\_integration\_get\_timetable\_case\_references) | list of case references (comma separated) that timetable data is retrieved from back office | `string` | n/a | yes |
