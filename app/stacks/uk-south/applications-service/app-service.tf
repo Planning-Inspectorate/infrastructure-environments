@@ -65,6 +65,7 @@ module "app_services" {
   logger_level                                                    = var.logger_level
   monitoring_alerts_enabled                                       = var.monitoring_alerts_enabled
   node_environment                                                = var.node_environment
+  open_registration_case_references                               = var.open_registration_case_references
   planned_outage_resume_text                                      = var.planned_outage_resume_text
   private_beta_v1_routes_only                                     = var.private_beta_v1_routes_only
   private_endpoint_enabled                                        = var.private_endpoint_enabled
