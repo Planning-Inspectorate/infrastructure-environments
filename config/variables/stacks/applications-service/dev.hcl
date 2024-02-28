@@ -30,6 +30,7 @@ locals {
   national_infrastructure_gateway_ip                              = "51.104.42.155"
   national_infrastructure_vnet_address_space                      = ["10.222.0.0/26"]
   node_environment                                                = "development"
+  open_registration_case_references                               = ""
   planned_outage_resume_text                                      = ""
   private_beta_v1_routes_only                                     = "false"
   project_migration_case_references                               = "BC0110001,BC0110003,BC0110004,BC0110005,EN010009,EN010120,EN013012,BC010060,BC0110002"

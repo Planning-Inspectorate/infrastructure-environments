@@ -34,6 +34,7 @@ locals {
         FILE_UPLOADS_PATH                            = "/opt/app/uploads"
         GOOGLE_ANALYTICS_ID                          = var.google_analytics_id
         HOST_URL                                     = "https://${var.applications_service_public_url}/"
+        OPEN_REGISTRATION_CASE_REFERENCES            = var.open_registration_case_references
         OS_MAPS_API_KEY                              = local.secret_refs["applications-service-os-maps-api-key"]
         OS_MAPS_API_SECRET                           = local.secret_refs["applications-service-os-maps-api-secret"]
         PLANNED_OUTAGE_RESUME_TEXT                   = var.planned_outage_resume_text
