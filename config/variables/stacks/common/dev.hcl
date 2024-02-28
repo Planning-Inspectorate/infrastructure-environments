@@ -8,9 +8,7 @@ locals {
       "philip.philippou@planninginspectorate.gov.uk"
     ]
   }
-  appeals_service_ssl_certificate_name      = "pins-wildcard-cert-2025-01-02"
-  applications_service_ssl_certificate_name = "pins-wildcard-cert-2025-01-02"
-  primary_vnet_address_space                = "10.1.0.0/16"
-  secondary_vnet_address_space              = "10.11.0.0/16"
-  create_turbrepo_cache                     = false
+  primary_vnet_address_space   = "10.1.0.0/16"
+  secondary_vnet_address_space = "10.11.0.0/16"
+  create_turbrepo_cache        = false
 }
