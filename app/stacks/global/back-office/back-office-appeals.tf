@@ -8,7 +8,7 @@ module "applications_app_service_front_door" {
   common_tags                       = local.tags
   environment                       = var.environment
   # enable_search_indexing_by_default = true
-  # location     = var.location # Needed for RG
+  location     = var.location # Needed for RG
   service_name = var.service_name
 
   providers = {
