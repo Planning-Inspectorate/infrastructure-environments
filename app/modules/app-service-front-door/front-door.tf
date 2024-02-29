@@ -30,6 +30,12 @@ resource "azurerm_cdn_frontdoor_origin_group" "default" {
     protocol            = "Https"
     request_type        = "GET"
   }
+
+  load_balancing {
+    additional_latency_in_milliseconds = 0
+    sample_size                        = 16
+    successful_samples_required        = 3
+  }
 }
 
 resource "azurerm_cdn_frontdoor_origin" "default" {
