@@ -125,3 +125,73 @@ resource "azurerm_key_vault_secret" "appeals_sql_server_connection_string_app" {
 
   tags = local.tags
 }
+
+resource "random_uuid" "appeals_forms_web_app_client_id" {
+}
+
+resource "azurerm_key_vault_secret" "appeals_forms_web_app_client_id" {
+  #checkov:skip=CKV_AZURE_41
+
+  content_type = "text/plain"
+  key_vault_id = var.key_vault_id
+  name         = "appeals-forms-web-app-client-id"
+  value        = random_uuid.appeals_forms_web_app_client_id.result
+
+  tags = local.tags
+}
+
+resource "random_password" "appeals_forms_web_app_client_secret" {
+  length           = 32
+  special          = true
+  override_special = "-_="
+  min_lower        = 2
+  min_upper        = 2
+  min_numeric      = 2
+  min_special      = 2
+}
+
+resource "azurerm_key_vault_secret" "appeals_forms_web_app_client_secret" {
+  #checkov:skip=CKV_AZURE_41
+
+  content_type = "text/plain"
+  key_vault_id = var.key_vault_id
+  name         = "appeals-forms-web-app-client-secret"
+  value        = random_password.appeals_forms_web_app_client_secret.result
+
+  tags = local.tags
+}
+
+resource "random_uuid" "appeals_web_comment_client_id" {
+}
+
+resource "azurerm_key_vault_secret" "appeals_web_comment_client_id" {
+  #checkov:skip=CKV_AZURE_41
+
+  content_type = "text/plain"
+  key_vault_id = var.key_vault_id
+  name         = "appeals-web-comment-client-id"
+  value        = random_uuid.appeals_web_comment_client_id.result
+
+  tags = local.tags
+}
+
+resource "random_password" "appeals_web_comment_client_secret" {
+  length           = 32
+  special          = true
+  override_special = "-_="
+  min_lower        = 2
+  min_upper        = 2
+  min_numeric      = 2
+  min_special      = 2
+}
+
+resource "azurerm_key_vault_secret" "appeals_web_comment_client_secret" {
+  #checkov:skip=CKV_AZURE_41
+
+  content_type = "text/plain"
+  key_vault_id = var.key_vault_id
+  name         = "appeals-web-comment-client-secret"
+  value        = random_password.appeals_web_comment_client_secret.result
+
+  tags = local.tags
+}
