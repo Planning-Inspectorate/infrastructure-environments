@@ -29,6 +29,11 @@ variable "environment" {
 #   default     = false
 # }
 
+variable "location" {
+  description = "The location the App Services are deployed to in slug format e.g. 'uk-south'"
+  type        = string
+}
+
 variable "service_name" {
   description = "Public domain name"
   type        = string
