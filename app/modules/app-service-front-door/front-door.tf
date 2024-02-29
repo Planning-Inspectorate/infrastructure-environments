@@ -9,6 +9,8 @@ resource "azurerm_cdn_frontdoor_profile" "default" {
 }
 
 resource "azurerm_cdn_frontdoor_endpoint" "default" {
+  count = var.environment == "dev" ? 1 : 0
+
   name                     = var.service_name
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.default.id
 
@@ -16,6 +18,8 @@ resource "azurerm_cdn_frontdoor_endpoint" "default" {
 }
 
 resource "azurerm_cdn_frontdoor_origin_group" "default" {
+  count = var.environment == "dev" ? 1 : 0
+
   name                     = var.service_name
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.default.id
   session_affinity_enabled = false
@@ -29,6 +33,8 @@ resource "azurerm_cdn_frontdoor_origin_group" "default" {
 }
 
 resource "azurerm_cdn_frontdoor_origin" "default" {
+  count = var.environment == "dev" ? 1 : 0
+
   name                          = var.service_name
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.default.id
 
@@ -38,6 +44,8 @@ resource "azurerm_cdn_frontdoor_origin" "default" {
 # TODO Private Link, will require certificate_name_check_enabled
 
 resource "azurerm_cdn_frontdoor_route" "default" {
+  count = var.environment == "dev" ? 1 : 0
+
   name                          = var.service_name
   cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.default.id
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.default.id
@@ -51,6 +59,8 @@ resource "azurerm_cdn_frontdoor_route" "default" {
 }
 
 resource "azurerm_cdn_frontdoor_custom_domain" "default" {
+  count = var.environment == "dev" ? 1 : 0
+
   name                     = var.service_name
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.default.id
   host_name                = var.domain_name
