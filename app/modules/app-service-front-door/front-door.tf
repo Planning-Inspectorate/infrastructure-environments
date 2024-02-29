@@ -12,7 +12,7 @@ resource "azurerm_cdn_frontdoor_endpoint" "default" {
   count = var.environment == "dev" ? 1 : 0
 
   name                     = var.service_name
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.default.id
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.default[count.index].id
 
   tags = local.tags
 }
@@ -21,7 +21,7 @@ resource "azurerm_cdn_frontdoor_origin_group" "default" {
   count = var.environment == "dev" ? 1 : 0
 
   name                     = var.service_name
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.default.id
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.default[count.index].id
   session_affinity_enabled = false
 
   health_probe {
@@ -36,7 +36,7 @@ resource "azurerm_cdn_frontdoor_origin" "default" {
   count = var.environment == "dev" ? 1 : 0
 
   name                          = var.service_name
-  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.default.id
+  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.default[count.index].id
 
   enabled   = true
   host_name = var.app_service_url
@@ -47,9 +47,9 @@ resource "azurerm_cdn_frontdoor_route" "default" {
   count = var.environment == "dev" ? 1 : 0
 
   name                          = var.service_name
-  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.default.id
-  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.default.id
-  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.default.id]
+  cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.default[count.index].id
+  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.default[count.index].id
+  cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.default[count.index].id]
 
   forwarding_protocol = "MatchRequest" # TODO: Why is this not HttpsOnly
   patterns_to_match   = ["/*"]
@@ -62,7 +62,7 @@ resource "azurerm_cdn_frontdoor_custom_domain" "default" {
   count = var.environment == "dev" ? 1 : 0
 
   name                     = var.service_name
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.default.id
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.default[count.index].id
   host_name                = var.domain_name
 
   tls {
