@@ -94,6 +94,58 @@ locals {
     # Backends
     #====================================
 
+    auth_server = {
+      app_name                        = "auth-server"
+      app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
+      endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
+      image_name                      = "appeal-planning-decision/auth-server"
+      inbound_vnet_connectivity       = var.private_endpoint_enabled
+      integration_subnet_id           = var.integration_subnet_id
+      key_vault_access                = true
+      outbound_vnet_connectivity      = true
+
+      app_settings = {
+        # logging
+        APPLICATIONINSIGHTS_CONNECTION_STRING = local.secret_refs["appeals-app-insights-connection-string"]
+        LOGGER_LEVEL                          = var.logger_level
+        SERVER_SHOW_ERRORS                    = true
+
+        # feature flags
+        PINS_FEATURE_FLAG_AZURE_ENDPOINT          = local.secret_refs["appeals-app-config-endpoint"]
+        PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING = local.secret_refs["appeals-app-config-connection-string"]
+
+        # hosts
+        APP_APPEALS_BASE_URL = "https://${var.appeals_service_public_url}"
+        OIDC_HOST            = "https://pins-app-${var.service_name}-auth-server-${var.resource_suffix}.azurewebsites.net"
+
+        # sql
+        SQL_CONNECTION_STRING = local.secret_refs["appeals-sql-server-connection-string-app"]
+
+        # server
+        ALLOW_TESTING_OVERRIDES = var.allow_testing_overrides
+        COOKIE_KEYS             = local.secret_refs["appeals-auth-server-cookies-keys"]
+        JWKS                    = local.secret_refs["appeals-auth-server-jwks"]
+        NODE_ENV                = var.node_environment
+        SERVER_PORT             = "3000"
+
+        # notify
+        SRV_NOTIFY_API_KEY                                             = local.secret_refs["appeals-srv-notify-api-key"]
+        SRV_NOTIFY_BASE_URL                                            = var.srv_notify_base_url
+        SRV_NOTIFY_SERVICE_ID                                          = var.srv_notify_service_id
+        SRV_NOTIFY_APPELLANT_LOGIN_CONFIRM_REGISTRATION_TEMPLATE_ID    = var.srv_notify_appellant_login_confirm_registration_template_id
+        SRV_NOTIFY_SAVE_AND_RETURN_ENTER_CODE_INTO_SERVICE_TEMPLATE_ID = var.srv_notify_save_and_return_enter_code_into_service_template_id
+
+        # Clients
+        FORMS_WEB_APP_CLIENT_ID     = local.secret_refs["appeals-forms-web-app-client-id"]
+        FORMS_WEB_APP_CLIENT_SECRET = local.secret_refs["appeals-forms-web-app-client-secret"]
+        FORMS_WEB_APP_REDIRECT_URI  = "https://${var.appeals_service_public_url}/odic"
+
+        WEB_COMMENT_CLIENT_ID     = local.secret_refs["appeals-web-comment-client-id"]
+        WEB_COMMENT_CLIENT_SECRET = local.secret_refs["appeals-web-comment-client-secret"]
+        WEB_COMMENT_REDIRECT_URI  = "https://${var.comment_planning_appeal_public_url}/odic"
+      }
+    }
+
     appeals_service_api = {
       app_name                        = "appeals-api"
       app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
@@ -228,7 +280,9 @@ locals {
     "appeals-app-config-endpoint",
     "appeals-microsoft-provider-authentication-secret",
     "appeals-srv-notify-api-key",
-    "appeals-wfe-session-key"
+    "appeals-wfe-session-key",
+    "appeals-auth-server-cookies-keys",
+    "appeals-auth-server-jwks",
   ]
 
   secrets_automated = [
@@ -237,7 +291,11 @@ locals {
     "appeals-mongo-db-connection-string",
     "appeals-documents-primary-blob-connection-string",
     "appeals-sql-server-connection-string-admin",
-    "appeals-sql-server-connection-string-app"
+    "appeals-sql-server-connection-string-app",
+    "appeals-forms-web-app-client-id",
+    "appeals-forms-web-app-client-secret",
+    "appeals-web-comment-client-id",
+    "appeals-web-comment-client-secret",
   ]
 
   secret_names = concat(local.secrets_manual, local.secrets_automated)
