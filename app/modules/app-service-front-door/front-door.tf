@@ -1,5 +1,5 @@
 resource "azurerm_cdn_frontdoor_profile" "default" {
-  count = var.environment == dev ? 1 : 0
+  count = var.environment == "dev" ? 1 : 0
 
   name                = "${var.service_name}-${var.environment}"
   resource_group_name = azurerm_resource_group.frontdoor.name
