@@ -23,11 +23,11 @@ variable "environment" {
   type        = string
 }
 
-# variable "enable_search_indexing_by_default" {
-#   description = "A flag to indicate if the environment should enable search indexing for frontends by default"
-#   type        = bool
-#   default     = false
-# }
+variable "enable_search_indexing_by_default" {
+  description = "A flag to indicate if the environment should enable search indexing for frontends by default"
+  type        = bool
+  default     = false
+}
 
 variable "common_log_analytics_workspace_id" {
   description = "The ID for the common Log Analytics Workspace"
@@ -38,6 +38,12 @@ variable "location" {
   description = "The location the App Services are deployed to in slug format e.g. 'uk-south'"
   type        = string
 }
+
+variable "name" {
+  description = "The name of the resource"
+  type        = string
+}
+
 
 variable "resource_group_name" {
   description = "The name of the resource group that will contain the App Services"
