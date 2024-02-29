@@ -46,6 +46,7 @@ This component contains the Azure Front Door and WAF resources. The resources in
 | <a name="input_domain_name"></a> [domain\_name](#input\_domain\_name) | Public domain name | `string` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | Environment Name | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | The location the App Services are deployed to in slug format e.g. 'uk-south' | `string` | n/a | yes |
+| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the resource group that will contain the App Services | `string` | n/a | yes |
 | <a name="input_service_name"></a> [service\_name](#input\_service\_name) | Public domain name | `string` | n/a | yes |
 
 ## Outputs

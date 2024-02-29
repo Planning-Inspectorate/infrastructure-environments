@@ -39,6 +39,11 @@ variable "location" {
   type        = string
 }
 
+variable "resource_group_name" {
+  description = "The name of the resource group that will contain the App Services"
+  type        = string
+}
+
 variable "service_name" {
   description = "Public domain name"
   type        = string
