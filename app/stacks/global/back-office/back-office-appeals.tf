@@ -5,10 +5,10 @@ module "applications_app_service_front_door" {
   # app_service_domain                = "primary_app_service"
   app_service_url                   = var.app_service_url
   common_log_analytics_workspace_id = var.common_log_analytics_workspace_id
-  # common_tags                       = local.tags
+  common_tags                       = local.tags
   environment                       = var.environment
   # enable_search_indexing_by_default = true
-  # location                          = "uks" # Needed for RG
+  # location     = var.location # Needed for RG
   service_name = var.service_name
 
   providers = {
