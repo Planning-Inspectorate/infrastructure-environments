@@ -268,3 +268,40 @@ variable "mock_horizon" {
   description = "Whether or not to mock Horizon"
   type        = bool
 }
+
+variable "sb_topic_names" {
+  description = "service bus topic names"
+  type = object({
+    common = object({ service_user = string }),
+    applications = object({
+      commands = object({
+        register_nsip_subscription = string
+        register_representation    = string
+        deadline_submission_topic  = string
+        deadline_submission_result = string
+      })
+      events = object({
+        nsip_project        = string
+        nsip_project_update = string
+        nsip_documents      = string
+        folders             = string
+        nsip_subscription   = string
+        nsip_exam_timetable = string
+        nsip_representation = string
+        nsip_s51_advice     = string
+      })
+    })
+    appeals = object({
+      commands = object({
+        appellant_submission    = string
+        lpa_response_submission = string
+        listed_building         = string
+      })
+      events = object({
+        case             = string
+        document         = string
+        document_to_move = string
+      })
+    })
+  })
+}
