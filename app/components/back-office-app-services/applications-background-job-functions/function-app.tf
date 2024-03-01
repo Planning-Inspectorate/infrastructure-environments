@@ -22,6 +22,9 @@ module "applications_background_job_functions" {
   app_settings = {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.service_bus_namespace_name}.servicebus.windows.net"
 
+    # HTML sanitisation
+    BackOfficeDocumentsBlobAccount = var.back_office_documents_blob_account_connection_string
+
     # Malware Detection
     API_HOST = var.back_office_api_host
 
@@ -40,6 +43,7 @@ module "applications_background_job_functions" {
     BLOB_STORAGE_ACCOUNT_HOST = var.back_office_storage_account_host
     BLOB_SOURCE_CONTAINER     = var.back_office_document_upload_container
     BLOB_PUBLISH_CONTAINER    = var.back_office_file_publish_container
+
   }
 
   tags = var.tags
