@@ -40,6 +40,7 @@ dependency "common" {
 }
 
 inputs = {
+  action_group_ids_map = dependency.common.outputs.action_group_ids
   action_group_ids = {
     bo_appeals_tech                 = dependency.common.outputs.action_group_ids["appeals-bo-tech"]
     bo_appeals_service_manager      = dependency.common.outputs.action_group_ids["appeals-bo-service-manager"]
