@@ -44,8 +44,9 @@ resource "azurerm_cdn_frontdoor_origin" "default" {
   name                          = var.service_name
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.default[count.index].id
 
-  enabled   = true
-  host_name = var.app_service_url
+  enabled                        = true
+  host_name                      = var.app_service_url
+  certificate_name_check_enabled = true
 }
 # TODO Private Link, will require certificate_name_check_enabled
 
