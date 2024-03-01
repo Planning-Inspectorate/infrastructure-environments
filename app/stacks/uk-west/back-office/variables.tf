@@ -11,6 +11,11 @@ variable "action_group_ids" {
   })
 }
 
+variable "action_group_ids_map" {
+  description = "All the Azure Monitor action group IDs"
+  type        = map(string)
+}
+
 variable "api_key_vault_authorization_enabled" {
   description = "Whether or not Key Vault is used to access secrets from the app"
   type        = string

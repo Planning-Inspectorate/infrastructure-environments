@@ -64,6 +64,7 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_monitor_metric_alert.back_office_sql_db_deadlock_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_monitor_metric_alert.back_office_sql_db_dtu_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_monitor_metric_alert.back_office_sql_db_log_io_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
+| [azurerm_monitor_metric_alert.sb_dead_letter_alerts](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_mssql_database.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_database) | resource |
 | [azurerm_mssql_database.back_office_appeals](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_database) | resource |
 | [azurerm_mssql_database_extended_auditing_policy.back_office_sql_database](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_database_extended_auditing_policy) | resource |
@@ -130,6 +131,7 @@ This component contains the infrastructure required for the back office service.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_action_group_ids"></a> [action\_group\_ids](#input\_action\_group\_ids) | The IDs of the Azure Monitor action groups for different alert types | <pre>object({<br>    bo_appeals_tech                 = string,<br>    bo_appeals_service_manager      = string,<br>    bo_applications_tech            = string,<br>    bo_applications_service_manager = string,<br>    iap                             = string,<br>    its                             = string,<br>    info_sec                        = string<br>  })</pre> | n/a | yes |
+| <a name="input_action_group_ids_map"></a> [action\_group\_ids\_map](#input\_action\_group\_ids\_map) | All the Azure Monitor action group IDs | `map(string)` | n/a | yes |
 | <a name="input_alert_recipients"></a> [alert\_recipients](#input\_alert\_recipients) | The email recipients for monitoring alerts | `map(list(string))` | n/a | yes |
 | <a name="input_api_key_vault_authorization_enabled"></a> [api\_key\_vault\_authorization\_enabled](#input\_api\_key\_vault\_authorization\_enabled) | Whether or not Key Vault is used to access secrets from the app | `string` | n/a | yes |
 | <a name="input_app_service_plan_id"></a> [app\_service\_plan\_id](#input\_app\_service\_plan\_id) | The id of the app service plan | `string` | n/a | yes |
