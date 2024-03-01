@@ -7,11 +7,11 @@ module "applications_app_service_front_door" {
   common_log_analytics_workspace_id = var.common_log_analytics_workspace_id
   common_tags                       = local.tags
   environment                       = var.environment
-  enable_search_indexing_by_default = var.enable_search_indexing_by_default
-  location                          = var.location # Needed for RG
-  name                              = var.name
-  resource_group_name               = var.resource_group_name
-  service_name                      = var.service_name
+  # enable_search_indexing_by_default = var.enable_search_indexing_by_default
+  location            = var.location # Needed for RG
+  name                = var.name
+  resource_group_name = var.resource_group_name
+  service_name        = var.service_name
 
   providers = {
     azurerm         = azurerm
