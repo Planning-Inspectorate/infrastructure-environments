@@ -347,6 +347,11 @@ variable "node_environment" {
   default     = "development"
 }
 
+variable "open_registration_case_references" {
+  description = "Case reference list for temporarily re-opened registrations period"
+  type        = string
+}
+
 variable "planned_outage_resume_text" {
   description = "Optional text to be displayed when planned outage page is active"
   type        = string
