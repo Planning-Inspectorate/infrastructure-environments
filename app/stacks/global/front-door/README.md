@@ -33,6 +33,7 @@ This component contains the Azure Front Door and WAF resources. The resources in
 | [azurerm_frontdoor_firewall_policy.default](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/frontdoor_firewall_policy) | resource |
 | [azurerm_frontdoor_rules_engine.search_indexing](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/frontdoor_rules_engine) | resource |
 | [azurerm_monitor_diagnostic_setting.front_door_waf](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_diagnostic_setting) | resource |
+| [azurerm_monitor_scheduled_query_rules_alert_v2.appeals_waf_blocks](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_scheduled_query_rules_alert_v2) | resource |
 | [azurerm_resource_group.frontdoor](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/resource_group) | resource |
 | [null_resource.fd_routing_noindex](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
 
@@ -69,6 +70,7 @@ This component contains the Azure Front Door and WAF resources. The resources in
 | <a name="input_front_door_waf_mode"></a> [front\_door\_waf\_mode](#input\_front\_door\_waf\_mode) | Indicates if the Web Application Firewall should be in Detection or Prevention mode | `string` | `"Detection"` | no |
 | <a name="input_instance"></a> [instance](#input\_instance) | The environment instance for use if multiple environments are deployed to a subscription | `string` | `"001"` | no |
 | <a name="input_location"></a> [location](#input\_location) | The location resources are deployed to in slug format e.g. 'uk-west' | `string` | `"uk-west"` | no |
+| <a name="input_monitoring_alerts_enabled"></a> [monitoring\_alerts\_enabled](#input\_monitoring\_alerts\_enabled) | Indicates whether Azure Monitor alerts are enabled for Front Door | `bool` | `false` | no |
 
 ## Outputs
 

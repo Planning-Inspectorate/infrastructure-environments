@@ -57,4 +57,110 @@ locals {
       ServiceName = local.service_name
     }
   )
+
+  # action group keys from common/locals.tf all_action_groups
+  # keys in this object used for alert name
+  # max five action groups per alert
+  sb_alerts = {
+    # Common back office events
+    "Back Office Events" = {
+      topics = [
+        var.sb_topic_names.common.service_user
+      ],
+      action_groups = [
+        "appeals-bo-tech",
+        "applications-bo-tech",
+        "data-tech"
+      ]
+    },
+    # Applications front office submissions
+    "Applications FO Submissions" = {
+      topics = [
+        var.sb_topic_names.applications.commands.register_nsip_subscription,
+        var.sb_topic_names.applications.commands.register_representation,
+        var.sb_topic_names.applications.commands.deadline_submission_topic,
+        var.sb_topic_names.applications.commands.deadline_submission_result
+      ],
+      # could be back office or front office issue
+      action_groups = [
+        "applications-fo-tech",
+        "applications-bo-tech",
+        "applications-fo-service-manager",
+        "applications-bo-service-manager"
+      ]
+    },
+    # Applications back office events - recieved by front office
+    "Applications BO Events (to FO, ODW)" = {
+      topics = [
+        var.sb_topic_names.applications.events.nsip_project,
+        var.sb_topic_names.applications.events.nsip_project_update,
+        var.sb_topic_names.applications.events.nsip_documents,
+        var.sb_topic_names.applications.events.nsip_exam_timetable,
+        var.sb_topic_names.applications.events.nsip_representation,
+        var.sb_topic_names.applications.events.nsip_s51_advice
+      ],
+      # could be back office, front office, or ODW issue
+      action_groups = [
+        "applications-fo-tech",
+        "applications-bo-tech",
+        "applications-fo-service-manager",
+        "applications-bo-service-manager",
+        "data-service-manager"
+      ]
+    },
+    # Applications back office events - ODW only
+    "Applications BO Events (to ODW)" = {
+      topics = [
+        var.sb_topic_names.applications.events.folders,
+        var.sb_topic_names.applications.events.nsip_subscription
+      ],
+      # could be back office or ODW issue
+      action_groups = [
+        "applications-bo-tech",
+        "applications-bo-service-manager",
+        "data-tech",
+        "data-service-manager"
+      ]
+    },
+    # Appeals front office submissions
+    "Appeals FO Submissions" = {
+      topics = [
+        var.sb_topic_names.appeals.commands.appellant_submission,
+        var.sb_topic_names.appeals.commands.lpa_response_submission,
+        var.sb_topic_names.appeals.commands.listed_building
+      ],
+      # could be back office or front office
+      action_groups = [
+        "appeals-fo-tech",
+        "appeals-bo-tech",
+        "appeals-fo-service-manager",
+        "appeals-bo-service-manager"
+      ]
+    },
+    # Appeals back office events - recieved by front office
+    "Appeals BO Events (to FO, ODW)" = {
+      topics = [
+        var.sb_topic_names.appeals.events.case,
+        var.sb_topic_names.appeals.events.document
+      ],
+      # could be back office, front office, or ODW issue
+      action_groups = [
+        "appeals-fo-tech",
+        "appeals-bo-tech",
+        "appeals-fo-service-manager",
+        "appeals-bo-service-manager",
+        "data-service-manager"
+      ]
+    },
+    # Appeals back office events - internal to back office
+    "Appeals BO Events (internal)" = {
+      topics = [
+        var.sb_topic_names.appeals.events.document_to_move
+      ],
+      action_groups = [
+        "appeals-bo-tech",
+        "appeals-bo-service-manager"
+      ]
+    }
+  }
 }

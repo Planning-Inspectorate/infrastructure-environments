@@ -12,4 +12,44 @@ locals {
   tooling_network_region_short                      = "uks"
   tooling_network_rg                                = "pins-rg-shared-tooling-uks"
   tooling_subscription_id                           = "edb1ff78-90da-4901-a497-7e79f966f8e2"
+
+  sb_topic_names = {
+    common = {
+      service_user = "service-user"
+    }
+
+    applications = {
+      commands = {
+        register_nsip_subscription = "register-nsip-subscription"
+        register_representation    = "register-representation"
+        deadline_submission_topic  = "deadline-submission-topic"
+        deadline_submission_result = "deadline-submission-result"
+      }
+
+      events = {
+        nsip_project        = "nsip-project"
+        nsip_project_update = "nsip-project-update"
+        nsip_documents      = "nsip-document"
+        folders             = "folder"
+        nsip_subscription   = "nsip-subscription"
+        nsip_exam_timetable = "nsip-exam-timetable"
+        nsip_representation = "nsip-representation"
+        nsip_s51_advice     = "nsip-s51-advice"
+      }
+    }
+
+    appeals = {
+      commands = {
+        appellant_submission    = "appeal-fo-appellant-submission"
+        lpa_response_submission = "appeal-fo-lpa-response-submission"
+        listed_building         = "listed-building"
+      }
+
+      events = {
+        case             = "appeal"
+        document         = "appeal-document"
+        document_to_move = "appeal-document-to-move"
+      }
+    }
+  }
 }
