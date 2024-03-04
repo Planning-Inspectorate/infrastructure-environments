@@ -1,0 +1,37 @@
+# run a terraform plan against Dev for each PR
+
+trigger: none
+
+pr:
+  branches:
+    include:
+      - main
+
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      endpoint: Planning-Inspectorate
+      name: Planning-Inspectorate/common-pipeline-templates
+      ref: refs/tags/release/3.9.0
+
+extends:
+  template: stages/wrapper_cd.yml@templates
+  parameters:
+    variableGroupPrefix: 'core_services_cd'
+    environments:
+      - name: Dev
+    deploymentStages:
+      - name: Terraform Plan
+        deploymentJobs:
+          - name: Plan
+            isDeployment: false
+            timeoutInMinutes: 30
+            steps:
+              - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan_all.yml@templates
+                parameters:
+                  artifactName: terraform-config-files
+                  environmentVariables:
+                    ENV: $(ENVIRONMENT)
+                  subscriptionId: $(SUBSCRIPTION_ID)
+                  workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks
