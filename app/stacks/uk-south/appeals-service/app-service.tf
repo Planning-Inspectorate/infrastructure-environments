@@ -22,6 +22,7 @@ module "app_services" {
   common_integration_functions_subnet_id                                      = var.common_integration_functions_subnet_id
   container_registry_name                                                     = var.container_registry_name
   container_registry_rg                                                       = var.container_registry_rg
+  dashboards_enabled                                                          = var.dashboards_enabled
   deploy_interested_parties                                                   = var.deploy_interested_parties
   endpoint_subnet_id                                                          = azurerm_subnet.appeals_service_ingress.id
   function_apps_storage_account                                               = var.function_apps_storage_account
