@@ -60,6 +60,7 @@ locals {
 
   # action group keys from common/locals.tf all_action_groups
   # keys in this object used for alert name
+  # max five action groups per alert
   sb_alerts = {
     # Common back office events
     "Back Office Events" = {
@@ -104,7 +105,6 @@ locals {
         "applications-bo-tech",
         "applications-fo-service-manager",
         "applications-bo-service-manager",
-        "data-tech",
         "data-service-manager"
       ]
     },
@@ -149,7 +149,6 @@ locals {
         "appeals-bo-tech",
         "appeals-fo-service-manager",
         "appeals-bo-service-manager",
-        "data-tech",
         "data-service-manager"
       ]
     },
