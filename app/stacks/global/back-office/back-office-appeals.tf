@@ -1,5 +1,6 @@
 module "applications_app_service_front_door" {
   source = "../../../modules/app-service-front-door"
+  count  = var.environment == "dev" ? 1 : 0
 
   domain_name = var.domain_name
   # app_service_domain                = "primary_app_service"
