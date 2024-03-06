@@ -1,6 +1,4 @@
 module "app_services" {
-  count = var.is_dr_deployment ? 1 : 0
-
   source = "../../../components/appeals-app-services"
 
   action_group_ids                                                            = var.action_group_ids
@@ -10,11 +8,9 @@ module "app_services" {
   app_service_private_dns_zone_id                                             = data.azurerm_private_dns_zone.app_service.id
   appeals_api_service_bus_enabled                                             = var.appeals_api_service_bus_enabled
   appeals_feature_back_office_subscriber_enabled                              = var.appeals_feature_back_office_subscriber_enabled
-  appeal_documents_storage_container_name                                     = var.appeal_documents_storage_container_name
+  appeal_documents_storage_container_name                                     = azurerm_storage_container.documents.name
   appeals_service_public_url                                                  = var.appeals_service_public_url
   back_office_service_bus_namespace_name                                      = var.back_office_service_bus_namespace_name
-  back_office_appellant_submission_topic                                      = var.back_office_appellant_submission_topic
-  back_office_lpa_response_submission_topic                                   = var.back_office_lpa_response_submission_topic
   bo_storage_account_id                                                       = var.bo_storage_account_id
   bo_appeals_document_container_id                                            = var.bo_appeals_document_container_id
   bo_appeals_document_container_name                                          = var.bo_appeals_document_container_name
@@ -27,8 +23,8 @@ module "app_services" {
   dashboards_enabled                                                          = var.dashboards_enabled
   deploy_interested_parties                                                   = var.deploy_interested_parties
   endpoint_subnet_id                                                          = azurerm_subnet.appeals_service_ingress.id
-  function_apps_storage_account                                               = var.function_apps_storage_account
-  function_apps_storage_account_access_key                                    = var.function_apps_storage_account_access_key
+  function_apps_storage_account                                               = azurerm_storage_account.function_apps.name
+  function_apps_storage_account_access_key                                    = azurerm_storage_account.function_apps.primary_access_key
   google_analytics_id                                                         = var.google_analytics_id
   google_tag_manager_id                                                       = var.google_tag_manager_id
   horizon_url                                                                 = var.horizon_url
@@ -36,7 +32,7 @@ module "app_services" {
   integration_subnet_id                                                       = var.integration_subnet_id
   key_vault_id                                                                = var.key_vault_id
   key_vault_uri                                                               = var.key_vault_uri
-  location                                                                    = azurerm_resource_group.appeals_service_stack.location
+  location                                                                    = module.azure_region_primary.location
   log_analytics_workspace_id                                                  = azurerm_log_analytics_workspace.appeals_service.id
   logger_level                                                                = var.logger_level
   monitoring_alerts_enabled                                                   = var.monitoring_alerts_enabled
@@ -48,6 +44,8 @@ module "app_services" {
   sb_topic_names                                                              = var.sb_topic_names
   service_bus_appeals_bo_case_topic_id                                        = var.service_bus_appeals_bo_case_topic_id
   service_bus_appeals_bo_document_topic_id                                    = var.service_bus_appeals_bo_document_topic_id
+  service_bus_appeals_fo_appellant_submission_topic_id                        = var.service_bus_appeals_fo_appellant_submission_topic_id
+  service_bus_appeals_fo_lpa_response_submission_topic_id                     = var.service_bus_appeals_fo_lpa_response_submission_topic_id
   service_bus_listed_building_topic_id                                        = var.service_bus_listed_building_topic_id
   service_name                                                                = local.service_name
   srv_admin_monitoring_email                                                  = var.srv_admin_monitoring_email

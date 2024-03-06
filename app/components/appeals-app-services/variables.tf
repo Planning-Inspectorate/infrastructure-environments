@@ -328,6 +328,18 @@ variable "service_bus_listed_building_topic_id" {
   type        = string
 }
 
+variable "appeals_feature_back_office_subscriber_enabled" {
+  description = "Feature toggle for appeals back office to front office service topic susbcription using azure functions"
+  type        = bool
+  default     = false
+}
+
+variable "appeals_frontend_file_upload_debug_logging_enabled" {
+  description = "Toggles debug logging for file upload middleware"
+  type        = bool
+  default     = true
+}
+
 variable "sb_topic_names" {
   description = "service bus topic names"
   type = object({

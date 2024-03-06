@@ -44,6 +44,8 @@ module "app_services" {
   sb_topic_names                                                              = var.sb_topic_names
   service_bus_appeals_bo_case_topic_id                                        = var.service_bus_appeals_bo_case_topic_id
   service_bus_appeals_bo_document_topic_id                                    = var.service_bus_appeals_bo_document_topic_id
+  service_bus_appeals_fo_appellant_submission_topic_id                        = var.service_bus_appeals_fo_appellant_submission_topic_id
+  service_bus_appeals_fo_lpa_response_submission_topic_id                     = var.service_bus_appeals_fo_lpa_response_submission_topic_id
   service_bus_listed_building_topic_id                                        = var.service_bus_listed_building_topic_id
   service_name                                                                = local.service_name
   srv_admin_monitoring_email                                                  = var.srv_admin_monitoring_email
