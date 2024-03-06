@@ -347,11 +347,21 @@ variable "appeals_frontend_file_upload_debug_logging_enabled" {
 }
 
 variable "back_office_appellant_submission_topic" {
-  description = "Event bus topic name to send appellant submissions to"
-  type        = string
+  name         = var.sb_topic_names.appeals.commands.appellant_submission
+  namespace_id = azurerm_servicebus_namespace.back_office.id
+  description  = "Event bus topic name to send appellant submissions to"
+  type         = string
 }
 
 variable "back_office_lpa_response_submission_topic" {
-  description = "Event bus topic name to send lpa submissions to"
-  type        = string
+  name         = var.sb_topic_names.appeals.commands.lpa_response_submission
+  namespace_id = azurerm_servicebus_namespace.back_office.id
+  description  = "Event bus topic name to send lpa submissions to"
+  type         = string
+}
+
+variable "dashboards_enabled" {
+  description = "A switch to determine if dashboards are enabled for LPA, appellant and rule 6 parties"
+  type        = bool
+  default     = false
 }

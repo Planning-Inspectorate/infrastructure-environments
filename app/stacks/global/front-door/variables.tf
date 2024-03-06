@@ -23,7 +23,7 @@ variable "appeals_service_secondary_app_service_url" {
 variable "applications_service_ssl_certificate_name" {
   description = "The SSL certificate name in the environment Key Vault for the applications service"
   type        = string
-  default     = "pins-wildcard-cert-2025-01-02"
+  default     = "unused"
 }
 
 variable "applications_service_public_url" {
@@ -45,13 +45,13 @@ variable "applications_service_secondary_app_service_url" {
 variable "back_office_ssl_certificate_name" {
   description = "The SSL certificate name in the environment Key Vault for the back office service"
   type        = string
-  default     = "pins-wildcard-cert-2025-01-02"
+  default     = "unused"
 }
 
 variable "back_office_appeals_ssl_certificate_name" {
   description = "The SSL certificate name in the environment Key Vault for the back office appeals service"
   type        = string
-  default     = "pins-wildcard-cert-2025-01-02"
+  default     = "unused"
 }
 
 variable "back_office_public_url" {
@@ -105,7 +105,7 @@ variable "comment_planning_appeal_secondary_app_service_url" {
 variable "comment_planning_appeal_ssl_certificate_name" {
   description = "The SSL certificate name in the environment Key Vault for the Comment Planning Appeal"
   type        = string
-  default     = "pins-wildcard-cert-2025-01-02"
+  default     = "unused"
 }
 
 variable "common_log_analytics_workspace_id" {
@@ -156,4 +156,10 @@ variable "feature_front_door_failover_enaled" {
   description = "Whether or not the backend pools should be created with both the primary and secondary app service urls. This feature flag is temporary."
   type        = bool
   default     = false
+}
+
+variable "monitoring_alerts_enabled" {
+  default     = false
+  description = "Indicates whether Azure Monitor alerts are enabled for Front Door"
+  type        = bool
 }

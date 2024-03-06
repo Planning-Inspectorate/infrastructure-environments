@@ -24,6 +24,7 @@ This component contains the infrastructure required for the back office service.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_app_services"></a> [app\_services](#module\_app\_services) | ../../../components/back-office-app-services | n/a |
+| <a name="module_apply_blob_container_legal_hold"></a> [apply\_blob\_container\_legal\_hold](#module\_apply\_blob\_container\_legal\_hold) | ../../../components/apply-blob-container-legal-hold | n/a |
 | <a name="module_azure_region_ukw"></a> [azure\_region\_ukw](#module\_azure\_region\_ukw) | claranet/regions/azurerm | 4.2.1 |
 
 ## Resources
@@ -63,6 +64,7 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_monitor_metric_alert.back_office_sql_db_deadlock_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_monitor_metric_alert.back_office_sql_db_dtu_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_monitor_metric_alert.back_office_sql_db_log_io_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
+| [azurerm_monitor_metric_alert.sb_dead_letter_alerts](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_mssql_database.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_database) | resource |
 | [azurerm_mssql_database.back_office_appeals](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_database) | resource |
 | [azurerm_mssql_database_extended_auditing_policy.back_office_sql_database](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_database_extended_auditing_policy) | resource |
@@ -129,6 +131,7 @@ This component contains the infrastructure required for the back office service.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_action_group_ids"></a> [action\_group\_ids](#input\_action\_group\_ids) | The IDs of the Azure Monitor action groups for different alert types | <pre>object({<br>    bo_appeals_tech                 = string,<br>    bo_appeals_service_manager      = string,<br>    bo_applications_tech            = string,<br>    bo_applications_service_manager = string,<br>    iap                             = string,<br>    its                             = string,<br>    info_sec                        = string<br>  })</pre> | n/a | yes |
+| <a name="input_action_group_ids_map"></a> [action\_group\_ids\_map](#input\_action\_group\_ids\_map) | All the Azure Monitor action group IDs | `map(string)` | n/a | yes |
 | <a name="input_alert_recipients"></a> [alert\_recipients](#input\_alert\_recipients) | The email recipients for monitoring alerts | `map(list(string))` | n/a | yes |
 | <a name="input_api_key_vault_authorization_enabled"></a> [api\_key\_vault\_authorization\_enabled](#input\_api\_key\_vault\_authorization\_enabled) | Whether or not Key Vault is used to access secrets from the app | `string` | n/a | yes |
 | <a name="input_app_service_plan_id"></a> [app\_service\_plan\_id](#input\_app\_service\_plan\_id) | The id of the app service plan | `string` | n/a | yes |
@@ -176,6 +179,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="input_odw_synapse_integration_enabled"></a> [odw\_synapse\_integration\_enabled](#input\_odw\_synapse\_integration\_enabled) | Whether or not Synapse Migration Integration is enabled | `bool` | `false` | no |
 | <a name="input_private_endpoint_enabled"></a> [private\_endpoint\_enabled](#input\_private\_endpoint\_enabled) | A switch to determine if Private Endpoint should be enabled for backend App Services | `bool` | `true` | no |
 | <a name="input_redis_cache_configuration"></a> [redis\_cache\_configuration](#input\_redis\_cache\_configuration) | A map of redis configuration options | `map(string)` | n/a | yes |
+| <a name="input_sb_topic_names"></a> [sb\_topic\_names](#input\_sb\_topic\_names) | service bus topic names | <pre>object({<br>    common = object({ service_user = string }),<br>    applications = object({<br>      commands = object({<br>        register_nsip_subscription = string<br>        register_representation    = string<br>        deadline_submission_topic  = string<br>        deadline_submission_result = string<br>      })<br>      events = object({<br>        nsip_project        = string<br>        nsip_project_update = string<br>        nsip_documents      = string<br>        folders             = string<br>        nsip_subscription   = string<br>        nsip_exam_timetable = string<br>        nsip_representation = string<br>        nsip_s51_advice     = string<br>      })<br>    })<br>    appeals = object({<br>      commands = object({<br>        appellant_submission    = string<br>        lpa_response_submission = string<br>        listed_building         = string<br>      })<br>      events = object({<br>        case             = string<br>        document         = string<br>        document_to_move = string<br>      })<br>    })<br>  })</pre> | n/a | yes |
 | <a name="input_service_bus_failover_enabled"></a> [service\_bus\_failover\_enabled](#input\_service\_bus\_failover\_enabled) | A switch to determine if Service Bus failover is enabled requiring the Premium SKU | `bool` | `false` | no |
 | <a name="input_sql_database_configuration"></a> [sql\_database\_configuration](#input\_sql\_database\_configuration) | A map of database configuration options | `map(string)` | n/a | yes |
 | <a name="input_sql_server_azuread_administrator"></a> [sql\_server\_azuread\_administrator](#input\_sql\_server\_azuread\_administrator) | A map describing the AzureAD account used for the SQL server administrator | `map(string)` | n/a | yes |

@@ -34,6 +34,7 @@ locals {
         FILE_UPLOADS_PATH                            = "/opt/app/uploads"
         GOOGLE_ANALYTICS_ID                          = var.google_analytics_id
         HOST_URL                                     = "https://${var.applications_service_public_url}/"
+        OPEN_REGISTRATION_CASE_REFERENCES            = var.open_registration_case_references
         OS_MAPS_API_KEY                              = local.secret_refs["applications-service-os-maps-api-key"]
         OS_MAPS_API_SECRET                           = local.secret_refs["applications-service-os-maps-api-secret"]
         PLANNED_OUTAGE_RESUME_TEXT                   = var.planned_outage_resume_text
@@ -74,7 +75,7 @@ locals {
         BACK_OFFICE_INTEGRATION_GET_APPLICATIONS                      = var.back_office_integration_get_applications
         BACK_OFFICE_SERVICE_BUS_ENABLED                               = "true"
         BACK_OFFICE_SERVICE_BUS_HOSTNAME                              = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
-        DATABASE_URL                                                  = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/applications-service-sql-server-connection-string/)"
+        DATABASE_URL                                                  = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/applications-service-sql-server-connection-string-app/)"
         DOCUMENTS_HOST                                                = var.documents_host
         ENCRYPTION_SECRET_KEY                                         = local.secret_refs["applications-service-encryption-secret-key"]
         FEATURE_APPLICATION_INSIGHTS                                  = var.feature_application_insights

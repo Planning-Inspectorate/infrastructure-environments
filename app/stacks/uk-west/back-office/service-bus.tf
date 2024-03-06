@@ -53,119 +53,119 @@ resource "azurerm_private_endpoint" "back_office" {
 
 # Common Topics
 resource "azurerm_servicebus_topic" "service_user" {
-  name                = "service-user"
+  name                = var.sb_topic_names.common.service_user
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
 
 # Topics
 resource "azurerm_servicebus_topic" "nsip_project" {
-  name                = "nsip-project"
+  name                = var.sb_topic_names.applications.events.nsip_project
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
 
 resource "azurerm_servicebus_topic" "nsip_project_update" {
-  name                = "nsip-project-update"
+  name                = var.sb_topic_names.applications.events.nsip_project_update
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
 
 resource "azurerm_servicebus_topic" "nsip_documents" {
-  name                = "nsip-document"
+  name                = var.sb_topic_names.applications.events.nsip_documents
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
 
 resource "azurerm_servicebus_topic" "folders" {
-  name                = "folder"
+  name                = var.sb_topic_names.applications.events.folders
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
 
 resource "azurerm_servicebus_topic" "nsip_subscription" {
-  name                = "nsip-subscription"
+  name                = var.sb_topic_names.applications.events.nsip_subscription
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
 
 resource "azurerm_servicebus_topic" "nsip_exam_timetable" {
-  name                = "nsip-exam-timetable"
+  name                = var.sb_topic_names.applications.events.nsip_exam_timetable
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
 
 resource "azurerm_servicebus_topic" "nsip_representation" {
-  name                = "nsip-representation"
+  name                = var.sb_topic_names.applications.events.nsip_representation
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
 
 resource "azurerm_servicebus_topic" "nsip_s51_advice" {
-  name                = "nsip-s51-advice"
+  name                = var.sb_topic_names.applications.events.nsip_s51_advice
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
 
 # Commands
 resource "azurerm_servicebus_topic" "register_nsip_subscription" {
-  name                = "register-nsip-subscription"
+  name                = var.sb_topic_names.applications.commands.register_nsip_subscription
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
 
 resource "azurerm_servicebus_topic" "register_representation" {
-  name                = "register-representation"
+  name                = var.sb_topic_names.applications.commands.register_representation
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
 
 resource "azurerm_servicebus_topic" "deadline_submission_topic" {
-  name                = "deadline-submission-topic"
+  name                = var.sb_topic_names.applications.commands.deadline_submission_topic
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
 
 resource "azurerm_servicebus_topic" "deadline_submission_result" {
-  name                = "deadline-submission-result"
+  name                = var.sb_topic_names.applications.commands.deadline_submission_result
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
 
 # Appeals FO Producers (Commands)
 resource "azurerm_servicebus_topic" "appeal_fo_appellant_submission" {
-  name                = var.back_office_appellant_submission_topic
+  name                = var.sb_topic_names.appeals.commands.appellant_submission
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
 
 resource "azurerm_servicebus_topic" "appeal_fo_lpa_response_submission" {
-  name                = var.back_office_lpa_response_submission_topic
+  name                = var.sb_topic_names.appeals.commands.lpa_response_submission
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
 
 resource "azurerm_servicebus_topic" "listed_building" {
-  name                = "listed-building"
+  name                = var.sb_topic_names.appeals.commands.listed_building
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
 
 # Appeals BO Producers (Events)
 resource "azurerm_servicebus_topic" "appeal_bo_case" {
-  name                = "appeal"
+  name                = var.sb_topic_names.appeals.events.case
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
 
 resource "azurerm_servicebus_topic" "appeal_bo_document" {
-  name                = "appeal-document"
+  name                = var.sb_topic_names.appeals.events.document
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }
 
 resource "azurerm_servicebus_topic" "appeal_bo_document_to_move" {
-  name                = "appeal-document-to-move"
+  name                = var.sb_topic_names.appeals.events.document_to_move
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = "P14D"
 }

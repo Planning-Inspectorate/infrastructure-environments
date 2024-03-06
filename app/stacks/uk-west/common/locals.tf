@@ -10,7 +10,9 @@ locals {
     "applications-bo-service-manager",
     "iap", # infrastructure and platforms team
     "its", # issue, triage, and support team
-    "info-sec"
+    "info-sec",
+    "data-tech",           # for ODW related alerts
+    "data-service-manager" # for ODW related alerts
   ])
 
   service_name    = "common"
