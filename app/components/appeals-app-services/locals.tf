@@ -107,7 +107,7 @@ locals {
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING                                       = local.secret_refs["appeals-app-insights-connection-string"]
         APP_APPEALS_BASE_URL                                                        = "https://${var.appeals_service_public_url}"
-        BACK_OFFICE_APPELLANT_SUBMISSION_TOPIC                                       = var.back_office_appellant_submission_topic
+        BACK_OFFICE_APPELLANT_SUBMISSION_TOPIC                                      = var.back_office_appellant_submission_topic
         BACK_OFFICE_LPA_RESPONSE_SUBMISSION_TOPIC                                   = var.back_office_lpa_response_submission_topic
         BLOB_STORAGE_CONNECTION_STRING                                              = local.secret_refs["appeals-documents-primary-blob-connection-string"]
         DOCS_API_PATH                                                               = "/opt/app/api"
