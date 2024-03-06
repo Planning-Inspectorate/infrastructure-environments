@@ -4,6 +4,7 @@ resource "azurerm_servicebus_subscription" "deadline_submission_subscription" {
   max_delivery_count = 1
 
   dead_lettering_on_message_expiration = true
+  default_message_ttl                  = "P3D"
 }
 
 resource "azurerm_servicebus_subscription" "register_nsip_subscription_subscription" {
@@ -12,6 +13,7 @@ resource "azurerm_servicebus_subscription" "register_nsip_subscription_subscript
   max_delivery_count = 1
 
   dead_lettering_on_message_expiration = true
+  default_message_ttl                  = "P3D"
 }
 
 resource "azurerm_servicebus_subscription" "register_representation_subscription" {
@@ -20,4 +22,5 @@ resource "azurerm_servicebus_subscription" "register_representation_subscription
   max_delivery_count = 1
 
   dead_lettering_on_message_expiration = true
+  default_message_ttl                  = "P3D"
 }

@@ -4,6 +4,7 @@ resource "azurerm_servicebus_subscription" "nsip_project_update_subscription" {
   max_delivery_count = 1
 
   dead_lettering_on_message_expiration = true
+  default_message_ttl                  = "P3D"
 }
 
 # we only need publish messages for this function
@@ -25,6 +26,7 @@ resource "azurerm_servicebus_subscription" "nsip_document_published_subscription
   max_delivery_count = 1
 
   dead_lettering_on_message_expiration = true
+  default_message_ttl                  = "P3D"
 }
 
 # Since the document is locked for editing after being set to 'publishing', and then finally updated to 'published', this should only trigger one publish
@@ -47,6 +49,7 @@ resource "azurerm_servicebus_subscription" "nsip_document_unpublished_subscripti
   max_delivery_count = 1
 
   dead_lettering_on_message_expiration = true
+  default_message_ttl                  = "P3D"
 }
 
 resource "azurerm_servicebus_subscription_rule" "nsip_document_unpub_subscription_rule" {
