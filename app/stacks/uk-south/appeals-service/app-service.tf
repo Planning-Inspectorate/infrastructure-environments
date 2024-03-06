@@ -1,4 +1,6 @@
 module "app_services" {
+  count = var.is_dr_deployment ? 1 : 0
+
   source = "../../../components/appeals-app-services"
 
   action_group_ids                                                            = var.action_group_ids
@@ -23,8 +25,8 @@ module "app_services" {
   dashboards_enabled                                                          = var.dashboards_enabled
   deploy_interested_parties                                                   = var.deploy_interested_parties
   endpoint_subnet_id                                                          = azurerm_subnet.appeals_service_ingress.id
-  function_apps_storage_account                                               = azurerm_storage_account.function_apps.name
-  function_apps_storage_account_access_key                                    = azurerm_storage_account.function_apps.primary_access_key
+  function_apps_storage_account                                               = var.function_apps_storage_account
+  function_apps_storage_account_access_key                                    = var.function_apps_storage_account_access_key
   google_analytics_id                                                         = var.google_analytics_id
   google_tag_manager_id                                                       = var.google_tag_manager_id
   horizon_url                                                                 = var.horizon_url
@@ -32,7 +34,7 @@ module "app_services" {
   integration_subnet_id                                                       = var.integration_subnet_id
   key_vault_id                                                                = var.key_vault_id
   key_vault_uri                                                               = var.key_vault_uri
-  location                                                                    = module.azure_region_primary.location
+  location                                                                    = azurerm_resource_group.appeals_service_stack.location
   log_analytics_workspace_id                                                  = azurerm_log_analytics_workspace.appeals_service.id
   logger_level                                                                = var.logger_level
   monitoring_alerts_enabled                                                   = var.monitoring_alerts_enabled
