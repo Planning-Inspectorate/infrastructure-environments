@@ -339,3 +339,9 @@ variable "appeals_frontend_file_upload_debug_logging_enabled" {
   type        = bool
   default     = true
 }
+
+variable "dashboards_enabled" {
+  description = "A switch to determine if dashboards are enabled for LPA, appellant and rule 6 parties"
+  type        = bool
+  default     = false
+}
