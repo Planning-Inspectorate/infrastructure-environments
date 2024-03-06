@@ -11,8 +11,6 @@ module "app_services" {
   appeal_documents_storage_container_name                                     = azurerm_storage_container.documents.name
   appeals_service_public_url                                                  = var.appeals_service_public_url
   back_office_service_bus_namespace_name                                      = var.back_office_service_bus_namespace_name
-  back_office_appellant_submission_topic                                       = var.back_office_appellant_submission_topic
-  back_office_lpa_response_submission_topic                                   = var.back_office_lpa_response_submission_topic
   bo_storage_account_id                                                       = var.bo_storage_account_id
   bo_appeals_document_container_id                                            = var.bo_appeals_document_container_id
   bo_appeals_document_container_name                                          = var.bo_appeals_document_container_name
@@ -43,10 +41,9 @@ module "app_services" {
   resource_group_id                                                           = azurerm_resource_group.appeals_service_stack.id
   resource_group_name                                                         = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                                                             = local.resource_suffix
+  sb_topic_names                                                              = var.sb_topic_names
   service_bus_appeals_bo_case_topic_id                                        = var.service_bus_appeals_bo_case_topic_id
   service_bus_appeals_bo_document_topic_id                                    = var.service_bus_appeals_bo_document_topic_id
-  service_bus_appeals_fo_appellant_submission_topic_id                        = var.service_bus_appeals_fo_appellant_submission_topic_id
-  service_bus_appeals_fo_lpa_response_submission_topic_id                     = var.service_bus_appeals_fo_lpa_response_submission_topic_id
   service_bus_listed_building_topic_id                                        = var.service_bus_listed_building_topic_id
   service_name                                                                = local.service_name
   srv_admin_monitoring_email                                                  = var.srv_admin_monitoring_email

@@ -328,30 +328,41 @@ variable "service_bus_listed_building_topic_id" {
   type        = string
 }
 
-variable "appeals_feature_back_office_subscriber_enabled" {
-  description = "Feature toggle for appeals back office to front office service topic susbcription using azure functions"
-  type        = bool
-  default     = false
-}
-
-variable "appeals_frontend_file_upload_debug_logging_enabled" {
-  description = "Toggles debug logging for file upload middleware"
-  type        = bool
-  default     = true
-}
-
-variable "back_office_appellant_submission_topic" {
-  name         = var.sb_topic_names.appeals.commands.appellant_submission
-  namespace_id = azurerm_servicebus_namespace.back_office.id
-  description  = "Event bus topic name to send appellant submissions to"
-  type         = string
-}
-
-variable "back_office_lpa_response_submission_topic" {
-  name         = var.sb_topic_names.appeals.commands.lpa_response_submission
-  namespace_id = azurerm_servicebus_namespace.back_office.id
-  description  = "Event bus topic name to send lpa submissions to"
-  type         = string
+variable "sb_topic_names" {
+  description = "service bus topic names"
+  type = object({
+    common = object({ service_user = string }),
+    applications = object({
+      commands = object({
+        register_nsip_subscription = string
+        register_representation    = string
+        deadline_submission_topic  = string
+        deadline_submission_result = string
+      })
+      events = object({
+        nsip_project        = string
+        nsip_project_update = string
+        nsip_documents      = string
+        folders             = string
+        nsip_subscription   = string
+        nsip_exam_timetable = string
+        nsip_representation = string
+        nsip_s51_advice     = string
+      })
+    })
+    appeals = object({
+      commands = object({
+        appellant_submission    = string
+        lpa_response_submission = string
+        listed_building         = string
+      })
+      events = object({
+        case             = string
+        document         = string
+        document_to_move = string
+      })
+    })
+  })
 }
 
 variable "dashboards_enabled" {
