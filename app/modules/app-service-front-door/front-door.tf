@@ -47,6 +47,12 @@ resource "azurerm_cdn_frontdoor_origin" "default" {
   enabled                        = true
   host_name                      = var.app_service_url
   certificate_name_check_enabled = true
+
+  #  private_link {
+  #   target_type            =
+  #   location               =
+  #   private_link_target_id =
+  # }
 }
 # TODO Private Link, will require certificate_name_check_enabled
 

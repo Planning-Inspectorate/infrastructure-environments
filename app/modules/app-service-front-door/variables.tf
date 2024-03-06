@@ -38,7 +38,6 @@ variable "resource_group_name" {
   type        = string
 }
 
-
 variable "service_name" {
   description = "Public domain name"
   type        = string
