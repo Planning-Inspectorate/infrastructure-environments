@@ -10,7 +10,7 @@ module "app_services" {
   app_service_private_dns_zone_id                                             = data.azurerm_private_dns_zone.app_service.id
   appeals_api_service_bus_enabled                                             = var.appeals_api_service_bus_enabled
   appeals_feature_back_office_subscriber_enabled                              = var.appeals_feature_back_office_subscriber_enabled
-  appeal_documents_storage_container_name                                     = azurerm_storage_container.documents.name
+  appeal_documents_storage_container_name                                     = var.appeal_documents_storage_container_name
   appeals_service_public_url                                                  = var.appeals_service_public_url
   back_office_service_bus_namespace_name                                      = var.back_office_service_bus_namespace_name
   bo_storage_account_id                                                       = var.bo_storage_account_id
