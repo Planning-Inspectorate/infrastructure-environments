@@ -78,6 +78,7 @@ module "app_services" {
   odw_synapse_integration_enabled                                                     = var.odw_synapse_integration_enabled
   odw_synapse_ssql_endpoint                                                           = var.odw_synapse_integration_enabled ? one(data.terraform_remote_state.odw).outputs.synapse_ssql_endpoint : ""
   odw_data_lake_storage_account_id                                                    = var.odw_synapse_integration_enabled ? one(data.terraform_remote_state.odw).outputs.data_lake_account_id : ""
+  service_bus_config                                                                  = var.service_bus_config
 
   providers = {
     azurerm         = azurerm

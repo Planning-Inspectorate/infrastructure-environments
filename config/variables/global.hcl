@@ -52,4 +52,15 @@ locals {
       }
     }
   }
+
+  service_bus_config = {
+    # default service bus topic TTL
+    default_topic_ttl = "P3D"
+    # default TTL for back office subscriptions
+    bo_subscription_ttl = "P1D"
+    # default TTL for internal subscriptions, used for background process such as notify subscribers
+    bo_internal_subscription_ttl = "P1D"
+    # default TTL for front office subscriptions
+    fo_subscription_ttl = "P1D"
+  }
 }

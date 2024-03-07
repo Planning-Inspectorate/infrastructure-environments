@@ -27,6 +27,7 @@ module "applications_background_job_functions" {
   gov_notify_template_id                                                              = var.notify_subscribers_function_gov_notify_template_id
   applications_front_office_web_url                                                   = var.applications_front_office_web_url
   node_environment                                                                    = var.node_environment
+  service_bus_config                                                                  = var.service_bus_config
 
   providers = {
     azurerm         = azurerm

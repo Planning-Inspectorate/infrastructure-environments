@@ -463,3 +463,13 @@ variable "project_migration_case_references" {
   description = "Specifies the case references to migrate to the new project information page"
   type        = string
 }
+
+variable "service_bus_config" {
+  description = "service bus configuration"
+  type = object({
+    default_topic_ttl            = string
+    bo_internal_subscription_ttl = string
+    bo_subscription_ttl          = string
+    fo_subscription_ttl          = string
+  })
+}

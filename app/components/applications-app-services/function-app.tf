@@ -33,9 +33,11 @@ module "back_office_subscribers" {
 resource "azurerm_servicebus_subscription" "nsip_project_topic_subscription" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
-  name               = "applications-nsip-project-subscription"
-  topic_id           = var.back_office_service_bus_nsip_project_topic_id
-  max_delivery_count = 1
+  name                                 = "applications-nsip-project-subscription"
+  topic_id                             = var.back_office_service_bus_nsip_project_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
 }
 
 resource "azurerm_role_assignment" "nsip_service_bus_role" {
@@ -63,9 +65,11 @@ resource "azurerm_servicebus_subscription_rule" "nsip_project_topic_subscription
 resource "azurerm_servicebus_subscription" "nsip_project_unpublish_topic_subscription" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
-  name               = "applications-nsip-project-unpublish"
-  topic_id           = var.back_office_service_bus_nsip_project_topic_id
-  max_delivery_count = 1
+  name                                 = "applications-nsip-project-unpublish"
+  topic_id                             = var.back_office_service_bus_nsip_project_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
 }
 
 resource "azurerm_role_assignment" "nsip_project_unpublish_service_bus_role" {
@@ -95,9 +99,11 @@ resource "azurerm_servicebus_subscription_rule" "nsip_project_unpublish_topic_su
 resource "azurerm_servicebus_subscription" "nsip_document_topic_subscription" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
-  name               = "applications-nsip-document-subscription"
-  topic_id           = var.back_office_service_bus_nsip_document_topic_id
-  max_delivery_count = 1
+  name                                 = "applications-nsip-document-subscription"
+  topic_id                             = var.back_office_service_bus_nsip_document_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
 }
 
 resource "azurerm_role_assignment" "nsip_document_service_bus_role" {
@@ -125,9 +131,11 @@ resource "azurerm_servicebus_subscription_rule" "nsip_document_topic_subscriptio
 resource "azurerm_servicebus_subscription" "nsip_document_unpublish_topic_subscription" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
-  name               = "applications-nsip-document-unpublish"
-  topic_id           = var.back_office_service_bus_nsip_document_topic_id
-  max_delivery_count = 1
+  name                                 = "applications-nsip-document-unpublish"
+  topic_id                             = var.back_office_service_bus_nsip_document_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
 }
 
 resource "azurerm_role_assignment" "nsip_document_unpublish_service_bus_role" {
@@ -156,9 +164,11 @@ resource "azurerm_servicebus_subscription_rule" "nsip_document_unpublish_topic_s
 resource "azurerm_servicebus_subscription" "nsip_project_update_topic_subscription" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
-  name               = "applications-nsip-project-update-subscription"
-  topic_id           = var.back_office_service_bus_nsip_project_update_topic_id
-  max_delivery_count = 1
+  name                                 = "applications-nsip-project-update-subscription"
+  topic_id                             = var.back_office_service_bus_nsip_project_update_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
 }
 
 resource "azurerm_role_assignment" "nsip_project_update_service_bus_role" {
@@ -187,9 +197,11 @@ resource "azurerm_servicebus_subscription_rule" "nsip_project_update_topic_subsc
 resource "azurerm_servicebus_subscription" "nsip_project_update_unpublish_topic_subscription" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
-  name               = "applications-nsip-project-update-unpublish"
-  topic_id           = var.back_office_service_bus_nsip_project_update_topic_id
-  max_delivery_count = 1
+  name                                 = "applications-nsip-project-update-unpublish"
+  topic_id                             = var.back_office_service_bus_nsip_project_update_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
 }
 
 resource "azurerm_role_assignment" "nsip_project_update_unpublish_service_bus_role" {
@@ -218,9 +230,11 @@ resource "azurerm_servicebus_subscription_rule" "nsip_project_update_unpublish_t
 resource "azurerm_servicebus_subscription" "nsip_representation_topic_subscription" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
-  name               = "applications-nsip-representation"
-  topic_id           = var.back_office_service_bus_nsip_representation_topic_id
-  max_delivery_count = 1
+  name                                 = "applications-nsip-representation"
+  topic_id                             = var.back_office_service_bus_nsip_representation_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
 }
 
 resource "azurerm_role_assignment" "nsip_representation_service_bus_role" {
@@ -249,9 +263,11 @@ resource "azurerm_servicebus_subscription_rule" "nsip_representation_topic_subsc
 resource "azurerm_servicebus_subscription" "nsip_representation_update_topic_subscription" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
-  name               = "applications-nsip-representation-update"
-  topic_id           = var.back_office_service_bus_nsip_representation_topic_id
-  max_delivery_count = 1
+  name                                 = "applications-nsip-representation-update"
+  topic_id                             = var.back_office_service_bus_nsip_representation_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
 }
 
 resource "azurerm_role_assignment" "nsip_representation_update_service_bus_role" {
@@ -280,9 +296,11 @@ resource "azurerm_servicebus_subscription_rule" "nsip_representation_update_topi
 resource "azurerm_servicebus_subscription" "nsip_exam_timetable_topic_subscription" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
-  name               = "applications-nsip-exam-timetable"
-  topic_id           = var.back_office_service_bus_nsip_exam_timetable_topic_id
-  max_delivery_count = 1
+  name                                 = "applications-nsip-exam-timetable"
+  topic_id                             = var.back_office_service_bus_nsip_exam_timetable_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
 }
 
 resource "azurerm_role_assignment" "nsip_exam_timetable_service_bus_role" {
@@ -311,9 +329,11 @@ resource "azurerm_servicebus_subscription_rule" "nsip_exam_timetable_topic_subsc
 resource "azurerm_servicebus_subscription" "nsip_exam_timetable_unpublish_topic_subscription" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
-  name               = "applications-nsip-exam-timetable-unpublish"
-  topic_id           = var.back_office_service_bus_nsip_exam_timetable_topic_id
-  max_delivery_count = 1
+  name                                 = "applications-nsip-exam-timetable-unpublish"
+  topic_id                             = var.back_office_service_bus_nsip_exam_timetable_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
 }
 
 resource "azurerm_role_assignment" "nsip_exam_timetable_unpublish_service_bus_role" {
@@ -341,9 +361,11 @@ resource "azurerm_servicebus_subscription_rule" "nsip_exam_timetable_unpublish_t
 resource "azurerm_servicebus_subscription" "nsip_advice_topic_subscription" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
-  name               = "applications-nsip-advice"
-  topic_id           = var.back_office_service_bus_nsip_advice_topic_id
-  max_delivery_count = 1
+  name                                 = "applications-nsip-advice"
+  topic_id                             = var.back_office_service_bus_nsip_advice_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
 }
 
 resource "azurerm_role_assignment" "nsip_advice_service_bus_role" {
@@ -371,9 +393,11 @@ resource "azurerm_servicebus_subscription_rule" "nsip_advice_topic_subscription_
 resource "azurerm_servicebus_subscription" "nsip_advice_unpublish_topic_subscription" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
-  name               = "applications-nsip-advice-unpublish"
-  topic_id           = var.back_office_service_bus_nsip_advice_topic_id
-  max_delivery_count = 1
+  name                                 = "applications-nsip-advice-unpublish"
+  topic_id                             = var.back_office_service_bus_nsip_advice_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
 }
 
 resource "azurerm_role_assignment" "nsip_advice_unpublish_service_bus_role" {
@@ -400,9 +424,11 @@ resource "azurerm_servicebus_subscription_rule" "nsip_advice_unpublish_topic_sub
 resource "azurerm_servicebus_subscription" "nsip_service_user_topic_subscription" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
-  name               = "applications-nsip-service-user"
-  topic_id           = var.back_office_service_bus_nsip_service_user_topic_id
-  max_delivery_count = 1
+  name                                 = "applications-nsip-service-user"
+  topic_id                             = var.back_office_service_bus_nsip_service_user_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
 }
 
 resource "azurerm_role_assignment" "nsip_service_user_service_bus_role" {
@@ -426,9 +452,11 @@ resource "azurerm_servicebus_subscription_rule" "nsip_service_user_topic_subscri
 resource "azurerm_servicebus_subscription" "nsip_service_user_unpublish_topic_subscription" {
   count = var.feature_back_office_subscriber_enabled ? 1 : 0
 
-  name               = "applications-nsip-service-user-unpublish"
-  topic_id           = var.back_office_service_bus_nsip_service_user_topic_id
-  max_delivery_count = 1
+  name                                 = "applications-nsip-service-user-unpublish"
+  topic_id                             = var.back_office_service_bus_nsip_service_user_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
 }
 
 resource "azurerm_role_assignment" "nsip_service_user_unpublish_service_bus_role" {

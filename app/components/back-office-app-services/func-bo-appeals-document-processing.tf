@@ -19,6 +19,7 @@ module "bo_appeals_doc_processing_function" {
   bo_appeals_document_container_id                 = var.bo_appeals_document_container_id
   bo_appeals_document_container_name               = var.bo_appeals_document_container_name
   service_bus_appeals_bo_document_to_move_topic_id = var.service_bus_appeals_bo_document_to_move_topic_id
+  service_bus_config                               = var.service_bus_config
 
 
   providers = {

@@ -28,7 +28,9 @@ module "bo_appeals_user_import_function" {
 }
 
 resource "azurerm_servicebus_subscription" "register_odw_serviceuser_subscription" {
-  name               = "register-odw-serviceuser-subscription"
-  topic_id           = var.serviceuser_topic_id
-  max_delivery_count = 1
+  name                                 = "register-odw-serviceuser-subscription"
+  topic_id                             = var.serviceuser_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.bo_internal_subscription_ttl
+  dead_lettering_on_message_expiration = true
 }

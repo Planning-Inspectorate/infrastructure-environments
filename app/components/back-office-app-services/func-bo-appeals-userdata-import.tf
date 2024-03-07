@@ -15,6 +15,7 @@ module "bo_appeals_user_import_function" {
   integration_subnet_id                    = var.back_office_integration_subnet_id
   service_bus_namespace_name               = var.service_bus_namespace_name
   serviceuser_topic_id                     = var.service_user_topic_id
+  service_bus_config                       = var.service_bus_config
 
   providers = {
     azurerm         = azurerm
