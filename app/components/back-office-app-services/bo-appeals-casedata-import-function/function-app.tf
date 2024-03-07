@@ -28,13 +28,17 @@ module "bo_appeals_casedata_import_function" {
 }
 
 resource "azurerm_servicebus_subscription" "fo_appellant_submission_subscription" {
-  name               = "fo-appellant-submission-subscription"
-  topic_id           = var.service_bus_appeals_fo_appellant_submission_id
-  max_delivery_count = 1
+  name                                 = "fo-appellant-submission-subscription"
+  topic_id                             = var.service_bus_appeals_fo_appellant_submission_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.bo_subscription_ttl
+  dead_lettering_on_message_expiration = true
 }
 
 resource "azurerm_servicebus_subscription" "fo_lpaq_submission_subscription" {
-  name               = "fo-lpaq-submission-subscription"
-  topic_id           = var.service_bus_appeals_fo_lpa_response_submission_id
-  max_delivery_count = 1
+  name                                 = "fo-lpaq-submission-subscription"
+  topic_id                             = var.service_bus_appeals_fo_lpa_response_submission_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.bo_subscription_ttl
+  dead_lettering_on_message_expiration = true
 }

@@ -335,3 +335,13 @@ variable "mock_horizon" {
   description = "Whether or not to mock Horizon"
   type        = bool
 }
+
+variable "service_bus_config" {
+  description = "service bus configuration"
+  type = object({
+    default_topic_ttl            = string
+    bo_internal_subscription_ttl = string
+    bo_subscription_ttl          = string
+    fo_subscription_ttl          = string
+  })
+}

@@ -66,6 +66,8 @@ module "app_services" {
   back_office_applications_redis_connection_string_secret_name = azurerm_key_vault_secret.back_office_applications_redis_cache_connection_string_secret[count.index].name
   back_office_appeals_redis_connection_string_secret_name      = azurerm_key_vault_secret.back_office_appeals_redis_cache_connection_string_secret[count.index].name
 
+  service_bus_config = var.service_bus_config
+
   # TODO: DR strategy to figure out how to handle service bus fail-over
   servicebus_topic_nsip_project_update_id           = ""
   servicebus_topic_register_nsip_subscription_id    = ""

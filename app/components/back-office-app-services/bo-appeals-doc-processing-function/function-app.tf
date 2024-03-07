@@ -30,7 +30,9 @@ module "bo_appeals_doc_processing_function" {
 }
 
 resource "azurerm_servicebus_subscription" "register_bo_document_to_move_subscription" {
-  name               = "appeal-document-to-move-subscription"
-  topic_id           = var.service_bus_appeals_bo_document_to_move_topic_id
-  max_delivery_count = 1
+  name                                 = "appeal-document-to-move-subscription"
+  topic_id                             = var.service_bus_appeals_bo_document_to_move_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.bo_internal_subscription_ttl
+  dead_lettering_on_message_expiration = true
 }

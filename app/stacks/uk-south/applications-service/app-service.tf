@@ -79,7 +79,7 @@ module "app_services" {
   srv_notify_submission_complete_email_template_id                = var.srv_notify_submission_complete_email_template_id
   srv_notify_subscription_create_email_template_id                = var.srv_notify_subscription_create_email_template_id
   project_migration_case_references                               = var.project_migration_case_references
-
+  service_bus_config                                              = var.service_bus_config
 
   tags = local.tags
 

@@ -24,6 +24,7 @@ module "applications_command_handler_functions" {
   deadline_submissions_result_topic_name                     = var.deadline_submissions_result_topic_name
   document_storage_submissions_container_resource_manager_id = var.document_storage_submissions_container_resource_manager_id
   document_storage_uploads_container_resource_manager_id     = var.document_storage_back_office_document_service_uploads_container_resource_manager_id
+  service_bus_config                                         = var.service_bus_config
 
   providers = {
     azurerm         = azurerm

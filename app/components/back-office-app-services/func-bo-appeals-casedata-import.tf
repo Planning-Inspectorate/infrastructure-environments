@@ -16,6 +16,7 @@ module "bo_appeals_casedata_import_function" {
   service_bus_namespace_name                        = var.service_bus_namespace_name
   service_bus_appeals_fo_appellant_submission_id    = var.service_bus_appeals_fo_appellant_submission_id
   service_bus_appeals_fo_lpa_response_submission_id = var.service_bus_appeals_fo_lpa_response_submission_id
+  service_bus_config                                = var.service_bus_config
 
   providers = {
     azurerm         = azurerm

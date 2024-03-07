@@ -1,10 +1,9 @@
 resource "azurerm_servicebus_subscription" "nsip_project_update_subscription" {
-  name               = "nsip-project-update-notify-subscribers-sub" # note name must be <=50 chars
-  topic_id           = var.servicebus_topic_nsip_project_update_id
-  max_delivery_count = 1
-
+  name                                 = "nsip-project-update-notify-subscribers-sub" # note name must be <=50 chars
+  topic_id                             = var.servicebus_topic_nsip_project_update_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.bo_internal_subscription_ttl
   dead_lettering_on_message_expiration = true
-  default_message_ttl                  = "P3D"
 }
 
 # we only need publish messages for this function
@@ -21,12 +20,11 @@ resource "azurerm_servicebus_subscription_rule" "nsip_project_update_subscriptio
 }
 
 resource "azurerm_servicebus_subscription" "nsip_document_published_subscription" {
-  name               = "nsip-document-updated-publishing"
-  topic_id           = var.servicebus_topic_nsip_documents_id
-  max_delivery_count = 1
-
+  name                                 = "nsip-document-updated-publishing"
+  topic_id                             = var.servicebus_topic_nsip_documents_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.bo_internal_subscription_ttl
   dead_lettering_on_message_expiration = true
-  default_message_ttl                  = "P3D"
 }
 
 # Since the document is locked for editing after being set to 'publishing', and then finally updated to 'published', this should only trigger one publish
@@ -44,12 +42,11 @@ resource "azurerm_servicebus_subscription_rule" "nsip_document_pub_subscription_
 }
 
 resource "azurerm_servicebus_subscription" "nsip_document_unpublished_subscription" {
-  name               = "nsip-document-updated-unpublishing"
-  topic_id           = var.servicebus_topic_nsip_documents_id
-  max_delivery_count = 1
-
+  name                                 = "nsip-document-updated-unpublishing"
+  topic_id                             = var.servicebus_topic_nsip_documents_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.bo_internal_subscription_ttl
   dead_lettering_on_message_expiration = true
-  default_message_ttl                  = "P3D"
 }
 
 resource "azurerm_servicebus_subscription_rule" "nsip_document_unpub_subscription_rule" {
