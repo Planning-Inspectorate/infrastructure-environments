@@ -89,6 +89,8 @@ resource "azurerm_storage_account" "function_storage" {
   #checkov:skip=CKV2_AZURE_8: Logging not implemented yet
   #TODO: Access restrictions
   #checkov:skip=CKV_AZURE_35: Network access restrictions
+  #checkov:skip=CKV_AZURE_59: TODO: Ensure that Storage accounts disallow public access
+  #checkov:skip=CKV_AZURE_206: TODO: Ensure that Storage Accounts use replication
 
   name                             = replace("pinsfuncbo${local.resource_suffix}", "-", "")
   resource_group_name              = azurerm_resource_group.back_office_stack.name

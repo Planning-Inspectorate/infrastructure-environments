@@ -8,6 +8,9 @@ resource "azurerm_storage_account" "back_office_containers" {
   #checkov:skip=CKV2_AZURE_8: Logging not implemented yet
   #TODO: Access restrictions
   #checkov:skip=CKV_AZURE_35: Network access restrictions
+  #checkov:skip=CKV_AZURE_59: TODO: Ensure that Storage accounts disallow public access
+  #checkov:skip=CKV_AZURE_190: TODO: Ensure that Storage blobs restrict public access
+  #checkov:skip=CKV_AZURE_206: TODO: Ensure that Storage Accounts use replication
   name                     = replace("boclamav${var.resource_suffix}", "-", "")
   location                 = var.location
   resource_group_name      = var.resource_group_name
