@@ -1,4 +1,5 @@
 module "vnet_address_space" {
+  #checkov:skip=CKV_TF_1: Referencing the latest official Hashicorp module.
   source          = "hashicorp/subnets/cidr"
   version         = "1.0.0"
   base_cidr_block = var.base_cidr_block
