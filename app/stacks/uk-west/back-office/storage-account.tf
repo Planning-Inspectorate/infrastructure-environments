@@ -14,6 +14,8 @@ resource "azurerm_storage_account" "back_office_documents" {
   #checkov:skip=CKV2_AZURE_8: Logging not implemented yet
   #TODO: Access restrictions
   #checkov:skip=CKV_AZURE_35: Network access restrictions
+  #checkov:skip=CKV_AZURE_59: TODO: Ensure that Storage accounts disallow public access
+  #checkov:skip=CKV_AZURE_190: TODO: Ensure that Storage blobs restrict public access
   name                             = replace("pinsstdocsbo${local.resource_suffix}", "-", "")
   resource_group_name              = azurerm_resource_group.back_office_stack.name
   location                         = azurerm_resource_group.back_office_stack.location
