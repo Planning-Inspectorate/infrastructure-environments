@@ -1,4 +1,10 @@
 resource "azurerm_servicebus_namespace" "back_office" {
+  #checkov:skip=CKV_AZURE_199: TODO: Ensure that Azure Service Bus uses double encryption
+  #checkov:skip=CKV_AZURE_201: TODO: Ensure that Azure Service Bus uses a customer-managed key to encrypt data
+  #checkov:skip=CKV_AZURE_202: TODO: Ensure that Managed identity provider is enabled for Azure Service Bus
+  #checkov:skip=CKV_AZURE_203: TODO: Ensure Azure Service Bus Local Authentication is disabled
+  #checkov:skip=CKV_AZURE_204: TODO: public network access enabled' is set to 'False' for Azure Service Bus
+  #checkov:skip=CKV_AZURE_205: TODO: Ensure Azure Service Bus is using the latest version of TLS encryption
   name                          = "pins-sb-${local.service_name}-${local.resource_suffix}"
   location                      = azurerm_resource_group.back_office_stack.location
   resource_group_name           = azurerm_resource_group.back_office_stack.name

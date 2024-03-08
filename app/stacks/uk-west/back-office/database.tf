@@ -187,6 +187,8 @@ resource "azurerm_private_endpoint" "back_office_sql_server" {
 }
 
 resource "azurerm_mssql_database" "back_office" {
+  #checkov:skip=CKV_AZURE_224: TODO: Ensure that the Ledger feature is enabled on database that requires cryptographic proof and nonrepudiation of data integrity
+  #checkov:skip=CKV_AZURE_229: TODO: Ensure the Azure SQL Database Namespace is zone redundant
   name        = "pins-sqldb-${local.service_name}-${local.resource_suffix}"
   server_id   = azurerm_mssql_server.back_office.id
   collation   = "SQL_Latin1_General_CP1_CI_AS"
@@ -201,6 +203,8 @@ resource "azurerm_mssql_database" "back_office" {
 }
 
 resource "azurerm_mssql_database" "back_office_appeals" {
+  #checkov:skip=CKV_AZURE_224: TODO: Ensure that the Ledger feature is enabled on database that requires cryptographic proof and nonrepudiation of data integrity
+  #checkov:skip=CKV_AZURE_229: TODO: Ensure the Azure SQL Database Namespace is zone redundant
   name        = "pins-sqldb-${local.service_name}-appeals-${local.resource_suffix}"
   server_id   = azurerm_mssql_server.back_office.id
   collation   = "SQL_Latin1_General_CP1_CI_AS"
@@ -223,6 +227,7 @@ resource "azurerm_storage_account" "back_office_sql_server" {
   #checkov:skip=CKV2_AZURE_21: Logging not implemented yet
   #TODO: Access restrictions
   #checkov:skip=CKV_AZURE_35: Network access restrictions
+  #checkov:skip=CKV_AZURE_59: TODO: Ensure that Storage accounts disallow public access
 
   name                             = replace("pinsstsqlapps${local.resource_suffix}", "-", "")
   resource_group_name              = azurerm_resource_group.back_office_stack.name

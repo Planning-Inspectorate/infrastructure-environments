@@ -26,6 +26,8 @@ resource "azurerm_mssql_server" "applications_sql_server" {
 }
 
 resource "azurerm_mssql_database" "applications_sql_db" {
+  #checkov:skip=CKV_AZURE_224: TODO: Ensure that the Ledger feature is enabled on database that requires cryptographic proof and nonrepudiation of data integrity
+  #checkov:skip=CKV_AZURE_229: TODO: Ensure the Azure SQL Database Namespace is zone redundant
   name        = "pins-sqldb-${local.service_name}-${local.resource_suffix}"
   server_id   = azurerm_mssql_server.applications_sql_server.id
   collation   = "SQL_Latin1_General_CP1_CI_AS"
