@@ -1,5 +1,6 @@
 resource "azurerm_service_plan" "common_integration_functions_service_plan" {
   #checkov:skip=CKV_AZURE_212: TODO: Ensure App Service has a minimum number of instances for failover
+  #checkov:skip=CKV_AZURE_225: TODO: Ensure the App Service Plan is zone redundant
   count               = var.is_dr_deployment ? 1 : 0
   name                = "pins-asp-integration-functions-${local.service_name}-${local.resource_suffix}"
   location            = azurerm_resource_group.common_infrastructure.location
