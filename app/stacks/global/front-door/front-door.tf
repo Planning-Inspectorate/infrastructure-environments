@@ -98,6 +98,16 @@ resource "azurerm_frontdoor" "common" {
     web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
   }
 
+  dynamic "frontend_endpoint" {
+    for_each = local.back_office_frontend.frontend_endpoint_old == null ? [] : ["apply"]
+
+    content {
+      name                                    = format("%s-%s", local.back_office_frontend.frontend_name, "old")
+      host_name                               = local.back_office_frontend.frontend_endpoint_old
+      web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.back_office_applications_frontend.id
+    }
+  }
+
   # Backend Pools
   backend_pool {
     name                = local.appeals_frontend.name
