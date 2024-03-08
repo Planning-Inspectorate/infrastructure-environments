@@ -20,7 +20,7 @@ This component contains the common infrastructure required by each environment. 
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_azure_region_uk"></a> [azure\_region\_uk](#module\_azure\_region\_uk) | claranet/regions/azurerm | 4.2.1 |
+| <a name="module_azure_region_uks"></a> [azure\_region\_uks](#module\_azure\_region\_uks) | claranet/regions/azurerm | 4.2.1 |
 | <a name="module_networking"></a> [networking](#module\_networking) | ../../../components/networking | n/a |
 
 ## Resources
