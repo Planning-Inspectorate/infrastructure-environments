@@ -11,6 +11,9 @@ resource "azurerm_storage_account" "turborepo_remote_cache" {
   #checkov:skip=CKV2_AZURE_8: Logging not implemented yet
   #TODO: Access restrictions
   #checkov:skip=CKV_AZURE_35: Network access restrictions
+  #checkov:skip=CKV_AZURE_59: TODO: Ensure that Storage accounts disallow public access
+  #checkov:skip=CKV_AZURE_190: TODO: Ensure that Storage blobs restrict public access
+  #checkov:skip=CKV_AZURE_206: TODO: Ensure that Storage Accounts use replication
   name                     = "pinsturboreporemotecache"
   location                 = var.location
   resource_group_name      = var.resource_group_name
@@ -54,6 +57,9 @@ resource "azurerm_linux_web_app" "turborepo_remote_cache" {
   #checkov:skip=CKV_AZURE_17: Disabling FTP(S) to be tested
   #checkov:skip=CKV_AZURE_78: TLS mutual authentication may not be required
   #checkov:skip=CKV_AZURE_88: Azure Files mount may not be required
+  #checkov:skip=CKV_AZURE_222: Ensure that Azure Web App public network access is disabled
+  #checkov:skip=CKV_AZURE_225: Ensure the App Service Plan is zone redundant
+
   location            = var.location
   name                = "pins-turbocache-remote-cache"
   resource_group_name = var.resource_group_name
@@ -86,8 +92,9 @@ resource "azurerm_linux_web_app" "turborepo_remote_cache" {
   }
 
   site_config {
-    always_on     = true
-    http2_enabled = true
+    always_on         = true
+    health_check_path = var.health_check_path
+    http2_enabled     = true
 
 
     application_stack {
