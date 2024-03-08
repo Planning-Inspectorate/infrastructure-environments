@@ -32,8 +32,7 @@ module "applications_migration_function" {
     NI_DB_MYSQL_PASSWORD = local.secret_refs["applications-service-mysql-password"]
     NI_DB_MYSQL_PORT     = local.secret_refs["applications-service-mysql-port"]
     NI_DB_MYSQL_USERNAME = local.secret_refs["applications-service-mysql-username"]
-    # ODW Synapse Configuration
-    # We only provide this if there is an endpoint available, and it will currently only be available in dev
+    # ODW Synapse Configuration - for direct migration connection
     SYNAPSE_SQL_HOST = var.odw_synapse_ssql_endpoint
   }
 
