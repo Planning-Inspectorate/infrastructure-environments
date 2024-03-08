@@ -262,6 +262,20 @@ resource "azurerm_frontdoor" "common" {
   }
 
   routing_rule {
+    enabled            = local.back_office_frontend.frontend_endpoint_old != null
+    name               = "Old"
+    accepted_protocols = ["Http", "Https"]
+    patterns_to_match  = ["/*"]
+    frontend_endpoints = [local.back_office_frontend.frontend_endpoint_old]
+
+    redirect_configuration {
+      custom_host       = local.back_office_frontend.frontend_endpoint
+      redirect_protocol = "MatchRequest"
+      redirect_type     = "PermanentRedirect"
+    }
+  }
+
+  routing_rule {
     enabled            = true
     name               = local.back_office_appeals_frontend.name
     accepted_protocols = ["Http", "Https"]
