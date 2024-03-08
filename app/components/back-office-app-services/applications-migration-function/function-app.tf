@@ -1,5 +1,5 @@
 module "applications_migration_function" {
-  #checkov:skip=CKV_TF_1: Use of commit hash are not required for our Terraform modules 
+  #checkov:skip=CKV_TF_1: Use of commit hash are not required for our Terraform modules
   source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.16"
 
   action_group_ids                         = var.action_group_ids

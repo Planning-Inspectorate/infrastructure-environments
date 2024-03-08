@@ -1,5 +1,5 @@
 module "app_service" {
-  #checkov:skip=CKV_TF_1: Use of commit hash are not required for our Terraform modules 
+  #checkov:skip=CKV_TF_1: Use of commit hash are not required for our Terraform modules
   for_each = local.app_services
 
   source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service?ref=1.16"
