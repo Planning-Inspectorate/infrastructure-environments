@@ -10,7 +10,7 @@ locals {
   database_public_access_enabled       = true
   enable_search_indexing_by_default    = false
   environment                          = "dev"
-  front_door_waf_appeals_redirect_path = "/errors/firewall-error"
+  front_door_waf_appeals_redirect_path = "/error/firewall-error"
   front_door_waf_mode                  = "Prevention"
   logger_level                         = "debug"
   monitoring_alerts_enabled            = true
