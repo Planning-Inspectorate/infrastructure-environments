@@ -64,6 +64,12 @@ locals {
     ssl_certificate_name      = var.applications_service_ssl_certificate_name
   }
 
+  back_office_blob_storage = {
+    id                = var.back_office_storage_account_id
+    location          = var.back_office_storage_account_location
+    primary_blob_host = var.back_office_storage_account_blob_host
+  }
+
   back_office_frontend = {
     frontend_endpoint = var.back_office_public_url
     app_service_urls = local.back_office_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [

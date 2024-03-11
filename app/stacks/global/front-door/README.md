@@ -27,6 +27,9 @@ This component contains the Azure Front Door and WAF resources. The resources in
 
 | Name | Type |
 |------|------|
+| [azurerm_cdn_frontdoor_origin.common](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/cdn_frontdoor_origin) | resource |
+| [azurerm_cdn_frontdoor_origin_group.common](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/cdn_frontdoor_origin_group) | resource |
+| [azurerm_cdn_frontdoor_profile.common](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/cdn_frontdoor_profile) | resource |
 | [azurerm_frontdoor.common](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/frontdoor) | resource |
 | [azurerm_frontdoor_firewall_policy.appeals_frontend](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/frontdoor_firewall_policy) | resource |
 | [azurerm_frontdoor_firewall_policy.back_office_applications_frontend](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/frontdoor_firewall_policy) | resource |
@@ -58,6 +61,9 @@ This component contains the Azure Front Door and WAF resources. The resources in
 | <a name="input_back_office_public_url_new"></a> [back\_office\_public\_url\_new](#input\_back\_office\_public\_url\_new) | The new public URL for the Back Office frontend web app | `string` | `null` | no |
 | <a name="input_back_office_secondary_app_service_url"></a> [back\_office\_secondary\_app\_service\_url](#input\_back\_office\_secondary\_app\_service\_url) | The secondary App Service URL for the Back Office | `string` | `""` | no |
 | <a name="input_back_office_ssl_certificate_name"></a> [back\_office\_ssl\_certificate\_name](#input\_back\_office\_ssl\_certificate\_name) | The SSL certificate name in the environment Key Vault for the back office service | `string` | `"unused"` | no |
+| <a name="input_back_office_storage_account_blob_host"></a> [back\_office\_storage\_account\_blob\_host](#input\_back\_office\_storage\_account\_blob\_host) | Back Office storage account primary blob host | `string` | n/a | yes |
+| <a name="input_back_office_storage_account_id"></a> [back\_office\_storage\_account\_id](#input\_back\_office\_storage\_account\_id) | Back Office storage account ID | `string` | n/a | yes |
+| <a name="input_back_office_storage_account_location"></a> [back\_office\_storage\_account\_location](#input\_back\_office\_storage\_account\_location) | Back Office storage account location | `string` | n/a | yes |
 | <a name="input_comment_planning_appeal_primary_app_service_url"></a> [comment\_planning\_appeal\_primary\_app\_service\_url](#input\_comment\_planning\_appeal\_primary\_app\_service\_url) | The primary App Service URL for the Comment Planning Appeal | `string` | n/a | yes |
 | <a name="input_comment_planning_appeal_public_url"></a> [comment\_planning\_appeal\_public\_url](#input\_comment\_planning\_appeal\_public\_url) | The public URL for the Comment Planning Appeal frontend web app | `string` | n/a | yes |
 | <a name="input_comment_planning_appeal_secondary_app_service_url"></a> [comment\_planning\_appeal\_secondary\_app\_service\_url](#input\_comment\_planning\_appeal\_secondary\_app\_service\_url) | The secondary App Service URL for the Comment Planning Appeal | `string` | `""` | no |

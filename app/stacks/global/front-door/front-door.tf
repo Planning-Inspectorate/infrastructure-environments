@@ -339,6 +339,38 @@ resource "azurerm_frontdoor_rules_engine" "search_indexing" {
   }
 }
 
+resource "azurerm_cdn_frontdoor_profile" "common" {
+  name                = "common-profile"
+  resource_group_name = azurerm_frontdoor.common.resource_group_name
+  sku_name            = "Premium_AzureFrontDoor"
+}
+
+resource "azurerm_cdn_frontdoor_origin_group" "common" {
+  name                     = "common-origin-group"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.common.id
+
+  load_balancing {}
+}
+
+resource "azurerm_cdn_frontdoor_origin" "common" {
+  name                           = "common-origin"
+  cdn_frontdoor_origin_group_id  = azurerm_cdn_frontdoor_origin_group.common.id
+  enabled                        = true
+  certificate_name_check_enabled = true
+
+  host_name          = local.back_office_blob_storage.primary_blob_host
+  origin_host_header = local.back_office_blob_storage.primary_blob_host
+  priority           = 1
+  weight             = 500
+
+  private_link {
+    request_message        = "Request access for Private Link Origin CDN Frontdoor"
+    target_type            = "blob"
+    location               = local.back_office_blob_storage.location
+    private_link_target_id = local.back_office_blob_storage.id
+  }
+}
+
 # Terraform does not yet support linking Rules Engine to Routing rules so using local-exec to run the required Azure CLI command
 resource "null_resource" "fd_routing_noindex" {
   triggers = {

@@ -92,6 +92,21 @@ variable "back_office_appeals_secondary_app_service_url" {
   default     = ""
 }
 
+variable "back_office_storage_account_id" {
+  description = "Back Office storage account ID"
+  type        = string
+}
+
+variable "back_office_storage_account_location" {
+  description = "Back Office storage account location"
+  type        = string
+}
+
+variable "back_office_storage_account_blob_host" {
+  description = "Back Office storage account primary blob host"
+  type        = string
+}
+
 variable "comment_planning_appeal_public_url" {
   description = "The public URL for the Comment Planning Appeal frontend web app"
   type        = string
