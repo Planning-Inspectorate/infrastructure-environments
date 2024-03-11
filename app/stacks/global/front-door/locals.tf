@@ -65,7 +65,8 @@ locals {
   }
 
   back_office_frontend = {
-    frontend_endpoint = var.back_office_public_url
+    frontend_endpoint     = var.back_office_public_url
+    frontend_endpoint_old = var.back_office_public_url_old
     app_service_urls = local.back_office_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
       local.back_office_primary_mapping,
       local.back_office_secondary_mapping] : [
