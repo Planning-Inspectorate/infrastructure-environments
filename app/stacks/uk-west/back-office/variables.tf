@@ -219,6 +219,11 @@ variable "feature_service_bus_enabled" {
   type        = string
 }
 
+variable "feature_appeal_broadcasts_enabled" {
+  description = "Whether or not Service Bus events are enabled on BO Appeals"
+  type        = string
+}
+
 variable "feature_document_scanning_enabled" {
   description = "Whether or not Document Scanning is enabled"
   type        = bool

@@ -47,6 +47,7 @@ module "app_services" {
   service_bus_namespace_id                                                            = azurerm_servicebus_namespace.back_office.id
   service_name                                                                        = local.service_name
   feature_service_bus_enabled                                                         = var.feature_service_bus_enabled
+  feature_appeal_broadcasts_enabled                                                   = var.feature_appeal_broadcasts_enabled
   feature_document_scanning_enabled                                                   = var.feature_document_scanning_enabled
   common_vnet_id                                                                      = var.common_vnet_id
   bo_appeals_storage_account_endpoint                                                 = azurerm_storage_account.back_office_documents.primary_blob_endpoint

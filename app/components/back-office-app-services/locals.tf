@@ -126,7 +126,7 @@ locals {
         MOCK_HORIZON                               = var.mock_horizon
         NODE_ENV                                   = var.node_environment
         SERVICE_BUS_HOSTNAME                       = "${var.service_bus_namespace_name}.servicebus.windows.net"
-        SERVICE_BUS_ENABLED                        = var.feature_service_bus_enabled
+        SERVICE_BUS_ENABLED                        = var.feature_appeal_broadcasts_enabled
         GOV_NOTIFY_API_KEY                         = local.secret_refs["back-office-appeals-gov-notify-api-key"]
         TEST_MAILBOX                               = local.secret_refs["back-office-appeals-test-mailbox"]
         BO_BLOB_STORAGE_ACCOUNT                    = var.bo_appeals_storage_account_endpoint

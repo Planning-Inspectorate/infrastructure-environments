@@ -226,6 +226,12 @@ variable "feature_service_bus_enabled" {
   type        = string
 }
 
+variable "feature_appeal_broadcasts_enabled" {
+  default     = "false"
+  description = "Whether or not Service Bus events are enabled on BO Appeals"
+  type        = string
+}
+
 variable "service_plan_sku" {
   default     = "P2v2"
   description = "The SKU of the App Service Plan providing resources to hosted App Services"
