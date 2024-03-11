@@ -107,6 +107,11 @@ variable "back_office_storage_account_blob_host" {
   type        = string
 }
 
+variable "back_office_document_storage_domain" {
+  description = "Back Office storage account custom domain"
+  type        = string
+}
+
 variable "comment_planning_appeal_public_url" {
   description = "The public URL for the Comment Planning Appeal frontend web app"
   type        = string

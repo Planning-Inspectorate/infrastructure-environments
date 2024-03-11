@@ -98,6 +98,12 @@ resource "azurerm_frontdoor" "common" {
     web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
   }
 
+  frontend_endpoint {
+    name                                    = "DocumentStore"
+    host_name                               = local.back_office_blob_storage.custom_domain
+    web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
+  }
+
   dynamic "frontend_endpoint" {
     for_each = local.back_office_frontend.frontend_endpoint_new == null ? [] : ["apply"]
 

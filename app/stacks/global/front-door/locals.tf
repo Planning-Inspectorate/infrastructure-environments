@@ -68,6 +68,7 @@ locals {
     id                = var.back_office_storage_account_id
     location          = var.back_office_storage_account_location
     primary_blob_host = var.back_office_storage_account_blob_host
+    custom_domain     = var.back_office_document_storage_domain
   }
 
   back_office_frontend = {
