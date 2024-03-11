@@ -201,7 +201,9 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_back_office_submissions_storage_container_resource_manager_id"></a> [back\_office\_submissions\_storage\_container\_resource\_manager\_id](#output\_back\_office\_submissions\_storage\_container\_resource\_manager\_id) | Back office submissions container resource\_manager\_id |
 | <a name="output_bo_appeals_document_container_id"></a> [bo\_appeals\_document\_container\_id](#output\_bo\_appeals\_document\_container\_id) | Back Office appeals container resource\_manager\_id |
 | <a name="output_bo_appeals_document_container_name"></a> [bo\_appeals\_document\_container\_name](#output\_bo\_appeals\_document\_container\_name) | Back Office appeals container resource\_manager\_id |
+| <a name="output_bo_storage_account_blob_host"></a> [bo\_storage\_account\_blob\_host](#output\_bo\_storage\_account\_blob\_host) | Back Office storage account primary blob host |
 | <a name="output_bo_storage_account_id"></a> [bo\_storage\_account\_id](#output\_bo\_storage\_account\_id) | Back Office storage account id |
+| <a name="output_bo_storage_account_location"></a> [bo\_storage\_account\_location](#output\_bo\_storage\_account\_location) | Back Office storage account location |
 | <a name="output_clamav_host"></a> [clamav\_host](#output\_clamav\_host) | Hostname of the ClamAV Container Group |
 | <a name="output_document_check_function_storage_name"></a> [document\_check\_function\_storage\_name](#output\_document\_check\_function\_storage\_name) | Function Storage name |
 | <a name="output_document_check_function_storage_primary_access_key"></a> [document\_check\_function\_storage\_primary\_access\_key](#output\_document\_check\_function\_storage\_primary\_access\_key) | Function Storage Primary Access Key |

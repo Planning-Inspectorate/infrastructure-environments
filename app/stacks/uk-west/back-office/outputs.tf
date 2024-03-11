@@ -68,6 +68,16 @@ output "bo_storage_account_id" {
   value       = azurerm_storage_account.back_office_documents.id
 }
 
+output "bo_storage_account_location" {
+  description = "Back Office storage account location"
+  value       = azurerm_storage_account.back_office_documents.primary_location
+}
+
+output "bo_storage_account_blob_host" {
+  description = "Back Office storage account primary blob host"
+  value       = azurerm_storage_account.back_office_documents.primary_blob_host
+}
+
 output "bo_appeals_document_container_id" {
   description = "Back Office appeals container resource_manager_id"
   value       = azurerm_storage_container.back_office_appeals_document_container.resource_manager_id
