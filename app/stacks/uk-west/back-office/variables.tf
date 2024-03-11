@@ -331,3 +331,8 @@ variable "service_bus_config" {
     fo_subscription_ttl          = string
   })
 }
+
+variable "back_office_document_storage_domain" {
+  description = "Custom domain for document storage"
+  type        = string
+}

@@ -7,6 +7,7 @@ locals {
   back_office_public_url               = "back-office-prod.planninginspectorate.gov.uk"
   back_office_public_url_new           = "back-office-applications.planninginspectorate.gov.uk"
   back_office_appeals_public_url       = "back-office-appeals.planninginspectorate.gov.uk"
+  back_office_document_storage_domain  = "national-infrastructure-consenting-documents.planninginspectorate.gov.uk"
   comment_planning_appeal_public_url   = "comment-planning-appeal-prod.planninginspectorate.gov.uk" # temporary URL, waiting for .service.gov.uk domain
   feature_front_door_failover_enaled   = false
   environment                          = "prod"

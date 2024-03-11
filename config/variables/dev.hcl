@@ -5,6 +5,7 @@ locals {
   applications_service_public_url      = "applications-service-dev.planninginspectorate.gov.uk"
   back_office_public_url               = "back-office-dev.planninginspectorate.gov.uk"
   back_office_appeals_public_url       = "back-office-appeals-dev.planninginspectorate.gov.uk"
+  back_office_document_storage_domain  = "back-office-applications-docs-dev.planninginspectorate.gov.uk"
   comment_planning_appeal_public_url   = "comment-planning-appeal-dev.planninginspectorate.gov.uk"
   feature_front_door_failover_enaled   = false
   database_public_access_enabled       = true

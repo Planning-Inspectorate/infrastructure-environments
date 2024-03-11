@@ -26,6 +26,7 @@ resource "azurerm_storage_account" "back_office_documents" {
   enable_https_traffic_only        = true
   min_tls_version                  = "TLS1_2"
   tags                             = local.tags
+
   blob_properties {
     cors_rule {
       allowed_headers    = ["*"]
@@ -34,6 +35,10 @@ resource "azurerm_storage_account" "back_office_documents" {
       exposed_headers    = ["*"]
       max_age_in_seconds = "600"
     }
+  }
+
+  custom_domain {
+    name = var.back_office_document_storage_domain
   }
 }
 

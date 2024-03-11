@@ -5,6 +5,7 @@ locals {
   applications_service_public_url      = "applications-service-test.planninginspectorate.gov.uk"
   back_office_public_url               = "back-office-test.planninginspectorate.gov.uk"
   back_office_appeals_public_url       = "back-office-appeals-test.planninginspectorate.gov.uk"
+  back_office_document_storage_domain  = "back-office-applications-docs-test.planninginspectorate.gov.uk"
   comment_planning_appeal_public_url   = "comment-planning-appeal-test.planninginspectorate.gov.uk"
   feature_front_door_failover_enaled   = false
   environment                          = "test"
