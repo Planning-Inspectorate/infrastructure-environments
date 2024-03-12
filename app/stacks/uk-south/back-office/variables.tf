@@ -262,6 +262,11 @@ variable "feature_service_bus_enabled" {
   type        = string
 }
 
+variable "feature_appeal_broadcasts_enabled" {
+  description = "Whether or not Service Bus events are enabled on BO Appeals"
+  type        = string
+}
+
 variable "document_storage_back_office_document_service_uploads_container_name" {
   description = "Document Storage document service uploads container name"
   type        = string

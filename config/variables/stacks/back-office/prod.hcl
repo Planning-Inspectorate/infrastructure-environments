@@ -37,6 +37,7 @@ locals {
     login_username = "sulmarch"
     object_id      = "42523fcb-4a32-4910-8caa-4d310c7bfd55" # sulmarch@pinso365.onmicrosoft.com
   }
+  feature_appeal_broadcasts_enabled                  = "false"
   feature_service_bus_enabled                        = "true"
   feature_document_scanning_enabled                  = true
   notify_subscribers_function_gov_notify_template_id = "ee890e9f-5669-40ec-b3f1-f9e6f01024db"
