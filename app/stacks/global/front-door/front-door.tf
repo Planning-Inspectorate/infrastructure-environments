@@ -251,7 +251,13 @@ resource "azurerm_frontdoor" "common" {
     name               = local.back_office_frontend.name
     accepted_protocols = ["Http", "Https"]
     patterns_to_match  = local.back_office_frontend.patterns_to_match
-    frontend_endpoints = [local.back_office_frontend.frontend_name]
+    frontend_endpoints = (local.back_office_frontend.frontend_endpoint_new == null ?
+      [local.back_office_frontend.frontend_name] :
+      [
+        local.back_office_frontend.frontend_name,
+        local.back_office_frontend.frontend_name_new
+      ]
+    )
 
     forwarding_configuration {
       backend_pool_name      = local.back_office_frontend.name
@@ -262,7 +268,7 @@ resource "azurerm_frontdoor" "common" {
   }
 
   # dynamic "routing_rule" {
-  #   for_each = local.back_office_frontend.frontend_endpoint_new == null ? [] : ["apply"]
+  #   for_each = toset(local.back_office_frontend.frontend_endpoint_new == null ? [] : ["apply"])
 
   #   content {
   #     enabled            = true
