@@ -4,8 +4,8 @@ locals {
   appeals_service_public_url           = "appeal-planning-decision.service.gov.uk"
   appeals_service_ssl_certificate_name = "appealservicecf835e2d-1ed6-460f-aa7c-922922db830e"
   applications_service_public_url      = "national-infrastructure-consenting.planninginspectorate.gov.uk"
-  back_office_public_url               = "back-office-applications.planninginspectorate.gov.uk"
-  back_office_public_url_old           = "back-office-prod.planninginspectorate.gov.uk"
+  back_office_public_url               = "back-office-prod.planninginspectorate.gov.uk"
+  back_office_public_url_new           = "back-office-applications.planninginspectorate.gov.uk"
   back_office_appeals_public_url       = "back-office-appeals.planninginspectorate.gov.uk"
   comment_planning_appeal_public_url   = "comment-planning-appeal-prod.planninginspectorate.gov.uk" # temporary URL, waiting for .service.gov.uk domain
   feature_front_door_failover_enaled   = false
