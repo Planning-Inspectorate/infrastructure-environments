@@ -90,6 +90,12 @@ variable "back_office_public_url" {
   type        = string
 }
 
+variable "back_office_public_url_new" {
+  description = "The new public URL for the Back Office frontend web app"
+  type        = string
+  default     = null
+}
+
 variable "back_office_appeals_public_url" {
   description = "The public URL for the Back Office Appeals frontend web app"
   type        = string

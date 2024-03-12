@@ -19,7 +19,7 @@ module "app_services" {
   back_office_applications_log_level_stdout        = var.back_office_applications_log_level_stdout
   back_office_appeals_log_level_file               = var.back_office_appeals_log_level_file
   back_office_appeals_log_level_stdout             = var.back_office_appeals_log_level_stdout
-  back_office_hostname                             = var.back_office_public_url
+  back_office_hostname                             = var.back_office_public_url_new == null ? var.back_office_public_url : var.back_office_public_url_new
   back_office_appeals_hostname                     = var.back_office_appeals_public_url
   back_office_integration_subnet_id                = var.back_office_integration_subnet_id
   back_office_clamav_subnet_id                     = var.back_office_clamav_subnet_id
