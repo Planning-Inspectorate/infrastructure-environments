@@ -10,3 +10,14 @@ resource "azurerm_frontdoor_custom_https_configuration" "ssl_certificate" {
     azure_key_vault_certificate_vault_id    = var.use_managed_cert_map[each.value.frontend_name] ? null : var.common_key_vault_id
   }
 }
+
+resource "azurerm_frontdoor_custom_https_configuration" "back_office_old_url_ssl_certificate" {
+  for_each = toset(var.back_office_public_url_new == null ? [] : ["apply"])
+
+  frontend_endpoint_id              = var.frontend_endpoints["BackOffice"]
+  custom_https_provisioning_enabled = true
+
+  custom_https_configuration {
+    certificate_source = "FrontDoor"
+  }
+}
