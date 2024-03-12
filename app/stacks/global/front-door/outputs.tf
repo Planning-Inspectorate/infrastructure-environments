@@ -8,8 +8,8 @@ output "frontend_endpoint_mappings" {
       ssl_certificate_name = local.applications_frontend.ssl_certificate_name
     },
     back_office_frontend = {
-      frontend_name        = local.back_office_frontend.frontend_name_new
-      frontend_endpoint    = local.back_office_frontend.frontend_endpoint_new
+      frontend_name        = var.back_office_public_url_new == null ? local.back_office_frontend.frontend_name : local.back_office_frontend.frontend_name_new
+      frontend_endpoint    = var.back_office_public_url_new == null ? local.back_office_frontend.frontend_endpoint : local.back_office_frontend.frontend_endpoint_new
       patterns_to_match    = local.back_office_frontend.patterns_to_match
       ssl_certificate_name = local.back_office_frontend.ssl_certificate_name
     },
