@@ -22,3 +22,9 @@ variable "use_managed_cert_map" {
   description = "A map of front end name to a boolean that represents if that front end should use an Azure managed SSL cert"
   type        = map(bool)
 }
+
+variable "back_office_public_url_new" {
+  description = "The new public URL for the Back Office frontend web app"
+  type        = string
+  default     = null
+}
