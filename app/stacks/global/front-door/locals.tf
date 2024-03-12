@@ -65,8 +65,7 @@ locals {
   }
 
   back_office_frontend = {
-    frontend_endpoint     = var.back_office_public_url
-    frontend_endpoint_old = var.back_office_public_url_old
+    frontend_endpoint = var.back_office_public_url
     app_service_urls = local.back_office_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
       local.back_office_primary_mapping,
       local.back_office_secondary_mapping] : [
@@ -77,6 +76,10 @@ locals {
     frontend_name             = "BackOffice"
     patterns_to_match         = ["/*"]
     ssl_certificate_name      = var.back_office_ssl_certificate_name
+
+    name_new              = "BackOfficeNew"
+    frontend_name_new     = "BackOfficeNew"
+    frontend_endpoint_new = var.back_office_public_url_new
   }
 
   appeals_frontend = {

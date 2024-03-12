@@ -59,8 +59,8 @@ variable "back_office_public_url" {
   type        = string
 }
 
-variable "back_office_public_url_old" {
-  description = "The old public URL for the Back Office frontend web app"
+variable "back_office_public_url_new" {
+  description = "The new public URL for the Back Office frontend web app"
   type        = string
   default     = null
 }

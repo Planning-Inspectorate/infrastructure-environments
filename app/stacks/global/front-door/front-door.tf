@@ -99,11 +99,11 @@ resource "azurerm_frontdoor" "common" {
   }
 
   dynamic "frontend_endpoint" {
-    for_each = local.back_office_frontend.frontend_endpoint_old == null ? [] : ["apply"]
+    for_each = local.back_office_frontend.frontend_endpoint_new == null ? [] : ["apply"]
 
     content {
-      name                                    = format("%s-%s", local.back_office_frontend.frontend_name, "old")
-      host_name                               = local.back_office_frontend.frontend_endpoint_old
+      name                                    = local.back_office_frontend.frontend_name_new
+      host_name                               = local.back_office_frontend.frontend_endpoint_new
       web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.back_office_applications_frontend.id
     }
   }
@@ -261,23 +261,23 @@ resource "azurerm_frontdoor" "common" {
     }
   }
 
-  dynamic "routing_rule" {
-    for_each = local.back_office_frontend.frontend_endpoint_old == null ? [] : ["apply"]
+  # dynamic "routing_rule" {
+  #   for_each = local.back_office_frontend.frontend_endpoint_new == null ? [] : ["apply"]
 
-    content {
-      enabled            = true
-      name               = "Old"
-      accepted_protocols = ["Http", "Https"]
-      patterns_to_match  = ["/*"]
-      frontend_endpoints = [local.back_office_frontend.frontend_endpoint_old]
+  #   content {
+  #     enabled            = true
+  #     name               = "BackOfficeOldUrlRedirect"
+  #     accepted_protocols = ["Http", "Https"]
+  #     patterns_to_match  = ["/*"]
+  #     frontend_endpoints = [local.back_office_frontend.frontend_endpoint]
 
-      redirect_configuration {
-        custom_host       = local.back_office_frontend.frontend_endpoint
-        redirect_protocol = "MatchRequest"
-        redirect_type     = "PermanentRedirect"
-      }
-    }
-  }
+  #     redirect_configuration {
+  #       custom_host       = local.back_office_frontend.frontend_endpoint_new
+  #       redirect_protocol = "MatchRequest"
+  #       redirect_type     = "PermanentRedirect"
+  #     }
+  #   }
+  # }
 
   routing_rule {
     enabled            = true
