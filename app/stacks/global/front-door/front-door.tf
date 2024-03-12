@@ -267,24 +267,6 @@ resource "azurerm_frontdoor" "common" {
     }
   }
 
-  # dynamic "routing_rule" {
-  #   for_each = toset(local.back_office_frontend.frontend_endpoint_new == null ? [] : ["apply"])
-
-  #   content {
-  #     enabled            = true
-  #     name               = "BackOfficeOldUrlRedirect"
-  #     accepted_protocols = ["Http", "Https"]
-  #     patterns_to_match  = ["/*"]
-  #     frontend_endpoints = [local.back_office_frontend.frontend_endpoint]
-
-  #     redirect_configuration {
-  #       custom_host       = local.back_office_frontend.frontend_endpoint_new
-  #       redirect_protocol = "MatchRequest"
-  #       redirect_type     = "PermanentRedirect"
-  #     }
-  #   }
-  # }
-
   routing_rule {
     enabled            = true
     name               = local.back_office_appeals_frontend.name
