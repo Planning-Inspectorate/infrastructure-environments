@@ -78,6 +78,10 @@ dependency "back_office_ukw" {
       back_office_appeals_frontend_ukw = "mock-wfe-url"
     }
     appeals_web_frontend_url = "mock-appeals-wfe-url"
+
+    bo_storage_account_id        = "mock-id"
+    bo_storage_account_location  = "ukwest"
+    bo_storage_account_blob_host = "mock-host"
   }
 }
 
