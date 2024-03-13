@@ -175,21 +175,3 @@ resource "azurerm_servicebus_topic" "appeal_bo_document_to_move" {
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = var.service_bus_config.default_topic_ttl
 }
-
-# Temporary permissions to enable development for ODW
-# This is for POC work so will be better formalised once we know what we're building
-resource "azurerm_role_assignment" "odw_consumer_permission" {
-  count = var.environment == "dev" ? 1 : 0
-
-  scope                = azurerm_servicebus_namespace.back_office.id
-  role_definition_name = "Azure Service Bus Data Receiver"
-  principal_id         = "e157655b-90a8-43d9-a429-4273b6074e0d"
-}
-
-resource "azurerm_role_assignment" "odw_user_permission" {
-  count = var.environment == "dev" ? 1 : 0
-
-  scope                = azurerm_servicebus_namespace.back_office.id
-  role_definition_name = "Azure Service Bus Data Receiver"
-  principal_id         = "89c3e08d-bac3-4a9d-9f65-b2262fa529ac"
-}
