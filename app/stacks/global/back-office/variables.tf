@@ -40,12 +40,12 @@ variable "location" {
   default     = "uksouth"
 }
 
-variable "name" {
-  description = "The name of the resource"
-  type        = string
-}
+# variable "name" {
+#   description = "The name of the resource"
+#   type        = string
+# }
 
-variable "service_name" {
-  description = "Public domain name"
-  type        = string
-}
+# variable "service_name" {
+#   description = "Public domain name"
+#   type        = string
+# }
