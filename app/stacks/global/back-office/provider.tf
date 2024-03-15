@@ -10,6 +10,6 @@ provider "azurerm" {
 }
 
 variable "tooling_subscription_id" {
-  description = "The ID for the Tooling subscription that houses the Container Registry"
+  description = "The ID for the Tooling subscription that houses the front door"
   type        = string
 }
