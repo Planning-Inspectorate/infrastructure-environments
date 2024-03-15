@@ -5,6 +5,13 @@ output "action_group_ids" {
   }
 }
 
+output "action_group_names" {
+  description = "The Action Group names for the created groups, as k:v map"
+  value = {
+    for k, v in local.all_action_groups : k => "pins-ag-odt-${k}-${var.environment}"
+  }
+}
+
 output "alert_recipients" {
   description = "The email recipients for monitoring alerts"
   value       = var.alert_recipients
