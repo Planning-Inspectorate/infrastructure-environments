@@ -10,7 +10,6 @@ module "published_documents_front_door" {
   # enable_search_indexing_by_default = var.enable_search_indexing_by_default
   location            = var.location # Needed for RG
   name                = "published_documents-fd"
-  resource_group_name = "test"
   service_name        = "back-office"
   sku_name            = "Standard_AzureFrontDoor"
 
