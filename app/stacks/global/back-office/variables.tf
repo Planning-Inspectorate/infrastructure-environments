@@ -48,4 +48,5 @@ variable "location" {
 variable "service_name" {
   description = "Public domain name"
   type        = string
+  default     = "back-office"
 }
