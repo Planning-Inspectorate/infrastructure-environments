@@ -477,6 +477,13 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
         rule_id = "942440"
 
         exclusion {
+          # Exclusion to allow cookie connect.sid
+          match_variable = "RequestCookieNames" # "CookieValue:connect.sid"
+          operator       = "Equals"
+          selector       = "connect.sid"
+        }
+
+        exclusion {
           # Exclusion to allow Azure AD authentication redirection
           match_variable = "QueryStringArgNames" # "QueryParamValue:code"
           operator       = "Equals"
