@@ -37,7 +37,7 @@ resource "azurerm_cdn_frontdoor_origin" "default" {
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.default.id
 
   enabled                        = true
-  host_name                      = var.app_service_url
+  host_name                      = var.host_name
   certificate_name_check_enabled = true
 }
 
@@ -57,7 +57,7 @@ resource "azurerm_cdn_frontdoor_route" "default" {
 resource "azurerm_cdn_frontdoor_custom_domain" "default" {
   name                     = var.service_name
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.default.id
-  host_name                = var.domain_name
+  host_name                = var.host_name
 
   tls {
     certificate_type    = "ManagedCertificate"
