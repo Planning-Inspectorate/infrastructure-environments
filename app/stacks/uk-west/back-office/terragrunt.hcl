@@ -23,7 +23,19 @@ dependency "common" {
       "data-tech"                       = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
       "data-service-manager"            = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock"
     }
-    alert_recipients                  = { low = ["test@example.com"] }
+    action_group_names = {
+      "appeals-bo-service-manager"      = "pins-ag-odt-appeals-bo-service-manager-dev"
+      "appeals-bo-tech"                 = "pins-ag-odt-appeals-bo-tech-dev"
+      "appeals-fo-service-manager"      = "pins-ag-odt-appeals-fo-service-manager-dev"
+      "appeals-fo-tech"                 = "pins-ag-odt-appeals-fo-tech-dev"
+      "applications-bo-service-manager" = "pins-ag-odt-applications-bo-service-manager-dev"
+      "applications-bo-tech"            = "pins-ag-odt-applications-bo-tech-dev"
+      "applications-fo-service-manager" = "pins-ag-odt-applications-fo-service-manager-dev"
+      "applications-fo-tech"            = "pins-ag-odt-applications-fo-tech-dev"
+      "iap"                             = "pins-ag-odt-iap-dev"
+      "info-sec"                        = "pins-ag-odt-info-sec-dev"
+      "its"                             = "pins-ag-odt-its-dev"
+    }
     app_service_plan_id               = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pins-rg-common-dev-ukw-001/providers/Microsoft.Web/serverfarms/mock_id"
     back_office_integration_subnet_id = "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/mock_resource_group/mock/mock_id"
     back_office_clamav_subnet_id      = "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/mock_resource_group/mock/mock_id"
@@ -50,8 +62,16 @@ inputs = {
     its                             = dependency.common.outputs.action_group_ids["its"]
     info_sec                        = dependency.common.outputs.action_group_ids["info-sec"]
   }
+  action_group_names = {
+    bo_appeals_tech                 = dependency.common.outputs.action_group_names["appeals-bo-tech"]
+    bo_appeals_service_manager      = dependency.common.outputs.action_group_names["appeals-bo-service-manager"]
+    bo_applications_tech            = dependency.common.outputs.action_group_names["applications-bo-tech"]
+    bo_applications_service_manager = dependency.common.outputs.action_group_names["applications-bo-service-manager"]
+    iap                             = dependency.common.outputs.action_group_names["iap"]
+    its                             = dependency.common.outputs.action_group_names["its"]
+    info_sec                        = dependency.common.outputs.action_group_names["info-sec"]
+  }
 
-  alert_recipients                  = dependency.common.outputs.alert_recipients
   app_service_plan_id               = dependency.common.outputs.app_service_plan_id
   back_office_integration_subnet_id = dependency.common.outputs.back_office_integration_subnet_id
   back_office_clamav_subnet_id      = dependency.common.outputs.back_office_clamav_subnet_id
