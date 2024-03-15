@@ -1,22 +1,22 @@
-variable "app_service_url" {
-  description = "Domain of the primary app service"
+variable "host_name" {
+  description = "The host name of the service"
   type        = string
 }
 
-variable "common_log_analytics_workspace_id" {
-  description = "The ID for the common Log Analytics Workspace"
-  type        = string
-}
+# variable "common_log_analytics_workspace_id" {
+#   description = "The ID for the common Log Analytics Workspace"
+#   type        = string
+# }
 
 variable "common_tags" {
   description = "The common resource tags for the project"
   type        = map(string)
 }
 
-variable "domain_name" {
-  description = "Public domain name"
-  type        = string
-}
+# variable "domain_name" {
+#   description = "Public domain name"
+#   type        = string
+# }
 
 variable "environment" {
   description = "Environment Name"

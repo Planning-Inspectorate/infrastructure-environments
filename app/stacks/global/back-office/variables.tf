@@ -1,12 +1,12 @@
-variable "app_service_url" {
-  description = "Domain of the primary app service"
-  type        = string
-}
+# variable "app_service_url" {
+#   description = "Domain of the primary app service"
+#   type        = string
+# }
 
-variable "domain_name" {
-  description = "Public domain name"
-  type        = string
-}
+# variable "domain_name" {
+#   description = "Public domain name"
+#   type        = string
+# }
 
 # variable "app_service_domain" {
 #   description = "Domain of the primary app service"
@@ -29,14 +29,15 @@ variable "environment" {
 #   default     = false
 # }
 
-variable "common_log_analytics_workspace_id" {
-  description = "The ID for the common Log Analytics Workspace"
-  type        = string
-}
+# variable "common_log_analytics_workspace_id" {
+#   description = "The ID for the common Log Analytics Workspace"
+#   type        = string
+# }
 
 variable "location" {
   description = "The location the App Services are deployed to in slug format e.g. 'uk-south'"
   type        = string
+  default     = "uksouth"
 }
 
 variable "name" {
