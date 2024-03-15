@@ -1,4 +1,4 @@
-module "applications_app_service_front_door" {
+module "published_documents_front_door" {
   source = "../../../modules/front-door"
   count  = var.environment == "dev" ? 1 : 0
 
