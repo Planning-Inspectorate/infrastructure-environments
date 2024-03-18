@@ -1,3 +1,3 @@
-data "azurerm_resource_group" "pins_odt_apps_dev_sub" {
-  name = "pins-odt-apps-dev-sub"
+data "azurerm_resource_group" "pins_rg_back_office" {
+  name = "pins-rg-back-office-dev-ukw-001"
 }
