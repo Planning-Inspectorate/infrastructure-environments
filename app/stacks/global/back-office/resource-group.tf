@@ -1,6 +1,6 @@
 # TODO: Create a shared FD resource group in the global stack
 resource "azurerm_resource_group" "frontdoor" {
-  name     = "${var.environment}"
+  name     = "${var.environment}-rg"
   location = module.azure_region_uks.location
 
   tags = merge(
