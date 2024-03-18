@@ -3,7 +3,7 @@ module "published_documents_front_door" {
   count  = var.environment == "dev" ? 1 : 0
 
   # app_service_domain                = "primary_app_service"
-  host_name = "back-office-test-for-pr.com"
+  host_name = "pinsstdocsbodevukw001.blob.core.windows.net"
   # common_log_analytics_workspace_id = var.common_log_analytics_workspace_id
   common_tags = local.tags
   environment = "dev"
