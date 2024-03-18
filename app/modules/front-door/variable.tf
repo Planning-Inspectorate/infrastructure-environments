@@ -1,8 +1,3 @@
-# variable "host_name" {
-#   description = "The host name of the service"
-#   type        = string
-# }
-
 # variable "common_log_analytics_workspace_id" {
 #   description = "The ID for the common Log Analytics Workspace"
 #   type        = string
