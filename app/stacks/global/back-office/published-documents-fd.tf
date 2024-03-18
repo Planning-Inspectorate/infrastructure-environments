@@ -4,7 +4,6 @@ module "published_documents_front_door" {
 
   domain_name = "back-office-applications-docs-dev.planninginspectorate.gov.uk"
   # app_service_domain                = "primary_app_service"
-  host_name = "pinsstdocsbodevukw001.blob.core.windows.net"
   # common_log_analytics_workspace_id = var.common_log_analytics_workspace_id
   common_tags = local.tags
   environment = "dev"
