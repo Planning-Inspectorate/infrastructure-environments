@@ -13,10 +13,10 @@ variable "common_tags" {
   type        = map(string)
 }
 
-# variable "domain_name" {
-#   description = "Public domain name"
-#   type        = string
-# }
+variable "domain_name" {
+  description = "Public domain name"
+  type        = string
+}
 
 variable "environment" {
   description = "Environment Name"

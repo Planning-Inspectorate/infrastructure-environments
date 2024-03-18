@@ -57,7 +57,7 @@ resource "azurerm_cdn_frontdoor_route" "default" {
 resource "azurerm_cdn_frontdoor_custom_domain" "default" {
   name                     = var.service_name
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.default.id
-  host_name                = var.host_name
+  host_name                = var.domain_name
 
   tls {
     certificate_type    = "ManagedCertificate"
