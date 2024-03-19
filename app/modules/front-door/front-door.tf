@@ -64,3 +64,8 @@ resource "azurerm_cdn_frontdoor_custom_domain" "default" {
     minimum_tls_version = "TLS12"
   }
 }
+
+resource "azurerm_cdn_frontdoor_custom_domain_association" "default" {
+  cdn_frontdoor_custom_domain_id = azurerm_cdn_frontdoor_custom_domain.default.id
+  cdn_frontdoor_route_ids        = [azurerm_cdn_frontdoor_route.default.id]
+}
