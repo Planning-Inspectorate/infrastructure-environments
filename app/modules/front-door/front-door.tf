@@ -48,7 +48,7 @@ resource "azurerm_cdn_frontdoor_origin" "default" {
   private_link {
     request_message        = "Request access for Private Link Origin CDN Frontdoor"
     target_type            = "blob"
-    location               = var.storage_account_primary_location
+    location               = var.location
     private_link_target_id = var.storage_account_id
   }
 }
