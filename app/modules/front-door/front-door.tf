@@ -7,7 +7,7 @@ resource "azurerm_cdn_frontdoor_profile" "default" {
 }
 
 resource "azurerm_dns_zone" "default" {
-  name                = var.domain
+  name                = var.domain_name
   resource_group_name = azurerm_resource_group.frontdoor.name
 }
 
