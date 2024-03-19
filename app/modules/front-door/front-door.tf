@@ -11,7 +11,6 @@ resource "azurerm_dns_zone" "default" {
   resource_group_name = azurerm_resource_group.frontdoor.name
 }
 
-
 resource "azurerm_cdn_frontdoor_endpoint" "default" {
   name                     = var.service_name
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.default.id
