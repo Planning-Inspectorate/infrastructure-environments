@@ -2,8 +2,8 @@ module "published_documents_front_door" {
   source = "../../../modules/front-door"
   count  = var.environment == "dev" ? 1 : 0
 
-  domain_name = "back-office-applications-docs-dev.planninginspectorate.gov.uk"
-  # app_service_domain                = "primary_app_service"
+  domain_name           = "back-office-applications-docs-dev.planninginspectorate.gov.uk"
+  blob_storage_endpoint = "pinsstdocsbodevukw001.blob.core.windows.net"
   # common_log_analytics_workspace_id = var.common_log_analytics_workspace_id
   common_tags = local.tags
   environment = "dev"

@@ -3,6 +3,11 @@
 #   type        = string
 # }
 
+variable "blob_storage_endpoint" {
+  description = "The endpoint for the blob storage"
+  type        = string
+}
+
 variable "common_tags" {
   description = "The common resource tags for the project"
   type        = map(string)

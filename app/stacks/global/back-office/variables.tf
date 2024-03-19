@@ -8,10 +8,7 @@
 #   type        = string
 # }
 
-# variable "app_service_domain" {
-#   description = "Domain of the primary app service"
-#   type        = string
-# }
+
 
 variable "common_tags" {
   description = "The common resource tags for the project"

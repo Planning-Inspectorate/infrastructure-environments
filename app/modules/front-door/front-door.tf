@@ -37,7 +37,7 @@ resource "azurerm_cdn_frontdoor_origin" "default" {
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.default.id
 
   enabled                        = true
-  host_name                      = var.domain_name
+  host_name                      = var.blob_storage_endpoint
   certificate_name_check_enabled = true
 }
 
