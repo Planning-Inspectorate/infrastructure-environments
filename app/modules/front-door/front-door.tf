@@ -6,6 +6,11 @@ resource "azurerm_cdn_frontdoor_profile" "default" {
   tags = local.tags
 }
 
+resource "azurerm_dns_zone" "default" {
+  name                = var.domain_name
+  resource_group_name = azurerm_resource_group.frontdoor.name
+}
+
 resource "azurerm_cdn_frontdoor_endpoint" "default" {
   name                     = var.service_name
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.default.id
@@ -59,6 +64,7 @@ resource "azurerm_cdn_frontdoor_route" "default" {
 resource "azurerm_cdn_frontdoor_custom_domain" "default" {
   name                     = var.service_name
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.default.id
+  dns_zone_id              = azurerm_dns_zone.default.id
   host_name                = var.domain_name
 
   tls {
