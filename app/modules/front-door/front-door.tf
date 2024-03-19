@@ -52,6 +52,8 @@ resource "azurerm_cdn_frontdoor_route" "default" {
   supported_protocols = ["Http", "Https"] # TODO: Why do we accept http
 
   cdn_frontdoor_origin_path = "/"
+
+  cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.default.id]
 }
 
 resource "azurerm_cdn_frontdoor_custom_domain" "default" {
