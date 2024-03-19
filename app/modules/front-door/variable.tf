@@ -43,11 +43,6 @@ variable "service_name" {
   type        = string
 }
 
-variable "storage_account_primary_location" {
-  description = "The location of where the Storage Accounts are deployed."
-  type        = string
-}
-
 variable "storage_account_id" {
   description = "The id of the Storage Accounts are to enable private link."
   type        = string
