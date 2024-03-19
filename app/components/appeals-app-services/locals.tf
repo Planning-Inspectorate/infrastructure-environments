@@ -38,6 +38,7 @@ locals {
         GOOGLE_TAG_MANAGER_ID                     = var.google_tag_manager_id
         HOST_URL                                  = "https://${var.appeals_service_public_url}"
         MICROSOFT_PROVIDER_AUTHENTICATION_SECRET  = local.secret_refs["appeals-microsoft-provider-authentication-secret"]
+        NODE_ENV                                  = var.node_environment
         PDF_SERVICE_API_URL                       = "https://pins-app-${var.service_name}-pdf-api-${var.resource_suffix}.azurewebsites.net"
         PINS_FEATURE_FLAG_AZURE_ENDPOINT          = local.secret_refs["appeals-app-config-endpoint"]
         PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING = local.secret_refs["appeals-app-config-connection-string"]
@@ -87,6 +88,7 @@ locals {
         GOOGLE_TAG_MANAGER_ID                     = var.google_tag_manager_id
         HOST_URL                                  = "https://${var.comment_planning_appeal_public_url}"
         MICROSOFT_PROVIDER_AUTHENTICATION_SECRET  = local.secret_refs["appeals-microsoft-provider-authentication-secret"]
+        NODE_ENV                                  = var.node_environment
         PDF_SERVICE_API_URL                       = "https://pins-app-${var.service_name}-pdf-api-${var.resource_suffix}.azurewebsites.net"
         PINS_FEATURE_FLAG_AZURE_ENDPOINT          = local.secret_refs["appeals-app-config-endpoint"]
         PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING = local.secret_refs["appeals-app-config-connection-string"]
