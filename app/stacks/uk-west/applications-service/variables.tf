@@ -36,31 +36,6 @@ variable "applications_service_public_url" {
   type        = string
 }
 
-variable "back_office_integration_get_application_case_references" {
-  description = "list of case references (comma separated) that the application data is retrieved from back office"
-  type        = string
-}
-
-variable "back_office_integration_get_documents_case_references" {
-  description = "list of case references (comma separated) that document data is retrieved from back office"
-  type        = string
-}
-
-variable "back_office_integration_get_timetable_case_references" {
-  description = "list of case references (comma separated) that timetable data is retrieved from back office"
-  type        = string
-}
-
-variable "back_office_integration_post_interested_party_case_references" {
-  description = "list of case references (comma separated) that use back office for interested party registration"
-  type        = string
-}
-
-variable "back_office_integration_post_submissions_case_references" {
-  description = "list of case references (comma separated) that use back office for submissions"
-  type        = string
-}
-
 variable "back_office_service_bus_namespace_name" {
   description = "Namespace of Back Office Service Bus instance"
   type        = string
@@ -108,16 +83,6 @@ variable "back_office_service_bus_nsip_advice_topic_id" {
 
 variable "back_office_service_bus_nsip_service_user_topic_id" {
   description = "ID for the nsip-service-user topic"
-  type        = string
-}
-
-variable "back_office_integration_get_advice_case_references" {
-  description = "list of case references (comma separated) that use back office for advice"
-  type        = string
-}
-
-variable "back_office_integration_get_representation_case_references" {
-  description = "list of case references (comma separated) that use back office for representation"
   type        = string
 }
 
