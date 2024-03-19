@@ -43,6 +43,11 @@ variable "service_name" {
   type        = string
 }
 
+variable "storage_account_id" {
+  description = "The id of the Storage Accounts are to enable private link."
+  type        = string
+}
+
 variable "sku_name" {
   description = "Specifies the SKU for this Front Door Profile."
   type        = string
