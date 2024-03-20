@@ -18,6 +18,7 @@ locals {
         APPLICATIONINSIGHTS_CONNECTION_STRING     = local.secret_refs["appeals-app-insights-connection-string"]
         APPEALS_SERVICE_API_TIMEOUT               = var.api_timeout
         APPEALS_SERVICE_API_URL                   = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
+        AUTH_BASE_URL                             = "https://pins-app-${var.service_name}-auth-server-${var.resource_suffix}.azurewebsites.net"
         CLAM_AV_HOST                              = "https://pins-app-${var.service_name}-clamav-api-${var.resource_suffix}.azurewebsites.net"
         CLAMAV_HOST                               = var.clamav_host
         CLAMAV_PORT                               = "3310"

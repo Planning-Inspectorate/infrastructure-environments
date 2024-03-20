@@ -45,12 +45,12 @@ resource "azurerm_cdn_frontdoor_origin" "default" {
   host_name                      = var.blob_storage_endpoint
   certificate_name_check_enabled = true
 
-  private_link {
-    request_message        = "Request access for Private Link Origin CDN Frontdoor"
-    target_type            = "blob"
-    location               = var.location
-    private_link_target_id = var.storage_account_id
-  }
+  # private_link {
+  #   request_message        = "Request access for Private Link Origin CDN Frontdoor"
+  #   target_type            = "blob"
+  #   location               = var.location
+  #   private_link_target_id = var.storage_account_id
+  # }
 }
 
 resource "azurerm_cdn_frontdoor_route" "default" {
