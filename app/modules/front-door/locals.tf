@@ -1,8 +1,11 @@
 locals {
+  service_name = "back-office-applications-docs"
+  environment  = var.environment
+
   tags = merge(
     var.common_tags,
     {
-      ServiceName = var.service_name
+      ServiceName = local.service_name
       Region      = "Global"
     }
   )
