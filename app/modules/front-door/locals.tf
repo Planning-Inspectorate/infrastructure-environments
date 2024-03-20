@@ -2,7 +2,7 @@ locals {
   tags = merge(
     var.common_tags,
     {
-      ServiceName = local.service_name
+      ServiceName = var.name
       Region      = "Global"
     }
   )
