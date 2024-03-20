@@ -1,5 +1,5 @@
 resource "azurerm_cdn_frontdoor_profile" "default" {
-  name                = "${var.service_name}-${var.environment}"
+  name                = "${local.service_name}-${local.environment}"
   resource_group_name = azurerm_resource_group.frontdoor.name
   sku_name            = var.sku_name
 
@@ -7,14 +7,14 @@ resource "azurerm_cdn_frontdoor_profile" "default" {
 }
 
 resource "azurerm_cdn_frontdoor_endpoint" "default" {
-  name                     = var.service_name
+  name                     = "${local.service_name}-${local.environment}"
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.default.id
 
   tags = local.tags
 }
 
 resource "azurerm_cdn_frontdoor_origin_group" "default" {
-  name                     = var.service_name
+  name                     = "${local.service_name}-${local.environment}"
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.default.id
   session_affinity_enabled = false
 
@@ -33,7 +33,7 @@ resource "azurerm_cdn_frontdoor_origin_group" "default" {
 }
 
 resource "azurerm_cdn_frontdoor_origin" "default" {
-  name                          = var.service_name
+  name                          = "${local.service_name}-${local.environment}"
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.default.id
 
   enabled                        = true
@@ -49,7 +49,7 @@ resource "azurerm_cdn_frontdoor_origin" "default" {
 }
 
 resource "azurerm_cdn_frontdoor_route" "default" {
-  name                          = var.service_name
+  name                          = "${local.service_name}-${local.environment}"
   cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.default.id
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.default.id
   cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.default.id]
@@ -64,7 +64,7 @@ resource "azurerm_cdn_frontdoor_route" "default" {
 }
 
 resource "azurerm_cdn_frontdoor_custom_domain" "default" {
-  name                     = var.service_name
+  name                     = "${local.service_name}-${local.environment}"
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.default.id
   host_name                = var.domain_name
 

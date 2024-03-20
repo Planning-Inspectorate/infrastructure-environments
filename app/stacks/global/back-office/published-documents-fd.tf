@@ -8,10 +8,8 @@ module "published_documents_front_door" {
   common_tags = local.tags
   environment = "dev"
   # enable_search_indexing_by_default = var.enable_search_indexing_by_default
-  location     = var.location # Needed for RG
-  name         = "publisheddocumentsfd"
-  service_name = "back-office"
-  sku_name     = "Standard_AzureFrontDoor"
+  location = var.location
+  sku_name = "Standard_AzureFrontDoor"
   # storage_account_id  = data.azurerm_storage_account.pinsstdocsbodevukw001.id
 
   providers = {

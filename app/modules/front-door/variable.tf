@@ -28,16 +28,6 @@ variable "location" {
   type        = string
 }
 
-variable "name" {
-  description = "The name of the resource"
-  type        = string
-}
-
-variable "service_name" {
-  description = "Public domain name"
-  type        = string
-}
-
 # variable "storage_account_id" {
 #   description = "The id of the Storage Accounts are to enable private link."
 #   type        = string
