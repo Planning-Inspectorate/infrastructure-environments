@@ -43,6 +43,7 @@ locals {
   notify_subscribers_function_gov_notify_template_id = "94975c1f-43c1-43a0-81be-61763d423601"
   # not ideal to specify this, but using a dependency with terragrunt would create a dependency cycle,
   # as applications is already dependent on back office
-  applications_front_office_web_url = "https://applications-service-test.planninginspectorate.gov.uk"
-  odw_synapse_integration_enabled   = true
+  applications_front_office_web_url      = "https://applications-service-test.planninginspectorate.gov.uk"
+  odw_synapse_integration_enabled        = true
+  back_office_published_documents_domain = "https://back-office-applications-docs-test.planninginspectorate.gov.uk"
 }

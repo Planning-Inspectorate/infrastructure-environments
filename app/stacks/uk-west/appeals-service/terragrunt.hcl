@@ -21,7 +21,19 @@ dependency "common_ukw" {
       "its"                             = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock",
       "info-sec"                        = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/microsoft.insights/actionGroups/mock"
     }
-    alert_recipients                          = { low = ["test@example.com"] }
+    action_group_names = {
+      "appeals-bo-service-manager"      = "pins-ag-odt-appeals-bo-service-manager-dev"
+      "appeals-bo-tech"                 = "pins-ag-odt-appeals-bo-tech-dev"
+      "appeals-fo-service-manager"      = "pins-ag-odt-appeals-fo-service-manager-dev"
+      "appeals-fo-tech"                 = "pins-ag-odt-appeals-fo-tech-dev"
+      "applications-bo-service-manager" = "pins-ag-odt-applications-bo-service-manager-dev"
+      "applications-bo-tech"            = "pins-ag-odt-applications-bo-tech-dev"
+      "applications-fo-service-manager" = "pins-ag-odt-applications-fo-service-manager-dev"
+      "applications-fo-tech"            = "pins-ag-odt-applications-fo-tech-dev"
+      "iap"                             = "pins-ag-odt-iap-dev"
+      "info-sec"                        = "pins-ag-odt-info-sec-dev"
+      "its"                             = "pins-ag-odt-its-dev"
+    }
     app_service_plan_id                       = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pins-rg-common-dev-ukw-001/providers/Microsoft.Web/serverfarms/mock_id"
     common_resource_group_name                = "mock_resource_group_name"
     integration_functions_app_service_plan_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pins-rg-common-dev-ukw-001/providers/Microsoft.Web/serverfarms/mock_id"
@@ -71,7 +83,13 @@ inputs = {
     its             = dependency.common_ukw.outputs.action_group_ids["its"]
     info_sec        = dependency.common_ukw.outputs.action_group_ids["info-sec"]
   }
-  alert_recipients                                        = dependency.common_ukw.outputs.alert_recipients
+  action_group_names = {
+    tech            = dependency.common_ukw.outputs.action_group_names["appeals-fo-tech"]
+    service_manager = dependency.common_ukw.outputs.action_group_names["appeals-fo-service-manager"]
+    iap             = dependency.common_ukw.outputs.action_group_names["iap"]
+    its             = dependency.common_ukw.outputs.action_group_names["its"]
+    info_sec        = dependency.common_ukw.outputs.action_group_names["info-sec"]
+  }
   app_service_plan_id                                     = dependency.common_ukw.outputs.app_service_plan_id
   back_office_service_bus_namespace_name                  = dependency.back_office_ukw.outputs.service_bus_namespace_name
   bo_storage_account_id                                   = dependency.back_office_ukw.outputs.bo_storage_account_id

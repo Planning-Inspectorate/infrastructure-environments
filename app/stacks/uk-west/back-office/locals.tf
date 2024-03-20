@@ -163,4 +163,7 @@ locals {
       ]
     }
   }
+  bo_appeals_tech_emails      = [for rec in data.azurerm_monitor_action_group.bo_appeals_tech.email_receiver : rec.email_address]
+  bo_applications_tech_emails = [for rec in data.azurerm_monitor_action_group.bo_applications_tech.email_receiver : rec.email_address]
+  tech_emails                 = concat(local.bo_appeals_tech_emails, local.bo_applications_tech_emails)
 }

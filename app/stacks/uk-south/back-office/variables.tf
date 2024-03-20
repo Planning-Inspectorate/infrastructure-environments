@@ -11,6 +11,19 @@ variable "action_group_ids" {
   })
 }
 
+variable "action_group_names" {
+  description = "The names of the Azure Monitor action groups for different alert types"
+  type = object({
+    bo_appeals_tech                 = string,
+    bo_appeals_service_manager      = string,
+    bo_applications_tech            = string,
+    bo_applications_service_manager = string,
+    iap                             = string,
+    its                             = string,
+    info_sec                        = string
+  })
+}
+
 variable "api_key_vault_authorization_enabled" {
   description = "Whether or not Key Vault is used to access secrets from the app"
   type        = string
@@ -118,6 +131,11 @@ variable "common_tags" {
 
 variable "common_resource_group_name" {
   description = "The common infrastructure resource group name"
+  type        = string
+}
+
+variable "common_resource_group_name_ukw" {
+  description = "The common infrastructure resource group name for UK west"
   type        = string
 }
 
@@ -325,11 +343,6 @@ variable "back_office_appeals_log_level_stdout" {
 variable "redis_cache_configuration" {
   description = "A map of redis configuration options"
   type        = map(string)
-}
-
-variable "alert_recipients" {
-  description = "The email recipients for monitoring alerts"
-  type        = map(list(string))
 }
 
 variable "sql_database_configuration" {
