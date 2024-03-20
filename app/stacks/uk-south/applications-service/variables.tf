@@ -36,48 +36,13 @@ variable "applications_service_public_url" {
   type        = string
 }
 
-variable "back_office_integration_get_application_case_references" {
-  description = "list of case references (comma separated) that the application data is retrieved from back office"
-  type        = string
-}
-
-variable "back_office_integration_get_documents_case_references" {
-  description = "list of case references (comma separated) that document data is retrieved from back office"
-  type        = string
-}
-
-variable "back_office_integration_get_timetable_case_references" {
-  description = "list of case references (comma separated) that timetable data is retrieved from back office"
-  type        = string
-}
-
-variable "back_office_integration_get_advice_case_references" {
-  description = "list of case references (comma separated) that advice data is retrieved from back office"
-  type        = string
-}
-
-variable "back_office_integration_get_representation_case_references" {
-  description = "list of case references (comma separated) that representation data is retrieved from back office"
-  type        = string
-}
-
-variable "back_office_integration_post_interested_party_case_references" {
-  description = "list of case references (comma separated) that use back office for interested party registration"
-  type        = string
-}
-
-variable "back_office_integration_post_submissions_case_references" {
-  description = "list of case references (comma separated) that use back office for submissions"
+variable "back_office_integration_case_references" {
+  description = "list of case references (comma separated) that use back office"
   type        = string
 }
 
 variable "back_office_integration_get_applications" {
   description = "indicate if applications are retrieved from BO or NI or MERGE"
-  type        = string
-}
-
-variable "back_office_integration_case_references" {
-  description = "list of case references (comma separated) that use back office"
   type        = string
 }
 
