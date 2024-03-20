@@ -12,8 +12,8 @@ module "published_documents_front_door" {
   name                = "publisheddocumentsfd"
   resource_group_name = data.azurerm_resource_group.pins_rg_back_office.name
   service_name        = "back-office"
-  sku_name            = "Premium_AzureFrontDoor"
-  storage_account_id  = data.azurerm_storage_account.pinsstdocsbodevukw001.id
+  sku_name            = "Standard_AzureFrontDoor"
+  # storage_account_id  = data.azurerm_storage_account.pinsstdocsbodevukw001.id
 
   providers = {
     azurerm         = azurerm

@@ -33,20 +33,15 @@ variable "name" {
   type        = string
 }
 
-variable "resource_group_name" {
-  description = "The name of the resource group that will contain the App Services"
-  type        = string
-}
-
 variable "service_name" {
   description = "Public domain name"
   type        = string
 }
 
-variable "storage_account_id" {
-  description = "The id of the Storage Accounts are to enable private link."
-  type        = string
-}
+# variable "storage_account_id" {
+#   description = "The id of the Storage Accounts are to enable private link."
+#   type        = string
+# }
 
 variable "sku_name" {
   description = "Specifies the SKU for this Front Door Profile."
