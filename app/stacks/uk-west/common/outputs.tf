@@ -12,11 +12,6 @@ output "action_group_names" {
   }
 }
 
-output "alert_recipients" {
-  description = "The email recipients for monitoring alerts"
-  value       = var.alert_recipients
-}
-
 output "app_service_plan_id" {
   description = "The id of the app service plan"
   value       = azurerm_service_plan.common_service_plan.id

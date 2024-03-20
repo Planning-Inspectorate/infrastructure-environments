@@ -1,8 +1,3 @@
-variable "alert_recipients" {
-  description = "The email recipients for monitoring alerts"
-  type        = map(list(string))
-}
-
 variable "app_service_plan_sku" {
   default     = "P2v2"
   description = "The SKU of the App Service Plan"
