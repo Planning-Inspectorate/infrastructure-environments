@@ -9,6 +9,7 @@ module "published_documents_front_door" {
   environment = "dev"
   # enable_search_indexing_by_default = var.enable_search_indexing_by_default
   location = var.location
+  name     = "${local.service_name}-${var.environment}"
   sku_name = "Standard_AzureFrontDoor"
   # storage_account_id  = data.azurerm_storage_account.pinsstdocsbodevukw001.id
 
