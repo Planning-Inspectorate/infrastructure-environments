@@ -63,6 +63,14 @@ locals {
         percentage = 100
         users      = []
       }
+    },
+    {
+      name    = "sql-users"
+      enabled = true
+      targeting = {
+        percentage = 100
+        users      = []
+      }
     }
   ]
   allow_testing_overrides                                                     = true

@@ -1,10 +1,16 @@
-variable "alert_recipients" {
-  description = "The email recipients for monitoring alerts"
-  type        = map(list(string))
-}
-
 variable "action_group_ids" {
   description = "The IDs of the Azure Monitor action groups for different alert types"
+  type = object({
+    tech            = string,
+    service_manager = string,
+    iap             = string,
+    its             = string,
+    info_sec        = string
+  })
+}
+
+variable "action_group_names" {
+  description = "The names of the Azure Monitor action groups for different alert types"
   type = object({
     tech            = string,
     service_manager = string,

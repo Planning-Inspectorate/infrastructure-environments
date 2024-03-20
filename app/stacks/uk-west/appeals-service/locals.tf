@@ -34,4 +34,6 @@ locals {
       ServiceName = local.service_name
     }
   )
+
+  tech_emails = [for rec in data.azurerm_monitor_action_group.tech.email_receiver : rec.email_address]
 }

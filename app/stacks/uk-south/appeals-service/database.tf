@@ -153,7 +153,7 @@ resource "azurerm_mssql_server_security_alert_policy" "appeals_sql_server" {
   storage_account_access_key = azurerm_storage_account.appeals_sql_server.primary_access_key
   retention_days             = var.sql_database_configuration["audit_retention_days"]
   email_account_admins       = true
-  email_addresses            = var.alert_recipients["low"]
+  email_addresses            = local.tech_emails
 }
 
 # vulnerabilty assesment
@@ -169,6 +169,6 @@ resource "azurerm_mssql_server_vulnerability_assessment" "appeals_sql_server" {
   recurring_scans {
     enabled                   = var.monitoring_alerts_enabled
     email_subscription_admins = true
-    emails                    = var.alert_recipients["low"]
+    emails                    = local.tech_emails
   }
 }

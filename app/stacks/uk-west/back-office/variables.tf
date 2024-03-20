@@ -16,6 +16,19 @@ variable "action_group_ids_map" {
   type        = map(string)
 }
 
+variable "action_group_names" {
+  description = "The names of the Azure Monitor action groups for different alert types"
+  type = object({
+    bo_appeals_tech                 = string,
+    bo_appeals_service_manager      = string,
+    bo_applications_tech            = string,
+    bo_applications_service_manager = string,
+    iap                             = string,
+    its                             = string,
+    info_sec                        = string
+  })
+}
+
 variable "api_key_vault_authorization_enabled" {
   description = "Whether or not Key Vault is used to access secrets from the app"
   type        = string
@@ -270,11 +283,6 @@ variable "odw_synapse_integration_enabled" {
   default     = false
 }
 
-variable "alert_recipients" {
-  description = "The email recipients for monitoring alerts"
-  type        = map(list(string))
-}
-
 variable "horizon_url" {
   description = "The URL used to connect to Horizon"
   type        = string
@@ -330,4 +338,9 @@ variable "service_bus_config" {
     bo_subscription_ttl          = string
     fo_subscription_ttl          = string
   })
+}
+
+variable "back_office_published_documents_domain" {
+  description = "Domain for published documents"
+  type        = string
 }
