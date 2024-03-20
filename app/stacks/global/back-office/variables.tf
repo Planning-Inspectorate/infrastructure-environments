@@ -24,3 +24,13 @@ variable "location" {
   type        = string
   default     = "uksouth"
 }
+
+variable "published_documents_blob_storage_endpoint" {
+  description = "Published documents blob endpoint"
+  type        = string
+}
+
+variable "back_office_published_documents_domain" {
+  description = "Domain for published documents"
+  type        = string
+}
