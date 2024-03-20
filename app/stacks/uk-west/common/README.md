@@ -48,7 +48,6 @@ This component contains the common infrastructure required by each environment. 
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_alert_recipients"></a> [alert\_recipients](#input\_alert\_recipients) | The email recipients for monitoring alerts | `map(list(string))` | n/a | yes |
 | <a name="input_app_service_plan_sku"></a> [app\_service\_plan\_sku](#input\_app\_service\_plan\_sku) | The SKU of the App Service Plan | `string` | `"P2v2"` | no |
 | <a name="input_app_service_principal_id"></a> [app\_service\_principal\_id](#input\_app\_service\_principal\_id) | The ID of the service principal associated with App Service in the tenant | `string` | n/a | yes |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | The common resource tags for the project | `map(string)` | n/a | yes |
@@ -74,7 +73,6 @@ This component contains the common infrastructure required by each environment. 
 |------|-------------|
 | <a name="output_action_group_ids"></a> [action\_group\_ids](#output\_action\_group\_ids) | The Action Group IDs for the created groups, as k:v map |
 | <a name="output_action_group_names"></a> [action\_group\_names](#output\_action\_group\_names) | The Action Group names for the created groups, as k:v map |
-| <a name="output_alert_recipients"></a> [alert\_recipients](#output\_alert\_recipients) | The email recipients for monitoring alerts |
 | <a name="output_app_service_plan_id"></a> [app\_service\_plan\_id](#output\_app\_service\_plan\_id) | The id of the app service plan |
 | <a name="output_applications_service_vpn_gateway_shared_key"></a> [applications\_service\_vpn\_gateway\_shared\_key](#output\_applications\_service\_vpn\_gateway\_shared\_key) | The applications service virtual network gateway shared key |
 | <a name="output_back_office_clamav_subnet_id"></a> [back\_office\_clamav\_subnet\_id](#output\_back\_office\_clamav\_subnet\_id) | Integration subnet for the clamav container |
