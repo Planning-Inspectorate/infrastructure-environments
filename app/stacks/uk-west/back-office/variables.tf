@@ -339,3 +339,8 @@ variable "service_bus_config" {
     fo_subscription_ttl          = string
   })
 }
+
+variable "back_office_published_documents_domain" {
+  description = "Domain for published documents"
+  type        = string
+}
