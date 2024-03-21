@@ -1,8 +1,13 @@
 locals {
-  allowed_origins_live  = ["https://back-office-${var.environment}.planninginspectorate.gov.uk", "https://back-office-appeals-${var.environment}.planninginspectorate.gov.uk"]
+  allowed_origins_prod  = [var.back_office_public_url_new, var.back_office_appeals_public_url]
+  allowed_origins_live  = [var.back_office_public_url, var.back_office_appeals_public_url]
   allowed_origins_local = ["https://localhost:8080"]
-
-  allowed_origins = var.environment == "dev" ? concat(local.allowed_origins_live, local.allowed_origins_local) : local.allowed_origins_live
+  allowed_origins = {
+    dev     = concat(local.allowed_origins_live, local.allowed_origins_local),
+    test    = local.allowed_origins_live
+    prod    = local.allowed_origins_prod
+    default = local.allowed_origins_live
+  }
 }
 
 resource "azurerm_storage_account" "back_office_documents" {
@@ -30,7 +35,7 @@ resource "azurerm_storage_account" "back_office_documents" {
     cors_rule {
       allowed_headers    = ["*"]
       allowed_methods    = ["GET", "OPTIONS", "PUT"]
-      allowed_origins    = local.allowed_origins
+      allowed_origins    = lookup(local.allowed_origins, var.environment, local.allowed_origins["default"])
       exposed_headers    = ["*"]
       max_age_in_seconds = "600"
     }
