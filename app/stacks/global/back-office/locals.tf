@@ -7,4 +7,10 @@ locals {
       Region      = "Global"
     }
   )
+
+  published_documents = {
+    # strip leading "https://" and trailing "/" to leave just the domain names
+    domain       = replace(replace(var.back_office_published_documents_domain, "https://", ""), "/", "")
+    blob_endpont = replace(replace(var.published_documents_blob_storage_endpoint, "https://", ""), "/", "")
+  }
 }

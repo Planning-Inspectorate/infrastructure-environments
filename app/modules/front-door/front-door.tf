@@ -48,9 +48,10 @@ resource "azurerm_cdn_frontdoor_route" "default" {
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.default.id
   cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.default.id]
 
-  forwarding_protocol = "MatchRequest"
-  patterns_to_match   = ["/*"]
-  supported_protocols = ["Https"]
+  forwarding_protocol    = "MatchRequest"
+  patterns_to_match      = ["/*"]
+  supported_protocols    = ["Http", "Https"]
+  https_redirect_enabled = true
 
   cdn_frontdoor_custom_domain_ids = [azurerm_cdn_frontdoor_custom_domain.default.id]
 }
