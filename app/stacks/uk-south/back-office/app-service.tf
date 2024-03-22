@@ -29,7 +29,7 @@ module "app_services" {
   appeals_database_name                            = var.back_office_appeals_sql_database
   appeals_database_connection_string               = local.appeals_sql_connection_string
   document_storage_api_host                        = var.back_office_document_storage_api_host
-  document_storage_account_endpoint                = ""
+  document_storage_domain                          = ""
   endpoint_subnet_id                               = azurerm_subnet.back_office_ingress.id
   health_check_path                                = var.health_check_path
   integration_subnet_id                            = var.integration_subnet_id

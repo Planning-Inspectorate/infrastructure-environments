@@ -136,8 +136,8 @@ variable "document_storage_api_host" {
   type        = string
 }
 
-variable "document_storage_account_endpoint" {
-  description = "The primary blob endpoint for the storage account used for back office documents"
+variable "document_storage_domain" {
+  description = "The custom domain for the storage account used for back office documents"
   type        = string
 }
 
