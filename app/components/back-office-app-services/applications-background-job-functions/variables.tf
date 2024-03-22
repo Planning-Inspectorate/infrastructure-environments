@@ -125,6 +125,11 @@ variable "back_office_storage_account_host" {
   type        = string
 }
 
+variable "back_office_storage_account_domain" {
+  description = "Back Office Storage Account custom domain"
+  type        = string
+}
+
 variable "back_office_document_upload_container" {
   description = "Back Office Storage Container name for uploads"
   type        = string
