@@ -38,9 +38,10 @@ module "applications_background_job_functions" {
     WAIT_PER_BATCH_SECONDS  = 4
 
     # Publish Documents
-    BLOB_STORAGE_ACCOUNT_HOST = var.back_office_storage_account_host
-    BLOB_SOURCE_CONTAINER     = var.back_office_document_upload_container
-    BLOB_PUBLISH_CONTAINER    = var.back_office_file_publish_container
+    BLOB_STORAGE_ACCOUNT_HOST   = var.back_office_storage_account_host
+    BLOB_STORAGE_ACCOUNT_DOMAIN = var.back_office_storage_account_domain
+    BLOB_SOURCE_CONTAINER       = var.back_office_document_upload_container
+    BLOB_PUBLISH_CONTAINER      = var.back_office_file_publish_container
   }
 
   tags = var.tags
