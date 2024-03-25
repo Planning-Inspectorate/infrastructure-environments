@@ -29,6 +29,7 @@ module "applications_command_handler_functions" {
     # Handle Submissions
     SERVICE_BUS_RESULT_TOPIC        = var.deadline_submissions_result_topic_name
     BLOB_STORAGE_URL                = var.back_office_storage_account_host
+    BLOB_STORAGE_ACCOUNT_DOMAIN     = var.back_office_storage_account_domain
     SUBMISSIONS_BLOB_CONTAINER_NAME = var.back_office_submissions_container
     UPLOADS_BLOB_CONTAINER_NAME     = var.back_office_document_upload_container
 
