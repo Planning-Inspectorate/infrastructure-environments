@@ -69,6 +69,7 @@ locals {
         APPLICATIONINSIGHTS_CONNECTION_STRING     = local.secret_refs["appeals-app-insights-connection-string"]
         APPEALS_SERVICE_API_TIMEOUT               = var.api_timeout
         APPEALS_SERVICE_API_URL                   = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
+        AUTH_BASE_URL                             = "https://pins-app-${var.service_name}-auth-server-${var.resource_suffix}.azurewebsites.net"
         CLAMAV_HOST                               = var.clamav_host
         CLAMAV_PORT                               = "3310"
         CLIENT_ID                                 = local.secret_refs["appeals-web-comment-client-id"]
@@ -164,6 +165,7 @@ locals {
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING                                       = local.secret_refs["appeals-app-insights-connection-string"]
         APP_APPEALS_BASE_URL                                                        = "https://${var.appeals_service_public_url}"
+        AUTH_BASE_URL                                                               = "https://pins-app-${var.service_name}-auth-server-${var.resource_suffix}.azurewebsites.net"
         BACK_OFFICE_APPELLANT_SUBMISSION_TOPIC                                      = var.sb_topic_names.appeals.commands.appellant_submission
         BACK_OFFICE_LPA_RESPONSE_SUBMISSION_TOPIC                                   = var.sb_topic_names.appeals.commands.lpa_response_submission
         BLOB_STORAGE_CONNECTION_STRING                                              = local.secret_refs["appeals-documents-primary-blob-connection-string"]
@@ -222,6 +224,7 @@ locals {
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING     = local.secret_refs["appeals-app-insights-connection-string"]
+        AUTH_BASE_URL                             = "https://pins-app-${var.service_name}-auth-server-${var.resource_suffix}.azurewebsites.net"
         BLOB_STORAGE_CONNECTION_STRING            = local.secret_refs["appeals-documents-primary-blob-connection-string"]
         BO_STORAGE_CONTAINER_HOST                 = var.back_office_document_storage_api_host
         BO_STORAGE_CONTAINER_NAME                 = var.bo_appeals_document_container_name
@@ -237,6 +240,7 @@ locals {
         PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING = local.secret_refs["appeals-app-config-connection-string"]
         SERVER_PORT                               = "4000",
         SERVER_SHOW_ERRORS                        = true
+        SQL_CONNECTION_STRING                     = local.secret_refs["appeals-sql-server-connection-string-app"]
         STORAGE_CONTAINER_NAME                    = var.appeal_documents_storage_container_name
         STORAGE_UPLOAD_MAX_ATTEMPTS               = "3"
         STORAGE_UPLOAD_QUERY_LIMIT                = "5"
@@ -254,6 +258,7 @@ locals {
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING   = local.secret_refs["appeals-app-insights-connection-string"]
+        AUTH_BASE_URL                           = "https://pins-app-${var.service_name}-auth-server-${var.resource_suffix}.azurewebsites.net"
         DOCS_API_PATH                           = "/opt/app/api"
         GOTENBERG_URL                           = "http://gotenberg:4000"
         LOGGER_LEVEL                            = var.logger_level
