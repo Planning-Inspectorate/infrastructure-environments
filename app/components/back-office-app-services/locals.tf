@@ -103,6 +103,7 @@ locals {
         NODE_ENV                                   = var.node_environment
         REDIS_CONNECTION_STRING                    = local.existing_secret_refs[var.back_office_appeals_redis_connection_string_secret_name]
         SESSION_SECRET                             = local.secret_refs["session-secret"] # TODO: Let's create a separate one for Appeals
+        HORIZON_APPEAL_BASE_URL                    = var.horizon_url
       }
     }
 
