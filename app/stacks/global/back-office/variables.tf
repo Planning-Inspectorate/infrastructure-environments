@@ -1,13 +1,13 @@
-variable "appeals_back_office_service_name" {
-  description = "The service name used for appeals back office"
-  type        = string
-  default     = "appeals-back-office"
-}
+# variable "appeals_back_office_service_name" {
+#   description = "The service name used for appeals back office"
+#   type        = string
+#   default     = "appeals-back-office"
+# }
 
-variable "back_office_appeals_public_url" {
-  description = "The public URL for the Back Office Appeals frontend web app"
-  type        = string
-}
+# variable "back_office_appeals_public_url" {
+#   description = "The public URL for the Back Office Appeals frontend web app"
+#   type        = string
+# }
 
 variable "common_tags" {
   description = "The common resource tags for the project"
@@ -46,7 +46,7 @@ variable "back_office_published_documents_domain" {
   type        = string
 }
 
-variable "back_office_appeals_primary_app_service_url" {
-  description = "The primary App Service URL for the Back Office Appeals"
-  type        = string
-}
+# variable "back_office_appeals_primary_app_service_url" {
+#   description = "The primary App Service URL for the Back Office Appeals"
+#   type        = string
+# }
