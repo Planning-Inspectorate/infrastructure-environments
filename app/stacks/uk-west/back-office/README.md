@@ -167,9 +167,9 @@ This component contains the infrastructure required for the back office service.
 | <a name="input_feature_document_scanning_enabled"></a> [feature\_document\_scanning\_enabled](#input\_feature\_document\_scanning\_enabled) | Whether or not Document Scanning is enabled | `bool` | n/a | yes |
 | <a name="input_feature_service_bus_enabled"></a> [feature\_service\_bus\_enabled](#input\_feature\_service\_bus\_enabled) | Whether or not Service Bus events are enabled | `string` | n/a | yes |
 | <a name="input_health_check_path"></a> [health\_check\_path](#input\_health\_check\_path) | The path of the service's health check endpoint | `string` | `"/health"` | no |
+| <a name="input_horizon_api_url"></a> [horizon\_api\_url](#input\_horizon\_api\_url) | The URL used to connect to Horizon web services | `string` | n/a | yes |
 | <a name="input_horizon_mock_integration"></a> [horizon\_mock\_integration](#input\_horizon\_mock\_integration) | If true, integration with Horizon is simulated | `bool` | n/a | yes |
-| <a name="input_horizon_url_base_path"></a> [horizon\_url\_base\_path](#input\_horizon\_url\_base\_path) | The URL base path to create deep links to Horizon cases | `string` | n/a | yes |
-| <a name="input_horizon_url_ws_root"></a> [horizon\_url\_ws\_root](#input\_horizon\_url\_ws\_root) | The URL used to connect to Horizon web services | `string` | n/a | yes |
+| <a name="input_horizon_web_url"></a> [horizon\_web\_url](#input\_horizon\_web\_url) | The URL base path to create deep links to Horizon cases | `string` | n/a | yes |
 | <a name="input_instance"></a> [instance](#input\_instance) | The environment instance for use if multiple environments are deployed to a subscription | `string` | `"001"` | no |
 | <a name="input_integration_subnet_id"></a> [integration\_subnet\_id](#input\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic | `string` | n/a | yes |
 | <a name="input_key_vault_id"></a> [key\_vault\_id](#input\_key\_vault\_id) | The ID of the key vault so the App Service can pull secret values | `string` | n/a | yes |

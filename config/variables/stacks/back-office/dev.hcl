@@ -1,7 +1,7 @@
 locals {
   node_environment                    = "production"
-  horizon_url_base_path               = "" # Mocking Horizon on dev
-  horizon_url_ws_root                 = "http://10.0.7.4:8000"
+  horizon_web_url                     = "" # Mocking Horizon on dev
+  horizon_api_url                     = "http://10.0.7.4:8000"
   horizon_mock_integration            = true
   api_key_vault_authorization_enabled = "true"
   # Azure AD configuration
