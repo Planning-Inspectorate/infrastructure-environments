@@ -355,12 +355,12 @@ variable "horizon_mock_integration" {
   type        = bool
 }
 
-variable "horizon_url_ws_root" {
+variable "horizon_api_url" {
   description = "The URL used to connect to Horizon web services"
   type        = string
 }
 
-variable "horizon_url_base_path" {
+variable "horizon_web_url" {
   description = "The URL base path to create deep links to Horizon cases"
   type        = string
 }

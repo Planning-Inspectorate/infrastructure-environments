@@ -32,8 +32,8 @@ module "app_services" {
   document_storage_account_name                                                       = azurerm_storage_account.back_office_documents.name
   endpoint_subnet_id                                                                  = azurerm_subnet.back_office_ingress.id
   health_check_path                                                                   = var.health_check_path
-  horizon_url_base_path                                                               = var.horizon_url_base_path
-  horizon_url_ws_root                                                                 = var.horizon_url_ws_root
+  horizon_web_url                                                                     = var.horizon_web_url
+  horizon_api_url                                                                     = var.horizon_api_url
   horizon_mock_integration                                                            = var.horizon_mock_integration
   key_vault_id                                                                        = var.key_vault_id
   key_vault_uri                                                                       = var.key_vault_uri
