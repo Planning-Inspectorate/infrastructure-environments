@@ -2,7 +2,7 @@ locals {
   appeals_feature_flags = [
     {
       name    = "appeal-form-v2"
-      enabled = true
+      enabled = false
       targeting = {
         percentage = 100
         users      = ["E69999999"]
