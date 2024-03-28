@@ -47,6 +47,7 @@ module "app_services" {
   service_name                                     = local.service_name
   feature_service_bus_enabled                      = var.feature_service_bus_enabled
   feature_appeal_broadcasts_enabled                = var.feature_appeal_broadcasts_enabled
+  horizon_url_base_path                            = var.horizon_url_base_path
   horizon_url                                      = var.horizon_url
   mock_horizon                                     = var.mock_horizon
   # Document scanning is disabled for the secondary region because the effort to implement it probably isn't worth it compared to just having a degraded service for the duration of an outage

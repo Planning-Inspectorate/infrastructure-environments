@@ -1,5 +1,6 @@
 locals {
   node_environment                    = "production"
+  horizon_url_base_path               = "https://horizonweb.planninginspectorate.gov.uk/otcs/llisapi.dll?func=ll&objId="
   horizon_url                         = "http://10.224.161.68:8000"
   mock_horizon                        = false
   api_key_vault_authorization_enabled = "true"
