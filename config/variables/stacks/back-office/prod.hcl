@@ -45,5 +45,6 @@ locals {
   # as applications is already dependent on back office
   applications_front_office_web_url      = "https://national-infrastructure-consenting.planninginspectorate.gov.uk"
   odw_synapse_integration_enabled        = true
+  back_office_appeals_public_url         = "back-office-appeals.planninginspectorate.gov.uk"
   back_office_published_documents_domain = "https://nsip-documents.planninginspectorate.gov.uk"
 }
