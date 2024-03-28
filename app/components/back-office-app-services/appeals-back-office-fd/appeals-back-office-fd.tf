@@ -1,5 +1,5 @@
 module "appeals_back_office" {
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/azure-front-door?ref=1.18"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/azure-front-door?ref=1.20"
   #checkov:skip=CKV_TF_1: Use of commit hash are not required for our Terraform modules
 
   domain_name       = var.domain_name
