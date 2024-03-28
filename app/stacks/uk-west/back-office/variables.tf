@@ -283,19 +283,19 @@ variable "odw_synapse_integration_enabled" {
   default     = false
 }
 
-variable "horizon_url_base_path" {
-  description = "The base path to create Horizon deep links"
-  type        = string
-}
-
-variable "horizon_url" {
-  description = "The URL used to connect to Horizon"
-  type        = string
-}
-
-variable "mock_horizon" {
-  description = "Whether or not to mock Horizon"
+variable "horizon_mock_integration" {
+  description = "If true, integration with Horizon is simulated"
   type        = bool
+}
+
+variable "horizon_url_ws_root" {
+  description = "The URL used to connect to Horizon web services"
+  type        = string
+}
+
+variable "horizon_url_base_path" {
+  description = "The URL base path to create deep links to Horizon cases"
+  type        = string
 }
 
 variable "sb_topic_names" {
