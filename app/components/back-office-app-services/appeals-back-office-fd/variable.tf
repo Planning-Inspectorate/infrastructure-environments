@@ -65,8 +65,6 @@ variable "route" {
     custom_resource_name = optional(string)
     enabled              = optional(bool, true)
 
-    endpoint_name = string
-
     forwarding_protocol = optional(string, "MatchRequest")
     patterns_to_match   = optional(list(string), ["/*"])
     supported_protocols = optional(list(string), ["Https"])
