@@ -283,6 +283,11 @@ variable "odw_synapse_integration_enabled" {
   default     = false
 }
 
+variable "horizon_url_base_path" {
+  description = "The base path to create Horizon deep links"
+  type        = string
+}
+
 variable "horizon_url" {
   description = "The URL used to connect to Horizon"
   type        = string
