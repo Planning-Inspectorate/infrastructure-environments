@@ -33,8 +33,8 @@ module "app_services" {
   endpoint_subnet_id                                                                  = azurerm_subnet.back_office_ingress.id
   health_check_path                                                                   = var.health_check_path
   horizon_url_base_path                                                               = var.horizon_url_base_path
-  horizon_url                                                                         = var.horizon_url
-  mock_horizon                                                                        = var.mock_horizon
+  horizon_url_ws_root                                                                 = var.horizon_url_ws_root
+  horizon_mock_integration                                                            = var.horizon_mock_integration
   key_vault_id                                                                        = var.key_vault_id
   key_vault_uri                                                                       = var.key_vault_uri
   location                                                                            = azurerm_resource_group.back_office_stack.location
