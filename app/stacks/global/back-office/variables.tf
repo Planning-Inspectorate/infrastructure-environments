@@ -1,3 +1,13 @@
+variable "back_office_appeals_public_url" {
+  description = "The public URL for the Back Office Appeals frontend web app"
+  type        = string
+}
+
+variable "back_office_primary_app_service_url" {
+  description = "The primary App Service URL for the Back Office"
+  type        = string
+}
+
 variable "common_tags" {
   description = "The common resource tags for the project"
   type        = map(string)
