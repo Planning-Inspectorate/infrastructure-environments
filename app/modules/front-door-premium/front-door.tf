@@ -1,6 +1,6 @@
 resource "azurerm_cdn_frontdoor_profile" "default" {
   name                = var.name
-  resource_group_name = azurerm_resource_group.frontdoor.name
+  resource_group_name = data.azurerm_resource_group.frontdoor.name
   sku_name            = var.sku_name
 
   tags = local.tags
