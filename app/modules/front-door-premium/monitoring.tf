@@ -1,7 +1,7 @@
 resource "azurerm_log_analytics_workspace" "frontdoor" {
   name                = var.name
-  resource_group_name = azurerm_resource_group.frontdoor.name
-  location            = azurerm_resource_group.frontdoor.location
+  resource_group_name = data.azurerm_resource_group.frontdoor.name
+  location            = data.azurerm_resource_group.frontdoor.location
   sku                 = "PerGB2018"
   retention_in_days   = 30
 
