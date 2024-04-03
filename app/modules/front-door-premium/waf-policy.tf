@@ -2,7 +2,7 @@ resource "azurerm_cdn_frontdoor_firewall_policy" "default" {
   count = var.sku_name == "Premium_AzureFrontDoor" ? 1 : 0
 
   name                              = replace("back-office-appeals${var.environment}", "-", "")
-  resource_group_name               = azurerm_resource_group.frontdoor.name
+  resource_group_name               = data.azurerm_resource_group.frontdoor.name
   sku_name                          = var.sku_name
   enabled                           = true
   mode                              = "Prevention"
