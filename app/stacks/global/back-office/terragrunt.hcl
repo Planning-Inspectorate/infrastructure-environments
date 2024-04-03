@@ -29,5 +29,6 @@ dependency "back_office_ukw" {
 }
 
 inputs = {
-  published_documents_blob_storage_endpoint= dependency.back_office_ukw.outputs.back_office_document_storage_api_host
+  back_office_primary_app_service_url       = dependency.back_office_ukw.outputs.web_frontend_url
+  published_documents_blob_storage_endpoint = dependency.back_office_ukw.outputs.back_office_document_storage_api_host
 }
