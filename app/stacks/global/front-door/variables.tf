@@ -48,11 +48,11 @@ variable "back_office_ssl_certificate_name" {
   default     = "unused"
 }
 
-variable "back_office_appeals_ssl_certificate_name" {
-  description = "The SSL certificate name in the environment Key Vault for the back office appeals service"
-  type        = string
-  default     = "unused"
-}
+# variable "back_office_appeals_ssl_certificate_name" {
+#   description = "The SSL certificate name in the environment Key Vault for the back office appeals service"
+#   type        = string
+#   default     = "unused"
+# }
 
 variable "back_office_public_url" {
   description = "The public URL for the Back Office frontend web app"
@@ -65,10 +65,10 @@ variable "back_office_public_url_new" {
   default     = null
 }
 
-variable "back_office_appeals_public_url" {
-  description = "The public URL for the Back Office Appeals frontend web app"
-  type        = string
-}
+# variable "back_office_appeals_public_url" {
+#   description = "The public URL for the Back Office Appeals frontend web app"
+#   type        = string
+# }
 
 variable "back_office_primary_app_service_url" {
   description = "The primary App Service URL for the Back Office"
@@ -81,16 +81,16 @@ variable "back_office_secondary_app_service_url" {
   default     = ""
 }
 
-variable "back_office_appeals_primary_app_service_url" {
-  description = "The primary App Service URL for the Back Office Appeals"
-  type        = string
-}
+# variable "back_office_appeals_primary_app_service_url" {
+#   description = "The primary App Service URL for the Back Office Appeals"
+#   type        = string
+# }
 
-variable "back_office_appeals_secondary_app_service_url" {
-  description = "The secondary App Service URL for the Back Office Appeals"
-  type        = string
-  default     = ""
-}
+# variable "back_office_appeals_secondary_app_service_url" {
+#   description = "The secondary App Service URL for the Back Office Appeals"
+#   type        = string
+#   default     = ""
+# }
 
 variable "comment_planning_appeal_public_url" {
   description = "The public URL for the Comment Planning Appeal frontend web app"
