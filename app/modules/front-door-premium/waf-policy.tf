@@ -1,7 +1,7 @@
 resource "azurerm_cdn_frontdoor_firewall_policy" "default" {
   count = var.sku_name == "Premium_AzureFrontDoor" ? 1 : 0
 
-  name                              = var.name
+  name                              = replace("back-office-appeals${var.environment}", "-", "")
   resource_group_name               = azurerm_resource_group.frontdoor.name
   sku_name                          = var.sku_name
   enabled                           = true
@@ -14,7 +14,7 @@ resource "azurerm_cdn_frontdoor_firewall_policy" "default" {
 resource "azurerm_cdn_frontdoor_security_policy" "default" {
   count = var.sku_name == "Premium_AzureFrontDoor" ? 1 : 0
 
-  name                     = var.name
+  name                     = replace("back-office-appeals-${var.environment}", "-", "")
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.default.id
 
   security_policies {
