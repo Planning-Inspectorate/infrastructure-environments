@@ -81,16 +81,16 @@ variable "back_office_secondary_app_service_url" {
   default     = ""
 }
 
-# variable "back_office_appeals_primary_app_service_url" {
-#   description = "The primary App Service URL for the Back Office Appeals"
-#   type        = string
-# }
+variable "back_office_appeals_primary_app_service_url" {
+  description = "The primary App Service URL for the Back Office Appeals"
+  type        = string
+}
 
-# variable "back_office_appeals_secondary_app_service_url" {
-#   description = "The secondary App Service URL for the Back Office Appeals"
-#   type        = string
-#   default     = ""
-# }
+variable "back_office_appeals_secondary_app_service_url" {
+  description = "The secondary App Service URL for the Back Office Appeals"
+  type        = string
+  default     = ""
+}
 
 variable "comment_planning_appeal_public_url" {
   description = "The public URL for the Comment Planning Appeal frontend web app"
