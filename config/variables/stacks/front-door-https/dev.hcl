@@ -4,7 +4,7 @@ locals {
     ApplicationsService                     = true
     appeal-planning-decision-service-gov-uk = true
     BackOffice                              = true
-    BackOfficeAppeals                       = true
+    # BackOfficeAppeals                       = true
     CommentPlanningAppeal                   = true
   }
 }
