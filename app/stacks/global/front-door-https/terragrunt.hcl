@@ -37,12 +37,12 @@ dependency "front_door" {
         patterns_to_match    = ["/*"]
         ssl_certificate_name = "mock_certificate_name"
       }
-      back_office_appeals_frontend = {
-        frontend_name        = "BackOfficeAppeals"
-        frontend_endpoint    = "mock_url"
-        patterns_to_match    = ["/*"]
-        ssl_certificate_name = "mock_certificate_name"
-      }
+      # back_office_appeals_frontend = {
+      #   frontend_name        = "BackOfficeAppeals"
+      #   frontend_endpoint    = "mock_url"
+      #   patterns_to_match    = ["/*"]
+      #   ssl_certificate_name = "mock_certificate_name"
+      # }
       comment_planning_appeal_frontend = {
         frontend_name        = "CommentPlanningAppeal"
         frontend_endpoint    = "mock_url"
