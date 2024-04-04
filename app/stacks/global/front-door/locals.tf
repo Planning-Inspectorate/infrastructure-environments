@@ -133,10 +133,10 @@ locals {
     }, {
     name            = "AppealsService"
     search_indexing = false
-    }, {
-    name            = "BackOfficeAppeals"
-    search_indexing = false
-    }, {
+    # }, {
+    # name            = "BackOfficeAppeals"
+    # search_indexing = false
+    # }, {
     name            = "CommentPlanningAppeal"
     search_indexing = false
   }]
