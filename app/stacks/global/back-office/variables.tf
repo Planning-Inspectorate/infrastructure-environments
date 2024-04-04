@@ -3,8 +3,8 @@ variable "back_office_appeals_public_url" {
   type        = string
 }
 
-variable "back_office_primary_app_service_url" {
-  description = "The primary App Service URL for the Back Office"
+variable "back_office_appeals_primary_app_service_url" {
+  description = "The primary App Service URL for the Back Office Appeals"
   type        = string
 }
 
