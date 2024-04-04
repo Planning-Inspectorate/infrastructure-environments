@@ -48,11 +48,11 @@ variable "back_office_ssl_certificate_name" {
   default     = "unused"
 }
 
-# variable "back_office_appeals_ssl_certificate_name" {
-#   description = "The SSL certificate name in the environment Key Vault for the back office appeals service"
-#   type        = string
-#   default     = "unused"
-# }
+variable "back_office_appeals_ssl_certificate_name" {
+  description = "The SSL certificate name in the environment Key Vault for the back office appeals service"
+  type        = string
+  default     = "unused"
+}
 
 variable "back_office_public_url" {
   description = "The public URL for the Back Office frontend web app"
@@ -65,10 +65,10 @@ variable "back_office_public_url_new" {
   default     = null
 }
 
-# variable "back_office_appeals_public_url" {
-#   description = "The public URL for the Back Office Appeals frontend web app"
-#   type        = string
-# }
+variable "back_office_appeals_public_url" {
+  description = "The public URL for the Back Office Appeals frontend web app"
+  type        = string
+}
 
 variable "back_office_primary_app_service_url" {
   description = "The primary App Service URL for the Back Office"

@@ -267,20 +267,20 @@ resource "azurerm_frontdoor" "common" {
     }
   }
 
-  # routing_rule {
-  #   enabled            = true
-  #   name               = local.back_office_appeals_frontend.name
-  #   accepted_protocols = ["Http", "Https"]
-  #   patterns_to_match  = local.back_office_appeals_frontend.patterns_to_match
-  #   frontend_endpoints = [local.back_office_appeals_frontend.frontend_name]
+  routing_rule {
+    enabled            = true
+    name               = local.back_office_appeals_frontend.name
+    accepted_protocols = ["Http", "Https"]
+    patterns_to_match  = local.back_office_appeals_frontend.patterns_to_match
+    frontend_endpoints = [local.back_office_appeals_frontend.frontend_name]
 
-  #   forwarding_configuration {
-  #     backend_pool_name      = local.back_office_appeals_frontend.name
-  #     cache_enabled          = false
-  #     cache_query_parameters = []
-  #     forwarding_protocol    = "MatchRequest"
-  #   }
-  # }
+    forwarding_configuration {
+      backend_pool_name      = local.back_office_appeals_frontend.name
+      cache_enabled          = false
+      cache_query_parameters = []
+      forwarding_protocol    = "MatchRequest"
+    }
+  }
 
   routing_rule {
     enabled            = true

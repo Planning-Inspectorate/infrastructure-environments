@@ -32,15 +32,16 @@ locals {
     priority = 0
   }
 
-  # back_office_appeals_primary_mapping = {
-  #   url      = var.back_office_appeals_primary_app_service_url,
-  #   priority = 1
-  # }
+  back_office_appeals_primary_mapping = {
+    url      = var.back_office_appeals_primary_app_service_url,
+    priority = 1
+  }
 
-  # back_office_appeals_secondary_mapping = {
-  #   url      = var.back_office_appeals_secondary_app_service_url,
-  #   priority = 0
-  # }
+  back_office_appeals_secondary_mapping = {
+    url      = var.back_office_appeals_secondary_app_service_url,
+    priority = 0
+  }
+
   comment_planning_appeal_primary_mapping = {
     url      = var.comment_planning_appeal_primary_app_service_url,
     priority = 1
@@ -96,19 +97,19 @@ locals {
     ssl_certificate_name      = var.appeals_service_ssl_certificate_name
   }
 
-  # back_office_appeals_frontend = {
-  #   frontend_endpoint = var.back_office_appeals_public_url
-  #   app_service_urls = local.back_office_appeals_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
-  #     local.back_office_appeals_primary_mapping,
-  #     local.back_office_appeals_secondary_mapping] : [
-  #     local.back_office_appeals_primary_mapping
-  #   ]
-  #   infer_backend_host_header = false
-  #   name                      = "BackOfficeAppeals"
-  #   frontend_name             = "BackOfficeAppeals"
-  #   patterns_to_match         = ["/*"]
-  #   ssl_certificate_name      = var.back_office_appeals_ssl_certificate_name
-  # }
+  back_office_appeals_frontend = {
+    frontend_endpoint = var.back_office_appeals_public_url
+    app_service_urls = local.back_office_appeals_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
+      local.back_office_appeals_primary_mapping,
+      local.back_office_appeals_secondary_mapping] : [
+      local.back_office_appeals_primary_mapping
+    ]
+    infer_backend_host_header = false
+    name                      = "BackOfficeAppeals"
+    frontend_name             = "BackOfficeAppeals"
+    patterns_to_match         = ["/*"]
+    ssl_certificate_name      = var.back_office_appeals_ssl_certificate_name
+  }
 
   comment_planning_appeal_frontend = {
     frontend_endpoint = var.comment_planning_appeal_public_url
