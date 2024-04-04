@@ -136,7 +136,7 @@ locals {
     }, {
     name            = "BackOfficeAppeals"
     search_indexing = false
-    },{
+    }, {
     name            = "CommentPlanningAppeal"
     search_indexing = false
   }]
