@@ -7,4 +7,13 @@ resource "azurerm_eventgrid_event_subscription" "malware_scanning_subscription" 
     max_events_per_batch              = 1
     preferred_batch_size_in_kilobytes = 64
   }
+  advanced_filter {
+    string_begins_with {
+      key = "data.blobUri"
+      values = [
+        "${var.back_office_storage_account_host}${var.back_office_document_upload_container}/appeal/",
+        "${var.back_office_storage_account_host}${var.back_office_document_upload_container}/application/",
+      ]
+    }
+  }
 }

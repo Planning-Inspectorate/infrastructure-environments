@@ -23,6 +23,7 @@ module "applications_command_handler_functions" {
   app_settings = {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.service_bus_namespace_name}.servicebus.windows.net"
     SERVICE_BUS_HOSTNAME                          = "${var.service_bus_namespace_name}.servicebus.windows.net"
+    SERVICE_BUS_TOPIC                             = var.servicebus_topic_deadline_submission_topic_id
     API_HOST                                      = var.back_office_api_host
     KEY_VAULT_URI                                 = var.key_vault_uri
 
