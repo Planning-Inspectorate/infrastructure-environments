@@ -75,6 +75,7 @@ module "app_services" {
   servicebus_topic_nsip_project_update_id           = ""
   servicebus_topic_register_nsip_subscription_id    = ""
   servicebus_topic_deadline_submission_topic_id     = ""
+  servicebus_topic_deadline_submission_topic_name   = ""
   servicebus_topic_deadline_submission_result_id    = ""
   servicebus_topic_register_representation_id       = ""
   service_bus_appeals_bo_document_to_move_topic_id  = ""

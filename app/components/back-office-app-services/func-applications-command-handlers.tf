@@ -15,6 +15,7 @@ module "applications_command_handler_functions" {
   key_vault_id                                               = var.key_vault_id
   key_vault_uri                                              = var.key_vault_uri
   servicebus_topic_deadline_submission_topic_id              = var.servicebus_topic_deadline_submission_topic_id
+  servicebus_topic_deadline_submission_topic_name            = var.servicebus_topic_deadline_submission_topic_name
   servicebus_topic_register_nsip_subscription_id             = var.servicebus_topic_register_nsip_subscription_id
   servicebus_topic_register_representation_id                = var.servicebus_topic_register_representation_id
   servicebus_topic_deadline_submission_result_id             = var.servicebus_topic_deadline_submission_result_id
