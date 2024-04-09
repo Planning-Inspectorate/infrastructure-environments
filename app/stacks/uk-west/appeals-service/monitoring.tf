@@ -41,7 +41,7 @@ resource "azurerm_monitor_scheduled_query_rules_alert_v2" "web_app_insights" {
         or ResultDescription has "scheduled submission to horizon has failed"
       QUERY
     time_aggregation_method = "Count"
-    threshold               = 3
+    threshold               = 2
     operator                = "GreaterThan"
   }
 
