@@ -65,6 +65,7 @@ module "app_services" {
   servicebus_topic_nsip_documents_id                                                  = azurerm_servicebus_topic.nsip_documents.id
   servicebus_topic_register_nsip_subscription_id                                      = azurerm_servicebus_topic.register_nsip_subscription.id
   servicebus_topic_deadline_submission_topic_id                                       = azurerm_servicebus_topic.deadline_submission_topic.id
+  servicebus_topic_deadline_submission_topic_name                                     = azurerm_servicebus_topic.deadline_submission_topic.name
   servicebus_topic_deadline_submission_result_id                                      = azurerm_servicebus_topic.deadline_submission_result.id
   servicebus_topic_register_representation_id                                         = azurerm_servicebus_topic.register_representation.id
   deadline_submissions_result_topic_name                                              = azurerm_servicebus_topic.deadline_submission_result.name
