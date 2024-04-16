@@ -1,4 +1,5 @@
 locals {
+  back_office_feature_flags           = []
   node_environment                    = "production"
   horizon_web_url                     = "" # Mocking Horizon on dev
   horizon_api_url                     = "http://10.0.7.4:8000"

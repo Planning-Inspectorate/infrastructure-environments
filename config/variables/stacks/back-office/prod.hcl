@@ -1,4 +1,5 @@
 locals {
+  back_office_feature_flags           = []
   node_environment                    = "production"
   horizon_web_url                     = "https://horizonweb.planninginspectorate.gov.uk/otcs/llisapi.dll?func=ll&objId="
   horizon_api_url                     = "http://10.224.161.68:8000"
