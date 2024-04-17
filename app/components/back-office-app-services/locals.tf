@@ -104,6 +104,7 @@ locals {
         NODE_ENV                                   = var.node_environment
         REDIS_CONNECTION_STRING                    = local.existing_secret_refs[var.back_office_appeals_redis_connection_string_secret_name]
         SESSION_SECRET                             = local.secret_refs["session-secret"] # TODO: Let's create a separate one for Appeals
+        HORIZON_APPEAL_BASE_URL                    = var.horizon_web_url
       }
     }
 
@@ -123,8 +124,8 @@ locals {
         ApplicationInsightsAgent_EXTENSION_VERSION = "~3"
         DATABASE_URL                               = var.appeals_database_connection_string
         DATABASE_NAME                              = var.appeals_database_name
-        SRV_HORIZON_URL                            = var.horizon_url
-        MOCK_HORIZON                               = var.mock_horizon
+        SRV_HORIZON_URL                            = var.horizon_api_url
+        MOCK_HORIZON                               = var.horizon_mock_integration
         NODE_ENV                                   = var.node_environment
         SERVICE_BUS_HOSTNAME                       = "${var.service_bus_namespace_name}.servicebus.windows.net"
         SERVICE_BUS_ENABLED                        = var.feature_appeal_broadcasts_enabled

@@ -18,7 +18,8 @@ module "applications_background_job_functions" {
   servicebus_topic_nsip_documents_id                                                  = var.servicebus_topic_nsip_documents_id
   app_service_plan_id                                                                 = azurerm_service_plan.back_office_functions_plan.id
   service_bus_namespace_name                                                          = var.service_bus_namespace_name
-  back_office_storage_account_host                                                    = var.document_storage_api_host
+  back_office_storage_account_host                                                    = var.document_storage_account_endpoint
+  back_office_storage_account_domain                                                  = var.document_storage_api_host
   key_vault_uri                                                                       = var.key_vault_uri
   key_vault_id                                                                        = var.key_vault_id
   servicebus_topic_nsip_project_update_id                                             = var.servicebus_topic_nsip_project_update_id

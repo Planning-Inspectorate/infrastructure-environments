@@ -121,7 +121,12 @@ variable "document_storage_back_office_published_documents_container_resource_ma
 }
 
 variable "back_office_storage_account_host" {
-  description = "Back Office Storage Account Hostname (e.g. https://pinsstdocsbodevukw001.blob.core.windows.net)"
+  description = "Back Office Storage Account Hostname (e.g. https://pinsstdocsbodevukw001.blob.core.windows.net/)"
+  type        = string
+}
+
+variable "back_office_storage_account_domain" {
+  description = "Back Office Storage Account custom domain"
   type        = string
 }
 

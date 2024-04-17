@@ -23,12 +23,14 @@ module "applications_command_handler_functions" {
   app_settings = {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.service_bus_namespace_name}.servicebus.windows.net"
     SERVICE_BUS_HOSTNAME                          = "${var.service_bus_namespace_name}.servicebus.windows.net"
+    SERVICE_BUS_TOPIC                             = var.servicebus_topic_deadline_submission_topic_name
     API_HOST                                      = var.back_office_api_host
     KEY_VAULT_URI                                 = var.key_vault_uri
 
     # Handle Submissions
     SERVICE_BUS_RESULT_TOPIC        = var.deadline_submissions_result_topic_name
     BLOB_STORAGE_URL                = var.back_office_storage_account_host
+    BLOB_STORAGE_ACCOUNT_DOMAIN     = var.back_office_storage_account_domain
     SUBMISSIONS_BLOB_CONTAINER_NAME = var.back_office_submissions_container
     UPLOADS_BLOB_CONTAINER_NAME     = var.back_office_document_upload_container
 

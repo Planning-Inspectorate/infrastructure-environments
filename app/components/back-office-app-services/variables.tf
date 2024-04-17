@@ -136,6 +136,11 @@ variable "document_storage_api_host" {
   type        = string
 }
 
+variable "document_storage_account_endpoint" {
+  description = "The primary blob endpoint for the storage account used for back office documents"
+  type        = string
+}
+
 variable "endpoint_subnet_id" {
   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
   type        = string
@@ -267,6 +272,11 @@ variable "servicebus_topic_register_nsip_subscription_id" {
 
 variable "servicebus_topic_deadline_submission_topic_id" {
   description = "Service Bus Topic deadline-submission-topic id"
+  type        = string
+}
+
+variable "servicebus_topic_deadline_submission_topic_name" {
+  description = "Service Bus Topic deadline-submission-topic name"
   type        = string
 }
 
@@ -413,14 +423,19 @@ variable "odw_data_lake_storage_account_id" {
   default     = ""
 }
 
-variable "horizon_url" {
-  description = "The URL used to connect to Horizon"
+variable "horizon_mock_integration" {
+  description = "If true, integration with Horizon is simulated"
+  type        = bool
+}
+
+variable "horizon_api_url" {
+  description = "The URL used to connect to Horizon web services"
   type        = string
 }
 
-variable "mock_horizon" {
-  description = "Whether or not to mock Horizon"
-  type        = bool
+variable "horizon_web_url" {
+  description = "The URL base path to create deep links to Horizon cases"
+  type        = string
 }
 
 variable "service_bus_config" {

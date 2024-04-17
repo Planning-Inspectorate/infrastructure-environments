@@ -283,14 +283,19 @@ variable "odw_synapse_integration_enabled" {
   default     = false
 }
 
-variable "horizon_url" {
-  description = "The URL used to connect to Horizon"
+variable "horizon_mock_integration" {
+  description = "If true, integration with Horizon is simulated"
+  type        = bool
+}
+
+variable "horizon_api_url" {
+  description = "The URL used to connect to Horizon web services"
   type        = string
 }
 
-variable "mock_horizon" {
-  description = "Whether or not to mock Horizon"
-  type        = bool
+variable "horizon_web_url" {
+  description = "The URL base path to create deep links to Horizon cases"
+  type        = string
 }
 
 variable "sb_topic_names" {
@@ -343,4 +348,9 @@ variable "service_bus_config" {
 variable "back_office_published_documents_domain" {
   description = "Domain for published documents"
   type        = string
+}
+
+variable "back_office_feature_flags" {
+  description = "A list of maps describing feature flags to be saved in the App Configuration store"
+  type        = list(any)
 }

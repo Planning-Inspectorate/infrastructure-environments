@@ -1,7 +1,9 @@
 locals {
+  back_office_feature_flags           = []
   node_environment                    = "production"
-  horizon_url                         = "http://10.0.7.4:8000"
-  mock_horizon                        = false
+  horizon_web_url                     = "https://horizontest.planninginspectorate.gov.uk/otcs/llisapi.dll?func=ll&objId="
+  horizon_api_url                     = "http://10.0.7.4:8000"
+  horizon_mock_integration            = false
   api_key_vault_authorization_enabled = "true"
   # Azure AD configuration
   azuread_auth_client_id = "dff02ad8-1efc-4f5f-8b1c-58a93edd14f1"

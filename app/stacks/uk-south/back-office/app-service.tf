@@ -29,6 +29,7 @@ module "app_services" {
   appeals_database_name                            = var.back_office_appeals_sql_database
   appeals_database_connection_string               = local.appeals_sql_connection_string
   document_storage_api_host                        = var.back_office_document_storage_api_host
+  document_storage_account_endpoint                = ""
   endpoint_subnet_id                               = azurerm_subnet.back_office_ingress.id
   health_check_path                                = var.health_check_path
   integration_subnet_id                            = var.integration_subnet_id
@@ -46,8 +47,9 @@ module "app_services" {
   service_name                                     = local.service_name
   feature_service_bus_enabled                      = var.feature_service_bus_enabled
   feature_appeal_broadcasts_enabled                = var.feature_appeal_broadcasts_enabled
-  horizon_url                                      = var.horizon_url
-  mock_horizon                                     = var.mock_horizon
+  horizon_web_url                                  = var.horizon_web_url
+  horizon_api_url                                  = var.horizon_api_url
+  horizon_mock_integration                         = var.horizon_mock_integration
   # Document scanning is disabled for the secondary region because the effort to implement it probably isn't worth it compared to just having a degraded service for the duration of an outage
   # To be clear, a 'degraded' service here means that end users can still upload documents but they won't be scanned until the primary region is back online (and so the new documents won't be accessible)
   feature_document_scanning_enabled                                                   = false
@@ -73,6 +75,7 @@ module "app_services" {
   servicebus_topic_nsip_project_update_id           = ""
   servicebus_topic_register_nsip_subscription_id    = ""
   servicebus_topic_deadline_submission_topic_id     = ""
+  servicebus_topic_deadline_submission_topic_name   = ""
   servicebus_topic_deadline_submission_result_id    = ""
   servicebus_topic_register_representation_id       = ""
   service_bus_appeals_bo_document_to_move_topic_id  = ""

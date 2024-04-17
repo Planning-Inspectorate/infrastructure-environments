@@ -29,19 +29,9 @@ variable "location" {
 }
 
 variable "name" {
-  description = "The name of the resource"
+  description = "The name of the resource."
   type        = string
 }
-
-variable "service_name" {
-  description = "Public domain name"
-  type        = string
-}
-
-# variable "storage_account_id" {
-#   description = "The id of the Storage Accounts are to enable private link."
-#   type        = string
-# }
 
 variable "sku_name" {
   description = "Specifies the SKU for this Front Door Profile."

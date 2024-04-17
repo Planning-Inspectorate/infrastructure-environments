@@ -28,11 +28,13 @@ module "app_services" {
   appeals_database_name                                                               = azurerm_mssql_database.back_office_appeals.name
   appeals_database_connection_string                                                  = local.appeals_sql_connection_string
   document_storage_api_host                                                           = var.back_office_published_documents_domain
+  document_storage_account_endpoint                                                   = azurerm_storage_account.back_office_documents.primary_blob_endpoint
   document_storage_account_name                                                       = azurerm_storage_account.back_office_documents.name
   endpoint_subnet_id                                                                  = azurerm_subnet.back_office_ingress.id
   health_check_path                                                                   = var.health_check_path
-  horizon_url                                                                         = var.horizon_url
-  mock_horizon                                                                        = var.mock_horizon
+  horizon_web_url                                                                     = var.horizon_web_url
+  horizon_api_url                                                                     = var.horizon_api_url
+  horizon_mock_integration                                                            = var.horizon_mock_integration
   key_vault_id                                                                        = var.key_vault_id
   key_vault_uri                                                                       = var.key_vault_uri
   location                                                                            = azurerm_resource_group.back_office_stack.location
@@ -50,7 +52,7 @@ module "app_services" {
   feature_appeal_broadcasts_enabled                                                   = var.feature_appeal_broadcasts_enabled
   feature_document_scanning_enabled                                                   = var.feature_document_scanning_enabled
   common_vnet_id                                                                      = var.common_vnet_id
-  bo_appeals_storage_account_endpoint                                                 = azurerm_storage_account.back_office_documents.primary_blob_endpoint
+  bo_appeals_storage_account_endpoint                                                 = var.back_office_published_documents_domain
   bo_appeals_document_container_name                                                  = azurerm_storage_container.back_office_appeals_document_container.name
   bo_appeals_document_container_id                                                    = azurerm_storage_container.back_office_appeals_document_container.resource_manager_id
   document_check_function_storage_name                                                = azurerm_storage_account.function_storage.name
@@ -63,6 +65,7 @@ module "app_services" {
   servicebus_topic_nsip_documents_id                                                  = azurerm_servicebus_topic.nsip_documents.id
   servicebus_topic_register_nsip_subscription_id                                      = azurerm_servicebus_topic.register_nsip_subscription.id
   servicebus_topic_deadline_submission_topic_id                                       = azurerm_servicebus_topic.deadline_submission_topic.id
+  servicebus_topic_deadline_submission_topic_name                                     = azurerm_servicebus_topic.deadline_submission_topic.name
   servicebus_topic_deadline_submission_result_id                                      = azurerm_servicebus_topic.deadline_submission_result.id
   servicebus_topic_register_representation_id                                         = azurerm_servicebus_topic.register_representation.id
   deadline_submissions_result_topic_name                                              = azurerm_servicebus_topic.deadline_submission_result.name

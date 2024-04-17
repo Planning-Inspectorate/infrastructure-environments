@@ -1,14 +1,12 @@
-# variable "app_service_url" {
-#   description = "Domain of the primary app service"
-#   type        = string
-# }
+variable "back_office_appeals_public_url" {
+  description = "The public URL for the Back Office Appeals frontend web app"
+  type        = string
+}
 
-# variable "domain_name" {
-#   description = "Public domain name"
-#   type        = string
-# }
-
-
+variable "back_office_appeals_primary_app_service_url" {
+  description = "The primary App Service URL for the Back Office Appeals"
+  type        = string
+}
 
 variable "common_tags" {
   description = "The common resource tags for the project"
@@ -37,13 +35,12 @@ variable "location" {
   default     = "uksouth"
 }
 
-# variable "name" {
-#   description = "The name of the resource"
-#   type        = string
-# }
-
-variable "service_name" {
-  description = "Public domain name"
+variable "published_documents_blob_storage_endpoint" {
+  description = "Published documents blob endpoint"
   type        = string
-  default     = "back-office"
+}
+
+variable "back_office_published_documents_domain" {
+  description = "Domain for published documents"
+  type        = string
 }

@@ -350,14 +350,19 @@ variable "sql_database_configuration" {
   type        = map(string)
 }
 
-variable "horizon_url" {
-  description = "The URL used to connect to Horizon"
+variable "horizon_mock_integration" {
+  description = "If true, integration with Horizon is simulated"
+  type        = bool
+}
+
+variable "horizon_api_url" {
+  description = "The URL used to connect to Horizon web services"
   type        = string
 }
 
-variable "mock_horizon" {
-  description = "Whether or not to mock Horizon"
-  type        = bool
+variable "horizon_web_url" {
+  description = "The URL base path to create deep links to Horizon cases"
+  type        = string
 }
 
 variable "service_bus_config" {

@@ -1,7 +1,9 @@
 locals {
+  back_office_feature_flags           = []
   node_environment                    = "production"
-  horizon_url                         = "http://10.0.7.4:8000"
-  mock_horizon                        = true
+  horizon_web_url                     = "" # Mocking Horizon on dev
+  horizon_api_url                     = "http://10.0.7.4:8000"
+  horizon_mock_integration            = true
   api_key_vault_authorization_enabled = "true"
   # Azure AD configuration
   azuread_auth_client_id = "7cab8971-c305-4b9a-82db-21b5fd84efbd"
