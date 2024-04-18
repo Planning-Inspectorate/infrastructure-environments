@@ -213,7 +213,7 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
 
       rule {
         # Path Traversal Attack (/../)
-        action  = "Block"
+        action  = "Log"
         enabled = true
         rule_id = "930100"
 
@@ -227,7 +227,7 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
 
       rule {
         # Path Traversal Attack (/../)
-        action  = "Block"
+        action  = "Log"
         enabled = true
         rule_id = "930110"
 
@@ -301,7 +301,7 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
 
       rule {
         # SQL Comment Sequence Detected
-        action  = "Block"
+        action  = "Log"
         enabled = true
         rule_id = "942440"
 
@@ -328,11 +328,47 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
       }
     }
 
+    override {
+      rule_group_name = "RCE"
+
+      rule {
+        # Remote Command Execution: Direct Unix Command Execution
+        action  = "Log"
+        enabled = true
+        rule_id = "932150"
+      }
+    }
+
+    override {
+      rule_group_name = "XSS"
+
+      rule {
+        # XSS Filter - Category 2: Event Handler Vector	Log
+        action  = "Log"
+        enabled = true
+        rule_id = "941120"
+      }
+    }
+
     # Exception for ASB-2059 - Exclude all rules for this selector.
     exclusion {
       match_variable = "RequestBodyPostArgNames"
       operator       = "Equals"
       selector       = "comment"
+    }
+
+    # cross site request forgery token
+    exclusion {
+      match_variable = "RequestBodyPostArgNames"
+      operator       = "Equals"
+      selector       = "_csrf"
+    }
+
+    # session cookie
+    exclusion {
+      match_variable = "RequestCookieNames"
+      operator       = "Equals"
+      selector       = "connect.sid"
     }
   }
 
