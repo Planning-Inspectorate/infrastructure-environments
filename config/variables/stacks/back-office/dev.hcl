@@ -1,5 +1,14 @@
 locals {
-  back_office_feature_flags           = []
+  back_office_feature_flags = [
+    {
+      name    = "boas-1-test-feature"
+      enabled = true
+      targeting = {
+        percentage = 100
+        users      = []
+      }
+    }
+  ]
   node_environment                    = "production"
   horizon_web_url                     = "" # Mocking Horizon on dev
   horizon_api_url                     = "http://10.0.7.4:8000"
