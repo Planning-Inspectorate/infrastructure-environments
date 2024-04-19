@@ -86,3 +86,14 @@ resource "azurerm_key_vault_secret" "back_office_applications_api_key_swagger" {
     ignore_changes = [value]
   }
 }
+
+resource "azurerm_key_vault_secret" "bo_app_config_connection_kv_secret" {
+  #checkov:skip=CKV_AZURE_41
+
+  name         = "bo-app-config-connection-string"
+  value        = azurerm_app_configuration.back_office.primary_read_key[0].connection_string
+  key_vault_id = var.key_vault_id
+  content_type = "text/plain"
+
+  tags = local.tags
+}

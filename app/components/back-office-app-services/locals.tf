@@ -33,7 +33,8 @@ locals {
         NODE_ENV                                   = var.node_environment
         OS_PLACES_API_KEY                          = local.secret_refs["os-places-api-key"]
         REDIS_CONNECTION_STRING                    = local.existing_secret_refs[var.back_office_applications_redis_connection_string_secret_name]
-        SESSION_SECRET                             = local.secret_refs["session-secret"]
+        SESSION_SECRET                             = local.secret_refs["session-secret"],
+        PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING  = local.secret_refs["bo-app-config-connection-string"]
       }
     }
 
@@ -64,12 +65,13 @@ locals {
         # Specific to Prisma to resolve issues with the way relations are fetched
         QUERY_BATCH_SIZE = 2090
         # Temporary migration variables for Project Updates
-        NI_DB_MYSQL_DATABASE = local.existing_secret_refs["applications-service-mysql-database"]
-        NI_DB_MYSQL_DIALECT  = local.existing_secret_refs["applications-service-mysql-dialect"]
-        NI_DB_MYSQL_HOST     = local.existing_secret_refs["applications-service-mysql-host"]
-        NI_DB_MYSQL_PASSWORD = local.existing_secret_refs["applications-service-mysql-password"]
-        NI_DB_MYSQL_PORT     = local.existing_secret_refs["applications-service-mysql-port"]
-        NI_DB_MYSQL_USERNAME = local.existing_secret_refs["applications-service-mysql-username"]
+        NI_DB_MYSQL_DATABASE                      = local.existing_secret_refs["applications-service-mysql-database"]
+        NI_DB_MYSQL_DIALECT                       = local.existing_secret_refs["applications-service-mysql-dialect"]
+        NI_DB_MYSQL_HOST                          = local.existing_secret_refs["applications-service-mysql-host"]
+        NI_DB_MYSQL_PASSWORD                      = local.existing_secret_refs["applications-service-mysql-password"]
+        NI_DB_MYSQL_PORT                          = local.existing_secret_refs["applications-service-mysql-port"]
+        NI_DB_MYSQL_USERNAME                      = local.existing_secret_refs["applications-service-mysql-username"],
+        PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING = local.secret_refs["bo-app-config-connection-string"]
       }
     }
 
@@ -144,7 +146,8 @@ locals {
     "session-secret",
     "back-office-appeals-gov-notify-api-key",
     "back-office-appeals-test-mailbox",
-    "back-office-applications-gov-notify-api-key"
+    "back-office-applications-gov-notify-api-key",
+    "bo-app-config-connection-string"
   ]
 
   secret_refs = {
