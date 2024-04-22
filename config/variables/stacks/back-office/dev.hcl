@@ -45,8 +45,8 @@ locals {
     sku_name                  = "Basic"
   }
   sql_server_azuread_administrator = {
-    login_username = "sulmarch"
-    object_id      = "42523fcb-4a32-4910-8caa-4d310c7bfd55" # sulmarch@pinso365.onmicrosoft.com
+    login_username = "pins-odt-sql-dev-applications-bo"
+    object_id      = "e51a2615-6b74-4eb6-9c56-e7a6f2bca721"
   }
   feature_appeal_broadcasts_enabled                  = "true"
   feature_service_bus_enabled                        = "true"

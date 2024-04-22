@@ -114,8 +114,8 @@ locals {
     sku_name                    = "S0"
   }
   sql_server_azuread_administrator = {
-    login_username = "sunrahman"
-    object_id      = "2af5c723-b22e-4eac-b0e5-ec39675462d6"
+    login_username = "pins-odt-sql-test-appeals-fo"
+    object_id      = "66a06b64-4cbb-4252-a79f-0b491dcd9d9c"
   }
   task_submit_to_horizon_cron_string    = "*/10 * * * *"
   task_submit_to_horizon_trigger_active = "true"

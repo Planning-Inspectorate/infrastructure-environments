@@ -45,8 +45,8 @@ locals {
     sku_name                  = "S3"
   }
   sql_server_azuread_administrator = {
-    login_username = "sulmarch"
-    object_id      = "42523fcb-4a32-4910-8caa-4d310c7bfd55" # sulmarch@pinso365.onmicrosoft.com
+    login_username = "pins-odt-sql-test-applications-bo"
+    object_id      = "74e9d9c6-1455-494b-abde-525b1281573b"
   }
   feature_appeal_broadcasts_enabled                  = "true"
   feature_service_bus_enabled                        = "true"
