@@ -38,7 +38,7 @@ locals {
     sku_name                  = "S3"
   }
   sql_server_azuread_administrator = {
-    login_username = "sunrahman"
-    object_id      = "2af5c723-b22e-4eac-b0e5-ec39675462d6"
+    login_username = "pins-odt-sql-prod-applications-fo"
+    object_id      = "b8d20cbf-dc58-4604-91e5-e8e8d98c8d84"
   }
 }

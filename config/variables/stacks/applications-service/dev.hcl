@@ -38,7 +38,7 @@ locals {
     sku_name                  = "Basic"
   }
   sql_server_azuread_administrator = {
-    login_username = "James.Paterson2@planninginspectorate.gov.uk"
-    object_id      = "d030a708-707d-4361-9bfc-3cfb82d9c876"
+    login_username = "pins-odt-sql-dev-applications-fo"
+    object_id      = "3d17ce3a-7e17-414d-bd11-9832e30c79f0"
   }
 }
