@@ -37,6 +37,7 @@ module "app_services" {
   feature_allow_project_information                               = var.feature_allow_project_information
   feature_allow_representation                                    = var.feature_allow_representation
   feature_allow_section_51                                        = var.feature_allow_section_51
+  feature_allow_welsh_translation                                 = var.feature_allow_welsh_translation
   feature_application_insights                                    = var.feature_application_insights
   feature_back_office_subscriber_enabled                          = false
   feature_enable_generalised_form_sanitisation                    = var.feature_enable_generalised_form_sanitisation
