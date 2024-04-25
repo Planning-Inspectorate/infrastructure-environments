@@ -227,6 +227,11 @@ variable "feature_allow_section_51" {
   type        = string
 }
 
+variable "feature_allow_welsh_translation" {
+  description = "Feature toggle activating Welsh translation."
+  type        = string
+}
+
 variable "feature_allow_get_updates" {
   description = "Feature toggle for get updates"
   type        = string

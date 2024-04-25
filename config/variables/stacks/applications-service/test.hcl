@@ -10,6 +10,7 @@ locals {
   feature_allow_project_information                               = "true"
   feature_allow_representation                                    = "true"
   feature_allow_section_51                                        = "true"
+  feature_allow_welsh_translation                                 = "true"
   feature_application_insights                                    = "true"
   feature_enable_generalised_form_sanitisation                    = "true"
   feature_enabled_content_security_policy                         = "true"
