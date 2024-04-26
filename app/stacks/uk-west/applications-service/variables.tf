@@ -197,11 +197,6 @@ variable "feature_primary_navigation" {
   type        = string
 }
 
-variable "feature_allow_document_library" {
-  description = "Feature toggle for limiting the web app routes to document library"
-  type        = string
-}
-
 variable "feature_allow_examination_timetable" {
   description = "Feature toggle for the activation of examination timetable routes and links"
   type        = string

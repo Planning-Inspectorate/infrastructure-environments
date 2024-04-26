@@ -15,7 +15,6 @@ locals {
         BACK_OFFICE_INTEGRATION_GET_APPLICATIONS     = var.back_office_integration_get_applications
         APPLICATIONS_SERVICE_API_TIMEOUT             = var.api_timeout
         APPLICATIONS_SERVICE_API_URL                 = "https://pins-app-${var.service_name}-applications-api-${var.resource_suffix}.azurewebsites.net/"
-        FEATURE_ALLOW_DOCUMENT_LIBRARY               = var.feature_allow_document_library
         FEATURE_ALLOW_EXAMINATION_TIMETABLE          = var.feature_allow_examination_timetable
         FEATURE_ALLOW_REPRESENTATION                 = var.feature_allow_representation
         FEATURE_ALLOW_SECTION_51                     = var.feature_allow_section_51

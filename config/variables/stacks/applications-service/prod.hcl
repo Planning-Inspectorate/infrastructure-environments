@@ -3,7 +3,6 @@ locals {
   back_office_integration_case_references                         = "EN0710001,EN0710002,EN0110001,EN0110003,EN0110002,EN0210001"
   back_office_integration_get_applications                        = "MERGE"
   documents_host                                                  = "https://infrastructure.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
-  feature_allow_document_library                                  = "true"
   feature_allow_examination_timetable                             = "true"
   feature_allow_project_information                               = "true"
   feature_allow_representation                                    = "true"

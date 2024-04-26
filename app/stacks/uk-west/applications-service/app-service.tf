@@ -28,7 +28,6 @@ module "app_services" {
   container_registry_rg                                           = var.container_registry_rg
   documents_host                                                  = var.documents_host
   endpoint_subnet_id                                              = azurerm_subnet.applications_service_ingress.id
-  feature_allow_document_library                                  = var.feature_allow_document_library
   feature_allow_examination_timetable                             = var.feature_allow_examination_timetable
   feature_allow_project_information                               = var.feature_allow_project_information
   feature_allow_representation                                    = var.feature_allow_representation

@@ -91,7 +91,6 @@ This component contains the infrastructure required for the applications service
 | <a name="input_database_public_access_enabled"></a> [database\_public\_access\_enabled](#input\_database\_public\_access\_enabled) | Specifies whether sql db is exposed over internet or private network only | `bool` | `false` | no |
 | <a name="input_documents_host"></a> [documents\_host](#input\_documents\_host) | Specifies environment specific Wordpress CMS URL Prefix | `string` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
-| <a name="input_feature_allow_document_library"></a> [feature\_allow\_document\_library](#input\_feature\_allow\_document\_library) | Feature toggle for limiting the web app routes to document library | `string` | n/a | yes |
 | <a name="input_feature_allow_examination_timetable"></a> [feature\_allow\_examination\_timetable](#input\_feature\_allow\_examination\_timetable) | Feature toggle for the activation of examination timetable routes and links | `string` | n/a | yes |
 | <a name="input_feature_allow_project_information"></a> [feature\_allow\_project\_information](#input\_feature\_allow\_project\_information) | Feature toggle for project information | `string` | n/a | yes |
 | <a name="input_feature_allow_representation"></a> [feature\_allow\_representation](#input\_feature\_allow\_representation) | Feature toggle for limiting the web app routes to representation | `string` | n/a | yes |
