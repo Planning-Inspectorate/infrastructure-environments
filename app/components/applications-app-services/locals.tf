@@ -17,7 +17,6 @@ locals {
         APPLICATIONS_SERVICE_API_URL                 = "https://pins-app-${var.service_name}-applications-api-${var.resource_suffix}.azurewebsites.net/"
         FEATURE_ALLOW_DOCUMENT_LIBRARY               = var.feature_allow_document_library
         FEATURE_ALLOW_EXAMINATION_TIMETABLE          = var.feature_allow_examination_timetable
-        FEATURE_ALLOW_HAVE_YOUR_SAY                  = var.feature_allow_have_your_say
         FEATURE_ALLOW_REPRESENTATION                 = var.feature_allow_representation
         FEATURE_ALLOW_SECTION_51                     = var.feature_allow_section_51
         FEATURE_ALLOW_WELSH_TRANSLATION              = var.feature_allow_welsh_translation
