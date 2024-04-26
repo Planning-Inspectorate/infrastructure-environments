@@ -109,7 +109,6 @@ This module contains the App Services resources for the applications service. Th
 | <a name="input_endpoint_subnet_id"></a> [endpoint\_subnet\_id](#input\_endpoint\_subnet\_id) | The id of the private endpoint subnet the app service is linked to for ingress traffic | `string` | n/a | yes |
 | <a name="input_feature_allow_document_library"></a> [feature\_allow\_document\_library](#input\_feature\_allow\_document\_library) | Feature toggle for limiting the web app routes to document library | `string` | n/a | yes |
 | <a name="input_feature_allow_examination_timetable"></a> [feature\_allow\_examination\_timetable](#input\_feature\_allow\_examination\_timetable) | Feature toggle for the activation of examination timetable routes and links | `string` | n/a | yes |
-| <a name="input_feature_allow_get_updates"></a> [feature\_allow\_get\_updates](#input\_feature\_allow\_get\_updates) | Feature toggle for get updates | `string` | n/a | yes |
 | <a name="input_feature_allow_project_information"></a> [feature\_allow\_project\_information](#input\_feature\_allow\_project\_information) | Feature toggle for project information | `string` | n/a | yes |
 | <a name="input_feature_allow_representation"></a> [feature\_allow\_representation](#input\_feature\_allow\_representation) | Feature toggle for limiting the web app routes to representation | `string` | n/a | yes |
 | <a name="input_feature_allow_section_51"></a> [feature\_allow\_section\_51](#input\_feature\_allow\_section\_51) | Feature toggle to section 51 | `string` | n/a | yes |

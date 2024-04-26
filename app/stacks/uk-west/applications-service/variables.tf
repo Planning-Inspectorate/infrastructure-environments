@@ -222,18 +222,8 @@ variable "feature_enabled_content_security_policy" {
   type        = string
 }
 
-variable "feature_allow_section_51" {
-  description = "Feature toggle to section 51"
-  type        = string
-}
-
 variable "feature_allow_welsh_translation" {
   description = "Feature toggle activating Welsh translation."
-  type        = string
-}
-
-variable "feature_allow_get_updates" {
-  description = "Feature toggle for get updates"
   type        = string
 }
 
