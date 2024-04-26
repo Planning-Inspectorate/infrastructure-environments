@@ -23,7 +23,6 @@ locals {
         FEATURE_APPLICATION_INSIGHTS                 = var.feature_application_insights
         FEATURE_ENABLE_GENERALISED_FORM_SANITISATION = var.feature_enable_generalised_form_sanitisation
         FEATURE_ENABLED_CONTENT_SECURITY_POLICY      = var.feature_enabled_content_security_policy
-        FEATURE_GET_UPDATES                          = var.feature_allow_get_updates
         FEATURE_HOME_PAGE                            = var.feature_home_page
         FEATURE_PRIMARY_NAVIGATION                   = var.feature_primary_navigation
         FEATURE_PROJECT_INFORMATION                  = var.feature_allow_project_information
