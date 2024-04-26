@@ -409,10 +409,6 @@ variable "sql_database_configuration" {
   type        = map(string)
 }
 
-variable "private_beta_v1_routes_only" {
-  description = "Feature toggle for limiting web app routes to Private Beta V1 functionality only"
-  type        = string
-}
 
 variable "service_bus_config" {
   description = "service bus configuration"

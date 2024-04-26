@@ -136,7 +136,6 @@ This module contains the App Services resources for the applications service. Th
 | <a name="input_node_environment"></a> [node\_environment](#input\_node\_environment) | The node environment to be used for applications in this environment e.g. development | `string` | `"development"` | no |
 | <a name="input_open_registration_case_references"></a> [open\_registration\_case\_references](#input\_open\_registration\_case\_references) | Case reference list for temporarily re-opened registrations period | `string` | n/a | yes |
 | <a name="input_planned_outage_resume_text"></a> [planned\_outage\_resume\_text](#input\_planned\_outage\_resume\_text) | Optional text to be displayed when planned outage page is active | `string` | n/a | yes |
-| <a name="input_private_beta_v1_routes_only"></a> [private\_beta\_v1\_routes\_only](#input\_private\_beta\_v1\_routes\_only) | Feature toggle for limiting web app routes to Private Beta V1 functionality only | `string` | n/a | yes |
 | <a name="input_private_endpoint_enabled"></a> [private\_endpoint\_enabled](#input\_private\_endpoint\_enabled) | A switch to determine if Private Endpoint should be enabled for backend App Services | `bool` | `true` | no |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the resource group that will contain the App Services | `string` | n/a | yes |
 | <a name="input_resource_suffix"></a> [resource\_suffix](#input\_resource\_suffix) | The suffix for resource naming | `string` | n/a | yes |
