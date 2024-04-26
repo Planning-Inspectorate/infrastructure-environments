@@ -33,7 +33,6 @@ module "app_services" {
   feature_allow_document_library                                  = var.feature_allow_document_library
   feature_allow_examination_timetable                             = var.feature_allow_examination_timetable
   feature_allow_get_updates                                       = var.feature_allow_get_updates
-  feature_allow_have_your_say                                     = var.feature_allow_have_your_say
   feature_allow_project_information                               = var.feature_allow_project_information
   feature_allow_representation                                    = var.feature_allow_representation
   feature_allow_section_51                                        = var.feature_allow_section_51

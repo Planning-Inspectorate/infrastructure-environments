@@ -267,11 +267,6 @@ variable "feature_allow_project_information" {
   type        = string
 }
 
-variable "feature_allow_have_your_say" {
-  description = "Feature toggle to enable/disable have your say"
-  type        = string
-}
-
 variable "feature_application_insights" {
   description = "Feature toggle to enable/disable application insights"
   type        = string
