@@ -32,7 +32,6 @@ module "app_services" {
   endpoint_subnet_id                                              = azurerm_subnet.applications_service_ingress.id
   feature_allow_examination_timetable                             = var.feature_allow_examination_timetable
   feature_allow_project_information                               = var.feature_allow_project_information
-  feature_allow_representation                                    = var.feature_allow_representation
   feature_allow_section_51                                        = var.feature_allow_section_51
   feature_allow_welsh_translation                                 = var.feature_allow_welsh_translation
   feature_application_insights                                    = var.feature_application_insights
