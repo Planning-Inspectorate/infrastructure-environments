@@ -59,7 +59,6 @@ module "app_services" {
   node_environment                                                = var.node_environment
   open_registration_case_references                               = var.open_registration_case_references
   planned_outage_resume_text                                      = var.planned_outage_resume_text
-  private_beta_v1_routes_only                                     = var.private_beta_v1_routes_only
   private_endpoint_enabled                                        = var.private_endpoint_enabled
   resource_group_name                                             = azurerm_resource_group.applications_service_stack.name
   resource_suffix                                                 = local.resource_suffix
