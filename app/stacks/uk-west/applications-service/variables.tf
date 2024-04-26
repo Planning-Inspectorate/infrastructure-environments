@@ -202,11 +202,6 @@ variable "feature_allow_examination_timetable" {
   type        = string
 }
 
-variable "feature_allow_representation" {
-  description = "Feature toggle for limiting the web app routes to representation"
-  type        = string
-}
-
 variable "feature_redis_session_store" {
   description = "Feature toggle for using redis to store session data as opposed to default in-memory store"
   type        = string
