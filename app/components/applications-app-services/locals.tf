@@ -38,7 +38,6 @@ locals {
         OS_MAPS_API_SECRET                           = local.secret_refs["applications-service-os-maps-api-secret"]
         PLANNED_OUTAGE_RESUME_TEXT                   = var.planned_outage_resume_text
         PRIVATE_BETA_V1_ROUTES_ONLY                  = var.private_beta_v1_routes_only
-        PROJECT_MIGRATION_CASE_REFERENCES            = var.project_migration_case_references
         REDIS_CONNECTION_STRING                      = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/${var.applications_service_redis_connection_string_secret_name}/)"
         SESSION_KEY                                  = local.secret_refs["applications-service-session-key"]
         SUBDOMAIN_OFFSET                             = "3"
