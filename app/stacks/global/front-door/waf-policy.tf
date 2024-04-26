@@ -493,6 +493,13 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
       }
 
       rule {
+        # Decision was made to log this rule instead of block as SQLi threats are covered by Prisma
+        action  = "Log"
+        enabled = true
+        rule_id = "942400"
+      }
+
+      rule {
         # Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)
         action  = "Block"
         enabled = true
