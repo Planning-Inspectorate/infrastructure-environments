@@ -280,11 +280,6 @@ variable "feature_primary_navigation" {
   type        = string
 }
 
-variable "feature_allow_examination_timetable" {
-  description = "Feature toggle for the activation of examination timetable routes and links"
-  type        = string
-}
-
 variable "feature_redis_session_store" {
   description = "Feature toggle for using redis to store session data as opposed to default in-memory store"
   type        = string
