@@ -33,7 +33,6 @@ This component contains the infrastructure required for the back office service.
 |------|------|
 | [azurerm_advanced_threat_protection.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/advanced_threat_protection) | resource |
 | [azurerm_app_configuration.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/app_configuration) | resource |
-| [azurerm_app_configuration_feature.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/app_configuration_feature) | resource |
 | [azurerm_application_insights.back_office_app_insights](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/application_insights) | resource |
 | [azurerm_application_insights.back_office_appeals_insights](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/application_insights) | resource |
 | [azurerm_eventgrid_system_topic.back_office_documents_system_topic](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/eventgrid_system_topic) | resource |
@@ -157,7 +156,6 @@ This component contains the infrastructure required for the back office service.
 | <a name="input_back_office_applications_log_level_file"></a> [back\_office\_applications\_log\_level\_file](#input\_back\_office\_applications\_log\_level\_file) | Log level for the server.log file - trace, debug, info, warn, error, fatal, silent | `string` | n/a | yes |
 | <a name="input_back_office_applications_log_level_stdout"></a> [back\_office\_applications\_log\_level\_stdout](#input\_back\_office\_applications\_log\_level\_stdout) | Log level for stdout - trace, debug, info, warn, error, fatal, silent | `string` | n/a | yes |
 | <a name="input_back_office_clamav_subnet_id"></a> [back\_office\_clamav\_subnet\_id](#input\_back\_office\_clamav\_subnet\_id) | Integration subnet for the clamav container | `string` | n/a | yes |
-| <a name="input_back_office_feature_flags"></a> [back\_office\_feature\_flags](#input\_back\_office\_feature\_flags) | A list of maps describing feature flags to be saved in the App Configuration store | `list(any)` | n/a | yes |
 | <a name="input_back_office_integration_subnet_id"></a> [back\_office\_integration\_subnet\_id](#input\_back\_office\_integration\_subnet\_id) | Integration subnet for back office anti-virus resources | `string` | n/a | yes |
 | <a name="input_back_office_public_url"></a> [back\_office\_public\_url](#input\_back\_office\_public\_url) | The public URL for the Back Office frontend web app | `string` | n/a | yes |
 | <a name="input_back_office_public_url_new"></a> [back\_office\_public\_url\_new](#input\_back\_office\_public\_url\_new) | The new public URL for the Back Office frontend web app | `string` | `null` | no |
