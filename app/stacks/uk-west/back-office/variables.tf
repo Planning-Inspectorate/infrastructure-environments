@@ -349,8 +349,3 @@ variable "back_office_published_documents_domain" {
   description = "Domain for published documents"
   type        = string
 }
-
-variable "back_office_feature_flags" {
-  description = "A list of maps describing feature flags to be saved in the App Configuration store"
-  type        = list(any)
-}
