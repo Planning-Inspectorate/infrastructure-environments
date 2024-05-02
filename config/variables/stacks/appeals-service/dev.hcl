@@ -5,7 +5,7 @@ locals {
       enabled = true
       targeting = {
         percentage = 100
-        users      = ["Q9999"]
+        users      = ["Q9999", "abc"]
       }
     },
     {
