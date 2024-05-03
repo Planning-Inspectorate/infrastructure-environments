@@ -7,6 +7,14 @@ locals {
         percentage = 100
         users      = []
       }
+    },
+    {
+      name    = "applic-55-welsh-translation"
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = []
+      }
     }
   ]
   node_environment                    = "production"
