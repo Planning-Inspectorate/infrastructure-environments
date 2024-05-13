@@ -75,7 +75,7 @@ resource "azurerm_private_endpoint" "cosmosdb" {
 }
 
 resource "azurerm_cosmosdb_mongo_database" "appeals_cosmosdb" {
-  name                = "pins-cosmos" + service_name + resource_suffix
+  name                = "pins-cosmos${local.service_name}${local.resource_suffix}"
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
   account_name        = data.azurerm_cosmosdb_account.example.name
 }
