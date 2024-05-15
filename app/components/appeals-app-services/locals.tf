@@ -166,8 +166,8 @@ locals {
         APPLICATIONINSIGHTS_CONNECTION_STRING                                         = local.secret_refs["appeals-app-insights-connection-string"]
         APP_APPEALS_BASE_URL                                                          = "https://${var.appeals_service_public_url}"
         AUTH_BASE_URL                                                                 = "https://pins-app-${var.service_name}-auth-server-${var.resource_suffix}.azurewebsites.net"
-        BACK_OFFICE_APPELLANT_SUBMISSION_TOPIC                                        = var.sb_topic_names.appeals.commands.appellant_submission
-        BACK_OFFICE_LPA_RESPONSE_SUBMISSION_TOPIC                                     = var.sb_topic_names.appeals.commands.lpa_response_submission
+        BACK_OFFICE_APPELLANT_SUBMISSION_TOPIC                                        = "appeal-fo-appellant-submission"
+        BACK_OFFICE_LPA_RESPONSE_SUBMISSION_TOPIC                                     = "appeal-fo-lpa-questionnaire-submission"
         BLOB_STORAGE_CONNECTION_STRING                                                = local.secret_refs["appeals-documents-primary-blob-connection-string"]
         DOCS_API_PATH                                                                 = "/opt/app/api"
         DOCUMENTS_SERVICE_API_TIMEOUT                                                 = var.api_timeout
