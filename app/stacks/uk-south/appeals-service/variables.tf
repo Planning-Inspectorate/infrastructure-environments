@@ -309,50 +309,6 @@ variable "clamav_host" {
   type        = string
 }
 
-
-variable "back_office_service_bus_namespace_name" {
-  description = "Namespace of Back Office Service Bus instance"
-  type        = string
-}
-
-variable "bo_storage_account_id" {
-  description = "Id of the Back Office storage account"
-  type        = string
-}
-
-variable "bo_appeals_document_container_id" {
-  description = "ID of the Back Office storage container for appeals docs"
-  type        = string
-}
-
-variable "bo_appeals_document_container_name" {
-  description = "Name of the Back Office storage container for appeals docs"
-  type        = string
-}
-
-variable "back_office_document_storage_api_host" {
-  description = "The full URI for the storage account used for back office documents"
-  type        = string
-}
-
-variable "service_bus_appeals_bo_case_topic_id" {
-  description = "ID for the appeals case data topic"
-  type        = string
-}
-
-variable "service_bus_appeals_fo_lpa_response_submission_topic_id" {
-  description = "ID for the appeals fo front office LPA response submission topic"
-  type        = string
-}
-variable "service_bus_appeals_fo_appellant_submission_topic_id" {
-  description = "ID for the appeals fo front office LPA response submission topic"
-  type        = string
-}
-variable "service_bus_appeals_bo_document_topic_id" {
-  description = "ID for the appeals case data topic"
-  type        = string
-}
-
 variable "service_bus_listed_building_topic_id" {
   description = "ID for the listed building topic"
   type        = string
