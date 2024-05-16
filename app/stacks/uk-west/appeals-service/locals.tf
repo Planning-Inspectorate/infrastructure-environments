@@ -28,7 +28,7 @@ locals {
   )
 
   session_mongodb_collection = "sessions"
-  forms_web_app_mongodb = "forms-web-app"
+  forms_web_app_mongodb      = "forms-web-app"
 
   tags = merge(
     var.common_tags,
