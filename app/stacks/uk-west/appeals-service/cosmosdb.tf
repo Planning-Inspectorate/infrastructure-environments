@@ -76,7 +76,7 @@ resource "azurerm_private_endpoint" "cosmosdb" {
 
 import {
   to = azurerm_cosmosdb_mongo_database.appeals_cosmosdb
-  id = "pins-cosmos-appeals-service-dev-ukw-001"
+  id = "/subscriptions/962e477c-0f3b-4372-97fc-a198a58e259e/resourceGroups/pins-rg-appeals-service-dev-ukw-001/providers/Microsoft.DocumentDB/databaseAccounts/pins-cosmos-appeals-service-dev-ukw-001/database/forms-web-app"
 }
 
 resource "azurerm_cosmosdb_mongo_database" "appeals_cosmosdb" {
