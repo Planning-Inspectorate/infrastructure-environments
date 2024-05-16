@@ -73,3 +73,34 @@ resource "azurerm_private_endpoint" "cosmosdb" {
 
   tags = local.tags
 }
+
+import {
+  to = azurerm_cosmosdb_mongo_database.appeals_cosmosdb
+  id = "/subscriptions/962e477c-0f3b-4372-97fc-a198a58e259e/resourceGroups/pins-rg-${local.service_name}-${local.resource_suffix}/providers/Microsoft.DocumentDB/databaseAccounts/pins-cosmos-${local.service_name}-${local.resource_suffix}/mongodbDatabases/${local.forms_web_app_mongodb}"
+}
+
+resource "azurerm_cosmosdb_mongo_database" "appeals_cosmosdb" {
+  name                = local.forms_web_app_mongodb
+  resource_group_name = azurerm_resource_group.appeals_service_stack.name
+  account_name        = azurerm_cosmosdb_account.appeals_database.name
+}
+
+import {
+  to = azurerm_cosmosdb_mongo_collection.appeals_session_collection
+  id = "/subscriptions/962e477c-0f3b-4372-97fc-a198a58e259e/resourceGroups/pins-rg-${local.service_name}-${local.resource_suffix}/providers/Microsoft.DocumentDB/databaseAccounts/pins-cosmos-${local.service_name}-${local.resource_suffix}/mongodbDatabases/${local.forms_web_app_mongodb}/collections/${local.session_mongodb_collection}"
+}
+
+
+resource "azurerm_cosmosdb_mongo_collection" "appeals_session_collection" {
+  name                = local.session_mongodb_collection
+  resource_group_name = azurerm_resource_group.appeals_service_stack.name
+  account_name        = azurerm_cosmosdb_account.appeals_database.name
+  database_name       = azurerm_cosmosdb_mongo_database.appeals_cosmosdb.name
+
+  default_ttl_seconds = "604800" # 1 week
+
+  index {
+    keys   = ["_id"]
+    unique = true
+  }
+}
