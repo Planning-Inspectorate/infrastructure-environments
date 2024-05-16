@@ -76,23 +76,23 @@ resource "azurerm_private_endpoint" "cosmosdb" {
 
 import {
   to = azurerm_cosmosdb_mongo_database.appeals_cosmosdb
-  id = "/subscriptions/962e477c-0f3b-4372-97fc-a198a58e259e/resourceGroups/pins-rg-appeals-service-dev-ukw-001/providers/Microsoft.DocumentDB/databaseAccounts/pins-cosmos-appeals-service-dev-ukw-001/mongodbDatabases/forms-web-app"
+  id = "/subscriptions/962e477c-0f3b-4372-97fc-a198a58e259e/resourceGroups/pins-cosmos-${local.service_name}-${local.resource_suffix}/providers/Microsoft.DocumentDB/databaseAccounts/pins-cosmos-appeals-service-dev-ukw-001/mongodbDatabases/${local.forms_web_app_mongodb}"
 }
 
 resource "azurerm_cosmosdb_mongo_database" "appeals_cosmosdb" {
-  name                = "forms-web-app"
+  name                = local.forms_web_app_mongodb
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
   account_name        = azurerm_cosmosdb_account.appeals_database.name
 }
 
 import {
   to = azurerm_cosmosdb_mongo_collection.appeals_session_collection
-  id = "/subscriptions/962e477c-0f3b-4372-97fc-a198a58e259e/resourceGroups/pins-rg-appeals-service-dev-ukw-001/providers/Microsoft.DocumentDB/databaseAccounts/pins-cosmos-appeals-service-dev-ukw-001/mongodbDatabases/forms-web-app/collections/sessions"
+  id = "/subscriptions/962e477c-0f3b-4372-97fc-a198a58e259e/resourceGroups/pins-cosmos-${local.service_name}-${local.resource_suffix}/providers/Microsoft.DocumentDB/databaseAccounts/pins-cosmos-appeals-service-dev-ukw-001/mongodbDatabases/${local.forms_web_app_mongodb}/collections/${local.session_mongodb_collection}"
 }
 
 
 resource "azurerm_cosmosdb_mongo_collection" "appeals_session_collection" {
-  name                = "sessions"
+  name                = local.session_mongodb_collection
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
   account_name        = azurerm_cosmosdb_account.appeals_database.name
   database_name       = azurerm_cosmosdb_mongo_database.appeals_cosmosdb.name
