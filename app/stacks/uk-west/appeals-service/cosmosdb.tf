@@ -85,6 +85,12 @@ resource "azurerm_cosmosdb_mongo_database" "appeals_cosmosdb" {
   account_name        = azurerm_cosmosdb_account.appeals_database.name
 }
 
+import {
+  to = azurerm_cosmosdb_mongo_collection.appeals_session_collection
+  id = "/subscriptions/962e477c-0f3b-4372-97fc-a198a58e259e/resourceGroups/pins-rg-appeals-service-dev-ukw-001/providers/Microsoft.DocumentDB/databaseAccounts/pins-cosmos-appeals-service-dev-ukw-001/mongodbDatabases/forms-web-app/collections/sessions"
+}
+
+
 resource "azurerm_cosmosdb_mongo_collection" "appeals_session_collection" {
   name                = "sessions"
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
