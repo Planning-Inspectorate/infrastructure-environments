@@ -148,6 +148,27 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
       operator       = "Equals"
       selector       = "backOfficeProjectUpdateContent"
     }
+
+    # Exclusions for APPLICS-380 - Exclude all rules for this selector.
+    # POST BO project description and locationDescription, POST document fileName
+    # only applies Back Office fields.
+    exclusion {
+      match_variable = "RequestBodyPostArgNames"
+      operator       = "Equals"
+      selector       = "geographicalInformation.locationDescription"
+    }
+
+    exclusion {
+      match_variable = "RequestBodyPostArgNames"
+      operator       = "Equals"
+      selector       = "fileName"
+    }
+
+    exclusion {
+      match_variable = "RequestBodyPostArgNames"
+      operator       = "Equals"
+      selector       = "description"
+    }
   }
 
   custom_rule {
