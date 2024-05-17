@@ -33,7 +33,7 @@ locals {
     "/",
     [
       "/subscriptions",
-      data.azurerm_client_config.subscription_id,
+      data.azurerm_client_config.current.subscription_id,
       "resourceGroups",
       "pins-rg-${local.service_name}-${local.resource_suffix}",
       "providers",
