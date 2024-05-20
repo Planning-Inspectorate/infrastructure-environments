@@ -8,12 +8,6 @@ locals {
     }
   )
 
-  back_office_appeals = {
-    service_name      = "back-office-appeals"
-    domain            = var.back_office_appeals_public_url
-    frontend_endpoint = var.back_office_appeals_primary_app_service_url
-  }
-
   published_documents = {
     # strip leading "https://" and trailing "/" to leave just the domain names
     domain       = replace(replace(var.back_office_published_documents_domain, "https://", ""), "/", "")
