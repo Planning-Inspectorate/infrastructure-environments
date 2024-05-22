@@ -64,6 +64,7 @@ This component contains the infrastructure required for the appeals service. Thi
 | [azurerm_servicebus_topic.appeal_document](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/servicebus_topic) | data source |
 | [azurerm_servicebus_topic.appeal_fo_appellant_submission](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/servicebus_topic) | data source |
 | [azurerm_servicebus_topic.appeal_fo_lpa_questionnaire_submission](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/servicebus_topic) | data source |
+| [azurerm_servicebus_topic.listed_building](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/servicebus_topic) | data source |
 | [azurerm_storage_account.appeals_bo](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/storage_account) | data source |
 | [azurerm_storage_container.appeal_bo_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/storage_container) | data source |
 
@@ -117,7 +118,6 @@ This component contains the infrastructure required for the appeals service. Thi
 | <a name="input_primary_appeals_sql_server_id"></a> [primary\_appeals\_sql\_server\_id](#input\_primary\_appeals\_sql\_server\_id) | ID of the primary (ukw) Appeals SQL Server | `string` | n/a | yes |
 | <a name="input_private_endpoint_enabled"></a> [private\_endpoint\_enabled](#input\_private\_endpoint\_enabled) | A switch to determine if Private Endpoint should be enabled for backend App Services | `bool` | `true` | no |
 | <a name="input_service_bus_config"></a> [service\_bus\_config](#input\_service\_bus\_config) | service bus configuration | <pre>object({<br>    default_topic_ttl            = string<br>    bo_internal_subscription_ttl = string<br>    bo_subscription_ttl          = string<br>    fo_subscription_ttl          = string<br>  })</pre> | n/a | yes |
-| <a name="input_service_bus_listed_building_topic_id"></a> [service\_bus\_listed\_building\_topic\_id](#input\_service\_bus\_listed\_building\_topic\_id) | ID for the listed building topic | `string` | n/a | yes |
 | <a name="input_sql_database_configuration"></a> [sql\_database\_configuration](#input\_sql\_database\_configuration) | A map of database configuration options | `map(string)` | n/a | yes |
 | <a name="input_sql_server_azuread_administrator"></a> [sql\_server\_azuread\_administrator](#input\_sql\_server\_azuread\_administrator) | Azure AD details of database administrator user/group | `map(string)` | n/a | yes |
 | <a name="input_sql_server_password_admin"></a> [sql\_server\_password\_admin](#input\_sql\_server\_password\_admin) | The SQL server administrator password | `string` | n/a | yes |

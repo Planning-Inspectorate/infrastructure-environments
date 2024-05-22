@@ -23,6 +23,7 @@ locals {
     appeal_document                        = data.azurerm_servicebus_topic.appeal_document.id
     appeal_fo_appellant_submission         = data.azurerm_servicebus_topic.appeal_fo_appellant_submission.id
     appeal_fo_lpa_questionnaire_submission = data.azurerm_servicebus_topic.appeal_fo_lpa_questionnaire_submission.id
+    listed_building                        = data.azurerm_servicebus_topic.listed_building.id
   }
 }
 
@@ -59,5 +60,10 @@ data "azurerm_servicebus_topic" "appeal_fo_appellant_submission" {
 
 data "azurerm_servicebus_topic" "appeal_fo_lpa_questionnaire_submission" {
   name         = "appeal-fo-lpa-questionnaire-submission"
+  namespace_id = local.appeals_bo_service_bus_id
+}
+
+data "azurerm_servicebus_topic" "listed_building" {
+  name         = "listed-building"
   namespace_id = local.appeals_bo_service_bus_id
 }
