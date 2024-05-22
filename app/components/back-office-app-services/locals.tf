@@ -34,7 +34,7 @@ locals {
         OS_PLACES_API_KEY                          = local.secret_refs["os-places-api-key"]
         REDIS_CONNECTION_STRING                    = local.existing_secret_refs[var.back_office_applications_redis_connection_string_secret_name]
         SESSION_SECRET                             = local.secret_refs["session-secret"],
-        PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING  = local.secret_refs["bo-app-config-connection-string"]
+        PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING  = local.existing_secret_refs["bo-app-config-connection-string"]
       }
     }
 
@@ -71,7 +71,7 @@ locals {
         NI_DB_MYSQL_PASSWORD                      = local.existing_secret_refs["applications-service-mysql-password"]
         NI_DB_MYSQL_PORT                          = local.existing_secret_refs["applications-service-mysql-port"]
         NI_DB_MYSQL_USERNAME                      = local.existing_secret_refs["applications-service-mysql-username"],
-        PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING = local.secret_refs["bo-app-config-connection-string"]
+        PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING = local.existing_secret_refs["bo-app-config-connection-string"]
       }
     }
 
@@ -146,8 +146,7 @@ locals {
     "session-secret",
     "back-office-appeals-gov-notify-api-key",
     "back-office-appeals-test-mailbox",
-    "back-office-applications-gov-notify-api-key",
-    "bo-app-config-connection-string"
+    "back-office-applications-gov-notify-api-key"
   ]
 
   secret_refs = {
@@ -171,6 +170,7 @@ locals {
     # This would ideally be in the secret_names list, but there's no way to add a value to the secret generation loop
     "back-office-sql-server-connection-string",
     "back-office-sql-server-connection-string-app",
+    "bo-app-config-connection-string"
   ]
 
   existing_secret_refs = {
