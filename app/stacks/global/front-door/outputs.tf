@@ -19,12 +19,6 @@ output "frontend_endpoint_mappings" {
       patterns_to_match    = local.appeals_frontend.patterns_to_match
       ssl_certificate_name = local.appeals_frontend.ssl_certificate_name
     },
-    # back_office_appeals_frontend = {
-    #   frontend_name        = local.back_office_appeals_frontend.frontend_name
-    #   frontend_endpoint    = local.back_office_appeals_frontend.frontend_endpoint
-    #   patterns_to_match    = local.back_office_appeals_frontend.patterns_to_match
-    #   ssl_certificate_name = local.back_office_appeals_frontend.ssl_certificate_name
-    # }
     comment_planning_appeal_frontend = {
       frontend_name        = local.comment_planning_appeal_frontend.frontend_name
       frontend_endpoint    = local.comment_planning_appeal_frontend.frontend_endpoint
