@@ -80,11 +80,6 @@ variable "back_office_public_url_new" {
   default     = null
 }
 
-variable "back_office_appeals_public_url" {
-  description = "The public URL for the Back Office Appeals frontend web app"
-  type        = string
-}
-
 variable "common_tags" {
   description = "The common resource tags for the project"
   type        = map(string)
@@ -259,18 +254,6 @@ variable "sb_topic_names" {
         nsip_exam_timetable = string
         nsip_representation = string
         nsip_s51_advice     = string
-      })
-    })
-    appeals = object({
-      commands = object({
-        appellant_submission    = string
-        lpa_response_submission = string
-        listed_building         = string
-      })
-      events = object({
-        case             = string
-        document         = string
-        document_to_move = string
       })
     })
   })

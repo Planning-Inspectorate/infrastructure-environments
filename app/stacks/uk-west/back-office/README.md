@@ -35,13 +35,9 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_app_configuration.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/app_configuration) | resource |
 | [azurerm_app_configuration_feature.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/app_configuration_feature) | resource |
 | [azurerm_application_insights.back_office_app_insights](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/application_insights) | resource |
-| [azurerm_application_insights.back_office_appeals_insights](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/application_insights) | resource |
 | [azurerm_eventgrid_system_topic.back_office_documents_system_topic](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/eventgrid_system_topic) | resource |
 | [azurerm_eventgrid_topic.malware_scanning_topic](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/eventgrid_topic) | resource |
 | [azurerm_key_vault_secret.app_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.back_office_appeals_redis_cache_connection_string_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.back_office_appeals_sql_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.back_office_appeals_sql_connection_string_app](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.back_office_applications_api_key_function](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.back_office_applications_api_key_swagger](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.back_office_applications_api_key_web](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
@@ -50,26 +46,18 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_key_vault_secret.back_office_sql_connection_string_app](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.back_office_sql_server_password](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.back_office_sql_server_password_app](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.back_office_sql_server_password_appeals_app](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.back_office_sql_server_username](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.back_office_sql_server_username_app](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.back_office_sql_server_username_appeals_app](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.bo_app_config_connection_kv_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.bo_app_insights_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.bo_appeals_insights_connection_string](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_log_analytics_workspace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/log_analytics_workspace) | resource |
 | [azurerm_monitor_diagnostic_setting.back_office_sql_database](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_diagnostic_setting) | resource |
-| [azurerm_monitor_metric_alert.back_office_appeals_sql_db_cpu_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
-| [azurerm_monitor_metric_alert.back_office_appeals_sql_db_deadlock_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
-| [azurerm_monitor_metric_alert.back_office_appeals_sql_db_dtu_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
-| [azurerm_monitor_metric_alert.back_office_appeals_sql_db_log_io_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_monitor_metric_alert.back_office_sql_db_cpu_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_monitor_metric_alert.back_office_sql_db_deadlock_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_monitor_metric_alert.back_office_sql_db_dtu_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_monitor_metric_alert.back_office_sql_db_log_io_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_monitor_metric_alert.sb_dead_letter_alerts](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_mssql_database.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_database) | resource |
-| [azurerm_mssql_database.back_office_appeals](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_database) | resource |
 | [azurerm_mssql_database_extended_auditing_policy.back_office_sql_database](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_database_extended_auditing_policy) | resource |
 | [azurerm_mssql_server.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_server) | resource |
 | [azurerm_mssql_server_extended_auditing_policy.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/mssql_server_extended_auditing_policy) | resource |
@@ -79,25 +67,17 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_private_dns_zone_virtual_network_link.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
 | [azurerm_private_endpoint.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_endpoint) | resource |
 | [azurerm_private_endpoint.back_office_app_config](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_endpoint) | resource |
-| [azurerm_private_endpoint.back_office_appeals_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_endpoint) | resource |
 | [azurerm_private_endpoint.back_office_applications_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_endpoint) | resource |
 | [azurerm_private_endpoint.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_endpoint) | resource |
 | [azurerm_private_endpoint.private_endpoint](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/private_endpoint) | resource |
-| [azurerm_redis_cache.back_office_appeals_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/redis_cache) | resource |
 | [azurerm_redis_cache.back_office_applications_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/redis_cache) | resource |
 | [azurerm_resource_group.back_office_stack](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/resource_group) | resource |
 | [azurerm_role_assignment.back_office_app_configuration_terraform](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/role_assignment) | resource |
 | [azurerm_servicebus_namespace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_namespace) | resource |
-| [azurerm_servicebus_topic.appeal_bo_case](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
-| [azurerm_servicebus_topic.appeal_bo_document](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
-| [azurerm_servicebus_topic.appeal_bo_document_to_move](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
-| [azurerm_servicebus_topic.appeal_fo_appellant_submission](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
-| [azurerm_servicebus_topic.appeal_fo_lpa_response_submission](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.deadline_submission_result](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.deadline_submission_topic](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.folders](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
-| [azurerm_servicebus_topic.listed_building](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_exam_timetable](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
 | [azurerm_servicebus_topic.nsip_project](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/servicebus_topic) | resource |
@@ -111,7 +91,6 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_storage_account.back_office_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_account) | resource |
 | [azurerm_storage_account.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_account) | resource |
 | [azurerm_storage_account.function_storage](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_account) | resource |
-| [azurerm_storage_container.back_office_appeals_document_container](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_container) | resource |
 | [azurerm_storage_container.back_office_document_service_uploads_container](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_container) | resource |
 | [azurerm_storage_container.back_office_published_documents_container](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_container) | resource |
 | [azurerm_storage_container.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/storage_container) | resource |
@@ -119,10 +98,8 @@ This component contains the infrastructure required for the back office service.
 | [azurerm_subnet.back_office_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/subnet) | resource |
 | [random_id.username_suffix](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
 | [random_id.username_suffix_app](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
-| [random_id.username_suffix_appeals_app](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
 | [random_password.back_office_sql_server_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
 | [random_password.back_office_sql_server_password_app](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
-| [random_password.back_office_sql_server_password_appeals_app](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
 | [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/client_config) | data source |
 | [azurerm_monitor_action_group.bo_applications_tech](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/monitor_action_group) | data source |
 | [azurerm_private_dns_zone.app_config](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/private_dns_zone) | data source |
@@ -146,7 +123,6 @@ This component contains the infrastructure required for the back office service.
 | <a name="input_azuread_applications_caseteam_group_id"></a> [azuread\_applications\_caseteam\_group\_id](#input\_azuread\_applications\_caseteam\_group\_id) | The Azure AD group ID for Applications Back Office case team | `string` | `null` | no |
 | <a name="input_azuread_applications_inspector_group_id"></a> [azuread\_applications\_inspector\_group\_id](#input\_azuread\_applications\_inspector\_group\_id) | The Azure AD group ID for Applications Back Office inspectors | `string` | `null` | no |
 | <a name="input_azuread_auth_client_id"></a> [azuread\_auth\_client\_id](#input\_azuread\_auth\_client\_id) | The Back Office web frontend app registration ID used for Azure AD authentication | `string` | `null` | no |
-| <a name="input_back_office_appeals_public_url"></a> [back\_office\_appeals\_public\_url](#input\_back\_office\_appeals\_public\_url) | The public URL for the Back Office Appeals frontend web app | `string` | n/a | yes |
 | <a name="input_back_office_applications_log_level_file"></a> [back\_office\_applications\_log\_level\_file](#input\_back\_office\_applications\_log\_level\_file) | Log level for the server.log file - trace, debug, info, warn, error, fatal, silent | `string` | n/a | yes |
 | <a name="input_back_office_applications_log_level_stdout"></a> [back\_office\_applications\_log\_level\_stdout](#input\_back\_office\_applications\_log\_level\_stdout) | Log level for stdout - trace, debug, info, warn, error, fatal, silent | `string` | n/a | yes |
 | <a name="input_back_office_clamav_subnet_id"></a> [back\_office\_clamav\_subnet\_id](#input\_back\_office\_clamav\_subnet\_id) | Integration subnet for the clamav container | `string` | n/a | yes |
@@ -178,7 +154,7 @@ This component contains the infrastructure required for the back office service.
 | <a name="input_odw_synapse_integration_enabled"></a> [odw\_synapse\_integration\_enabled](#input\_odw\_synapse\_integration\_enabled) | Whether or not Synapse Migration Integration is enabled | `bool` | `false` | no |
 | <a name="input_private_endpoint_enabled"></a> [private\_endpoint\_enabled](#input\_private\_endpoint\_enabled) | A switch to determine if Private Endpoint should be enabled for backend App Services | `bool` | `true` | no |
 | <a name="input_redis_cache_configuration"></a> [redis\_cache\_configuration](#input\_redis\_cache\_configuration) | A map of redis configuration options | `map(string)` | n/a | yes |
-| <a name="input_sb_topic_names"></a> [sb\_topic\_names](#input\_sb\_topic\_names) | service bus topic names | <pre>object({<br>    common = object({ service_user = string }),<br>    applications = object({<br>      commands = object({<br>        register_nsip_subscription = string<br>        register_representation    = string<br>        deadline_submission_topic  = string<br>        deadline_submission_result = string<br>      })<br>      events = object({<br>        nsip_project        = string<br>        nsip_project_update = string<br>        nsip_documents      = string<br>        folders             = string<br>        nsip_subscription   = string<br>        nsip_exam_timetable = string<br>        nsip_representation = string<br>        nsip_s51_advice     = string<br>      })<br>    })<br>    appeals = object({<br>      commands = object({<br>        appellant_submission    = string<br>        lpa_response_submission = string<br>        listed_building         = string<br>      })<br>      events = object({<br>        case             = string<br>        document         = string<br>        document_to_move = string<br>      })<br>    })<br>  })</pre> | n/a | yes |
+| <a name="input_sb_topic_names"></a> [sb\_topic\_names](#input\_sb\_topic\_names) | service bus topic names | <pre>object({<br>    common = object({ service_user = string }),<br>    applications = object({<br>      commands = object({<br>        register_nsip_subscription = string<br>        register_representation    = string<br>        deadline_submission_topic  = string<br>        deadline_submission_result = string<br>      })<br>      events = object({<br>        nsip_project        = string<br>        nsip_project_update = string<br>        nsip_documents      = string<br>        folders             = string<br>        nsip_subscription   = string<br>        nsip_exam_timetable = string<br>        nsip_representation = string<br>        nsip_s51_advice     = string<br>      })<br>    })<br>  })</pre> | n/a | yes |
 | <a name="input_service_bus_config"></a> [service\_bus\_config](#input\_service\_bus\_config) | service bus configuration | <pre>object({<br>    default_topic_ttl            = string<br>    bo_internal_subscription_ttl = string<br>    bo_subscription_ttl          = string<br>    fo_subscription_ttl          = string<br>  })</pre> | n/a | yes |
 | <a name="input_service_bus_failover_enabled"></a> [service\_bus\_failover\_enabled](#input\_service\_bus\_failover\_enabled) | A switch to determine if Service Bus failover is enabled requiring the Premium SKU | `bool` | `false` | no |
 | <a name="input_sql_database_configuration"></a> [sql\_database\_configuration](#input\_sql\_database\_configuration) | A map of database configuration options | `map(string)` | n/a | yes |
@@ -190,7 +166,6 @@ This component contains the infrastructure required for the back office service.
 | Name | Description |
 |------|-------------|
 | <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of frontend app service URLs |
-| <a name="output_back_office_appeals_sql_database"></a> [back\_office\_appeals\_sql\_database](#output\_back\_office\_appeals\_sql\_database) | The ID of the Back Office Appeals SQL database |
 | <a name="output_back_office_document_storage_account_name"></a> [back\_office\_document\_storage\_account\_name](#output\_back\_office\_document\_storage\_account\_name) | Name of the storage account used for back office documents |
 | <a name="output_back_office_document_storage_api_host"></a> [back\_office\_document\_storage\_api\_host](#output\_back\_office\_document\_storage\_api\_host) | The full failover URI to the storage account used for back office documents |
 | <a name="output_back_office_document_storage_container_name"></a> [back\_office\_document\_storage\_container\_name](#output\_back\_office\_document\_storage\_container\_name) | The back office blob storage container name |
@@ -199,8 +174,6 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_back_office_submissions_storage_container_id"></a> [back\_office\_submissions\_storage\_container\_id](#output\_back\_office\_submissions\_storage\_container\_id) | Back office submissions container ID |
 | <a name="output_back_office_submissions_storage_container_name"></a> [back\_office\_submissions\_storage\_container\_name](#output\_back\_office\_submissions\_storage\_container\_name) | Back office submissions container name |
 | <a name="output_back_office_submissions_storage_container_resource_manager_id"></a> [back\_office\_submissions\_storage\_container\_resource\_manager\_id](#output\_back\_office\_submissions\_storage\_container\_resource\_manager\_id) | Back office submissions container resource\_manager\_id |
-| <a name="output_bo_appeals_document_container_id"></a> [bo\_appeals\_document\_container\_id](#output\_bo\_appeals\_document\_container\_id) | Back Office appeals container resource\_manager\_id |
-| <a name="output_bo_appeals_document_container_name"></a> [bo\_appeals\_document\_container\_name](#output\_bo\_appeals\_document\_container\_name) | Back Office appeals container resource\_manager\_id |
 | <a name="output_bo_storage_account_id"></a> [bo\_storage\_account\_id](#output\_bo\_storage\_account\_id) | Back Office storage account id |
 | <a name="output_clamav_host"></a> [clamav\_host](#output\_clamav\_host) | Hostname of the ClamAV Container Group |
 | <a name="output_document_check_function_storage_name"></a> [document\_check\_function\_storage\_name](#output\_document\_check\_function\_storage\_name) | Function Storage name |
@@ -211,13 +184,6 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_document_storage_back_office_published_documents_container_resource_manager_id"></a> [document\_storage\_back\_office\_published\_documents\_container\_resource\_manager\_id](#output\_document\_storage\_back\_office\_published\_documents\_container\_resource\_manager\_id) | Back Office published-documents container id |
 | <a name="output_function_apps_storage_account"></a> [function\_apps\_storage\_account](#output\_function\_apps\_storage\_account) | Function app storage account |
 | <a name="output_function_apps_storage_account_access_key"></a> [function\_apps\_storage\_account\_access\_key](#output\_function\_apps\_storage\_account\_access\_key) | Function app storage account access key |
-| <a name="output_service_bus_appeals_bo_case_topic_id"></a> [service\_bus\_appeals\_bo\_case\_topic\_id](#output\_service\_bus\_appeals\_bo\_case\_topic\_id) | ID of the appeals back office case Service Bus Topic |
-| <a name="output_service_bus_appeals_bo_document_to_move_topic_id"></a> [service\_bus\_appeals\_bo\_document\_to\_move\_topic\_id](#output\_service\_bus\_appeals\_bo\_document\_to\_move\_topic\_id) | ID of the appeals back office document to move Service Bus Topic |
-| <a name="output_service_bus_appeals_bo_document_topic_id"></a> [service\_bus\_appeals\_bo\_document\_topic\_id](#output\_service\_bus\_appeals\_bo\_document\_topic\_id) | ID of the appeals back office document Service Bus Topic |
-| <a name="output_service_bus_appeals_fo_appellant_submission_id"></a> [service\_bus\_appeals\_fo\_appellant\_submission\_id](#output\_service\_bus\_appeals\_fo\_appellant\_submission\_id) | ID of the appeals front office appellant case Service Bus Topic |
-| <a name="output_service_bus_appeals_fo_appellant_submission_topic_id"></a> [service\_bus\_appeals\_fo\_appellant\_submission\_topic\_id](#output\_service\_bus\_appeals\_fo\_appellant\_submission\_topic\_id) | ID of the appeals front office appellant submission Service Bus Topic |
-| <a name="output_service_bus_appeals_fo_lpa_response_submission_id"></a> [service\_bus\_appeals\_fo\_lpa\_response\_submission\_id](#output\_service\_bus\_appeals\_fo\_lpa\_response\_submission\_id) | ID of the appeals front office LPA response Service Bus Topic |
-| <a name="output_service_bus_appeals_fo_lpa_response_submission_topic_id"></a> [service\_bus\_appeals\_fo\_lpa\_response\_submission\_topic\_id](#output\_service\_bus\_appeals\_fo\_lpa\_response\_submission\_topic\_id) | ID of the appeals front office lpa response submission Service Bus Topic |
 | <a name="output_service_bus_namespace_id"></a> [service\_bus\_namespace\_id](#output\_service\_bus\_namespace\_id) | The ID of the Service Bus Namespace |
 | <a name="output_service_bus_namespace_name"></a> [service\_bus\_namespace\_name](#output\_service\_bus\_namespace\_name) | The name of the Service Bus Namespace |
 | <a name="output_service_bus_nsip_exam_timetable_id"></a> [service\_bus\_nsip\_exam\_timetable\_id](#output\_service\_bus\_nsip\_exam\_timetable\_id) | ID of the nsip-exam-timetable Service Bus Topic |

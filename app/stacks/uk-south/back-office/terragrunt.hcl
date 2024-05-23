@@ -67,7 +67,6 @@ dependency "back_office_ukw" {
   mock_outputs = {
     back_office_document_storage_api_host                                               = "https://mockstorageaccount.blob.core.windows.net/"
     back_office_sql_database                                                            = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Sql/servers/mock_sql_server/databases/mock_sql_db"
-    back_office_appeals_sql_database                                                    = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Sql/servers/mock_sql_server/databases/mock_sql_db"
     back_office_document_storage_container_name                                         = "mock-name"
     document_check_function_storage_name                                                = "mockstorageaccount"
     document_check_function_storage_primary_access_key                                  = "mockaccesskey"
@@ -108,7 +107,6 @@ inputs = {
   back_office_integration_subnet_id                                                   = dependency.common_uks.outputs.back_office_integration_subnet_id
   back_office_clamav_subnet_id                                                        = dependency.common_uks.outputs.back_office_clamav_subnet_id
   back_office_sql_database                                                            = dependency.back_office_ukw.outputs.back_office_sql_database
-  back_office_appeals_sql_database                                                    = dependency.back_office_ukw.outputs.back_office_appeals_sql_database
   common_resource_group_name                                                          = dependency.common_uks.outputs.common_resource_group_name
   common_resource_group_name_ukw                                                      = dependency.common_ukw.outputs.common_resource_group_name
   common_vnet_cidr_blocks                                                             = dependency.common_uks.outputs.common_vnet_cidr_blocks
