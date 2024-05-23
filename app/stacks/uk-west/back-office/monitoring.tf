@@ -219,10 +219,6 @@ resource "azurerm_monitor_metric_alert" "back_office_appeals_sql_db_cpu_alert" {
     threshold        = 80
   }
 
-  action {
-    action_group_id = var.action_group_ids.bo_appeals_tech
-  }
-
   tags = local.tags
 }
 
@@ -241,10 +237,6 @@ resource "azurerm_monitor_metric_alert" "back_office_appeals_sql_db_dtu_alert" {
     aggregation      = "Average"
     operator         = "GreaterThan"
     threshold        = 80
-  }
-
-  action {
-    action_group_id = var.action_group_ids.bo_appeals_tech
   }
 
   tags = local.tags
@@ -267,10 +259,6 @@ resource "azurerm_monitor_metric_alert" "back_office_appeals_sql_db_log_io_alert
     threshold        = 80
   }
 
-  action {
-    action_group_id = var.action_group_ids.bo_appeals_tech
-  }
-
   tags = local.tags
 }
 
@@ -289,10 +277,6 @@ resource "azurerm_monitor_metric_alert" "back_office_appeals_sql_db_deadlock_ale
     aggregation      = "Count"
     operator         = "GreaterThanOrEqual"
     threshold        = 1
-  }
-
-  action {
-    action_group_id = var.action_group_ids.bo_appeals_tech
   }
 
   tags = local.tags

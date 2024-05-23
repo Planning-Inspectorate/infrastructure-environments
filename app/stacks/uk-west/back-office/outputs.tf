@@ -8,11 +8,6 @@ output "web_frontend_url" {
   value       = module.app_services.web_frontend_url
 }
 
-output "appeals_web_frontend_url" {
-  description = "The URL of the appeals web frontend app service"
-  value       = module.app_services.appeals_web_frontend_url
-}
-
 output "back_office_document_storage_api_host" {
   description = "The full failover URI to the storage account used for back office documents"
   value       = azurerm_storage_account.back_office_documents.primary_blob_endpoint

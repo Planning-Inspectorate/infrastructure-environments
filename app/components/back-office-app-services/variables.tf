@@ -1,8 +1,6 @@
 variable "action_group_ids" {
   description = "The IDs of the Azure Monitor action groups for different alert types"
   type = object({
-    bo_appeals_tech                 = string,
-    bo_appeals_service_manager      = string,
     bo_applications_tech            = string,
     bo_applications_service_manager = string,
     iap                             = string,
@@ -28,30 +26,6 @@ variable "app_service_plan_id" {
 
 variable "azuread_auth_client_id" {
   description = "The Back Office web frontend app registration ID used for Azure AD authentication"
-  type        = string
-  default     = null
-}
-
-variable "azuread_appeals_case_officer_group_id" {
-  description = "The Azure AD group ID for Appeals Back Office case officers"
-  type        = string
-  default     = null
-}
-
-variable "azuread_appeals_inspector_group_id" {
-  description = "The Azure AD group ID for Appeals Back Office inspectors"
-  type        = string
-  default     = null
-}
-
-variable "azuread_appeals_cs_team_group_id" {
-  description = "The Azure AD group ID for Appeals Back Office CS Team"
-  type        = string
-  default     = null
-}
-
-variable "azuread_appeals_legal_team_group_id" {
-  description = "The Azure AD group ID for Appeals Back Office Legal Team"
   type        = string
   default     = null
 }
@@ -117,17 +91,6 @@ variable "container_registry_rg" {
 
 variable "database_name" {
   description = "The name of the Applications Back Office database"
-  type        = string
-}
-
-variable "appeals_database_name" {
-  description = "The name of the Appeals Back Office database"
-  type        = string
-}
-
-variable "appeals_database_connection_string" {
-  description = "The connection string used to connect to the Back Office Appeals MySQL database"
-  sensitive   = true
   type        = string
 }
 
@@ -231,12 +194,6 @@ variable "feature_service_bus_enabled" {
   type        = string
 }
 
-variable "feature_appeal_broadcasts_enabled" {
-  default     = "false"
-  description = "Whether or not Service Bus events are enabled on BO Appeals"
-  type        = string
-}
-
 variable "service_plan_sku" {
   default     = "P2v2"
   description = "The SKU of the App Service Plan providing resources to hosted App Services"
@@ -246,13 +203,6 @@ variable "service_plan_sku" {
 variable "common_vnet_id" {
   description = "The common infrastructure virtual network id"
   type        = string
-}
-
-# Setting this to empty string for now whilst we figure out DR plans
-variable "service_user_topic_id" {
-  description = "The ID of the employee topic"
-  type        = string
-  default     = ""
 }
 
 variable "servicebus_topic_nsip_documents_id" {
@@ -300,21 +250,6 @@ variable "malware_scanning_topic_id" {
   type        = string
 }
 
-variable "service_bus_appeals_fo_appellant_submission_id" {
-  description = "Service Bus Topic FO Appellant Case Command"
-  type        = string
-}
-
-variable "service_bus_appeals_fo_lpa_response_submission_id" {
-  description = "Service Bus Topic FO LPA Questionnaire Command"
-  type        = string
-}
-
-variable "service_bus_appeals_bo_document_to_move_topic_id" {
-  description = "ID of the appeals back office document to move Service Bus Topic"
-  type        = string
-}
-
 variable "document_storage_back_office_document_service_uploads_container_resource_manager_id" {
   description = "Back Office document-service-uploads container resource_manager_id"
   type        = string
@@ -331,11 +266,6 @@ variable "document_storage_back_office_document_service_uploads_container_name" 
 }
 
 variable "back_office_hostname" {
-  description = "Back Office Hostname"
-  type        = string
-}
-
-variable "back_office_appeals_hostname" {
   description = "Back Office Hostname"
   type        = string
 }
@@ -365,44 +295,14 @@ variable "back_office_applications_log_level_stdout" {
   type        = string
 }
 
-variable "back_office_appeals_log_level_file" {
-  description = "Log level for the server.log file - trace, debug, info, warn, error, fatal, silent"
-  type        = string
-}
-
-variable "back_office_appeals_log_level_stdout" {
-  description = "Log level for stdout - trace, debug, info, warn, error, fatal, silent"
-  type        = string
-}
-
 variable "back_office_applications_redis_connection_string_secret_name" {
   description = "The connection string (secret name) used to connect to the Back Office Applications Redis Cache"
-  type        = string
-}
-
-variable "back_office_appeals_redis_connection_string_secret_name" {
-  description = "The connection string (secret name) used to connect to the Back Office Appeals Redis Cache"
   type        = string
 }
 
 variable "document_storage_account_name" {
   description = "The ID of the storage account for back office documents"
   type        = string
-}
-variable "bo_appeals_storage_account_endpoint" {
-  description = "The endpoint of the appeals back office storage account"
-  type        = string
-}
-
-variable "bo_appeals_document_container_id" {
-  description = "The container ID for the appeals back office documents"
-  type        = string
-}
-
-variable "bo_appeals_document_container_name" {
-  description = "The container name for the appeals back office documents"
-  type        = string
-  default     = "bo-appeals-documents"
 }
 
 variable "odw_synapse_integration_enabled" {
@@ -421,21 +321,6 @@ variable "odw_data_lake_storage_account_id" {
   description = "Storage Account ID for ODW Data Lake"
   type        = string
   default     = ""
-}
-
-variable "horizon_mock_integration" {
-  description = "If true, integration with Horizon is simulated"
-  type        = bool
-}
-
-variable "horizon_api_url" {
-  description = "The URL used to connect to Horizon web services"
-  type        = string
-}
-
-variable "horizon_web_url" {
-  description = "The URL base path to create deep links to Horizon cases"
-  type        = string
 }
 
 variable "service_bus_config" {

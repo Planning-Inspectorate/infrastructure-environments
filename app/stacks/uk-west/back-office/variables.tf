@@ -1,8 +1,6 @@
 variable "action_group_ids" {
   description = "The IDs of the Azure Monitor action groups for different alert types"
   type = object({
-    bo_appeals_tech                 = string,
-    bo_appeals_service_manager      = string,
     bo_applications_tech            = string,
     bo_applications_service_manager = string,
     iap                             = string,
@@ -19,8 +17,6 @@ variable "action_group_ids_map" {
 variable "action_group_names" {
   description = "The names of the Azure Monitor action groups for different alert types"
   type = object({
-    bo_appeals_tech                 = string,
-    bo_appeals_service_manager      = string,
     bo_applications_tech            = string,
     bo_applications_service_manager = string,
     iap                             = string,
@@ -44,31 +40,6 @@ variable "azuread_auth_client_id" {
   type        = string
   default     = null
 }
-
-variable "azuread_appeals_case_officer_group_id" {
-  description = "The Azure AD group ID for Appeals Back Office case officers"
-  type        = string
-  default     = null
-}
-
-variable "azuread_appeals_inspector_group_id" {
-  description = "The Azure AD group ID for Appeals Back Office inspectors"
-  type        = string
-  default     = null
-}
-
-variable "azuread_appeals_cs_team_group_id" {
-  description = "The Azure AD group ID for Appeals Back Office CS Team"
-  type        = string
-  default     = null
-}
-
-variable "azuread_appeals_legal_team_group_id" {
-  description = "The Azure AD group ID for Appeals Back Office Legal Team"
-  type        = string
-  default     = null
-}
-
 
 variable "azuread_applications_caseteam_group_id" {
   description = "The Azure AD group ID for Applications Back Office case team"
@@ -232,11 +203,6 @@ variable "feature_service_bus_enabled" {
   type        = string
 }
 
-variable "feature_appeal_broadcasts_enabled" {
-  description = "Whether or not Service Bus events are enabled on BO Appeals"
-  type        = string
-}
-
 variable "feature_document_scanning_enabled" {
   description = "Whether or not Document Scanning is enabled"
   type        = bool
@@ -262,16 +228,6 @@ variable "back_office_applications_log_level_stdout" {
   type        = string
 }
 
-variable "back_office_appeals_log_level_file" {
-  description = "Log level for the server.log file - trace, debug, info, warn, error, fatal, silent"
-  type        = string
-}
-
-variable "back_office_appeals_log_level_stdout" {
-  description = "Log level for stdout - trace, debug, info, warn, error, fatal, silent"
-  type        = string
-}
-
 variable "redis_cache_configuration" {
   description = "A map of redis configuration options"
   type        = map(string)
@@ -281,21 +237,6 @@ variable "odw_synapse_integration_enabled" {
   description = "Whether or not Synapse Migration Integration is enabled"
   type        = bool
   default     = false
-}
-
-variable "horizon_mock_integration" {
-  description = "If true, integration with Horizon is simulated"
-  type        = bool
-}
-
-variable "horizon_api_url" {
-  description = "The URL used to connect to Horizon web services"
-  type        = string
-}
-
-variable "horizon_web_url" {
-  description = "The URL base path to create deep links to Horizon cases"
-  type        = string
 }
 
 variable "sb_topic_names" {

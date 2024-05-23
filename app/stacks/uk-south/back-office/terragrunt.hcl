@@ -89,8 +89,6 @@ dependency "back_office_ukw" {
 
 inputs = {
   action_group_ids = {
-    bo_appeals_tech                 = dependency.common_ukw.outputs.action_group_ids["appeals-bo-tech"]
-    bo_appeals_service_manager      = dependency.common_ukw.outputs.action_group_ids["appeals-bo-service-manager"]
     bo_applications_tech            = dependency.common_ukw.outputs.action_group_ids["applications-bo-tech"]
     bo_applications_service_manager = dependency.common_ukw.outputs.action_group_ids["applications-bo-service-manager"]
     iap                             = dependency.common_ukw.outputs.action_group_ids["iap"]
@@ -98,8 +96,6 @@ inputs = {
     info_sec                        = dependency.common_ukw.outputs.action_group_ids["info-sec"]
   }
   action_group_names = {
-    bo_appeals_tech                 = dependency.common_ukw.outputs.action_group_names["appeals-bo-tech"]
-    bo_appeals_service_manager      = dependency.common_ukw.outputs.action_group_names["appeals-bo-service-manager"]
     bo_applications_tech            = dependency.common_ukw.outputs.action_group_names["applications-bo-tech"]
     bo_applications_service_manager = dependency.common_ukw.outputs.action_group_names["applications-bo-service-manager"]
     iap                             = dependency.common_ukw.outputs.action_group_names["iap"]
