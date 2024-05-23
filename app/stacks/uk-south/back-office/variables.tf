@@ -1,8 +1,6 @@
 variable "action_group_ids" {
   description = "The IDs of the Azure Monitor action groups for different alert types"
   type = object({
-    bo_appeals_tech                 = string,
-    bo_appeals_service_manager      = string,
     bo_applications_tech            = string,
     bo_applications_service_manager = string,
     iap                             = string,
@@ -14,8 +12,6 @@ variable "action_group_ids" {
 variable "action_group_names" {
   description = "The names of the Azure Monitor action groups for different alert types"
   type = object({
-    bo_appeals_tech                 = string,
-    bo_appeals_service_manager      = string,
     bo_applications_tech            = string,
     bo_applications_service_manager = string,
     iap                             = string,
@@ -39,31 +35,6 @@ variable "azuread_auth_client_id" {
   type        = string
   default     = null
 }
-
-variable "azuread_appeals_case_officer_group_id" {
-  description = "The Azure AD group ID for Appeals Back Office case officers"
-  type        = string
-  default     = null
-}
-
-variable "azuread_appeals_inspector_group_id" {
-  description = "The Azure AD group ID for Appeals Back Office inspectors"
-  type        = string
-  default     = null
-}
-
-variable "azuread_appeals_cs_team_group_id" {
-  description = "The Azure AD group ID for Appeals Back Office CS Team"
-  type        = string
-  default     = null
-}
-
-variable "azuread_appeals_legal_team_group_id" {
-  description = "The Azure AD group ID for Appeals Back Office Legal Team"
-  type        = string
-  default     = null
-}
-
 
 variable "azuread_applications_caseteam_group_id" {
   description = "The Azure AD group ID for Applications Back Office case team"
@@ -107,11 +78,6 @@ variable "back_office_public_url_new" {
   description = "The new public URL for the Back Office frontend web app"
   type        = string
   default     = null
-}
-
-variable "back_office_appeals_public_url" {
-  description = "The public URL for the Back Office Appeals frontend web app"
-  type        = string
 }
 
 variable "back_office_sql_database" {
@@ -280,11 +246,6 @@ variable "feature_service_bus_enabled" {
   type        = string
 }
 
-variable "feature_appeal_broadcasts_enabled" {
-  description = "Whether or not Service Bus events are enabled on BO Appeals"
-  type        = string
-}
-
 variable "document_storage_back_office_document_service_uploads_container_name" {
   description = "Document Storage document service uploads container name"
   type        = string
@@ -330,16 +291,6 @@ variable "back_office_applications_log_level_stdout" {
   type        = string
 }
 
-variable "back_office_appeals_log_level_file" {
-  description = "Log level for the server.log file - trace, debug, info, warn, error, fatal, silent"
-  type        = string
-}
-
-variable "back_office_appeals_log_level_stdout" {
-  description = "Log level for stdout - trace, debug, info, warn, error, fatal, silent"
-  type        = string
-}
-
 variable "redis_cache_configuration" {
   description = "A map of redis configuration options"
   type        = map(string)
@@ -348,21 +299,6 @@ variable "redis_cache_configuration" {
 variable "sql_database_configuration" {
   description = "A map of database configuration options"
   type        = map(string)
-}
-
-variable "horizon_mock_integration" {
-  description = "If true, integration with Horizon is simulated"
-  type        = bool
-}
-
-variable "horizon_api_url" {
-  description = "The URL used to connect to Horizon web services"
-  type        = string
-}
-
-variable "horizon_web_url" {
-  description = "The URL base path to create deep links to Horizon cases"
-  type        = string
 }
 
 variable "service_bus_config" {
