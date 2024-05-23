@@ -47,6 +47,17 @@ resources:
 extends:
   template: stages/wrapper_cd.yml@templates
   parameters:
+    environments:
+      - name: Dev
+      - name: Test
+        dependsOn:
+          - Dev
+      - name: Training
+        dependsOn:
+          - Test
+      - name: Prod
+        dependsOn:
+          - Test
     variableGroupPrefix: 'core_services_cd'
     deploymentStages:
       - name: Terraform Plan
