@@ -1,6 +1,6 @@
 locals {
-  allowed_origins_prod  = [var.back_office_public_url_new != null ? "https://${var.back_office_public_url_new}" : "", "https://${var.back_office_appeals_public_url}"]
-  allowed_origins_live  = ["https://${var.back_office_public_url}", "https://${var.back_office_appeals_public_url}"]
+  allowed_origins_prod  = [var.back_office_public_url_new != null ? "https://${var.back_office_public_url_new}" : ""]
+  allowed_origins_live  = ["https://${var.back_office_public_url}"]
   allowed_origins_local = ["https://localhost:8080"]
   allowed_origins = {
     dev     = concat(local.allowed_origins_live, local.allowed_origins_local),
@@ -60,7 +60,6 @@ resource "azurerm_storage_container" "back_office_submissions_container" {
   container_access_type = "private"
 }
 
-# TODO: Separate containers for Applications and Appeals? We won't need to assign permissions to the appeals wfe, just to the appeals group
 resource "azurerm_storage_container" "back_office_document_service_uploads_container" {
   #TODO: Logging
   #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
@@ -76,14 +75,6 @@ resource "azurerm_storage_container" "back_office_published_documents_container"
   name                  = "published-documents"
   storage_account_name  = azurerm_storage_account.back_office_documents.name
   container_access_type = "blob"
-}
-
-resource "azurerm_storage_container" "back_office_appeals_document_container" {
-  #TODO: Logging
-  #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
-  name                  = "bo-appeals-documents"
-  storage_account_name  = azurerm_storage_account.back_office_documents.name
-  container_access_type = "private"
 }
 
 # Shared storage between back office appps for Azure Functions

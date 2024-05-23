@@ -63,16 +63,6 @@ output "bo_storage_account_id" {
   value       = azurerm_storage_account.back_office_documents.id
 }
 
-output "bo_appeals_document_container_id" {
-  description = "Back Office appeals container resource_manager_id"
-  value       = azurerm_storage_container.back_office_appeals_document_container.resource_manager_id
-}
-
-output "bo_appeals_document_container_name" {
-  description = "Back Office appeals container resource_manager_id"
-  value       = azurerm_storage_container.back_office_appeals_document_container.name
-}
-
 output "back_office_service_bus_connection_string" {
   description = "Connection strong for Azure Service Bus in Back Office"
   value       = azurerm_servicebus_namespace.back_office.default_primary_connection_string
@@ -82,11 +72,6 @@ output "back_office_service_bus_connection_string" {
 output "back_office_sql_database" {
   description = "The ID of the Back Office SQL database"
   value       = azurerm_mssql_database.back_office.id
-}
-
-output "back_office_appeals_sql_database" {
-  description = "The ID of the Back Office Appeals SQL database"
-  value       = azurerm_mssql_database.back_office_appeals.id
 }
 
 output "document_check_function_storage_name" {
@@ -155,41 +140,6 @@ output "service_bus_nsip_s51_advice_topic_id" {
 output "service_bus_nsip_representation_id" {
   description = "ID of the nsip-representation Service Bus Topic"
   value       = azurerm_servicebus_topic.nsip_representation.id
-}
-
-output "service_bus_appeals_bo_case_topic_id" {
-  description = "ID of the appeals back office case Service Bus Topic"
-  value       = azurerm_servicebus_topic.appeal_bo_case.id
-}
-
-output "service_bus_appeals_fo_lpa_response_submission_topic_id" {
-  description = "ID of the appeals front office lpa response submission Service Bus Topic"
-  value       = azurerm_servicebus_topic.appeal_fo_lpa_response_submission.id
-}
-
-output "service_bus_appeals_fo_appellant_submission_topic_id" {
-  description = "ID of the appeals front office appellant submission Service Bus Topic"
-  value       = azurerm_servicebus_topic.appeal_fo_appellant_submission.id
-}
-
-output "service_bus_appeals_bo_document_topic_id" {
-  description = "ID of the appeals back office document Service Bus Topic"
-  value       = azurerm_servicebus_topic.appeal_bo_document.id
-}
-
-output "service_bus_appeals_bo_document_to_move_topic_id" {
-  description = "ID of the appeals back office document to move Service Bus Topic"
-  value       = azurerm_servicebus_topic.appeal_bo_document_to_move.id
-}
-
-output "service_bus_appeals_fo_appellant_submission_id" {
-  description = "ID of the appeals front office appellant case Service Bus Topic"
-  value       = azurerm_servicebus_topic.appeal_fo_appellant_submission.id
-}
-
-output "service_bus_appeals_fo_lpa_response_submission_id" {
-  description = "ID of the appeals front office LPA response Service Bus Topic"
-  value       = azurerm_servicebus_topic.appeal_fo_lpa_response_submission.id
 }
 
 output "servicebus_topic_register_nsip_subscription_id" {

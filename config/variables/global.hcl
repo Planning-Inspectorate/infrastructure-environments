@@ -37,20 +37,6 @@ locals {
         nsip_s51_advice     = "nsip-s51-advice"
       }
     }
-
-    appeals = {
-      commands = {
-        appellant_submission    = "appeal-fo-appellant-submission"
-        lpa_response_submission = "appeal-fo-lpa-response-submission"
-        listed_building         = "listed-building"
-      }
-
-      events = {
-        case             = "appeal"
-        document         = "appeal-document"
-        document_to_move = "appeal-document-to-move"
-      }
-    }
   }
 
   service_bus_config = {
