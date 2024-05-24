@@ -72,7 +72,7 @@ resource "azurerm_storage_account" "back_office_sql_server" {
   #checkov:skip=CKV_AZURE_35: Network access restrictions
   #checkov:skip=CKV_AZURE_59: TODO: Ensure that Storage accounts disallow public access
 
-  name                             = replace("pinsstsqlapps${local.resource_suffix}", "-", "")
+  name                             = replace("pinsstsqlapps${local.storage_resource_suffix}", "-", "")
   resource_group_name              = azurerm_resource_group.back_office_stack.name
   location                         = azurerm_resource_group.back_office_stack.location
   account_tier                     = "Standard"
