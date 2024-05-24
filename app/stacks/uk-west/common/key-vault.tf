@@ -2,7 +2,7 @@ resource "azurerm_key_vault" "environment_key_vault" {
   #checkov:skip=CKV_AZURE_42: Soft delete protection enabled by default in latest Azure provider
   #checkov:skip=CKV_AZURE_109: TODO: Network ACL, currently not implemented as it blocks pipeline
   #checkov:skip=CKV_AZURE_189: TODO: Ensure that Azure Key Vault disables public network access
-  name                        = replace("pinskv${local.service_name}${local.resource_suffix}", "-", "")
+  name                        = replace("pinskv${local.service_name}${local.kv_resource_suffix}", "-", "")
   location                    = azurerm_resource_group.common_infrastructure.location
   resource_group_name         = azurerm_resource_group.common_infrastructure.name
   enabled_for_disk_encryption = true
