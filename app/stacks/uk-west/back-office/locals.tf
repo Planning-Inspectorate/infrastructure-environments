@@ -27,6 +27,8 @@ locals {
   )
 
   resource_suffix = "${var.environment}-${module.azure_region_ukw.location_short}-${var.instance}"
+  # keep the suffix short for training env, as it can only be upto 24 characters total for azurerm_storage_account
+  storage_resource_suffix = var.environment == "training" ? "${var.environment}-${module.azure_region_ukw.location_short}" : local.resource_suffix
 
   tags = merge(
     var.common_tags,
