@@ -43,11 +43,12 @@ dependency "common" {
     common_vnet_cidr_blocks = {
       back_office_endpoints = "10.1.4.0/24"
     }
-    vnet_id               = "mock_vnet_id"
-    common_vnet_name      = "mock_vnet_name"
-    integration_subnet_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
-    key_vault_id          = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
-    key_vault_uri         = "https://mockvault.vault.azure.net/"
+    vnet_id                = "mock_vnet_id"
+    common_vnet_gateway_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Network/virtualNetworkGateways/mock_id"
+    common_vnet_name       = "mock_vnet_name"
+    integration_subnet_id  = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
+    key_vault_id           = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
+    key_vault_uri          = "https://mockvault.vault.azure.net/"
   }
 }
 
