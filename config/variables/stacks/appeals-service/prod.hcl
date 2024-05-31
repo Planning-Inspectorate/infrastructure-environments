@@ -33,6 +33,14 @@ locals {
       }
     },
     {
+      name    = "has-appeal-form-v2"
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = ["Q9999"]
+      }
+    },
+    {
       name    = "has-questionnaire"
       enabled = false
       targeting = {
@@ -78,6 +86,14 @@ locals {
       targeting = {
         percentage = 100
         users      = []
+      }
+    },
+    {
+      name    = "s78-appeal-form-v2"
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = ["Q9999"]
       }
     }
   ]
