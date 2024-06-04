@@ -31,29 +31,29 @@ locals {
 
   session_mongodb_collection = "sessions"
   forms_web_app_mongodb      = "forms-web-app"
-  appeals_cosmosdb_id = join(
-    "/",
-    [
-      "/subscriptions",
-      data.azurerm_client_config.current.subscription_id,
-      "resourceGroups",
-      "pins-rg-${local.service_name}-${local.resource_suffix}",
-      "providers",
-      "Microsoft.DocumentDB",
-      "databaseAccounts",
-      "pins-cosmos-${local.service_name}-${local.resource_suffix}",
-      "mongodbDatabases",
-      local.forms_web_app_mongodb
-    ]
-  )
-  appeals_session_collection_id = join(
-    "/",
-    [
-      local.appeals_cosmosdb_id,
-      "collections",
-      local.session_mongodb_collection
-    ]
-  )
+  # appeals_cosmosdb_id = join(
+  #   "/",
+  #   [
+  #     "/subscriptions",
+  #     data.azurerm_client_config.current.subscription_id,
+  #     "resourceGroups",
+  #     "pins-rg-${local.service_name}-${local.resource_suffix}",
+  #     "providers",
+  #     "Microsoft.DocumentDB",
+  #     "databaseAccounts",
+  #     "pins-cosmos-${local.service_name}-${local.resource_suffix}",
+  #     "mongodbDatabases",
+  #     local.forms_web_app_mongodb
+  #   ]
+  # )
+  # appeals_session_collection_id = join(
+  #   "/",
+  #   [
+  #     local.appeals_cosmosdb_id,
+  #     "collections",
+  #     local.session_mongodb_collection
+  #   ]
+  # )
 
   tags = merge(
     var.common_tags,

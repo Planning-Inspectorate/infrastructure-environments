@@ -74,10 +74,12 @@ resource "azurerm_private_endpoint" "cosmosdb" {
   tags = local.tags
 }
 
-import {
-  to = azurerm_cosmosdb_mongo_database.appeals_cosmosdb
-  id = local.appeals_cosmosdb_id
-}
+# these don't yet exist in the training environment
+
+# import {
+#   to = azurerm_cosmosdb_mongo_database.appeals_cosmosdb
+#   id = local.appeals_cosmosdb_id
+# }
 
 resource "azurerm_cosmosdb_mongo_database" "appeals_cosmosdb" {
   name                = local.forms_web_app_mongodb
@@ -85,10 +87,10 @@ resource "azurerm_cosmosdb_mongo_database" "appeals_cosmosdb" {
   account_name        = azurerm_cosmosdb_account.appeals_database.name
 }
 
-import {
-  to = azurerm_cosmosdb_mongo_collection.appeals_session_collection
-  id = local.appeals_session_collection_id
-}
+# import {
+#   to = azurerm_cosmosdb_mongo_collection.appeals_session_collection
+#   id = local.appeals_session_collection_id
+# }
 
 resource "azurerm_cosmosdb_mongo_collection" "appeals_session_collection" {
   name                = local.session_mongodb_collection
