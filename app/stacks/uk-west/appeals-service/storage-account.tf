@@ -38,7 +38,7 @@ resource "azurerm_storage_account" "function_apps" {
   #TODO: Access restrictions
   #checkov:skip=CKV_AZURE_35: Network access restrictions
 
-  name                             = replace("pinssthznfns${local.resource_suffix}", "-", "")
+  name                             = replace("pinssthznfns${local.storage_resource_suffix}", "-", "")
   resource_group_name              = azurerm_resource_group.appeals_service_stack.name
   location                         = azurerm_resource_group.appeals_service_stack.location
   account_tier                     = "Standard"
