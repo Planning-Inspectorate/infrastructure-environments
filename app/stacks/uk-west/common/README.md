@@ -53,6 +53,7 @@ This component contains the common infrastructure required by each environment. 
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | The common resource tags for the project | `map(string)` | n/a | yes |
 | <a name="input_cosmosdb_enable_public_access"></a> [cosmosdb\_enable\_public\_access](#input\_cosmosdb\_enable\_public\_access) | A flag to indicate if the database can be accessed over the internet | `string` | `false` | no |
 | <a name="input_create_turbrepo_cache"></a> [create\_turbrepo\_cache](#input\_create\_turbrepo\_cache) | Whether or not to create the turborepo cache server. Should only be deployed to one environment. | `bool` | `false` | no |
+| <a name="input_deploy_national_infrastructure_vnet_gateway"></a> [deploy\_national\_infrastructure\_vnet\_gateway](#input\_deploy\_national\_infrastructure\_vnet\_gateway) | A flag to determine if the VNet gateway to the National Infrastructure subscription should be deployed | `bool` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
 | <a name="input_front_door_principal_id"></a> [front\_door\_principal\_id](#input\_front\_door\_principal\_id) | The ID of the service principal associated with Front Door in the tenant | `string` | n/a | yes |
 | <a name="input_instance"></a> [instance](#input\_instance) | The environment instance for use if multiple environments are deployed to a subscription | `string` | `"001"` | no |
