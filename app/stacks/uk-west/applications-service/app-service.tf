@@ -50,6 +50,7 @@ module "app_services" {
   log_analytics_workspace_id                                      = azurerm_log_analytics_workspace.applications_service.id
   logger_level                                                    = var.logger_level
   monitoring_alerts_enabled                                       = var.monitoring_alerts_enabled
+  environment                                                     = var.environment
   node_environment                                                = var.node_environment
   open_registration_case_references                               = var.open_registration_case_references
   planned_outage_resume_text                                      = var.planned_outage_resume_text
