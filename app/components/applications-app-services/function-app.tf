@@ -5,7 +5,7 @@ module "back_office_subscribers" {
   source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.16"
 
   action_group_ids                         = var.action_group_ids
-  app_name                                 = "bo-subscribers"
+  app_name                                 = var.environment == "training" ? "bo-subs" : "bo-subscribers"
   app_service_plan_id                      = var.app_service_plan_id
   function_apps_storage_account            = var.function_storage_name
   function_apps_storage_account_access_key = var.function_storage_primary_access_key
