@@ -582,6 +582,12 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
     exclusion {
       match_variable = "RequestBodyPostArgNames"
       operator       = "Equals"
+      selector       = "geographicalInformation.locationDescriptionWelsh"
+    }
+
+    exclusion {
+      match_variable = "RequestBodyPostArgNames"
+      operator       = "Equals"
       selector       = "fileName"
     }
 
@@ -589,6 +595,18 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
       match_variable = "RequestBodyPostArgNames"
       operator       = "Equals"
       selector       = "description"
+    }
+
+    exclusion {
+      match_variable = "RequestBodyPostArgNames"
+      operator       = "Equals"
+      selector       = "descriptionWelsh"
+    }
+
+    exclusion {
+      match_variable = "RequestBodyPostArgNames"
+      operator       = "Equals"
+      selector       = "titleWelsh"
     }
   }
 
