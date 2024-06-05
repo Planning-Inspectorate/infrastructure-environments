@@ -43,7 +43,7 @@ module "app_services" {
   resource_group_id                                                             = azurerm_resource_group.appeals_service_stack.id
   resource_group_name                                                           = azurerm_resource_group.appeals_service_stack.name
   resource_suffix                                                               = local.resource_suffix
-  service_bus_appeals_bo_case_topic_id                                          = local.appeals_bo_topics.appeal
+  service_bus_appeals_bo_case_topic_id                                          = local.appeals_bo_topics.appeal_has
   service_bus_appeals_bo_document_topic_id                                      = local.appeals_bo_topics.appeal_document
   service_bus_appeals_fo_appellant_submission_topic_id                          = local.appeals_bo_topics.appeal_fo_appellant_submission
   service_bus_appeals_fo_lpa_response_submission_topic_id                       = local.appeals_bo_topics.appeal_fo_lpa_questionnaire_submission
