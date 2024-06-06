@@ -53,5 +53,5 @@ locals {
   # as applications is already dependent on back office
   applications_front_office_web_url      = "https://applications-service-training.planninginspectorate.gov.uk"
   odw_synapse_integration_enabled        = false
-  back_office_published_documents_domain = "https://back-office-applications-docs-training.planninginspectorate.gov.uk"
+  back_office_published_documents_domain = "https://back-office-applications-docs-train.planninginspectorate.gov.uk"
 }
