@@ -39,7 +39,6 @@ locals {
         MICROSOFT_PROVIDER_AUTHENTICATION_SECRET  = local.secret_refs["appeals-microsoft-provider-authentication-secret"]
         NODE_ENV                                  = var.node_environment
         PDF_SERVICE_API_URL                       = "https://pins-app-${var.service_name}-pdf-api-${var.resource_suffix}.azurewebsites.net"
-        PINS_FEATURE_FLAG_AZURE_ENDPOINT          = local.secret_refs["appeals-app-config-endpoint"]
         PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING = local.secret_refs["appeals-app-config-connection-string"]
         PORT                                      = "3000"
         SESSION_KEY                               = local.secret_refs["appeals-wfe-session-key"]
@@ -89,7 +88,6 @@ locals {
         MICROSOFT_PROVIDER_AUTHENTICATION_SECRET  = local.secret_refs["appeals-microsoft-provider-authentication-secret"]
         NODE_ENV                                  = var.node_environment
         PDF_SERVICE_API_URL                       = "https://pins-app-${var.service_name}-pdf-api-${var.resource_suffix}.azurewebsites.net"
-        PINS_FEATURE_FLAG_AZURE_ENDPOINT          = local.secret_refs["appeals-app-config-endpoint"]
         PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING = local.secret_refs["appeals-app-config-connection-string"]
         PORT                                      = "3000"
         SUBDOMAIN_OFFSET                          = "3"
@@ -117,7 +115,6 @@ locals {
         SERVER_SHOW_ERRORS                    = true
 
         # feature flags
-        PINS_FEATURE_FLAG_AZURE_ENDPOINT          = local.secret_refs["appeals-app-config-endpoint"]
         PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING = local.secret_refs["appeals-app-config-connection-string"]
 
         # hosts
@@ -183,7 +180,6 @@ locals {
         MONGODB_NAME                                                                  = "appeals-service-api"
         MONGODB_URL                                                                   = local.secret_refs["appeals-mongo-db-connection-string"]
         NODE_ENV                                                                      = var.node_environment
-        PINS_FEATURE_FLAG_AZURE_ENDPOINT                                              = local.secret_refs["appeals-app-config-endpoint"]
         PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING                                     = local.secret_refs["appeals-app-config-connection-string"]
         SERVER_PORT                                                                   = "3000"
         SERVER_SHOW_ERRORS                                                            = true
@@ -243,7 +239,6 @@ locals {
         MONGODB_DB_NAME                           = "documents-service-api"
         MONGODB_URL                               = local.secret_refs["appeals-mongo-db-connection-string"]
         NODE_ENV                                  = var.node_environment
-        PINS_FEATURE_FLAG_AZURE_ENDPOINT          = local.secret_refs["appeals-app-config-endpoint"]
         PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING = local.secret_refs["appeals-app-config-connection-string"]
         SERVER_PORT                               = "4000",
         SERVER_SHOW_ERRORS                        = true
@@ -278,7 +273,6 @@ locals {
   }
 
   secrets_manual = [
-    "appeals-app-config-endpoint",
     "appeals-microsoft-provider-authentication-secret",
     "appeals-srv-notify-api-key",
     "appeals-wfe-session-key",
