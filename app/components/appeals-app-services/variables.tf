@@ -319,8 +319,28 @@ variable "back_office_document_storage_api_host" {
   type        = string
 }
 
-variable "service_bus_appeals_bo_case_topic_id" {
+variable "service_bus_appeals_bo_has_case_topic_id" {
+  description = "ID for the appeals HAS case data topic"
+  type        = string
+}
+
+variable "service_bus_appeals_bo_s78_case_topic_id" {
+  description = "ID for the appeals s78 case data topic"
+  type        = string
+}
+
+variable "service_bus_appeals_bo_document_topic_id" {
   description = "ID for the appeals case data topic"
+  type        = string
+}
+
+variable "service_bus_appeals_bo_event_topic_id" {
+  description = "ID for the appeals event case data topic"
+  type        = string
+}
+
+variable "service_bus_appeals_bo_service_user_topic_id" {
+  description = "ID for the appeals service user case data topic"
   type        = string
 }
 
@@ -331,10 +351,6 @@ variable "service_bus_appeals_fo_lpa_response_submission_topic_id" {
 
 variable "service_bus_appeals_fo_appellant_submission_topic_id" {
   description = "ID for the appeals fo front office LPA response submission topic"
-  type        = string
-}
-variable "service_bus_appeals_bo_document_topic_id" {
-  description = "ID for the appeals case data topic"
   type        = string
 }
 

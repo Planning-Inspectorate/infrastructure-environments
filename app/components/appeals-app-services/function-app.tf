@@ -30,33 +30,66 @@ module "front_office_subscribers" {
   tags = var.tags
 }
 
-# Appeals bo case data topic subscription
-resource "azurerm_servicebus_subscription" "appeals_bo_case_topic_subscription" {
+# Appeals HAS case data topic subscription
+resource "azurerm_servicebus_subscription" "appeals_fo_has_case_topic_subscription" {
   count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
 
-  name                                 = "bo-appeals-case-subscription"
-  topic_id                             = var.service_bus_appeals_bo_case_topic_id
+  name                                 = "appeal-has-fo-sub"
+  topic_id                             = var.service_bus_appeals_bo_has_case_topic_id
   max_delivery_count                   = 1
   default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
   dead_lettering_on_message_expiration = true
 }
 
-# Appeals bo document data topic subscription
-resource "azurerm_servicebus_subscription" "appeals_bo_document_topic_subscription" {
+# Appeals s78 case data topic subscription
+resource "azurerm_servicebus_subscription" "appeals_fo_s78_case_topic_subscription" {
   count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
 
-  name                                 = "bo-appeals-document-subscription"
+  name                                 = "appeal-s78-fo-sub"
+  topic_id                             = var.service_bus_appeals_bo_s78_case_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
+}
+
+# Appeals fo document data topic subscription
+resource "azurerm_servicebus_subscription" "appeals_fo_document_topic_subscription" {
+  count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
+
+  name                                 = "appeal-document-fo-sub"
   topic_id                             = var.service_bus_appeals_bo_document_topic_id
   max_delivery_count                   = 1
   default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
   dead_lettering_on_message_expiration = true
 }
 
-# listed building topic subscription
-resource "azurerm_servicebus_subscription" "listed_building_topic_subscription" {
+# Appeals fo event data topic subscription
+resource "azurerm_servicebus_subscription" "appeals_fo_event_topic_subscription" {
   count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
 
-  name                                 = "listed-building-subscription"
+  name                                 = "appeal-event-fo-sub"
+  topic_id                             = var.service_bus_appeals_bo_event_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
+}
+
+# Appeals fo service user data topic subscription
+resource "azurerm_servicebus_subscription" "appeals_fo_service_user_topic_subscription" {
+  count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
+
+  name                                 = "appeal-service-user-fo-sub"
+  topic_id                             = var.service_bus_appeals_bo_service_user_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
+}
+
+# Appeals fo listed building topic subscription
+resource "azurerm_servicebus_subscription" "appeals_fo_listed_building_topic_subscription" {
+  count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
+
+  name                                 = "listed-building-fo-sub"
   topic_id                             = var.service_bus_listed_building_topic_id
   max_delivery_count                   = 1
   default_message_ttl                  = var.service_bus_config.fo_subscription_ttl

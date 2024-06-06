@@ -15,7 +15,7 @@ This module also contains some resources such as Service Bus and Function Apps r
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.107.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.74.0 |
 
 ## Modules
 
@@ -30,18 +30,24 @@ This module also contains some resources such as Service Bus and Function Apps r
 | Name | Type |
 |------|------|
 | [azurerm_role_assignment.app_configuration_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.appeals_bo_case_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.appeals_bo_document_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.appeals_docs_api_bo_storage_account_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.appeals_docs_api_bo_storage_container_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.appeals_fo_api_send_appellant_submission_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.appeals_fo_api_send_lpa_submission_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.appeals_fo_document_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.appeals_fo_event_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.appeals_fo_has_case_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.appeals_fo_s78_case_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.appeals_fo_send_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.appeals_fo_service_user_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.listed_building_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
-| [azurerm_servicebus_subscription.appeals_bo_case_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/servicebus_subscription) | resource |
-| [azurerm_servicebus_subscription.appeals_bo_document_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/servicebus_subscription) | resource |
-| [azurerm_servicebus_subscription.listed_building_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_servicebus_subscription.appeals_fo_document_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_servicebus_subscription.appeals_fo_event_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_servicebus_subscription.appeals_fo_has_case_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_servicebus_subscription.appeals_fo_listed_building_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_servicebus_subscription.appeals_fo_s78_case_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_servicebus_subscription.appeals_fo_service_user_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/servicebus_subscription) | resource |
 
 ## Inputs
 
@@ -89,8 +95,11 @@ This module also contains some resources such as Service Bus and Function Apps r
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | The ID of the resource group that will contain the App Services | `string` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the resource group that will contain the App Services | `string` | n/a | yes |
 | <a name="input_resource_suffix"></a> [resource\_suffix](#input\_resource\_suffix) | The suffix for resource naming | `string` | n/a | yes |
-| <a name="input_service_bus_appeals_bo_case_topic_id"></a> [service\_bus\_appeals\_bo\_case\_topic\_id](#input\_service\_bus\_appeals\_bo\_case\_topic\_id) | ID for the appeals case data topic | `string` | n/a | yes |
 | <a name="input_service_bus_appeals_bo_document_topic_id"></a> [service\_bus\_appeals\_bo\_document\_topic\_id](#input\_service\_bus\_appeals\_bo\_document\_topic\_id) | ID for the appeals case data topic | `string` | n/a | yes |
+| <a name="input_service_bus_appeals_bo_event_topic_id"></a> [service\_bus\_appeals\_bo\_event\_topic\_id](#input\_service\_bus\_appeals\_bo\_event\_topic\_id) | ID for the appeals event case data topic | `string` | n/a | yes |
+| <a name="input_service_bus_appeals_bo_has_case_topic_id"></a> [service\_bus\_appeals\_bo\_has\_case\_topic\_id](#input\_service\_bus\_appeals\_bo\_has\_case\_topic\_id) | ID for the appeals HAS case data topic | `string` | n/a | yes |
+| <a name="input_service_bus_appeals_bo_s78_case_topic_id"></a> [service\_bus\_appeals\_bo\_s78\_case\_topic\_id](#input\_service\_bus\_appeals\_bo\_s78\_case\_topic\_id) | ID for the appeals s78 case data topic | `string` | n/a | yes |
+| <a name="input_service_bus_appeals_bo_service_user_topic_id"></a> [service\_bus\_appeals\_bo\_service\_user\_topic\_id](#input\_service\_bus\_appeals\_bo\_service\_user\_topic\_id) | ID for the appeals service user case data topic | `string` | n/a | yes |
 | <a name="input_service_bus_appeals_fo_appellant_submission_topic_id"></a> [service\_bus\_appeals\_fo\_appellant\_submission\_topic\_id](#input\_service\_bus\_appeals\_fo\_appellant\_submission\_topic\_id) | ID for the appeals fo front office LPA response submission topic | `string` | n/a | yes |
 | <a name="input_service_bus_appeals_fo_lpa_response_submission_topic_id"></a> [service\_bus\_appeals\_fo\_lpa\_response\_submission\_topic\_id](#input\_service\_bus\_appeals\_fo\_lpa\_response\_submission\_topic\_id) | ID for the appeals fo front office LPA response submission topic | `string` | n/a | yes |
 | <a name="input_service_bus_config"></a> [service\_bus\_config](#input\_service\_bus\_config) | service bus configuration | <pre>object({<br>    default_topic_ttl            = string<br>    bo_internal_subscription_ttl = string<br>    bo_subscription_ttl          = string<br>    fo_subscription_ttl          = string<br>  })</pre> | n/a | yes |

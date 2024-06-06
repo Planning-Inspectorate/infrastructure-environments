@@ -15,8 +15,8 @@ This component contains the infrastructure required for the appeals service. Thi
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.106.1 |
-| <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 3.106.1 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.107.0 |
+| <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 3.107.0 |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.6.2 |
 | <a name="provider_time"></a> [time](#provider\_time) | 0.11.2 |
 
@@ -96,10 +96,12 @@ This component contains the infrastructure required for the appeals service. Thi
 | [azurerm_private_dns_zone.database](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/private_dns_zone) | data source |
 | [azurerm_resource_group.appeals_bo](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/resource_group) | data source |
 | [azurerm_servicebus_topic.appeal_document](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/servicebus_topic) | data source |
+| [azurerm_servicebus_topic.appeal_event](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/servicebus_topic) | data source |
 | [azurerm_servicebus_topic.appeal_fo_appellant_submission](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/servicebus_topic) | data source |
 | [azurerm_servicebus_topic.appeal_fo_lpa_questionnaire_submission](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/servicebus_topic) | data source |
 | [azurerm_servicebus_topic.appeal_has](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/servicebus_topic) | data source |
 | [azurerm_servicebus_topic.appeal_s78](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/servicebus_topic) | data source |
+| [azurerm_servicebus_topic.appeal_service_user](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/servicebus_topic) | data source |
 | [azurerm_servicebus_topic.listed_building](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/servicebus_topic) | data source |
 | [azurerm_storage_account.appeals_bo](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/storage_account) | data source |
 | [azurerm_storage_container.appeal_bo_documents](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/storage_container) | data source |
