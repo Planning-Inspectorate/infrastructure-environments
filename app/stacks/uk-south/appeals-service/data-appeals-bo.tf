@@ -22,6 +22,8 @@ locals {
     appeal_has                             = data.azurerm_servicebus_topic.appeal_has.id
     appeal_s78                             = data.azurerm_servicebus_topic.appeal_s78.id
     appeal_document                        = data.azurerm_servicebus_topic.appeal_document.id
+    appeal_event                           = data.azurerm_servicebus_topic.appeal_event.id
+    appeal_service_user                    = data.azurerm_servicebus_topic.appeal_service_user.id
     appeal_fo_appellant_submission         = data.azurerm_servicebus_topic.appeal_fo_appellant_submission.id
     appeal_fo_lpa_questionnaire_submission = data.azurerm_servicebus_topic.appeal_fo_lpa_questionnaire_submission.id
     listed_building                        = data.azurerm_servicebus_topic.listed_building.id
@@ -57,6 +59,16 @@ data "azurerm_servicebus_topic" "appeal_s78" {
 
 data "azurerm_servicebus_topic" "appeal_document" {
   name         = "appeal-document"
+  namespace_id = local.appeals_bo_service_bus_id
+}
+
+data "azurerm_servicebus_topic" "appeal_event" {
+  name         = "appeal-event"
+  namespace_id = local.appeals_bo_service_bus_id
+}
+
+data "azurerm_servicebus_topic" "appeal_service_user" {
+  name         = "appeal-service-user"
   namespace_id = local.appeals_bo_service_bus_id
 }
 
