@@ -82,7 +82,7 @@ locals {
     }
   ]
   allow_testing_overrides                                                       = false
-  appeals_feature_back_office_subscriber_enabled                                = false
+  appeals_feature_back_office_subscriber_enabled                                = true
   appeals_frontend_file_upload_debug_logging_enabled                            = false
   dashboards_enabled                                                            = false
   deploy_interested_parties                                                     = true
