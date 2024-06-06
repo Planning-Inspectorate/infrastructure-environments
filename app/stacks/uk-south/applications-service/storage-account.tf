@@ -10,7 +10,7 @@ resource "azurerm_storage_account" "function_storage" {
   #checkov:skip=CKV_AZURE_59: TODO: Ensure that Storage accounts disallow public access
   #checkov:skip=CKV_AZURE_206: TODO: Ensure that Storage Accounts use replication
 
-  name                             = replace("pinsappsfunc${local.resource_suffix}", "-", "")
+  name                             = replace("pinsappsfunc${local.storage_resource_suffix}", "-", "")
   resource_group_name              = azurerm_resource_group.applications_service_stack.name
   location                         = azurerm_resource_group.applications_service_stack.location
   account_tier                     = "Standard"
