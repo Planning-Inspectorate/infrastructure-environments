@@ -34,13 +34,14 @@ data "azurerm_resource_group" "appeals_bo" {
 
 # storage
 data "azurerm_storage_account" "appeals_bo" {
-  name                = "pinsstdocsappealsbo${var.environment}"
+  # max length 24, so trim off the end - will only apply to training environment!
+  name                = substr("pinsstdocsappealsbo${var.environment}", 0, 24)
   resource_group_name = local.appeals_bo_config.resource_group_name
 }
 
 data "azurerm_storage_container" "appeal_bo_documents" {
   name                 = local.appeals_bo_config.documents_container
-  storage_account_name = "pinsstdocsappealsbo${var.environment}"
+  storage_account_name = data.azurerm_storage_account.appeals_bo.name
 }
 
 # service bus
