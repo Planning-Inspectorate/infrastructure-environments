@@ -8,7 +8,7 @@ This component contains the infrastructure required for the back office service.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.7, < 1.8.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.106.1 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.107.0 |
 
 ## Providers
 
@@ -28,33 +28,33 @@ This component contains the infrastructure required for the back office service.
 
 | Name | Type |
 |------|------|
-| [azurerm_app_configuration.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/app_configuration) | resource |
-| [azurerm_key_vault_secret.back_office_applications_redis_cache_connection_string_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/key_vault_secret) | resource |
-| [azurerm_log_analytics_workspace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/log_analytics_workspace) | resource |
-| [azurerm_mssql_failover_group.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/mssql_failover_group) | resource |
-| [azurerm_mssql_server.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/mssql_server) | resource |
-| [azurerm_mssql_server_extended_auditing_policy.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/mssql_server_extended_auditing_policy) | resource |
-| [azurerm_mssql_server_security_alert_policy.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/mssql_server_security_alert_policy) | resource |
-| [azurerm_mssql_server_vulnerability_assessment.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/mssql_server_vulnerability_assessment) | resource |
-| [azurerm_private_dns_zone.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/private_dns_zone) | resource |
-| [azurerm_private_dns_zone_virtual_network_link.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/private_dns_zone_virtual_network_link) | resource |
-| [azurerm_private_endpoint.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/private_endpoint) | resource |
-| [azurerm_private_endpoint.back_office_app_config](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/private_endpoint) | resource |
-| [azurerm_private_endpoint.back_office_applications_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/private_endpoint) | resource |
-| [azurerm_private_endpoint.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/private_endpoint) | resource |
-| [azurerm_redis_cache.back_office_applications_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/redis_cache) | resource |
-| [azurerm_resource_group.back_office_stack](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/resource_group) | resource |
-| [azurerm_role_assignment.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/role_assignment) | resource |
-| [azurerm_servicebus_namespace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/servicebus_namespace) | resource |
-| [azurerm_servicebus_namespace_disaster_recovery_config.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/servicebus_namespace_disaster_recovery_config) | resource |
-| [azurerm_storage_account.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/storage_account) | resource |
-| [azurerm_storage_container.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/storage_container) | resource |
-| [azurerm_subnet.back_office_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/subnet) | resource |
-| [azurerm_monitor_action_group.bo_applications_tech](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/data-sources/monitor_action_group) | data source |
-| [azurerm_private_dns_zone.app_config](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/data-sources/private_dns_zone) | data source |
-| [azurerm_private_dns_zone.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/data-sources/private_dns_zone) | data source |
-| [azurerm_private_dns_zone.database](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/data-sources/private_dns_zone) | data source |
-| [azurerm_private_dns_zone.redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/data-sources/private_dns_zone) | data source |
+| [azurerm_app_configuration.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/app_configuration) | resource |
+| [azurerm_key_vault_secret.back_office_applications_redis_cache_connection_string_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_log_analytics_workspace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/log_analytics_workspace) | resource |
+| [azurerm_mssql_failover_group.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/mssql_failover_group) | resource |
+| [azurerm_mssql_server.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/mssql_server) | resource |
+| [azurerm_mssql_server_extended_auditing_policy.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/mssql_server_extended_auditing_policy) | resource |
+| [azurerm_mssql_server_security_alert_policy.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/mssql_server_security_alert_policy) | resource |
+| [azurerm_mssql_server_vulnerability_assessment.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/mssql_server_vulnerability_assessment) | resource |
+| [azurerm_private_dns_zone.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_dns_zone) | resource |
+| [azurerm_private_dns_zone_virtual_network_link.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
+| [azurerm_private_endpoint.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_endpoint) | resource |
+| [azurerm_private_endpoint.back_office_app_config](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_endpoint) | resource |
+| [azurerm_private_endpoint.back_office_applications_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_endpoint) | resource |
+| [azurerm_private_endpoint.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_endpoint) | resource |
+| [azurerm_redis_cache.back_office_applications_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/redis_cache) | resource |
+| [azurerm_resource_group.back_office_stack](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/resource_group) | resource |
+| [azurerm_role_assignment.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
+| [azurerm_servicebus_namespace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/servicebus_namespace) | resource |
+| [azurerm_servicebus_namespace_disaster_recovery_config.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/servicebus_namespace_disaster_recovery_config) | resource |
+| [azurerm_storage_account.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/storage_account) | resource |
+| [azurerm_storage_container.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/storage_container) | resource |
+| [azurerm_subnet.back_office_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/subnet) | resource |
+| [azurerm_monitor_action_group.bo_applications_tech](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/monitor_action_group) | data source |
+| [azurerm_private_dns_zone.app_config](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/private_dns_zone) | data source |
+| [azurerm_private_dns_zone.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/private_dns_zone) | data source |
+| [azurerm_private_dns_zone.database](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/private_dns_zone) | data source |
+| [azurerm_private_dns_zone.redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/private_dns_zone) | data source |
 
 ## Inputs
 
