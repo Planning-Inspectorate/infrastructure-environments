@@ -7,7 +7,7 @@ module "applications_background_job_functions" {
   app_service_plan_id                      = var.app_service_plan_id
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
-  function_node_version                    = 18
+  function_node_version                    = 20
   integration_subnet_id                    = var.integration_subnet_id
   # adding key_vault_id creates a read_secrets permission (see import)
   key_vault_id               = var.key_vault_id
@@ -17,8 +17,8 @@ module "applications_background_job_functions" {
   outbound_vnet_connectivity = true
   resource_group_name        = var.resource_group_name
   resource_suffix            = var.resource_suffix
-  service_name               = "back-office"
   use_app_insights           = true
+  service_name               = "back-office"
 
   app_settings = {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.service_bus_namespace_name}.servicebus.windows.net"

@@ -7,14 +7,14 @@ This component contains the common infrastructure required by each environment. 
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.7, < 3.74.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.74.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.7, < 1.8.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.107.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.74.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.107.0 |
 
 ## Modules
 
@@ -28,21 +28,21 @@ This component contains the common infrastructure required by each environment. 
 
 | Name | Type |
 |------|------|
-| [azurerm_key_vault.environment_key_vault](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault) | resource |
-| [azurerm_key_vault_access_policy.admins](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_access_policy) | resource |
-| [azurerm_key_vault_access_policy.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_access_policy) | resource |
-| [azurerm_key_vault_access_policy.frontdoor](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_access_policy) | resource |
-| [azurerm_key_vault_access_policy.pipeline_appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_access_policy) | resource |
-| [azurerm_key_vault_access_policy.pipeline_applications_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_access_policy) | resource |
-| [azurerm_key_vault_access_policy.pipeline_back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_access_policy) | resource |
-| [azurerm_key_vault_secret.applications_service_vpn_gateway_shared_key](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_log_analytics_workspace.common](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/log_analytics_workspace) | resource |
-| [azurerm_monitor_action_group.all_action_groups](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/monitor_action_group) | resource |
-| [azurerm_resource_group.common_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/resource_group) | resource |
-| [azurerm_service_plan.common_integration_functions_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/service_plan) | resource |
-| [azurerm_service_plan.common_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/resources/service_plan) | resource |
-| [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/client_config) | data source |
-| [azurerm_key_vault_secret.applications_service_vpn_gateway_shared_key](https://registry.terraform.io/providers/hashicorp/azurerm/3.74.0/docs/data-sources/key_vault_secret) | data source |
+| [azurerm_key_vault.environment_key_vault](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault) | resource |
+| [azurerm_key_vault_access_policy.admins](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_access_policy) | resource |
+| [azurerm_key_vault_access_policy.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_access_policy) | resource |
+| [azurerm_key_vault_access_policy.frontdoor](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_access_policy) | resource |
+| [azurerm_key_vault_access_policy.pipeline_appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_access_policy) | resource |
+| [azurerm_key_vault_access_policy.pipeline_applications_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_access_policy) | resource |
+| [azurerm_key_vault_access_policy.pipeline_back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_access_policy) | resource |
+| [azurerm_key_vault_secret.applications_service_vpn_gateway_shared_key](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_log_analytics_workspace.common](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/log_analytics_workspace) | resource |
+| [azurerm_monitor_action_group.all_action_groups](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/monitor_action_group) | resource |
+| [azurerm_resource_group.common_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/resource_group) | resource |
+| [azurerm_service_plan.common_integration_functions_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/service_plan) | resource |
+| [azurerm_service_plan.common_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/service_plan) | resource |
+| [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/client_config) | data source |
+| [azurerm_key_vault_secret.applications_service_vpn_gateway_shared_key](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/key_vault_secret) | data source |
 
 ## Inputs
 
@@ -53,6 +53,7 @@ This component contains the common infrastructure required by each environment. 
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | The common resource tags for the project | `map(string)` | n/a | yes |
 | <a name="input_cosmosdb_enable_public_access"></a> [cosmosdb\_enable\_public\_access](#input\_cosmosdb\_enable\_public\_access) | A flag to indicate if the database can be accessed over the internet | `string` | `false` | no |
 | <a name="input_create_turbrepo_cache"></a> [create\_turbrepo\_cache](#input\_create\_turbrepo\_cache) | Whether or not to create the turborepo cache server. Should only be deployed to one environment. | `bool` | `false` | no |
+| <a name="input_deploy_national_infrastructure_vnet_gateway"></a> [deploy\_national\_infrastructure\_vnet\_gateway](#input\_deploy\_national\_infrastructure\_vnet\_gateway) | A flag to determine if the VNet gateway to the National Infrastructure subscription should be deployed | `bool` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
 | <a name="input_front_door_principal_id"></a> [front\_door\_principal\_id](#input\_front\_door\_principal\_id) | The ID of the service principal associated with Front Door in the tenant | `string` | n/a | yes |
 | <a name="input_instance"></a> [instance](#input\_instance) | The environment instance for use if multiple environments are deployed to a subscription | `string` | `"001"` | no |

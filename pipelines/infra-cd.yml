@@ -42,11 +42,22 @@ resources:
       type: github
       endpoint: Planning-Inspectorate
       name: Planning-Inspectorate/common-pipeline-templates
-      ref: refs/tags/release/3.9.0
+      ref: refs/tags/release/3.16.0
 
 extends:
   template: stages/wrapper_cd.yml@templates
   parameters:
+    environments:
+      - name: Dev
+      - name: Test
+        dependsOn:
+          - Dev
+      - name: Training
+        dependsOn:
+          - Test
+      - name: Prod
+        dependsOn:
+          - Test
     variableGroupPrefix: 'core_services_cd'
     deploymentStages:
       - name: Terraform Plan

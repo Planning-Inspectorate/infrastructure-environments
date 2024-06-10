@@ -21,7 +21,7 @@ resource "azurerm_private_endpoint" "applications_service_redis_cache" {
   }
 
   private_service_connection {
-    name                           = "pins-redis-cache-private-service-connection-${local.service_name}-${local.resource_suffix}"
+    name                           = "pins-redis-cache-${var.environment == "training" ? "pse" : "private-service-connection"}-${local.service_name}-${local.resource_suffix}"
     private_connection_resource_id = azurerm_redis_cache.applications_service_redis_cache.id
     is_manual_connection           = false
     subresource_names              = ["redisCache"]

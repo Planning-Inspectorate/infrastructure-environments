@@ -2,6 +2,7 @@ module "applications_migration_function" {
   source = "./applications-migration-function"
 
   action_group_ids                         = local.bo_applications_action_group_ids
+  back_office_storage_account_domain       = var.document_storage_api_host
   location                                 = var.location
   log_analytics_workspace_id               = var.log_analytics_workspace_id
   monitoring_alerts_enabled                = var.monitoring_alerts_enabled

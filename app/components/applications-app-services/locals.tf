@@ -1,7 +1,8 @@
 locals {
   app_services = {
     applications_frontend = {
-      app_name                   = "applications-wfe"
+      # use a shorter name in training env to avoid 60 char app name limit
+      app_name                   = var.environment == "training" ? "wfe" : "applications-wfe"
       front_door_restriction     = true
       image_name                 = "applications-service/forms-web-app"
       inbound_vnet_connectivity  = false
@@ -14,7 +15,7 @@ locals {
         APPLICATIONINSIGHTS_CONNECTION_STRING        = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/applications-service-app-insights-connection-string/)"
         BACK_OFFICE_INTEGRATION_GET_APPLICATIONS     = var.back_office_integration_get_applications
         APPLICATIONS_SERVICE_API_TIMEOUT             = var.api_timeout
-        APPLICATIONS_SERVICE_API_URL                 = "https://pins-app-${var.service_name}-applications-api-${var.resource_suffix}.azurewebsites.net/"
+        APPLICATIONS_SERVICE_API_URL                 = "https://pins-app-${var.service_name}-${var.environment == "training" ? "api" : "applications-api"}-${var.resource_suffix}.azurewebsites.net/"
         FEATURE_ALLOW_WELSH_TRANSLATION              = var.feature_allow_welsh_translation
         FEATURE_APPLICATION_INSIGHTS                 = var.feature_application_insights
         FEATURE_ENABLE_GENERALISED_FORM_SANITISATION = var.feature_enable_generalised_form_sanitisation
@@ -43,7 +44,8 @@ locals {
     }
 
     applications_service_api = {
-      app_name                        = "applications-api"
+      # use a shorter name in training env to avoid 60 char app name limit
+      app_name                        = var.environment == "training" ? "api" : "applications-api"
       app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
       endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
       image_name                      = "applications-service/applications-service-api"

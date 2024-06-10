@@ -26,6 +26,11 @@ variable "cosmosdb_enable_public_access" {
   default     = false
 }
 
+variable "deploy_national_infrastructure_vnet_gateway" {
+  description = "A flag to determine if the VNet gateway to the National Infrastructure subscription should be deployed"
+  type        = bool
+}
+
 variable "environment" {
   description = "The environment resources are deployed to e.g. 'dev'"
   type        = string
