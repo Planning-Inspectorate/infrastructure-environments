@@ -18,7 +18,7 @@ module "applications_command_handler_functions" {
   resource_suffix            = var.resource_suffix
   service_name               = "back-office"
   use_app_insights           = true
-  function_node_version      = 18
+  function_node_version      = 20
 
   app_settings = {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.service_bus_namespace_name}.servicebus.windows.net"
