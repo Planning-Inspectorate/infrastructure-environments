@@ -8,7 +8,7 @@ This component contains the common infrastructure required by each environment. 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.7, < 1.8.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.106.1 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.107.0 |
 
 ## Providers
 
@@ -27,9 +27,9 @@ This component contains the common infrastructure required by each environment. 
 
 | Name | Type |
 |------|------|
-| [azurerm_resource_group.common_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/resource_group) | resource |
-| [azurerm_service_plan.common_integration_functions_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/service_plan) | resource |
-| [azurerm_service_plan.common_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/3.106.1/docs/resources/service_plan) | resource |
+| [azurerm_resource_group.common_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/resource_group) | resource |
+| [azurerm_service_plan.common_integration_functions_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/service_plan) | resource |
+| [azurerm_service_plan.common_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/service_plan) | resource |
 
 ## Inputs
 
