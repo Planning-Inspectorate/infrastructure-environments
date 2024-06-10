@@ -14,7 +14,7 @@ This component contains the Azure Front Door and WAF resources. The resources in
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.107.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.106.1 |
 | <a name="provider_null"></a> [null](#provider\_null) | 3.2.2 |
 
 ## Modules
