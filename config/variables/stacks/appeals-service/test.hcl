@@ -1,14 +1,6 @@
 locals {
   appeals_feature_flags = [
     {
-      name    = "appeal-form-v2"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = ["Q9999"]
-      }
-    },
-    {
       name    = "appeals-bo-submission"
       enabled = true
       targeting = {
@@ -108,6 +100,7 @@ locals {
   srv_notify_appeal_submission_confirmation_email_to_appellant_template_id      = "72f71441-12bf-4455-afbc-c58f9c72bfbd"
   srv_notify_appeal_submission_confirmation_email_to_appellant_template_id_v1_1 = "72f71441-12bf-4455-afbc-c58f9c72bfbd"
   srv_notify_has_appeal_submission_confirmation_email_to_appellant_template_id  = "d236fbb1-172e-4596-adf0-dc9bcf01aefd"
+  srv_notify_has_appeal_submission_notification_email_to_lpa_template_id        = "a46a8408-9e04-435f-9588-6017dff8eb16"
   srv_notify_appeal_received_notification_email_to_appellant_template_id        = "13dbf9e9-7549-4973-9c70-9fb9d67e38e7"
   srv_notify_appeal_submission_received_notification_email_to_lpa_template_id   = "79488d5d-7efd-4273-a11f-e73f11d19676"
   srv_notify_appellant_login_confirm_registration_template_id                   = "f0781589-8df5-4717-ab87-1dc5c2d5a9de"
