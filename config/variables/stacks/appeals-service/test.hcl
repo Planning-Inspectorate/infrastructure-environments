@@ -1,6 +1,14 @@
 locals {
   appeals_feature_flags = [
     {
+      name    = "appeal-form-v2"
+      enabled = true
+      targeting = {
+        percentage = 100
+        users      = ["Q9999"]
+      }
+    },
+    {
       name    = "appeals-bo-submission"
       enabled = true
       targeting = {
