@@ -314,6 +314,13 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
       }
 
       rule {
+        # Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)
+        action  = "Log"
+        enabled = true
+        rule_id = "942430"
+      }
+
+      rule {
         # SQL Hex Encoding Identified
         action  = "Block"
         enabled = true
