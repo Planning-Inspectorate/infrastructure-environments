@@ -23,8 +23,13 @@ module "front_office_subscribers" {
 
   app_settings = {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
-    FO_APPEALS_API                                = "${module.app_service["appeals_service_api"].default_site_hostname}/api/v1"
-    FO_APPEALS_API_HOSTNAME                       = module.app_service["appeals_service_api"].default_site_hostname
+
+    FO_APPEALS_API          = "${module.app_service["appeals_service_api"].default_site_hostname}/api/v1"
+    FO_APPEALS_API_HOSTNAME = module.app_service["appeals_service_api"].default_site_hostname
+
+    CLIENT_ID     = local.secret_refs["appeals-function-client-id"]
+    CLIENT_SECRET = local.secret_refs["appeals-function-client-secret"]
+    AUTH_BASE_URL = module.app_service["auth_server"].default_site_hostname
   }
 
   tags = var.tags
