@@ -146,6 +146,9 @@ locals {
         FORMS_WEB_APP_CLIENT_SECRET = local.secret_refs["appeals-forms-web-app-client-secret"]
         FORMS_WEB_APP_REDIRECT_URI  = "https://${var.appeals_service_public_url}/odic"
 
+        FUNCTIONS_CLIENT_ID     = local.secret_refs["appeals-function-client-id"]
+        FUNCTIONS_CLIENT_SECRET = local.secret_refs["appeals-function-client-secret"]
+
         WEB_COMMENT_CLIENT_ID     = local.secret_refs["appeals-web-comment-client-id"]
         WEB_COMMENT_CLIENT_SECRET = local.secret_refs["appeals-web-comment-client-secret"]
         WEB_COMMENT_REDIRECT_URI  = "https://${var.comment_planning_appeal_public_url}/odic"
@@ -292,6 +295,8 @@ locals {
     "appeals-sql-server-connection-string-app",
     "appeals-forms-web-app-client-id",
     "appeals-forms-web-app-client-secret",
+    "appeals-function-client-id",
+    "appeals-function-client-secret",
     "appeals-web-comment-client-id",
     "appeals-web-comment-client-secret",
   ]
