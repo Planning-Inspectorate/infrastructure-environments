@@ -34,17 +34,6 @@ resource "azurerm_key_vault_secret" "applications_sql_server_username" {
   tags = local.tags
 }
 
-resource "azurerm_key_vault_secret" "applications_sql_server_connection_string" {
-  count = var.is_dr_deployment ? 1 : 0
-
-  #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
-  content_type = "text/plain"
-  key_vault_id = var.key_vault_id
-  name         = "applications-service-sql-server-connection-string"
-  value        = local.sql_connection_string
-  tags         = local.tags
-}
-
 resource "azurerm_key_vault_secret" "redis_cache_connection_string" {
   count = var.is_dr_deployment ? 1 : 0
 

@@ -389,12 +389,6 @@ variable "sql_server_azuread_administrator" {
   type        = map(string)
 }
 
-variable "sql_database_configuration" {
-  description = "A map of database configuration options"
-  type        = map(string)
-}
-
-
 variable "service_bus_config" {
   description = "service bus configuration"
   type = object({
