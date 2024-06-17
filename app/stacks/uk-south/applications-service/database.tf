@@ -25,22 +25,6 @@ resource "azurerm_mssql_server" "applications_sql_server" {
   tags = local.tags
 }
 
-resource "azurerm_mssql_database" "applications_sql_db" {
-  #checkov:skip=CKV_AZURE_224: TODO: Ensure that the Ledger feature is enabled on database that requires cryptographic proof and nonrepudiation of data integrity
-  #checkov:skip=CKV_AZURE_229: TODO: Ensure the Azure SQL Database Namespace is zone redundant
-  name        = "pins-sqldb-${local.service_name}-${local.resource_suffix}"
-  server_id   = azurerm_mssql_server.applications_sql_server.id
-  collation   = "SQL_Latin1_General_CP1_CI_AS"
-  sku_name    = var.sql_database_configuration["sku_name"]
-  max_size_gb = var.sql_database_configuration["max_size_gb"]
-
-  short_term_retention_policy {
-    retention_days = var.sql_database_configuration["short_term_retention_days"]
-  }
-
-  tags = local.tags
-}
-
 resource "azurerm_private_endpoint" "applications_sql_server" {
   name                = "pins-sqldb-private-endpoint-${local.service_name}-${local.resource_suffix}"
   resource_group_name = azurerm_resource_group.applications_service_stack.name
