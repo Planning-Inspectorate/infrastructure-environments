@@ -7,6 +7,7 @@ resource "azurerm_servicebus_namespace" "back_office" {
   sku                           = var.service_bus_failover_enabled ? "Premium" : "Standard"
   capacity                      = var.service_bus_failover_enabled ? 1 : 0
   public_network_access_enabled = !var.service_bus_failover_enabled
+  premium_messaging_partitions  = var.service_bus_failover_enabled ? 1 : 0
 
   tags = local.tags
 }
