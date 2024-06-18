@@ -4,6 +4,7 @@ locals {
   container_registry_rg                             = "pins-rg-shared-tooling-uks"
   app_service_private_dns_zone_id                   = "/subscriptions/${local.tooling_subscription_id}/resourceGroups/${local.tooling_network_rg}/providers/Microsoft.Network/privateDnsZones/privatelink.azurewebsites.net"
   front_door_principal_id                           = "c73a3f61-aa0a-4450-b3f8-303d72bf57a9"
+  internal_dns_name                                 = "pins.internal"
   pipeline_appeals_service_principal_object_id      = "11ed006b-0bff-4b2c-b866-503bd6affc1d"
   pipeline_applications_service_principal_object_id = "1634ca70-4e44-41d7-8508-74055051ab91"
   pipeline_back_office_principal_object_id          = "d7a421f4-c539-4ee4-b1a2-a6a2f70cf4c9"

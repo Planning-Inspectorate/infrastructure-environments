@@ -14,7 +14,7 @@ This component contains the common infrastructure required by each environment. 
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.106.1 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.107.0 |
 
 ## Modules
 
@@ -58,6 +58,7 @@ This component contains the common infrastructure required by each environment. 
 | <a name="input_front_door_principal_id"></a> [front\_door\_principal\_id](#input\_front\_door\_principal\_id) | The ID of the service principal associated with Front Door in the tenant | `string` | n/a | yes |
 | <a name="input_instance"></a> [instance](#input\_instance) | The environment instance for use if multiple environments are deployed to a subscription | `string` | `"001"` | no |
 | <a name="input_integration_functions_app_service_plan_sku"></a> [integration\_functions\_app\_service\_plan\_sku](#input\_integration\_functions\_app\_service\_plan\_sku) | The SKU of the App Service Plan | `string` | `"P2v2"` | no |
+| <a name="input_internal_dns_name"></a> [internal\_dns\_name](#input\_internal\_dns\_name) | The name of the internal private dns zone | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | The location resources are deployed to in slug format e.g. 'uk-south' | `string` | `"uk-west"` | no |
 | <a name="input_pipeline_appeals_service_principal_object_id"></a> [pipeline\_appeals\_service\_principal\_object\_id](#input\_pipeline\_appeals\_service\_principal\_object\_id) | The ID of the service principal associated with the Appeals Service pipelines | `string` | n/a | yes |
 | <a name="input_pipeline_applications_service_principal_object_id"></a> [pipeline\_applications\_service\_principal\_object\_id](#input\_pipeline\_applications\_service\_principal\_object\_id) | The ID of the service principal associated with the Applications Service pipelines | `string` | n/a | yes |

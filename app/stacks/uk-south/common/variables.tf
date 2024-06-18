@@ -38,6 +38,11 @@ variable "instance" {
   default     = "001"
 }
 
+variable "internal_dns_name" {
+  description = "The name of the internal private dns zone"
+  type        = string
+}
+
 variable "is_dr_deployment" {
   description = "A flag to indicate whether or not the infrastructure deployment is for a disaster recovery scenario"
   type        = bool

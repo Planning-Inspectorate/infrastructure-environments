@@ -130,6 +130,17 @@ resource "azurerm_private_dns_zone_virtual_network_link" "back_office_sql_server
   provider = azurerm.tooling
 }
 
+resource "azurerm_private_dns_zone_virtual_network_link" "internal" {
+  name                  = "pins-vnetlink-${var.service_name}-internal-${var.resource_suffix}"
+  resource_group_name   = var.tooling_network_rg
+  private_dns_zone_name = var.internal_dns_name
+  virtual_network_id    = azurerm_virtual_network.common_infrastructure.id
+
+  tags = var.tags
+
+  provider = azurerm.tooling
+}
+
 # Private DNS zone is different for namespaces going forward - we create one in each common group per environment, not just one cross-env one in tooling
 resource "azurerm_private_dns_zone" "sql_synase_dns_zone" { # typo in name left here to avoid delete + create
   name                = "privatelink.sql.azuresynapse.net"

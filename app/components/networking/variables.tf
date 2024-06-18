@@ -24,6 +24,11 @@ variable "environment" {
   type        = string
 }
 
+variable "internal_dns_name" {
+  description = "The name of the internal private dns zone"
+  type        = string
+}
+
 variable "location" {
   description = "The location resources are deployed to in slug format e.g. 'uk-south'"
   type        = string
