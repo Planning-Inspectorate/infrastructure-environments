@@ -303,7 +303,6 @@ variable "appeals_api_service_bus_enabled" {
   default     = true
 }
 
-
 variable "back_office_service_bus_namespace_name" {
   description = "Namespace of Back Office Service Bus instance"
   type        = string

@@ -24,7 +24,6 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="module_applications_command_handler_functions"></a> [applications\_command\_handler\_functions](#module\_applications\_command\_handler\_functions) | ./applications-command-handler-functions | n/a |
 | <a name="module_applications_migration_function"></a> [applications\_migration\_function](#module\_applications\_migration\_function) | ./applications-migration-function | n/a |
 | <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
-| <a name="module_clam_av_container"></a> [clam\_av\_container](#module\_clam\_av\_container) | ./clamav-container | n/a |
 
 ## Resources
 
@@ -56,10 +55,8 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_back_office_applications_log_level_file"></a> [back\_office\_applications\_log\_level\_file](#input\_back\_office\_applications\_log\_level\_file) | Log level for the server.log file - trace, debug, info, warn, error, fatal, silent | `string` | n/a | yes |
 | <a name="input_back_office_applications_log_level_stdout"></a> [back\_office\_applications\_log\_level\_stdout](#input\_back\_office\_applications\_log\_level\_stdout) | Log level for stdout - trace, debug, info, warn, error, fatal, silent | `string` | n/a | yes |
 | <a name="input_back_office_applications_redis_connection_string_secret_name"></a> [back\_office\_applications\_redis\_connection\_string\_secret\_name](#input\_back\_office\_applications\_redis\_connection\_string\_secret\_name) | The connection string (secret name) used to connect to the Back Office Applications Redis Cache | `string` | n/a | yes |
-| <a name="input_back_office_clamav_subnet_id"></a> [back\_office\_clamav\_subnet\_id](#input\_back\_office\_clamav\_subnet\_id) | Integration subnet for the clamav container | `string` | n/a | yes |
 | <a name="input_back_office_hostname"></a> [back\_office\_hostname](#input\_back\_office\_hostname) | Back Office Hostname | `string` | n/a | yes |
 | <a name="input_back_office_integration_subnet_id"></a> [back\_office\_integration\_subnet\_id](#input\_back\_office\_integration\_subnet\_id) | Integration subnet for back office anti-virus resources | `string` | n/a | yes |
-| <a name="input_common_vnet_id"></a> [common\_vnet\_id](#input\_common\_vnet\_id) | The common infrastructure virtual network id | `string` | n/a | yes |
 | <a name="input_container_registry_name"></a> [container\_registry\_name](#input\_container\_registry\_name) | The name of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_container_registry_rg"></a> [container\_registry\_rg](#input\_container\_registry\_rg) | The resource group of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_database_name"></a> [database\_name](#input\_database\_name) | The name of the Applications Back Office database | `string` | n/a | yes |
@@ -74,8 +71,6 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_document_storage_back_office_published_documents_container_resource_manager_id"></a> [document\_storage\_back\_office\_published\_documents\_container\_resource\_manager\_id](#input\_document\_storage\_back\_office\_published\_documents\_container\_resource\_manager\_id) | Back Office published-documents container resource\_manager\_id | `string` | n/a | yes |
 | <a name="input_document_storage_submissions_container_resource_manager_id"></a> [document\_storage\_submissions\_container\_resource\_manager\_id](#input\_document\_storage\_submissions\_container\_resource\_manager\_id) | Submissions container resource\_manager\_id | `string` | n/a | yes |
 | <a name="input_endpoint_subnet_id"></a> [endpoint\_subnet\_id](#input\_endpoint\_subnet\_id) | The id of the private endpoint subnet the app service is linked to for ingress traffic | `string` | n/a | yes |
-| <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
-| <a name="input_feature_document_scanning_enabled"></a> [feature\_document\_scanning\_enabled](#input\_feature\_document\_scanning\_enabled) | Whether or not Document Scanning has been enabled. Document Scanning is currently disabled in a DR deployment (in the secondary region), documents will be scanned when the primary comes online. | `bool` | `false` | no |
 | <a name="input_feature_service_bus_enabled"></a> [feature\_service\_bus\_enabled](#input\_feature\_service\_bus\_enabled) | Whether or not Service Bus events are enabled | `string` | n/a | yes |
 | <a name="input_health_check_path"></a> [health\_check\_path](#input\_health\_check\_path) | The path of the service's health check endpoint | `string` | `null` | no |
 | <a name="input_integration_subnet_id"></a> [integration\_subnet\_id](#input\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic | `string` | n/a | yes |
@@ -113,7 +108,6 @@ This module contains the App Services resources for the Back Office service. The
 |------|-------------|
 | <a name="output_app_service_principal_ids"></a> [app\_service\_principal\_ids](#output\_app\_service\_principal\_ids) | A map of App Service principal IDs |
 | <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of App Service URLs |
-| <a name="output_clamav_host"></a> [clamav\_host](#output\_clamav\_host) | Hostname of the ClamAV Container Group |
 | <a name="output_secret_names"></a> [secret\_names](#output\_secret\_names) | List of Key Vault secrets required for this component |
 | <a name="output_web_frontend_url"></a> [web\_frontend\_url](#output\_web\_frontend\_url) | The URL of the web frontend App Service |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

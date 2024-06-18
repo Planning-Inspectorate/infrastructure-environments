@@ -58,12 +58,6 @@ variable "document_check_function_storage_primary_access_key" {
   type        = string
 }
 
-variable "feature_document_scanning_enabled" {
-  default     = false
-  description = "Whether or not Document Scanning has been enabled. Document Scanning is currently disabled in a DR deployment (in the secondary region), documents will be scanned when the primary comes online."
-  type        = bool
-}
-
 variable "integration_subnet_id" {
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   type        = string
@@ -71,11 +65,6 @@ variable "integration_subnet_id" {
 
 variable "back_office_integration_subnet_id" {
   description = "Integration subnet for back office anti-virus resources"
-  type        = string
-}
-
-variable "back_office_clamav_subnet_id" {
-  description = "Integration subnet for the clamav container"
   type        = string
 }
 
@@ -147,11 +136,6 @@ variable "node_environment" {
   default     = "development"
 }
 
-variable "environment" {
-  description = "The environment resources are deployed to e.g. 'dev'"
-  type        = string
-}
-
 variable "private_endpoint_enabled" {
   description = "A switch to determine if Private Endpoint should be enabled for backend App Services"
   type        = bool
@@ -197,11 +181,6 @@ variable "feature_service_bus_enabled" {
 variable "service_plan_sku" {
   default     = "P2v2"
   description = "The SKU of the App Service Plan providing resources to hosted App Services"
-  type        = string
-}
-
-variable "common_vnet_id" {
-  description = "The common infrastructure virtual network id"
   type        = string
 }
 

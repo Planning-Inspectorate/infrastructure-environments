@@ -10,7 +10,6 @@ dependency "common_uks" {
   mock_outputs = {
     app_service_plan_id               = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pins-rg-common-dev-ukw-001/providers/Microsoft.Web/serverfarms/mock_id"
     back_office_integration_subnet_id = "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.Network/virtualNetworks/virtualNetworksValue/subnets/subnetValue"
-    back_office_clamav_subnet_id      = "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.Network/virtualNetworks/virtualNetworksValue/subnets/subnetValue"
     common_resource_group_name        = "mock_resource_group_name"
     common_vnet_cidr_blocks = {
       back_office_endpoints = "10.1.4.0/24"
@@ -105,7 +104,6 @@ inputs = {
   back_office_document_storage_api_host                                               = dependency.back_office_ukw.outputs.back_office_document_storage_api_host
   back_office_document_storage_container_name                                         = dependency.back_office_ukw.outputs.back_office_document_storage_container_name
   back_office_integration_subnet_id                                                   = dependency.common_uks.outputs.back_office_integration_subnet_id
-  back_office_clamav_subnet_id                                                        = dependency.common_uks.outputs.back_office_clamav_subnet_id
   back_office_sql_database                                                            = dependency.back_office_ukw.outputs.back_office_sql_database
   common_resource_group_name                                                          = dependency.common_uks.outputs.common_resource_group_name
   common_resource_group_name_ukw                                                      = dependency.common_ukw.outputs.common_resource_group_name
