@@ -50,6 +50,11 @@ variable "appeals_service_public_url" {
   type        = string
 }
 
+variable "clamav_subnet_id" {
+  description = "The id of the subnet to use for clamav"
+  type        = string
+}
+
 variable "common_resource_group_name" {
   description = "The common infrastructure resource group name"
   type        = string
@@ -114,6 +119,11 @@ variable "instance" {
   description = "The environment instance for use if multiple environments are deployed to a subscription"
   type        = string
   default     = "001"
+}
+
+variable "internal_dns_name" {
+  description = "The name of the internal private dns zone"
+  type        = string
 }
 
 variable "integration_subnet_id" {
@@ -288,11 +298,6 @@ variable "appeals_api_service_bus_enabled" {
   description = "A switch to determine if service bus integration is enabled for the appeals api"
   type        = bool
   default     = true
-}
-
-variable "clamav_host" {
-  description = "The host of the clam av service to use"
-  type        = string
 }
 
 variable "appeals_feature_back_office_subscriber_enabled" {

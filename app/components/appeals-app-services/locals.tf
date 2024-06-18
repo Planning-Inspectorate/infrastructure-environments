@@ -19,7 +19,7 @@ locals {
         APPEALS_SERVICE_API_TIMEOUT               = var.api_timeout
         APPEALS_SERVICE_API_URL                   = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
         AUTH_BASE_URL                             = "https://pins-app-${var.service_name}-auth-server-${var.resource_suffix}.azurewebsites.net"
-        CLAMAV_HOST                               = var.clamav_host
+        CLAMAV_HOST                               = azurerm_private_dns_a_record.clamav.fqdn
         CLAMAV_PORT                               = "3310"
         CLIENT_ID                                 = local.secret_refs["appeals-forms-web-app-client-id"]
         CLIENT_SECRET                             = local.secret_refs["appeals-forms-web-app-client-secret"]
@@ -68,7 +68,7 @@ locals {
         APPEALS_SERVICE_API_TIMEOUT               = var.api_timeout
         APPEALS_SERVICE_API_URL                   = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
         AUTH_BASE_URL                             = "https://pins-app-${var.service_name}-auth-server-${var.resource_suffix}.azurewebsites.net"
-        CLAMAV_HOST                               = var.clamav_host
+        CLAMAV_HOST                               = azurerm_private_dns_a_record.clamav.fqdn
         CLAMAV_PORT                               = "3310"
         CLIENT_ID                                 = local.secret_refs["appeals-web-comment-client-id"]
         CLIENT_SECRET                             = local.secret_refs["appeals-web-comment-client-secret"]

@@ -38,6 +38,7 @@ dependency "common_uks" {
       appeals_service_endpoints = "10.1.2.0/24"
       cosmosdb_endpoint         = "10.1.3.1/25"
     }
+    clamav_subnet_id                       = "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.Network/virtualNetworks/virtualNetworksValue/subnets/subnetValue"
     common_vnet_gateway_id                 = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Network/virtualNetworkGateways/mock_id"
     common_vnet_name                       = "mock_vnet_name"
     cosmosdb_subnet_id                     = "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.Network/virtualNetworks/virtualNetworksValue/subnets/subnetValue"
@@ -94,7 +95,6 @@ dependency "back_office_ukw" {
       back_office_appeals_frontend_ukw = "mock-wfe-url"
     }
     appeals_web_frontend_url = "mock-appeals-wfe-url"
-    clamav_host              = "clam.dev"
   }
 }
 
@@ -117,6 +117,7 @@ inputs = {
   app_service_plan_id                             = try(dependency.common_uks.outputs.app_service_plan_id, null)
   appeal_documents_primary_blob_connection_string = dependency.appeals_service_ukw.outputs.appeal_documents_primary_blob_connection_string
   appeal_documents_storage_container_name         = dependency.appeals_service_ukw.outputs.appeal_documents_storage_container_name
+  clamav_subnet_id                                = dependency.common_uks.outputs.back_office_clamav_subnet_id
   common_integration_functions_subnet_id          = dependency.common_uks.outputs.integration_subnet_id
   common_resource_group_name                      = dependency.common_uks.outputs.common_resource_group_name
   common_resource_group_name_ukw                  = dependency.common_ukw.outputs.common_resource_group_name
@@ -131,7 +132,6 @@ inputs = {
   integration_subnet_id                           = try(dependency.common_uks.outputs.integration_subnet_id, null)
   key_vault_id                                    = dependency.common_ukw.outputs.key_vault_id
   key_vault_uri                                   = dependency.common_ukw.outputs.key_vault_uri
-  clamav_host                                     = dependency.back_office_ukw.outputs.clamav_host
   primary_appeals_sql_server_id                   = dependency.appeals_service_ukw.outputs.primary_appeals_sql_server_id
   primary_appeals_sql_database_id                 = dependency.appeals_service_ukw.outputs.primary_appeals_sql_database_id
   primary_appeals_sql_database_name               = dependency.appeals_service_ukw.outputs.primary_appeals_sql_database_name

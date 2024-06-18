@@ -15,7 +15,7 @@ module "app_services" {
   bo_appeals_document_container_id                                              = data.azurerm_storage_container.appeal_bo_documents.resource_manager_id
   bo_appeals_document_container_name                                            = local.appeals_bo_config.documents_container
   back_office_document_storage_api_host                                         = data.azurerm_storage_account.appeals_bo.primary_blob_endpoint
-  clamav_host                                                                   = var.clamav_host
+  clamav_subnet_id                                                              = var.clamav_subnet_id
   comment_planning_appeal_public_url                                            = var.comment_planning_appeal_public_url
   common_integration_functions_subnet_id                                        = var.common_integration_functions_subnet_id
   container_registry_name                                                       = var.container_registry_name
@@ -30,6 +30,7 @@ module "app_services" {
   horizon_url                                                                   = var.horizon_url
   integration_functions_app_service_plan_id                                     = var.integration_functions_app_service_plan_id
   integration_subnet_id                                                         = var.integration_subnet_id
+  internal_dns_name                                                             = var.internal_dns_name
   key_vault_id                                                                  = var.key_vault_id
   key_vault_uri                                                                 = var.key_vault_uri
   location                                                                      = module.azure_region_primary.location
