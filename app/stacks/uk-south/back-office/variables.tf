@@ -64,11 +64,6 @@ variable "back_office_integration_subnet_id" {
   type        = string
 }
 
-variable "back_office_clamav_subnet_id" {
-  description = "Integration subnet for the clamav container"
-  type        = string
-}
-
 variable "back_office_public_url" {
   description = "The public URL for the Back Office frontend web app"
   type        = string

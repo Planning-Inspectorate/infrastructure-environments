@@ -64,11 +64,6 @@ variable "back_office_integration_subnet_id" {
   type        = string
 }
 
-variable "back_office_clamav_subnet_id" {
-  description = "Integration subnet for the clamav container"
-  type        = string
-}
-
 variable "back_office_public_url" {
   description = "The public URL for the Back Office frontend web app"
   type        = string
@@ -196,11 +191,6 @@ variable "sql_server_azuread_administrator" {
 variable "feature_service_bus_enabled" {
   description = "Whether or not Service Bus events are enabled"
   type        = string
-}
-
-variable "feature_document_scanning_enabled" {
-  description = "Whether or not Document Scanning is enabled"
-  type        = bool
 }
 
 variable "notify_subscribers_function_gov_notify_template_id" {

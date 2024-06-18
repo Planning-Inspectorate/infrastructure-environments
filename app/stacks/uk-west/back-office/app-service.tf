@@ -14,7 +14,6 @@ module "app_services" {
   back_office_hostname                                                                = var.back_office_public_url_new == null ? var.back_office_public_url : var.back_office_public_url_new
   integration_subnet_id                                                               = var.integration_subnet_id
   back_office_integration_subnet_id                                                   = var.back_office_integration_subnet_id
-  back_office_clamav_subnet_id                                                        = var.back_office_clamav_subnet_id
   container_registry_name                                                             = var.container_registry_name
   container_registry_rg                                                               = var.container_registry_rg
   database_name                                                                       = azurerm_mssql_database.back_office.name
@@ -29,7 +28,6 @@ module "app_services" {
   log_analytics_workspace_id                                                          = azurerm_log_analytics_workspace.back_office.id
   monitoring_alerts_enabled                                                           = var.monitoring_alerts_enabled
   node_environment                                                                    = var.node_environment
-  environment                                                                         = var.environment
   private_endpoint_enabled                                                            = var.private_endpoint_enabled
   resource_group_name                                                                 = azurerm_resource_group.back_office_stack.name
   resource_suffix                                                                     = local.resource_suffix
@@ -37,8 +35,6 @@ module "app_services" {
   service_bus_namespace_id                                                            = azurerm_servicebus_namespace.back_office.id
   service_name                                                                        = local.service_name
   feature_service_bus_enabled                                                         = var.feature_service_bus_enabled
-  feature_document_scanning_enabled                                                   = var.feature_document_scanning_enabled
-  common_vnet_id                                                                      = var.common_vnet_id
   document_check_function_storage_name                                                = azurerm_storage_account.function_storage.name
   document_check_function_storage_primary_access_key                                  = azurerm_storage_account.function_storage.primary_access_key
   document_storage_back_office_document_service_uploads_container_resource_manager_id = azurerm_storage_container.back_office_document_service_uploads_container.resource_manager_id

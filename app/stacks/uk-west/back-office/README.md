@@ -125,7 +125,6 @@ This component contains the infrastructure required for the back office service.
 | <a name="input_azuread_auth_client_id"></a> [azuread\_auth\_client\_id](#input\_azuread\_auth\_client\_id) | The Back Office web frontend app registration ID used for Azure AD authentication | `string` | `null` | no |
 | <a name="input_back_office_applications_log_level_file"></a> [back\_office\_applications\_log\_level\_file](#input\_back\_office\_applications\_log\_level\_file) | Log level for the server.log file - trace, debug, info, warn, error, fatal, silent | `string` | n/a | yes |
 | <a name="input_back_office_applications_log_level_stdout"></a> [back\_office\_applications\_log\_level\_stdout](#input\_back\_office\_applications\_log\_level\_stdout) | Log level for stdout - trace, debug, info, warn, error, fatal, silent | `string` | n/a | yes |
-| <a name="input_back_office_clamav_subnet_id"></a> [back\_office\_clamav\_subnet\_id](#input\_back\_office\_clamav\_subnet\_id) | Integration subnet for the clamav container | `string` | n/a | yes |
 | <a name="input_back_office_feature_flags"></a> [back\_office\_feature\_flags](#input\_back\_office\_feature\_flags) | A list of maps describing feature flags to be saved in the App Configuration store | `list(any)` | n/a | yes |
 | <a name="input_back_office_integration_subnet_id"></a> [back\_office\_integration\_subnet\_id](#input\_back\_office\_integration\_subnet\_id) | Integration subnet for back office anti-virus resources | `string` | n/a | yes |
 | <a name="input_back_office_public_url"></a> [back\_office\_public\_url](#input\_back\_office\_public\_url) | The public URL for the Back Office frontend web app | `string` | n/a | yes |
@@ -140,7 +139,6 @@ This component contains the infrastructure required for the back office service.
 | <a name="input_container_registry_rg"></a> [container\_registry\_rg](#input\_container\_registry\_rg) | The resource group of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_database_public_access_enabled"></a> [database\_public\_access\_enabled](#input\_database\_public\_access\_enabled) | A switch indicating if databases should have public access enabled | `bool` | `false` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
-| <a name="input_feature_document_scanning_enabled"></a> [feature\_document\_scanning\_enabled](#input\_feature\_document\_scanning\_enabled) | Whether or not Document Scanning is enabled | `bool` | n/a | yes |
 | <a name="input_feature_service_bus_enabled"></a> [feature\_service\_bus\_enabled](#input\_feature\_service\_bus\_enabled) | Whether or not Service Bus events are enabled | `string` | n/a | yes |
 | <a name="input_health_check_path"></a> [health\_check\_path](#input\_health\_check\_path) | The path of the service's health check endpoint | `string` | `"/health"` | no |
 | <a name="input_instance"></a> [instance](#input\_instance) | The environment instance for use if multiple environments are deployed to a subscription | `string` | `"001"` | no |
@@ -175,7 +173,6 @@ This component contains the infrastructure required for the back office service.
 | <a name="output_back_office_submissions_storage_container_name"></a> [back\_office\_submissions\_storage\_container\_name](#output\_back\_office\_submissions\_storage\_container\_name) | Back office submissions container name |
 | <a name="output_back_office_submissions_storage_container_resource_manager_id"></a> [back\_office\_submissions\_storage\_container\_resource\_manager\_id](#output\_back\_office\_submissions\_storage\_container\_resource\_manager\_id) | Back office submissions container resource\_manager\_id |
 | <a name="output_bo_storage_account_id"></a> [bo\_storage\_account\_id](#output\_bo\_storage\_account\_id) | Back Office storage account id |
-| <a name="output_clamav_host"></a> [clamav\_host](#output\_clamav\_host) | Hostname of the ClamAV Container Group |
 | <a name="output_document_check_function_storage_name"></a> [document\_check\_function\_storage\_name](#output\_document\_check\_function\_storage\_name) | Function Storage name |
 | <a name="output_document_check_function_storage_primary_access_key"></a> [document\_check\_function\_storage\_primary\_access\_key](#output\_document\_check\_function\_storage\_primary\_access\_key) | Function Storage Primary Access Key |
 | <a name="output_document_storage_back_office_document_service_uploads_container_id"></a> [document\_storage\_back\_office\_document\_service\_uploads\_container\_id](#output\_document\_storage\_back\_office\_document\_service\_uploads\_container\_id) | Back Office document-service-uploads container id |

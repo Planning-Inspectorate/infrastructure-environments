@@ -47,7 +47,6 @@ locals {
     object_id      = "228592ab-d0f3-445b-b714-38148624c21f"
   }
   feature_service_bus_enabled                        = "true"
-  feature_document_scanning_enabled                  = true
   notify_subscribers_function_gov_notify_template_id = "ee890e9f-5669-40ec-b3f1-f9e6f01024db"
   # not ideal to specify this, but using a dependency with terragrunt would create a dependency cycle,
   # as applications is already dependent on back office
