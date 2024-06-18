@@ -6,6 +6,7 @@ module "networking" {
   deploy_national_infrastructure_vnet_gateway = var.deploy_national_infrastructure_vnet_gateway
   env_network_region_short                    = module.azure_region_ukw.location_short
   environment                                 = var.environment
+  internal_dns_name                           = var.internal_dns_name
   location                                    = azurerm_resource_group.common_infrastructure.location
   resource_group_name                         = azurerm_resource_group.common_infrastructure.name
   resource_suffix                             = local.resource_suffix

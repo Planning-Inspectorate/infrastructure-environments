@@ -14,7 +14,7 @@ This component contains the common infrastructure required by each environment. 
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.106.1 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.107.0 |
 
 ## Modules
 
@@ -42,6 +42,7 @@ This component contains the common infrastructure required by each environment. 
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
 | <a name="input_instance"></a> [instance](#input\_instance) | The environment instance for use if multiple environments are deployed to a subscription | `string` | `"001"` | no |
 | <a name="input_integration_functions_app_service_plan_sku"></a> [integration\_functions\_app\_service\_plan\_sku](#input\_integration\_functions\_app\_service\_plan\_sku) | The SKU of the App Service Plan | `string` | `"P2v2"` | no |
+| <a name="input_internal_dns_name"></a> [internal\_dns\_name](#input\_internal\_dns\_name) | The name of the internal private dns zone | `string` | n/a | yes |
 | <a name="input_is_dr_deployment"></a> [is\_dr\_deployment](#input\_is\_dr\_deployment) | A flag to indicate whether or not the infrastructure deployment is for a disaster recovery scenario | `bool` | `false` | no |
 | <a name="input_location"></a> [location](#input\_location) | The location resources are deployed to in slug format e.g. 'uk-west' | `string` | `"uk-south"` | no |
 | <a name="input_secondary_vnet_address_space"></a> [secondary\_vnet\_address\_space](#input\_secondary\_vnet\_address\_space) | The CIDR address space for the common virtual network | `string` | n/a | yes |
