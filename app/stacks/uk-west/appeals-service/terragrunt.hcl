@@ -43,6 +43,7 @@ dependency "common_ukw" {
       cosmosdb_endpoint         = "10.1.3.1/25"
     }
     common_vnet_name                       = "mock_vnet_name"
+    clamav_subnet_id                       = "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.Network/virtualNetworks/virtualNetworksValue/subnets/subnetValue"
     cosmosdb_subnet_id                     = "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.Network/virtualNetworks/virtualNetworksValue/subnets/subnetValue"
     integration_subnet_id                  = "/s/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.Network/virtualNetworks/virtualNetworksValue/subnets/subnetValue"
     key_vault_id                           = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
@@ -57,7 +58,7 @@ dependency "back_office_ukw" {
   mock_outputs_merge_with_state           = true
 
   mock_outputs = {
-    clamav_host = "clam.dev"
+
   }
 }
 
@@ -77,6 +78,7 @@ inputs = {
     info_sec        = dependency.common_ukw.outputs.action_group_names["info-sec"]
   }
   app_service_plan_id                       = dependency.common_ukw.outputs.app_service_plan_id
+  clamav_subnet_id                          = dependency.common_ukw.outputs.back_office_clamav_subnet_id
   common_integration_functions_subnet_id    = dependency.common_ukw.outputs.common_integration_functions_subnet_id
   common_resource_group_name                = dependency.common_ukw.outputs.common_resource_group_name
   common_vnet_cidr_blocks                   = dependency.common_ukw.outputs.common_vnet_cidr_blocks
@@ -86,5 +88,4 @@ inputs = {
   integration_subnet_id                     = dependency.common_ukw.outputs.integration_subnet_id
   key_vault_id                              = dependency.common_ukw.outputs.key_vault_id
   key_vault_uri                             = dependency.common_ukw.outputs.key_vault_uri
-  clamav_host                               = dependency.back_office_ukw.outputs.clamav_host
 }

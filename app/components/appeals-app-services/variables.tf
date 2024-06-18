@@ -19,6 +19,11 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "clamav_subnet_id" {
+  description = "The id of the subnet to use for clamav"
+  type        = string
+}
+
 variable "comment_planning_appeal_public_url" {
   description = "The public URL for the Comment Planning Appeal frontend web app"
   type        = string
@@ -92,6 +97,11 @@ variable "integration_subnet_id" {
 
 variable "common_integration_functions_subnet_id" {
   description = "The id of the subnet for common integration functions app service plan"
+  type        = string
+}
+
+variable "internal_dns_name" {
+  description = "The name of the internal private dns zone"
   type        = string
 }
 
@@ -291,11 +301,6 @@ variable "appeals_api_service_bus_enabled" {
   description = "A switch to determine if service bus integration is enabled for the appeals api"
   type        = bool
   default     = true
-}
-
-variable "clamav_host" {
-  description = "The host of the clam av service to use"
-  type        = string
 }
 
 

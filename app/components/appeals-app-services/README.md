@@ -15,7 +15,8 @@ This module also contains some resources such as Service Bus and Function Apps r
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.74.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.107.0 |
+| <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 3.107.0 |
 
 ## Modules
 
@@ -29,6 +30,8 @@ This module also contains some resources such as Service Bus and Function Apps r
 
 | Name | Type |
 |------|------|
+| [azurerm_container_group.clamav](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/container_group) | resource |
+| [azurerm_private_dns_a_record.clamav](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_dns_a_record) | resource |
 | [azurerm_role_assignment.app_configuration_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.appeals_docs_api_bo_storage_account_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.appeals_docs_api_bo_storage_container_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
@@ -48,6 +51,9 @@ This module also contains some resources such as Service Bus and Function Apps r
 | [azurerm_servicebus_subscription.appeals_fo_listed_building_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/servicebus_subscription) | resource |
 | [azurerm_servicebus_subscription.appeals_fo_s78_case_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/servicebus_subscription) | resource |
 | [azurerm_servicebus_subscription.appeals_fo_service_user_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/servicebus_subscription) | resource |
+| [azurerm_storage_account.clamav](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/storage_account) | resource |
+| [azurerm_storage_share.clamav](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/storage_share) | resource |
+| [azurerm_private_dns_zone.internal](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/private_dns_zone) | data source |
 
 ## Inputs
 
@@ -68,7 +74,7 @@ This module also contains some resources such as Service Bus and Function Apps r
 | <a name="input_bo_appeals_document_container_id"></a> [bo\_appeals\_document\_container\_id](#input\_bo\_appeals\_document\_container\_id) | ID of the Back Office storage container for appeals docs | `string` | n/a | yes |
 | <a name="input_bo_appeals_document_container_name"></a> [bo\_appeals\_document\_container\_name](#input\_bo\_appeals\_document\_container\_name) | Name of the Back Office storage container for appeals docs | `string` | n/a | yes |
 | <a name="input_bo_storage_account_id"></a> [bo\_storage\_account\_id](#input\_bo\_storage\_account\_id) | Id of the Back Office storage account | `string` | n/a | yes |
-| <a name="input_clamav_host"></a> [clamav\_host](#input\_clamav\_host) | The host of the clam av service to use | `string` | n/a | yes |
+| <a name="input_clamav_subnet_id"></a> [clamav\_subnet\_id](#input\_clamav\_subnet\_id) | The id of the subnet to use for clamav | `string` | n/a | yes |
 | <a name="input_comment_planning_appeal_public_url"></a> [comment\_planning\_appeal\_public\_url](#input\_comment\_planning\_appeal\_public\_url) | The public URL for the Comment Planning Appeal frontend web app | `string` | n/a | yes |
 | <a name="input_common_integration_functions_subnet_id"></a> [common\_integration\_functions\_subnet\_id](#input\_common\_integration\_functions\_subnet\_id) | The id of the subnet for common integration functions app service plan | `string` | n/a | yes |
 | <a name="input_container_registry_name"></a> [container\_registry\_name](#input\_container\_registry\_name) | The name of the container registry that hosts the image | `string` | n/a | yes |
@@ -83,6 +89,7 @@ This module also contains some resources such as Service Bus and Function Apps r
 | <a name="input_horizon_url"></a> [horizon\_url](#input\_horizon\_url) | The URL used to connect to Horizon | `string` | n/a | yes |
 | <a name="input_integration_functions_app_service_plan_id"></a> [integration\_functions\_app\_service\_plan\_id](#input\_integration\_functions\_app\_service\_plan\_id) | The id of the integration functions app service plan | `string` | n/a | yes |
 | <a name="input_integration_subnet_id"></a> [integration\_subnet\_id](#input\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic | `string` | n/a | yes |
+| <a name="input_internal_dns_name"></a> [internal\_dns\_name](#input\_internal\_dns\_name) | The name of the internal private dns zone | `string` | n/a | yes |
 | <a name="input_key_vault_id"></a> [key\_vault\_id](#input\_key\_vault\_id) | The ID of the key vault so the App Service can pull secret values | `string` | n/a | yes |
 | <a name="input_key_vault_uri"></a> [key\_vault\_uri](#input\_key\_vault\_uri) | The URI of the Key Vault | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | The location the App Services are deployed to in slug format e.g. 'uk-south' | `string` | n/a | yes |
