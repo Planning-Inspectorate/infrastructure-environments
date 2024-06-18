@@ -83,7 +83,9 @@ resource "azurerm_storage_share" "clamav" {
 resource "azurerm_private_dns_a_record" "clamav" {
   name                = "${var.service_name}-clamav-${var.resource_suffix}"
   zone_name           = data.azurerm_private_dns_zone.internal.name
-  resource_group_name = var.resource_group_name
+  resource_group_name = data.azurerm_private_dns_zone.internal.resource_group_name
   ttl                 = 60
   records             = [azurerm_container_group.clamav.ip_address]
+
+  provider = azurerm.tooling
 }
