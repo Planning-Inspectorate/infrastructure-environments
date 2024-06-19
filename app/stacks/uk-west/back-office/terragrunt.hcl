@@ -73,7 +73,6 @@ inputs = {
   common_resource_group_name        = dependency.common.outputs.common_resource_group_name
   common_vnet_cidr_blocks           = dependency.common.outputs.common_vnet_cidr_blocks
   common_vnet_gateway_id            = dependency.common.outputs.common_vnet_gateway_id
-  common_vnet_id                    = dependency.common.outputs.vnet_id
   common_vnet_name                  = dependency.common.outputs.common_vnet_name
   integration_subnet_id             = dependency.common.outputs.integration_subnet_id
   key_vault_uri                     = dependency.common.outputs.key_vault_uri

@@ -108,7 +108,6 @@ inputs = {
   common_resource_group_name                                                          = dependency.common_uks.outputs.common_resource_group_name
   common_resource_group_name_ukw                                                      = dependency.common_ukw.outputs.common_resource_group_name
   common_vnet_cidr_blocks                                                             = dependency.common_uks.outputs.common_vnet_cidr_blocks
-  common_vnet_id                                                                      = dependency.common_uks.outputs.vnet_id
   common_vnet_name                                                                    = dependency.common_uks.outputs.common_vnet_name
   document_check_function_storage_name                                                = dependency.back_office_ukw.outputs.document_check_function_storage_name
   document_check_function_storage_primary_access_key                                  = dependency.back_office_ukw.outputs.document_check_function_storage_primary_access_key
