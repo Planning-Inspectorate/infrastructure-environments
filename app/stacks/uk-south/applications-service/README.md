@@ -38,8 +38,6 @@ This component contains the infrastructure required for the applications service
 | [azurerm_log_analytics_workspace.applcations_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/log_analytics_workspace) | resource |
 | [azurerm_mssql_failover_group.applications_sql_server_failover_group](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/mssql_failover_group) | resource |
 | [azurerm_mssql_server.applications_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/mssql_server) | resource |
-| [azurerm_private_dns_zone.redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_dns_zone) | resource |
-| [azurerm_private_dns_zone_virtual_network_link.redis_cache_dns](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
 | [azurerm_private_endpoint.applications_service_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_endpoint) | resource |
 | [azurerm_private_endpoint.applications_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_endpoint) | resource |
 | [azurerm_redis_cache.applications_service_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/redis_cache) | resource |
@@ -51,6 +49,7 @@ This component contains the infrastructure required for the applications service
 | [random_password.applications_sql_server_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
 | [azurerm_private_dns_zone.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/private_dns_zone) | data source |
 | [azurerm_private_dns_zone.database](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/private_dns_zone) | data source |
+| [azurerm_private_dns_zone.redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/private_dns_zone) | data source |
 
 ## Inputs
 
@@ -82,7 +81,6 @@ This component contains the infrastructure required for the applications service
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | The common resource tags for the project | `map(string)` | n/a | yes |
 | <a name="input_common_vnet_cidr_blocks"></a> [common\_vnet\_cidr\_blocks](#input\_common\_vnet\_cidr\_blocks) | A map of IP address blocks from the subnet name to the allocated CIDR prefix | `map(string)` | n/a | yes |
 | <a name="input_common_vnet_gateway_id"></a> [common\_vnet\_gateway\_id](#input\_common\_vnet\_gateway\_id) | The id of the common infrastructure virtual network gateway | `string` | n/a | yes |
-| <a name="input_common_vnet_id"></a> [common\_vnet\_id](#input\_common\_vnet\_id) | The common infrastructure virtual network id | `string` | n/a | yes |
 | <a name="input_common_vnet_name"></a> [common\_vnet\_name](#input\_common\_vnet\_name) | The common infrastructure virtual network name | `string` | n/a | yes |
 | <a name="input_container_registry_name"></a> [container\_registry\_name](#input\_container\_registry\_name) | The name of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_container_registry_rg"></a> [container\_registry\_rg](#input\_container\_registry\_rg) | The resource group of the container registry that hosts the image | `string` | n/a | yes |

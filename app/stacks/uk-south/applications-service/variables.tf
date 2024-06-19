@@ -146,11 +146,6 @@ variable "common_resource_group_name" {
   type        = string
 }
 
-variable "common_vnet_id" {
-  description = "The common infrastructure virtual network id"
-  type        = string
-}
-
 variable "common_vnet_cidr_blocks" {
   description = "A map of IP address blocks from the subnet name to the allocated CIDR prefix"
   type        = map(string)

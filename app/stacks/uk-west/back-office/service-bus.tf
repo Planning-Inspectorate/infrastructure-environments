@@ -16,24 +16,6 @@ resource "azurerm_servicebus_namespace" "back_office" {
   tags = local.tags
 }
 
-# Create a private DNS zone for the SB private endpoint
-resource "azurerm_private_dns_zone" "back_office" {
-  count = var.service_bus_failover_enabled ? 1 : 0
-
-  name                = "privatelink.servicebus.windows.net"
-  resource_group_name = azurerm_resource_group.back_office_stack.name
-}
-
-resource "azurerm_private_dns_zone_virtual_network_link" "back_office" {
-  count = var.service_bus_failover_enabled ? 1 : 0
-
-  name                  = "service-bus-dns-link"
-  resource_group_name   = azurerm_resource_group.back_office_stack.name
-  private_dns_zone_name = azurerm_private_dns_zone.back_office[0].name
-  virtual_network_id    = var.common_vnet_id
-}
-
-
 # Create a private endpoint for the namespace
 resource "azurerm_private_endpoint" "back_office" {
   count = var.service_bus_failover_enabled ? 1 : 0
@@ -45,7 +27,7 @@ resource "azurerm_private_endpoint" "back_office" {
 
   private_dns_zone_group {
     name                 = "pins-pdns-${local.service_name}-sb-${local.resource_suffix}"
-    private_dns_zone_ids = [azurerm_private_dns_zone.back_office[0].id]
+    private_dns_zone_ids = [data.azurerm_private_dns_zone.service_bus.id]
   }
 
   private_service_connection {

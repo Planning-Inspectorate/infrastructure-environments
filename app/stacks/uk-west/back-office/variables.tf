@@ -90,11 +90,6 @@ variable "common_vnet_cidr_blocks" {
   type        = map(string)
 }
 
-variable "common_vnet_id" {
-  description = "The common infrastructure virtual network id"
-  type        = string
-}
-
 variable "common_vnet_name" {
   description = "The common infrastructure virtual network name"
   type        = string
