@@ -18,8 +18,14 @@ data "azurerm_private_dns_zone" "database" {
 
 data "azurerm_private_dns_zone" "redis_cache" {
   name = "privatelink.redis.cache.windows.net"
-  # this might get moved one day but exists in the application stack for now
-  resource_group_name = "pins-rg-applications-service-${local.resource_suffix}"
+
+  provider = azurerm.tooling
+}
+
+data "azurerm_private_dns_zone" "service_bus" {
+  name = "privatelink.servicebus.windows.net"
+
+  provider = azurerm.tooling
 }
 
 data "azurerm_monitor_action_group" "bo_applications_tech" {

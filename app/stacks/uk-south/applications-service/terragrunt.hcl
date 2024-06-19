@@ -112,7 +112,6 @@ inputs = {
   common_resource_group_name           = dependency.common_uks.outputs.common_resource_group_name
   common_vnet_cidr_blocks              = dependency.common_uks.outputs.common_vnet_cidr_blocks
   common_vnet_gateway_id               = try(dependency.common_uks.outputs.common_vnet_gateway_id, null)
-  common_vnet_id                       = dependency.common_uks.outputs.vnet_id
   common_vnet_name                     = dependency.common_uks.outputs.common_vnet_name
   function_storage_name                = dependency.applications_service_ukw.outputs.function_storage_name
   function_storage_primary_access_key  = dependency.applications_service_ukw.outputs.function_storage_primary_access_key
