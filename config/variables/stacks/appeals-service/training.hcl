@@ -2,15 +2,15 @@ locals {
   appeals_feature_flags = [
     {
       name    = "appeals-bo-submission"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
-        users      = []
+        users      = ["Q9999"]
       }
     },
     {
       name    = "enrol-users"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
@@ -18,15 +18,15 @@ locals {
     },
     {
       name    = "final-comments"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
-        users      = []
+        users      = ["E69999999"]
       }
     },
     {
       name    = "has-appeal-form-v2"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = ["Q9999"]
@@ -34,7 +34,7 @@ locals {
     },
     {
       name    = "has-questionnaire"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
@@ -50,7 +50,7 @@ locals {
     },
     {
       name    = "lpa-dashboard"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
@@ -66,7 +66,7 @@ locals {
     },
     {
       name    = "serve-back-office-documents"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
@@ -74,7 +74,7 @@ locals {
     },
     {
       name    = "sql-users"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
@@ -82,17 +82,17 @@ locals {
     },
     {
       name    = "s78-appeal-form-v2"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = ["Q9999"]
       }
     }
   ]
-  allow_testing_overrides                                                       = false
+  allow_testing_overrides                                                       = true
   appeals_feature_back_office_subscriber_enabled                                = true
   appeals_frontend_file_upload_debug_logging_enabled                            = false
-  dashboards_enabled                                                            = false
+  dashboards_enabled                                                            = true
   deploy_interested_parties                                                     = true
   google_analytics_id                                                           = "G-HWLKLSJF53"
   google_tag_manager_id                                                         = "GTM-KZN7XP4"
@@ -100,7 +100,8 @@ locals {
   node_environment                                                              = "production"
   srv_notify_appeal_submission_confirmation_email_to_appellant_template_id      = "27cddb5b-aa1e-453e-a511-f8eab31c3bb3"
   srv_notify_appeal_submission_confirmation_email_to_appellant_template_id_v1_1 = "0068d142-8f16-4ec2-99a8-8cbb154439b9"
-  srv_notify_has_appeal_submission_confirmation_email_to_appellant_template_id  = "0068d142-8f16-4ec2-99a8-8cbb154439b9"
+  srv_notify_has_appeal_submission_confirmation_email_to_appellant_template_id  = "a27fb17b-326e-4b7f-b819-fee4bae9f31e"
+  srv_notify_has_appeal_submission_notification_email_to_lpa_template_id        = "363bebac-340f-422c-941a-0e7b0a907583"
   srv_notify_appeal_received_notification_email_to_appellant_template_id        = "d5ca8e4d-9ccc-43e6-9e88-3ae8f2d84c88"
   srv_notify_appeal_submission_received_notification_email_to_lpa_template_id   = "b8c7a449-3bc1-4ce1-b07c-4e90f4bd9c17"
   srv_notify_appellant_login_confirm_registration_template_id                   = "c7e08c14-c45c-45e5-b0d1-460de0006215"
