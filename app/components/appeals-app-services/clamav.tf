@@ -63,7 +63,9 @@ resource "azurerm_storage_account" "clamav" {
   #checkov:skip=CKV_AZURE_59: TODO: Ensure that Storage accounts disallow public access
   #checkov:skip=CKV_AZURE_190: TODO: Ensure that Storage blobs restrict public access
   #checkov:skip=CKV_AZURE_206: Replication not required
-  name                     = replace("pinsstclamav${var.resource_suffix}", "-", "")
+
+  # max length 24, so trim off the end - will only apply to training environment!
+  name                     = substr(replace("pinsstclamav${var.resource_suffix}", "-", ""), 0, 24)
   location                 = var.location
   resource_group_name      = var.resource_group_name
   account_tier             = "Standard"
