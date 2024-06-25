@@ -286,20 +286,6 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
       }
 
       rule {
-        # Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)
-        action  = "Block"
-        enabled = true
-        rule_id = "942430"
-
-        exclusion {
-          # Exclusion to allow Azure AD authentication redirection
-          match_variable = "QueryStringArgNames" # "QueryParamValue:code"
-          operator       = "Equals"
-          selector       = "code"
-        }
-      }
-
-      rule {
         # SQL Comment Sequence Detected
         action  = "Log"
         enabled = true
@@ -318,6 +304,13 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
         action  = "Log"
         enabled = true
         rule_id = "942430"
+
+        # exclusion {
+        #   # Exclusion to allow Azure AD authentication redirection
+        #   match_variable = "QueryStringArgNames" # "QueryParamValue:code"
+        #   operator       = "Equals"
+        #   selector       = "code"
+        # }
       }
 
       rule {
