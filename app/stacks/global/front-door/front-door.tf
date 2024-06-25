@@ -21,6 +21,7 @@ resource "azurerm_frontdoor" "common" {
 
   backend_pool_settings {
     enforce_backend_pools_certificate_name_check = false
+    backend_pools_send_receive_timeout_seconds   = 120
   }
 
   #========================================================================
