@@ -201,7 +201,8 @@ locals {
         SRV_NOTIFY_APPEAL_SUBMISSION_CONFIRMATION_EMAIL_TO_APPELLANT_TEMPLATE_ID      = var.srv_notify_appeal_submission_confirmation_email_to_appellant_template_id
         SRV_NOTIFY_APPEAL_SUBMISSION_CONFIRMATION_EMAIL_TO_APPELLANT_TEMPLATE_ID_V1_1 = var.srv_notify_appeal_submission_confirmation_email_to_appellant_template_id_v1_1
         SRV_NOTIFY_HAS_APPEAL_SUBMISSION_CONFIRMATION_EMAIL_TO_APPELLANT_TEMPLATE_ID  = var.srv_notify_has_appeal_submission_confirmation_email_to_appellant_template_id
-        SRV_NOTIFY_HAS_APPEAL_SUBMISSION_NOTIFICATION_EMAIL_TO_LPA_TEMPLATE_ID        = var.srv_notify_has_appeal_submission_notification_email_to_lpa_template_id
+        SRV_NOTIFY_FULL_APPEAL_SUBMISSION_CONFIRMATION_EMAIL_TO_APPELLANT_TEMPLATE_ID = var.srv_notify_full_appeal_submission_confirmation_email_to_appellant_template_id
+        SRV_NOTIFY_APPEAL_SUBMISSION_NOTIFICATION_EMAIL_TO_LPA_TEMPLATE_ID            = var.srv_notify_appeal_submission_notification_email_to_lpa_template_id
         SRV_NOTIFY_APPEAL_RECEIVED_NOTIFICATION_EMAIL_TO_APPELLANT_TEMPLATE_ID        = var.srv_notify_appeal_received_notification_email_to_appellant_template_id
         SRV_NOTIFY_APPEAL_SUBMISSION_RECEIVED_NOTIFICATION_EMAIL_TO_LPA_TEMPLATE_ID   = var.srv_notify_appeal_submission_received_notification_email_to_lpa_template_id
         SRV_NOTIFY_APPELLANT_LOGIN_CONFIRM_REGISTRATION_TEMPLATE_ID                   = var.srv_notify_appellant_login_confirm_registration_template_id
