@@ -17,7 +17,7 @@ resource "azurerm_private_endpoint" "applications_service_redis_cache" {
 
   private_dns_zone_group {
     name                 = "default"
-    private_dns_zone_ids = [azurerm_private_dns_zone.redis_cache.id]
+    private_dns_zone_ids = [data.azurerm_private_dns_zone.redis_cache.id]
   }
 
   private_service_connection {
@@ -26,16 +26,4 @@ resource "azurerm_private_endpoint" "applications_service_redis_cache" {
     is_manual_connection           = false
     subresource_names              = ["redisCache"]
   }
-}
-
-resource "azurerm_private_dns_zone" "redis_cache" {
-  name                = "privatelink.redis.cache.windows.net"
-  resource_group_name = azurerm_resource_group.applications_service_stack.name
-}
-
-resource "azurerm_private_dns_zone_virtual_network_link" "redis_cache_dns" {
-  name                  = "redis-cache-dns-link"
-  resource_group_name   = azurerm_resource_group.applications_service_stack.name
-  private_dns_zone_name = azurerm_private_dns_zone.redis_cache.name
-  virtual_network_id    = var.common_vnet_id
 }

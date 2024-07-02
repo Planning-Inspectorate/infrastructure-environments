@@ -9,3 +9,9 @@ data "azurerm_private_dns_zone" "database" {
 
   provider = azurerm.tooling
 }
+
+data "azurerm_private_dns_zone" "redis_cache" {
+  name = "privatelink.redis.cache.windows.net"
+
+  provider = azurerm.tooling
+}
