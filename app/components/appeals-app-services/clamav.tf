@@ -37,6 +37,16 @@ resource "azurerm_container_group" "clamav" {
     }
   }
 
+  # run a CLI container to fetch the IP of the container group and update the private DNS zone
+  container {
+    name   = "azurecli"
+    image  = "mcr.microsoft.com/azure-cli:latest"
+    cpu    = "0.5"
+    memory = "0.5"
+
+    commands = ["/bin/sh", "-c", "az login --identity; az network private-dns record-set a update --resource-group ${var.resource_group_name} --zone-name ${var.internal_dns_name} --name ${azurerm_private_dns_a_record.clamav.name} --set \"aRecords[0].ipv4Address=$(ip route get 1.2.3.4 | awk '{print $7}')\"; sleep 100000"]
+  }
+
   exposed_port {
     port     = 3310
     protocol = "TCP"
@@ -48,6 +58,13 @@ resource "azurerm_container_group" "clamav" {
   }
 
   tags = var.tags
+}
+
+# Allow the container to write to the DNS, for IP changes (on restart)
+resource "azurerm_role_assignment" "write_dns_access" {
+  scope                = data.azurerm_private_dns_zone.internal.id
+  role_definition_name = "Private DNS Zone Contributor"
+  principal_id         = azurerm_container_group.clamav.identity[0].principal_id
 }
 
 # alerts
