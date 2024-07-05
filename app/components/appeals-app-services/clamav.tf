@@ -50,6 +50,40 @@ resource "azurerm_container_group" "clamav" {
   tags = var.tags
 }
 
+# alerts
+# crude alert to check memory usage drops (which seem to indicate failures)
+resource "azurerm_monitor_metric_alert" "clamav_memory" {
+  name                = "pins-ci-${var.service_name}-clamav-${var.resource_suffix}-memory-alert"
+  resource_group_name = var.resource_group_name
+  scopes              = [azurerm_container_group.clamav.id]
+  description         = "Trigger alert when memory usage drops"
+  window_size         = "PT30M"
+  frequency           = "PT15M"
+  severity            = 1
+
+  criteria {
+    metric_namespace = "Microsoft.ContainerInstance/containerGroups"
+    metric_name      = "MemoryUsage"
+    aggregation      = "Average"
+    operator         = "LessThan"
+    threshold        = 100
+
+    dimension {
+      name     = "containerName"
+      operator = "Include"
+      values   = ["*"]
+    }
+  }
+
+  action {
+    action_group_id = var.action_group_ids.tech
+  }
+
+  action {
+    action_group_id = var.action_group_ids.service_manager
+  }
+}
+
 # storage
 resource "azurerm_storage_account" "clamav" {
   #TODO: Customer Managed Keys
