@@ -44,7 +44,7 @@ resource "azurerm_container_group" "clamav" {
     cpu    = "0.5"
     memory = "0.5"
 
-    commands = ["/bin/sh", "-c", "az login --identity; az network private-dns record-set a update --resource-group ${var.resource_group_name} --zone-name ${var.internal_dns_name} --name ${azurerm_private_dns_a_record.clamav.name} --set \"aRecords[0].ipv4Address=$(ip route get 1.2.3.4 | awk '{print $7}')\"; sleep 100000"]
+    commands = ["/bin/sh", "-c", "az login --identity; az network private-dns record-set a update --resource-group ${var.resource_group_name} --zone-name ${var.internal_dns_name} --name ${local.clamv_host_name} --set \"aRecords[0].ipv4Address=$(ip route get 1.2.3.4 | awk '{print $7}')\"; sleep 100000"]
   }
 
   exposed_port {
@@ -58,6 +58,10 @@ resource "azurerm_container_group" "clamav" {
   }
 
   tags = var.tags
+}
+
+locals {
+  clamv_host_name = "${var.service_name}-clamav-${var.resource_suffix}"
 }
 
 # Allow the container to write to the DNS, for IP changes (on restart)
@@ -134,7 +138,7 @@ resource "azurerm_storage_share" "clamav" {
 
 # networking
 resource "azurerm_private_dns_a_record" "clamav" {
-  name                = "${var.service_name}-clamav-${var.resource_suffix}"
+  name                = local.clamv_host_name
   zone_name           = data.azurerm_private_dns_zone.internal.name
   resource_group_name = data.azurerm_private_dns_zone.internal.resource_group_name
   ttl                 = 60
