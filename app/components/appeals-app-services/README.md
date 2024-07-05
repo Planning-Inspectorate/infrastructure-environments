@@ -31,6 +31,7 @@ This module also contains some resources such as Service Bus and Function Apps r
 | Name | Type |
 |------|------|
 | [azurerm_container_group.clamav](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/container_group) | resource |
+| [azurerm_monitor_metric_alert.clamav_memory](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_private_dns_a_record.clamav](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_dns_a_record) | resource |
 | [azurerm_role_assignment.app_configuration_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.appeals_docs_api_bo_storage_account_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
