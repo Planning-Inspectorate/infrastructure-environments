@@ -46,6 +46,7 @@ This module also contains some resources such as Service Bus and Function Apps r
 | [azurerm_role_assignment.appeals_fo_service_user_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.listed_building_service_bus_role](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.write_dns_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
 | [azurerm_servicebus_subscription.appeals_fo_document_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/servicebus_subscription) | resource |
 | [azurerm_servicebus_subscription.appeals_fo_event_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/servicebus_subscription) | resource |
 | [azurerm_servicebus_subscription.appeals_fo_has_case_topic_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/servicebus_subscription) | resource |
