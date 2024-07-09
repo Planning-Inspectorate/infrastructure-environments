@@ -87,12 +87,12 @@ resource "azurerm_monitor_metric_alert" "clamav_memory" {
     metric_name      = "MemoryUsage"
     aggregation      = "Average"
     operator         = "LessThan"
-    threshold        = 100
+    threshold        = 100 * 1024 * 1024 # 100 MB
 
     dimension {
       name     = "containerName"
       operator = "Include"
-      values   = ["*"]
+      values   = ["clamav"]
     }
   }
 
