@@ -148,15 +148,6 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
       operator       = "Equals"
       selector       = "backOfficeProjectUpdateContent"
     }
-
-    # Exclusions for APPLICS-631 - Exclude all rules for this selector.
-    # POST project update content, which is a strict subset of HTML
-    # only applies Back Office, so should be removed from others with new Front Door
-    exclusion {
-      match_variable = "RequestBodyPostArgNames"
-      operator       = "Equals"
-      selector       = "backOfficeProjectUpdateContentWelsh"
-    }
   }
 
   custom_rule {
