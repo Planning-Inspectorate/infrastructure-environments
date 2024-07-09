@@ -252,7 +252,7 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
 
       rule {
         # Detects MySQL comment-/space-obfuscated injections and backtick termination
-        action  = "Block"
+        action  = "Redirect"
         enabled = true
         rule_id = "942200"
 
@@ -266,7 +266,7 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
 
       rule {
         # Detects basic SQL authentication bypass attempts 2/3
-        action  = "Block"
+        action  = "Redirect"
         enabled = true
         rule_id = "942260"
 
@@ -315,7 +315,7 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
 
       rule {
         # SQL Hex Encoding Identified
-        action  = "Block"
+        action  = "Redirect"
         enabled = true
         rule_id = "942450"
 
