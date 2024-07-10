@@ -46,8 +46,9 @@ locals {
     login_username = "pins-odt-sql-test-applications-bo"
     object_id      = "74e9d9c6-1455-494b-abde-525b1281573b"
   }
-  feature_service_bus_enabled                        = "true"
-  notify_subscribers_function_gov_notify_template_id = "94975c1f-43c1-43a0-81be-61763d423601"
+  feature_service_bus_enabled                              = "true"
+  notify_subscribers_function_gov_notify_template_id       = "94975c1f-43c1-43a0-81be-61763d423601"
+  notify_subscribers_function_gov_notify_template_welsh_id = "40bff0f6-0a4e-43b8-adea-d6ea677dff7e"
   # not ideal to specify this, but using a dependency with terragrunt would create a dependency cycle,
   # as applications is already dependent on back office
   applications_front_office_web_url      = "https://applications-service-test.planninginspectorate.gov.uk"

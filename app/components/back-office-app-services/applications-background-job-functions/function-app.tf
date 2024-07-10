@@ -27,15 +27,16 @@ module "applications_background_job_functions" {
     API_HOST = var.back_office_api_host
 
     # Notify Subscribers
-    NODE_ENV                = var.node_environment
-    API_HOST                = var.back_office_api_host
-    GOV_NOTIFY_API_KEY      = var.gov_notify_api_key
-    GOV_NOTIFY_TEMPLATE_ID  = var.gov_notify_template_id
-    ENCRYPT_KEY             = var.encrypt_key
-    FRONT_OFFICE_URL        = var.applications_front_office_web_url
-    KEY_VAULT_URI           = var.key_vault_uri
-    SUBSCRIPTIONS_PER_BATCH = 100
-    WAIT_PER_BATCH_SECONDS  = 4
+    NODE_ENV                     = var.node_environment
+    API_HOST                     = var.back_office_api_host
+    GOV_NOTIFY_API_KEY           = var.gov_notify_api_key
+    GOV_NOTIFY_TEMPLATE_ID       = var.gov_notify_template_id
+    GOV_NOTIFY_TEMPLATE_WELSH_ID = var.gov_notify_template_welsh_id
+    ENCRYPT_KEY                  = var.encrypt_key
+    FRONT_OFFICE_URL             = var.applications_front_office_web_url
+    KEY_VAULT_URI                = var.key_vault_uri
+    SUBSCRIPTIONS_PER_BATCH      = 100
+    WAIT_PER_BATCH_SECONDS       = 4
 
     # Publish Documents
     BLOB_STORAGE_ACCOUNT_HOST   = var.back_office_storage_account_host

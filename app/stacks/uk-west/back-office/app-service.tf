@@ -52,6 +52,7 @@ module "app_services" {
   malware_scanning_topic_id                                                           = azurerm_eventgrid_topic.malware_scanning_topic.id
   tags                                                                                = local.tags
   notify_subscribers_function_gov_notify_template_id                                  = var.notify_subscribers_function_gov_notify_template_id
+  notify_subscribers_function_gov_notify_template_welsh_id                            = var.notify_subscribers_function_gov_notify_template_welsh_id
   applications_front_office_web_url                                                   = var.applications_front_office_web_url
   back_office_applications_redis_connection_string_secret_name                        = azurerm_key_vault_secret.back_office_applications_redis_cache_connection_string_secret.name
   odw_synapse_integration_enabled                                                     = var.odw_synapse_integration_enabled
