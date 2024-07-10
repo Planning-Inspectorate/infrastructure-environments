@@ -60,8 +60,9 @@ module "app_services" {
   servicebus_topic_register_representation_id     = ""
 
   # notify subscribers configuration
-  notify_subscribers_function_gov_notify_template_id = var.notify_subscribers_function_gov_notify_template_id
-  applications_front_office_web_url                  = var.applications_front_office_web_url
+  notify_subscribers_function_gov_notify_template_id       = var.notify_subscribers_function_gov_notify_template_id
+  notify_subscribers_function_gov_notify_template_welsh_id = var.notify_subscribers_function_gov_notify_template_welsh_id
+  applications_front_office_web_url                        = var.applications_front_office_web_url
 
   tags = local.tags
 

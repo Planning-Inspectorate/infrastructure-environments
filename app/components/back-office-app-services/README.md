@@ -13,7 +13,7 @@ This module contains the App Services resources for the Back Office service. The
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.107.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.74.0 |
 
 ## Modules
 
@@ -82,6 +82,7 @@ This module contains the App Services resources for the Back Office service. The
 | <a name="input_monitoring_alerts_enabled"></a> [monitoring\_alerts\_enabled](#input\_monitoring\_alerts\_enabled) | Indicates whether Azure Monitor alerts are enabled for App Service | `bool` | `false` | no |
 | <a name="input_node_environment"></a> [node\_environment](#input\_node\_environment) | The node environment to be used for applications in this environment e.g. development | `string` | `"development"` | no |
 | <a name="input_notify_subscribers_function_gov_notify_template_id"></a> [notify\_subscribers\_function\_gov\_notify\_template\_id](#input\_notify\_subscribers\_function\_gov\_notify\_template\_id) | Notify Subscribers Function - GovNotify Template ID | `string` | n/a | yes |
+| <a name="input_notify_subscribers_function_gov_notify_template_welsh_id"></a> [notify\_subscribers\_function\_gov\_notify\_template\_welsh\_id](#input\_notify\_subscribers\_function\_gov\_notify\_template\_welsh\_id) | Notify Subscribers Function - GovNotify Welsh Template ID | `string` | n/a | yes |
 | <a name="input_odw_data_lake_storage_account_id"></a> [odw\_data\_lake\_storage\_account\_id](#input\_odw\_data\_lake\_storage\_account\_id) | Storage Account ID for ODW Data Lake | `string` | `""` | no |
 | <a name="input_odw_synapse_integration_enabled"></a> [odw\_synapse\_integration\_enabled](#input\_odw\_synapse\_integration\_enabled) | Whether or not Synapse Migration Integration is enabled | `bool` | `false` | no |
 | <a name="input_odw_synapse_ssql_endpoint"></a> [odw\_synapse\_ssql\_endpoint](#input\_odw\_synapse\_ssql\_endpoint) | Serverless SQL Endpoint for ODW Synapse | `string` | `""` | no |

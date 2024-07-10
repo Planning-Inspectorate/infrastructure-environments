@@ -85,6 +85,11 @@ variable "gov_notify_template_id" {
   type        = string
 }
 
+variable "gov_notify_template_welsh_id" {
+  description = "GovNotify Template Welsh ID"
+  type        = string
+}
+
 variable "encrypt_key" {
   description = "Encrypt Key for Unsubscribe URLs"
   type        = string
