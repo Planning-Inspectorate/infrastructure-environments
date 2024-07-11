@@ -46,8 +46,9 @@ locals {
     login_username = "pins-odt-sql-prod-applications-bo"
     object_id      = "60e03257-1306-4a53-b7fb-2e7bd5936fdf"
   }
-  feature_service_bus_enabled                        = "true"
-  notify_subscribers_function_gov_notify_template_id = "ee890e9f-5669-40ec-b3f1-f9e6f01024db"
+  feature_service_bus_enabled                              = "true"
+  notify_subscribers_function_gov_notify_template_id       = "ee890e9f-5669-40ec-b3f1-f9e6f01024db"
+  notify_subscribers_function_gov_notify_template_welsh_id = "d0278b88-a0cb-496b-be22-f8bbbe3e45a8"
   # not ideal to specify this, but using a dependency with terragrunt would create a dependency cycle,
   # as applications is already dependent on back office
   applications_front_office_web_url      = "https://national-infrastructure-consenting.planninginspectorate.gov.uk"
