@@ -7,7 +7,7 @@ This component contains the infrastructure required for the appeals service. Thi
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.7, < 1.8.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~>1.9.0 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.107.0 |
 | <a name="requirement_time"></a> [time](#requirement\_time) | ~>0.9 |
 
