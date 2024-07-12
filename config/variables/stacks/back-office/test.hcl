@@ -15,6 +15,14 @@ locals {
         percentage = 100
         users      = []
       }
+    },
+    {
+      name    = "applic-625-custom-folders"
+      enabled = true
+      targeting = {
+        percentage = 100
+        users      = []
+      }
     }
   ]
   node_environment                    = "production"
