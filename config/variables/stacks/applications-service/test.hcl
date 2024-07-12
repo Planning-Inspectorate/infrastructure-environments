@@ -5,6 +5,7 @@ locals {
   documents_host                                                  = "https://nipreprod.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
   feature_allow_project_information                               = "true"
   feature_allow_welsh_translation                                 = "true"
+  feature_custom_folders                                          = "true"
   feature_application_insights                                    = "true"
   feature_enable_generalised_form_sanitisation                    = "true"
   feature_enabled_content_security_policy                         = "true"
