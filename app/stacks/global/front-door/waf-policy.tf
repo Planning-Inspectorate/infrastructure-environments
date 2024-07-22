@@ -615,6 +615,12 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
     exclusion {
       match_variable = "RequestBodyPostArgNames"
       operator       = "Equals"
+      selector       = "title"
+    }
+
+    exclusion {
+      match_variable = "RequestBodyPostArgNames"
+      operator       = "Equals"
       selector       = "titleWelsh"
     }
   }
