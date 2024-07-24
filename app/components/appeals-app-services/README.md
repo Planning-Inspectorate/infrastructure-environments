@@ -77,12 +77,10 @@ This module also contains some resources such as Service Bus and Function Apps r
 | <a name="input_bo_appeals_document_container_name"></a> [bo\_appeals\_document\_container\_name](#input\_bo\_appeals\_document\_container\_name) | Name of the Back Office storage container for appeals docs | `string` | n/a | yes |
 | <a name="input_bo_storage_account_id"></a> [bo\_storage\_account\_id](#input\_bo\_storage\_account\_id) | Id of the Back Office storage account | `string` | n/a | yes |
 | <a name="input_clamav_subnet_id"></a> [clamav\_subnet\_id](#input\_clamav\_subnet\_id) | The id of the subnet to use for clamav | `string` | n/a | yes |
-| <a name="input_comment_planning_appeal_public_url"></a> [comment\_planning\_appeal\_public\_url](#input\_comment\_planning\_appeal\_public\_url) | The public URL for the Comment Planning Appeal frontend web app | `string` | n/a | yes |
 | <a name="input_common_integration_functions_subnet_id"></a> [common\_integration\_functions\_subnet\_id](#input\_common\_integration\_functions\_subnet\_id) | The id of the subnet for common integration functions app service plan | `string` | n/a | yes |
 | <a name="input_container_registry_name"></a> [container\_registry\_name](#input\_container\_registry\_name) | The name of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_container_registry_rg"></a> [container\_registry\_rg](#input\_container\_registry\_rg) | The resource group of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_dashboards_enabled"></a> [dashboards\_enabled](#input\_dashboards\_enabled) | A switch to determine if dashboards are enabled for LPA, appellant and rule 6 parties | `bool` | `false` | no |
-| <a name="input_deploy_interested_parties"></a> [deploy\_interested\_parties](#input\_deploy\_interested\_parties) | A switch to determine if the interested parties app service should be deployed | `bool` | `false` | no |
 | <a name="input_endpoint_subnet_id"></a> [endpoint\_subnet\_id](#input\_endpoint\_subnet\_id) | The id of the private endpoint subnet the app service is linked to for ingress traffic | `string` | n/a | yes |
 | <a name="input_function_apps_storage_account"></a> [function\_apps\_storage\_account](#input\_function\_apps\_storage\_account) | The name of the storage account used by the Function Apps | `string` | n/a | yes |
 | <a name="input_function_apps_storage_account_access_key"></a> [function\_apps\_storage\_account\_access\_key](#input\_function\_apps\_storage\_account\_access\_key) | The access key for the storage account | `string` | n/a | yes |
@@ -146,6 +144,5 @@ This module also contains some resources such as Service Bus and Function Apps r
 | <a name="output_app_service_principal_ids"></a> [app\_service\_principal\_ids](#output\_app\_service\_principal\_ids) | A map of App Service principal IDs |
 | <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of App Service URLs |
 | <a name="output_secrets_manual"></a> [secrets\_manual](#output\_secrets\_manual) | List of Key Vault secrets required for this component |
-| <a name="output_web_comment_frontend_url"></a> [web\_comment\_frontend\_url](#output\_web\_comment\_frontend\_url) | The URL of the web frontend App Service |
 | <a name="output_web_frontend_url"></a> [web\_frontend\_url](#output\_web\_frontend\_url) | The URL of the web frontend App Service |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

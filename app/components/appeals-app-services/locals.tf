@@ -52,46 +52,6 @@ locals {
       }
     }
 
-    interested_parties_frontend = {
-      count                      = var.deploy_interested_parties ? 1 : 0
-      app_name                   = "web-comment-wfe"
-      front_door_restriction     = true
-      image_name                 = "appeal-planning-decision/web-comment"
-      inbound_vnet_connectivity  = false
-      integration_subnet_id      = var.integration_subnet_id
-      key_vault_access           = true
-      outbound_vnet_connectivity = true
-
-      app_settings = {
-        ALLOW_TESTING_OVERRIDES                   = var.allow_testing_overrides
-        APPLICATIONINSIGHTS_CONNECTION_STRING     = local.secret_refs["appeals-app-insights-connection-string"]
-        APPEALS_SERVICE_API_TIMEOUT               = var.api_timeout
-        APPEALS_SERVICE_API_URL                   = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
-        AUTH_BASE_URL                             = "https://pins-app-${var.service_name}-auth-server-${var.resource_suffix}.azurewebsites.net"
-        CLAMAV_HOST                               = azurerm_private_dns_a_record.clamav.fqdn
-        CLAMAV_PORT                               = "3310"
-        CLIENT_ID                                 = local.secret_refs["appeals-web-comment-client-id"]
-        CLIENT_SECRET                             = local.secret_refs["appeals-web-comment-client-secret"]
-        DOCS_API_PATH                             = "/opt/app/api"
-        DOCUMENTS_SERVICE_API_TIMEOUT             = var.api_timeout
-        DOCUMENTS_SERVICE_API_URL                 = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net/"
-        FEATURE_FLAG_GOOGLE_TAG_MANAGER           = false
-        FEATURE_FLAG_NEW_APPEAL_JOURNEY           = true
-        FILE_UPLOAD_DEBUG                         = var.appeals_frontend_file_upload_debug_logging_enabled
-        FILE_UPLOAD_MAX_FILE_SIZE_BYTES           = var.max_file_upload_size_in_bytes
-        FILE_UPLOAD_TMP_PATH                      = "/tmp"
-        FILE_UPLOAD_USE_TEMP_FILES                = true
-        GOOGLE_ANALYTICS_ID                       = var.google_analytics_id
-        GOOGLE_TAG_MANAGER_ID                     = var.google_tag_manager_id
-        HOST_URL                                  = "https://${var.comment_planning_appeal_public_url}"
-        NODE_ENV                                  = var.node_environment
-        PDF_SERVICE_API_URL                       = "https://pins-app-${var.service_name}-pdf-api-${var.resource_suffix}.azurewebsites.net"
-        PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING = local.secret_refs["appeals-app-config-connection-string"]
-        PORT                                      = "3000"
-        SUBDOMAIN_OFFSET                          = "3"
-      }
-    }
-
     #====================================
     # Backends
     #====================================
@@ -143,10 +103,6 @@ locals {
 
         FUNCTIONS_CLIENT_ID     = local.secret_refs["appeals-function-client-id"]
         FUNCTIONS_CLIENT_SECRET = local.secret_refs["appeals-function-client-secret"]
-
-        WEB_COMMENT_CLIENT_ID     = local.secret_refs["appeals-web-comment-client-id"]
-        WEB_COMMENT_CLIENT_SECRET = local.secret_refs["appeals-web-comment-client-secret"]
-        WEB_COMMENT_REDIRECT_URI  = "https://${var.comment_planning_appeal_public_url}/odic"
       }
     }
 
@@ -288,9 +244,7 @@ locals {
     "appeals-forms-web-app-client-id",
     "appeals-forms-web-app-client-secret",
     "appeals-function-client-id",
-    "appeals-function-client-secret",
-    "appeals-web-comment-client-id",
-    "appeals-web-comment-client-secret",
+    "appeals-function-client-secret"
   ]
 
   secret_names = concat(local.secrets_manual, local.secrets_automated)

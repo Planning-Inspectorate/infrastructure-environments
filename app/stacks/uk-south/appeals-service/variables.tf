@@ -46,11 +46,6 @@ variable "appeals_service_public_url" {
   type        = string
 }
 
-variable "comment_planning_appeal_public_url" {
-  description = "The public URL for the Comment Planning Appeal frontend web app"
-  type        = string
-}
-
 variable "common_resource_group_name" {
   description = "The common infrastructure resource group name"
   type        = string
@@ -308,12 +303,6 @@ variable "task_submit_to_horizon_trigger_active" {
 
 variable "allow_testing_overrides" {
   description = "A switch to determine if testing overrides are enabled to allow easier manual testing"
-  type        = bool
-  default     = false
-}
-
-variable "deploy_interested_parties" {
-  description = "A switch to determine if the interested parties app service should be deployed"
   type        = bool
   default     = false
 }
