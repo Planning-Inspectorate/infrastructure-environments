@@ -22,8 +22,3 @@ output "web_frontend_url" {
   description = "The URL of the web frontend App Service"
   value       = module.app_service["appeals_frontend"].default_site_hostname
 }
-
-output "web_comment_frontend_url" {
-  description = "The URL of the web frontend App Service"
-  value       = module.app_service["interested_parties_frontend"].default_site_hostname
-}

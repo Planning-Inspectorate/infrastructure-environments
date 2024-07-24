@@ -54,8 +54,6 @@ This component contains the infrastructure required for the appeals service. Thi
 | [azurerm_key_vault_secret.appeals_sql_server_password_app](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.appeals_sql_server_username_admin](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.appeals_sql_server_username_app](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.appeals_web_comment_client_id](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_key_vault_secret.appeals_web_comment_client_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_key_vault_secret.applications_insights_connection_kv_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_secret) | resource |
 | [azurerm_log_analytics_workspace.appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/log_analytics_workspace) | resource |
 | [azurerm_monitor_metric_alert.appeals_sql_db_cpu_alert](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/monitor_metric_alert) | resource |
@@ -87,10 +85,8 @@ This component contains the infrastructure required for the appeals service. Thi
 | [random_password.appeals_function_client_secret](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
 | [random_password.appeals_sql_server_password_admin](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
 | [random_password.appeals_sql_server_password_app](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
-| [random_password.appeals_web_comment_client_secret](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
 | [random_uuid.appeals_forms_web_app_client_id](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/uuid) | resource |
 | [random_uuid.appeals_function_client_id](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/uuid) | resource |
-| [random_uuid.appeals_web_comment_client_id](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/uuid) | resource |
 | [time_offset.secret_expire_date](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/offset) | resource |
 | [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/client_config) | data source |
 | [azurerm_monitor_action_group.tech](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/monitor_action_group) | data source |
@@ -137,7 +133,6 @@ This component contains the infrastructure required for the appeals service. Thi
 | <a name="input_cosmosdb_subnet_id"></a> [cosmosdb\_subnet\_id](#input\_cosmosdb\_subnet\_id) | The ID of the VNet in the primary location | `string` | n/a | yes |
 | <a name="input_dashboards_enabled"></a> [dashboards\_enabled](#input\_dashboards\_enabled) | A switch to determine if dashboards are enabled for LPA and appellant | `bool` | `false` | no |
 | <a name="input_database_public_access_enabled"></a> [database\_public\_access\_enabled](#input\_database\_public\_access\_enabled) | A switch indicating if databases should have public access enabled | `bool` | `false` | no |
-| <a name="input_deploy_interested_parties"></a> [deploy\_interested\_parties](#input\_deploy\_interested\_parties) | A switch to determine if the interested parties app service should be deployed | `bool` | `false` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
 | <a name="input_google_analytics_id"></a> [google\_analytics\_id](#input\_google\_analytics\_id) | The id used to connect the frontend app to Google Analytics | `string` | n/a | yes |
 | <a name="input_google_tag_manager_id"></a> [google\_tag\_manager\_id](#input\_google\_tag\_manager\_id) | The id used to connect the frontend app to Google Tag Manager | `string` | n/a | yes |
@@ -214,6 +209,5 @@ This component contains the infrastructure required for the appeals service. Thi
 | <a name="output_sql_server_password_app"></a> [sql\_server\_password\_app](#output\_sql\_server\_password\_app) | The SQL server app password |
 | <a name="output_sql_server_username_admin"></a> [sql\_server\_username\_admin](#output\_sql\_server\_username\_admin) | The SQL server administrator username |
 | <a name="output_sql_server_username_app"></a> [sql\_server\_username\_app](#output\_sql\_server\_username\_app) | The SQL server app username |
-| <a name="output_web_comment_frontend_url"></a> [web\_comment\_frontend\_url](#output\_web\_comment\_frontend\_url) | The URL of the web frontend App Service |
 | <a name="output_web_frontend_url"></a> [web\_frontend\_url](#output\_web\_frontend\_url) | The URL of the web frontend app service |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

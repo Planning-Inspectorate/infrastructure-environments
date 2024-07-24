@@ -4,7 +4,6 @@ locals {
   appeals_service_public_url           = "appeals-service-training.planninginspectorate.gov.uk"
   applications_service_public_url      = "applications-service-training.planninginspectorate.gov.uk"
   back_office_public_url               = "back-office-training.planninginspectorate.gov.uk"
-  comment_planning_appeal_public_url   = "comment-planning-appeal-training.planninginspectorate.gov.uk"
   feature_front_door_failover_enaled   = false
   environment                          = "training"
   enable_search_indexing_by_default    = false

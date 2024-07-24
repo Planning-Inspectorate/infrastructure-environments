@@ -101,7 +101,6 @@ This component contains the infrastructure required for the appeals service. Thi
 | <a name="input_cosmosdb_connection_string"></a> [cosmosdb\_connection\_string](#input\_cosmosdb\_connection\_string) | The connection string used to connect to CosmosDB | `string` | n/a | yes |
 | <a name="input_dashboards_enabled"></a> [dashboards\_enabled](#input\_dashboards\_enabled) | A switch to determine if dashboards are enabled for LPA and appellant | `bool` | `false` | no |
 | <a name="input_database_public_access_enabled"></a> [database\_public\_access\_enabled](#input\_database\_public\_access\_enabled) | A switch indicating if databases should have public access enabled | `bool` | `false` | no |
-| <a name="input_deploy_interested_parties"></a> [deploy\_interested\_parties](#input\_deploy\_interested\_parties) | A switch to determine if the interested parties app service should be deployed | `bool` | `false` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
 | <a name="input_function_apps_storage_account"></a> [function\_apps\_storage\_account](#input\_function\_apps\_storage\_account) | The name of the storage account used by the Function Apps | `string` | n/a | yes |
 | <a name="input_function_apps_storage_account_access_key"></a> [function\_apps\_storage\_account\_access\_key](#input\_function\_apps\_storage\_account\_access\_key) | The access key for the storage account | `string` | n/a | yes |
@@ -173,6 +172,5 @@ This component contains the infrastructure required for the appeals service. Thi
 | Name | Description |
 |------|-------------|
 | <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of frontend app service URLs |
-| <a name="output_web_comment_frontend_url"></a> [web\_comment\_frontend\_url](#output\_web\_comment\_frontend\_url) | The URL of the web frontend App Service |
 | <a name="output_web_frontend_url"></a> [web\_frontend\_url](#output\_web\_frontend\_url) | The URL of the web frontend app service |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
