@@ -359,6 +359,11 @@ variable "srv_notify_ip_registration_confirmation_email_to_ip_template_id" {
   type        = string
 }
 
+variable "srv_notify_ip_registration_confirmation_email_to_ip_template_id_welsh" {
+  description = "The template ID for the IP registration confirmation email - bilingual for Welsh region projects"
+  type        = string
+}
+
 variable "srv_notify_magic_link_email_template_id" {
   description = "The template ID for the magic link email"
   type        = string
@@ -369,8 +374,18 @@ variable "srv_notify_submission_complete_email_template_id" {
   type        = string
 }
 
+variable "srv_notify_submission_complete_email_template_id_welsh" {
+  description = "The template ID for the submission complete email - bilingual for Welsh region projects"
+  type        = string
+}
+
 variable "srv_notify_subscription_create_email_template_id" {
   description = "The template ID for the subscription create email"
+  type        = string
+}
+
+variable "srv_notify_subscription_create_email_template_id_welsh" {
+  description = "The template ID for the subscription create email - bilingual for Welsh region projects"
   type        = string
 }
 
