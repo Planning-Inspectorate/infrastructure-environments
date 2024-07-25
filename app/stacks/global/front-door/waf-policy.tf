@@ -434,7 +434,7 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
 
       rule {
         # Path Traversal Attack (/../)
-        action  = "Log"
+        action  = "Block"
         enabled = true
         rule_id = "930100"
 
@@ -448,7 +448,7 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
 
       rule {
         # Path Traversal Attack (/../)
-        action  = "Log"
+        action  = "Block"
         enabled = true
         rule_id = "930110"
 
