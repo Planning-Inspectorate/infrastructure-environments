@@ -32,7 +32,7 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
 
       rule {
         # Path Traversal Attack (/../)
-        action  = "Block"
+        action  = "Log"
         enabled = true
         rule_id = "930100"
 
@@ -46,7 +46,7 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
 
       rule {
         # Path Traversal Attack (/../)
-        action  = "Block"
+        action  = "Log"
         enabled = true
         rule_id = "930110"
 
