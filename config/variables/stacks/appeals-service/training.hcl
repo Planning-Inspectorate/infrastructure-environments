@@ -108,6 +108,7 @@ locals {
   srv_notify_appellant_login_confirm_registration_template_id                   = "c7e08c14-c45c-45e5-b0d1-460de0006215"
   srv_notify_start_email_to_lpa_template_id                                     = "22a6d662-3bbe-404f-8bca-c4b5c67ad346"
   srv_notify_lpa_dashboard_invite_template_id                                   = "762e0926-112f-4c71-b4fd-ad847aa1c63c"
+  srv_notify_ip_comment_submission_confirmation_email_to_ip_template_id         = "96e74875-c919-4d02-98af-5bb746954079"
   srv_notify_full_appeal_confirmation_email_to_appellant_template_id            = "d7535a2e-425c-4254-9f09-2b0eb460368c"
   srv_notify_full_appeal_received_notification_email_to_lpa_template_id         = "3621ad01-9599-422e-b15c-903725261e6f"
   srv_notify_save_and_return_continue_with_appeal_template_id                   = "7ca79c5d-8842-4b36-9e82-d8ff4b65dbaa"

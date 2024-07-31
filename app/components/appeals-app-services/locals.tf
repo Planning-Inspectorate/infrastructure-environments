@@ -208,6 +208,7 @@ locals {
         SRV_NOTIFY_APPELLANT_LOGIN_CONFIRM_REGISTRATION_TEMPLATE_ID                   = var.srv_notify_appellant_login_confirm_registration_template_id
         SRV_NOTIFY_START_EMAIL_TO_LPA_TEMPLATE_ID                                     = var.srv_notify_start_email_to_lpa_template_id
         SRV_NOTIFY_LPA_DASHBOARD_INVITE_TEMPLATE_ID                                   = var.srv_notify_lpa_dashboard_invite_template_id
+        SRV_NOTIFY_IP_COMMENT_SUBMISSION_CONFIRMATION_EMAIL_TO_IP_TEMPLATE_ID         = var.srv_notify_ip_comment_submission_confirmation_email_to_ip_template_id
         STORAGE_CONTAINER_NAME                                                        = var.appeal_documents_storage_container_name
         TASK_SUBMIT_TO_HORIZON_CRON_STRING                                            = var.task_submit_to_horizon_cron_string
         TASK_SUBMIT_TO_HORIZON_TRIGGER_ACTIVE                                         = var.task_submit_to_horizon_trigger_active
