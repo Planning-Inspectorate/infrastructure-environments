@@ -72,6 +72,7 @@ module "app_services" {
   srv_notify_appellant_login_confirm_registration_template_id                   = var.srv_notify_appellant_login_confirm_registration_template_id
   srv_notify_start_email_to_lpa_template_id                                     = var.srv_notify_start_email_to_lpa_template_id
   srv_notify_lpa_dashboard_invite_template_id                                   = var.srv_notify_lpa_dashboard_invite_template_id
+  srv_notify_ip_comment_submission_confirmation_email_to_ip_template_id         = var.srv_notify_ip_comment_submission_confirmation_email_to_ip_template_id
   srv_notify_service_id                                                         = var.srv_notify_service_id
   task_submit_to_horizon_cron_string                                            = var.task_submit_to_horizon_cron_string
   task_submit_to_horizon_trigger_active                                         = var.task_submit_to_horizon_trigger_active

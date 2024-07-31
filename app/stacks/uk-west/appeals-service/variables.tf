@@ -262,6 +262,11 @@ variable "srv_notify_lpa_dashboard_invite_template_id" {
   type        = string
 }
 
+variable "srv_notify_ip_comment_submission_confirmation_email_to_ip_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
 variable "srv_admin_monitoring_email" {
   description = "Email for the Horizon failure team"
   type        = string
