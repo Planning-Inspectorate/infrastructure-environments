@@ -35,7 +35,8 @@ module "applications_migration_function" {
     NI_DB_MYSQL_PORT     = local.secret_refs["applications-service-mysql-port"]
     NI_DB_MYSQL_USERNAME = local.secret_refs["applications-service-mysql-username"]
     # ODW Synapse Configuration - for direct migration connection
-    SYNAPSE_SQL_HOST = var.odw_synapse_ssql_endpoint
+    # We want to use the TEST Synapse env in both DEV and TEST - this reconfigures the hostname to point to TEST if it's DEV
+    SYNAPSE_SQL_HOST = replace(var.odw_synapse_ssql_endpoint, "dev", "test")
   }
 
   tags = var.tags
