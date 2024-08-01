@@ -561,6 +561,16 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
       selector       = "comment"
     }
 
+    # Exclusions for APPLICS-631 - Exclude all rules for this selector.
+    # POST project update content, which is a strict subset of HTML
+    # only applies Back Office, so should be removed from others with new Front Door
+    exclusion {
+      match_variable = "RequestBodyPostArgNames"
+      operator       = "Equals"
+      selector       = "applicant.organisationName"
+    }
+
+
     # Exception for ASB-1692 merged with ASB-1928 - Exclude all rules for this selector.
     # POST project update content, which is a strict subset of HTML
     # only applies Back Office, so should be removed from others with new Front Door
