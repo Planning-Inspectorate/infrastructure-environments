@@ -32,15 +32,6 @@ locals {
     priority = 0
   }
 
-  comment_planning_appeal_primary_mapping = {
-    url      = var.comment_planning_appeal_primary_app_service_url,
-    priority = 1
-  }
-  comment_planning_appeal_secondary_mapping = {
-    url      = var.comment_planning_appeal_secondary_app_service_url,
-    priority = 0
-  }
-
   applications_frontend = {
     frontend_endpoint = var.applications_service_public_url
     app_service_urls = local.applications_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
@@ -87,20 +78,6 @@ locals {
     ssl_certificate_name      = var.appeals_service_ssl_certificate_name
   }
 
-  comment_planning_appeal_frontend = {
-    frontend_endpoint = var.comment_planning_appeal_public_url
-    app_service_urls = local.comment_planning_appeal_secondary_mapping.url != "" && var.feature_front_door_failover_enaled ? [
-      local.comment_planning_appeal_primary_mapping,
-      local.comment_planning_appeal_secondary_mapping] : [
-      local.comment_planning_appeal_primary_mapping
-    ]
-    infer_backend_host_header = false
-    name                      = "CommentPlanningAppeal"
-    frontend_name             = "CommentPlanningAppeal"
-    patterns_to_match         = ["/*"]
-    ssl_certificate_name      = var.comment_planning_appeal_ssl_certificate_name
-  }
-
   frontend_endpoint_mappings = [{
     name            = "ApplicationsService"
     search_indexing = var.enable_search_indexing_by_default
@@ -109,9 +86,6 @@ locals {
     search_indexing = false
     }, {
     name            = "AppealsService"
-    search_indexing = false
-    }, {
-    name            = "CommentPlanningAppeal"
     search_indexing = false
   }]
 

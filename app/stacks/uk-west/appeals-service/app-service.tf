@@ -16,12 +16,10 @@ module "app_services" {
   bo_appeals_document_container_name                                            = local.appeals_bo_config.documents_container
   back_office_document_storage_api_host                                         = data.azurerm_storage_account.appeals_bo.primary_blob_endpoint
   clamav_subnet_id                                                              = var.clamav_subnet_id
-  comment_planning_appeal_public_url                                            = var.comment_planning_appeal_public_url
   common_integration_functions_subnet_id                                        = var.common_integration_functions_subnet_id
   container_registry_name                                                       = var.container_registry_name
   container_registry_rg                                                         = var.container_registry_rg
   dashboards_enabled                                                            = var.dashboards_enabled
-  deploy_interested_parties                                                     = var.deploy_interested_parties
   endpoint_subnet_id                                                            = azurerm_subnet.appeals_service_ingress.id
   function_apps_storage_account                                                 = azurerm_storage_account.function_apps.name
   function_apps_storage_account_access_key                                      = azurerm_storage_account.function_apps.primary_access_key

@@ -8,12 +8,6 @@ output "web_frontend_url" {
   value       = module.app_services.web_frontend_url
 }
 
-
-output "web_comment_frontend_url" {
-  description = "The URL of the web frontend App Service"
-  value       = length(module.app_services) > 0 ? module.app_services.web_comment_frontend_url : ""
-}
-
 output "appeal_documents_storage_container_name" {
   description = "The Appeal Documents Storage Account container name"
   value       = azurerm_storage_account.appeal_documents.name
