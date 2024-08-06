@@ -1,7 +1,7 @@
 locals {
   activate_planned_outage                                               = "false"
   back_office_integration_case_references                               = "BC0110001,BC0110003,BC0110004,BC0110005"
-  back_office_integration_get_applications                              = "NI"
+  back_office_integration_get_applications                              = "MERGE"
   documents_host                                                        = "https://nitestaz.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
   feature_allow_project_information                                     = "true"
   feature_allow_welsh_translation                                       = "true"
