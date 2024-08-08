@@ -187,6 +187,7 @@ This component contains the infrastructure required for the appeals service. Thi
 |------|-------------|
 | <a name="output_app_service_urls"></a> [app\_service\_urls](#output\_app\_service\_urls) | A map of frontend app service URLs |
 | <a name="output_appeal_documents_primary_blob_connection_string"></a> [appeal\_documents\_primary\_blob\_connection\_string](#output\_appeal\_documents\_primary\_blob\_connection\_string) | The Appeal Documents Storage Account blob connection string associated with the primary location |
+| <a name="output_appeal_documents_primary_blob_host"></a> [appeal\_documents\_primary\_blob\_host](#output\_appeal\_documents\_primary\_blob\_host) | The full URI for the storage account used for Appeal Documents |
 | <a name="output_appeal_documents_storage_container_name"></a> [appeal\_documents\_storage\_container\_name](#output\_appeal\_documents\_storage\_container\_name) | The Appeal Documents Storage Account container name |
 | <a name="output_cosmosdb_connection_string"></a> [cosmosdb\_connection\_string](#output\_cosmosdb\_connection\_string) | The connection string used to connect to the MongoDB |
 | <a name="output_cosmosdb_id"></a> [cosmosdb\_id](#output\_cosmosdb\_id) | The ID of the Cosmos DB account |

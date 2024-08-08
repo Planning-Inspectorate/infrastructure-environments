@@ -9,6 +9,7 @@ module "app_services" {
   appeals_api_service_bus_enabled                                               = var.appeals_api_service_bus_enabled
   appeals_feature_back_office_subscriber_enabled                                = var.appeals_feature_back_office_subscriber_enabled
   appeal_documents_storage_container_name                                       = azurerm_storage_container.documents.name
+  appeal_documents_primary_blob_host                                            = azurerm_storage_account.appeal_documents.primary_blob_endpoint
   appeals_service_public_url                                                    = var.appeals_service_public_url
   back_office_service_bus_namespace_name                                        = local.appeals_bo_config.service_bus_namespace
   bo_storage_account_id                                                         = data.azurerm_storage_account.appeals_bo.id
