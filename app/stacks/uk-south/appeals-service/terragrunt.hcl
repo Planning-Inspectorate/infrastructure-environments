@@ -10,6 +10,7 @@ dependency "appeals_service_ukw" {
   mock_outputs = {
     appeal_documents_primary_blob_connection_string = "mock_connection_string"
     appeal_documents_storage_container_name         = "mock_container_name"
+    appeal_documents_primary_blob_host              = "mock_storage_endpoint"
     cosmosdb_connection_string                      = "mock_connection_string"
     cosmosdb_id                                     = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/mock/mock_id"
     function_apps_storage_account                   = "mockstorageaccount"
@@ -117,6 +118,7 @@ inputs = {
   app_service_plan_id                             = try(dependency.common_uks.outputs.app_service_plan_id, null)
   appeal_documents_primary_blob_connection_string = dependency.appeals_service_ukw.outputs.appeal_documents_primary_blob_connection_string
   appeal_documents_storage_container_name         = dependency.appeals_service_ukw.outputs.appeal_documents_storage_container_name
+  appeal_documents_primary_blob_host              = dependency.appeals_service_ukw.outputs.appeal_documents_primary_blob_host
   clamav_subnet_id                                = dependency.common_uks.outputs.back_office_clamav_subnet_id
   common_integration_functions_subnet_id          = dependency.common_uks.outputs.integration_subnet_id
   common_resource_group_name                      = dependency.common_uks.outputs.common_resource_group_name

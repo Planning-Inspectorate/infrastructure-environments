@@ -41,6 +41,11 @@ variable "appeal_documents_storage_container_name" {
   type        = string
 }
 
+variable "appeal_documents_primary_blob_host" {
+  description = "The full URI for the storage account used for Appeal Documents"
+  type        = string
+}
+
 variable "appeals_service_public_url" {
   description = "The public URL for the Appeals Service frontend web app"
   type        = string

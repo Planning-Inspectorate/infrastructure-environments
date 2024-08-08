@@ -229,6 +229,7 @@ locals {
         APPLICATIONINSIGHTS_CONNECTION_STRING     = local.secret_refs["appeals-app-insights-connection-string"]
         AUTH_BASE_URL                             = "https://pins-app-${var.service_name}-auth-server-${var.resource_suffix}.azurewebsites.net"
         BLOB_STORAGE_CONNECTION_STRING            = local.secret_refs["appeals-documents-primary-blob-connection-string"]
+        BLOB_STORAGE_HOST                         = var.appeal_documents_primary_blob_host
         BO_STORAGE_CONTAINER_HOST                 = var.back_office_document_storage_api_host
         BO_STORAGE_CONTAINER_NAME                 = var.bo_appeals_document_container_name
         DOCS_API_PATH                             = "/opt/app/api"
