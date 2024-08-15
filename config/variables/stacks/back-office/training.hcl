@@ -23,6 +23,14 @@ locals {
         percentage = 100
         users      = []
       }
+    },
+    {
+      name    = "applics-156-material-changes",
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = []
+      }
     }
   ]
   node_environment                    = "production"
