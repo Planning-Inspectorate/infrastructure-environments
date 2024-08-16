@@ -670,10 +670,10 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
     rate_limit_threshold           = 30
 
     match_condition {
-      match_variable   = "RemoteAddr"
-      operator         = "GeoMatch"
-      match_values     = ["GB"]
-      negate_condition = true
+      match_variable     = "RemoteAddr"
+      operator           = "GeoMatch"
+      match_values       = ["GB"]
+      negation_condition = true
     }
   }
 
