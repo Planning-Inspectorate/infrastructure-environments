@@ -31,6 +31,14 @@ locals {
         percentage = 100
         users      = []
       }
+    },
+    {
+      name    = "applics-861-fo-submissions",
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = []
+      }
     }
   ]
   node_environment                    = "production"
