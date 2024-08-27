@@ -337,8 +337,20 @@ variable "appeals_frontend_file_upload_debug_logging_enabled" {
   default     = true
 }
 
+variable "comments_enabled" {
+  description = "A switch to determine if commenting on an appeal journeys are enabled"
+  type        = bool
+  default     = false
+}
+
 variable "dashboards_enabled" {
-  description = "A switch to determine if dashboards are enabled for LPA, appellant and rule 6 parties"
+  description = "A switch to determine if dashboards are enabled for LPA and appellant"
+  type        = bool
+  default     = false
+}
+
+variable "rule_6_enabled" {
+  description = "A switch to determine if rule 6 journeys are enabled"
   type        = bool
   default     = false
 }
