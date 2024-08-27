@@ -92,7 +92,9 @@ locals {
   allow_testing_overrides                                                       = true
   appeals_feature_back_office_subscriber_enabled                                = true
   appeals_frontend_file_upload_debug_logging_enabled                            = false
+  comments_enabled                                                              = false
   dashboards_enabled                                                            = true
+  rule_6_enabled                                                                = false
   deploy_interested_parties                                                     = true
   google_analytics_id                                                           = "G-HWLKLSJF53"
   google_tag_manager_id                                                         = "GTM-KZN7XP4"

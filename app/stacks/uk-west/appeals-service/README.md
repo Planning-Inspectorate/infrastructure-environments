@@ -126,6 +126,7 @@ This component contains the infrastructure required for the appeals service. Thi
 | <a name="input_appeals_service_public_url"></a> [appeals\_service\_public\_url](#input\_appeals\_service\_public\_url) | The public URL for the Appeals Service frontend web app | `string` | n/a | yes |
 | <a name="input_clamav_subnet_id"></a> [clamav\_subnet\_id](#input\_clamav\_subnet\_id) | The id of the subnet to use for clamav | `string` | n/a | yes |
 | <a name="input_comment_planning_appeal_public_url"></a> [comment\_planning\_appeal\_public\_url](#input\_comment\_planning\_appeal\_public\_url) | The public URL for the Comment Planning Appeal frontend web app | `string` | n/a | yes |
+| <a name="input_comments_enabled"></a> [comments\_enabled](#input\_comments\_enabled) | A switch to determine if commenting on an appeal journeys are enabled | `bool` | `false` | no |
 | <a name="input_common_integration_functions_subnet_id"></a> [common\_integration\_functions\_subnet\_id](#input\_common\_integration\_functions\_subnet\_id) | The id of the subnet for common integration functions app service plan | `string` | n/a | yes |
 | <a name="input_common_resource_group_name"></a> [common\_resource\_group\_name](#input\_common\_resource\_group\_name) | The common infrastructure resource group name | `string` | n/a | yes |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | The common resource tags for the project | `map(string)` | n/a | yes |
@@ -134,7 +135,7 @@ This component contains the infrastructure required for the appeals service. Thi
 | <a name="input_container_registry_name"></a> [container\_registry\_name](#input\_container\_registry\_name) | The name of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_container_registry_rg"></a> [container\_registry\_rg](#input\_container\_registry\_rg) | The resource group of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_cosmosdb_subnet_id"></a> [cosmosdb\_subnet\_id](#input\_cosmosdb\_subnet\_id) | The ID of the VNet in the primary location | `string` | n/a | yes |
-| <a name="input_dashboards_enabled"></a> [dashboards\_enabled](#input\_dashboards\_enabled) | A switch to determine if dashboards are enabled for LPA, appellant and rule 6 parties | `bool` | `false` | no |
+| <a name="input_dashboards_enabled"></a> [dashboards\_enabled](#input\_dashboards\_enabled) | A switch to determine if dashboards are enabled for LPA and appellant | `bool` | `false` | no |
 | <a name="input_database_public_access_enabled"></a> [database\_public\_access\_enabled](#input\_database\_public\_access\_enabled) | A switch indicating if databases should have public access enabled | `bool` | `false` | no |
 | <a name="input_deploy_interested_parties"></a> [deploy\_interested\_parties](#input\_deploy\_interested\_parties) | A switch to determine if the interested parties app service should be deployed | `bool` | `false` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
@@ -152,6 +153,7 @@ This component contains the infrastructure required for the appeals service. Thi
 | <a name="input_node_environment"></a> [node\_environment](#input\_node\_environment) | The node environment to be used for applications in this environment e.g. development | `string` | `"development"` | no |
 | <a name="input_primary_location"></a> [primary\_location](#input\_primary\_location) | The primary location resources are deployed to in slug format e.g. 'uk-south' | `string` | `"uk-west"` | no |
 | <a name="input_private_endpoint_enabled"></a> [private\_endpoint\_enabled](#input\_private\_endpoint\_enabled) | A switch to determine if Private Endpoint should be enabled for backend App Services | `bool` | `true` | no |
+| <a name="input_rule_6_enabled"></a> [rule\_6\_enabled](#input\_rule\_6\_enabled) | A switch to determine if rule 6 journeys are enabled | `bool` | `false` | no |
 | <a name="input_secondary_location"></a> [secondary\_location](#input\_secondary\_location) | The secondary location resources are deployed to in slug format e.g. 'uk-west' | `string` | `"uk-south"` | no |
 | <a name="input_service_bus_config"></a> [service\_bus\_config](#input\_service\_bus\_config) | service bus configuration | <pre>object({<br>    default_topic_ttl            = string<br>    bo_internal_subscription_ttl = string<br>    bo_subscription_ttl          = string<br>    fo_subscription_ttl          = string<br>  })</pre> | n/a | yes |
 | <a name="input_sql_database_configuration"></a> [sql\_database\_configuration](#input\_sql\_database\_configuration) | A map of database configuration options | `map(string)` | n/a | yes |

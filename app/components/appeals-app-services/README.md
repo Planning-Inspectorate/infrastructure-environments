@@ -79,10 +79,11 @@ This module also contains some resources such as Service Bus and Function Apps r
 | <a name="input_bo_storage_account_id"></a> [bo\_storage\_account\_id](#input\_bo\_storage\_account\_id) | Id of the Back Office storage account | `string` | n/a | yes |
 | <a name="input_clamav_subnet_id"></a> [clamav\_subnet\_id](#input\_clamav\_subnet\_id) | The id of the subnet to use for clamav | `string` | n/a | yes |
 | <a name="input_comment_planning_appeal_public_url"></a> [comment\_planning\_appeal\_public\_url](#input\_comment\_planning\_appeal\_public\_url) | The public URL for the Comment Planning Appeal frontend web app | `string` | n/a | yes |
+| <a name="input_comments_enabled"></a> [comments\_enabled](#input\_comments\_enabled) | A switch to determine if commenting on an appeal journeys are enabled | `bool` | `false` | no |
 | <a name="input_common_integration_functions_subnet_id"></a> [common\_integration\_functions\_subnet\_id](#input\_common\_integration\_functions\_subnet\_id) | The id of the subnet for common integration functions app service plan | `string` | n/a | yes |
 | <a name="input_container_registry_name"></a> [container\_registry\_name](#input\_container\_registry\_name) | The name of the container registry that hosts the image | `string` | n/a | yes |
 | <a name="input_container_registry_rg"></a> [container\_registry\_rg](#input\_container\_registry\_rg) | The resource group of the container registry that hosts the image | `string` | n/a | yes |
-| <a name="input_dashboards_enabled"></a> [dashboards\_enabled](#input\_dashboards\_enabled) | A switch to determine if dashboards are enabled for LPA, appellant and rule 6 parties | `bool` | `false` | no |
+| <a name="input_dashboards_enabled"></a> [dashboards\_enabled](#input\_dashboards\_enabled) | A switch to determine if dashboards are enabled for LPA and appellant | `bool` | `false` | no |
 | <a name="input_deploy_interested_parties"></a> [deploy\_interested\_parties](#input\_deploy\_interested\_parties) | A switch to determine if the interested parties app service should be deployed | `bool` | `false` | no |
 | <a name="input_endpoint_subnet_id"></a> [endpoint\_subnet\_id](#input\_endpoint\_subnet\_id) | The id of the private endpoint subnet the app service is linked to for ingress traffic | `string` | n/a | yes |
 | <a name="input_function_apps_storage_account"></a> [function\_apps\_storage\_account](#input\_function\_apps\_storage\_account) | The name of the storage account used by the Function Apps | `string` | n/a | yes |
@@ -105,6 +106,7 @@ This module also contains some resources such as Service Bus and Function Apps r
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | The ID of the resource group that will contain the App Services | `string` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the resource group that will contain the App Services | `string` | n/a | yes |
 | <a name="input_resource_suffix"></a> [resource\_suffix](#input\_resource\_suffix) | The suffix for resource naming | `string` | n/a | yes |
+| <a name="input_rule_6_enabled"></a> [rule\_6\_enabled](#input\_rule\_6\_enabled) | A switch to determine if rule 6 journeys are enabled | `bool` | `false` | no |
 | <a name="input_service_bus_appeals_bo_document_topic_id"></a> [service\_bus\_appeals\_bo\_document\_topic\_id](#input\_service\_bus\_appeals\_bo\_document\_topic\_id) | ID for the appeals case data topic | `string` | n/a | yes |
 | <a name="input_service_bus_appeals_bo_event_topic_id"></a> [service\_bus\_appeals\_bo\_event\_topic\_id](#input\_service\_bus\_appeals\_bo\_event\_topic\_id) | ID for the appeals event case data topic | `string` | n/a | yes |
 | <a name="input_service_bus_appeals_bo_has_case_topic_id"></a> [service\_bus\_appeals\_bo\_has\_case\_topic\_id](#input\_service\_bus\_appeals\_bo\_has\_case\_topic\_id) | ID for the appeals HAS case data topic | `string` | n/a | yes |
