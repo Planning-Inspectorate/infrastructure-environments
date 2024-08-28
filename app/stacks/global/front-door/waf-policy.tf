@@ -181,8 +181,8 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
     enabled                        = true
     priority                       = 200
     type                           = "RateLimitRule"
-    rate_limit_duration_in_minutes = 1
-    rate_limit_threshold           = 30
+    rate_limit_duration_in_minutes = 5
+    rate_limit_threshold           = 100
 
     match_condition {
       match_variable     = "RemoteAddr"
