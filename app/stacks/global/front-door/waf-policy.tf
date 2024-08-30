@@ -175,6 +175,23 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
     }
   }
 
+  custom_rule {
+    name                           = "RateLimitNonUKTraffic"
+    action                         = "Block"
+    enabled                        = true
+    priority                       = 200
+    type                           = "RateLimitRule"
+    rate_limit_duration_in_minutes = 5
+    rate_limit_threshold           = 100
+
+    match_condition {
+      match_variable     = "RemoteAddr"
+      operator           = "GeoMatch"
+      match_values       = ["GB"]
+      negation_condition = true
+    }
+  }
+
   tags = var.common_tags
 }
 
