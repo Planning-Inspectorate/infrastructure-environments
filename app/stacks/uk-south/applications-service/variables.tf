@@ -364,11 +364,6 @@ variable "srv_notify_ip_registration_confirmation_email_to_ip_template_id_welsh"
   type        = string
 }
 
-variable "srv_notify_magic_link_email_template_id" {
-  description = "The template ID for the magic link email"
-  type        = string
-}
-
 variable "srv_notify_submission_complete_email_template_id" {
   description = "The template ID for the submission complete email"
   type        = string
