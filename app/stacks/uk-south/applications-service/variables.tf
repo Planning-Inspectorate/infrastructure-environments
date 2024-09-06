@@ -247,6 +247,11 @@ variable "feature_enable_generalised_form_sanitisation" {
   type        = string
 }
 
+variable "feature_general_s51_bo" {
+  description = "Feature toggle to enable/disable general s51 from back office"
+  type        = string
+}
+
 variable "function_storage_name" {
   description = "Name of the Storage Account used for Function Apps"
   type        = string

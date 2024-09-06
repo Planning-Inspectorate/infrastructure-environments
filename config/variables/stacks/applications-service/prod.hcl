@@ -9,6 +9,7 @@ locals {
   feature_application_insights                                          = "true"
   feature_enable_generalised_form_sanitisation                          = "true"
   feature_enabled_content_security_policy                               = "true"
+  feature_general_s51_bo                                                = "false"
   feature_hide_project_timeline_link                                    = "false"
   feature_home_page                                                     = "true"
   feature_primary_navigation                                            = "true"

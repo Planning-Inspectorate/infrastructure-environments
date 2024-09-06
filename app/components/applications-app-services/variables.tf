@@ -326,6 +326,11 @@ variable "feature_enable_generalised_form_sanitisation" {
   type        = string
 }
 
+variable "feature_general_s51_bo" {
+  description = "Feature toggle to enable/disable general s51 from back office"
+  type        = string
+}
+
 variable "feature_application_insights" {
   description = "Feature toggle to enable/disable application insights"
   type        = string
