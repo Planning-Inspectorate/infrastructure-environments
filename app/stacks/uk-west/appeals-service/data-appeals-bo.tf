@@ -86,3 +86,31 @@ data "azurerm_servicebus_topic" "listed_building" {
   name         = "listed-building"
   namespace_id = local.appeals_bo_service_bus_id
 }
+
+# RBAC
+
+data "azurerm_management_group" "case_officers" {
+  name = "case-officers"
+}
+
+resource "azurerm_role_definition" "case_officer_bo_documents" {
+  name  = "read-write-delete-bo-documents"
+  scope = data.azurerm_storage_container.appeal_bo_documents.id
+
+  permissions {
+    actions = [
+      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
+      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
+      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
+    ]
+    not_actions = []
+  }
+}
+
+resource "azurerm_role_assignment" "case_officers_bo_documents" {
+  name               = "case_officers"
+  scope              = data.azurerm_management_group.case_officers.id
+  role_definition_id = azurerm_role_definition.case_officer_bo_documents.role_definition_resource_id
+  principal_id       = data.azurerm_client_config.current.id
+}
