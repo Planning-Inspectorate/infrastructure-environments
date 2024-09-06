@@ -222,6 +222,11 @@ variable "feature_enable_generalised_form_sanitisation" {
   type        = string
 }
 
+variable "feature_general_s51_bo" {
+  description = "Feature toggle to enable/disable general s51 from back office"
+  type        = string
+}
+
 variable "google_analytics_id" {
   description = "The id used to connect the frontend app to Google Analytics"
   type        = string

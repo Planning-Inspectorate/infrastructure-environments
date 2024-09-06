@@ -34,6 +34,7 @@ module "app_services" {
   feature_back_office_subscriber_enabled                                = true
   feature_enable_generalised_form_sanitisation                          = var.feature_enable_generalised_form_sanitisation
   feature_enabled_content_security_policy                               = var.feature_enabled_content_security_policy
+  feature_general_s51_bo                                                = var.feature_general_s51_bo
   feature_hide_project_timeline_link                                    = var.feature_hide_project_timeline_link
   feature_home_page                                                     = var.feature_home_page
   feature_primary_navigation                                            = var.feature_primary_navigation

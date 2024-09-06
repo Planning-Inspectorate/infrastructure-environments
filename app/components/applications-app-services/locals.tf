@@ -24,6 +24,7 @@ locals {
         FEATURE_PRIMARY_NAVIGATION                   = var.feature_primary_navigation
         FEATURE_PROJECT_INFORMATION                  = var.feature_allow_project_information
         FEATURE_PROJECT_TIMELINE_LINK                = var.feature_hide_project_timeline_link
+        FEATURE_GENERAL_S51_BO                       = var.feature_general_s51_bo
         FEATURE_REDIS_SESSION_STORE                  = var.feature_redis_session_store
         FEATURE_SAVE_AND_EXIT_OPTION                 = var.feature_save_and_exit_option
         FEATURE_SHOW_AFFECTED_AREA_SECTION           = var.feature_show_affected_area_section
