@@ -2,7 +2,7 @@ locals {
   appeals_feature_flags = [
     {
       name    = "appeals-bo-submission"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
@@ -10,7 +10,7 @@ locals {
     },
     {
       name    = "enrol-users"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
@@ -26,7 +26,7 @@ locals {
     },
     {
       name    = "has-appeal-form-v2"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = ["Q9999"]
@@ -34,7 +34,7 @@ locals {
     },
     {
       name    = "has-questionnaire"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
@@ -50,7 +50,7 @@ locals {
     },
     {
       name    = "lpa-dashboard"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
@@ -66,7 +66,7 @@ locals {
     },
     {
       name    = "serve-back-office-documents"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
@@ -74,7 +74,7 @@ locals {
     },
     {
       name    = "sql-users"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
@@ -93,7 +93,7 @@ locals {
   appeals_feature_back_office_subscriber_enabled                                = true
   appeals_frontend_file_upload_debug_logging_enabled                            = false
   comments_enabled                                                              = false
-  dashboards_enabled                                                            = false
+  dashboards_enabled                                                            = true
   rule_6_enabled                                                                = false
   deploy_interested_parties                                                     = true
   google_analytics_id                                                           = "G-DW8DW9TQ84"
