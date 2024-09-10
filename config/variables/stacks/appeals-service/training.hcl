@@ -82,7 +82,7 @@ locals {
     },
     {
       name    = "s78-appeal-form-v2"
-      enabled = true
+      enabled = false
       targeting = {
         percentage = 100
         users      = ["Q9999"]
