@@ -18,7 +18,7 @@ locals {
     },
     {
       name    = "applic-625-custom-folders"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
