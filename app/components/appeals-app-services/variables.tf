@@ -195,6 +195,21 @@ variable "srv_notify_full_appeal_received_notification_email_to_lpa_template_id"
   type        = string
 }
 
+variable "srv_notify_lpa_statement_submission_email_to_lpa_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
+variable "srv_notify_lpa_final_comment_submission_email_to_lpa_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
+variable "srv_notify_appellant_final_comment_submission_email_to_appellant_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
 variable "srv_notify_save_and_return_continue_with_appeal_template_id" {
   description = "A template ID required by the Appeals Service API"
   type        = string
