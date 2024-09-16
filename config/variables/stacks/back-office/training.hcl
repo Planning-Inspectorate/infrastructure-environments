@@ -10,7 +10,7 @@ locals {
     },
     {
       name    = "applic-55-welsh-translation"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
@@ -26,7 +26,7 @@ locals {
     },
     {
       name    = "applics-156-material-changes",
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
