@@ -34,7 +34,7 @@ locals {
     },
     {
       name    = "applics-861-fo-submissions",
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
