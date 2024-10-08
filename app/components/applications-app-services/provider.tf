@@ -6,4 +6,14 @@ terraform {
       configuration_aliases = [azurerm, azurerm.tooling]
     }
   }
+  required_version = ">= 1.5.7, < 1.10.0"
+}
+
+provider "azurerm" {
+  features {}
+}
+
+provider "azurerm" {
+  alias = "tooling"
+  features {}
 }
