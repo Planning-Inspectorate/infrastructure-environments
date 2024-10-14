@@ -81,7 +81,14 @@ locals {
     "back-office-topic-key",
     "os-places-api-key",
     "session-secret",
-    "back-office-applications-gov-notify-api-key"
+    "back-office-applications-gov-notify-api-key",
+    # MIGRATION RESOUCE: only need these secrets for project-updates migration
+    "applications-service-welsh-mysql-database",
+    "applications-service-welsh-mysql-dialect",
+    "applications-service-welsh-mysql-host",
+    "applications-service-welsh-mysql-password",
+    "applications-service-welsh-mysql-port",
+    "applications-service-welsh-mysql-username"
   ]
 
   secret_refs = {
