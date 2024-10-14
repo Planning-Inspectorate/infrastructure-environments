@@ -39,6 +39,14 @@ locals {
         percentage = 100
         users      = []
       }
+    },
+    {
+      name    = "applics-1036-training-sector",
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = []
+      }
     }
   ]
   node_environment                    = "production"
