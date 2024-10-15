@@ -156,8 +156,8 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
     enabled                        = true
     priority                       = 100
     type                           = "RateLimitRule"
-    rate_limit_duration_in_minutes = 1
-    rate_limit_threshold           = 300
+    rate_limit_duration_in_minutes = 5
+    rate_limit_threshold           = 150
 
     match_condition {
       match_variable = "RequestMethod"
@@ -420,8 +420,8 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
     enabled                        = true
     priority                       = 100
     type                           = "RateLimitRule"
-    rate_limit_duration_in_minutes = 1
-    rate_limit_threshold           = 300
+    rate_limit_duration_in_minutes = 5
+    rate_limit_threshold           = 150
 
     match_condition {
       match_variable = "RequestMethod"
@@ -708,8 +708,8 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
     enabled                        = true
     priority                       = 100
     type                           = "RateLimitRule"
-    rate_limit_duration_in_minutes = 1
-    rate_limit_threshold           = 300
+    rate_limit_duration_in_minutes = 5
+    rate_limit_threshold           = 150
 
     match_condition {
       match_variable = "RequestMethod"
