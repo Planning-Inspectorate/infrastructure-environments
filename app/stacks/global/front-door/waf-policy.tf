@@ -151,6 +151,21 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
   }
 
   custom_rule {
+    name     = "IpBlock"
+    action   = "Block"
+    enabled  = true
+    priority = 10
+    type     = "MatchRule"
+
+    match_condition {
+      match_variable     = "RemoteAddr"
+      operator           = "IPMatch"
+      negation_condition = false
+      match_values       = []
+    }
+  }
+
+  custom_rule {
     name                           = "RateLimitHttpRequest"
     action                         = "Block"
     enabled                        = true
@@ -193,6 +208,14 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
   }
 
   tags = var.common_tags
+
+  lifecycle {
+    ignore_changes = [
+      # match the first custom rule (IpBlock) and ignore the match values (IPs)
+      # managed in Portal
+      custom_rule[0].match_condition[0].match_values
+    ]
+  }
 }
 
 resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
@@ -390,6 +413,21 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
   }
 
   custom_rule {
+    name     = "IpBlock"
+    action   = "Block"
+    enabled  = true
+    priority = 10
+    type     = "MatchRule"
+
+    match_condition {
+      match_variable     = "RemoteAddr"
+      operator           = "IPMatch"
+      negation_condition = false
+      match_values       = []
+    }
+  }
+
+  custom_rule {
     name                           = "RateLimitHttpRequest"
     action                         = "Block"
     enabled                        = true
@@ -415,6 +453,14 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
   }
 
   tags = var.common_tags
+
+  lifecycle {
+    ignore_changes = [
+      # match the first custom rule (IpBlock) and ignore the match values (IPs)
+      # managed in Portal
+      custom_rule[0].match_condition[0].match_values
+    ]
+  }
 }
 
 resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend" {
@@ -653,6 +699,21 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
   }
 
   custom_rule {
+    name     = "IpBlock"
+    action   = "Block"
+    enabled  = true
+    priority = 10
+    type     = "MatchRule"
+
+    match_condition {
+      match_variable     = "RemoteAddr"
+      operator           = "IPMatch"
+      negation_condition = false
+      match_values       = []
+    }
+  }
+
+  custom_rule {
     name                           = "RateLimitHttpRequest"
     action                         = "Block"
     enabled                        = true
@@ -678,4 +739,12 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
   }
 
   tags = var.common_tags
+
+  lifecycle {
+    ignore_changes = [
+      # match the first custom rule (IpBlock) and ignore the match values (IPs)
+      # managed in Portal
+      custom_rule[0].match_condition[0].match_values
+    ]
+  }
 }
