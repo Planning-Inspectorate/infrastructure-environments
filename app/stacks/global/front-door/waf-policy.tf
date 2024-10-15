@@ -203,7 +203,9 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
       match_variable     = "RemoteAddr"
       operator           = "IPMatch"
       negation_condition = false
-      match_values       = []
+      match_values = [
+        "10.255.255.255" # placeholder value
+      ]
     }
   }
 
@@ -448,7 +450,9 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
       match_variable     = "RemoteAddr"
       operator           = "IPMatch"
       negation_condition = false
-      match_values       = []
+      match_values = [
+        "10.255.255.255" # placeholder value
+      ]
     }
   }
 
@@ -734,7 +738,9 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
       match_variable     = "RemoteAddr"
       operator           = "IPMatch"
       negation_condition = false
-      match_values       = []
+      match_values = [
+        "10.255.255.255" # placeholder value
+      ]
     }
   }
 
