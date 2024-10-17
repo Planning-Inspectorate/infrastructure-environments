@@ -150,6 +150,11 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
     }
   }
 
+  managed_rule {
+    type    = "Microsoft_BotManagerRuleSet"
+    version = "1.0"
+  }
+
   # custom rules in priority order to match the API
   custom_rule {
     name     = "IpBlock"
@@ -413,6 +418,11 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
       operator       = "Equals"
       selector       = "connect.sid"
     }
+  }
+
+  managed_rule {
+    type    = "Microsoft_BotManagerRuleSet"
+    version = "1.0"
   }
 
   # custom rules in priority order to match the API
@@ -702,6 +712,11 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
       operator       = "Equals"
       selector       = "titleWelsh"
     }
+  }
+
+  managed_rule {
+    type    = "Microsoft_BotManagerRuleSet"
+    version = "1.0"
   }
 
   # custom rules in priority order to match the API
