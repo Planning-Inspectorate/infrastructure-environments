@@ -63,6 +63,7 @@ module "app_services" {
   srv_notify_lpa_statement_submission_email_to_lpa_template_id                  = var.srv_notify_lpa_statement_submission_email_to_lpa_template_id
   srv_notify_lpa_final_comment_submission_email_to_lpa_template_id              = var.srv_notify_lpa_final_comment_submission_email_to_lpa_template_id
   srv_notify_appellant_final_comment_submission_email_to_appellant_template_id  = var.srv_notify_appellant_final_comment_submission_email_to_appellant_template_id
+  srv_notify_appellant_proof_evidence_submission_email_to_appellant_template_id = var.srv_notify_appellant_proof_evidence_submission_email_to_appellant_template_id
   srv_notify_save_and_return_continue_with_appeal_template_id                   = var.srv_notify_save_and_return_continue_with_appeal_template_id
   srv_notify_save_and_return_enter_code_into_service_template_id                = var.srv_notify_save_and_return_enter_code_into_service_template_id
   srv_notify_confirm_email_template_id                                          = var.srv_notify_confirm_email_template_id
