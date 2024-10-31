@@ -116,6 +116,7 @@ locals {
   srv_notify_lpa_statement_submission_email_to_lpa_template_id                  = "2469c124-eca3-49ac-8206-4a9cfe74730e"
   srv_notify_lpa_final_comment_submission_email_to_lpa_template_id              = "b796c76d-2bfc-400e-a2d7-04d4c314f2e9"
   srv_notify_appellant_final_comment_submission_email_to_appellant_template_id  = "be8ba2f3-b8ae-4d63-93ea-4b1f725cd3a2"
+  srv_notify_appellant_proof_evidence_submission_email_to_appellant_template_id = "05209e2b-27b1-47bf-9c42-df8051d057a2"
   srv_notify_save_and_return_continue_with_appeal_template_id                   = "7ca79c5d-8842-4b36-9e82-d8ff4b65dbaa"
   srv_notify_save_and_return_enter_code_into_service_template_id                = "17fa62a6-81f6-49f7-87f0-b7a67d9ec5a0"
   srv_notify_service_id                                                         = "57ab0834-106d-438c-b0b9-3c8f2c268738"
