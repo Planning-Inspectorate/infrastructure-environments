@@ -3,7 +3,12 @@ module "front_office_subscribers" {
   #checkov:skip=CKV_TF_1: Use of commit hash are not required for our Terraform modules
   count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
 
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.16"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=74b9486"
+
+  providers = {
+    azurerm         = azurerm
+    azurerm.tooling = azurerm.tooling
+  }
 
   action_group_ids                         = var.action_group_ids
   app_name                                 = "fo-integration"
@@ -19,8 +24,8 @@ module "front_office_subscribers" {
   resource_group_name                      = var.resource_group_name
   resource_suffix                          = var.resource_suffix
   service_name                             = "appeals"
-  use_app_insights                         = true
   function_node_version                    = 18
+  use_app_insights                         = true
 
   app_settings = {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
@@ -32,7 +37,6 @@ module "front_office_subscribers" {
     CLIENT_ID     = local.secret_refs["appeals-function-client-id"]
     CLIENT_SECRET = local.secret_refs["appeals-function-client-secret"]
     AUTH_BASE_URL = "https://${module.app_service["auth_server"].default_site_hostname}"
-
   }
 
   tags = var.tags

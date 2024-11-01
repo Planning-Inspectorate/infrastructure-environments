@@ -3,6 +3,11 @@ module "app_services" {
 
   source = "../../../components/appeals-app-services"
 
+  providers = {
+    azurerm         = azurerm
+    azurerm.tooling = azurerm.tooling
+  }
+
   action_group_ids                                                              = var.action_group_ids
   allow_testing_overrides                                                       = var.allow_testing_overrides
   api_timeout                                                                   = var.api_timeout
@@ -86,9 +91,4 @@ module "app_services" {
   service_bus_config                                                            = var.service_bus_config
 
   tags = local.tags
-
-  providers = {
-    azurerm         = azurerm
-    azurerm.tooling = azurerm.tooling
-  }
 }

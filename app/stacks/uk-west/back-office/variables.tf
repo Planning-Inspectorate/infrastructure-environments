@@ -268,3 +268,8 @@ variable "back_office_feature_flags" {
   description = "A list of maps describing feature flags to be saved in the App Configuration store"
   type        = list(any)
 }
+
+variable "tooling_subscription_id" {
+  description = "The ID for the Tooling subscription that houses the Container Registry"
+  type        = string
+}
