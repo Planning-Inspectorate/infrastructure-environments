@@ -7,7 +7,8 @@ This module contains the App Services resources for the Back Office service. The
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.107.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.7, < 1.10.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | =4.6.0 |
 
 ## Providers
 
@@ -19,25 +20,25 @@ This module contains the App Services resources for the Back Office service. The
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_app_service"></a> [app\_service](#module\_app\_service) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service | 1.16 |
+| <a name="module_app_service"></a> [app\_service](#module\_app\_service) | github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service | 74b9486 |
 | <a name="module_applications_background_job_functions"></a> [applications\_background\_job\_functions](#module\_applications\_background\_job\_functions) | ./applications-background-job-functions | n/a |
 | <a name="module_applications_command_handler_functions"></a> [applications\_command\_handler\_functions](#module\_applications\_command\_handler\_functions) | ./applications-command-handler-functions | n/a |
 | <a name="module_applications_migration_function"></a> [applications\_migration\_function](#module\_applications\_migration\_function) | ./applications-migration-function | n/a |
-| <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 4.2.1 |
+| <a name="module_azure_region"></a> [azure\_region](#module\_azure\_region) | claranet/regions/azurerm | 7.2.1 |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [azurerm_resource_group_template_deployment.malware_scanning](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/resource_group_template_deployment) | resource |
-| [azurerm_role_assignment.applications_case_admin_officer_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.applications_caseteam_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.applications_inspector_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.back_office_app_send_event_grid](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.back_office_app_send_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
-| [azurerm_service_plan.back_office_functions_plan](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/service_plan) | resource |
-| [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/client_config) | data source |
-| [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/subscription) | data source |
+| [azurerm_resource_group_template_deployment.malware_scanning](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/resources/resource_group_template_deployment) | resource |
+| [azurerm_role_assignment.applications_case_admin_officer_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.applications_caseteam_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.applications_inspector_documents_access](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.back_office_app_send_event_grid](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.back_office_app_send_service_bus_access](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/resources/role_assignment) | resource |
+| [azurerm_service_plan.back_office_functions_plan](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/resources/service_plan) | resource |
+| [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/data-sources/client_config) | data source |
+| [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/data-sources/subscription) | data source |
 
 ## Inputs
 

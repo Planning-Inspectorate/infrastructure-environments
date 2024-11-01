@@ -8,19 +8,19 @@ This component contains the common infrastructure required by each environment. 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.7, < 1.10.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.107.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | =4.6.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.107.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 4.6.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_azure_region_ukw"></a> [azure\_region\_ukw](#module\_azure\_region\_ukw) | claranet/regions/azurerm | 4.2.1 |
+| <a name="module_azure_region_ukw"></a> [azure\_region\_ukw](#module\_azure\_region\_ukw) | claranet/regions/azurerm | 7.2.1 |
 | <a name="module_networking"></a> [networking](#module\_networking) | ../../../components/networking | n/a |
 | <a name="module_turborepo_cache"></a> [turborepo\_cache](#module\_turborepo\_cache) | ../../../components/turborepo-cache | n/a |
 
@@ -28,21 +28,21 @@ This component contains the common infrastructure required by each environment. 
 
 | Name | Type |
 |------|------|
-| [azurerm_key_vault.environment_key_vault](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault) | resource |
-| [azurerm_key_vault_access_policy.admins](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_access_policy) | resource |
-| [azurerm_key_vault_access_policy.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_access_policy) | resource |
-| [azurerm_key_vault_access_policy.frontdoor](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_access_policy) | resource |
-| [azurerm_key_vault_access_policy.pipeline_appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_access_policy) | resource |
-| [azurerm_key_vault_access_policy.pipeline_applications_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_access_policy) | resource |
-| [azurerm_key_vault_access_policy.pipeline_back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_access_policy) | resource |
-| [azurerm_key_vault_secret.applications_service_vpn_gateway_shared_key](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_log_analytics_workspace.common](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/log_analytics_workspace) | resource |
-| [azurerm_monitor_action_group.all_action_groups](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/monitor_action_group) | resource |
-| [azurerm_resource_group.common_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/resource_group) | resource |
-| [azurerm_service_plan.common_integration_functions_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/service_plan) | resource |
-| [azurerm_service_plan.common_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/service_plan) | resource |
-| [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/client_config) | data source |
-| [azurerm_key_vault_secret.applications_service_vpn_gateway_shared_key](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/key_vault_secret) | data source |
+| [azurerm_key_vault.environment_key_vault](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/resources/key_vault) | resource |
+| [azurerm_key_vault_access_policy.admins](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/resources/key_vault_access_policy) | resource |
+| [azurerm_key_vault_access_policy.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/resources/key_vault_access_policy) | resource |
+| [azurerm_key_vault_access_policy.frontdoor](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/resources/key_vault_access_policy) | resource |
+| [azurerm_key_vault_access_policy.pipeline_appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/resources/key_vault_access_policy) | resource |
+| [azurerm_key_vault_access_policy.pipeline_applications_service](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/resources/key_vault_access_policy) | resource |
+| [azurerm_key_vault_access_policy.pipeline_back_office](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/resources/key_vault_access_policy) | resource |
+| [azurerm_key_vault_secret.applications_service_vpn_gateway_shared_key](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_log_analytics_workspace.common](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/resources/log_analytics_workspace) | resource |
+| [azurerm_monitor_action_group.all_action_groups](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/resources/monitor_action_group) | resource |
+| [azurerm_resource_group.common_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/resources/resource_group) | resource |
+| [azurerm_service_plan.common_integration_functions_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/resources/service_plan) | resource |
+| [azurerm_service_plan.common_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/resources/service_plan) | resource |
+| [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/data-sources/client_config) | data source |
+| [azurerm_key_vault_secret.applications_service_vpn_gateway_shared_key](https://registry.terraform.io/providers/hashicorp/azurerm/4.6.0/docs/data-sources/key_vault_secret) | data source |
 
 ## Inputs
 

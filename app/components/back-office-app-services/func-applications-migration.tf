@@ -26,7 +26,7 @@ module "applications_migration_function" {
 
 
   providers = {
-    azurerm = azurerm
+    azurerm         = azurerm
     azurerm.tooling = azurerm.tooling
   }
 }
