@@ -9,6 +9,7 @@ This component contains the infrastructure required for the appeals service. Thi
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.7, < 1.10.0 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | =4.6.0 |
+| <a name="requirement_time"></a> [time](#requirement\_time) | ~>0.9 |
 
 ## Providers
 
@@ -157,9 +158,7 @@ This component contains the infrastructure required for the appeals service. Thi
 | <a name="input_srv_notify_start_email_to_lpa_template_id"></a> [srv\_notify\_start\_email\_to\_lpa\_template\_id](#input\_srv\_notify\_start\_email\_to\_lpa\_template\_id) | A template ID required by the Appeals Service API | `string` | n/a | yes |
 | <a name="input_task_submit_to_horizon_cron_string"></a> [task\_submit\_to\_horizon\_cron\_string](#input\_task\_submit\_to\_horizon\_cron\_string) | Task to submit to horizon cron string | `string` | n/a | yes |
 | <a name="input_task_submit_to_horizon_trigger_active"></a> [task\_submit\_to\_horizon\_trigger\_active](#input\_task\_submit\_to\_horizon\_trigger\_active) | Task to submit to horizon trigger active | `string` | n/a | yes |
-| <a name="input_tooling_config"></a> [tooling\_config](#input\_tooling\_config) | Config for the tooling subscription resources | <pre>object({<br>    container_registry_name = string<br>    container_registry_rg   = string<br>    network_name            = string<br>    network_rg              = string<br>    subscription_id         = string<br>  })</pre> | n/a | yes |
 | <a name="input_tooling_subscription_id"></a> [tooling\_subscription\_id](#input\_tooling\_subscription\_id) | The ID for the Tooling subscription that houses the Container Registry | `string` | n/a | yes |
-| <a name="input_use_app_insights"></a> [use\_app\_insights](#input\_use\_app\_insights) | turn app insight on or off | `string` | n/a | yes |
 
 ## Outputs
 

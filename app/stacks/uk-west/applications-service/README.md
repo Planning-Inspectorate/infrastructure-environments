@@ -9,6 +9,7 @@ This component contains the infrastructure required for the applications service
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.7, < 1.10.0 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | =4.6.0 |
+| <a name="requirement_random"></a> [random](#requirement\_random) | ~>3.1 |
 
 ## Providers
 

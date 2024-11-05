@@ -448,23 +448,7 @@ variable "service_bus_config" {
   })
 }
 
-variable "tooling_config" {
-  description = "Config for the tooling subscription resources"
-  type = object({
-    container_registry_name = string
-    container_registry_rg   = string
-    network_name            = string
-    network_rg              = string
-    subscription_id         = string
-  })
-}
-
 variable "tooling_subscription_id" {
   description = "The ID for the Tooling subscription that houses the Container Registry"
-  type        = string
-}
-
-variable "use_app_insights" {
-  description = "turn app insight on or off"
   type        = string
 }
