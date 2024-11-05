@@ -34,3 +34,8 @@ variable "back_office_published_documents_domain" {
   description = "Domain for published documents"
   type        = string
 }
+
+variable "tooling_subscription_id" {
+  description = "The ID for the Tooling subscription that houses the Container Registry"
+  type        = string
+}
