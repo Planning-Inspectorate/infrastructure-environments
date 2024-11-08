@@ -257,12 +257,22 @@ variable "srv_notify_lpa_final_comment_submission_email_to_lpa_template_id" {
   type        = string
 }
 
+variable "srv_notify_lpa_proof_evidence_submission_email_to_lpa_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
 variable "srv_notify_appellant_final_comment_submission_email_to_appellant_template_id" {
   description = "A template ID required by the Appeals Service API"
   type        = string
 }
 
 variable "srv_notify_appellant_proof_evidence_submission_email_to_appellant_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
+variable "srv_notify_rule_6_proof_evidence_submission_email_to_rule_6_party_template_id" {
   description = "A template ID required by the Appeals Service API"
   type        = string
 }
