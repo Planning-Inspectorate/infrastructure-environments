@@ -42,7 +42,7 @@ locals {
     },
     {
       name    = "applics-1036-training-sector",
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
