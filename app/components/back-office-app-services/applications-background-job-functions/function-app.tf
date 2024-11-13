@@ -1,10 +1,9 @@
 module "applications_background_job_functions" {
   #checkov:skip=CKV_TF_1: Use of commit hash are not required for our Terraform modules
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=74b9486"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=4d41d5d083bfdeebb03fbe44508fb6b0ea7d53c2"
 
   providers = {
-    azurerm         = azurerm
-    azurerm.tooling = azurerm.tooling
+    azurerm = azurerm
   }
 
   action_group_ids                         = var.action_group_ids
