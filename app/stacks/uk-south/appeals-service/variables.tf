@@ -301,6 +301,11 @@ variable "srv_notify_rule_6_proof_evidence_submission_email_to_rule_6_party_temp
   type        = string
 }
 
+variable "srv_notify_rule_6_statement_submission_email_to_rule_6_party_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
 variable "srv_notify_appellant_login_confirm_registration_template_id" {
   description = "A template ID required by the Appeals Service API"
   type        = string
