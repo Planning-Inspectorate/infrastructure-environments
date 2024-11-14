@@ -202,6 +202,7 @@ locals {
         SRV_NOTIFY_APPELLANT_FINAL_COMMENT_SUBMISSION_EMAIL_TO_APPELLANT_TEMPLATE_ID  = var.srv_notify_appellant_final_comment_submission_email_to_appellant_template_id
         SRV_NOTIFY_APPELLANT_PROOF_EVIDENCE_SUBMISSION_EMAIL_TO_APPELLANT_TEMPLATE_ID = var.srv_notify_appellant_proof_evidence_submission_email_to_appellant_template_id
         SRV_NOTIFY_RULE_6_PROOF_EVIDENCE_SUBMISSION_EMAIL_TO_RULE_6_PARTY_TEMPLATE_ID = var.srv_notify_rule_6_proof_evidence_submission_email_to_rule_6_party_template_id
+        SRV_NOTIFY_RULE_6_STATEMENT_SUBMISSION_EMAIL_TO_RULE_6_PARTY_TEMPLATE_ID      = var.srv_notify_rule_6_statement_submission_email_to_rule_6_party_template_id
         SRV_NOTIFY_SAVE_AND_RETURN_CONTINUE_WITH_APPEAL_TEMPLATE_ID                   = var.srv_notify_save_and_return_continue_with_appeal_template_id
         SRV_NOTIFY_SAVE_AND_RETURN_ENTER_CODE_INTO_SERVICE_TEMPLATE_ID                = var.srv_notify_save_and_return_enter_code_into_service_template_id
         SRV_NOTIFY_CONFIRM_EMAIL_TEMPLATE_ID                                          = var.srv_notify_confirm_email_template_id

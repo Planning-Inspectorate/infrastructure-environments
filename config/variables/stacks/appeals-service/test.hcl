@@ -115,6 +115,7 @@ locals {
   srv_notify_appellant_final_comment_submission_email_to_appellant_template_id  = "5f37a34b-d351-4465-80f9-7abc98eeada8"
   srv_notify_appellant_proof_evidence_submission_email_to_appellant_template_id = "6434b364-5ac9-48b5-9fa0-3bfca2f63f55"
   srv_notify_rule_6_proof_evidence_submission_email_to_rule_6_party_template_id = "1df1f75e-8414-4dd1-877f-a7b8f79edf63"
+  srv_notify_rule_6_statement_submission_email_to_rule_6_party_template_id      = "23fe17dd-3974-4404-8839-3f7b1e8b9430"
   srv_notify_save_and_return_continue_with_appeal_template_id                   = "b3651e9d-5cc3-4258-82b4-04ec2ba3d10e"
   srv_notify_save_and_return_enter_code_into_service_template_id                = "e509eee7-f0bd-4d63-9203-d598ddd5b31e"
   srv_notify_service_id                                                         = "c46d894e-d10e-4c46-a467-019576cd906a"
