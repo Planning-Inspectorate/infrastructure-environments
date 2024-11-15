@@ -43,6 +43,7 @@ resource "azurerm_subnet" "integration_subnet" {
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.common_infrastructure.name
   address_prefixes     = [module.vnet_address_space.network_cidr_blocks["app_service_integration"]]
+  private_endpoint_network_policies = "Enabled"
 
   delegation {
     name = "delegation"
@@ -61,6 +62,7 @@ resource "azurerm_subnet" "back_office_integration_subnet" {
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.common_infrastructure.name
   address_prefixes     = [module.vnet_address_space.network_cidr_blocks["back_office_app_service_integration"]]
+  private_endpoint_network_policies = "Enabled"
 
   delegation {
     name = "delegation"
@@ -79,6 +81,7 @@ resource "azurerm_subnet" "common_integration_functions_subnet" {
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.common_infrastructure.name
   address_prefixes     = [module.vnet_address_space.network_cidr_blocks["common_integration_functions_app_service_integration"]]
+  private_endpoint_network_policies = "Enabled"
 
   delegation {
     name = "delegation"
@@ -97,6 +100,7 @@ resource "azurerm_subnet" "back_office_clamav" {
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.common_infrastructure.name
   address_prefixes     = [module.vnet_address_space.network_cidr_blocks["back_office_clamav"]]
+  private_endpoint_network_policies = "Enabled"
 
   delegation {
     name = "delegation"
