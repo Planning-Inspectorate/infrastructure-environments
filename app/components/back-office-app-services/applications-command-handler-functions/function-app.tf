@@ -1,6 +1,6 @@
 module "applications_command_handler_functions" {
   #checkov:skip=CKV_TF_1: Use of commit hash are not required for our Terraform modules
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.29"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1a0a391bc6a08b32d9a36975a08b18ef8a84d842"
 
   action_group_ids                         = var.action_group_ids
   app_name                                 = "apps-command-handlers"
