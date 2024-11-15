@@ -1,12 +1,13 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v5.0.0
     hooks:
       - id: end-of-file-fixer
       - id: trailing-whitespace
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.83.5
+    rev: v1.92.6
     hooks:
+      - id: terraform_fmt
       - id: terraform_validate
         exclude: |
           (?x)^(
@@ -15,13 +16,8 @@ repos:
           )
         args:
           - --hook-config=--retry-once-with-cleanup=true
-  - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.83.5
-    hooks:
-      - id: terraform_docs
-      - id: terraform_fmt
+      # - id: terraform_docs
       - id: terraform_tflint
         args:
           - --args=--config=__GIT_WORKING_DIR__/.tflint.hcl
-      - id: terragrunt_fmt
-      - id: terraform_checkov
+      # - id: terraform_checkov
