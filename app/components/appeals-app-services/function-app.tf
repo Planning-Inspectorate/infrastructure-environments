@@ -32,7 +32,6 @@ module "front_office_subscribers" {
     CLIENT_ID     = local.secret_refs["appeals-function-client-id"]
     CLIENT_SECRET = local.secret_refs["appeals-function-client-secret"]
     AUTH_BASE_URL = "https://${module.app_service["auth_server"].default_site_hostname}"
-
   }
 
   tags = var.tags
