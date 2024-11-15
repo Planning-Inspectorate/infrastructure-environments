@@ -18,7 +18,7 @@ module "applications_background_job_functions" {
   resource_group_name        = var.resource_group_name
   resource_suffix            = var.resource_suffix
   service_name               = "back-office"
-  # use_app_insights           = true
+  use_app_insights           = true
 
   app_settings = {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.service_bus_namespace_name}.servicebus.windows.net"
