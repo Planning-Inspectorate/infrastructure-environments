@@ -1,11 +1,28 @@
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
-    hooks:
-      - id: end-of-file-fixer
-      - id: trailing-whitespace
+  # - repo: https://github.com/pre-commit/pre-commit-hooks
+  #   rev: v5.0.0
+  #   hooks:
+      # - id: end-of-file-fixer
+      #   stages: [pre-commit]
+      # - id: trailing-whitespace
+      #   stages: [pre-commit]
+      # - id: check-json
+      #   stages: [pre-commit]
+      # - id: check-yaml
+      #   stages: [pre-commit]
+      #   args:
+      #     - --unsafe
+      # - id: check-symlinks
+      #   stages: [pre-commit]
+      # - id: check-added-large-files
+      #   stages: [pre-commit]
+      #   args:
+      #     - --maxkb=15000
+      # - id: detect-private-key
+      #   stages: [pre-commit]
+
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.92.6
+    rev: v1.96.2
     hooks:
       - id: terraform_fmt
       - id: terraform_validate

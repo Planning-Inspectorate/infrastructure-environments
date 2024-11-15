@@ -11,7 +11,7 @@ resource "azurerm_cosmosdb_account" "appeals_database" {
   kind                = "MongoDB"
 
   access_key_metadata_writes_enabled = true
-  enable_automatic_failover          = true
+  automatic_failover_enabled         = true
   public_network_access_enabled      = var.database_public_access_enabled
   is_virtual_network_filter_enabled  = false
 

@@ -28,7 +28,7 @@ resource "azurerm_storage_account" "back_office_documents" {
   account_replication_type         = "GRS"
   allow_nested_items_to_be_public  = true
   cross_tenant_replication_enabled = false
-  enable_https_traffic_only        = true
+  https_traffic_only_enabled       = true
   min_tls_version                  = "TLS1_2"
   tags                             = local.tags
   blob_properties {
@@ -56,7 +56,7 @@ resource "azurerm_storage_container" "back_office_submissions_container" {
   #TODO: Logging
   #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
   name                  = "application-submission-documents"
-  storage_account_name  = azurerm_storage_account.back_office_documents.name
+  storage_account_id    = azurerm_storage_account.back_office_documents.id
   container_access_type = "private"
 }
 
@@ -64,7 +64,7 @@ resource "azurerm_storage_container" "back_office_document_service_uploads_conta
   #TODO: Logging
   #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
   name                  = "document-service-uploads"
-  storage_account_name  = azurerm_storage_account.back_office_documents.name
+  storage_account_id    = azurerm_storage_account.back_office_documents.id
   container_access_type = "private"
 }
 
@@ -73,7 +73,7 @@ resource "azurerm_storage_container" "back_office_published_documents_container"
   #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
   #checkov:skip=CKV_AZURE_34 We want public access to be enabled
   name                  = "published-documents"
-  storage_account_name  = azurerm_storage_account.back_office_documents.name
+  storage_account_id    = azurerm_storage_account.back_office_documents.id
   container_access_type = "blob"
 }
 
@@ -97,7 +97,7 @@ resource "azurerm_storage_account" "function_storage" {
   account_replication_type         = "GRS"
   allow_nested_items_to_be_public  = false
   cross_tenant_replication_enabled = false
-  enable_https_traffic_only        = true
+  https_traffic_only_enabled       = true
   min_tls_version                  = "TLS1_2"
 
   tags = local.tags
