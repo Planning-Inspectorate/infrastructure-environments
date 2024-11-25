@@ -70,6 +70,13 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
 
         exclusion {
           # Exclusion to allow acceptance of cookies
+          match_variable = "RequestBodyPostArgNames" # ""
+          operator       = "Equals"
+          selector       = "examination-enter-comment"
+        }
+
+        exclusion {
+          # Exclusion to allow acceptance of cookies
           match_variable = "RequestCookieNames" # "CookieValue:cookie_policy"
           operator       = "Equals"
           selector       = "cookie_policy"
@@ -91,8 +98,15 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
       }
 
       rule {
+        # Suspicious use of SQL keywords
+        action  = "Log"
+        enabled = true
+        rule_id = "942400"
+      }
+
+      rule {
         # Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)
-        action  = "Block"
+        action  = "Log"
         enabled = true
         rule_id = "942430"
 
@@ -106,7 +120,7 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
 
       rule {
         # SQL Comment Sequence Detected
-        action  = "Block"
+        action  = "Log"
         enabled = true
         rule_id = "942440"
 
