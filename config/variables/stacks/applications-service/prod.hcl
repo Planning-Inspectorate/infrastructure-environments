@@ -20,7 +20,7 @@ locals {
   national_infrastructure_gateway_ip                                    = "51.140.221.209"
   national_infrastructure_vnet_address_space                            = ["10.224.161.0/24", "192.168.0.0/20"]
   node_environment                                                      = "production"
-  open_registration_case_references                                     = "EN010115"
+  open_registration_case_references                                     = "EN010115,EN010139"
   planned_outage_resume_text                                            = ""
   srv_notify_ip_registration_confirmation_email_to_ip_template_id       = "442ee953-7bd2-4b44-aa38-9dc8a3e42ab4"
   srv_notify_ip_registration_confirmation_email_to_ip_template_id_welsh = "b7559278-492b-4e4d-899c-484c03d05335"
