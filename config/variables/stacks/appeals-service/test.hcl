@@ -126,6 +126,7 @@ locals {
   srv_admin_monitoring_email                                                    = "AppealsBetaTeam@planninginspectorate.gov.uk"
   srv_notify_failure_to_upload_to_horizon_template_id                           = "49413491-90fd-4ce8-b061-e2f4758b636b"
   srv_notify_final_comment_submission_confirmation_email_template_id            = "d8919215-6688-408b-9781-eaf7af033605"
+  srv_notify_lpa_has_questionnaire_submission_email_template_id                 = "937b4147-8420-42da-859d-d4a65bdf99bc"
   sql_database_configuration = {
     max_size_gb                 = 250
     short_term_retention_days   = 7
