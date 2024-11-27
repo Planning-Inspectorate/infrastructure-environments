@@ -352,13 +352,6 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
         action  = "Log"
         enabled = true
         rule_id = "942440"
-
-        exclusion {
-          # Exclusion to allow Azure AD authentication redirection
-          match_variable = "QueryStringArgNames" # "QueryParamValue:code"
-          operator       = "Equals"
-          selector       = "code"
-        }
       }
 
       rule {
@@ -366,13 +359,27 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
         action  = "Log"
         enabled = true
         rule_id = "942430"
+      }
 
-        # exclusion {
-        #   # Exclusion to allow Azure AD authentication redirection
-        #   match_variable = "QueryStringArgNames" # "QueryParamValue:code"
-        #   operator       = "Equals"
-        #   selector       = "code"
-        # }
+      rule {
+        # SQL Injection Attack
+        action  = "Log"
+        enabled = true
+        rule_id = "942150"
+      }
+
+      rule {
+        # SQL Injection Attack
+        action  = "Log"
+        enabled = true
+        rule_id = "942410"
+      }
+
+      rule {
+        # SQL Injection Attack Detected via libinjection
+        action  = "Log"
+        enabled = true
+        rule_id = "942100"
       }
 
       rule {
