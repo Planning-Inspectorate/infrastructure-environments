@@ -92,6 +92,6 @@ resource "azurerm_role_assignment" "appeals_docs_api_bo_storage_container_role" 
   # allows read access to the appeals container only
   #https://learn.microsoft.com/en-us/rest/api/storageservices/get-user-delegation-key#permissions
   scope                = var.bo_appeals_document_container_id
-  role_definition_name = "Storage Blob Data Reader"
+  role_definition_name = "Storage Blob Data Contributor"
   principal_id         = module.app_service["appeal_documents_service_api"].principal_id
 }
