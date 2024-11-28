@@ -307,14 +307,14 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
 
       rule {
         # Common SQL injection testing
-        action  = "Redirect"
+        action  = "Log"
         enabled = true
         rule_id = "942110"
       }
 
       rule {
         # Detects MySQL comment-/space-obfuscated injections and backtick termination
-        action  = "Redirect"
+        action  = "Log"
         enabled = true
         rule_id = "942200"
 
@@ -328,7 +328,7 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
 
       rule {
         # Detects basic SQL authentication bypass attempts 2/3
-        action  = "Redirect"
+        action  = "Log"
         enabled = true
         rule_id = "942260"
 
@@ -342,7 +342,7 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
 
       rule {
         # Suspisious use of SQL keywords
-        action  = "Redirect"
+        action  = "Log"
         enabled = true
         rule_id = "942400"
       }
@@ -384,7 +384,7 @@ resource "azurerm_frontdoor_firewall_policy" "appeals_frontend" {
 
       rule {
         # SQL Hex Encoding Identified
-        action  = "Redirect"
+        action  = "Log"
         enabled = true
         rule_id = "942450"
 
