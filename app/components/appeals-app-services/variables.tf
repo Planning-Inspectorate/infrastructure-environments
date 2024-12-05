@@ -250,6 +250,26 @@ variable "srv_notify_service_id" {
   type        = string
 }
 
+variable "srv_notify_v1_appeal_submission_initial_confirmation_email_to_appellant_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
+variable "srv_notify_v1_appeal_submission_follow_up_confirmation_email_to_appellant_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
+variable "srv_notify_v2_appeal_submission_initial_confirmation_email_to_appellant_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
+variable "srv_notify_v2_appeal_submission_follow_up_confirmation_email_to_appellant_template_id" {
+  description = "A template ID required by the Appeals Service API"
+  type        = string
+}
+
 variable "srv_notify_appeal_submission_confirmation_email_to_appellant_template_id" {
   description = "A template ID required by the Appeals Service API"
   type        = string
