@@ -285,19 +285,19 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
         enabled = true
         rule_id = "942200"
 
-        exclusion {
-          # Exclusion to allow acceptance of cookies
-          match_variable = "RequestBodyPostArgNames" # ""
-          operator       = "Equals"
-          selector       = "examination-enter-comment"
-        }
+        # exclusion {
+        #   # Exclusion to allow acceptance of cookies
+        #   match_variable = "RequestBodyPostArgNames" # ""
+        #   operator       = "Equals"
+        #   selector       = "examination-enter-comment"
+        # }
 
-        exclusion {
-          # Exclusion to allow acceptance of cookies
-          match_variable = "RequestCookieNames" # "CookieValue:cookie_policy"
-          operator       = "Equals"
-          selector       = "cookie_policy"
-        }
+        # exclusion {
+        #   # Exclusion to allow acceptance of cookies
+        #   match_variable = "RequestCookieNames" # "CookieValue:cookie_policy"
+        #   operator       = "Equals"
+        #   selector       = "cookie_policy"
+        # }
       }
 
       rule {
@@ -306,12 +306,12 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
         enabled = true
         rule_id = "942260"
 
-        exclusion {
-          # Exclusion to allow acceptance of cookies
-          match_variable = "RequestCookieNames" # "CookieValue:cookie_policy"
-          operator       = "Equals"
-          selector       = "cookie_policy"
-        }
+        # exclusion {
+        #   # Exclusion to allow acceptance of cookies
+        #   match_variable = "RequestCookieNames" # "CookieValue:cookie_policy"
+        #   operator       = "Equals"
+        #   selector       = "cookie_policy"
+        # }
       }
 
       rule {
@@ -327,12 +327,12 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
         enabled = true
         rule_id = "942430"
 
-        exclusion {
-          # Exclusion to allow Azure AD authentication redirection
-          match_variable = "QueryStringArgNames" # "QueryParamValue:code"
-          operator       = "Equals"
-          selector       = "code"
-        }
+        # exclusion {
+        #   # Exclusion to allow Azure AD authentication redirection
+        #   match_variable = "QueryStringArgNames" # "QueryParamValue:code"
+        #   operator       = "Equals"
+        #   selector       = "code"
+        # }
       }
 
       rule {
@@ -341,12 +341,12 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
         enabled = true
         rule_id = "942440"
 
-        exclusion {
-          # Exclusion to allow Azure AD authentication redirection
-          match_variable = "QueryStringArgNames" # "QueryParamValue:code"
-          operator       = "Equals"
-          selector       = "code"
-        }
+        # exclusion {
+        #   # Exclusion to allow Azure AD authentication redirection
+        #   match_variable = "QueryStringArgNames" # "QueryParamValue:code"
+        #   operator       = "Equals"
+        #   selector       = "code"
+        # }
       }
 
       rule {
@@ -355,12 +355,12 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
         enabled = true
         rule_id = "942450"
 
-        exclusion {
-          # Exclusion to allow cookie connect.sid
-          match_variable = "RequestCookieNames" # "CookieValue:connect.sid"
-          operator       = "Equals"
-          selector       = "connect.sid"
-        }
+        # exclusion {
+        #   # Exclusion to allow cookie connect.sid
+        #   match_variable = "RequestCookieNames" # "CookieValue:connect.sid"
+        #   operator       = "Equals"
+        #   selector       = "connect.sid"
+        # }
       }
     }
 
