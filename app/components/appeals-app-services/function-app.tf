@@ -20,7 +20,7 @@ module "front_office_subscribers" {
   resource_suffix                          = var.resource_suffix
   service_name                             = "appeals"
   use_app_insights                         = true
-  function_node_version                    = 18
+  function_node_version                    = 20
 
   app_settings = {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
