@@ -14,7 +14,7 @@ resource "azurerm_storage_account" "appeal_documents" {
   account_replication_type         = "GRS"
   allow_nested_items_to_be_public  = false
   cross_tenant_replication_enabled = false
-  enable_https_traffic_only        = true
+  https_traffic_only_enabled       = true
   min_tls_version                  = "TLS1_2"
 
   tags = local.tags
@@ -24,7 +24,7 @@ resource "azurerm_storage_container" "documents" {
   #TODO: Logging
   #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
   name                  = "uploads"
-  storage_account_name  = azurerm_storage_account.appeal_documents.name
+  storage_account_id    = azurerm_storage_account.appeal_documents.id
   container_access_type = "private"
 }
 
@@ -45,7 +45,7 @@ resource "azurerm_storage_account" "function_apps" {
   account_replication_type         = "GRS"
   allow_nested_items_to_be_public  = false
   cross_tenant_replication_enabled = false
-  enable_https_traffic_only        = true
+  https_traffic_only_enabled       = true
   min_tls_version                  = "TLS1_2"
 
   tags = local.tags
@@ -55,6 +55,6 @@ resource "azurerm_storage_container" "listedbuildings" {
   #TODO: Logging
   #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
   name                  = "listedbuildings"
-  storage_account_name  = azurerm_storage_account.function_apps.name
+  storage_account_id    = azurerm_storage_account.function_apps.id
   container_access_type = "private"
 }

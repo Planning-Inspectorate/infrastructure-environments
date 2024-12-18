@@ -165,7 +165,7 @@ resource "azurerm_storage_account" "back_office_sql_server" {
   account_tier                     = "Standard"
   account_replication_type         = "GRS"
   min_tls_version                  = "TLS1_2"
-  enable_https_traffic_only        = true
+  https_traffic_only_enabled       = true
   allow_nested_items_to_be_public  = false
   cross_tenant_replication_enabled = false
 
@@ -187,6 +187,6 @@ resource "azurerm_storage_container" "back_office_sql_server" {
   #TODO: Logging
   #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
   name                  = "sqlvulnerabilityassessment"
-  storage_account_name  = azurerm_storage_account.back_office_sql_server.name
+  storage_account_id    = azurerm_storage_account.back_office_sql_server.id
   container_access_type = "private"
 }
