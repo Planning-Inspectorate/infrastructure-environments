@@ -30,6 +30,17 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "appeals_auth_client_id" {
+  description = "Client Id of App registrtion used for Easy Authentication"
+  type        = string
+
+}
+
+# variable "auth_enabled" {
+#   description = "Easy Authentication is enabled or not"
+#   type        = bool
+# }
+
 variable "comment_planning_appeal_public_url" {
   description = "The public URL for the Comment Planning Appeal frontend web app"
   type        = string

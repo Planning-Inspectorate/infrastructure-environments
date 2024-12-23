@@ -2,7 +2,7 @@ module "app_service" {
   #checkov:skip=CKV_TF_1: Use of commit hash are not required for our Terraform modules
   for_each = local.app_services
 
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service?ref=1.16"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service?ref=1.32"
 
   action_group_ids                = var.action_group_ids
   app_name                        = each.value["app_name"]
@@ -27,8 +27,23 @@ module "app_service" {
 
   tags = var.tags
 
+
   providers = {
     azurerm         = azurerm
     azurerm.tooling = azurerm.tooling
+  }
+
+  #Monitoring
+  health_check_eviction_time_in_min = var.health_check_eviction_time_in_min
+
+  #Easy Auth setting
+  auth_config = {
+    auth_enabled           = each.value["auth_enabled"]
+    require_authentication = each.value["auth_enabled"]
+    auth_client_id         = var.appeals_auth_client_id
+    auth_provider_secret   = "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET"
+    auth_tenant_endpoint   = "https://login.microsoftonline.com/${data.azurerm_client_config.current.tenant_id}/v2.0"
+    allowed_applications   = var.appeals_auth_client_id
+    allowed_audiences      = "https://${var.appeals_service_public_url}/.auth/login/aad/callback"
   }
 }

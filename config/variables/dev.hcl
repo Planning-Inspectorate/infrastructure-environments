@@ -3,6 +3,8 @@ locals {
   app_service_plan_sku                 = "P2v2"
   appeals_service_public_url           = "appeals-service-dev.planninginspectorate.gov.uk"
   applications_service_public_url      = "applications-service-dev.planninginspectorate.gov.uk"
+  appeals_auth_client_id               = "31bbeefd-e00b-4ef9-b12d-145e06e4ab43"
+  applications_auth_client_id          = "5c7a542a-01a6-4475-b0fd-ea433a419fad"
   back_office_public_url               = "back-office-dev.planninginspectorate.gov.uk"
   comment_planning_appeal_public_url   = "comment-planning-appeal-dev.planninginspectorate.gov.uk"
   feature_front_door_failover_enaled   = false

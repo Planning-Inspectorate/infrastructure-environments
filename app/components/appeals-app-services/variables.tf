@@ -19,6 +19,17 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "appeals_auth_client_id" {
+  description = "Client Id of App registrtion used for Easy Authentication"
+  type        = string
+
+}
+
+# variable "auth_enabled" {
+#   description = "Easy Authentication is enabled or not"
+#   type        = bool
+# }
+
 variable "clamav_subnet_id" {
   description = "The id of the subnet to use for clamav"
   type        = string
@@ -27,6 +38,12 @@ variable "clamav_subnet_id" {
 variable "comment_planning_appeal_public_url" {
   description = "The public URL for the Comment Planning Appeal frontend web app"
   type        = string
+}
+
+variable "health_check_eviction_time_in_min" {
+  description = "The eviction time in minutes for the health check"
+  type        = number
+  default     = 10
 }
 
 variable "integration_functions_app_service_plan_id" {
