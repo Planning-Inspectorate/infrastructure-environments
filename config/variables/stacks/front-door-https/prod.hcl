@@ -5,5 +5,6 @@ locals {
     appeal-planning-decision-service-gov-uk = false # not supported for this domain
     BackOffice                              = true
     BackOfficeNew                           = true
+    CommentPlanningAppeal                   = true
   }
 }
