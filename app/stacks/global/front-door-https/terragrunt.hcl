@@ -37,11 +37,18 @@ dependency "front_door" {
         patterns_to_match    = ["/*"]
         ssl_certificate_name = "mock_certificate_name"
       }
+      comment_planning_appeal_frontend = {
+        frontend_name        = "CommentPlanningAppeal"
+        frontend_endpoint    = "mock_url"
+        patterns_to_match    = ["/*"]
+        ssl_certificate_name = "mock_certificate_name"
+      }
     }
     frontend_endpoints = {
       ApplicationsService                     = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock-rg/providers/Microsoft.Network/frontDoors/mock_front_door/frontendEndpoints/mock_id"
       appeal-planning-decision-service-gov-uk = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock-rg/providers/Microsoft.Network/frontDoors/mock_front_door/frontendEndpoints/mock_id"
       BackOffice                              = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock-rg/providers/Microsoft.Network/frontDoors/mock_front_door/frontendEndpoints/mock_id"
+      CommentPlanningAppeal                   = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock-rg/providers/Microsoft.Network/frontDoors/mock_front_door/frontendEndpoints/mock_id"
     }
   }
 }
