@@ -25,14 +25,6 @@ locals {
       }
     },
     {
-      name    = "applics-156-material-changes",
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = []
-      }
-    },
-    {
       name    = "applics-861-fo-submissions",
       enabled = true
       targeting = {
