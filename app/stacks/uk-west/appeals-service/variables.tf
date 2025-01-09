@@ -30,6 +30,14 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "appeals_easy_auth_config" {
+  description = "Easy Authentication configuration for the web front end"
+  type = object({
+    client_id        = string
+    web_auth_enabled = bool
+  })
+}
+
 variable "comment_planning_appeal_public_url" {
   description = "The public URL for the Comment Planning Appeal frontend web app"
   type        = string
