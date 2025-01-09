@@ -183,6 +183,10 @@ locals {
         TASK_SUBMIT_TO_HORIZON_CRON_STRING                                                    = var.task_submit_to_horizon_cron_string
         TASK_SUBMIT_TO_HORIZON_TRIGGER_ACTIVE                                                 = var.task_submit_to_horizon_trigger_active
       }
+
+      slot_setting_overrides = {
+        TASK_SUBMIT_TO_HORIZON_TRIGGER_ACTIVE = "false"
+      }
     }
 
     appeal_documents_service_api = {
