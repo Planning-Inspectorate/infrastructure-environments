@@ -28,8 +28,23 @@ module "app_service" {
 
   tags = var.tags
 
+
   providers = {
     azurerm         = azurerm
     azurerm.tooling = azurerm.tooling
+  }
+
+  #Monitoring
+  health_check_eviction_time_in_min = var.health_check_eviction_time_in_min
+
+  #Easy Auth setting
+  auth_config = {
+    auth_enabled           = each.value["${var.appeals_easy_auth_config.web_auth_enabled}"]
+    require_authentication = each.value["${var.appeals_easy_auth_config.web_auth_enabled}"]
+    auth_client_id         = var.appeals_easy_auth_config.client_id
+    auth_provider_secret   = "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET"
+    auth_tenant_endpoint   = "https://login.microsoftonline.com/${data.azurerm_client_config.current.tenant_id}/v2.0"
+    allowed_applications   = var.appeals_easy_auth_config.client_id
+    allowed_audiences      = "https://${var.appeals_service_public_url}/.auth/login/aad/callback"
   }
 }
