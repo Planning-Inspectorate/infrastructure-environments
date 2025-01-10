@@ -5,14 +5,14 @@ locals {
     #====================================
 
     appeals_frontend = {
-      app_name                                           = "appeals-wfe"
-      front_door_restriction                             = true
-      image_name                                         = "appeal-planning-decision/forms-web-app"
-      inbound_vnet_connectivity                          = false
-      integration_subnet_id                              = var.integration_subnet_id
-      key_vault_access                                   = true
-      outbound_vnet_connectivity                         = true
-      "${var.appeals_easy_auth_config.web_auth_enabled}" = var.appeals_easy_auth_config.web_auth_enabled
+      app_name                   = "appeals-wfe"
+      front_door_restriction     = true
+      image_name                 = "appeal-planning-decision/forms-web-app"
+      inbound_vnet_connectivity  = false
+      integration_subnet_id      = var.integration_subnet_id
+      key_vault_access           = true
+      outbound_vnet_connectivity = true
+      auth_enabled               = var.appeals_easy_auth_config.web_auth_enabled
 
       app_settings = {
         ALLOW_TESTING_OVERRIDES                   = var.allow_testing_overrides
@@ -62,15 +62,15 @@ locals {
     #====================================
 
     auth_server = {
-      app_name                                           = "auth-server"
-      app_service_private_dns_zone_id                    = var.app_service_private_dns_zone_id
-      endpoint_subnet_id                                 = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
-      image_name                                         = "appeal-planning-decision/auth-server"
-      inbound_vnet_connectivity                          = var.private_endpoint_enabled
-      integration_subnet_id                              = var.integration_subnet_id
-      key_vault_access                                   = true
-      outbound_vnet_connectivity                         = true
-      "${var.appeals_easy_auth_config.web_auth_enabled}" = false
+      app_name                        = "auth-server"
+      app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
+      endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
+      image_name                      = "appeal-planning-decision/auth-server"
+      inbound_vnet_connectivity       = var.private_endpoint_enabled
+      integration_subnet_id           = var.integration_subnet_id
+      key_vault_access                = true
+      outbound_vnet_connectivity      = true
+      auth_enabled                    = false
 
       app_settings = {
         # logging
@@ -113,15 +113,15 @@ locals {
     }
 
     appeals_service_api = {
-      app_name                                           = "appeals-api"
-      app_service_private_dns_zone_id                    = var.app_service_private_dns_zone_id
-      endpoint_subnet_id                                 = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
-      image_name                                         = "appeal-planning-decision/appeals-service-api"
-      inbound_vnet_connectivity                          = var.private_endpoint_enabled
-      integration_subnet_id                              = var.integration_subnet_id
-      key_vault_access                                   = true
-      outbound_vnet_connectivity                         = true
-      "${var.appeals_easy_auth_config.web_auth_enabled}" = false
+      app_name                        = "appeals-api"
+      app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
+      endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
+      image_name                      = "appeal-planning-decision/appeals-service-api"
+      inbound_vnet_connectivity       = var.private_endpoint_enabled
+      integration_subnet_id           = var.integration_subnet_id
+      key_vault_access                = true
+      outbound_vnet_connectivity      = true
+      auth_enabled                    = false
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING                                                 = local.secret_refs["appeals-app-insights-connection-string"]
@@ -195,15 +195,15 @@ locals {
     }
 
     appeal_documents_service_api = {
-      app_name                                           = "documents-api"
-      app_service_private_dns_zone_id                    = var.app_service_private_dns_zone_id
-      endpoint_subnet_id                                 = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
-      image_name                                         = "appeal-planning-decision/documents-api"
-      inbound_vnet_connectivity                          = var.private_endpoint_enabled
-      integration_subnet_id                              = var.integration_subnet_id
-      key_vault_access                                   = true
-      outbound_vnet_connectivity                         = true
-      "${var.appeals_easy_auth_config.web_auth_enabled}" = false
+      app_name                        = "documents-api"
+      app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
+      endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
+      image_name                      = "appeal-planning-decision/documents-api"
+      inbound_vnet_connectivity       = var.private_endpoint_enabled
+      integration_subnet_id           = var.integration_subnet_id
+      key_vault_access                = true
+      outbound_vnet_connectivity      = true
+      auth_enabled                    = false
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING     = local.secret_refs["appeals-app-insights-connection-string"]
@@ -231,14 +231,14 @@ locals {
     }
 
     pdf_service_api = {
-      app_name                                           = "pdf-api"
-      app_service_private_dns_zone_id                    = var.app_service_private_dns_zone_id
-      endpoint_subnet_id                                 = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
-      image_name                                         = "appeal-planning-decision/pdf-api"
-      inbound_vnet_connectivity                          = var.private_endpoint_enabled
-      key_vault_access                                   = true
-      outbound_vnet_connectivity                         = false
-      "${var.appeals_easy_auth_config.web_auth_enabled}" = false
+      app_name                        = "pdf-api"
+      app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
+      endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
+      image_name                      = "appeal-planning-decision/pdf-api"
+      inbound_vnet_connectivity       = var.private_endpoint_enabled
+      key_vault_access                = true
+      outbound_vnet_connectivity      = false
+      auth_enabled                    = false
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING   = local.secret_refs["appeals-app-insights-connection-string"]

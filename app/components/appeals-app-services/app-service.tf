@@ -39,8 +39,8 @@ module "app_service" {
 
   #Easy Auth setting
   auth_config = {
-    auth_enabled           = each.value["${var.appeals_easy_auth_config.web_auth_enabled}"]
-    require_authentication = each.value["${var.appeals_easy_auth_config.web_auth_enabled}"]
+    auth_enabled           = each.value["auth_enabled"]
+    require_authentication = each.value["auth_enabled"]
     auth_client_id         = var.appeals_easy_auth_config.client_id
     auth_provider_secret   = "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET"
     auth_tenant_endpoint   = "https://login.microsoftonline.com/${data.azurerm_client_config.current.tenant_id}/v2.0"
