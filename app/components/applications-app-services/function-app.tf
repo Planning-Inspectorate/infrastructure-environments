@@ -17,7 +17,7 @@ module "back_office_subscribers" {
   resource_group_name                      = var.resource_group_name
   resource_suffix                          = var.resource_suffix
   service_name                             = "applications-service"
-  use_app_insights                         = true
+
   function_node_version                    = 18
 
   app_settings = {

@@ -146,6 +146,11 @@ variable "google_analytics_id" {
   type        = string
 }
 
+variable "health_check_eviction_time_in_min" {
+  description = "Health check value"
+  type        = string
+}
+
 variable "integration_subnet_id" {
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   type        = string
