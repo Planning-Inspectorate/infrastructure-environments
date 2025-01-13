@@ -84,8 +84,8 @@ locals {
       name    = "s20-appeal-form-v2"
       enabled = false
       targeting = {
-      percentage = 100
-      users      = ["Q9999"]
+        percentage = 100
+        users      = ["Q9999"]
       }
     },
     {
