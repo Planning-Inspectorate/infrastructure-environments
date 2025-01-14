@@ -13,6 +13,7 @@ module "app_service" {
   container_registry_rg           = var.container_registry_rg
   endpoint_subnet_id              = can(each.value["endpoint_subnet_id"]) ? each.value["endpoint_subnet_id"] : null
   front_door_restriction          = can(each.value["front_door_restriction"]) ? each.value["front_door_restriction"] : null
+  health_check_eviction_time_in_min = var.health_check_eviction_time_in_min
   image_name                      = each.value["image_name"]
   inbound_vnet_connectivity       = each.value["inbound_vnet_connectivity"]
   integration_subnet_id           = can(each.value["integration_subnet_id"]) ? each.value["integration_subnet_id"] : null
@@ -24,6 +25,8 @@ module "app_service" {
   resource_group_name             = var.resource_group_name
   resource_suffix                 = var.resource_suffix
   service_name                    = var.service_name
+
+  auth_config = {}
 
   tags = var.tags
 
