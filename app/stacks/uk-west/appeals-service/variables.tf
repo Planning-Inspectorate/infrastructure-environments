@@ -30,6 +30,20 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+#EasyAuth setting
+variable "auth_config" {
+  description = "Config for the Azure Easy Authentication"
+  type = object({
+    auth_enabled           = bool
+    require_authentication = bool
+    auth_client_id         = string
+    auth_provider_secret   = string
+    auth_tenant_endpoint   = string
+    allowed_audiences      = string
+    allowed_applications   = string
+  })
+}
+
 variable "comment_planning_appeal_public_url" {
   description = "The public URL for the Comment Planning Appeal frontend web app"
   type        = string
