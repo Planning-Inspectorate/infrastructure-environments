@@ -141,7 +141,7 @@ variable "horizon_url" {
 
 variable "health_check_eviction_time_in_min" {
   description = "health check in mins"
-  default     = number
+  type        = number
 }
 
 variable "instance" {
