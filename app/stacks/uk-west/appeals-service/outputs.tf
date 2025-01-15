@@ -33,7 +33,7 @@ output "appeal_documents_primary_blob_connection_string" {
 output "cosmosdb_connection_string" {
   description = "The connection string used to connect to the MongoDB"
   sensitive   = true
-  value       = azurerm_cosmosdb_account.appeals_database.connection_string
+  value       = azurerm_cosmosdb_account.appeals_database.primary_mongodb_connection_string
 }
 
 output "cosmosdb_id" {
