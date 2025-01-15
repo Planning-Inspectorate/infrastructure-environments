@@ -3,5 +3,5 @@ resource "azurerm_subnet" "back_office_ingress" {
   resource_group_name               = var.common_resource_group_name
   virtual_network_name              = var.common_vnet_name
   address_prefixes                  = [var.common_vnet_cidr_blocks["back_office_endpoints"]]
-  private_endpoint_network_policies = true
+  private_endpoint_network_policies = "Enabled"
 }
