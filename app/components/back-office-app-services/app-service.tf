@@ -27,6 +27,9 @@ module "app_service" {
   resource_suffix                       = var.resource_suffix
   service_name                          = var.service_name
 
+  health_check_eviction_time_in_min = var.health_check_eviction_time_in_min
+  auth_config                       = {}
+
   tags = var.tags
 
   providers = {

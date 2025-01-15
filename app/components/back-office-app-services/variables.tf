@@ -58,6 +58,11 @@ variable "document_check_function_storage_primary_access_key" {
   type        = string
 }
 
+variable "health_check_eviction_time_in_min" {
+  description = "health check in mins"
+  type        = number
+}
+
 variable "integration_subnet_id" {
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   type        = string
