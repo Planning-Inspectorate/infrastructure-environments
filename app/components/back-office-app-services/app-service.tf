@@ -28,7 +28,15 @@ module "app_service" {
   service_name                          = var.service_name
 
   health_check_eviction_time_in_min = var.health_check_eviction_time_in_min
-  auth_config                       = {}
+  auth_config = {
+    auth_enabled           = bool
+    require_authentication = bool
+    auth_client_id         = string
+    auth_provider_secret   = string
+    auth_tenant_endpoint   = string
+    allowed_audiences      = string
+    allowed_applications   = string
+  }
 
   tags = var.tags
 
