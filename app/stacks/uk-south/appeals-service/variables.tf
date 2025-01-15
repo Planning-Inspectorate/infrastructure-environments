@@ -46,6 +46,20 @@ variable "appeal_documents_primary_blob_host" {
   type        = string
 }
 
+#EasyAuth setting
+variable "auth_config" {
+  description = "Config for the Azure Easy Authentication"
+  type = object({
+    auth_enabled           = bool
+    require_authentication = bool
+    auth_client_id         = string
+    auth_provider_secret   = string
+    auth_tenant_endpoint   = string
+    allowed_audiences      = string
+    allowed_applications   = string
+  })
+}
+
 variable "appeals_service_public_url" {
   description = "The public URL for the Appeals Service frontend web app"
   type        = string
