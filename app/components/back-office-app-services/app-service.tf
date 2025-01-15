@@ -29,13 +29,13 @@ module "app_service" {
 
   health_check_eviction_time_in_min = var.health_check_eviction_time_in_min
   auth_config = {
-    auth_enabled           = bool
-    require_authentication = bool
-    auth_client_id         = string
-    auth_provider_secret   = string
-    auth_tenant_endpoint   = string
-    allowed_audiences      = string
-    allowed_applications   = string
+    auth_enabled           = var.auth_config.auth_enabled
+    require_authentication = var.auth_config.require_authentication
+    auth_client_id         = var.auth_config.auth_client_id
+    auth_provider_secret   = var.auth_config.auth_provider_secret
+    auth_tenant_endpoint   = var.auth_config.auth_tenant_endpoint
+    allowed_audiences      = var.auth_config.allowed_audiences
+    allowed_applications   = var.auth_config.allowed_applications
   }
 
   tags = var.tags
