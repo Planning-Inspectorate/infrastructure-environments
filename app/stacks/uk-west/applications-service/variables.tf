@@ -36,6 +36,20 @@ variable "applications_service_public_url" {
   type        = string
 }
 
+#EasyAuth setting
+variable "auth_config" {
+  description = "Config for the Azure Easy Authentication"
+  type = object({
+    auth_enabled           = bool
+    require_authentication = bool
+    auth_client_id         = string
+    auth_provider_secret   = string
+    auth_tenant_endpoint   = string
+    allowed_audiences      = string
+    allowed_applications   = string
+  })
+}
+
 variable "back_office_service_bus_namespace_name" {
   description = "Namespace of Back Office Service Bus instance"
   type        = string
