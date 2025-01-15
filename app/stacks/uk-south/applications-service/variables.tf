@@ -267,6 +267,11 @@ variable "google_analytics_id" {
   type        = string
 }
 
+variable "health_check_eviction_time_in_min" {
+  description = "health check in mins"
+  type        = number
+}
+
 variable "instance" {
   description = "The environment instance for use if multiple environments are deployed to a subscription"
   type        = string

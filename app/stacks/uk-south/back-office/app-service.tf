@@ -64,6 +64,8 @@ module "app_services" {
   notify_subscribers_function_gov_notify_template_welsh_id = var.notify_subscribers_function_gov_notify_template_welsh_id
   applications_front_office_web_url                        = var.applications_front_office_web_url
 
+  health_check_eviction_time_in_min = var.health_check_eviction_time_in_min
+
   tags = local.tags
 
   providers = {

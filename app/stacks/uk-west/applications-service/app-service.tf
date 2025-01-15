@@ -69,6 +69,8 @@ module "app_services" {
   srv_notify_subscription_create_email_template_id_welsh                = var.srv_notify_subscription_create_email_template_id_welsh
   service_bus_config                                                    = var.service_bus_config
 
+  health_check_eviction_time_in_min = var.health_check_eviction_time_in_min
+
   tags = local.tags
 
   providers = {

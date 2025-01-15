@@ -110,6 +110,11 @@ variable "google_tag_manager_id" {
   type        = string
 }
 
+variable "health_check_eviction_time_in_min" {
+  description = "health check in mins"
+  type        = number
+}
+
 variable "horizon_url" {
   description = "The URL used to connect to Horizon"
   type        = string

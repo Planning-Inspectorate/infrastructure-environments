@@ -92,6 +92,8 @@ module "app_services" {
   appeals_frontend_file_upload_debug_logging_enabled                                    = var.appeals_frontend_file_upload_debug_logging_enabled
   service_bus_config                                                                    = var.service_bus_config
 
+  health_check_eviction_time_in_min = var.health_check_eviction_time_in_min
+
   tags = local.tags
 
   providers = {
