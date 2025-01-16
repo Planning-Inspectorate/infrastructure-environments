@@ -138,7 +138,8 @@ variable "health_check_path" {
 
 variable "health_check_eviction_time_in_min" {
   description = "health check in mins"
-  type        = "10"
+  type        = number
+  default     = 10
 }
 
 variable "instance" {
