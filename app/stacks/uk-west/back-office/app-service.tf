@@ -62,15 +62,15 @@ module "app_services" {
 
   health_check_eviction_time_in_min = var.health_check_eviction_time_in_min
 
-auth_config = {
-  auth_enabled           = false
-  require_authentication = false
-  auth_client_id         = ""
-  auth_provider_secret   = ""
-  auth_tenant_endpoint   = ""
-  allowed_audiences      = ""
-  allowed_applications   = ""
-}
+  auth_config = {
+    auth_enabled           = false
+    require_authentication = false
+    auth_client_id         = ""
+    auth_provider_secret   = ""
+    auth_tenant_endpoint   = ""
+    allowed_audiences      = ""
+    allowed_applications   = ""
+  }
 
 
   providers = {
