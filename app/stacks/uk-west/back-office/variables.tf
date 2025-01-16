@@ -54,7 +54,7 @@ variable "auth_config" {
     auth_provider_secret   = ""
     auth_tenant_endpoint   = ""
     allowed_audiences      = ""
-    allowed_applications = ""
+    allowed_applications   = ""
   }
 }
 
