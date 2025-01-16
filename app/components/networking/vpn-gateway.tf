@@ -6,7 +6,6 @@ resource "azurerm_public_ip" "vnet_gateway" {
   location            = var.location
   allocation_method   = "Dynamic"
   sku                 = "Basic"
-  # ip_tags         = {} ###################################
 
   tags = var.tags
 }
