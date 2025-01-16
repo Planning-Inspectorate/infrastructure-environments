@@ -47,15 +47,15 @@ variable "auth_config" {
     allowed_audiences      = string
     allowed_applications   = string
   })
-  default = {
-    auth_enabled           = false
-    require_authentication = false
-    auth_client_id         = ""
-    auth_provider_secret   = ""
-    auth_tenant_endpoint   = ""
-    allowed_audiences      = ""
-    allowed_applications   = ""
-  }
+  # default = {
+  #   auth_enabled           = false
+  #   require_authentication = false
+  #   auth_client_id         = ""
+  #   auth_provider_secret   = ""
+  #   auth_tenant_endpoint   = ""
+  #   allowed_audiences      = ""
+  #   allowed_applications   = ""
+  # }
 }
 
 variable "azuread_auth_client_id" {
