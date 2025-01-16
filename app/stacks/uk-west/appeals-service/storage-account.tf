@@ -14,7 +14,7 @@ resource "azurerm_storage_account" "appeal_documents" {
   account_replication_type         = "GRS"
   allow_nested_items_to_be_public  = false
   cross_tenant_replication_enabled = false
-  enable_https_traffic_only        = true
+  https_traffic_only_enabled       = true
   min_tls_version                  = "TLS1_2"
 
   tags = local.tags
@@ -45,7 +45,7 @@ resource "azurerm_storage_account" "function_apps" {
   account_replication_type         = "GRS"
   allow_nested_items_to_be_public  = false
   cross_tenant_replication_enabled = false
-  enable_https_traffic_only        = true
+  https_traffic_only_enabled       = true
   min_tls_version                  = "TLS1_2"
 
   tags = local.tags

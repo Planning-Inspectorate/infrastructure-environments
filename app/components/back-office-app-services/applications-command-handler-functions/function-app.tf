@@ -1,6 +1,6 @@
 module "applications_command_handler_functions" {
   #checkov:skip=CKV_TF_1: Use of commit hash are not required for our Terraform modules
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.16"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.33"
 
   action_group_ids                         = var.action_group_ids
   app_name                                 = "apps-command-handlers"
@@ -17,8 +17,8 @@ module "applications_command_handler_functions" {
   resource_group_name        = var.resource_group_name
   resource_suffix            = var.resource_suffix
   service_name               = "back-office"
-  use_app_insights           = true
-  function_node_version      = 20
+  # use_app_insights           = true
+  function_node_version = 20
 
   app_settings = {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.service_bus_namespace_name}.servicebus.windows.net"

@@ -54,6 +54,20 @@ variable "appeals_service_public_url" {
   type        = string
 }
 
+#EasyAuth setting
+variable "auth_config" {
+  description = "Config for the Azure Easy Authentication"
+  type = object({
+    auth_enabled           = bool
+    require_authentication = bool
+    auth_client_id         = string
+    auth_provider_secret   = string
+    auth_tenant_endpoint   = string
+    allowed_audiences      = string
+    allowed_applications   = string
+  })
+}
+
 variable "container_registry_name" {
   description = "The name of the container registry that hosts the image"
   type        = string
@@ -88,6 +102,11 @@ variable "google_analytics_id" {
 variable "google_tag_manager_id" {
   description = "The id used to connect the frontend app to Google Tag Manager"
   type        = string
+}
+
+variable "health_check_eviction_time_in_min" {
+  description = "Health check"
+  type        = number
 }
 
 variable "horizon_url" {

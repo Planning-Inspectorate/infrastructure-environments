@@ -2,7 +2,7 @@ module "app_service" {
   #checkov:skip=CKV_TF_1: Use of commit hash are not required for our Terraform modules
   for_each = local.app_services
 
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service?ref=1.16"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service?ref=1.33"
 
   action_group_ids                = var.action_group_ids
   app_name                        = each.value["app_name"]
@@ -24,6 +24,17 @@ module "app_service" {
   resource_group_name             = var.resource_group_name
   resource_suffix                 = var.resource_suffix
   service_name                    = var.service_name
+
+  health_check_eviction_time_in_min = var.health_check_eviction_time_in_min
+  auth_config = {
+    auth_enabled           = var.auth_config.auth_enabled
+    require_authentication = var.auth_config.require_authentication
+    auth_client_id         = var.auth_config.auth_client_id
+    auth_provider_secret   = var.auth_config.auth_provider_secret
+    auth_tenant_endpoint   = var.auth_config.auth_tenant_endpoint
+    allowed_audiences      = var.auth_config.allowed_audiences
+    allowed_applications   = var.auth_config.allowed_applications
+  }
 
   tags = var.tags
 

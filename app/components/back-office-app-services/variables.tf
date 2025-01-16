@@ -24,6 +24,20 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+#EasyAuth setting
+variable "auth_config" {
+  description = "Config for the Azure Easy Authentication"
+  type = object({
+    auth_enabled           = bool
+    require_authentication = bool
+    auth_client_id         = string
+    auth_provider_secret   = string
+    auth_tenant_endpoint   = string
+    allowed_audiences      = string
+    allowed_applications   = string
+  })
+}
+
 variable "azuread_auth_client_id" {
   description = "The Back Office web frontend app registration ID used for Azure AD authentication"
   type        = string
@@ -56,6 +70,11 @@ variable "document_check_function_storage_name" {
 variable "document_check_function_storage_primary_access_key" {
   description = "Function Storage Primary Access Key. NOTE: This is storage for all functions."
   type        = string
+}
+
+variable "health_check_eviction_time_in_min" {
+  description = "health check in mins"
+  type        = number
 }
 
 variable "integration_subnet_id" {

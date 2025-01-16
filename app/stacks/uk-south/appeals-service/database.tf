@@ -75,13 +75,14 @@ resource "azurerm_storage_account" "appeals_sql_server" {
   #TODO: Access restrictions
   #checkov:skip=CKV_AZURE_35: Network access restrictions
   #checkov:skip=CKV_AZURE_59: TODO: Ensure that Storage accounts disallow public access
-  name                             = replace("pinsstsql${local.resource_suffix}", "-", "")
-  resource_group_name              = azurerm_resource_group.appeals_service_stack.name
-  location                         = azurerm_resource_group.appeals_service_stack.location
-  account_tier                     = "Standard"
-  account_replication_type         = "GRS"
-  min_tls_version                  = "TLS1_2"
-  enable_https_traffic_only        = true
+  name                       = replace("pinsstsql${local.resource_suffix}", "-", "")
+  resource_group_name        = azurerm_resource_group.appeals_service_stack.name
+  location                   = azurerm_resource_group.appeals_service_stack.location
+  account_tier               = "Standard"
+  account_replication_type   = "GRS"
+  min_tls_version            = "TLS1_2"
+  https_traffic_only_enabled = true
+
   allow_nested_items_to_be_public  = false
   cross_tenant_replication_enabled = false
 

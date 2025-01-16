@@ -40,6 +40,20 @@ variable "applications_service_redis_connection_string_secret_name" {
   type        = string
 }
 
+#EasyAuth setting
+variable "auth_config" {
+  description = "Config for the Azure Easy Authentication"
+  type = object({
+    auth_enabled           = bool
+    require_authentication = bool
+    auth_client_id         = string
+    auth_provider_secret   = string
+    auth_tenant_endpoint   = string
+    allowed_audiences      = string
+    allowed_applications   = string
+  })
+}
+
 variable "back_office_integration_case_references" {
   description = "list of case references (comma separated) that use back office"
   type        = string
@@ -143,6 +157,11 @@ variable "environment" {
 
 variable "google_analytics_id" {
   description = "The id used to connect the frontend app to Google Analytics"
+  type        = string
+}
+
+variable "health_check_eviction_time_in_min" {
+  description = "Health check value"
   type        = string
 }
 

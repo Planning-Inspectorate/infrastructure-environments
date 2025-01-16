@@ -60,6 +60,19 @@ module "app_services" {
   odw_data_lake_storage_account_id                                                    = var.odw_synapse_integration_enabled ? one(data.terraform_remote_state.odw).outputs.data_lake_account_id : ""
   service_bus_config                                                                  = var.service_bus_config
 
+  health_check_eviction_time_in_min = var.health_check_eviction_time_in_min
+
+  auth_config = {
+    auth_enabled           = false
+    require_authentication = false
+    auth_client_id         = ""
+    auth_provider_secret   = ""
+    auth_tenant_endpoint   = ""
+    allowed_audiences      = ""
+    allowed_applications   = ""
+  }
+
+
   providers = {
     azurerm         = azurerm
     azurerm.tooling = azurerm.tooling

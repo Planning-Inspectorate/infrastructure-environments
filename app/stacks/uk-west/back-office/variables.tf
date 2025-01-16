@@ -35,6 +35,29 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+#EasyAuth setting
+variable "auth_config" {
+  description = "Config for the Azure Easy Authentication"
+  type = object({
+    auth_enabled           = bool
+    require_authentication = bool
+    auth_client_id         = string
+    auth_provider_secret   = string
+    auth_tenant_endpoint   = string
+    allowed_audiences      = string
+    allowed_applications   = string
+  })
+  # default = {
+  #   auth_enabled           = false
+  #   require_authentication = false
+  #   auth_client_id         = ""
+  #   auth_provider_secret   = ""
+  #   auth_tenant_endpoint   = ""
+  #   allowed_audiences      = ""
+  #   allowed_applications   = ""
+  # }
+}
+
 variable "azuread_auth_client_id" {
   description = "The Back Office web frontend app registration ID used for Azure AD authentication"
   type        = string
@@ -120,6 +143,12 @@ variable "health_check_path" {
   description = "The path of the service's health check endpoint"
   type        = string
   default     = "/health"
+}
+
+variable "health_check_eviction_time_in_min" {
+  description = "health check in mins"
+  type        = number
+  default     = 10
 }
 
 variable "instance" {
