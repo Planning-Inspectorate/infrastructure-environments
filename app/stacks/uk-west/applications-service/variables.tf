@@ -249,6 +249,7 @@ variable "google_analytics_id" {
 variable "health_check_eviction_time_in_min" {
   description = "check health in mins"
   type        = number
+  default     = 10
 }
 
 variable "instance" {
