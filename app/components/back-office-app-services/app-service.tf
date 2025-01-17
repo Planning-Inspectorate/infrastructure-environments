@@ -28,6 +28,7 @@ module "app_service" {
   service_name                          = var.service_name
 
   health_check_eviction_time_in_min = var.health_check_eviction_time_in_min
+  health_check_path                 = var.health_check_path
   #Easy Auth setting
   auth_config = {
     auth_enabled           = each.value["auth_enabled"]

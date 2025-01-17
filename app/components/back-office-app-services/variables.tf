@@ -71,6 +71,12 @@ variable "health_check_eviction_time_in_min" {
   type        = number
 }
 
+variable "health_check_path" {
+  description = "The path of the service's health check endpoint"
+  type        = string
+  default     = null
+}
+
 variable "integration_subnet_id" {
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   type        = string
@@ -109,12 +115,6 @@ variable "document_storage_account_endpoint" {
 variable "endpoint_subnet_id" {
   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
   type        = string
-}
-
-variable "health_check_path" {
-  description = "The path of the service's health check endpoint"
-  type        = string
-  default     = null
 }
 
 variable "key_vault_id" {
