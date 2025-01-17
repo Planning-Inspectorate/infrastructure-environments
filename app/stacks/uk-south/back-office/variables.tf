@@ -30,20 +30,6 @@ variable "app_service_plan_id" {
   type        = string
 }
 
-#EasyAuth setting
-variable "auth_config" {
-  description = "Config for the Azure Easy Authentication"
-  type = object({
-    auth_enabled           = bool
-    require_authentication = bool
-    auth_client_id         = string
-    auth_provider_secret   = string
-    auth_tenant_endpoint   = string
-    allowed_audiences      = string
-    allowed_applications   = string
-  })
-}
-
 variable "azuread_auth_client_id" {
   description = "The Back Office web frontend app registration ID used for Azure AD authentication"
   type        = string
@@ -92,6 +78,14 @@ variable "back_office_public_url_new" {
 variable "back_office_sql_database" {
   description = "The ID of the Back Office SQL database"
   type        = string
+}
+
+variable "back_office_easy_auth_config" {
+  description = "Easy Authentication configuration for the web front end"
+  type = object({
+    client_id        = string
+    web_auth_enabled = bool
+  })
 }
 
 variable "common_tags" {
