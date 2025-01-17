@@ -87,6 +87,12 @@ resource "azurerm_frontdoor" "common" {
     web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.appeals_frontend.id
   }
 
+  frontend_endpoint {
+    name                                    = local.comment_planning_appeal_frontend.frontend_name
+    host_name                               = local.comment_planning_appeal_frontend.frontend_endpoint
+    web_application_firewall_policy_link_id = azurerm_frontdoor_firewall_policy.default.id
+  }
+
   dynamic "frontend_endpoint" {
     for_each = local.back_office_frontend.frontend_endpoint_new == null ? [] : ["apply"]
 

@@ -78,6 +78,11 @@ locals {
     ssl_certificate_name      = var.appeals_service_ssl_certificate_name
   }
 
+  comment_planning_appeal_frontend = {
+    frontend_endpoint = var.comment_planning_appeal_public_url
+    frontend_name     = "CommentPlanningAppeal"
+  }
+
   frontend_endpoint_mappings = [{
     name            = "ApplicationsService"
     search_indexing = var.enable_search_indexing_by_default

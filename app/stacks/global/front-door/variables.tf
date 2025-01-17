@@ -70,6 +70,11 @@ variable "back_office_secondary_app_service_url" {
   default     = ""
 }
 
+variable "comment_planning_appeal_public_url" {
+  description = "The public URL for the Comment Planning Appeal frontend web app"
+  type        = string
+}
+
 variable "common_log_analytics_workspace_id" {
   description = "The ID for the common Log Analytics Workspace"
   type        = string
