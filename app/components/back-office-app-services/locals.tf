@@ -10,6 +10,7 @@ locals {
       outbound_vnet_connectivity = true
       health_check_path          = var.health_check_path
       action_group_ids           = local.bo_applications_action_group_ids
+      auth_enabled               = var.back_office_easy_auth_config.web_auth_enabled
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING      = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/back-office-app-insights-connection-string/)"
@@ -35,6 +36,8 @@ locals {
         REDIS_CONNECTION_STRING                    = local.existing_secret_refs[var.back_office_applications_redis_connection_string_secret_name]
         SESSION_SECRET                             = local.secret_refs["session-secret"],
         PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING  = local.existing_secret_refs["bo-app-config-connection-string"]
+        MICROSOFT_PROVIDER_AUTHENTICATION_SECRET   = local.secret_refs["microsoft-provider-authentication-secret"]
+        WEBSITE_AUTH_AAD_ALLOWED_TENANTS           = data.azurerm_client_config.current.tenant_id
       }
     }
 
@@ -49,6 +52,7 @@ locals {
       outbound_vnet_connectivity      = true
       health_check_path               = var.health_check_path
       action_group_ids                = local.bo_applications_action_group_ids
+      auth_enabled                    = false
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING      = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/back-office-app-insights-connection-string/)"
@@ -88,7 +92,8 @@ locals {
     "applications-service-welsh-mysql-host",
     "applications-service-welsh-mysql-password",
     "applications-service-welsh-mysql-port",
-    "applications-service-welsh-mysql-username"
+    "applications-service-welsh-mysql-username",
+    "microsoft-provider-authentication-secret"
   ]
 
   secret_refs = {

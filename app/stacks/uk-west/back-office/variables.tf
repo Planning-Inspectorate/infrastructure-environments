@@ -98,6 +98,14 @@ variable "back_office_public_url_new" {
   default     = null
 }
 
+variable "back_office_easy_auth_config" {
+  description = "Easy Authentication configuration for the web front end"
+  type = object({
+    client_id        = string
+    web_auth_enabled = bool
+  })
+}
+
 variable "common_tags" {
   description = "The common resource tags for the project"
   type        = map(string)

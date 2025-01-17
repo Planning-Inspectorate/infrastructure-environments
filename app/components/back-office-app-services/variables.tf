@@ -24,17 +24,11 @@ variable "app_service_plan_id" {
   type        = string
 }
 
-#EasyAuth setting
-variable "auth_config" {
-  description = "Config for the Azure Easy Authentication"
+variable "back_office_easy_auth_config" {
+  description = "Easy Authentication configuration for the web front end"
   type = object({
-    auth_enabled           = bool
-    require_authentication = bool
-    auth_client_id         = string
-    auth_provider_secret   = string
-    auth_tenant_endpoint   = string
-    allowed_audiences      = string
-    allowed_applications   = string
+    client_id        = string
+    web_auth_enabled = bool
   })
 }
 
