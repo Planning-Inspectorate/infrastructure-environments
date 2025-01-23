@@ -19,6 +19,11 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "app_insights_instrument_key" {
+  description = "App Insights instrument key, for the function apps"
+  type        = string
+}
+
 variable "clamav_subnet_id" {
   description = "The id of the subnet to use for clamav"
   type        = string

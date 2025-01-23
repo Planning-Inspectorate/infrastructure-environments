@@ -5,6 +5,7 @@ module "app_services" {
   api_key_vault_authorization_enabled                                                 = var.api_key_vault_authorization_enabled
   app_service_plan_id                                                                 = var.app_service_plan_id
   app_service_private_dns_zone_id                                                     = data.azurerm_private_dns_zone.app_service.id
+  app_insights_instrument_key                                                         = azurerm_application_insights.back_office_app_insights.instrumentation_key
   azuread_auth_client_id                                                              = var.azuread_auth_client_id
   azuread_applications_case_admin_officer_group_id                                    = var.azuread_applications_case_admin_officer_group_id
   azuread_applications_caseteam_group_id                                              = var.azuread_applications_caseteam_group_id
@@ -21,7 +22,6 @@ module "app_services" {
   document_storage_account_endpoint                                                   = azurerm_storage_account.back_office_documents.primary_blob_endpoint
   document_storage_account_name                                                       = azurerm_storage_account.back_office_documents.name
   endpoint_subnet_id                                                                  = azurerm_subnet.back_office_ingress.id
-  health_check_path                                                                   = var.health_check_path
   key_vault_id                                                                        = var.key_vault_id
   key_vault_uri                                                                       = var.key_vault_uri
   location                                                                            = azurerm_resource_group.back_office_stack.location

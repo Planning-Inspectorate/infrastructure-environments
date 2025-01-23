@@ -21,7 +21,6 @@ module "app_services" {
   document_storage_api_host                                                           = var.back_office_document_storage_api_host
   document_storage_account_endpoint                                                   = ""
   endpoint_subnet_id                                                                  = azurerm_subnet.back_office_ingress.id
-  health_check_path                                                                   = var.health_check_path
   integration_subnet_id                                                               = var.integration_subnet_id
   key_vault_id                                                                        = var.key_vault_id
   key_vault_uri                                                                       = var.key_vault_uri

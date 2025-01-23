@@ -30,6 +30,11 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "app_insights_instrument_key" {
+  description = "App Insights instrument key, for the function apps"
+  type        = string
+}
+
 variable "applications_service_public_url" {
   description = "The public URL for the Applications Service frontend web app"
   type        = string

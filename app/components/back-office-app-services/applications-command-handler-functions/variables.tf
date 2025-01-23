@@ -14,6 +14,12 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "app_insights_instrument_key" {
+  description = "App Insights instrument key, for the function apps"
+  type        = string
+  default     = null
+}
+
 variable "function_apps_storage_account" {
   description = "Function Storage name"
   type        = string

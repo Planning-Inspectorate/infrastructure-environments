@@ -92,9 +92,8 @@ resource "azurerm_linux_web_app" "turborepo_remote_cache" {
   }
 
   site_config {
-    always_on         = true
-    health_check_path = var.health_check_path
-    http2_enabled     = true
+    always_on     = true
+    http2_enabled = true
 
 
     application_stack {
