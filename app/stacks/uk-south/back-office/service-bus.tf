@@ -8,6 +8,7 @@ resource "azurerm_servicebus_namespace" "back_office" {
   capacity                      = var.service_bus_failover_enabled ? 1 : 0
   public_network_access_enabled = !var.service_bus_failover_enabled
   premium_messaging_partitions  = var.service_bus_failover_enabled ? 1 : 0
+  minimum_tls_version           = "1.0"
 
   tags = local.tags
 }

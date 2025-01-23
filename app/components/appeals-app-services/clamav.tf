@@ -120,12 +120,13 @@ resource "azurerm_storage_account" "clamav" {
   #checkov:skip=CKV_AZURE_206: Replication not required
 
   # max length 24, so trim off the end - will only apply to training environment!
-  name                     = substr(replace("pinsstclamav${var.resource_suffix}", "-", ""), 0, 24)
-  location                 = var.location
-  resource_group_name      = var.resource_group_name
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-  min_tls_version          = "TLS1_2"
+  name                             = substr(replace("pinsstclamav${var.resource_suffix}", "-", ""), 0, 24)
+  location                         = var.location
+  resource_group_name              = var.resource_group_name
+  account_tier                     = "Standard"
+  account_replication_type         = "LRS"
+  min_tls_version                  = "TLS1_2"
+  cross_tenant_replication_enabled = true
 
   tags = var.tags
 }

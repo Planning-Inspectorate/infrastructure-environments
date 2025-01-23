@@ -8,7 +8,6 @@ locals {
       integration_subnet_id      = var.integration_subnet_id
       key_vault_access           = true
       outbound_vnet_connectivity = true
-      health_check_path          = var.health_check_path
       action_group_ids           = local.bo_applications_action_group_ids
 
       app_settings = {
@@ -47,7 +46,6 @@ locals {
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = true
       outbound_vnet_connectivity      = true
-      health_check_path               = var.health_check_path
       action_group_ids                = local.bo_applications_action_group_ids
 
       app_settings = {

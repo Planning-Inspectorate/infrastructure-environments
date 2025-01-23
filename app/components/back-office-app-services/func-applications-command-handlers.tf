@@ -2,6 +2,7 @@ module "applications_command_handler_functions" {
   source = "./applications-command-handler-functions"
 
   action_group_ids                                           = local.bo_applications_action_group_ids
+  app_insights_instrument_key                                = var.app_insights_instrument_key
   location                                                   = var.location
   log_analytics_workspace_id                                 = var.log_analytics_workspace_id
   monitoring_alerts_enabled                                  = var.monitoring_alerts_enabled

@@ -6,6 +6,7 @@ module "app_services" {
   action_group_ids                                                                      = var.action_group_ids
   allow_testing_overrides                                                               = var.allow_testing_overrides
   api_timeout                                                                           = var.api_timeout
+  app_insights_instrument_key                                                           = azurerm_application_insights.web_app_insights.instrumentation_key
   app_service_plan_id                                                                   = var.app_service_plan_id
   app_service_private_dns_zone_id                                                       = data.azurerm_private_dns_zone.app_service.id
   appeals_api_service_bus_enabled                                                       = var.appeals_api_service_bus_enabled
