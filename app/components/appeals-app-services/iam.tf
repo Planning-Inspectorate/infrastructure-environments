@@ -78,6 +78,14 @@ resource "azurerm_role_assignment" "appeals_fo_api_send_appellant_submission_ser
   principal_id         = module.app_service["appeals_service_api"].principal_id
 }
 
+resource "azurerm_role_assignment" "appeal_fo_representation_submission_send_service_bus_role" {
+  count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
+
+  scope                = var.service_bus_appeal_fo_representation_submission_topic_id
+  role_definition_name = "Azure Service Bus Data Sender"
+  principal_id         = module.front_office_subscribers[0].principal_id
+}
+
 resource "azurerm_role_assignment" "appeals_docs_api_bo_storage_account_role" {
   # access to appeal documents on back office for docs api
   # allows generation of user delgation key for the account
