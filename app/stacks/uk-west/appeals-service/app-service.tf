@@ -52,6 +52,8 @@ module "app_services" {
   service_bus_appeals_fo_appellant_submission_topic_id                                  = local.appeals_bo_topics.appeal_fo_appellant_submission
   service_bus_appeals_fo_lpa_response_submission_topic_id                               = local.appeals_bo_topics.appeal_fo_lpa_questionnaire_submission
   service_bus_listed_building_topic_id                                                  = local.appeals_bo_topics.listed_building
+  service_bus_appeal_fo_representation_submission_topic_id                              = local.appeals_bo_topics.appeal_fo_representation_submission
+  service_bus_appeal_representation_topic_id                                            = local.appeals_bo_topics.appeal_representation
   service_name                                                                          = local.service_name
   srv_admin_monitoring_email                                                            = var.srv_admin_monitoring_email
   srv_notify_base_url                                                                   = var.srv_notify_base_url
