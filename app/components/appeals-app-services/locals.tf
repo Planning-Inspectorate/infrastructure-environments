@@ -9,6 +9,7 @@ locals {
       front_door_restriction     = true
       image_name                 = "appeal-planning-decision/forms-web-app"
       inbound_vnet_connectivity  = false
+      public_network_access      = true
       integration_subnet_id      = var.integration_subnet_id
       key_vault_access           = true
       outbound_vnet_connectivity = true
@@ -64,6 +65,7 @@ locals {
       endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
       image_name                      = "appeal-planning-decision/auth-server"
       inbound_vnet_connectivity       = var.private_endpoint_enabled
+      public_network_access           = !var.private_endpoint_enabled
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = true
       outbound_vnet_connectivity      = true
@@ -114,6 +116,7 @@ locals {
       endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
       image_name                      = "appeal-planning-decision/appeals-service-api"
       inbound_vnet_connectivity       = var.private_endpoint_enabled
+      public_network_access           = !var.private_endpoint_enabled
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = true
       outbound_vnet_connectivity      = true
@@ -195,6 +198,7 @@ locals {
       endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
       image_name                      = "appeal-planning-decision/documents-api"
       inbound_vnet_connectivity       = var.private_endpoint_enabled
+      public_network_access           = !var.private_endpoint_enabled
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = true
       outbound_vnet_connectivity      = true
@@ -230,6 +234,7 @@ locals {
       endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
       image_name                      = "appeal-planning-decision/pdf-api"
       inbound_vnet_connectivity       = var.private_endpoint_enabled
+      public_network_access           = !var.private_endpoint_enabled
       key_vault_access                = true
       outbound_vnet_connectivity      = false
 
