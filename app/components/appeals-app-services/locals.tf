@@ -13,6 +13,7 @@ locals {
       integration_subnet_id      = var.integration_subnet_id
       key_vault_access           = true
       outbound_vnet_connectivity = true
+      auth_enabled               = var.appeals_easy_auth_config.web_auth_enabled
 
       app_settings = {
         ALLOW_TESTING_OVERRIDES                   = var.allow_testing_overrides
@@ -51,6 +52,8 @@ locals {
         USE_SECURE_SESSION_COOKIES                = true,
         RETRY_MAX_ATTEMPTS                        = "3"
         RETRY_STATUS_CODES                        = "500,502,503,504"
+        MICROSOFT_PROVIDER_AUTHENTICATION_SECRET  = local.secret_refs["microsoft-provider-authentication-secret"]
+        WEBSITE_AUTH_AAD_ALLOWED_TENANTS          = data.azurerm_client_config.current.tenant_id
 
       }
     }
@@ -69,6 +72,7 @@ locals {
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = true
       outbound_vnet_connectivity      = true
+      auth_enabled                    = false
 
       app_settings = {
         # logging
@@ -120,6 +124,7 @@ locals {
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = true
       outbound_vnet_connectivity      = true
+      auth_enabled                    = false
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING                                                 = local.secret_refs["appeals-app-insights-connection-string"]
@@ -202,6 +207,7 @@ locals {
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = true
       outbound_vnet_connectivity      = true
+      auth_enabled                    = false
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING     = local.secret_refs["appeals-app-insights-connection-string"]
@@ -237,6 +243,7 @@ locals {
       public_network_access           = !var.private_endpoint_enabled
       key_vault_access                = true
       outbound_vnet_connectivity      = false
+      auth_enabled                    = false
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING   = local.secret_refs["appeals-app-insights-connection-string"]
@@ -257,6 +264,7 @@ locals {
     "appeals-wfe-session-key",
     "appeals-auth-server-cookies-keys",
     "appeals-auth-server-jwks",
+    "microsoft-provider-authentication-secret",
   ]
 
   secrets_automated = [
