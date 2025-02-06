@@ -2,13 +2,17 @@ locals {
   app_services = {
     applications_frontend = {
       # use a shorter name in training env to avoid 60 char app name limit
-      app_name                   = var.environment == "training" ? "wfe" : "applications-wfe"
-      front_door_restriction     = true
-      image_name                 = "applications-service/forms-web-app"
-      inbound_vnet_connectivity  = false
-      integration_subnet_id      = var.integration_subnet_id
-      key_vault_access           = true
-      outbound_vnet_connectivity = true
+      app_name   = var.environment == "training" ? "wfe" : "applications-wfe"
+      image_name = "applications-service/forms-web-app"
+
+      # Networking
+      app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
+      endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
+      front_door_restriction          = true
+      inbound_vnet_connectivity       = var.private_endpoint_enabled
+      integration_subnet_id           = var.integration_subnet_id
+      key_vault_access                = true
+      outbound_vnet_connectivity      = true
 
       app_settings = {
         ACTIVATE_PLANNED_OUTAGE                      = var.activate_planned_outage
@@ -46,10 +50,13 @@ locals {
 
     applications_service_api = {
       # use a shorter name in training env to avoid 60 char app name limit
-      app_name                        = var.environment == "training" ? "api" : "applications-api"
+      app_name   = var.environment == "training" ? "api" : "applications-api"
+      image_name = "applications-service/applications-service-api"
+
+      # Networking
       app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
       endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
-      image_name                      = "applications-service/applications-service-api"
+      front_door_restriction          = true
       inbound_vnet_connectivity       = var.private_endpoint_enabled
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = true
