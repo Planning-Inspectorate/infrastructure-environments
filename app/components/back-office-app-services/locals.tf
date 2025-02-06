@@ -1,14 +1,18 @@
 locals {
   app_services = {
     back_office_frontend = {
-      app_name                   = "wfe"
-      front_door_restriction     = true
-      image_name                 = "back-office/back-office-web"
-      inbound_vnet_connectivity  = false
-      integration_subnet_id      = var.integration_subnet_id
-      key_vault_access           = true
-      outbound_vnet_connectivity = true
-      action_group_ids           = local.bo_applications_action_group_ids
+      app_name         = "wfe"
+      image_name       = "back-office/back-office-web"
+      action_group_ids = local.bo_applications_action_group_ids
+
+      # Networking
+      app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
+      endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
+      front_door_restriction          = true
+      inbound_vnet_connectivity       = var.private_endpoint_enabled
+      integration_subnet_id           = var.integration_subnet_id
+      key_vault_access                = true
+      outbound_vnet_connectivity      = true
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING      = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/back-office-app-insights-connection-string/)"
@@ -38,15 +42,18 @@ locals {
     }
 
     back_office_api = {
-      app_name                        = "api"
+      app_name         = "api"
+      image_name       = "back-office/back-office-api"
+      action_group_ids = local.bo_applications_action_group_ids
+
+      # Networking
       app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
       endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
-      image_name                      = "back-office/back-office-api"
+      front_door_restriction          = true
       inbound_vnet_connectivity       = var.private_endpoint_enabled
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = true
       outbound_vnet_connectivity      = true
-      action_group_ids                = local.bo_applications_action_group_ids
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING      = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/back-office-app-insights-connection-string/)"
