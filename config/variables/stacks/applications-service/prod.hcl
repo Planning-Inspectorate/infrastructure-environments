@@ -1,6 +1,6 @@
 locals {
   activate_planned_outage                                               = "false"
-  back_office_integration_case_references                               = "EN010152,WW010002,EN020023,TR050008,EN010126,EN020025,EN010157,TR040010,TR010033"
+  back_office_integration_case_references                               = "EN010152,WW010002,EN020023,TR050008,EN010126,EN020025,EN010157,TR040010,TR010033,EN010111,EN060006,TR040012,TR050003,WA010002,TR030005,TR020004,EN010102"
   back_office_integration_get_applications                              = "MERGE"
   documents_host                                                        = "https://infrastructure.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
   feature_allow_project_information                                     = "true"
