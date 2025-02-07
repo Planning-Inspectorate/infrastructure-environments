@@ -94,6 +94,7 @@ module "app_services" {
   task_submit_to_horizon_trigger_active                                                 = var.task_submit_to_horizon_trigger_active
   appeals_frontend_file_upload_debug_logging_enabled                                    = var.appeals_frontend_file_upload_debug_logging_enabled
   service_bus_config                                                                    = var.service_bus_config
+  appeals_easy_auth_config                                                              = var.appeals_easy_auth_config
 
   tags = local.tags
 
