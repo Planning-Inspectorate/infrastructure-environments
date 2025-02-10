@@ -5,14 +5,18 @@ locals {
     #====================================
 
     appeals_frontend = {
-      app_name                   = "appeals-wfe"
+      app_name   = "appeals-wfe"
+      image_name = "appeal-planning-decision/forms-web-app"
+
+      app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
+      endpoint_subnet_id              = var.endpoint_subnet_id
+      integration_subnet_id           = var.integration_subnet_id
+
       front_door_restriction     = true
-      image_name                 = "appeal-planning-decision/forms-web-app"
-      inbound_vnet_connectivity  = false
       public_network_access      = true
-      integration_subnet_id      = var.integration_subnet_id
       key_vault_access           = true
       outbound_vnet_connectivity = true
+      inbound_vnet_connectivity  = true
 
       app_settings = {
         ALLOW_TESTING_OVERRIDES                   = var.allow_testing_overrides
