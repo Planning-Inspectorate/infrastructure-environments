@@ -13,6 +13,7 @@ locals {
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = true
       outbound_vnet_connectivity      = true
+      public_network_access           = true
 
       app_settings = {
         ACTIVATE_PLANNED_OUTAGE                      = var.activate_planned_outage
@@ -61,6 +62,7 @@ locals {
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = true
       outbound_vnet_connectivity      = true
+      public_network_access           = !var.private_endpoint_enabled
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING                     = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/applications-service-app-insights-connection-string/)"
