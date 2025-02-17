@@ -284,7 +284,7 @@ variable "back_office_applications_redis_connection_string_secret_name" {
   type        = string
 }
 
-variable "document_storage_account_name" {
+variable "document_storage_account_id" {
   description = "The ID of the storage account for back office documents"
   type        = string
 }
