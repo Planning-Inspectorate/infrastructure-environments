@@ -20,7 +20,6 @@ module "app_services" {
   database_name                                                                       = azurerm_mssql_database.back_office.name
   document_storage_api_host                                                           = var.back_office_published_documents_domain
   document_storage_account_endpoint                                                   = azurerm_storage_account.back_office_documents.primary_blob_endpoint
-  document_storage_account_name                                                       = azurerm_storage_account.back_office_documents.name
   endpoint_subnet_id                                                                  = azurerm_subnet.back_office_ingress.id
   key_vault_id                                                                        = var.key_vault_id
   key_vault_uri                                                                       = var.key_vault_uri

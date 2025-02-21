@@ -44,7 +44,6 @@ module "app_services" {
   servicebus_topic_nsip_documents_id                                                  = var.servicebus_topic_nsip_documents_id
   deadline_submissions_result_topic_name                                              = ""
   malware_scanning_topic_id                                                           = ""
-  document_storage_account_name                                                       = ""
 
   back_office_applications_redis_connection_string_secret_name = azurerm_key_vault_secret.back_office_applications_redis_cache_connection_string_secret[count.index].name
 
