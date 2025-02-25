@@ -91,7 +91,7 @@ resource "azurerm_role_assignment" "appeal_fo_representation_submission_send_ser
 
   scope                = var.service_bus_appeal_fo_representation_submission_topic_id
   role_definition_name = "Azure Service Bus Data Sender"
-  principal_id         = module.front_office_subscribers[0].principal_id
+  principal_id         = module.app_service["appeals_service_api"].principal_id
 }
 
 resource "azurerm_role_assignment" "appeals_docs_api_bo_storage_account_role" {
