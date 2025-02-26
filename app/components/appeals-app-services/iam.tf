@@ -58,6 +58,14 @@ resource "azurerm_role_assignment" "listed_building_service_bus_role" {
   principal_id         = module.front_office_subscribers[0].principal_id
 }
 
+resource "azurerm_role_assignment" "appeal_representation_service_bus_role" {
+  count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
+
+  scope                = azurerm_servicebus_subscription.appeals_fo_appeal_representation_topic_subscription[0].id
+  role_definition_name = "Azure Service Bus Data Receiver"
+  principal_id         = module.front_office_subscribers[0].principal_id
+}
+
 resource "azurerm_role_assignment" "appeals_fo_send_service_bus_role" {
   count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
 
@@ -74,6 +82,14 @@ resource "azurerm_role_assignment" "appeals_fo_api_send_lpa_submission_service_b
 
 resource "azurerm_role_assignment" "appeals_fo_api_send_appellant_submission_service_bus_role" {
   scope                = var.service_bus_appeals_fo_appellant_submission_topic_id
+  role_definition_name = "Azure Service Bus Data Sender"
+  principal_id         = module.app_service["appeals_service_api"].principal_id
+}
+
+resource "azurerm_role_assignment" "appeal_fo_representation_submission_send_service_bus_role" {
+  count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
+
+  scope                = var.service_bus_appeal_fo_representation_submission_topic_id
   role_definition_name = "Azure Service Bus Data Sender"
   principal_id         = module.app_service["appeals_service_api"].principal_id
 }

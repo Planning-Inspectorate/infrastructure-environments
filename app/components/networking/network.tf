@@ -9,20 +9,21 @@ resource "azurerm_virtual_network" "common_infrastructure" {
 
 resource "azurerm_subnet" "vnet_gateway_subnet" {
   # Name if this subnet must be 'GatewaySubnet' since the VNet Gateway expects this
-  name                 = "GatewaySubnet"
-  resource_group_name  = var.resource_group_name
-  virtual_network_name = azurerm_virtual_network.common_infrastructure.name
-  address_prefixes     = [module.vnet_address_space.network_cidr_blocks["vnet_gateway"]]
+  name                              = "GatewaySubnet"
+  resource_group_name               = var.resource_group_name
+  virtual_network_name              = azurerm_virtual_network.common_infrastructure.name
+  address_prefixes                  = [module.vnet_address_space.network_cidr_blocks["vnet_gateway"]]
+  private_endpoint_network_policies = "Enabled"
 }
 
 resource "azurerm_subnet" "cosmosdb" {
   count = var.cosmosdb_enable_public_access ? 0 : 1
 
-  name                                      = "pins-snet-${var.service_name}-cosmosdb-${var.resource_suffix}"
-  resource_group_name                       = var.resource_group_name
-  virtual_network_name                      = azurerm_virtual_network.common_infrastructure.name
-  address_prefixes                          = [module.vnet_address_space.network_cidr_blocks["cosmosdb_endpoint"]]
-  private_endpoint_network_policies_enabled = true
+  name                              = "pins-snet-${var.service_name}-cosmosdb-${var.resource_suffix}"
+  resource_group_name               = var.resource_group_name
+  virtual_network_name              = azurerm_virtual_network.common_infrastructure.name
+  address_prefixes                  = [module.vnet_address_space.network_cidr_blocks["cosmosdb_endpoint"]]
+  private_endpoint_network_policies = "Enabled"
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "cosmosdb_vnet_link" {
@@ -39,10 +40,11 @@ resource "azurerm_private_dns_zone_virtual_network_link" "cosmosdb_vnet_link" {
 }
 
 resource "azurerm_subnet" "integration_subnet" {
-  name                 = "pins-snet-${var.service_name}-integration-${var.resource_suffix}"
-  resource_group_name  = var.resource_group_name
-  virtual_network_name = azurerm_virtual_network.common_infrastructure.name
-  address_prefixes     = [module.vnet_address_space.network_cidr_blocks["app_service_integration"]]
+  name                              = "pins-snet-${var.service_name}-integration-${var.resource_suffix}"
+  resource_group_name               = var.resource_group_name
+  virtual_network_name              = azurerm_virtual_network.common_infrastructure.name
+  address_prefixes                  = [module.vnet_address_space.network_cidr_blocks["app_service_integration"]]
+  private_endpoint_network_policies = "Enabled"
 
   delegation {
     name = "delegation"
@@ -57,10 +59,11 @@ resource "azurerm_subnet" "integration_subnet" {
 }
 
 resource "azurerm_subnet" "back_office_integration_subnet" {
-  name                 = "pins-snet-back-office-${var.service_name}-integration-${var.resource_suffix}"
-  resource_group_name  = var.resource_group_name
-  virtual_network_name = azurerm_virtual_network.common_infrastructure.name
-  address_prefixes     = [module.vnet_address_space.network_cidr_blocks["back_office_app_service_integration"]]
+  name                              = "pins-snet-back-office-${var.service_name}-integration-${var.resource_suffix}"
+  resource_group_name               = var.resource_group_name
+  virtual_network_name              = azurerm_virtual_network.common_infrastructure.name
+  address_prefixes                  = [module.vnet_address_space.network_cidr_blocks["back_office_app_service_integration"]]
+  private_endpoint_network_policies = "Enabled"
 
   delegation {
     name = "delegation"
@@ -75,10 +78,11 @@ resource "azurerm_subnet" "back_office_integration_subnet" {
 }
 
 resource "azurerm_subnet" "common_integration_functions_subnet" {
-  name                 = "pins-common-integration-functions-${var.resource_suffix}"
-  resource_group_name  = var.resource_group_name
-  virtual_network_name = azurerm_virtual_network.common_infrastructure.name
-  address_prefixes     = [module.vnet_address_space.network_cidr_blocks["common_integration_functions_app_service_integration"]]
+  name                              = "pins-common-integration-functions-${var.resource_suffix}"
+  resource_group_name               = var.resource_group_name
+  virtual_network_name              = azurerm_virtual_network.common_infrastructure.name
+  address_prefixes                  = [module.vnet_address_space.network_cidr_blocks["common_integration_functions_app_service_integration"]]
+  private_endpoint_network_policies = "Enabled"
 
   delegation {
     name = "delegation"
@@ -93,11 +97,11 @@ resource "azurerm_subnet" "common_integration_functions_subnet" {
 }
 
 resource "azurerm_subnet" "back_office_clamav" {
-  name                 = "pins-snet-${var.service_name}-clam-av-${var.resource_suffix}"
-  resource_group_name  = var.resource_group_name
-  virtual_network_name = azurerm_virtual_network.common_infrastructure.name
-  address_prefixes     = [module.vnet_address_space.network_cidr_blocks["back_office_clamav"]]
-
+  name                              = "pins-snet-${var.service_name}-clam-av-${var.resource_suffix}"
+  resource_group_name               = var.resource_group_name
+  virtual_network_name              = azurerm_virtual_network.common_infrastructure.name
+  address_prefixes                  = [module.vnet_address_space.network_cidr_blocks["back_office_clamav"]]
+  private_endpoint_network_policies = "Enabled"
   delegation {
     name = "delegation"
 

@@ -1,10 +1,11 @@
 module "applications_command_handler_functions" {
   #checkov:skip=CKV_TF_1: Use of commit hash are not required for our Terraform modules
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.16"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.35"
 
   action_group_ids                         = var.action_group_ids
   app_name                                 = "apps-command-handlers"
   app_service_plan_id                      = var.app_service_plan_id
+  app_insights_instrument_key              = var.app_insights_instrument_key
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
   integration_subnet_id                    = var.integration_subnet_id
@@ -17,7 +18,6 @@ module "applications_command_handler_functions" {
   resource_group_name        = var.resource_group_name
   resource_suffix            = var.resource_suffix
   service_name               = "back-office"
-  use_app_insights           = true
   function_node_version      = 20
 
   app_settings = {

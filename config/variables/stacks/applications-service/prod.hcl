@@ -1,6 +1,6 @@
 locals {
   activate_planned_outage                                               = "false"
-  back_office_integration_case_references                               = "EN0710001,EN0710002,EN0110001,EN0110003,EN0110002,EN0210001,BC0410001,TR0510001,EN0710003,EN0110004,EN0710004,EN0110006,EN0110007,EN0110008,EN0210003,EN0110009,EN0110010,EN0110011,EN010152"
+  back_office_integration_case_references                               = "EN010152,WW010002,EN020023,TR050008,EN010126,EN020025,EN010157,TR040010,TR010033,EN010111,EN060006,TR040012,TR050003,WA010002,TR030005,TR020004,EN010102,EN010141,EN010144,EN010150,EN010148,EN010153,EN010154,EN010159,EN020027,EN020033,TR050009,EN030003,EN020034,WA010003,EN010151"
   back_office_integration_get_applications                              = "MERGE"
   documents_host                                                        = "https://infrastructure.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
   feature_allow_project_information                                     = "true"

@@ -19,6 +19,7 @@ locals {
       inbound_vnet_connectivity  = true
       auth_enabled               = var.appeals_easy_auth_config.web_auth_enabled
 
+
       app_settings = {
         ALLOW_TESTING_OVERRIDES                   = var.allow_testing_overrides
         APPLICATIONINSIGHTS_CONNECTION_STRING     = local.secret_refs["appeals-app-insights-connection-string"]

@@ -23,9 +23,3 @@ variable "app_service_plan_id" {
   description = "The id of the app service plan"
   type        = string
 }
-
-variable "health_check_path" {
-  description = "The path of the service's health check endpoint"
-  type        = string
-  default     = "/health"
-}

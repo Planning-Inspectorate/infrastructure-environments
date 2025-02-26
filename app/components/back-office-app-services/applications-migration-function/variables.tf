@@ -14,6 +14,12 @@ variable "api_key_vault_authorization_enabled" {
   type        = string
 }
 
+variable "app_insights_instrument_key" {
+  description = "App Insights instrument key, for the function apps"
+  type        = string
+  default     = null
+}
+
 variable "back_office_api_host" {
   description = "Back Office Api Host"
   type        = string

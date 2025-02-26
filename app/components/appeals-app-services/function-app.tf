@@ -3,11 +3,12 @@ module "front_office_subscribers" {
   #checkov:skip=CKV_TF_1: Use of commit hash are not required for our Terraform modules
   count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
 
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.16"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.35"
 
   action_group_ids                         = var.action_group_ids
   app_name                                 = "fo-integration"
   app_service_plan_id                      = var.integration_functions_app_service_plan_id
+  app_insights_instrument_key              = var.app_insights_instrument_key
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
   integration_subnet_id                    = var.common_integration_functions_subnet_id
@@ -19,7 +20,6 @@ module "front_office_subscribers" {
   resource_group_name                      = var.resource_group_name
   resource_suffix                          = var.resource_suffix
   service_name                             = "appeals"
-  use_app_insights                         = true
   function_node_version                    = 20
 
   app_settings = {
@@ -99,6 +99,17 @@ resource "azurerm_servicebus_subscription" "appeals_fo_listed_building_topic_sub
 
   name                                 = "listed-building-fo-sub"
   topic_id                             = var.service_bus_listed_building_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
+}
+
+# Appeals fo representation topic subscription
+resource "azurerm_servicebus_subscription" "appeals_fo_appeal_representation_topic_subscription" {
+  count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
+
+  name                                 = "appeal-representation-fo-sub"
+  topic_id                             = var.service_bus_appeal_representation_topic_id
   max_delivery_count                   = 1
   default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
   dead_lettering_on_message_expiration = true

@@ -21,7 +21,6 @@ module "app_services" {
   document_storage_api_host                                                           = var.back_office_document_storage_api_host
   document_storage_account_endpoint                                                   = ""
   endpoint_subnet_id                                                                  = azurerm_subnet.back_office_ingress.id
-  health_check_path                                                                   = var.health_check_path
   integration_subnet_id                                                               = var.integration_subnet_id
   key_vault_id                                                                        = var.key_vault_id
   key_vault_uri                                                                       = var.key_vault_uri
@@ -45,7 +44,6 @@ module "app_services" {
   servicebus_topic_nsip_documents_id                                                  = var.servicebus_topic_nsip_documents_id
   deadline_submissions_result_topic_name                                              = ""
   malware_scanning_topic_id                                                           = ""
-  document_storage_account_name                                                       = ""
 
   back_office_applications_redis_connection_string_secret_name = azurerm_key_vault_secret.back_office_applications_redis_cache_connection_string_secret[count.index].name
 

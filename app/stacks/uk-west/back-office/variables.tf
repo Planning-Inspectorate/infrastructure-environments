@@ -116,12 +116,6 @@ variable "environment" {
   type        = string
 }
 
-variable "health_check_path" {
-  description = "The path of the service's health check endpoint"
-  type        = string
-  default     = "/health"
-}
-
 variable "instance" {
   description = "The environment instance for use if multiple environments are deployed to a subscription"
   type        = string

@@ -6,6 +6,7 @@ module "app_services" {
   api_timeout                                                           = var.api_timeout
   app_service_plan_id                                                   = var.app_service_plan_id
   app_service_private_dns_zone_id                                       = data.azurerm_private_dns_zone.app_service.id
+  app_insights_instrument_key                                           = azurerm_application_insights.applications_app_insights.instrumentation_key
   applications_service_public_url                                       = var.applications_service_public_url
   applications_service_redis_connection_string_secret_name              = azurerm_key_vault_secret.redis_cache_connection_string.name
   back_office_service_bus_namespace_name                                = var.back_office_service_bus_namespace_name
