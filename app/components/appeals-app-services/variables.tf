@@ -19,6 +19,20 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "app_insights_instrument_key" {
+  description = "App Insights instrument key, for the function apps"
+  type        = string
+}
+
+variable "appeals_easy_auth_config" {
+  description = "Easy Authentication configuration for the web front end"
+  type = object({
+    client_id        = string
+    web_auth_enabled = bool
+    application_id   = string
+  })
+}
+
 variable "clamav_subnet_id" {
   description = "The id of the subnet to use for clamav"
   type        = string
@@ -429,6 +443,16 @@ variable "service_bus_appeals_fo_appellant_submission_topic_id" {
 
 variable "service_bus_listed_building_topic_id" {
   description = "ID for the listed building topic"
+  type        = string
+}
+
+variable "service_bus_appeal_fo_representation_submission_topic_id" {
+  description = "ID for the appeals fo representation submission topic"
+  type        = string
+}
+
+variable "service_bus_appeal_representation_topic_id" {
+  description = "ID for the appeals fo representation topic"
   type        = string
 }
 

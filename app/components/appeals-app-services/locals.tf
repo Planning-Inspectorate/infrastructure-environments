@@ -5,13 +5,19 @@ locals {
     #====================================
 
     appeals_frontend = {
-      app_name                   = "appeals-wfe"
+      app_name   = "appeals-wfe"
+      image_name = "appeal-planning-decision/forms-web-app"
+
+      app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
+      endpoint_subnet_id              = var.endpoint_subnet_id
+      integration_subnet_id           = var.integration_subnet_id
+
       front_door_restriction     = true
-      image_name                 = "appeal-planning-decision/forms-web-app"
-      inbound_vnet_connectivity  = false
-      integration_subnet_id      = var.integration_subnet_id
+      public_network_access      = true
       key_vault_access           = true
       outbound_vnet_connectivity = true
+      inbound_vnet_connectivity  = true
+      auth_enabled               = var.appeals_easy_auth_config.web_auth_enabled
 
       app_settings = {
         ALLOW_TESTING_OVERRIDES                   = var.allow_testing_overrides
@@ -50,6 +56,8 @@ locals {
         USE_SECURE_SESSION_COOKIES                = true,
         RETRY_MAX_ATTEMPTS                        = "3"
         RETRY_STATUS_CODES                        = "500,502,503,504"
+        MICROSOFT_PROVIDER_AUTHENTICATION_SECRET  = local.secret_refs["appeals-microsoft-provider-authentication-secret"]
+        WEBSITE_AUTH_AAD_ALLOWED_TENANTS          = data.azurerm_client_config.current.tenant_id
 
       }
     }
@@ -64,9 +72,11 @@ locals {
       endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
       image_name                      = "appeal-planning-decision/auth-server"
       inbound_vnet_connectivity       = var.private_endpoint_enabled
+      public_network_access           = !var.private_endpoint_enabled
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = true
       outbound_vnet_connectivity      = true
+      auth_enabled                    = false
 
       app_settings = {
         # logging
@@ -114,9 +124,11 @@ locals {
       endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
       image_name                      = "appeal-planning-decision/appeals-service-api"
       inbound_vnet_connectivity       = var.private_endpoint_enabled
+      public_network_access           = !var.private_endpoint_enabled
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = true
       outbound_vnet_connectivity      = true
+      auth_enabled                    = false
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING                                                 = local.secret_refs["appeals-app-insights-connection-string"]
@@ -124,6 +136,7 @@ locals {
         AUTH_BASE_URL                                                                         = "https://pins-app-${var.service_name}-auth-server-${var.resource_suffix}.azurewebsites.net"
         BACK_OFFICE_APPELLANT_SUBMISSION_TOPIC                                                = "appeal-fo-appellant-submission"
         BACK_OFFICE_LPA_RESPONSE_SUBMISSION_TOPIC                                             = "appeal-fo-lpa-questionnaire-submission"
+        BACK_OFFICE_REPRESENTATION_SUBMISSION_TOPIC                                           = "appeal-fo-representation-submission"
         BLOB_STORAGE_CONNECTION_STRING                                                        = local.secret_refs["appeals-documents-primary-blob-connection-string"]
         DOCS_API_PATH                                                                         = "/opt/app/api"
         DOCUMENTS_SERVICE_API_TIMEOUT                                                         = var.api_timeout
@@ -183,6 +196,10 @@ locals {
         TASK_SUBMIT_TO_HORIZON_CRON_STRING                                                    = var.task_submit_to_horizon_cron_string
         TASK_SUBMIT_TO_HORIZON_TRIGGER_ACTIVE                                                 = var.task_submit_to_horizon_trigger_active
       }
+
+      slot_setting_overrides = {
+        TASK_SUBMIT_TO_HORIZON_TRIGGER_ACTIVE = "false"
+      }
     }
 
     appeal_documents_service_api = {
@@ -191,9 +208,11 @@ locals {
       endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
       image_name                      = "appeal-planning-decision/documents-api"
       inbound_vnet_connectivity       = var.private_endpoint_enabled
+      public_network_access           = !var.private_endpoint_enabled
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = true
       outbound_vnet_connectivity      = true
+      auth_enabled                    = false
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING     = local.secret_refs["appeals-app-insights-connection-string"]
@@ -226,8 +245,10 @@ locals {
       endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
       image_name                      = "appeal-planning-decision/pdf-api"
       inbound_vnet_connectivity       = var.private_endpoint_enabled
+      public_network_access           = !var.private_endpoint_enabled
       key_vault_access                = true
       outbound_vnet_connectivity      = false
+      auth_enabled                    = false
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING   = local.secret_refs["appeals-app-insights-connection-string"]
@@ -248,6 +269,7 @@ locals {
     "appeals-wfe-session-key",
     "appeals-auth-server-cookies-keys",
     "appeals-auth-server-jwks",
+    "appeals-microsoft-provider-authentication-secret",
   ]
 
   secrets_automated = [

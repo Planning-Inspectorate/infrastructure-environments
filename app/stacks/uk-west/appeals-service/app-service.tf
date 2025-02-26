@@ -4,6 +4,7 @@ module "app_services" {
   action_group_ids                                                                      = var.action_group_ids
   allow_testing_overrides                                                               = var.allow_testing_overrides
   api_timeout                                                                           = var.api_timeout
+  app_insights_instrument_key                                                           = azurerm_application_insights.web_app_insights.instrumentation_key
   app_service_plan_id                                                                   = var.app_service_plan_id
   app_service_private_dns_zone_id                                                       = data.azurerm_private_dns_zone.app_service.id
   appeals_api_service_bus_enabled                                                       = var.appeals_api_service_bus_enabled
@@ -51,6 +52,8 @@ module "app_services" {
   service_bus_appeals_fo_appellant_submission_topic_id                                  = local.appeals_bo_topics.appeal_fo_appellant_submission
   service_bus_appeals_fo_lpa_response_submission_topic_id                               = local.appeals_bo_topics.appeal_fo_lpa_questionnaire_submission
   service_bus_listed_building_topic_id                                                  = local.appeals_bo_topics.listed_building
+  service_bus_appeal_fo_representation_submission_topic_id                              = local.appeals_bo_topics.appeal_fo_representation_submission
+  service_bus_appeal_representation_topic_id                                            = local.appeals_bo_topics.appeal_representation
   service_name                                                                          = local.service_name
   srv_admin_monitoring_email                                                            = var.srv_admin_monitoring_email
   srv_notify_base_url                                                                   = var.srv_notify_base_url
@@ -89,6 +92,7 @@ module "app_services" {
   task_submit_to_horizon_trigger_active                                                 = var.task_submit_to_horizon_trigger_active
   appeals_frontend_file_upload_debug_logging_enabled                                    = var.appeals_frontend_file_upload_debug_logging_enabled
   service_bus_config                                                                    = var.service_bus_config
+  appeals_easy_auth_config                                                              = var.appeals_easy_auth_config
 
   tags = local.tags
 
