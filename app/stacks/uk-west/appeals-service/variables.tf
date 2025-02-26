@@ -45,6 +45,15 @@ variable "appeals_service_public_url" {
   type        = string
 }
 
+variable "appeals_easy_auth_config" {
+  description = "Easy Authentication configuration for the web front end"
+  type = object({
+    client_id        = string
+    web_auth_enabled = bool
+    application_id   = string
+  })
+}
+
 variable "clamav_subnet_id" {
   description = "The id of the subnet to use for clamav"
   type        = string
