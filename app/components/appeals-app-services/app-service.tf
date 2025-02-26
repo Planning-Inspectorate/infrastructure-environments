@@ -33,4 +33,15 @@ module "app_service" {
     azurerm         = azurerm
     azurerm.tooling = azurerm.tooling
   }
+
+  #Easy Auth setting
+  auth_config = {
+    auth_enabled           = each.value["auth_enabled"]
+    require_authentication = each.value["auth_enabled"]
+    auth_client_id         = var.appeals_easy_auth_config.client_id
+    auth_provider_secret   = "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET"
+    auth_tenant_endpoint   = "https://login.microsoftonline.com/${data.azurerm_client_config.current.tenant_id}/v2.0"
+    allowed_applications   = var.appeals_easy_auth_config.application_id
+    allowed_audiences      = "https://${var.appeals_service_public_url}/.auth/login/aad/callback"
+  }
 }
