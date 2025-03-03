@@ -1,6 +1,6 @@
 module "applications_background_job_functions" {
   #checkov:skip=CKV_TF_1: Use of commit hash are not required for our Terraform modules
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.35"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.40"
 
   action_group_ids                         = var.action_group_ids
   app_name                                 = "apps-background-jobs"
