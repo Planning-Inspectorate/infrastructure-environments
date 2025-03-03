@@ -227,6 +227,11 @@ variable "feature_general_s51_bo" {
   type        = string
 }
 
+variable "feature_allow_welsh_cases" {
+  description = "Feature toggle to enable/disable Welsh cases"
+  type        = string
+}
+
 variable "google_analytics_id" {
   description = "The id used to connect the frontend app to Google Analytics"
   type        = string
