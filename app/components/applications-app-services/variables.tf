@@ -336,6 +336,11 @@ variable "feature_general_s51_bo" {
   type        = string
 }
 
+variable "feature_allow_welsh_cases" {
+  description = "Feature toggle to enable/disable Welsh cases"
+  type        = string
+}
+
 variable "feature_application_insights" {
   description = "Feature toggle to enable/disable application insights"
   type        = string
