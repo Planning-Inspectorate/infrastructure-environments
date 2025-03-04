@@ -252,6 +252,11 @@ variable "feature_general_s51_bo" {
   type        = string
 }
 
+variable "feature_allow_welsh_cases" {
+  description = "Feature toggle to enable/disable Welsh cases"
+  type        = string
+}
+
 variable "function_storage_name" {
   description = "Name of the Storage Account used for Function Apps"
   type        = string

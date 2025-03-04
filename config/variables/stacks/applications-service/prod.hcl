@@ -1,6 +1,6 @@
 locals {
   activate_planned_outage                                               = "false"
-  back_office_integration_case_references                               = "EN010152,WW010002,EN020023,TR050008,EN010126,EN020025,EN010157,TR040010,TR010033,EN010111,EN060006,TR040012,TR050003,WA010002,TR030005,TR020004,EN010102,EN010141,EN010144,EN010150,EN010148,EN010153,EN010154,EN010159,EN020027,EN020033,TR050009,EN030003,EN020034,WA010003,EN010151"
+  back_office_integration_case_references                               = "EN010152,WW010002,EN020023,TR050008,EN010126,EN020025,EN010157,TR040010,TR010033,EN010111,EN060006,TR040012,TR050003,WA010002,TR030005,TR020004,EN010102,EN010141,EN010144,EN010150,EN010148,EN010153,EN010154,EN010159,EN020027,EN020033,TR050009,EN030003,EN020034,WA010003,EN010151,EN010158,EN010162,EN010163,EN010165,EN010168,EN010169,EN010160,EN010167,EN010170,TR010015,EN040001,EN020036,WA010005,WA010006,WA020001,WA010004,EN010161,EN010073,EN010069,EN010021,EN010016,EN010024,EN060001,TR010021"
   back_office_integration_get_applications                              = "MERGE"
   documents_host                                                        = "https://infrastructure.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
   feature_allow_project_information                                     = "true"
@@ -10,6 +10,7 @@ locals {
   feature_enable_generalised_form_sanitisation                          = "true"
   feature_enabled_content_security_policy                               = "true"
   feature_general_s51_bo                                                = "false"
+  feature_allow_welsh_cases                                             = "false"
   feature_hide_project_timeline_link                                    = "false"
   feature_home_page                                                     = "true"
   feature_primary_navigation                                            = "true"
