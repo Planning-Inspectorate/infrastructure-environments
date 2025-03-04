@@ -322,6 +322,82 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
       }
     }
 
+	override {
+      rule_group_name = "RCE"
+
+      rule {
+        # Remote Command Execution: Direct Unix Command Execution
+        action  = "Log"
+        enabled = true
+        rule_id = "932150"
+      }
+    }
+
+	override {
+      rule_group_name = "PHP"
+
+      rule {
+        # PHP Injection Attack: PHP Open Tag Found
+        action  = "Log"
+        enabled = true
+        rule_id = "933100"
+      }
+      rule {
+        # PHP Injection Attack: PHP Script File Upload Found
+        action  = "Log"
+        enabled = true
+        rule_id = "933110"
+      }
+      rule {
+        # PHP Injection Attack: Configuration Directive Found
+        action  = "Log"
+        enabled = true
+        rule_id = "933120"
+      }
+      rule {
+        # PHP Injection Attack: Variables Found
+        action  = "Log"
+        enabled = true
+        rule_id = "933130"
+      }
+      rule {
+        # PHP Injection Attack: I/O Stream Found
+        action  = "Log"
+        enabled = true
+        rule_id = "933140"
+      }
+      rule {
+        # PHP Injection Attack: High-Risk PHP Function Name Found
+        action  = "Log"
+        enabled = true
+        rule_id = "933150"
+      }
+      rule {
+        # PHP Injection Attack: Medium-Risk PHP Function Name Found
+        action  = "Log"
+        enabled = true
+        rule_id = "933151"
+      }
+      rule {
+        # PHP Injection Attack: High-Risk PHP Function Call Found
+        action  = "Log"
+        enabled = true
+        rule_id = "933160"
+      }
+      rule {
+        # PHP Injection Attack: Serialized Object Injection
+        action  = "Log"
+        enabled = true
+        rule_id = "933170"
+      }
+      rule {
+        # PHP Injection Attack: Variable Function Call Found
+        action  = "Log"
+        enabled = true
+        rule_id = "933180"
+      }
+    }
+
     # Exception for ASB-2059 - Exclude all rules for this selector.
     exclusion {
       match_variable = "RequestBodyPostArgNames"
@@ -1185,6 +1261,17 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
         action  = "Log"
         enabled = true
         rule_id = "942450"
+      }
+    }
+
+	override {
+      rule_group_name = "RCE"
+
+      rule {
+        # Remote Command Execution: Direct Unix Command Execution
+        action  = "Log"
+        enabled = true
+        rule_id = "932150"
       }
     }
 
