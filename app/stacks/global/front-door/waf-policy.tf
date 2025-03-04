@@ -322,7 +322,7 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
       }
     }
 
-	override {
+    override {
       rule_group_name = "RCE"
 
       rule {
@@ -333,7 +333,7 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
       }
     }
 
-	override {
+    override {
       rule_group_name = "PHP"
 
       rule {
@@ -1264,7 +1264,7 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
       }
     }
 
-	override {
+    override {
       rule_group_name = "RCE"
 
       rule {
