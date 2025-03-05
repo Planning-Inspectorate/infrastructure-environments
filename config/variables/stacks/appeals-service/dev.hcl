@@ -1,83 +1,11 @@
 locals {
   appeals_feature_flags = [
     {
-      name    = "appeals-bo-submission"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = ["Q1111"]
-      }
-    },
-    {
-      name    = "enrol-users"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = []
-      }
-    },
-    {
-      name    = "final-comments"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = ["E69999999"]
-      }
-    },
-    {
       name    = "has-appeal-form-v2"
       enabled = true
       targeting = {
         percentage = 100
         users      = ["Q1111"]
-      }
-    },
-    {
-      name    = "has-questionnaire"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = ["Q1111"]
-      }
-    },
-    {
-      name    = "horizon-document-labelling"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = []
-      }
-    },
-    {
-      name    = "lpa-dashboard"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = []
-      }
-    },
-    {
-      name    = "send-appeal-direct-to-horizon-wrapper"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = []
-      }
-    },
-    {
-      name    = "serve-back-office-documents"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = []
-      }
-    },
-    {
-      name    = "sql-users"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = []
       }
     },
     {
