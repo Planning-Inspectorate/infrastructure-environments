@@ -29,7 +29,6 @@ locals {
   appeals_feature_back_office_subscriber_enabled                                        = true
   appeals_frontend_file_upload_debug_logging_enabled                                    = false
   comments_enabled                                                                      = true
-  dashboards_enabled                                                                    = true
   rule_6_enabled                                                                        = false
   google_analytics_id                                                                   = "G-DW8DW9TQ84"
   google_tag_manager_id                                                                 = "GTM-KZN7XP4"

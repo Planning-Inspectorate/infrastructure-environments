@@ -401,12 +401,6 @@ variable "comments_enabled" {
   default     = false
 }
 
-variable "dashboards_enabled" {
-  description = "A switch to determine if dashboards are enabled for LPA and appellant"
-  type        = bool
-  default     = false
-}
-
 variable "rule_6_enabled" {
   description = "A switch to determine if rule 6 journeys are enabled"
   type        = bool
