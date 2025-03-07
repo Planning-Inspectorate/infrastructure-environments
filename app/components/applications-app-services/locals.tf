@@ -58,7 +58,7 @@ locals {
       # Networking
       app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
       endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
-      front_door_restriction          = true
+      front_door_restriction          = false
       inbound_vnet_connectivity       = var.private_endpoint_enabled
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = true
@@ -72,6 +72,7 @@ locals {
         BACK_OFFICE_BLOB_STORAGE_DEADLINE_SUBMISSION_CONTAINER    = var.back_office_submissions_storage_container_name
         BACK_OFFICE_API_INTEGRATION_CASE_REFERENCES               = var.back_office_integration_case_references
         BACK_OFFICE_INTEGRATION_GET_APPLICATIONS                  = var.back_office_integration_get_applications
+        FEATURE_ALLOW_WELSH_CASES                                 = var.feature_allow_welsh_cases
         BACK_OFFICE_SERVICE_BUS_ENABLED                           = "true"
         BACK_OFFICE_SERVICE_BUS_HOSTNAME                          = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
         DATABASE_URL                                              = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/applications-service-sql-server-connection-string-app/)"
