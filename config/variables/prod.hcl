@@ -16,4 +16,9 @@ locals {
   primary_vnet_address_space           = "10.3.0.0/16"
   secondary_vnet_address_space         = "10.13.0.0/16"
   srv_notify_base_url                  = "https://api.notifications.service.gov.uk/"
+  appeals_easy_auth_config             = {
+      "client_id"         = "31bbeefd-e00b-4ef9-b12d-145e06e4ab43"
+      "web_auth_enabled"  = false
+      "application_id"    = "12cfd53d-62cf-48f1-965c-de274802d9c8"
+  }
 }
