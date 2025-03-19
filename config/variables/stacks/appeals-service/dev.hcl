@@ -119,7 +119,7 @@ locals {
   srv_notify_appeal_submission_received_notification_email_to_lpa_template_id           = "79488d5d-7efd-4273-a11f-e73f11d19676"
   srv_notify_appellant_login_confirm_registration_template_id                           = "f0781589-8df5-4717-ab87-1dc5c2d5a9de"
   srv_notify_full_appeal_confirmation_email_to_appellant_template_id                    = "799a27da-b640-4852-a070-e83ff54401f0"
-  srv_notify_full_appeal_received_notification_email_to_lpa_template_id                 = "e3cba5d9-8b97-4922-97f1-48ef303b9195"
+  srv_notify_full_appeal_received_notification_email_to_lpa_template_id                 = "6e513a04-c06a-434a-b517-b733fa2c73e3"
   srv_notify_lpa_statement_submission_email_to_lpa_template_id                          = "8453071b-7b7b-4f93-a482-7a24847d8809"
   srv_notify_lpa_final_comment_submission_email_to_lpa_template_id                      = "b0893523-821d-437b-9fbe-11c5e5146c27"
   srv_notify_lpa_proof_evidence_submission_email_to_lpa_template_id                     = "7ff0a165-7d5e-4dae-9dc3-e55b936f2147"
