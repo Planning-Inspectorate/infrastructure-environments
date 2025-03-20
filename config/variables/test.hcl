@@ -17,6 +17,6 @@ locals {
   appeals_easy_auth_config             = {
       "client_id"          = "31bbeefd-e00b-4ef9-b12d-145e06e4ab43"
       "web_auth_enabled"   = true
-      "application_id"     = "566dfbf9-1755-4887-9dd2-97ad23f0b6ac"
+      "application_id"     = "cfbeda8b-8a44-443f-be26-59b180dd01c1"
   }
 }
