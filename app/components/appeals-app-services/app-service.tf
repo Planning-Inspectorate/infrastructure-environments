@@ -2,7 +2,7 @@ module "app_service" {
   #checkov:skip=CKV_TF_1: Use of commit hash are not required for our Terraform modules
   for_each = local.app_services
 
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service?ref=5a6c0aef3d2b0994ac95d636983da526317bcf04"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-app-service?ref=1.40"
 
   action_group_ids                = var.action_group_ids
   app_name                        = each.value["app_name"]
