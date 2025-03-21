@@ -1,5 +1,13 @@
 locals {
   activate_planned_outage                                               = "false"
+  apps_config = {
+    app_service_plan = {
+      sku                      = "P0v3"
+      per_site_scaling_enabled = false
+      worker_count             = 1
+      zone_balancing_enabled   = false
+    }
+  }
   back_office_integration_case_references                               = "EN0710001,EN0710002,EN0110001,EN0110003,EN0110002,EN0210001"
   back_office_integration_get_applications                              = "BO"
   documents_host                                                        = "https://infrastructure.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"

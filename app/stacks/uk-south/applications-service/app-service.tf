@@ -7,7 +7,9 @@ module "app_services" {
   activate_planned_outage                                               = var.activate_planned_outage
   api_timeout                                                           = var.api_timeout
   app_service_plan_id                                                   = var.app_service_plan_id
+  app_service_plan_id_function_app                                      = var.app_service_plan_id
   app_service_private_dns_zone_id                                       = data.azurerm_private_dns_zone.app_service.id
+  app_worker_count                                                      = 1
   app_insights_instrument_key                                           = azurerm_application_insights.applications_app_insights.instrumentation_key
   applications_service_public_url                                       = var.applications_service_public_url
   applications_service_redis_connection_string_secret_name              = azurerm_key_vault_secret.redis_cache_connection_string[count.index].name

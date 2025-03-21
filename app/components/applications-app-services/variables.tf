@@ -20,6 +20,12 @@ variable "api_timeout" {
   type        = string
 }
 
+variable "app_worker_count" {
+  description = "Worker count for the web app"
+  type        = number
+  default     = 1
+}
+
 variable "app_service_private_dns_zone_id" {
   description = "The id of the private DNS zone for App services"
   type        = string
@@ -27,6 +33,11 @@ variable "app_service_private_dns_zone_id" {
 
 variable "app_service_plan_id" {
   description = "The id of the app service plan"
+  type        = string
+}
+
+variable "app_service_plan_id_function_app" {
+  description = "The id of the app service plan for the Function App"
   type        = string
 }
 
@@ -124,6 +135,12 @@ variable "back_office_submissions_storage_account_name" {
 variable "back_office_submissions_storage_container_name" {
   description = "URL for Back Office submissions storage container"
   type        = string
+}
+
+variable "client_affinity_enabled" {
+  description = "Should session affinity be enabled?"
+  type        = bool
+  default     = null
 }
 
 variable "container_registry_name" {
