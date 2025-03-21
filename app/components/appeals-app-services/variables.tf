@@ -29,7 +29,7 @@ variable "appeals_easy_auth_config" {
   type = object({
     client_id        = string
     web_auth_enabled = bool
-    application_id   = string
+    application_id   = list(string)
   })
 }
 
