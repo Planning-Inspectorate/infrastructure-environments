@@ -26,6 +26,18 @@ variable "applications_service_vpn_gateway_shared_key" {
   type        = string
 }
 
+variable "apps_config" {
+  description = "Application configuration settings"
+  type = object({
+    app_service_plan = object({
+      sku                      = string
+      per_site_scaling_enabled = bool
+      worker_count             = number
+      zone_balancing_enabled   = bool
+    })
+  })
+}
+
 variable "app_service_plan_id" {
   description = "The id of the app service plan"
   type        = string
@@ -114,6 +126,12 @@ variable "back_office_integration_get_applications" {
 variable "back_office_integration_case_references" {
   description = "list of case references (comma separated) that use back office"
   type        = string
+}
+
+variable "client_affinity_enabled" {
+  description = "Should session affinity be enabled?"
+  type        = bool
+  default     = null
 }
 
 variable "common_resource_group_name" {

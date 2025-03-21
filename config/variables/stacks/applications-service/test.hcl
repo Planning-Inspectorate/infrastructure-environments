@@ -1,5 +1,13 @@
 locals {
   activate_planned_outage                                               = "false"
+  apps_config = {
+    app_service_plan = {
+      sku                      = "P0v3"
+      per_site_scaling_enabled = false
+      worker_count             = 1
+      zone_balancing_enabled   = false
+    }
+  }
   back_office_integration_case_references                               = "BC0110001,BC0110003,BC0110004,BC0110005,BC0110013,BC0110036,BC0011028"
   back_office_integration_get_applications                              = "MERGE"
   documents_host                                                        = "https://nipreprod.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"

@@ -4,7 +4,9 @@ module "app_services" {
   action_group_ids                                                      = var.action_group_ids
   activate_planned_outage                                               = var.activate_planned_outage
   api_timeout                                                           = var.api_timeout
-  app_service_plan_id                                                   = var.app_service_plan_id
+  app_service_plan_id                                                   = azurerm_service_plan.apps.id
+  app_service_plan_id_function_app                                      = var.app_service_plan_id
+  app_worker_count                                                      = var.apps_config.app_service_plan.worker_count # match the app service plan
   app_service_private_dns_zone_id                                       = data.azurerm_private_dns_zone.app_service.id
   app_insights_instrument_key                                           = azurerm_application_insights.applications_app_insights.instrumentation_key
   applications_service_public_url                                       = var.applications_service_public_url
@@ -25,6 +27,7 @@ module "app_services" {
   back_office_submissions_storage_account_name                          = var.back_office_submissions_storage_account_name
   back_office_integration_case_references                               = var.back_office_integration_case_references
   back_office_integration_get_applications                              = var.back_office_integration_get_applications
+  client_affinity_enabled                                               = var.client_affinity_enabled
   container_registry_name                                               = var.container_registry_name
   container_registry_rg                                                 = var.container_registry_rg
   documents_host                                                        = var.documents_host

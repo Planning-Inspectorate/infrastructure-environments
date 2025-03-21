@@ -6,7 +6,7 @@ module "back_office_subscribers" {
 
   action_group_ids                         = var.action_group_ids
   app_name                                 = var.environment == "training" ? "bo-subs" : "bo-subscribers"
-  app_service_plan_id                      = var.app_service_plan_id
+  app_service_plan_id                      = var.app_service_plan_id_function_app
   app_insights_instrument_key              = var.app_insights_instrument_key
   function_apps_storage_account            = var.function_storage_name
   function_apps_storage_account_access_key = var.function_storage_primary_access_key

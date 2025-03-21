@@ -14,6 +14,8 @@ locals {
       key_vault_access                = true
       outbound_vnet_connectivity      = true
       public_network_access           = true
+      client_affinity_enabled         = var.client_affinity_enabled
+      worker_count                    = var.app_worker_count
 
       app_settings = {
         ACTIVATE_PLANNED_OUTAGE                      = var.activate_planned_outage
@@ -64,6 +66,7 @@ locals {
       key_vault_access                = true
       outbound_vnet_connectivity      = true
       public_network_access           = !var.private_endpoint_enabled
+      worker_count                    = var.app_worker_count
 
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING                     = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/applications-service-app-insights-connection-string/)"
