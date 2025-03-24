@@ -16,7 +16,7 @@ locals {
   srv_notify_base_url                  = "https://api.notifications.service.gov.uk/"
   appeals_easy_auth_config             = {
       "client_id"        = "31bbeefd-e00b-4ef9-b12d-145e06e4ab43"
-      "web_auth_enabled" = true
+      "web_auth_enabled" = false
       "application_id"   = "cfbeda8b-8a44-443f-be26-59b180dd01c1"
   }
 }
