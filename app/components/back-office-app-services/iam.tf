@@ -28,3 +28,9 @@ resource "azurerm_role_assignment" "back_office_app_send_event_grid" {
   role_definition_name = "EventGrid Data Sender"
   principal_id         = module.app_service["back_office_api"].principal_id
 }
+
+resource "azurerm_role_assignment" "back_office_api_blob_data_writer" {
+  scope                = var.document_storage_back_office_document_service_uploads_container_resource_manager_id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = module.app_service["back_office_api"].principal_id
+}
