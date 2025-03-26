@@ -364,11 +364,6 @@ variable "srv_notify_failure_to_upload_to_horizon_template_id" {
   type        = string
 }
 
-variable "srv_notify_final_comment_submission_confirmation_email_template_id" {
-  description = "A template ID required by the Appeals Service API"
-  type        = string
-}
-
 variable "task_submit_to_horizon_cron_string" {
   description = "Task to submit to horizon cron string"
   type        = string

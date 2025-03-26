@@ -162,7 +162,6 @@ locals {
         SRV_NOTIFY_API_KEY                                                                    = local.secret_refs["appeals-srv-notify-api-key"]
         SRV_NOTIFY_BASE_URL                                                                   = var.srv_notify_base_url
         SRV_NOTIFY_FAILURE_TO_UPLOAD_TO_HORIZON_TEMPLATE_ID                                   = var.srv_notify_failure_to_upload_to_horizon_template_id
-        SRV_NOTIFY_FINAL_COMMENT_SUBMISSION_CONFIRMATION_EMAIL_TEMPLATE_ID                    = var.srv_notify_final_comment_submission_confirmation_email_template_id
         SRV_NOTIFY_FULL_APPEAL_CONFIRMATION_EMAIL_TO_APPELLANT_TEMPLATE_ID                    = var.srv_notify_full_appeal_confirmation_email_to_appellant_template_id
         SRV_NOTIFY_FULL_APPEAL_RECEIVED_NOTIFICATION_EMAIL_TO_LPA_TEMPLATE_ID                 = var.srv_notify_full_appeal_received_notification_email_to_lpa_template_id
         SRV_NOTIFY_LPA_STATEMENT_SUBMISSION_EMAIL_TO_LPA_TEMPLATE_ID                          = var.srv_notify_lpa_statement_submission_email_to_lpa_template_id
