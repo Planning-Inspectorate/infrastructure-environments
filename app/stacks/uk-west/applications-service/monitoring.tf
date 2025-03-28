@@ -44,7 +44,7 @@ resource "azurerm_application_insights_standard_web_test" "portal" {
   tags = local.tags
 }
 
-resource "azurerm_monitor_metric_alert" "portal_availability" {
+resource "azurerm_monitor_metric_alert" "web_availability" {
   count = var.monitoring_config.app_insights_web_test_enabled ? 1 : 0
 
   name                = "Web Availablity - ${local.resource_suffix}"
@@ -62,10 +62,12 @@ resource "azurerm_monitor_metric_alert" "portal_availability" {
   }
 
   action {
-    action_group_id = [
-      var.action_group_ids.tech,
-      var.action_group_ids.service_manager,
-      var.action_group_ids.its
-    ]
+    action_group_id = var.action_group_ids.tech
+  }
+  action {
+    action_group_id = var.action_group_ids.service_manager
+  }
+  action {
+    action_group_id = var.action_group_ids.its
   }
 }
