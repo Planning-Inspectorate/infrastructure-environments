@@ -35,7 +35,7 @@ resource "azurerm_application_insights_standard_web_test" "portal" {
 
   request {
     # applications list page
-    url = "https://appeal-planning-decision.service.gov.uk/appeal/root"
+    url = "https://appeal-planning-decision.service.gov.uk/appeal"
   }
   validation_rules {
     ssl_check_enabled           = true
