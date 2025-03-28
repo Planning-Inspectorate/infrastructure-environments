@@ -51,7 +51,7 @@ resource "azurerm_monitor_metric_alert" "web_availability" {
   resource_group_name = azurerm_resource_group.applications_service_stack.name
   scopes = [
     azurerm_application_insights_standard_web_test.portal[0].id,
-    azurerm_application_insights.web_app_insights.id
+    azurerm_application_insights.applications_app_insights.id
   ]
   description = "Metric alert for standard web test (availability) for the portal app - which also checks the certificate"
 
