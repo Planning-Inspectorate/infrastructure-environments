@@ -157,6 +157,13 @@ variable "monitoring_alerts_enabled" {
   type        = bool
 }
 
+variable "monitoring_config" {
+  description = "Config for monitoring"
+  type = object({
+    app_insights_web_test_enabled = bool
+  })
+}
+
 variable "node_environment" {
   description = "The node environment to be used for applications in this environment e.g. development"
   type        = string

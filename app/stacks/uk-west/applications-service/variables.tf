@@ -294,6 +294,13 @@ variable "monitoring_alerts_enabled" {
   type        = bool
 }
 
+variable "monitoring_config" {
+  description = "Config for monitoring"
+  type = object({
+    app_insights_web_test_enabled = bool
+  })
+}
+
 variable "national_infrastructure_gateway_ip" {
   description = "The public IP address of the National Infrastructure gateway endpoint"
   type        = string
