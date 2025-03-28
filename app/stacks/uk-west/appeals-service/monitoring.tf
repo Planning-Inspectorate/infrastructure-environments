@@ -31,11 +31,11 @@ resource "azurerm_application_insights_standard_web_test" "portal" {
     "emea-nl-ams-azr"   # West Europe
   ]
   retry_enabled = true
-  enabled       = true
+  enabled       = var.environment == "prod" || var.environment == "training"
 
   request {
     # applications list page
-    url = "https://appeals-service-dev.planninginspectorate.gov.uk/applications"
+    url = "https://appeal-planning-decision.service.gov.uk/appeal/root"
   }
   validation_rules {
     ssl_check_enabled           = true
@@ -48,7 +48,7 @@ resource "azurerm_application_insights_standard_web_test" "portal" {
 resource "azurerm_monitor_metric_alert" "portal_availability" {
   count = var.monitoring_config.app_insights_web_test_enabled ? 1 : 0
 
-  name                = "Portal Availablity - ${local.resource_suffix}"
+  name                = "Web Availablity - ${local.resource_suffix}"
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
   scopes = [
     azurerm_application_insights_standard_web_test.portal[0].id,
