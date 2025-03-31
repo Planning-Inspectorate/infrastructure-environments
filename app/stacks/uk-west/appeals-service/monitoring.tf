@@ -9,11 +9,12 @@ resource "azurerm_log_analytics_workspace" "appeals_service" {
 }
 
 resource "azurerm_application_insights" "web_app_insights" {
-  name                = "pins-ai-${local.service_name}-${local.resource_suffix}-app-insights"
-  location            = azurerm_resource_group.appeals_service_stack.location
-  resource_group_name = azurerm_resource_group.appeals_service_stack.name
-  workspace_id        = azurerm_log_analytics_workspace.appeals_service.id
-  application_type    = "web"
+  name                 = "pins-ai-${local.service_name}-${local.resource_suffix}-app-insights"
+  location             = azurerm_resource_group.appeals_service_stack.location
+  resource_group_name  = azurerm_resource_group.appeals_service_stack.name
+  workspace_id         = azurerm_log_analytics_workspace.appeals_service.id
+  application_type     = "web"
+  daily_data_cap_in_gb = 1
 }
 
 resource "azurerm_monitor_scheduled_query_rules_alert_v2" "web_app_insights" {
