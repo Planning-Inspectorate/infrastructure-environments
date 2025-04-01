@@ -32,6 +32,9 @@ locals {
   google_analytics_id                                                                   = "G-HWLKLSJF53"
   google_tag_manager_id                                                                 = "GTM-KZN7XP4"
   horizon_url                                                                           = "http://10.0.7.4:8000"
+  monitoring_config                    = {
+    app_insights_web_test_enabled = false
+  }
   node_environment                                                                      = "development"
   srv_notify_v1_appeal_submission_initial_confirmation_email_to_appellant_template_id   = "023aa896-92fd-4ed3-bba9-c0c35ca2b288"
   srv_notify_v1_appeal_submission_follow_up_confirmation_email_to_appellant_template_id = "eaf06866-3e25-4336-acd5-cf23ce210b4c"
