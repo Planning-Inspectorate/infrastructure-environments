@@ -26,6 +26,9 @@ locals {
   feature_save_and_exit_option                                          = "false"
   feature_show_affected_area_section                                    = "false"
   google_analytics_id                                                   = "G-X21W2S2FN3"
+  monitoring_config                    = {
+    app_insights_web_test_enabled = false
+  }
   national_infrastructure_gateway_ip                                    = "51.104.42.155"
   national_infrastructure_vnet_address_space                            = ["10.222.0.0/26"]
   node_environment                                                      = "development"
