@@ -22,7 +22,6 @@ module "app_services" {
   container_registry_name                                                               = var.container_registry_name
   container_registry_rg                                                                 = var.container_registry_rg
   comments_enabled                                                                      = var.comments_enabled
-  dashboards_enabled                                                                    = var.dashboards_enabled
   rule_6_enabled                                                                        = var.rule_6_enabled
   endpoint_subnet_id                                                                    = azurerm_subnet.appeals_service_ingress.id
   function_apps_storage_account                                                         = azurerm_storage_account.function_apps.name

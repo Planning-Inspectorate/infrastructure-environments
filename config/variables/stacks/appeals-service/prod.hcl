@@ -1,83 +1,11 @@
 locals {
   appeals_feature_flags = [
     {
-      name    = "appeals-bo-submission"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = []
-      }
-    },
-    {
-      name    = "enrol-users"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = []
-      }
-    },
-    {
-      name    = "final-comments"
-      enabled = false
-      targeting = {
-        percentage = 100
-        users      = []
-      }
-    },
-    {
       name    = "has-appeal-form-v2"
       enabled = true
       targeting = {
         percentage = 100
         users      = ["Q1111", "N5090", "E5330", "G5180", "B5480", "L5810"]
-      }
-    },
-    {
-      name    = "has-questionnaire"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = ["Q1111", "N5090", "E5330", "G5180", "B5480", "L5810"]
-      }
-    },
-    {
-      name    = "horizon-document-labelling"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = []
-      }
-    },
-    {
-      name    = "lpa-dashboard"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = []
-      }
-    },
-    {
-      name    = "send-appeal-direct-to-horizon-wrapper"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = []
-      }
-    },
-    {
-      name    = "serve-back-office-documents"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = []
-      }
-    },
-    {
-      name    = "sql-users"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = []
       }
     },
     {
@@ -90,10 +18,10 @@ locals {
     },
     {
       name    = "s78-appeal-form-v2"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
-        users      = ["Q1111"]
+        users      = ["Q1111", "N5090", "E5330", "G5180", "B5480", "L5810"]
       }
     }
   ]
@@ -101,7 +29,6 @@ locals {
   appeals_feature_back_office_subscriber_enabled                                        = true
   appeals_frontend_file_upload_debug_logging_enabled                                    = false
   comments_enabled                                                                      = true
-  dashboards_enabled                                                                    = true
   rule_6_enabled                                                                        = false
   google_analytics_id                                                                   = "G-DW8DW9TQ84"
   google_tag_manager_id                                                                 = "GTM-KZN7XP4"

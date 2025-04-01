@@ -5,7 +5,7 @@ variable "app_service_plan_sku" {
 }
 
 variable "integration_functions_app_service_plan_sku" {
-  default     = "P2v2"
+  default     = "P0v3"
   description = "The SKU of the App Service Plan"
   type        = string
 }
