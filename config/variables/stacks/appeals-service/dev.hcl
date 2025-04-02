@@ -36,6 +36,7 @@ locals {
     app_insights_web_test_enabled = false
   }
   node_environment                                                                      = "development"
+  srv_notify_front_office_generic_template_id                                           = "5427c45f-4c2a-4730-8f5b-ebd8484aa6b6"
   srv_notify_v1_appeal_submission_initial_confirmation_email_to_appellant_template_id   = "023aa896-92fd-4ed3-bba9-c0c35ca2b288"
   srv_notify_v1_appeal_submission_follow_up_confirmation_email_to_appellant_template_id = "eaf06866-3e25-4336-acd5-cf23ce210b4c"
   srv_notify_v2_appeal_submission_initial_confirmation_email_to_appellant_template_id   = "ea0aa6a9-345e-4129-84e0-5e748830bae4"

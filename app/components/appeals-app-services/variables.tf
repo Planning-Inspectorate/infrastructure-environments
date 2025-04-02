@@ -259,6 +259,11 @@ variable "srv_notify_service_id" {
   type        = string
 }
 
+variable "srv_notify_front_office_generic_template_id" {
+  description = "Generic notify template ID required by the Appeals Service"
+  type        = string
+}
+
 variable "srv_notify_v1_appeal_submission_initial_confirmation_email_to_appellant_template_id" {
   description = "A template ID required by the Appeals Service API"
   type        = string
