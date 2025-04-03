@@ -32,6 +32,7 @@ locals {
         FEATURE_PROJECT_INFORMATION                  = var.feature_allow_project_information
         FEATURE_PROJECT_TIMELINE_LINK                = var.feature_hide_project_timeline_link
         FEATURE_GENERAL_S51_BO                       = var.feature_general_s51_bo
+        FEATURE_REGISTER_OF_ADVICE                   = var.feature_register_of_advice
         FEATURE_ALLOW_WELSH_CASES                    = var.feature_allow_welsh_cases
         FEATURE_REDIS_SESSION_STORE                  = var.feature_redis_session_store
         FEATURE_SAVE_AND_EXIT_OPTION                 = var.feature_save_and_exit_option
@@ -76,6 +77,7 @@ locals {
         BACK_OFFICE_API_INTEGRATION_CASE_REFERENCES               = var.back_office_integration_case_references
         BACK_OFFICE_INTEGRATION_GET_APPLICATIONS                  = var.back_office_integration_get_applications
         FEATURE_ALLOW_WELSH_CASES                                 = var.feature_allow_welsh_cases
+        FEATURE_REGISTER_OF_ADVICE                                = var.feature_register_of_advice
         BACK_OFFICE_SERVICE_BUS_ENABLED                           = "true"
         BACK_OFFICE_SERVICE_BUS_HOSTNAME                          = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
         DATABASE_URL                                              = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/applications-service-sql-server-connection-string-app/)"

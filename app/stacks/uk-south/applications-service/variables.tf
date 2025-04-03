@@ -252,6 +252,11 @@ variable "feature_general_s51_bo" {
   type        = string
 }
 
+variable "feature_register_of_advice" {
+  description = "Feature toggle to enable/disable changes to register of advice"
+  type        = string
+}
+
 variable "feature_allow_welsh_cases" {
   description = "Feature toggle to enable/disable Welsh cases"
   type        = string

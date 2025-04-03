@@ -19,6 +19,7 @@ locals {
   feature_enable_generalised_form_sanitisation                          = "true"
   feature_enabled_content_security_policy                               = "true"
   feature_general_s51_bo                                                = "false"
+  feature_register_of_advice                                            = "false"
   feature_allow_welsh_cases                                             = "false"
   feature_hide_project_timeline_link                                    = "false"
   feature_home_page                                                     = "true"
