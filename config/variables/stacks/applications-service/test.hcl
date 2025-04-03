@@ -1,5 +1,5 @@
 locals {
-  activate_planned_outage                                               = "false"
+  activate_planned_outage = "false"
   apps_config = {
     app_service_plan = {
       sku                      = "P0v3"
@@ -8,25 +8,25 @@ locals {
       zone_balancing_enabled   = false
     }
   }
-  back_office_integration_case_references                               = "BC0110001,BC0110003,BC0110004,BC0110005,BC0110013,BC0110036,BC0011028"
-  back_office_integration_get_applications                              = "MERGE"
-  documents_host                                                        = "https://nipreprod.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
-  feature_allow_project_information                                     = "true"
-  feature_allow_welsh_translation                                       = "true"
-  feature_custom_folders                                                = "true"
-  feature_application_insights                                          = "true"
-  feature_enable_generalised_form_sanitisation                          = "true"
-  feature_enabled_content_security_policy                               = "true"
-  feature_general_s51_bo                                                = "false"
-  feature_allow_welsh_cases                                             = "false"
-  feature_hide_project_timeline_link                                    = "false"
-  feature_home_page                                                     = "true"
-  feature_primary_navigation                                            = "true"
-  feature_redis_session_store                                           = "true"
-  feature_save_and_exit_option                                          = "false"
-  feature_show_affected_area_section                                    = "false"
-  google_analytics_id                                                   = "G-566E329TBN"
-  monitoring_config                    = {
+  back_office_integration_case_references      = "BC0110001,BC0110003,BC0110004,BC0110005,BC0110013,BC0110036,BC0011028"
+  back_office_integration_get_applications     = "MERGE"
+  documents_host                               = "https://nipreprod.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
+  feature_allow_project_information            = "true"
+  feature_allow_welsh_translation              = "true"
+  feature_custom_folders                       = "true"
+  feature_application_insights                 = "true"
+  feature_enable_generalised_form_sanitisation = "true"
+  feature_enabled_content_security_policy      = "true"
+  feature_general_s51_bo                       = "false"
+  feature_allow_welsh_cases                    = "true"
+  feature_hide_project_timeline_link           = "false"
+  feature_home_page                            = "true"
+  feature_primary_navigation                   = "true"
+  feature_redis_session_store                  = "true"
+  feature_save_and_exit_option                 = "false"
+  feature_show_affected_area_section           = "false"
+  google_analytics_id                          = "G-566E329TBN"
+  monitoring_config = {
     app_insights_web_test_enabled = false
   }
   national_infrastructure_gateway_ip                                    = "51.141.40.109"
