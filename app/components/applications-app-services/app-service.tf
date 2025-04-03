@@ -28,6 +28,18 @@ module "app_service" {
   service_name                    = var.service_name
   worker_count                    = try(each.value["worker_count"], null)
 
+  # Easy Auth settings
+  auth_config = {
+    auth_enabled           = each.value["auth_enabled"]
+    require_authentication = each.value["auth_enabled"]
+    auth_client_id         = var.applications_easy_auth_config.client_id
+    auth_provider_secret   = "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET"
+    auth_tenant_endpoint   = "https://login.microsoftonline.com/${data.azurerm_client_config.current.tenant_id}/v2.0"
+    allowed_applications   = var.applications_easy_auth_config.application_id
+    allowed_audiences      = "https://${var.applications_service_public_url}/.auth/login/aad/callback"
+    excluded_paths         = []
+  }
+
   tags = var.tags
 
   providers = {

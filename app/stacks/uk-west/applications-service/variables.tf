@@ -20,6 +20,15 @@ variable "api_timeout" {
   type        = string
 }
 
+variable "applications_easy_auth_config" {
+  description = "Easy Authentication configuration for the web front end"
+  type = object({
+    client_id        = string
+    web_auth_enabled = bool
+    application_id   = string
+  })
+}
+
 variable "applications_service_vpn_gateway_shared_key" {
   description = "The applications service virtual network gateway shared key"
   sensitive   = true
