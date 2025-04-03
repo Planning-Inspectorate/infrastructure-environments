@@ -101,9 +101,11 @@ locals {
         SERVER_PORT             = "3000"
 
         # notify
-        SRV_NOTIFY_API_KEY                                             = local.secret_refs["appeals-srv-notify-api-key"]
-        SRV_NOTIFY_BASE_URL                                            = var.srv_notify_base_url
-        SRV_NOTIFY_SERVICE_ID                                          = var.srv_notify_service_id
+        SRV_NOTIFY_API_KEY                          = local.secret_refs["appeals-srv-notify-api-key"]
+        SRV_NOTIFY_BASE_URL                         = var.srv_notify_base_url
+        SRV_NOTIFY_SERVICE_ID                       = var.srv_notify_service_id
+        SRV_NOTIFY_FRONT_OFFICE_GENERIC_TEMPLATE_ID = var.srv_notify_front_office_generic_template_id
+
         SRV_NOTIFY_APPELLANT_LOGIN_CONFIRM_REGISTRATION_TEMPLATE_ID    = var.srv_notify_appellant_login_confirm_registration_template_id
         SRV_NOTIFY_SAVE_AND_RETURN_ENTER_CODE_INTO_SERVICE_TEMPLATE_ID = var.srv_notify_save_and_return_enter_code_into_service_template_id
 
@@ -160,6 +162,7 @@ locals {
         SRV_HORIZON_URL                                                                       = var.horizon_url
         SRV_NOTIFY_API_KEY                                                                    = local.secret_refs["appeals-srv-notify-api-key"]
         SRV_NOTIFY_BASE_URL                                                                   = var.srv_notify_base_url
+        SRV_NOTIFY_FRONT_OFFICE_GENERIC_TEMPLATE_ID                                           = var.srv_notify_front_office_generic_template_id
         SRV_NOTIFY_FAILURE_TO_UPLOAD_TO_HORIZON_TEMPLATE_ID                                   = var.srv_notify_failure_to_upload_to_horizon_template_id
         SRV_NOTIFY_FINAL_COMMENT_SUBMISSION_CONFIRMATION_EMAIL_TEMPLATE_ID                    = var.srv_notify_final_comment_submission_confirmation_email_template_id
         SRV_NOTIFY_FULL_APPEAL_CONFIRMATION_EMAIL_TO_APPELLANT_TEMPLATE_ID                    = var.srv_notify_full_appeal_confirmation_email_to_appellant_template_id
