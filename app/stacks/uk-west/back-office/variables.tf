@@ -218,6 +218,12 @@ variable "odw_synapse_integration_enabled" {
   default     = false
 }
 
+variable "sensitive_application_case_references" {
+  description = "List of case references for applications considered as sensitive"
+  type        = string
+  default     = ""
+}
+
 variable "sb_topic_names" {
   description = "service bus topic names"
   type = object({

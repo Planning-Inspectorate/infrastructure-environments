@@ -41,6 +41,9 @@ locals {
       }
     }
   ]
+
+  sensitive_application_case_references = ""
+
   node_environment                    = "production"
   api_key_vault_authorization_enabled = "true"
   # Azure AD configuration
