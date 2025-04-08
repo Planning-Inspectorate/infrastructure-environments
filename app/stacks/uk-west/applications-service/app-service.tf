@@ -39,6 +39,7 @@ module "app_services" {
   feature_enable_generalised_form_sanitisation                          = var.feature_enable_generalised_form_sanitisation
   feature_enabled_content_security_policy                               = var.feature_enabled_content_security_policy
   feature_general_s51_bo                                                = var.feature_general_s51_bo
+  feature_register_of_advice                                            = var.feature_register_of_advice
   feature_allow_welsh_cases                                             = var.feature_allow_welsh_cases
   feature_hide_project_timeline_link                                    = var.feature_hide_project_timeline_link
   feature_home_page                                                     = var.feature_home_page
