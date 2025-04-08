@@ -34,6 +34,7 @@ module "app_services" {
   service_bus_namespace_id                                                            = azurerm_servicebus_namespace.back_office.id
   service_name                                                                        = local.service_name
   feature_service_bus_enabled                                                         = var.feature_service_bus_enabled
+  sensitive_application_case_references                                               = var.sensitive_application_case_references
   document_check_function_storage_name                                                = azurerm_storage_account.function_storage.name
   document_check_function_storage_primary_access_key                                  = azurerm_storage_account.function_storage.primary_access_key
   document_storage_back_office_document_service_uploads_container_resource_manager_id = azurerm_storage_container.back_office_document_service_uploads_container.resource_manager_id

@@ -284,6 +284,12 @@ variable "back_office_applications_redis_connection_string_secret_name" {
   type        = string
 }
 
+variable "sensitive_application_case_references" {
+  description = "List of case references for applications considered as sensitive"
+  type        = string
+  default     = ""
+}
+
 variable "odw_synapse_integration_enabled" {
   description = "Whether or not Synapse Migration Integration is enabled"
   type        = bool

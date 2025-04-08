@@ -38,6 +38,7 @@ locals {
         OS_PLACES_API_KEY                          = local.secret_refs["os-places-api-key"]
         REDIS_CONNECTION_STRING                    = local.existing_secret_refs[var.back_office_applications_redis_connection_string_secret_name]
         SESSION_SECRET                             = local.secret_refs["session-secret"],
+        SENSITIVE_APPLICATION_CASE_REFERENCES      = var.sensitive_application_case_references
         PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING  = local.existing_secret_refs["bo-app-config-connection-string"]
       }
     }

@@ -197,6 +197,12 @@ variable "primary_sql_server_id" {
   type        = string
 }
 
+variable "sensitive_application_case_references" {
+  description = "List of case references for applications considered as sensitive"
+  type        = string
+  default     = ""
+}
+
 variable "service_bus_failover_enabled" {
   default     = false
   description = "A switch to determine if Service Bus failover is enabled requiring the Premium SKU"
