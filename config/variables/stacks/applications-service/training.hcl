@@ -8,6 +8,11 @@ locals {
       zone_balancing_enabled   = false
     }
   }
+  applications_easy_auth_config = {
+      "client_id"         = "2f5cb0e8-5df8-49f4-8fa7-c3277a0a8632"
+      "web_auth_enabled"  = true
+      "application_id"    = "dadfce09-7088-4dbf-825f-cfccd47e5c24"
+  }
   back_office_integration_case_references                               = "EN0710001,EN0710002,EN0110001,EN0110003,EN0110002,EN0210001"
   back_office_integration_get_applications                              = "BO"
   documents_host                                                        = "https://infrastructure.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
