@@ -9,7 +9,7 @@ locals {
     }
   }
   applications_easy_auth_config = {
-      "client_id"          = "2f5cb0e8-5df8-49f4-8fa7-c3277a0a8632"
+      "client_id"         = "2f5cb0e8-5df8-49f4-8fa7-c3277a0a8632"
       "web_auth_enabled"  = true
       "application_id"    = "4641f896-9a90-4840-9a24-bcc04d71cfbb"
   }
