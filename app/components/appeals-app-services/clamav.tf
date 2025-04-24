@@ -103,6 +103,42 @@ resource "azurerm_monitor_metric_alert" "clamav_memory" {
   action {
     action_group_id = var.action_group_ids.service_manager
   }
+
+  tags = var.tags
+}
+
+resource "azurerm_monitor_metric_alert" "clamav_cpu" {
+  name                = "pins-ci-${var.service_name}-clamav-${var.resource_suffix}-cpu-alert"
+  resource_group_name = var.resource_group_name
+  scopes              = [azurerm_container_group.clamav.id]
+  description         = "Trigger alert when CPU usage drops"
+  window_size         = "PT30M"
+  frequency           = "PT15M"
+  severity            = 1
+
+  criteria {
+    metric_namespace = "Microsoft.ContainerInstance/containerGroups"
+    metric_name      = "CPUUsage"
+    aggregation      = "Minimum"
+    operator         = "LessThan"
+    threshold        = 0.01
+
+    dimension {
+      name     = "containerName"
+      operator = "Include"
+      values   = ["clamav"]
+    }
+  }
+
+  action {
+    action_group_id = var.action_group_ids.tech
+  }
+
+  action {
+    action_group_id = var.action_group_ids.service_manager
+  }
+
+  tags = var.tags
 }
 
 # storage
