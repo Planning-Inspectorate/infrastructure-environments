@@ -8,6 +8,11 @@ locals {
       zone_balancing_enabled   = false
     }
   }
+  applications_easy_auth_config = {
+      "client_id"         = "2f5cb0e8-5df8-49f4-8fa7-c3277a0a8632"
+      "web_auth_enabled"  = true
+      "application_id"    = "4641f896-9a90-4840-9a24-bcc04d71cfbb"
+  }
   back_office_integration_case_references                               = "BC0110001,BC0110003,BC0110004,BC0110005"
   back_office_integration_get_applications                              = "MERGE"
   documents_host                                                        = "https://nitestaz.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
@@ -27,7 +32,7 @@ locals {
   feature_save_and_exit_option                                          = "false"
   feature_show_affected_area_section                                    = "false"
   google_analytics_id                                                   = "G-X21W2S2FN3"
-  monitoring_config                    = {
+  monitoring_config = {
     app_insights_web_test_enabled = false
   }
   national_infrastructure_gateway_ip                                    = "51.104.42.155"

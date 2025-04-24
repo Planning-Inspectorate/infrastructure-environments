@@ -7,6 +7,7 @@ locals {
 
       # Networking
       app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
+      auth_enabled                    = var.applications_easy_auth_config.web_auth_enabled
       endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
       front_door_restriction          = true
       inbound_vnet_connectivity       = var.private_endpoint_enabled
@@ -40,6 +41,7 @@ locals {
         FILE_UPLOADS_PATH                            = "/opt/app/uploads"
         GOOGLE_ANALYTICS_ID                          = var.google_analytics_id
         HOST_URL                                     = "https://${var.applications_service_public_url}/"
+        MICROSOFT_PROVIDER_AUTHENTICATION_SECRET     = local.secret_refs["applications-service-microsoft-provider-authentication-secret"]
         OPEN_REGISTRATION_CASE_REFERENCES            = var.open_registration_case_references
         OS_MAPS_API_KEY                              = local.secret_refs["applications-service-os-maps-api-key"]
         OS_MAPS_API_SECRET                           = local.secret_refs["applications-service-os-maps-api-secret"]
@@ -50,6 +52,7 @@ locals {
         USE_SECURE_SESSION_COOKIES                   = true,
         RETRY_MAX_ATTEMPTS                           = "3"
         RETRY_STATUS_CODES                           = "500,502,503,504"
+        WEBSITE_AUTH_AAD_ALLOWED_TENANTS             = data.azurerm_client_config.current.tenant_id
       }
     }
 
@@ -60,6 +63,7 @@ locals {
 
       # Networking
       app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
+      auth_enabled                    = false
       endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
       front_door_restriction          = false
       inbound_vnet_connectivity       = var.private_endpoint_enabled
@@ -115,6 +119,7 @@ locals {
   }
 
   secret_names = [
+    "applications-service-microsoft-provider-authentication-secret",
     "applications-service-encryption-secret-key",
     "applications-service-mysql-database",
     "applications-service-mysql-dialect",

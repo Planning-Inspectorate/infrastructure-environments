@@ -46,6 +46,15 @@ variable "app_insights_instrument_key" {
   type        = string
 }
 
+variable "applications_easy_auth_config" {
+  description = "Easy Authentication configuration for the web front end"
+  type = object({
+    client_id        = string
+    web_auth_enabled = bool
+    application_id   = string
+  })
+}
+
 variable "applications_service_public_url" {
   description = "The public URL for the Applications Service frontend web app"
   type        = string
