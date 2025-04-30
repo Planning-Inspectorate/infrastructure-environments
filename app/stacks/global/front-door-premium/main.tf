@@ -34,3 +34,38 @@ resource "azurerm_cdn_frontdoor_endpoint" "common" {
 
   tags = local.tags
 }
+
+#front door monitoring log analytics
+resource "azurerm_log_analytics_workspace" "common" {
+  count               = var.environment == "prod" ? 1 : 0 # only in prod
+  name                = "pins-log-common-prod"
+  location            = module.azure_region_ukw.location
+  resource_group_name = azurerm_resource_group.common[0].name
+  sku                 = "PerGB2018"
+  retention_in_days   = 30
+
+  tags = local.tags
+}
+
+#front door monitoring - diagnostic setting
+resource "azurerm_monitor_diagnostic_setting" "web_front_door" {
+  count                      = var.environment == "prod" ? 1 : 0 # only in prod
+  name                       = "pins-fd-mds-common-prod"
+  target_resource_id         = azurerm_cdn_frontdoor_profile.common[0].id
+  log_analytics_workspace_id = azurerm_log_analytics_workspace.common[0].id
+
+  enabled_log {
+    category = "FrontdoorWebApplicationFirewallLog"
+  }
+
+  metric {
+    category = "AllMetrics"
+  }
+
+  lifecycle {
+    ignore_changes = [
+      enabled_log,
+      metric
+    ]
+  }
+}
