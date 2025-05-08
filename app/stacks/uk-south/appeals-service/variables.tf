@@ -105,6 +105,11 @@ variable "container_registry_rg" {
   type        = string
 }
 
+variable "tooling_network_rg" {
+  description = "The resource group of the pins.internal private dns zone"
+  type        = string
+}
+
 variable "cosmosdb_connection_string" {
   description = "The connection string used to connect to CosmosDB"
   sensitive   = true
