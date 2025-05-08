@@ -88,6 +88,11 @@ variable "container_registry_rg" {
   type        = string
 }
 
+variable "tooling_network_rg" {
+  description = "The resource group of the pins.internal private dns zone"
+  type        = string
+}
+
 variable "cosmosdb_subnet_id" {
   description = "The ID of the VNet in the primary location"
   type        = string
