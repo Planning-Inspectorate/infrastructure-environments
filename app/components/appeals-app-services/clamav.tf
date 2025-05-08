@@ -43,8 +43,21 @@ resource "azurerm_container_group" "clamav" {
     image  = "mcr.microsoft.com/azure-cli:latest"
     cpu    = "0.5"
     memory = "0.5"
-
-    commands = ["/bin/sh", "-c", "az login --identity; az network private-dns record-set a update --resource-group ${var.resource_group_name} --zone-name ${var.internal_dns_name} --name ${local.clamv_host_name} --set \"aRecords[0].ipv4Address=$(ip route get 1.2.3.4 | awk '{print $7}')\"; sleep 100000"]
+    commands = [
+      "/bin/sh",
+      "-c",
+      join(";", [
+        "az login --identity",
+        "tdnf install -y awk iproute",
+        "IP_ADDRESS=$(ip route get 1.2.3.4 | awk '{print $7}')",
+        "echo IP_ADDRESS: $IP_ADDRESS",
+        "RECORD_SET=$(az network private-dns record-set a show --resource-group ${var.tooling_network_rg} --zone-name ${var.internal_dns_name} --name ${local.clamv_host_name})",
+        "echo RECORD_SET: $RECORD_SET",
+        "az network private-dns record-set a update --resource-group ${var.tooling_network_rg} --zone-name ${var.internal_dns_name} --name ${local.clamv_host_name} --set \"aRecords[0].ipv4Address=$IP_ADDRESS\"",
+        "echo done",
+        "sleep 86400"
+      ])
+    ]
   }
 
   exposed_port {
