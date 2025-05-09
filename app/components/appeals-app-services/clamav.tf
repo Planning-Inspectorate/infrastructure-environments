@@ -47,7 +47,7 @@ resource "azurerm_container_group" "clamav" {
       "/bin/sh",
       "-c",
       join(";", [
-        "az login --identity --allow-no-subscriptions",
+        "az login --identity",
         "tdnf install -y awk iproute",
         "IP_ADDRESS=$(ip route get 1.2.3.4 | awk '{print $7}')",
         "echo IP_ADDRESS: $IP_ADDRESS",
@@ -75,6 +75,13 @@ resource "azurerm_container_group" "clamav" {
 
 locals {
   clamv_host_name = "${var.service_name}-clamav-${var.resource_suffix}"
+}
+
+# Allow the container to read from the other subscription
+resource "azurerm_role_assignment" "tooling_subscription_read" {
+  scope                = var.tooling_subscription_id
+  role_definition_name = "Reader"
+  principal_id         = azurerm_container_group.clamav.identity[0].principal_id
 }
 
 # Allow the container to write to the DNS, for IP changes (on restart)
