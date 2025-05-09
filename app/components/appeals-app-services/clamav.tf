@@ -77,11 +77,12 @@ locals {
   clamv_host_name = "${var.service_name}-clamav-${var.resource_suffix}"
 }
 
-# Allow the container to read from the other subscription
-resource "azurerm_role_assignment" "tooling_subscription_read" {
-  scope                = var.tooling_subscription_id
+# Allow the container to read from the tooling resource group
+resource "azurerm_role_assignment" "tooling_rg_read" {
+  scope                = "/subscriptions/${var.tooling_subscription_id}/resourceGroups/${var.tooling_network_rg}"
   role_definition_name = "Reader"
   principal_id         = azurerm_container_group.clamav.identity[0].principal_id
+  provider             = azurerm.tooling
 }
 
 # Allow the container to write to the DNS, for IP changes (on restart)
