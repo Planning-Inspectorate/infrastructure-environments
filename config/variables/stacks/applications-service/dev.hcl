@@ -11,7 +11,7 @@ locals {
   applications_easy_auth_config = {
       "client_id"         = "2f5cb0e8-5df8-49f4-8fa7-c3277a0a8632"
       "web_auth_enabled"  = true
-      "application_id"    = "4641f896-9a90-4840-9a24-bcc04d71cfbb"
+      "application_id"    = "7d92b220-8d5b-45d6-a870-39464439d6b1"
   }
   back_office_integration_case_references                               = "BC0110001,BC0110003,BC0110004,BC0110005"
   back_office_integration_get_applications                              = "MERGE"
