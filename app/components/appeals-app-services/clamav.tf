@@ -47,7 +47,7 @@ resource "azurerm_container_group" "clamav" {
       "/bin/sh",
       "-c",
       join(";", [
-        "az login --identity",
+        "az login --identity --allow-no-subscriptions",
         "tdnf install -y awk iproute",
         "IP_ADDRESS=$(ip route get 1.2.3.4 | awk '{print $7}')",
         "echo IP_ADDRESS: $IP_ADDRESS",
