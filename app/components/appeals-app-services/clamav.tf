@@ -51,9 +51,9 @@ resource "azurerm_container_group" "clamav" {
         "tdnf install -y awk iproute",
         "IP_ADDRESS=$(ip route get 1.2.3.4 | awk '{print $7}')",
         "echo IP_ADDRESS: $IP_ADDRESS",
-        "RECORD_SET=$(az network private-dns record-set a show --resource-group ${var.tooling_network_rg} --zone-name ${var.internal_dns_name} --name ${local.clamv_host_name})",
+        "RECORD_SET=$(az network private-dns record-set a show --subscription ${var.tooling_subscription_id} --resource-group ${var.tooling_network_rg} --zone-name ${var.internal_dns_name} --name ${local.clamv_host_name})",
         "echo RECORD_SET: $RECORD_SET",
-        "az network private-dns record-set a update --resource-group ${var.tooling_network_rg} --zone-name ${var.internal_dns_name} --name ${local.clamv_host_name} --set \"aRecords[0].ipv4Address=$IP_ADDRESS\"",
+        "az network private-dns record-set a update --subscription ${var.tooling_subscription_id} --resource-group ${var.tooling_network_rg} --zone-name ${var.internal_dns_name} --name ${local.clamv_host_name} --set \"aRecords[0].ipv4Address=$IP_ADDRESS\"",
         "echo done",
         "sleep 86400"
       ])
