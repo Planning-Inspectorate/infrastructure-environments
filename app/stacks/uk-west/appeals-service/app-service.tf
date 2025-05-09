@@ -90,6 +90,8 @@ module "app_services" {
   srv_notify_service_id                                                                 = var.srv_notify_service_id
   task_submit_to_horizon_cron_string                                                    = var.task_submit_to_horizon_cron_string
   task_submit_to_horizon_trigger_active                                                 = var.task_submit_to_horizon_trigger_active
+  tooling_network_rg                                                                    = var.tooling_network_rg
+  tooling_subscription_id                                                               = var.tooling_subscription_id
   appeals_frontend_file_upload_debug_logging_enabled                                    = var.appeals_frontend_file_upload_debug_logging_enabled
   service_bus_config                                                                    = var.service_bus_config
   appeals_easy_auth_config                                                              = var.appeals_easy_auth_config

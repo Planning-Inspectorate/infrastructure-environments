@@ -73,6 +73,16 @@ variable "container_registry_rg" {
   type        = string
 }
 
+variable "tooling_network_rg" {
+  description = "The resource group of the pins.internal private dns zone"
+  type        = string
+}
+
+variable "tooling_subscription_id" {
+  description = "The subscription containing the shared tooling resources"
+  type        = string
+}
+
 variable "endpoint_subnet_id" {
   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
   type        = string
