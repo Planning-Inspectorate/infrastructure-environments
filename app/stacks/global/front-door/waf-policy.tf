@@ -345,6 +345,13 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
         enabled = true
         rule_id = "932150"
       }
+
+      rule {
+        # Remote Command Execution: Unix Command Injection
+        action  = "Log"
+        enabled = true
+        rule_id = "932105"
+      }
     }
 
     override {
@@ -1021,6 +1028,13 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
           operator       = "Equals"
           selector       = "cookie_policy"
         }
+
+        exclusion {
+          # Exclusion to allow representation redaction
+          match_variable = "RequestBodyPostArgNames"
+          operator       = "Equals"
+          selector       = "redactedRepresentation"
+        }
       }
     }
 
@@ -1302,6 +1316,13 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
         action  = "Log"
         enabled = true
         rule_id = "932150"
+      }
+
+      rule {
+        # Remote Command Execution: Unix Command Injection
+        action  = "Log"
+        enabled = true
+        rule_id = "932105"
       }
     }
 
