@@ -97,7 +97,7 @@ locals {
     []
   )
   ip_blacklist = [
-    for prefix in try(local.ip_blacklist_data.prefixes, []) :
+    for prefix in try(local.ip_blacklist_data.prefixes, [{ ipv4Prefix = "10.255.255.255" }]) :
     lookup(
       prefix,
       "ipv4Prefix",
