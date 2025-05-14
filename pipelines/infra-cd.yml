@@ -102,6 +102,22 @@ extends:
         deploymentJobs:
           - name: Apply
             steps:
+              #in prod, download and process blacklist file
+              - ${{ if eq(variables['ENVIRONMENT'], 'prod') }}:
+                - task: DownloadSecureFile@1
+                  name: downloadBlacklistFile
+                  displayName: 'Download IP blacklist file'
+                  inputs:
+                    secureFile: 'ip_blacklist.json'
+                - script: |
+                    echo "Reading ip_blacklist.json..."
+                        if [ -f "$(downloadBlacklistFile.secureFilePath)" ]; then
+                    echo "File exists. Copying ip_blacklist.json..."
+                      cp $(downloadBlacklistFile.secureFilePath) $(System.DefaultWorkingDirectory)/ip_blacklist.json
+                    else
+                      echo "File does not exist. Skipping copy."
+                    fi
+                  displayName: 'Copy IP blacklist file'
               - ${{ if eq(parameters.stack, 'all') }}:
                 - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_apply_all.yml@templates
                   parameters:
