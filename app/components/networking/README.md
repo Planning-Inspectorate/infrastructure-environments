@@ -7,14 +7,14 @@ This module contains the networking resources for the PINS ODT environments. The
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.107.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | > 3.107.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.107.0 |
-| <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 3.107.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | > 3.107.0 |
+| <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | > 3.107.0 |
 
 ## Modules
 
@@ -26,25 +26,25 @@ This module contains the networking resources for the PINS ODT environments. The
 
 | Name | Type |
 |------|------|
-| [azurerm_private_dns_zone_virtual_network_link.app_service_vnet_link](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
-| [azurerm_private_dns_zone_virtual_network_link.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
-| [azurerm_private_dns_zone_virtual_network_link.cosmosdb_vnet_link](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
-| [azurerm_private_dns_zone_virtual_network_link.internal](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
-| [azurerm_private_dns_zone_virtual_network_link.redis](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
-| [azurerm_private_dns_zone_virtual_network_link.service_bus](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
-| [azurerm_private_dns_zone_virtual_network_link.sql_synapse_vnet_link](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_dns_zone_virtual_network_link) | resource |
-| [azurerm_public_ip.vnet_gateway](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/public_ip) | resource |
-| [azurerm_subnet.back_office_clamav](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/subnet) | resource |
-| [azurerm_subnet.back_office_integration_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/subnet) | resource |
-| [azurerm_subnet.common_integration_functions_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/subnet) | resource |
-| [azurerm_subnet.cosmosdb](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/subnet) | resource |
-| [azurerm_subnet.integration_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/subnet) | resource |
-| [azurerm_subnet.vnet_gateway_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/subnet) | resource |
-| [azurerm_virtual_network.common_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/virtual_network) | resource |
-| [azurerm_virtual_network_gateway.common](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/virtual_network_gateway) | resource |
-| [azurerm_virtual_network_peering.env_to_tooling](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/virtual_network_peering) | resource |
-| [azurerm_virtual_network_peering.tooling_to_env](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/virtual_network_peering) | resource |
-| [azurerm_virtual_network.tooling](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/virtual_network) | data source |
+| [azurerm_private_dns_zone_virtual_network_link.app_service_vnet_link](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone_virtual_network_link) | resource |
+| [azurerm_private_dns_zone_virtual_network_link.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone_virtual_network_link) | resource |
+| [azurerm_private_dns_zone_virtual_network_link.cosmosdb_vnet_link](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone_virtual_network_link) | resource |
+| [azurerm_private_dns_zone_virtual_network_link.internal](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone_virtual_network_link) | resource |
+| [azurerm_private_dns_zone_virtual_network_link.redis](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone_virtual_network_link) | resource |
+| [azurerm_private_dns_zone_virtual_network_link.service_bus](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone_virtual_network_link) | resource |
+| [azurerm_private_dns_zone_virtual_network_link.sql_synapse_vnet_link](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone_virtual_network_link) | resource |
+| [azurerm_public_ip.vnet_gateway](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip) | resource |
+| [azurerm_subnet.back_office_clamav](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet) | resource |
+| [azurerm_subnet.back_office_integration_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet) | resource |
+| [azurerm_subnet.common_integration_functions_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet) | resource |
+| [azurerm_subnet.cosmosdb](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet) | resource |
+| [azurerm_subnet.integration_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet) | resource |
+| [azurerm_subnet.vnet_gateway_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet) | resource |
+| [azurerm_virtual_network.common_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network) | resource |
+| [azurerm_virtual_network_gateway.common](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network_gateway) | resource |
+| [azurerm_virtual_network_peering.env_to_tooling](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network_peering) | resource |
+| [azurerm_virtual_network_peering.tooling_to_env](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network_peering) | resource |
+| [azurerm_virtual_network.tooling](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/virtual_network) | data source |
 
 ## Inputs
 

@@ -8,14 +8,14 @@ This component contains the infrastructure required for the back office service.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.7, < 1.12.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.107.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 4.28.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.107.0 |
-| <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 3.107.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 4.28.0 |
+| <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 4.28.0 |
 
 ## Modules
 
@@ -28,39 +28,39 @@ This component contains the infrastructure required for the back office service.
 
 | Name | Type |
 |------|------|
-| [azurerm_app_configuration.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/app_configuration) | resource |
-| [azurerm_key_vault_secret.back_office_applications_redis_cache_connection_string_secret](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/key_vault_secret) | resource |
-| [azurerm_log_analytics_workspace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/log_analytics_workspace) | resource |
-| [azurerm_mssql_failover_group.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/mssql_failover_group) | resource |
-| [azurerm_mssql_server.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/mssql_server) | resource |
-| [azurerm_mssql_server_extended_auditing_policy.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/mssql_server_extended_auditing_policy) | resource |
-| [azurerm_mssql_server_security_alert_policy.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/mssql_server_security_alert_policy) | resource |
-| [azurerm_mssql_server_vulnerability_assessment.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/mssql_server_vulnerability_assessment) | resource |
-| [azurerm_private_endpoint.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_endpoint) | resource |
-| [azurerm_private_endpoint.back_office_app_config](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_endpoint) | resource |
-| [azurerm_private_endpoint.back_office_applications_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_endpoint) | resource |
-| [azurerm_private_endpoint.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/private_endpoint) | resource |
-| [azurerm_redis_cache.back_office_applications_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/redis_cache) | resource |
-| [azurerm_resource_group.back_office_stack](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/resource_group) | resource |
-| [azurerm_role_assignment.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/role_assignment) | resource |
-| [azurerm_servicebus_namespace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/servicebus_namespace) | resource |
-| [azurerm_servicebus_namespace_disaster_recovery_config.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/servicebus_namespace_disaster_recovery_config) | resource |
-| [azurerm_storage_account.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/storage_account) | resource |
-| [azurerm_storage_container.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/storage_container) | resource |
-| [azurerm_subnet.back_office_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/subnet) | resource |
-| [azurerm_monitor_action_group.bo_applications_tech](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/monitor_action_group) | data source |
-| [azurerm_private_dns_zone.app_config](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/private_dns_zone) | data source |
-| [azurerm_private_dns_zone.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/private_dns_zone) | data source |
-| [azurerm_private_dns_zone.database](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/private_dns_zone) | data source |
-| [azurerm_private_dns_zone.redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/private_dns_zone) | data source |
-| [azurerm_private_dns_zone.service_bus](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/data-sources/private_dns_zone) | data source |
+| [azurerm_app_configuration.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/resources/app_configuration) | resource |
+| [azurerm_key_vault_secret.back_office_applications_redis_cache_connection_string_secret](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/resources/key_vault_secret) | resource |
+| [azurerm_log_analytics_workspace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/resources/log_analytics_workspace) | resource |
+| [azurerm_mssql_failover_group.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/resources/mssql_failover_group) | resource |
+| [azurerm_mssql_server.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/resources/mssql_server) | resource |
+| [azurerm_mssql_server_extended_auditing_policy.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/resources/mssql_server_extended_auditing_policy) | resource |
+| [azurerm_mssql_server_security_alert_policy.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/resources/mssql_server_security_alert_policy) | resource |
+| [azurerm_mssql_server_vulnerability_assessment.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/resources/mssql_server_vulnerability_assessment) | resource |
+| [azurerm_private_endpoint.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/resources/private_endpoint) | resource |
+| [azurerm_private_endpoint.back_office_app_config](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/resources/private_endpoint) | resource |
+| [azurerm_private_endpoint.back_office_applications_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/resources/private_endpoint) | resource |
+| [azurerm_private_endpoint.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/resources/private_endpoint) | resource |
+| [azurerm_redis_cache.back_office_applications_redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/resources/redis_cache) | resource |
+| [azurerm_resource_group.back_office_stack](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/resources/resource_group) | resource |
+| [azurerm_role_assignment.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/resources/role_assignment) | resource |
+| [azurerm_servicebus_namespace.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/resources/servicebus_namespace) | resource |
+| [azurerm_servicebus_namespace_disaster_recovery_config.back_office](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/resources/servicebus_namespace_disaster_recovery_config) | resource |
+| [azurerm_storage_account.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/resources/storage_account) | resource |
+| [azurerm_storage_container.back_office_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/resources/storage_container) | resource |
+| [azurerm_subnet.back_office_ingress](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/resources/subnet) | resource |
+| [azurerm_monitor_action_group.bo_applications_tech](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/data-sources/monitor_action_group) | data source |
+| [azurerm_private_dns_zone.app_config](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/data-sources/private_dns_zone) | data source |
+| [azurerm_private_dns_zone.app_service](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/data-sources/private_dns_zone) | data source |
+| [azurerm_private_dns_zone.database](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/data-sources/private_dns_zone) | data source |
+| [azurerm_private_dns_zone.redis_cache](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/data-sources/private_dns_zone) | data source |
+| [azurerm_private_dns_zone.service_bus](https://registry.terraform.io/providers/hashicorp/azurerm/4.28.0/docs/data-sources/private_dns_zone) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_action_group_ids"></a> [action\_group\_ids](#input\_action\_group\_ids) | The IDs of the Azure Monitor action groups for different alert types | <pre>object({<br>    bo_applications_tech            = string,<br>    bo_applications_service_manager = string,<br>    iap                             = string,<br>    its                             = string,<br>    info_sec                        = string<br>  })</pre> | n/a | yes |
-| <a name="input_action_group_names"></a> [action\_group\_names](#input\_action\_group\_names) | The names of the Azure Monitor action groups for different alert types | <pre>object({<br>    bo_applications_tech            = string,<br>    bo_applications_service_manager = string,<br>    iap                             = string,<br>    its                             = string,<br>    info_sec                        = string<br>  })</pre> | n/a | yes |
+| <a name="input_action_group_ids"></a> [action\_group\_ids](#input\_action\_group\_ids) | The IDs of the Azure Monitor action groups for different alert types | <pre>object({<br/>    bo_applications_tech            = string,<br/>    bo_applications_service_manager = string,<br/>    iap                             = string,<br/>    its                             = string,<br/>    info_sec                        = string<br/>  })</pre> | n/a | yes |
+| <a name="input_action_group_names"></a> [action\_group\_names](#input\_action\_group\_names) | The names of the Azure Monitor action groups for different alert types | <pre>object({<br/>    bo_applications_tech            = string,<br/>    bo_applications_service_manager = string,<br/>    iap                             = string,<br/>    its                             = string,<br/>    info_sec                        = string<br/>  })</pre> | n/a | yes |
 | <a name="input_api_key_vault_authorization_enabled"></a> [api\_key\_vault\_authorization\_enabled](#input\_api\_key\_vault\_authorization\_enabled) | Whether or not Key Vault is used to access secrets from the app | `string` | n/a | yes |
 | <a name="input_app_service_plan_id"></a> [app\_service\_plan\_id](#input\_app\_service\_plan\_id) | The id of the app service plan | `string` | n/a | yes |
 | <a name="input_applications_front_office_web_url"></a> [applications\_front\_office\_web\_url](#input\_applications\_front\_office\_web\_url) | Applications Front Office Web URL | `string` | n/a | yes |
@@ -91,7 +91,6 @@ This component contains the infrastructure required for the back office service.
 | <a name="input_document_storage_submissions_container_resource_manager_id"></a> [document\_storage\_submissions\_container\_resource\_manager\_id](#input\_document\_storage\_submissions\_container\_resource\_manager\_id) | Submissions container resource\_manager\_id | `string` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
 | <a name="input_feature_service_bus_enabled"></a> [feature\_service\_bus\_enabled](#input\_feature\_service\_bus\_enabled) | Whether or not Service Bus events are enabled | `string` | n/a | yes |
-| <a name="input_health_check_path"></a> [health\_check\_path](#input\_health\_check\_path) | The path of the service's health check endpoint | `string` | `"/health"` | no |
 | <a name="input_instance"></a> [instance](#input\_instance) | The environment instance for use if multiple environments are deployed to a subscription | `string` | `"001"` | no |
 | <a name="input_integration_subnet_id"></a> [integration\_subnet\_id](#input\_integration\_subnet\_id) | The id of the vnet integration subnet the app service is linked to for egress traffic | `string` | n/a | yes |
 | <a name="input_is_dr_deployment"></a> [is\_dr\_deployment](#input\_is\_dr\_deployment) | A flag to indicate whether or not the infrastructure deployment is for a disaster recovery scenario | `bool` | `false` | no |
@@ -106,7 +105,8 @@ This component contains the infrastructure required for the back office service.
 | <a name="input_primary_sql_server_id"></a> [primary\_sql\_server\_id](#input\_primary\_sql\_server\_id) | The ID of the primary Back Office SQL server | `string` | n/a | yes |
 | <a name="input_private_endpoint_enabled"></a> [private\_endpoint\_enabled](#input\_private\_endpoint\_enabled) | A switch to determine if Private Endpoint should be enabled for backend App Services | `bool` | `true` | no |
 | <a name="input_redis_cache_configuration"></a> [redis\_cache\_configuration](#input\_redis\_cache\_configuration) | A map of redis configuration options | `map(string)` | n/a | yes |
-| <a name="input_service_bus_config"></a> [service\_bus\_config](#input\_service\_bus\_config) | service bus configuration | <pre>object({<br>    default_topic_ttl            = string<br>    bo_internal_subscription_ttl = string<br>    bo_subscription_ttl          = string<br>    fo_subscription_ttl          = string<br>  })</pre> | n/a | yes |
+| <a name="input_sensitive_application_case_references"></a> [sensitive\_application\_case\_references](#input\_sensitive\_application\_case\_references) | List of case references for applications considered as sensitive | `string` | `""` | no |
+| <a name="input_service_bus_config"></a> [service\_bus\_config](#input\_service\_bus\_config) | service bus configuration | <pre>object({<br/>    default_topic_ttl            = string<br/>    bo_internal_subscription_ttl = string<br/>    bo_subscription_ttl          = string<br/>    fo_subscription_ttl          = string<br/>  })</pre> | n/a | yes |
 | <a name="input_service_bus_failover_enabled"></a> [service\_bus\_failover\_enabled](#input\_service\_bus\_failover\_enabled) | A switch to determine if Service Bus failover is enabled requiring the Premium SKU | `bool` | `false` | no |
 | <a name="input_servicebus_topic_nsip_documents_id"></a> [servicebus\_topic\_nsip\_documents\_id](#input\_servicebus\_topic\_nsip\_documents\_id) | Service Bus Topic nsip-document id | `string` | n/a | yes |
 | <a name="input_sql_database_configuration"></a> [sql\_database\_configuration](#input\_sql\_database\_configuration) | A map of database configuration options | `map(string)` | n/a | yes |

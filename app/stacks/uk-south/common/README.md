@@ -8,13 +8,13 @@ This component contains the common infrastructure required by each environment. 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.7, < 1.12.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 3.107.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | > 3.107.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.107.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 4.28.0 |
 
 ## Modules
 
@@ -27,9 +27,9 @@ This component contains the common infrastructure required by each environment. 
 
 | Name | Type |
 |------|------|
-| [azurerm_resource_group.common_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/resource_group) | resource |
-| [azurerm_service_plan.common_integration_functions_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/service_plan) | resource |
-| [azurerm_service_plan.common_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/3.107.0/docs/resources/service_plan) | resource |
+| [azurerm_resource_group.common_infrastructure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
+| [azurerm_service_plan.common_integration_functions_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan) | resource |
+| [azurerm_service_plan.common_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan) | resource |
 
 ## Inputs
 
@@ -41,7 +41,7 @@ This component contains the common infrastructure required by each environment. 
 | <a name="input_cosmosdb_enable_public_access"></a> [cosmosdb\_enable\_public\_access](#input\_cosmosdb\_enable\_public\_access) | A flag to indicate if the database can be accessed over the internet | `string` | `false` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment resources are deployed to e.g. 'dev' | `string` | n/a | yes |
 | <a name="input_instance"></a> [instance](#input\_instance) | The environment instance for use if multiple environments are deployed to a subscription | `string` | `"001"` | no |
-| <a name="input_integration_functions_app_service_plan_sku"></a> [integration\_functions\_app\_service\_plan\_sku](#input\_integration\_functions\_app\_service\_plan\_sku) | The SKU of the App Service Plan | `string` | `"P2v2"` | no |
+| <a name="input_integration_functions_app_service_plan_sku"></a> [integration\_functions\_app\_service\_plan\_sku](#input\_integration\_functions\_app\_service\_plan\_sku) | The SKU of the App Service Plan | `string` | `"P0v3"` | no |
 | <a name="input_internal_dns_name"></a> [internal\_dns\_name](#input\_internal\_dns\_name) | The name of the internal private dns zone | `string` | n/a | yes |
 | <a name="input_is_dr_deployment"></a> [is\_dr\_deployment](#input\_is\_dr\_deployment) | A flag to indicate whether or not the infrastructure deployment is for a disaster recovery scenario | `bool` | `false` | no |
 | <a name="input_location"></a> [location](#input\_location) | The location resources are deployed to in slug format e.g. 'uk-west' | `string` | `"uk-south"` | no |
