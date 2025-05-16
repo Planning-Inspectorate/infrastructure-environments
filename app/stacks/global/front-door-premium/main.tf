@@ -1,6 +1,6 @@
 module "azure_region_ukw" {
   source  = "claranet/regions/azurerm"
-  version = "7.2.1"
+  version = "8.0.2"
 
   azure_region = var.location
 }
