@@ -43,5 +43,6 @@ module "app_service" {
     auth_tenant_endpoint   = "https://login.microsoftonline.com/${data.azurerm_client_config.current.tenant_id}/v2.0"
     allowed_applications   = var.appeals_easy_auth_config.application_id
     allowed_audiences      = "https://${var.appeals_service_public_url}/.auth/login/aad/callback"
+    excluded_paths         = []
   }
 }
