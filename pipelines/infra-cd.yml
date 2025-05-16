@@ -103,7 +103,7 @@ extends:
           - name: Apply
             steps:
               #in prod, download and process blacklist file
-              - ${{ if eq(variables['ENVIRONMENT'], 'prod') }}:
+              - ${{ if eq(variables['ENVIRONMENT'], 'Prod') }}:
                 - task: DownloadSecureFile@1
                   name: downloadBlacklistFile
                   displayName: 'Download IP blacklist file'
