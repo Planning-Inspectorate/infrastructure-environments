@@ -15,10 +15,10 @@ This component contains the infrastructure required for the appeals service. Thi
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 4.19.0 |
-| <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 4.19.0 |
-| <a name="provider_random"></a> [random](#provider\_random) | 3.6.3 |
-| <a name="provider_time"></a> [time](#provider\_time) | 0.12.1 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 4.28.0 |
+| <a name="provider_azurerm.tooling"></a> [azurerm.tooling](#provider\_azurerm.tooling) | 4.28.0 |
+| <a name="provider_random"></a> [random](#provider\_random) | 3.7.2 |
+| <a name="provider_time"></a> [time](#provider\_time) | 0.13.1 |
 
 ## Modules
 
@@ -37,6 +37,7 @@ This component contains the infrastructure required for the appeals service. Thi
 | [azurerm_app_configuration.appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_configuration) | resource |
 | [azurerm_app_configuration_feature.appeals_service](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_configuration_feature) | resource |
 | [azurerm_application_insights.web_app_insights](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/application_insights) | resource |
+| [azurerm_application_insights_standard_web_test.portal](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/application_insights_standard_web_test) | resource |
 | [azurerm_cosmosdb_account.appeals_database](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account) | resource |
 | [azurerm_cosmosdb_mongo_collection.appeals_session_collection](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_mongo_collection) | resource |
 | [azurerm_cosmosdb_mongo_database.appeals_cosmosdb](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_mongo_database) | resource |
@@ -60,6 +61,7 @@ This component contains the infrastructure required for the appeals service. Thi
 | [azurerm_monitor_metric_alert.appeals_sql_db_deadlock_alert](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_monitor_metric_alert.appeals_sql_db_dtu_alert](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_monitor_metric_alert.appeals_sql_db_log_io_alert](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_metric_alert) | resource |
+| [azurerm_monitor_metric_alert.web_availability](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_monitor_scheduled_query_rules_alert_v2.web_app_insights](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_scheduled_query_rules_alert_v2) | resource |
 | [azurerm_mssql_database.appeals_sql_db](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_database) | resource |
 | [azurerm_mssql_server.appeals_sql_server](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server) | resource |
@@ -146,10 +148,12 @@ This component contains the infrastructure required for the appeals service. Thi
 | <a name="input_key_vault_uri"></a> [key\_vault\_uri](#input\_key\_vault\_uri) | The URI of the Key Vault | `string` | n/a | yes |
 | <a name="input_logger_level"></a> [logger\_level](#input\_logger\_level) | The level of logging enabled for applications in the environment e.g. info | `string` | `"info"` | no |
 | <a name="input_monitoring_alerts_enabled"></a> [monitoring\_alerts\_enabled](#input\_monitoring\_alerts\_enabled) | Indicates whether Azure Monitor alerts are enabled for App Service | `bool` | `false` | no |
+| <a name="input_monitoring_config"></a> [monitoring\_config](#input\_monitoring\_config) | Config for monitoring | <pre>object({<br/>    app_insights_web_test_enabled = bool<br/>  })</pre> | <pre>{<br/>  "app_insights_web_test_enabled": false<br/>}</pre> | no |
 | <a name="input_node_environment"></a> [node\_environment](#input\_node\_environment) | The node environment to be used for applications in this environment e.g. development | `string` | `"development"` | no |
 | <a name="input_primary_location"></a> [primary\_location](#input\_primary\_location) | The primary location resources are deployed to in slug format e.g. 'uk-south' | `string` | `"uk-west"` | no |
 | <a name="input_private_endpoint_enabled"></a> [private\_endpoint\_enabled](#input\_private\_endpoint\_enabled) | A switch to determine if Private Endpoint should be enabled for backend App Services | `bool` | `true` | no |
 | <a name="input_rule_6_enabled"></a> [rule\_6\_enabled](#input\_rule\_6\_enabled) | A switch to determine if rule 6 journeys are enabled | `bool` | `false` | no |
+| <a name="input_scoping_opinion_enabled"></a> [scoping\_opinion\_enabled](#input\_scoping\_opinion\_enabled) | A switch to determine if scoping opinion questions are enabled | `bool` | `false` | no |
 | <a name="input_secondary_location"></a> [secondary\_location](#input\_secondary\_location) | The secondary location resources are deployed to in slug format e.g. 'uk-west' | `string` | `"uk-south"` | no |
 | <a name="input_service_bus_config"></a> [service\_bus\_config](#input\_service\_bus\_config) | service bus configuration | <pre>object({<br/>    default_topic_ttl            = string<br/>    bo_internal_subscription_ttl = string<br/>    bo_subscription_ttl          = string<br/>    fo_subscription_ttl          = string<br/>  })</pre> | n/a | yes |
 | <a name="input_sql_database_configuration"></a> [sql\_database\_configuration](#input\_sql\_database\_configuration) | A map of database configuration options | `map(string)` | n/a | yes |
@@ -190,6 +194,7 @@ This component contains the infrastructure required for the appeals service. Thi
 | <a name="input_srv_notify_v2_appeal_submission_initial_confirmation_email_to_appellant_template_id"></a> [srv\_notify\_v2\_appeal\_submission\_initial\_confirmation\_email\_to\_appellant\_template\_id](#input\_srv\_notify\_v2\_appeal\_submission\_initial\_confirmation\_email\_to\_appellant\_template\_id) | A template ID required by the Appeals Service API | `string` | n/a | yes |
 | <a name="input_task_submit_to_horizon_cron_string"></a> [task\_submit\_to\_horizon\_cron\_string](#input\_task\_submit\_to\_horizon\_cron\_string) | Task to submit to horizon cron string | `string` | n/a | yes |
 | <a name="input_task_submit_to_horizon_trigger_active"></a> [task\_submit\_to\_horizon\_trigger\_active](#input\_task\_submit\_to\_horizon\_trigger\_active) | Task to submit to horizon trigger active | `string` | n/a | yes |
+| <a name="input_tooling_network_rg"></a> [tooling\_network\_rg](#input\_tooling\_network\_rg) | The resource group of the pins.internal private dns zone | `string` | n/a | yes |
 | <a name="input_tooling_subscription_id"></a> [tooling\_subscription\_id](#input\_tooling\_subscription\_id) | The ID for the Tooling subscription that houses the Container Registry | `string` | n/a | yes |
 
 ## Outputs

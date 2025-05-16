@@ -25,14 +25,15 @@ locals {
       }
     }
   ]
-  allow_testing_overrides                                                               = true
-  appeals_feature_back_office_subscriber_enabled                                        = true
-  comments_enabled                                                                      = true
-  rule_6_enabled                                                                        = true
-  google_analytics_id                                                                   = "G-HWLKLSJF53"
-  google_tag_manager_id                                                                 = "GTM-KZN7XP4"
-  horizon_url                                                                           = "http://10.0.7.4:8000"
-  monitoring_config                    = {
+  allow_testing_overrides                        = true
+  appeals_feature_back_office_subscriber_enabled = true
+  comments_enabled                               = true
+  rule_6_enabled                                 = true
+  scoping_opinion_enabled                        = true
+  google_analytics_id                            = "G-HWLKLSJF53"
+  google_tag_manager_id                          = "GTM-KZN7XP4"
+  horizon_url                                    = "http://10.0.7.4:8000"
+  monitoring_config = {
     app_insights_web_test_enabled = false
   }
   node_environment                                                                      = "production"
