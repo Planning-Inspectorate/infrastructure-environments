@@ -427,6 +427,12 @@ variable "rule_6_enabled" {
   default     = false
 }
 
+variable "scoping_opinion_enabled" {
+  description = "A switch to determine if scoping opinion questions are enabled"
+  type        = bool
+  default     = false
+}
+
 variable "service_bus_config" {
   description = "service bus configuration"
   type = object({
