@@ -161,12 +161,6 @@ variable "private_endpoint_enabled" {
   default     = true
 }
 
-variable "service_bus_failover_enabled" {
-  default     = false
-  description = "A switch to determine if Service Bus failover is enabled requiring the Premium SKU"
-  type        = bool
-}
-
 variable "sql_database_configuration" {
   description = "A map of database configuration options"
   type        = map(string)
@@ -246,6 +240,18 @@ variable "sb_topic_names" {
         nsip_s51_advice     = string
       })
     })
+  })
+}
+
+variable "service_bus_namespace_config" {
+  description = "service bus namespace configuration"
+  type = object({
+    sku                           = string
+    capacity                      = number
+    public_network_access_enabled = bool
+    private_endpoint_enabled      = bool
+    premium_messaging_partitions  = number
+    secondary_enabled             = bool
   })
 }
 
