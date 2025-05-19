@@ -68,7 +68,7 @@ locals {
     public_network_access_enabled = false
     private_endpoint_enabled      = true
     premium_messaging_partitions  = 1
-    secondary_enabled             = true
+    secondary_enabled             = false
   }
   sql_database_configuration = {
     max_size_gb               = 1024
