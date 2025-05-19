@@ -82,6 +82,17 @@ resource "azurerm_servicebus_subscription" "appeals_fo_event_topic_subscription"
   dead_lettering_on_message_expiration = true
 }
 
+# Appeals fo event estimate data topic subscription
+resource "azurerm_servicebus_subscription" "appeals_fo_event_estimate_topic_subscription" {
+  count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
+
+  name                                 = "appeal-event-estimate-fo-sub"
+  topic_id                             = var.service_bus_appeals_bo_event_estimate_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
+}
+
 # Appeals fo service user data topic subscription
 resource "azurerm_servicebus_subscription" "appeals_fo_service_user_topic_subscription" {
   count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
