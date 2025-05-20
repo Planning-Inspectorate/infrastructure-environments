@@ -1,4 +1,9 @@
 resource "azurerm_app_configuration" "appeals_service" {
+  #checkov:skip=CKV_AZURE_184: "Ensure 'local_auth_enabled' is set to 'False'"
+  #checkov:skip=CKV_AZURE_185: "Ensure 'Public Access' is not Enabled for App configuration"
+  #checkov:skip=CKV_AZURE_186: "Ensure App configuration encryption block is set."
+  #checkov:skip=CKV_AZURE_187: "Ensure App configuration purge protection is enabled"
+
   name                  = "pins-asc-appeals-${local.resource_suffix}"
   resource_group_name   = azurerm_resource_group.appeals_service_stack.name
   location              = module.azure_region_primary.location

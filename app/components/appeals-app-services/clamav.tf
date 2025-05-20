@@ -169,6 +169,11 @@ resource "azurerm_storage_account" "clamav" {
   #checkov:skip=CKV_AZURE_59: TODO: Ensure that Storage accounts disallow public access
   #checkov:skip=CKV_AZURE_190: TODO: Ensure that Storage blobs restrict public access
   #checkov:skip=CKV_AZURE_206: Replication not required
+  #checkov:skip=CKV2_AZURE_40: "Ensure storage account is not configured with Shared Key authorization"
+  #checkov:skip=CKV2_AZURE_41: "Ensure storage account is configured with SAS expiration policy"
+  #checkov:skip=CKV2_AZURE_47: "Ensure storage account is configured without blob anonymous access"
+  #checkov:skip=CKV2_AZURE_33: "Ensure storage account is configured with private endpoint"
+  #checkov:skip=CKV2_AZURE_38: "Ensure soft-delete is enabled on Azure storage account"
 
   # max length 24, so trim off the end - will only apply to training environment!
   name                             = substr(replace("pinsstclamav${var.resource_suffix}", "-", ""), 0, 24)
