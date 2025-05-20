@@ -1,5 +1,5 @@
 locals {
--  activate_planned_outage = "false"
+  activate_planned_outage = "false"
   apps_config = {
     app_service_plan = {
       sku                      = "P0v3"
