@@ -74,13 +74,15 @@ extends:
                   secureFile: 'ip_blacklist.json'
                   retryCount: 3
               - script: |
-                    echo "Reading ip_blacklist.json..."
-                    if [ -f "$(downloadBlacklistFile.secureFilePath)" ]; then
-                      echo "File exists. Copying ip_blacklist.json..."
-                      cp $(downloadBlacklistFile.secureFilePath) $(System.DefaultWorkingDirectory)/ip_blacklist.json
-                    else
-                      echo "File does not exist. Skipping copy."
-                    fi
+                  echo "Default working directory: $(System.DefaultWorkingDirectory)"
+                  echo "Reading ip_blacklist.json..."
+                  if [ -f "$(downloadBlacklistFile.secureFilePath)" ]; then
+                    echo "File exists. Copying ip_blacklist.json..."
+                    echo "command: cp $(downloadBlacklistFile.secureFilePath) $(System.DefaultWorkingDirectory)/ip_blacklist.json"
+                    cp $(downloadBlacklistFile.secureFilePath) $(System.DefaultWorkingDirectory)/ip_blacklist.json
+                  else
+                    echo "File does not exist. Skipping copy."
+                  fi
                 displayName: 'Copy IP blacklist file'
               - script: |
                   echo "##vso[build.addbuildtag]stack=${{ parameters.stack }}"
