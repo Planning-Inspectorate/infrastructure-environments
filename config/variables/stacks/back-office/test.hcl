@@ -71,10 +71,10 @@ locals {
     secondary_enabled             = false
   }
   sql_database_configuration = {
-    max_size_gb               = 1024
+    max_size_gb               = 250 # included
     short_term_retention_days = 7 # 7-35
     audit_retention_days      = 30
-    sku_name                  = "S3"
+    sku_name                  = "S0"
   }
   sql_server_azuread_administrator = {
     login_username = "pins-odt-sql-test-applications-bo"
