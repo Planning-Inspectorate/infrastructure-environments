@@ -78,8 +78,8 @@ extends:
                   echo "Reading ip_blacklist.json..."
                   if [ -f "$(downloadBlacklistFile.secureFilePath)" ]; then
                     echo "File exists. Copying ip_blacklist.json..."
-                    echo "command: cp $(downloadBlacklistFile.secureFilePath) $(System.DefaultWorkingDirectory)/ip_blacklist.json"
-                    cp $(downloadBlacklistFile.secureFilePath) $(System.DefaultWorkingDirectory)/ip_blacklist.json
+                    echo "command: cp $(downloadBlacklistFile.secureFilePath) ip_blacklist.json"
+                    cp $(downloadBlacklistFile.secureFilePath) ip_blacklist.json
                   else
                     echo "File does not exist. Skipping copy."
                   fi
