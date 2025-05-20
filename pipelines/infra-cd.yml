@@ -80,6 +80,8 @@ extends:
                     echo "File exists. Copying ip_blacklist.json..."
                     echo "command: cp $(downloadBlacklistFile.secureFilePath) ip_blacklist.json"
                     cp $(downloadBlacklistFile.secureFilePath) ip_blacklist.json
+                    echo "command: ls -l"
+                    ls -l
                   else
                     echo "File does not exist. Skipping copy."
                   fi
