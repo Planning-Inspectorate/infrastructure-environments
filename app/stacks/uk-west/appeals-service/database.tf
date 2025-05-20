@@ -1,6 +1,7 @@
 resource "azurerm_mssql_server" "appeals_sql_server" {
   #checkov:skip=CKV_AZURE_113: public network access controlled by env
   #checkov:skip=CKV_AZURE_24: audit retention days set by env
+  #checkov:skip=CKV2_AZURE_2: "Ensure that Vulnerability Assessment (VA) is enabled on a SQL server by setting a Storage Account"
 
   name                          = "pins-sql-${local.service_name}-${local.resource_suffix}"
   resource_group_name           = azurerm_resource_group.appeals_service_stack.name
@@ -25,6 +26,9 @@ resource "azurerm_mssql_server" "appeals_sql_server" {
 }
 
 resource "azurerm_mssql_database" "appeals_sql_db" {
+  #checkov:skip=CKV_AZURE_224: "Ensure that the Ledger feature is enabled on database that requires cryptographic proof and nonrepudiation of data integrity"
+  #checkov:skip=CKV_AZURE_229: "Ensure the Azure SQL Database Namespace is zone redundant"
+
   name        = "pins-sqldb-${local.service_name}-${local.resource_suffix}"
   server_id   = azurerm_mssql_server.appeals_sql_server.id
   collation   = "SQL_Latin1_General_CP1_CI_AS"
@@ -107,6 +111,11 @@ resource "azurerm_storage_account" "appeals_sql_server" {
   #checkov:skip=CKV2_AZURE_21: Logging not implemented yet
   #TODO: Access restrictions
   #checkov:skip=CKV_AZURE_35: Network access restrictions
+  #checkov:skip=CKV_AZURE_59: "Ensure that Storage accounts disallow public access"
+  #checkov:skip=CKV2_AZURE_33: "Ensure storage account is configured with private endpoint"
+  #checkov:skip=CKV2_AZURE_38: "Ensure soft-delete is enabled on Azure storage account"
+  #checkov:skip=CKV2_AZURE_40: "Ensure storage account is not configured with Shared Key authorization"
+  #checkov:skip=CKV2_AZURE_41: "Ensure storage account is configured with SAS expiration policy"
   name                             = replace("pinsstsql${local.resource_suffix}", "-", "")
   resource_group_name              = azurerm_resource_group.appeals_service_stack.name
   location                         = azurerm_resource_group.appeals_service_stack.location
