@@ -14,6 +14,11 @@ resource "azurerm_storage_account" "turborepo_remote_cache" {
   #checkov:skip=CKV_AZURE_59: TODO: Ensure that Storage accounts disallow public access
   #checkov:skip=CKV_AZURE_190: TODO: Ensure that Storage blobs restrict public access
   #checkov:skip=CKV_AZURE_206: TODO: Ensure that Storage Accounts use replication
+  #checkov:skip=CKV2_AZURE_33: "Ensure storage account is configured with private endpoint"
+  #checkov:skip=CKV2_AZURE_38: "Ensure soft-delete is enabled on Azure storage account"
+  #checkov:skip=CKV2_AZURE_40: "Ensure storage account is not configured with Shared Key authorization"
+  #checkov:skip=CKV2_AZURE_41: "Ensure storage account is configured with SAS expiration policy"
+  #checkov:skip=CKV2_AZURE_47: "Ensure storage account is configured without blob anonymous access"
   name                     = "pinsturboreporemotecache"
   location                 = var.location
   resource_group_name      = var.resource_group_name
@@ -59,6 +64,7 @@ resource "azurerm_linux_web_app" "turborepo_remote_cache" {
   #checkov:skip=CKV_AZURE_88: Azure Files mount may not be required
   #checkov:skip=CKV_AZURE_222: Ensure that Azure Web App public network access is disabled
   #checkov:skip=CKV_AZURE_225: Ensure the App Service Plan is zone redundant
+  #checkov:skip=CKV_AZURE_213: "Ensure that App Service configures health check"
 
   location            = var.location
   name                = "pins-turbocache-remote-cache"

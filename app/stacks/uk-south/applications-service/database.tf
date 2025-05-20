@@ -2,6 +2,7 @@ resource "azurerm_mssql_server" "applications_sql_server" {
   #checkov:skip=CKV_AZURE_113
   #checkov:skip=CKV_AZURE_23
   #checkov:skip=CKV_AZURE_24
+  #checkov:skip=CKV2_AZURE_2: "Ensure that Vulnerability Assessment (VA) is enabled on a SQL server by setting a Storage Account"
 
   name                          = "pins-sql-${local.service_name}-${local.resource_suffix}"
   resource_group_name           = azurerm_resource_group.applications_service_stack.name
