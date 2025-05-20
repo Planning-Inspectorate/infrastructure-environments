@@ -48,9 +48,9 @@ locals {
   srv_notify_subscription_create_email_template_id                      = "90437d7a-e153-4126-b65b-7ae36775fca2"
   srv_notify_subscription_create_email_template_id_welsh                = "6399f8d8-6684-4aff-bae9-6e4138a09cdf"
   sql_database_configuration = {
-    max_size_gb               = 1024
+    max_size_gb               = 250 # included
     short_term_retention_days = 7
-    sku_name                  = "S3"
+    sku_name                  = "S0"
   }
   sql_server_azuread_administrator = {
     login_username = "pins-odt-sql-training-applications-fo"
