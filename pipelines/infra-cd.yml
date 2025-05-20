@@ -125,6 +125,7 @@ extends:
                   secureFile: 'ip_blacklist.json'
                   retryCount: 3
               - script: |
+                  echo "Default working directory: $(System.DefaultWorkingDirectory)"
                   echo "Reading ip_blacklist.json..."
                   if [ -f "$(downloadBlacklistFile.secureFilePath)" ]; then
                     echo "File exists. Copying ip_blacklist.json..."
