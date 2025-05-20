@@ -96,6 +96,21 @@ extends:
                     stack: ${{ parameters.stack }}
                     subscriptionId: $(SUBSCRIPTION_ID)
                     workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.region }}/${{ parameters.stack }}
+              - task: DownloadSecureFile@1
+                name: downloadBlacklistFile
+                displayName: 'Download IP blacklist file'
+                inputs:
+                  secureFile: 'ip_blacklist.json'
+                  retryCount: 3
+              - script: |
+                    echo "Reading ip_blacklist.json..."
+                    if [ -f "$(downloadBlacklistFile.secureFilePath)" ]; then
+                      echo "File exists. Copying ip_blacklist.json..."
+                      cp $(downloadBlacklistFile.secureFilePath) $(System.DefaultWorkingDirectory)/ip_blacklist.json
+                    else
+                      echo "File does not exist. Skipping copy."
+                    fi
+                  displayName: 'Copy IP blacklist file'
       - name: Terraform Apply
         dependsOn:
           - Terraform Plan
@@ -108,6 +123,7 @@ extends:
                 displayName: 'Download IP blacklist file'
                 inputs:
                   secureFile: 'ip_blacklist.json'
+                  retryCount: 3
               - script: |
                   echo "Reading ip_blacklist.json..."
                   if [ -f "$(downloadBlacklistFile.secureFilePath)" ]; then
