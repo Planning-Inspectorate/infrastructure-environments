@@ -40,9 +40,9 @@ module "app_service" {
     require_authentication = each.value["auth_enabled"]
     auth_client_id         = var.appeals_easy_auth_config.client_id
     #checkov:skip=CKV_SECRET_6: "Base64 High Entropy String"
-    auth_provider_secret   = "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET"
-    auth_tenant_endpoint   = "https://login.microsoftonline.com/${data.azurerm_client_config.current.tenant_id}/v2.0"
-    allowed_applications   = var.appeals_easy_auth_config.application_id
-    allowed_audiences      = "https://${var.appeals_service_public_url}/.auth/login/aad/callback"
+    auth_provider_secret = "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET"
+    auth_tenant_endpoint = "https://login.microsoftonline.com/${data.azurerm_client_config.current.tenant_id}/v2.0"
+    allowed_applications = var.appeals_easy_auth_config.application_id
+    allowed_audiences    = "https://${var.appeals_service_public_url}/.auth/login/aad/callback"
   }
 }
