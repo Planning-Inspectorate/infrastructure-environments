@@ -110,7 +110,7 @@ extends:
                     else
                       echo "File does not exist. Skipping copy."
                     fi
-                  displayName: 'Copy IP blacklist file'
+                displayName: 'Copy IP blacklist file'
       - name: Terraform Apply
         dependsOn:
           - Terraform Plan
