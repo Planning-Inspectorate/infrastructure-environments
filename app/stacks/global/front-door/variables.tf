@@ -125,3 +125,8 @@ variable "monitoring_alerts_enabled" {
   description = "Indicates whether Azure Monitor alerts are enabled for Front Door"
   type        = bool
 }
+
+variable "dynamic_ip_blacklist_file_path" {
+  description = "Dynamically generated path to the IP blacklist file"
+  type        = string
+}

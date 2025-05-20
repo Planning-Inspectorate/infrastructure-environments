@@ -87,7 +87,12 @@ extends:
                   else
                     echo "File does not exist. Skipping copy."
                   fi
-                displayName: 'Copy IP blacklist file'
+              - task: TerraformCLI@0
+                inputs:
+                  command: 'apply'
+                  workingDirectory: '$(System.DefaultWorkingDirectory)'
+                  commandOptions: '-var dynamic_ip_blacklist_file_path=$(System.DefaultWorkingDirectory)/ip_blacklist.json'
+                displayName: 'Create IP blacklist file path'
               - script: |
                   echo "##vso[build.addbuildtag]stack=${{ parameters.stack }}"
                   echo "##vso[build.addbuildtag]region=${{ parameters.region }}"
@@ -141,6 +146,12 @@ extends:
                     echo "File does not exist. Skipping copy."
                   fi
                 displayName: 'Copy IP blacklist file'
+              - task: TerraformCLI@0
+                inputs:
+                  command: 'apply'
+                  workingDirectory: '$(System.DefaultWorkingDirectory)'
+                  commandOptions: '-var dynamic_ip_blacklist_file_path=$(System.DefaultWorkingDirectory)/ip_blacklist.json'
+                displayName: 'Create IP blacklist file path'
               - ${{ if eq(parameters.stack, 'all') }}:
                 - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_apply_all.yml@templates
                   parameters:
