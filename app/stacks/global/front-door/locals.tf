@@ -92,8 +92,8 @@ locals {
   # get the IPs from the ip_blacklist secure file
 
 
-  ip_blacklist_file_path = "${path.module}/ip_blacklist.json"
-  ip_blacklist_data = jsondecode(file(var.dynamic_ip_blacklist_file_path))
+  ip_blacklist_file_path = "downloads/waf/ip_blacklist.json"
+  ip_blacklist_data      = jsondecode(file(local.ip_blacklist_file_path))
 
   ip_blacklist = [
     for prefix in try(local.ip_blacklist_data.prefixes, [{ ipv4Prefix = "10.255.255.255" }]) :
