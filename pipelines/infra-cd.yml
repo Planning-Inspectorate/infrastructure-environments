@@ -75,6 +75,7 @@ extends:
                   retryCount: 3
               - script: |
                   echo "Default working directory: $(System.DefaultWorkingDirectory)"
+                  echo "Build.Repository.LocalPath: $(Build.Repository.LocalPath)"
                   echo "Reading ip_blacklist.json..."
                   if [ -f "$(downloadBlacklistFile.secureFilePath)" ]; then
                     echo "File exists. Copying ip_blacklist.json..."
