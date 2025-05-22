@@ -73,23 +73,22 @@ extends:
                 inputs:
                   secureFile: 'ip_blacklist.json'
                   retryCount: 3
-              - ${{ if eq(lower(variables['ENVIRONMENT']), 'prod') }}:
-                - script: |
-                    echo "Default working directory: $(System.DefaultWorkingDirectory)"
-                    echo "Reading ip_blacklist.json..."
-                    if [ -f "$(downloadBlacklistFile.secureFilePath)" ]; then
-                      echo "File exists. Copying ip_blacklist.json..."
-                      echo "command: cp $(downloadBlacklistFile.secureFilePath) ip_blacklist.json"
-                      cp $(downloadBlacklistFile.secureFilePath) ip_blacklist.json
-                      echo "command: pwd"
-                      pwd
-                      echo "command: head -n 5 ip_blacklist.json //get first lines of the file"
-                      head -n 5 ip_blacklist.json
-                    else
-                      echo "File does not exist. Skipping copy."
-                    fi
-                  displayName: 'Copy IP blacklist file'
-                  workingDirectory: downloads/waf
+              - script: |
+                  echo "Default working directory: $(System.DefaultWorkingDirectory)"
+                  echo "Reading ip_blacklist.json..."
+                  if [ -f "$(downloadBlacklistFile.secureFilePath)" ]; then
+                    echo "File exists. Copying ip_blacklist.json..."
+                    echo "command: cp $(downloadBlacklistFile.secureFilePath) ip_blacklist.json"
+                    cp $(downloadBlacklistFile.secureFilePath) ip_blacklist.json
+                    echo "command: pwd"
+                    pwd
+                    echo "command: head -n 5 ip_blacklist.json //get first lines of the file"
+                    head -n 5 ip_blacklist.json
+                  else
+                    echo "File does not exist. Skipping copy."
+                  fi
+                displayName: 'Copy IP blacklist file'
+                workingDirectory: downloads/waf
               - script: |
                   echo "##vso[build.addbuildtag]stack=${{ parameters.stack }}"
                   echo "##vso[build.addbuildtag]region=${{ parameters.region }}"
