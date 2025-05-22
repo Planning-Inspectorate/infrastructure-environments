@@ -92,7 +92,7 @@ locals {
   # get the IPs from the ip_blacklist secure file
 
 
-  ip_blacklist_file_path = "../../../../../../../../../downloads/waf/ip_blacklist.json"
+  ip_blacklist_file_path = abspath("../../../../../../../../../downloads/waf/ip_blacklist.json")
   ip_blacklist_data      = jsondecode(file(local.ip_blacklist_file_path))
 
   ip_blacklist = [
