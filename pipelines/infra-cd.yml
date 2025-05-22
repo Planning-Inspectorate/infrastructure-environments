@@ -87,7 +87,10 @@ extends:
                     ls -l
                     echo "command: head -n 5 ip_blacklist.json //get first lines of the file"
                     head -n 5 ip_blacklist.json
+                    echo "command:  mv ip_blacklist.json downloads/waf //move to downloads/waf"
                     mv ip_blacklist.json downloads/waf
+                    echo "command: ls -l downloads/waf //confirm moved ok"
+                    ls -l downloads/waf
                   else
                     echo "File does not exist. Skipping copy."
                   fi
