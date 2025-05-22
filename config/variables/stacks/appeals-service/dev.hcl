@@ -1,6 +1,30 @@
 locals {
   appeals_feature_flags = [
     {
+      name    = "adverts-appeal-form-v2"
+      enabled = true
+      targeting = {
+        percentage = 100
+        users      = ["Q1111"]
+      }
+    },
+    {
+      name    = "cas-adverts-appeal-form-v2"
+      enabled = true
+      targeting = {
+        percentage = 100
+        users      = ["Q1111"]
+      }
+    },
+    {
+      name    = "cas-planning-appeal-form-v2"
+      enabled = true
+      targeting = {
+        percentage = 100
+        users      = ["Q1111"]
+      }
+    },
+    {
       name    = "has-appeal-form-v2"
       enabled = true
       targeting = {
