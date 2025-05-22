@@ -81,13 +81,13 @@ extends:
                     echo "File exists. Copying ip_blacklist.json..."
                     echo "command: cp $(downloadBlacklistFile.secureFilePath) ip_blacklist.json"
                     cp $(downloadBlacklistFile.secureFilePath) ip_blacklist.json
-                    mv ip_blacklist.json downloads/waf
                     echo "command: pwd"
                     pwd
                     echo "command: ls -l"
                     ls -l
                     echo "command: head -n 5 ip_blacklist.json //get first lines of the file"
                     head -n 5 ip_blacklist.json
+                    mv ip_blacklist.json downloads/waf
                   else
                     echo "File does not exist. Skipping copy."
                   fi
