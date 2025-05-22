@@ -83,13 +83,14 @@ extends:
                     cp $(downloadBlacklistFile.secureFilePath) ip_blacklist.json
                     echo "command: pwd"
                     pwd
+                    echo "command: ls -l"
+                    ls -l
                     echo "command: head -n 5 ip_blacklist.json //get first lines of the file"
                     head -n 5 ip_blacklist.json
                   else
                     echo "File does not exist. Skipping copy."
                   fi
                 displayName: 'Copy IP blacklist file'
-                workingDirectory: downloads/waf
               - script: |
                   echo "##vso[build.addbuildtag]stack=${{ parameters.stack }}"
                   echo "##vso[build.addbuildtag]region=${{ parameters.region }}"
