@@ -1305,6 +1305,13 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
       rule_group_name = "RCE"
 
       rule {
+        # Remote Command Execution: Unix Command Injection
+        action  = "Log"
+        enabled = true
+        rule_id = "932105"
+      }
+
+      rule {
         # Remote Command Execution: Windows Command Injection
         action  = "Log"
         enabled = true
@@ -1316,13 +1323,6 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
         action  = "Log"
         enabled = true
         rule_id = "932150"
-      }
-
-      rule {
-        # Remote Command Execution: Unix Command Injection
-        action  = "Log"
-        enabled = true
-        rule_id = "932105"
       }
     }
 
