@@ -89,6 +89,22 @@ locals {
     search_indexing = false
   }]
 
+  # get the IPs from the ip_blacklist secure file
+
+  ip_blacklist_file_path = "${path.module}/ip_blacklist.json"
+  ip_blacklist_data = try(
+    jsondecode(file(local.ip_blacklist_file_path)),
+    []
+  )
+  ip_blacklist = [
+    for prefix in try(local.ip_blacklist_data.prefixes, [{ ipv4Prefix = "10.255.255.255" }]) :
+    lookup(
+      prefix,
+      "ipv4Prefix",
+      lookup(prefix, "ipv6Prefix", null)
+    )
+  ]
+
   # This variable is used in a bash script to loop through some Azure CLI commands that cannot conflict
   # We cannot use a terraform for_each loop for the null_resource since these all run in parallel. Hence the loop is done within the command
   # Bash requires a space separate string to loop through.

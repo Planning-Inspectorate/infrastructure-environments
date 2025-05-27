@@ -446,6 +446,22 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
   }
 
   custom_rule {
+    name     = "IpBlacklist"
+    action   = "Block"
+    enabled  = true
+    priority = 11
+    type     = "MatchRule"
+
+    match_condition {
+      match_variable     = "RemoteAddr"
+      operator           = "IPMatch"
+      negation_condition = false
+      match_values       = local.ip_blacklist
+    }
+  }
+
+
+  custom_rule {
     name                           = "RateLimitHttpRequest"
     action                         = "Block"
     enabled                        = true

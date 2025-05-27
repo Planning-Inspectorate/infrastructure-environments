@@ -25,6 +25,7 @@ module "app_services" {
   container_registry_rg                                                                 = var.container_registry_rg
   comments_enabled                                                                      = var.comments_enabled
   rule_6_enabled                                                                        = var.rule_6_enabled
+  scoping_opinion_enabled                                                               = var.scoping_opinion_enabled
   endpoint_subnet_id                                                                    = azurerm_subnet.appeals_service_ingress.id
   function_apps_storage_account                                                         = var.function_apps_storage_account
   function_apps_storage_account_access_key                                              = var.function_apps_storage_account_access_key

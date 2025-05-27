@@ -30,6 +30,7 @@ override.tf.json
 .vscode
 *.iml
 **/*.swp
+.venv
 
 # Pre-commit hooks
 providers-tmp.tf

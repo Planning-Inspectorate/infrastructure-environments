@@ -62,7 +62,14 @@ locals {
     capacity = 1
     sku_name = "Standard"
   }
-  service_bus_failover_enabled = true
+  service_bus_namespace_config = {
+    sku                           = "Premium"
+    capacity                      = 1
+    public_network_access_enabled = false
+    private_endpoint_enabled      = true
+    premium_messaging_partitions  = 1
+    secondary_enabled             = false
+  }
   sql_database_configuration = {
     max_size_gb               = 1024
     short_term_retention_days = 30 # 7-35

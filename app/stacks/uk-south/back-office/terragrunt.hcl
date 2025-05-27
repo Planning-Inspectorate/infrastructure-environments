@@ -122,7 +122,6 @@ inputs = {
   integration_subnet_id                                                               = dependency.common_uks.outputs.integration_subnet_id
   key_vault_id                                                                        = dependency.common_ukw.outputs.key_vault_id
   key_vault_uri                                                                       = dependency.common_ukw.outputs.key_vault_uri
-  primary_service_bus_namespace_id                                                    = dependency.back_office_ukw.outputs.service_bus_namespace_id
   primary_sql_server_id                                                               = dependency.back_office_ukw.outputs.sql_server_id
   servicebus_topic_nsip_documents_id                                                  = dependency.back_office_ukw.outputs.servicebus_topic_nsip_documents_id
   sql_server_password                                                                 = dependency.back_office_ukw.outputs.sql_server_password

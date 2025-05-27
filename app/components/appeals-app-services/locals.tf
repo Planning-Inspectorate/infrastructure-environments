@@ -31,6 +31,7 @@ locals {
         CLIENT_SECRET                             = local.secret_refs["appeals-forms-web-app-client-secret"]
         COMMENTS_ENABLED                          = var.comments_enabled
         RULE_6_ENABLED                            = var.rule_6_enabled
+        SCOPING_OPINION_ENABLED                   = var.scoping_opinion_enabled
         DOCS_API_PATH                             = "/opt/app/api"
         DOCUMENTS_SERVICE_API_TIMEOUT             = var.api_timeout
         DOCUMENTS_SERVICE_API_URL                 = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net/"

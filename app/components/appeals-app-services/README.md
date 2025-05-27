@@ -31,6 +31,7 @@ This module also contains some resources such as Service Bus and Function Apps r
 | Name | Type |
 |------|------|
 | [azurerm_container_group.clamav](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_group) | resource |
+| [azurerm_monitor_metric_alert.clamav_cpu](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_monitor_metric_alert.clamav_memory](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_metric_alert) | resource |
 | [azurerm_private_dns_a_record.clamav](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_a_record) | resource |
 | [azurerm_role_assignment.app_configuration_access](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
@@ -110,6 +111,7 @@ This module also contains some resources such as Service Bus and Function Apps r
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the resource group that will contain the App Services | `string` | n/a | yes |
 | <a name="input_resource_suffix"></a> [resource\_suffix](#input\_resource\_suffix) | The suffix for resource naming | `string` | n/a | yes |
 | <a name="input_rule_6_enabled"></a> [rule\_6\_enabled](#input\_rule\_6\_enabled) | A switch to determine if rule 6 journeys are enabled | `bool` | `false` | no |
+| <a name="input_scoping_opinion_enabled"></a> [scoping\_opinion\_enabled](#input\_scoping\_opinion\_enabled) | A switch to determine if scoping opinion questions are enabled | `bool` | `false` | no |
 | <a name="input_service_bus_appeal_fo_representation_submission_topic_id"></a> [service\_bus\_appeal\_fo\_representation\_submission\_topic\_id](#input\_service\_bus\_appeal\_fo\_representation\_submission\_topic\_id) | ID for the appeals fo representation submission topic | `string` | n/a | yes |
 | <a name="input_service_bus_appeal_representation_topic_id"></a> [service\_bus\_appeal\_representation\_topic\_id](#input\_service\_bus\_appeal\_representation\_topic\_id) | ID for the appeals fo representation topic | `string` | n/a | yes |
 | <a name="input_service_bus_appeals_bo_document_topic_id"></a> [service\_bus\_appeals\_bo\_document\_topic\_id](#input\_service\_bus\_appeals\_bo\_document\_topic\_id) | ID for the appeals case data topic | `string` | n/a | yes |
@@ -159,6 +161,8 @@ This module also contains some resources such as Service Bus and Function Apps r
 | <a name="input_tags"></a> [tags](#input\_tags) | The tags applied to all resources | `map(string)` | n/a | yes |
 | <a name="input_task_submit_to_horizon_cron_string"></a> [task\_submit\_to\_horizon\_cron\_string](#input\_task\_submit\_to\_horizon\_cron\_string) | Task to submit to horizon cron string | `string` | n/a | yes |
 | <a name="input_task_submit_to_horizon_trigger_active"></a> [task\_submit\_to\_horizon\_trigger\_active](#input\_task\_submit\_to\_horizon\_trigger\_active) | Task to submit to horizon trigger active | `string` | n/a | yes |
+| <a name="input_tooling_network_rg"></a> [tooling\_network\_rg](#input\_tooling\_network\_rg) | The resource group of the pins.internal private dns zone | `string` | n/a | yes |
+| <a name="input_tooling_subscription_id"></a> [tooling\_subscription\_id](#input\_tooling\_subscription\_id) | The subscription containing the shared tooling resources | `string` | n/a | yes |
 
 ## Outputs
 

@@ -63,12 +63,19 @@ locals {
     capacity = 1
     sku_name = "Standard"
   }
-  service_bus_failover_enabled = false
+  service_bus_namespace_config = {
+    sku                           = "Standard"
+    capacity                      = 0
+    public_network_access_enabled = true
+    private_endpoint_enabled      = false
+    premium_messaging_partitions  = 0
+    secondary_enabled             = false
+  }
   sql_database_configuration = {
-    max_size_gb               = 1024
+    max_size_gb               = 250 # included
     short_term_retention_days = 30 # 7-35
     audit_retention_days      = 120
-    sku_name                  = "S3"
+    sku_name                  = "S0"
   }
   sql_server_azuread_administrator = {
     login_username = "pins-odt-sql-training-applications-bo"

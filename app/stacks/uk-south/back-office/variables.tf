@@ -187,11 +187,6 @@ variable "private_endpoint_enabled" {
   default     = true
 }
 
-variable "primary_service_bus_namespace_id" {
-  description = "The ID of the primary Service Bus Namespace"
-  type        = string
-}
-
 variable "primary_sql_server_id" {
   description = "The ID of the primary Back Office SQL server"
   type        = string
@@ -201,12 +196,6 @@ variable "sensitive_application_case_references" {
   description = "List of case references for applications considered as sensitive"
   type        = string
   default     = ""
-}
-
-variable "service_bus_failover_enabled" {
-  default     = false
-  description = "A switch to determine if Service Bus failover is enabled requiring the Premium SKU"
-  type        = bool
 }
 
 variable "sql_server_azuread_administrator" {
@@ -289,6 +278,18 @@ variable "redis_cache_configuration" {
 variable "sql_database_configuration" {
   description = "A map of database configuration options"
   type        = map(string)
+}
+
+variable "service_bus_namespace_config" {
+  description = "service bus namespace configuration"
+  type = object({
+    sku                           = string
+    capacity                      = number
+    public_network_access_enabled = bool
+    private_endpoint_enabled      = bool
+    premium_messaging_partitions  = number
+    secondary_enabled             = bool
+  })
 }
 
 variable "service_bus_config" {
