@@ -72,6 +72,13 @@ resource "azurerm_container_group" "clamav" {
     protocol = "TCP"
   }
 
+  diagnostics {
+    log_analytics {
+      workspace_id  = var.log_analytics_workspace_uuid
+      workspace_key = var.log_analytics_workspace_key
+    }
+  }
+
   tags = var.tags
 }
 
