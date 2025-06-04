@@ -29,7 +29,7 @@ locals {
       enabled = true
       targeting = {
         percentage = 100
-        users      = ["Q1111", "N5090", "E5330", "G5180", "B5480", "L5810"]
+        users      = ["Q1111", "N5090", "E5330", "G5180", "B5480", "L5810", "P3800", "P1750", "J1725", "E3335"]
       }
     },
     {
@@ -45,7 +45,7 @@ locals {
       enabled = true
       targeting = {
         percentage = 100
-        users      = ["Q1111", "N5090", "E5330", "G5180", "B5480", "L5810"]
+        users      = ["Q1111", "N5090", "E5330", "G5180", "B5480", "L5810", "P3800", "P1750", "J1725", "E3335"]
       }
     }
   ]
