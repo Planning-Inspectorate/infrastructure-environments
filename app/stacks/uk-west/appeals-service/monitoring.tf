@@ -4,6 +4,7 @@ resource "azurerm_log_analytics_workspace" "appeals_service" {
   location            = azurerm_resource_group.appeals_service_stack.location
   sku                 = "PerGB2018"
   retention_in_days   = 30
+  daily_quota_gb      = 1
 
   tags = local.tags
 }
