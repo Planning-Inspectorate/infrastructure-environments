@@ -13,7 +13,7 @@ resource "azurerm_container_group" "clamav" {
 
   container {
     name   = "clamav"
-    image  = "clamav/clamav:latest_base"
+    image  = "clamav/clamav:1.4_base"
     cpu    = "1"
     memory = "6"
 
