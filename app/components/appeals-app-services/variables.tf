@@ -149,6 +149,17 @@ variable "log_analytics_workspace_id" {
   type        = string
 }
 
+variable "log_analytics_workspace_uuid" {
+  description = "The UUID of the Azure Monitor Log Analytics Workspace"
+  type        = string
+}
+
+variable "log_analytics_workspace_key" {
+  description = "The key of the Azure Monitor Log Analytics Workspace"
+  type        = string
+  sensitive   = true
+}
+
 variable "logger_level" {
   description = "The level of logging enabled for applications in the environment e.g. info"
   type        = string

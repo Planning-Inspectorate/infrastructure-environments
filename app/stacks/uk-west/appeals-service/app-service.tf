@@ -37,6 +37,8 @@ module "app_services" {
   key_vault_uri                                                                         = var.key_vault_uri
   location                                                                              = module.azure_region_primary.location
   log_analytics_workspace_id                                                            = azurerm_log_analytics_workspace.appeals_service.id
+  log_analytics_workspace_uuid                                                          = azurerm_log_analytics_workspace.appeals_service.workspace_id
+  log_analytics_workspace_key                                                           = azurerm_log_analytics_workspace.appeals_service.primary_shared_key
   logger_level                                                                          = var.logger_level
   monitoring_alerts_enabled                                                             = var.monitoring_alerts_enabled
   node_environment                                                                      = var.node_environment
