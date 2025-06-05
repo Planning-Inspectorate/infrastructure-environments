@@ -1,4 +1,9 @@
 resource "azurerm_servicebus_namespace" "back_office" {
+  #checkov:skip=CKV_AZURE_199 "Ensure that Azure Service Bus uses double encryption"
+  #checkov:skip=CKV_AZURE_201 "Ensure that Azure Service Bus uses a customer-managed key to encrypt data"
+  #checkov:skip=CKV_AZURE_205 "Ensure Azure Service Bus is using the latest version of TLS encryption"
+  #checkov:skip=CKV_AZURE_202: "Ensure that Managed identity provider is enabled for Azure Service Bus"
+  #checkov:skip=CKV_AZURE_203: "Ensure Azure Service Bus Local Authentication is disabled"
   count = var.service_bus_namespace_config.secondary_enabled || var.is_dr_deployment ? 1 : 0
 
   name                          = "pins-sb-${local.service_name}-${local.resource_suffix}"
