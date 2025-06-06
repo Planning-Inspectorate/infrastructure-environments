@@ -13,9 +13,9 @@ resource "azurerm_container_group" "clamav" {
 
   container {
     name   = "clamav"
-    image  = "clamav/clamav:latest_base"
+    image  = "clamav/clamav:1.4_base"
     cpu    = "1"
-    memory = "4"
+    memory = "6"
 
     volume {
       name       = "clamav-db"
@@ -70,6 +70,13 @@ resource "azurerm_container_group" "clamav" {
   exposed_port {
     port     = 7357
     protocol = "TCP"
+  }
+
+  diagnostics {
+    log_analytics {
+      workspace_id  = var.log_analytics_workspace_uuid
+      workspace_key = var.log_analytics_workspace_key
+    }
   }
 
   tags = var.tags
