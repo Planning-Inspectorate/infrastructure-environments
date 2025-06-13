@@ -3,6 +3,6 @@
 for stack in app/stacks/*/*; do
     echo "init $stack"
     cd $stack
-    terraform init --upgrade
+    terraform init
     cd ../../../..
 done
