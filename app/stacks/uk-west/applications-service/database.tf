@@ -179,3 +179,42 @@ resource "azurerm_monitor_metric_alert" "applications_sql_db_deadlock_alert" {
 
   tags = local.tags
 }
+
+resource "azurerm_mssql_server_extended_auditing_policy" "applications_sql_db_auditing_policy" {
+  server_id                  = azurerm_mssql_server.applications_sql_server.id
+  storage_endpoint           = data.azurerm_storage_account.applications_storage_account.primary_blob_endpoint
+  storage_account_access_key = data.azurerm_storage_account.applications_storage_account.primary_access_key
+  retention_in_days          = 6
+  log_monitoring_enabled     = false
+  depends_on = [
+    data.azurerm_storage_account.applications_storage_account,
+  ]
+}
+
+resource "azurerm_mssql_server_security_alert_policy" "applications_sql_db_alert_policy" {
+  resource_group_name  = azurerm_resource_group.applications_service_stack.name
+  server_name          = azurerm_mssql_server.applications_sql_server.name
+  state                = "Enabled"
+  email_account_admins = true
+  email_addresses      = ["Emil.Placheta@planninginspectorate.gov.uk"]
+}
+
+resource "azurerm_mssql_server_vulnerability_assessment" "example" {
+  server_security_alert_policy_id = azurerm_mssql_server_security_alert_policy.applications_sql_db_alert_policy.id
+  storage_container_path          = "${data.azurerm_storage_account.applications_storage_account.primary_blob_endpoint}${data.azurerm_storage_account.applications_storage_account.name}/"
+  storage_account_access_key      = data.azurerm_storage_account.applications_storage_account.primary_access_key
+
+  recurring_scans {
+    enabled                   = true
+    email_subscription_admins = true
+    emails = [
+      "Benjamin.Jacobs@planninginspectorate.gov.uk",
+      "Emil.Placheta@planninginspectorate.gov.uk"
+    ]
+  }
+}
+
+resource "azurerm_advanced_threat_protection" "application_threat_protection" {
+  target_resource_id = data.azurerm_storage_account.applications_storage_account.id
+  enabled            = true
+}
