@@ -54,7 +54,7 @@ locals {
   appeals_frontend_file_upload_debug_logging_enabled = false
   comments_enabled                                   = true
   rule_6_enabled                                     = false
-  scoping_opinion_enabled                            = false
+  scoping_opinion_enabled                            = true
   google_analytics_id                                = "G-HWLKLSJF53"
   google_tag_manager_id                              = "GTM-KZN7XP4"
   horizon_url                                        = "http://10.0.7.4:8000"
