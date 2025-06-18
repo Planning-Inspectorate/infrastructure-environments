@@ -50,6 +50,7 @@ locals {
   sql_database_configuration = {
     max_size_gb               = 2
     short_term_retention_days = 7
+    audit_retention_days      = 7
     sku_name                  = "Basic"
   }
   sql_server_azuread_administrator = {
