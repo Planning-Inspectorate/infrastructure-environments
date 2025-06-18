@@ -42,6 +42,14 @@ resource "azurerm_role_assignment" "appeals_fo_event_service_bus_role" {
   principal_id         = module.front_office_subscribers[0].principal_id
 }
 
+resource "azurerm_role_assignment" "appeals_fo_event_estimate_service_bus_role" {
+  count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
+
+  scope                = azurerm_servicebus_subscription.appeals_fo_event_estimate_topic_subscription[0].id
+  role_definition_name = "Azure Service Bus Data Receiver"
+  principal_id         = module.front_office_subscribers[0].principal_id
+}
+
 resource "azurerm_role_assignment" "appeals_fo_service_user_service_bus_role" {
   count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
 
