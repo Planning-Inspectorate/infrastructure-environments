@@ -9,6 +9,17 @@ variable "action_group_ids" {
   })
 }
 
+variable "action_group_names" {
+  description = "The names of the Azure Monitor action groups for different alert types"
+  type = object({
+    applications-fo-tech            = string,
+    applications-fo-service-manager = string,
+    iap                             = string,
+    its                             = string,
+    info_sec                        = string
+  })
+}
+
 variable "activate_planned_outage" {
   description = "A flag to indicate whether or not to activate the planned outage page"
   type        = bool
