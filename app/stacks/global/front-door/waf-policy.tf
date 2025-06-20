@@ -1284,6 +1284,13 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
       rule_group_name = "RCE"
 
       rule {
+        # Remote Command Execution: Windows Command Injection
+        action  = "Log"
+        enabled = true
+        rule_id = "932110"
+      }
+
+      rule {
         # Remote Command Execution: Direct Unix Command Execution
         action  = "Log"
         enabled = true
