@@ -972,16 +972,9 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
 
       rule {
         # Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link
-        action  = "Block"
+        action  = "Log"
         enabled = true
         rule_id = "931130"
-
-        exclusion {
-          # Exclusion to fix BOAS-153
-          match_variable = "RequestBodyPostArgNames" # PostParamValue:applicant.website
-          operator       = "Equals"
-          selector       = "applicant.website"
-        }
       }
     }
 
