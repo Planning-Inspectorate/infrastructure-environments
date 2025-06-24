@@ -50,7 +50,7 @@ locals {
     }
   ]
 
-  sensitive_application_case_references = ""
+  sensitive_application_case_references = "TR020003"
 
   node_environment                    = "production"
   api_key_vault_authorization_enabled = "true"
