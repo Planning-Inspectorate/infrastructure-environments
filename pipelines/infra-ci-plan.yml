@@ -28,6 +28,12 @@ extends:
             isDeployment: false
             timeoutInMinutes: 30
             steps:
+              # Remove front-door and front-door-https stacks from plan when running in non-production environments
+              # now covered by individual projects with front door premium
+              - script: |
+                  rm -rf $(System.DefaultWorkingDirectory)/app/stacks/global/front-door
+                  rm -rf $(System.DefaultWorkingDirectory)/app/stacks/global/front-door-https
+                displayName: 'Remove front-door classic stacks from plan'
               - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan_all.yml@templates
                 parameters:
                   artifactName: terraform-config-files
