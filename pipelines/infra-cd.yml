@@ -76,6 +76,7 @@ extends:
               - script: |
                   if [ "$(ENVIRONMENT)" != "prod" ]; then
                     echo "Removing front-door and front-door-https stacks from plan for non-production environment"
+                    rm -rf $(System.DefaultWorkingDirectory)/app/stacks/global/back-office
                     rm -rf $(System.DefaultWorkingDirectory)/app/stacks/global/front-door
                     rm -rf $(System.DefaultWorkingDirectory)/app/stacks/global/front-door-https
                   fi
