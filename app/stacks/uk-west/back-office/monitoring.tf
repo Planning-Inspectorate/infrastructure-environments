@@ -40,7 +40,7 @@ resource "azurerm_monitor_diagnostic_setting" "back_office_sql_database" {
 
 resource "azurerm_monitor_diagnostic_setting" "back_office_documents" {
   name                       = "pins-documents-${local.service_name}-${local.resource_suffix}"
-  target_resource_id         = azurerm_storage_account.back_office_documents.id
+  target_resource_id         = "${azurerm_storage_account.back_office_documents.id}/blobServices/default"
   log_analytics_workspace_id = azurerm_log_analytics_workspace.back_office.id
 
   enabled_log {
