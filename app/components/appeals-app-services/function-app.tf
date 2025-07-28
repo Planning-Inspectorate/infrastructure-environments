@@ -33,6 +33,23 @@ module "front_office_subscribers" {
     CLIENT_SECRET = local.secret_refs["appeals-function-client-secret"]
     AUTH_BASE_URL = "https://${module.app_service["auth_server"].default_site_hostname}"
 
+    # service bus topics
+    SB_TOPIC_NAME_APPEAL_HAS            = var.service_bus_topic.topic.appeal_has
+    SB_TOPIC_NAME_APPEAL_S78            = var.service_bus_topic.topic.appeal_s78
+    SB_TOPIC_NAME_APPEAL_DOCUMENT       = var.service_bus_topic.topic.document
+    SB_TOPIC_NAME_APPEAL_EVENT          = var.service_bus_topic.topic.event
+    SB_TOPIC_NAME_APPEAL_SERVICE_USER   = var.service_bus_topic.topic.service_user
+    SB_TOPIC_NAME_LISTED_BUILDING       = var.service_bus_topic.topic.listed_building
+    SB_TOPIC_NAME_APPEAL_REPRESENTATION = var.service_bus_topic.topic.appeal_representation
+
+    # service bus subscriptions
+    SB_SUBSCRIPTION_NAME_APPEAL_HAS            = try(azurerm_servicebus_subscription.appeals_fo_has_case_topic_subscription[0].name, "")
+    SB_SUBSCRIPTION_NAME_APPEAL_S78            = try(azurerm_servicebus_subscription.appeals_fo_s78_case_topic_subscription[0].name, "")
+    SB_SUBSCRIPTION_NAME_APPEAL_DOCUMENT       = try(azurerm_servicebus_subscription.appeals_fo_document_topic_subscription[0].name, "")
+    SB_SUBSCRIPTION_NAME_APPEAL_EVENT          = try(azurerm_servicebus_subscription.appeals_fo_event_topic_subscription[0].name, "")
+    SB_SUBSCRIPTION_NAME_APPEAL_SERVICE_USER   = try(azurerm_servicebus_subscription.appeals_fo_service_user_topic_subscription[0].name, "")
+    SB_SUBSCRIPTION_NAME_LISTED_BUILDING       = try(azurerm_servicebus_subscription.appeals_fo_listed_building_topic_subscription[0].name, "")
+    SB_SUBSCRIPTION_NAME_APPEAL_REPRESENTATION = try(azurerm_servicebus_subscription.appeals_fo_appeal_representation_topic_subscription[0].name, "")
   }
 
   tags = var.tags

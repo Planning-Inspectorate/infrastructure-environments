@@ -101,6 +101,7 @@ module "app_services" {
   appeals_frontend_file_upload_debug_logging_enabled                                    = var.appeals_frontend_file_upload_debug_logging_enabled
   service_bus_config                                                                    = var.service_bus_config
   appeals_easy_auth_config                                                              = var.appeals_easy_auth_config
+  service_bus_topic                                                                     = var.service_bus_topic
 
   tags = local.tags
 

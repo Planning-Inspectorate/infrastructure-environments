@@ -2,7 +2,7 @@ locals {
   service_name    = "appeals-service"
   resource_suffix = "${var.environment}-${module.azure_region_primary.location_short}-${var.instance}"
   # keep the suffix short for training env, as it can only be upto 24 characters total for azurerm_storage_account
-  storage_resource_suffix = var.environment == "training" ? "${var.environment}-${module.azure_region_primary.location_short}" : local.resource_suffix
+  storage_resource_suffix = var.environment == "training" || var.environment == "staging" ? "${var.environment}-${module.azure_region_primary.location_short}" : local.resource_suffix
 
   sql_server_username_admin = "pins-sql-${local.service_name}-${local.resource_suffix}-admin-${random_id.username_suffix_admin.id}"
   sql_server_username_app   = "pins-sql-${local.service_name}-${local.resource_suffix}-app-${random_id.username_suffix_app.id}"
