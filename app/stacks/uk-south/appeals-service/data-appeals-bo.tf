@@ -4,7 +4,7 @@
 locals {
   appeals_bo_config = {
     resource_group_name   = "pins-rg-appeals-bo-${var.environment}"
-    service_bus_namespace = "pins-sb-appeals-bo-${var.environment}"
+    service_bus_namespace = var.environment == "staging" ? "pins-sb-appeals-bo-test" : "pins-sb-appeals-bo-${var.environment}"
     documents_container   = "appeals-bo-documents"
   }
 
