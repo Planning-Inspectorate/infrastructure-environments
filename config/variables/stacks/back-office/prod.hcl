@@ -39,6 +39,14 @@ locals {
         percentage = 100
         users      = []
       }
+    },
+    {
+      name    = "azure-ai-language-redaction",
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = []
+      }
     }
   ]
 
@@ -88,4 +96,8 @@ locals {
   applications_front_office_web_url      = "https://national-infrastructure-consenting.planninginspectorate.gov.uk"
   odw_synapse_integration_enabled        = true
   back_office_published_documents_domain = "https://nsip-documents.planninginspectorate.gov.uk"
+
+  text_analytics_config = {
+    deploy = true # use service-specific instance
+  }
 }

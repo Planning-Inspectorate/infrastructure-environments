@@ -39,6 +39,14 @@ locals {
         percentage = 100
         users      = []
       }
+    },
+    {
+      name    = "azure-ai-language-redaction",
+      enabled = true
+      targeting = {
+        percentage = 100
+        users      = ["BC0110001", "BC0110002", "BC0110003"]
+      }
     }
   ]
 
@@ -88,4 +96,8 @@ locals {
   applications_front_office_web_url      = "https://applications-service-dev.planninginspectorate.gov.uk"
   odw_synapse_integration_enabled        = true
   back_office_published_documents_domain = "https://back-office-applications-docs-dev.planninginspectorate.gov.uk"
+
+  text_analytics_config = {
+    deploy = false # use tooling subscription shared instance
+  }
 }
