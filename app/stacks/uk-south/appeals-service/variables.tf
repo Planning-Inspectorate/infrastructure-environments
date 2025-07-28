@@ -59,6 +59,23 @@ variable "appeals_easy_auth_config" {
     application_id   = string
   })
 }
+
+variable "appeals_vnet_staging" {
+  description = "Appeals staging vnet peering flags for appeals back office test"
+  type = object({
+    fo_network_name = string
+    fo_rg           = string
+    bo_network_name = string
+    bo_rg           = string
+  })
+  default = {
+    fo_network_name = "pins-vnet-common-staging-uks-001"
+    fo_rg           = "pins-rg-common-staging-uks-001"
+    bo_network_name = "pins-vnet-appeals-bo-test"
+    bo_rg           = "pins-rg-appeals-bo-test"
+  }
+}
+
 variable "common_resource_group_name" {
   description = "The common infrastructure resource group name"
   type        = string
@@ -504,4 +521,42 @@ variable "service_bus_config" {
     bo_subscription_ttl          = string
     fo_subscription_ttl          = string
   })
+}
+
+variable "service_bus_topic" {
+  description = "BO Submission and Topic names"
+  type = object({
+    submission = object({
+      appellant         = string
+      lpa_questionnaire = string
+      representation    = string
+    })
+    topic = object({
+      appeal_has            = string
+      appeal_s78            = string
+      document              = string
+      event                 = string
+      listed_building       = string
+      service_user          = string
+      appeal_representation = string
+      event_estimate        = string
+    })
+  })
+  default = {
+    submission = {
+      appellant         = "appeal-fo-appellant-submission"
+      lpa_questionnaire = "appeal-fo-lpa-questionnaire-submission"
+      representation    = "appeal-fo-representation-submission"
+    }
+    topic = {
+      appeal_has            = "appeal-has"
+      appeal_s78            = "appeal-s78"
+      document              = "appeal-document"
+      event                 = "appeal-event"
+      listed_building       = "listed-building"
+      service_user          = "appeal-service-user"
+      appeal_representation = "appeal-representation"
+      event_estimate        = "appeal-event-estimate"
+    }
+  }
 }

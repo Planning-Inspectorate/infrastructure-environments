@@ -3,9 +3,10 @@
 
 locals {
   appeals_bo_config = {
-    resource_group_name   = "pins-rg-appeals-bo-${var.environment}"
-    service_bus_namespace = "pins-sb-appeals-bo-${var.environment}"
-    documents_container   = "appeals-bo-documents"
+    resource_group_name    = var.environment == "staging" ? "pins-rg-appeals-bo-test" : "pins-rg-appeals-bo-${var.environment}" # resource group name for service bus
+    service_bus_namespace  = var.environment == "staging" ? "pins-sb-appeals-bo-test" : "pins-sb-appeals-bo-${var.environment}"
+    resource_group_name_st = "pins-rg-appeals-bo-${var.environment}" # resource group name for storage account
+    documents_container    = "appeals-bo-documents"
   }
 
   # build up the Service Bus ID since the data block does not export it
@@ -40,8 +41,8 @@ data "azurerm_resource_group" "appeals_bo" {
 # storage
 data "azurerm_storage_account" "appeals_bo" {
   # max length 24, so trim off the end - will only apply to training environment!
-  name                = substr("pinsstdocsappealsbo${var.environment}", 0, 24)
-  resource_group_name = local.appeals_bo_config.resource_group_name
+  name                = var.environment == "staging" ? "pinsstdocsappealsbostage" : substr("pinsstdocsappealsbo${var.environment}", 0, 24)
+  resource_group_name = local.appeals_bo_config.resource_group_name_st
 }
 
 data "azurerm_storage_container" "appeal_bo_documents" {
@@ -51,56 +52,62 @@ data "azurerm_storage_container" "appeal_bo_documents" {
 
 # service bus
 data "azurerm_servicebus_topic" "appeal_has" {
-  name         = "appeal-has"
+  name         = var.service_bus_topic.topic.appeal_has
   namespace_id = local.appeals_bo_service_bus_id
 }
 
 data "azurerm_servicebus_topic" "appeal_s78" {
-  name         = "appeal-s78"
+  name         = var.service_bus_topic.topic.appeal_s78
   namespace_id = local.appeals_bo_service_bus_id
 }
 
 data "azurerm_servicebus_topic" "appeal_document" {
-  name         = "appeal-document"
+  name         = var.service_bus_topic.topic.document
   namespace_id = local.appeals_bo_service_bus_id
 }
 
 data "azurerm_servicebus_topic" "appeal_event" {
-  name         = "appeal-event"
+  name         = var.service_bus_topic.topic.event
   namespace_id = local.appeals_bo_service_bus_id
 }
 
 data "azurerm_servicebus_topic" "appeal_event_estimate" {
-  name         = "appeal-event-estimate"
+  name         = var.service_bus_topic.topic.event_estimate
   namespace_id = local.appeals_bo_service_bus_id
 }
 
 data "azurerm_servicebus_topic" "appeal_service_user" {
-  name         = "appeal-service-user"
+  name         = var.service_bus_topic.topic.service_user
   namespace_id = local.appeals_bo_service_bus_id
 }
 
 data "azurerm_servicebus_topic" "appeal_fo_appellant_submission" {
-  name         = "appeal-fo-appellant-submission"
+  name         = var.service_bus_topic.submission.appellant
   namespace_id = local.appeals_bo_service_bus_id
 }
 
 data "azurerm_servicebus_topic" "appeal_fo_lpa_questionnaire_submission" {
-  name         = "appeal-fo-lpa-questionnaire-submission"
+  name         = var.service_bus_topic.submission.lpa_questionnaire
   namespace_id = local.appeals_bo_service_bus_id
 }
 
 data "azurerm_servicebus_topic" "listed_building" {
-  name         = "listed-building"
+  name         = var.service_bus_topic.topic.listed_building
   namespace_id = local.appeals_bo_service_bus_id
 }
 
 data "azurerm_servicebus_topic" "appeal_fo_representation_submission" {
-  name         = "appeal-fo-representation-submission"
+  name         = var.service_bus_topic.submission.representation
   namespace_id = local.appeals_bo_service_bus_id
 }
 
 data "azurerm_servicebus_topic" "appeal_representation" {
-  name         = "appeal-representation"
+  name         = var.service_bus_topic.topic.appeal_representation
   namespace_id = local.appeals_bo_service_bus_id
+}
+
+data "azurerm_virtual_network" "appeals_bo" {
+  count               = var.environment == "staging" ? 1 : 0
+  name                = var.appeals_vnet_staging.bo_network_name
+  resource_group_name = var.appeals_vnet_staging.bo_rg
 }

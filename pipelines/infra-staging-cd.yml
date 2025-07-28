@@ -1,0 +1,105 @@
+parameters:
+  - name: region
+    displayName: Region
+    type: string
+    default: uk-west
+    values:
+      - uk-west
+      - uk-south
+  - name: stack
+    displayName: Stack
+    type: string
+    default: appeals-service
+    values:
+      - appeals-service
+      - common
+  - name: DRDeployment
+    displayName: Disaster Recovery Deployment?
+    type: boolean
+    default: false
+
+trigger: none
+
+pr: none
+
+resources:
+  pipelines:
+    - pipeline: infrastructure-environments-ci
+      source: infrastructure-environments CI
+      trigger:
+        branches:
+          include:
+            - main
+  repositories:
+    - repository: templates
+      type: github
+      endpoint: Planning-Inspectorate
+      name: Planning-Inspectorate/common-pipeline-templates
+      ref: refs/tags/release/3.24.0
+
+extends:
+  template: stages/wrapper_cd.yml@templates
+  parameters:
+    environments:
+      - name: Staging
+    variableGroupPrefix: 'core_services_cd'
+    deploymentStages:
+      - name: Terraform Plan
+        deploymentJobs:
+          - name: Plan
+            isDeployment: false
+            timeoutInMinutes: 30
+            steps:
+              - script: |
+                  echo "##vso[build.addbuildtag]stack=${{ parameters.stack }}"
+                  echo "##vso[build.addbuildtag]region=${{ parameters.region }}"
+                displayName: Add stack & region build tag
+              # Remove front-door and front-door-https stacks from plan when running in non-production environments
+              # now covered by individual projects with front door premium
+              - script: |
+                  if [ "$(ENVIRONMENT)" != "prod" ]; then
+                    echo "Removing front-door and front-door-https stacks from plan for non-production environment"
+                    rm -rf $(System.DefaultWorkingDirectory)/app/stacks/global/back-office
+                    rm -rf $(System.DefaultWorkingDirectory)/app/stacks/global/front-door
+                    rm -rf $(System.DefaultWorkingDirectory)/app/stacks/global/front-door-https
+                  fi
+                displayName: 'Remove front-door classic stacks from plan'
+                env:
+                  ENVIRONMENT: $(ENVIRONMENT)
+              - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan.yml@templates
+                parameters:
+                  artifactName: terraform-plan-$(ENVIRONMENT)
+                  environmentVariables:
+                    ENV: $(ENVIRONMENT)
+                    ${{ if eq(parameters.DRDeployment, 'true') }}:
+                      DR_DEPLOYMENT: true
+                  region: ${{ parameters.region }}
+                  stack: ${{ parameters.stack }}
+                  subscriptionId: $(SUBSCRIPTION_ID)
+                  workingDirectory: $(System.DefaultWorkingDirectory)/app/stacks/${{ parameters.region }}/${{ parameters.stack }}
+      - name: Terraform Apply
+        dependsOn:
+          - Terraform Plan
+        deploymentJobs:
+          - name: Apply
+            steps:
+              #in prod, download and process blacklist file
+              - ${{ if eq(variables['ENVIRONMENT'], 'prod') }}:
+                  - task: DownloadSecureFile@1
+                    name: downloadBlacklistFile
+                    displayName: 'Download IP blacklist file'
+                    inputs:
+                      secureFile: 'ip_blacklist.json'
+                  - script: |
+                      echo "Reading ip_blacklist.json..."
+                          if [ -f "$(downloadBlacklistFile.secureFilePath)" ]; then
+                      echo "File exists. Copying ip_blacklist.json..."
+                        cp $(downloadBlacklistFile.secureFilePath) $(System.DefaultWorkingDirectory)/ip_blacklist.json
+                      else
+                        echo "File does not exist. Skipping copy."
+                      fi
+                    displayName: 'Copy IP blacklist file'
+                  - template: ${{variables['Build.SourcesDirectory']}}/steps/terraform_apply.yml@templates
+                    parameters:
+                      artifactName: terraform-plan-$(ENVIRONMENT)
+                      subscriptionId: $(SUBSCRIPTION_ID)
