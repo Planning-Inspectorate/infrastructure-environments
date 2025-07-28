@@ -317,3 +317,12 @@ variable "service_bus_config" {
     fo_subscription_ttl          = string
   })
 }
+
+variable "text_analytics_config" {
+  description = "Config for the text analytics (language) service"
+  type = object({
+    id       = string
+    endpoint = string
+  })
+  default = null
+}

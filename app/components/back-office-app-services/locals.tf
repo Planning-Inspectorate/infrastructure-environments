@@ -29,6 +29,7 @@ locals {
         APPLICATIONS_CASETEAM_GROUP_ID             = var.azuread_applications_caseteam_group_id
         APPLICATIONS_INSPECTOR_GROUP_ID            = var.azuread_applications_inspector_group_id
         AZURE_BLOB_STORE_HOST                      = var.document_storage_api_host
+        AZURE_AI_LANGUAGE_ENDPOINT                 = var.text_analytics_config == null ? "" : var.text_analytics_config.endpoint
         FRONT_OFFICE_URL                           = var.applications_front_office_web_url
         KEY_VAULT_ENABLED                          = var.api_key_vault_authorization_enabled
         KEY_VAULT_URI                              = var.key_vault_uri
