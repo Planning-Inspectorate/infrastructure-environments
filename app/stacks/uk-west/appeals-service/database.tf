@@ -164,10 +164,10 @@ resource "azurerm_storage_container" "appeals_sql_server" {
   container_access_type = "private"
 }
 
-resource "azurerm_advanced_threat_protection" "appeals_sql_server" {
-  target_resource_id = azurerm_storage_account.appeals_sql_server.id
-  enabled            = true
-}
+# resource "azurerm_advanced_threat_protection" "appeals_sql_server" {
+#   target_resource_id = azurerm_storage_account.appeals_sql_server.id
+#   enabled            = true
+# }
 
 resource "azurerm_role_assignment" "appeals_sql_server" {
   scope                = azurerm_storage_account.appeals_sql_server.id
