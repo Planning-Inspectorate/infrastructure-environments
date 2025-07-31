@@ -53,7 +53,7 @@ extends:
       - name: Test
         dependsOn:
           - Dev
-      - ${{ if eq(parameters.stack, 'appeals-service') }}:
+      - ${{ if or(eq(parameters.stack, 'appeals-service'), eq(parameters.stack, 'common')) }}:
           name: Staging
           dependsOn:
             - Test
