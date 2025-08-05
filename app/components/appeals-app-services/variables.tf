@@ -452,6 +452,11 @@ variable "service_bus_appeals_bo_event_topic_id" {
   type        = string
 }
 
+variable "service_bus_appeals_bo_event_estimate_topic_id" {
+  description = "ID for the appeals event estimate case data topic"
+  type        = string
+}
+
 variable "service_bus_appeals_bo_service_user_topic_id" {
   description = "ID for the appeals service user case data topic"
   type        = string

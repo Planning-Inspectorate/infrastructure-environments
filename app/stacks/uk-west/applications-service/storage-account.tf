@@ -25,3 +25,33 @@ resource "azurerm_storage_account" "function_storage" {
 
   tags = local.tags
 }
+
+resource "azurerm_storage_account" "applications_sql_server" {
+  #checkov:skip=CKV2_AZURE_1: Customer Managed Keys not implemented yet
+  #checkov:skip=CKV2_AZURE_18: Customer Managed Keys not implemented yet
+  #checkov:skip=CKV_AZURE_33: Not using queues, could implement example commented out
+  #checkov:skip=CKV2_AZURE_21: Logging not implemented yet
+  #checkov:skip=CKV_AZURE_35: Network access restrictions
+  #checkov:skip=CKV_AZURE_59: TODO: Ensure that Storage accounts disallow public access
+  #checkov:skip=CKV2_AZURE_33: "Ensure storage account is configured with private endpoint"
+  #checkov:skip=CKV2_AZURE_38: "Ensure soft-delete is enabled on Azure storage account"
+  #checkov:skip=CKV2_AZURE_40: "Ensure storage account is not configured with Shared Key authorization"
+  #checkov:skip=CKV2_AZURE_41: "Ensure storage account is configured with SAS expiration policy"
+
+  name                             = "pinsstsqlafo${var.environment}"
+  resource_group_name              = azurerm_resource_group.applications_service_stack.name
+  location                         = azurerm_resource_group.applications_service_stack.location
+  account_tier                     = "Standard"
+  account_replication_type         = "GRS"
+  min_tls_version                  = "TLS1_2"
+  https_traffic_only_enabled       = true
+  allow_nested_items_to_be_public  = false
+  cross_tenant_replication_enabled = false
+
+  identity {
+    type = "SystemAssigned"
+  }
+
+  tags = local.tags
+}
+
