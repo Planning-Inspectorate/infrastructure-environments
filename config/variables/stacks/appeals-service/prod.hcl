@@ -1,15 +1,7 @@
 locals {
   appeals_feature_flags = [
     {
-      name    = "has-appeal-form-v2"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = ["Q1111", "N5090", "E5330", "G5180", "B5480", "L5810"]
-      }
-    },
-    {
-      name    = "s20-appeal-form-v2"
+      name    = "adverts-appeal-form-v2"
       enabled = false
       targeting = {
         percentage = 100
@@ -17,11 +9,190 @@ locals {
       }
     },
     {
+      name    = "cas-adverts-appeal-form-v2"
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = ["Q1111"]
+      }
+    },
+    {
+      name    = "cas-planning-appeal-form-v2"
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = ["Q1111"]
+      }
+    },
+    {
+      name    = "has-appeal-form-v2"
+      enabled = true
+      targeting = {
+        percentage = 100
+        users = [
+          "Q1111",
+          "N5090",
+          "E5330",
+          "G5180",
+          "B5480",
+          "L5810",
+          "T1600",
+          "J1725",
+          "F0114",
+          "K0425",
+          "J9497",
+          "B3410",
+          "F9498",
+          "A1720",
+          "P1615",
+          "U1620",
+          "N1730",
+          "X1735",
+          "W1850",
+          "J1860",
+          "Y1138",
+          "B1740",
+          "B9506",
+          "P3420",
+          "R3705",
+          "E3715",
+          "P1750",
+          "L3245",
+          "J0350",
+          "Y9507",
+          "K1128",
+          "Q3115",
+          "C1625",
+          "U3935",
+          "P1133",
+          "C3240",
+          "C1760",
+          "G1630",
+          "Z0835",
+          "X1165",
+          "W1145",
+          "V4630",
+          "W0340",
+          "Q1153",
+          "L1765",
+          "M3835",
+          "H1840",
+          "R1845"
+        ]
+      }
+    },
+    {
+      name    = "s20-appeal-form-v2"
+      enabled = true
+      targeting = {
+        percentage = 100
+        users = [
+          "Q1111",
+          "N5090",
+          "E5330",
+          "G5180",
+          "B5480",
+          "L5810",
+          "T1600",
+          "J1725",
+          "F0114",
+          "K0425",
+          "J9497",
+          "B3410",
+          "F9498",
+          "A1720",
+          "P1615",
+          "U1620",
+          "N1730",
+          "X1735",
+          "W1850",
+          "J1860",
+          "Y1138",
+          "B1740",
+          "B9506",
+          "P3420",
+          "R3705",
+          "E3715",
+          "P1750",
+          "L3245",
+          "J0350",
+          "Y9507",
+          "K1128",
+          "Q3115",
+          "C1625",
+          "U3935",
+          "P1133",
+          "C3240",
+          "C1760",
+          "G1630",
+          "Z0835",
+          "X1165",
+          "W1145",
+          "V4630",
+          "W0340",
+          "Q1153",
+          "L1765",
+          "M3835",
+          "H1840",
+          "R1845"
+        ]
+      }
+    },
+    {
       name    = "s78-appeal-form-v2"
       enabled = true
       targeting = {
         percentage = 100
-        users      = ["Q1111", "N5090", "E5330", "G5180", "B5480", "L5810"]
+        users = [
+          "Q1111",
+          "N5090",
+          "E5330",
+          "G5180",
+          "B5480",
+          "L5810",
+          "T1600",
+          "J1725",
+          "F0114",
+          "K0425",
+          "J9497",
+          "B3410",
+          "F9498",
+          "A1720",
+          "P1615",
+          "U1620",
+          "N1730",
+          "X1735",
+          "W1850",
+          "J1860",
+          "Y1138",
+          "B1740",
+          "B9506",
+          "P3420",
+          "R3705",
+          "E3715",
+          "P1750",
+          "L3245",
+          "J0350",
+          "Y9507",
+          "K1128",
+          "Q3115",
+          "C1625",
+          "U3935",
+          "P1133",
+          "C3240",
+          "C1760",
+          "G1630",
+          "Z0835",
+          "X1165",
+          "W1145",
+          "V4630",
+          "W0340",
+          "Q1153",
+          "L1765",
+          "M3835",
+          "H1840",
+          "R1845"
+        ]
       }
     }
   ]
@@ -30,7 +201,7 @@ locals {
   appeals_frontend_file_upload_debug_logging_enabled = false
   comments_enabled                                   = true
   rule_6_enabled                                     = false
-  scoping_opinion_enabled                            = false
+  scoping_opinion_enabled                            = true
   google_analytics_id                                = "G-DW8DW9TQ84"
   google_tag_manager_id                              = "GTM-KZN7XP4"
   horizon_url                                        = "http://10.224.161.68:8000"
@@ -79,7 +250,7 @@ locals {
     long_term_retention_yearly  = "P1Y"
     long_term_week_of_year      = 1
     audit_retention_days        = 120
-    sku_name                    = "S0"
+    sku_name                    = "S3"
   }
   sql_server_azuread_administrator = {
     login_username = "pins-odt-sql-prod-appeals-fo"

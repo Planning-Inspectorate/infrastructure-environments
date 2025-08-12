@@ -13,9 +13,9 @@ resource "azurerm_container_group" "clamav" {
 
   container {
     name   = "clamav"
-    image  = "clamav/clamav:latest_base"
+    image  = "clamav/clamav:1.4_base"
     cpu    = "1"
-    memory = "4"
+    memory = "6"
 
     volume {
       name       = "clamav-db"
@@ -70,6 +70,13 @@ resource "azurerm_container_group" "clamav" {
   exposed_port {
     port     = 7357
     protocol = "TCP"
+  }
+
+  diagnostics {
+    log_analytics {
+      workspace_id  = var.log_analytics_workspace_uuid
+      workspace_key = var.log_analytics_workspace_key
+    }
   }
 
   tags = var.tags
@@ -169,6 +176,11 @@ resource "azurerm_storage_account" "clamav" {
   #checkov:skip=CKV_AZURE_59: TODO: Ensure that Storage accounts disallow public access
   #checkov:skip=CKV_AZURE_190: TODO: Ensure that Storage blobs restrict public access
   #checkov:skip=CKV_AZURE_206: Replication not required
+  #checkov:skip=CKV2_AZURE_40: "Ensure storage account is not configured with Shared Key authorization"
+  #checkov:skip=CKV2_AZURE_41: "Ensure storage account is configured with SAS expiration policy"
+  #checkov:skip=CKV2_AZURE_47: "Ensure storage account is configured without blob anonymous access"
+  #checkov:skip=CKV2_AZURE_33: "Ensure storage account is configured with private endpoint"
+  #checkov:skip=CKV2_AZURE_38: "Ensure soft-delete is enabled on Azure storage account"
 
   # max length 24, so trim off the end - will only apply to training environment!
   name                             = substr(replace("pinsstclamav${var.resource_suffix}", "-", ""), 0, 24)

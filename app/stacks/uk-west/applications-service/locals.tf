@@ -28,6 +28,9 @@ locals {
     ]
   )
 
+  fo_applications_tech_emails = [for rec in data.azurerm_monitor_action_group.fo_applications_tech.email_receiver : rec.email_address]
+  tech_emails                 = local.fo_applications_tech_emails
+
   tags = merge(
     var.common_tags,
     {

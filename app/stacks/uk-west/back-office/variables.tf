@@ -265,6 +265,13 @@ variable "service_bus_config" {
   })
 }
 
+variable "text_analytics_config" {
+  description = "Config for the text analytics (language) service"
+  type = object({
+    deploy = bool # whether to deploy the resource or using the shared instance
+  })
+}
+
 variable "back_office_published_documents_domain" {
   description = "Domain for published documents"
   type        = string

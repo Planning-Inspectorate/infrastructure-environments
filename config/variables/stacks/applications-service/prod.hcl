@@ -33,6 +33,7 @@ locals {
   feature_save_and_exit_option                 = "false"
   feature_show_affected_area_section           = "false"
   google_analytics_id                          = "G-DQ9S57CJDP"
+  monitoring_alerts_enabled                    = true
   monitoring_config = {
     app_insights_web_test_enabled = true
   }
@@ -51,6 +52,7 @@ locals {
   sql_database_configuration = {
     max_size_gb               = 1024
     short_term_retention_days = 30
+    audit_retention_days      = 120
     sku_name                  = "S3"
   }
   sql_server_azuread_administrator = {

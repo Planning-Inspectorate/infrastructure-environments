@@ -3,7 +3,7 @@ module "front_office_subscribers" {
   #checkov:skip=CKV_TF_1: Use of commit hash are not required for our Terraform modules
   count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
 
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.45"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.49"
 
   action_group_ids                         = var.action_group_ids
   app_name                                 = "fo-integration"
@@ -77,6 +77,17 @@ resource "azurerm_servicebus_subscription" "appeals_fo_event_topic_subscription"
 
   name                                 = "appeal-event-fo-sub"
   topic_id                             = var.service_bus_appeals_bo_event_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
+}
+
+# Appeals fo event estimate data topic subscription
+resource "azurerm_servicebus_subscription" "appeals_fo_event_estimate_topic_subscription" {
+  count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
+
+  name                                 = "appeal-event-estimate-fo-sub"
+  topic_id                             = var.service_bus_appeals_bo_event_estimate_topic_id
   max_delivery_count                   = 1
   default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
   dead_lettering_on_message_expiration = true

@@ -14,16 +14,9 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
 
       rule {
         # Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link
-        action  = "Block"
+        action  = "Log"
         enabled = true
         rule_id = "931130"
-
-        exclusion {
-          # Exclusion to fix BOAS-153
-          match_variable = "RequestBodyPostArgNames" # PostParamValue:applicant.website
-          operator       = "Equals"
-          selector       = "applicant.website"
-        }
       }
     }
 
@@ -324,6 +317,27 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
 
     override {
       rule_group_name = "RCE"
+
+      rule {
+        # Remote Command Execution: Unix Command Injection
+        action  = "Log"
+        enabled = true
+        rule_id = "932100"
+      }
+
+      rule {
+        # Remote Command Execution: Unix Command Injection
+        action  = "Log"
+        enabled = true
+        rule_id = "932105"
+      }
+
+      rule {
+        # Remote Command Execution: Windows Command Injection
+        action  = "Log"
+        enabled = true
+        rule_id = "932115"
+      }
 
       rule {
         # Remote Command Execution: Direct Unix Command Execution
@@ -979,16 +993,9 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
 
       rule {
         # Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link
-        action  = "Block"
+        action  = "Log"
         enabled = true
         rule_id = "931130"
-
-        exclusion {
-          # Exclusion to fix BOAS-153
-          match_variable = "RequestBodyPostArgNames" # PostParamValue:applicant.website
-          operator       = "Equals"
-          selector       = "applicant.website"
-        }
       }
     }
 
@@ -1296,6 +1303,13 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
 
     override {
       rule_group_name = "RCE"
+
+      rule {
+        # Remote Command Execution: Windows Command Injection
+        action  = "Log"
+        enabled = true
+        rule_id = "932110"
+      }
 
       rule {
         # Remote Command Execution: Direct Unix Command Execution

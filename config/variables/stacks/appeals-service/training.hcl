@@ -1,6 +1,30 @@
 locals {
   appeals_feature_flags = [
     {
+      name    = "adverts-appeal-form-v2"
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = ["Q1111"]
+      }
+    },
+    {
+      name    = "cas-adverts-appeal-form-v2"
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = ["Q1111"]
+      }
+    },
+    {
+      name    = "cas-planning-appeal-form-v2"
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = ["Q1111"]
+      }
+    },
+    {
       name    = "has-appeal-form-v2"
       enabled = true
       targeting = {
@@ -10,7 +34,7 @@ locals {
     },
     {
       name    = "s20-appeal-form-v2"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = ["Q1111"]
@@ -30,7 +54,7 @@ locals {
   appeals_frontend_file_upload_debug_logging_enabled = false
   comments_enabled                                   = true
   rule_6_enabled                                     = false
-  scoping_opinion_enabled                            = false
+  scoping_opinion_enabled                            = true
   google_analytics_id                                = "G-HWLKLSJF53"
   google_tag_manager_id                              = "GTM-KZN7XP4"
   horizon_url                                        = "http://10.0.7.4:8000"
