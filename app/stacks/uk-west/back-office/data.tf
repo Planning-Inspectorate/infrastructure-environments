@@ -12,6 +12,12 @@ data "azurerm_private_dns_zone" "app_service" {
   provider = azurerm.tooling
 }
 
+data "azurerm_private_dns_zone" "cognitive" {
+  name = "privatelink.cognitiveservices.azure.com"
+
+  provider = azurerm.tooling
+}
+
 data "azurerm_private_dns_zone" "database" {
   name = "privatelink.database.windows.net"
 

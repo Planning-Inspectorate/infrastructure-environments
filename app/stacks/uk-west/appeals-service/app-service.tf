@@ -50,6 +50,7 @@ module "app_services" {
   service_bus_appeals_bo_s78_case_topic_id                                              = local.appeals_bo_topics.appeal_s78
   service_bus_appeals_bo_document_topic_id                                              = local.appeals_bo_topics.appeal_document
   service_bus_appeals_bo_event_topic_id                                                 = local.appeals_bo_topics.appeal_event
+  service_bus_appeals_bo_event_estimate_topic_id                                        = local.appeals_bo_topics.appeal_event_estimate
   service_bus_appeals_bo_service_user_topic_id                                          = local.appeals_bo_topics.appeal_service_user
   service_bus_appeals_fo_appellant_submission_topic_id                                  = local.appeals_bo_topics.appeal_fo_appellant_submission
   service_bus_appeals_fo_lpa_response_submission_topic_id                               = local.appeals_bo_topics.appeal_fo_lpa_questionnaire_submission

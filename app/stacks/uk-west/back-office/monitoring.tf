@@ -38,6 +38,27 @@ resource "azurerm_monitor_diagnostic_setting" "back_office_sql_database" {
   }
 }
 
+resource "azurerm_monitor_diagnostic_setting" "back_office_documents" {
+  name                       = "pins-documents-${local.service_name}-${local.resource_suffix}"
+  target_resource_id         = "${azurerm_storage_account.back_office_documents.id}/blobServices/default"
+  log_analytics_workspace_id = azurerm_log_analytics_workspace.back_office.id
+
+  enabled_log {
+    category = "StorageRead"
+  }
+
+  enabled_metric {
+    category = "AllMetrics"
+  }
+
+  lifecycle {
+    ignore_changes = [
+      enabled_log,
+      enabled_metric
+    ]
+  }
+}
+
 resource "azurerm_mssql_server_extended_auditing_policy" "back_office_sql_server" {
   enabled                = var.monitoring_alerts_enabled
   storage_endpoint       = azurerm_storage_account.back_office_sql_server.primary_blob_endpoint

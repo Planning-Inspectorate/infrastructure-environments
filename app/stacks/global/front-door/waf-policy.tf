@@ -14,16 +14,9 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
 
       rule {
         # Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link
-        action  = "Block"
+        action  = "Log"
         enabled = true
         rule_id = "931130"
-
-        exclusion {
-          # Exclusion to fix BOAS-153
-          match_variable = "RequestBodyPostArgNames" # PostParamValue:applicant.website
-          operator       = "Equals"
-          selector       = "applicant.website"
-        }
       }
     }
 
@@ -326,10 +319,38 @@ resource "azurerm_frontdoor_firewall_policy" "default" {
       rule_group_name = "RCE"
 
       rule {
+        # Remote Command Execution: Unix Command Injection
+        action  = "Log"
+        enabled = true
+        rule_id = "932100"
+      }
+
+      rule {
+        # Remote Command Execution: Unix Command Injection
+        action  = "Log"
+        enabled = true
+        rule_id = "932105"
+      }
+
+      rule {
+        # Remote Command Execution: Windows Command Injection
+        action  = "Log"
+        enabled = true
+        rule_id = "932115"
+      }
+
+      rule {
         # Remote Command Execution: Direct Unix Command Execution
         action  = "Log"
         enabled = true
         rule_id = "932150"
+      }
+
+      rule {
+        # Remote Command Execution: Unix Command Injection
+        action  = "Log"
+        enabled = true
+        rule_id = "932105"
       }
     }
 
@@ -1007,6 +1028,13 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
           operator       = "Equals"
           selector       = "cookie_policy"
         }
+
+        exclusion {
+          # Exclusion to allow representation redaction
+          match_variable = "RequestBodyPostArgNames"
+          operator       = "Equals"
+          selector       = "redactedRepresentation"
+        }
       }
     }
 
@@ -1288,6 +1316,13 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
         action  = "Log"
         enabled = true
         rule_id = "932150"
+      }
+
+      rule {
+        # Remote Command Execution: Unix Command Injection
+        action  = "Log"
+        enabled = true
+        rule_id = "932105"
       }
     }
 

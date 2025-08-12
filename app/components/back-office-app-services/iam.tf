@@ -34,3 +34,10 @@ resource "azurerm_role_assignment" "back_office_api_blob_data_writer" {
   role_definition_name = "Storage Blob Data Contributor"
   principal_id         = module.app_service["back_office_api"].principal_id
 }
+
+resource "azurerm_role_assignment" "back_office_web_language_reader" {
+  count                = var.text_analytics_config == null ? 0 : 1
+  scope                = var.text_analytics_config.id
+  role_definition_name = "Cognitive Services Language Reader"
+  principal_id         = module.app_service["back_office_frontend"].principal_id
+}

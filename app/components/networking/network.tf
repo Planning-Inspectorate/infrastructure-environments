@@ -126,6 +126,17 @@ resource "azurerm_private_dns_zone_virtual_network_link" "app_service_vnet_link"
   provider = azurerm.tooling
 }
 
+resource "azurerm_private_dns_zone_virtual_network_link" "cognitive_vnet_link" {
+  name                  = "pins-vnetlink-${var.service_name}-cognitive-${var.resource_suffix}"
+  resource_group_name   = var.tooling_network_rg
+  private_dns_zone_name = "privatelink.cognitiveservices.azure.com"
+  virtual_network_id    = azurerm_virtual_network.common_infrastructure.id
+
+  tags = var.tags
+
+  provider = azurerm.tooling
+}
+
 resource "azurerm_private_dns_zone_virtual_network_link" "back_office_sql_server" {
   name                  = "pins-vnetlink-${var.service_name}-sql-server-${var.resource_suffix}"
   resource_group_name   = var.tooling_network_rg
