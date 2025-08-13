@@ -22,6 +22,8 @@ locals {
         ACTIVATE_PLANNED_OUTAGE                      = var.activate_planned_outage
         APPLICATIONINSIGHTS_CONNECTION_STRING        = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/applications-service-app-insights-connection-string/)"
 	AZURE_BLOB_STORE_HOST                        = var.document_storage_api_host
+        APPLICATIONINSIGHTS_CONNECTION_STRING        = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/applications-service-app-insights-connection-string/)"
+        AZURE_BLOB_STORE_HOST                        = var.document_storage_api_host
         BACK_OFFICE_INTEGRATION_GET_APPLICATIONS     = var.back_office_integration_get_applications
         APPLICATIONS_SERVICE_API_TIMEOUT             = var.api_timeout
         APPLICATIONS_SERVICE_API_URL                 = "https://pins-app-${var.service_name}-${var.environment == "training" ? "api" : "applications-api"}-${var.resource_suffix}.azurewebsites.net/"
