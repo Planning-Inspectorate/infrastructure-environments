@@ -21,9 +21,6 @@ locals {
       app_settings = {
         ACTIVATE_PLANNED_OUTAGE                      = var.activate_planned_outage
         APPLICATIONINSIGHTS_CONNECTION_STRING        = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/applications-service-app-insights-connection-string/)"
-	AZURE_BLOB_STORE_HOST                        = var.document_storage_api_host
-        APPLICATIONINSIGHTS_CONNECTION_STRING        = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/applications-service-app-insights-connection-string/)"
-        AZURE_BLOB_STORE_HOST                        = var.document_storage_api_host
         BACK_OFFICE_INTEGRATION_GET_APPLICATIONS     = var.back_office_integration_get_applications
         APPLICATIONS_SERVICE_API_TIMEOUT             = var.api_timeout
         APPLICATIONS_SERVICE_API_URL                 = "https://pins-app-${var.service_name}-${var.environment == "training" ? "api" : "applications-api"}-${var.resource_suffix}.azurewebsites.net/"
@@ -79,6 +76,7 @@ locals {
       app_settings = {
         APPLICATIONINSIGHTS_CONNECTION_STRING                     = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/applications-service-app-insights-connection-string/)"
         APPLICATIONS_WEB_BASE_URL                                 = "https://${var.applications_service_public_url}"
+        AZURE_BLOB_STORE_HOST                                     = var.document_storage_api_host
         BACK_OFFICE_BLOB_STORAGE_DEADLINE_SUBMISSION_URL          = "https://${var.back_office_submissions_storage_account_name}.blob.core.windows.net"
         BACK_OFFICE_BLOB_STORAGE_DEADLINE_SUBMISSION_CONTAINER    = var.back_office_submissions_storage_container_name
         BACK_OFFICE_API_INTEGRATION_CASE_REFERENCES               = var.back_office_integration_case_references

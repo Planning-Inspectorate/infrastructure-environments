@@ -17,6 +17,7 @@ locals {
   back_office_integration_get_applications     = "MERGE"
   client_affinity_enabled                      = true
   documents_host                               = "https://infrastructure.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
+  document_storage_api_host                    = "https://nsip-documents.planninginspectorate.gov.uk/"
   feature_allow_project_information            = "true"
   feature_allow_welsh_translation              = "true"
   feature_custom_folders                       = "false"
