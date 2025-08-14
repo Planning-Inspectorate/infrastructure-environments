@@ -162,6 +162,11 @@ variable "container_registry_rg" {
   type        = string
 }
 
+variable "document_storage_api_host" {
+  description = "Azure blob storage URL"
+  type        = string
+}
+
 variable "endpoint_subnet_id" {
   description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
   type        = string

@@ -16,6 +16,7 @@ locals {
   back_office_integration_case_references      = "BC0110001,BC0110003,BC0110004,BC0110005,BC0110013,BC0110036,BC0011028"
   back_office_integration_get_applications     = "MERGE"
   documents_host                               = "https://nipreprod.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
+  document_storage_api_host                    = "https://nsip-documents.planninginspectorate.gov.uk/"
   feature_allow_project_information            = "true"
   feature_allow_welsh_translation              = "true"
   feature_custom_folders                       = "true"
