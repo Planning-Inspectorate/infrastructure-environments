@@ -98,11 +98,6 @@ variable "cosmosdb_subnet_id" {
   type        = string
 }
 
-variable "document_storage_api_host" {
-  description = "Azure blob storage URL"
-  type        = string
-}
-
 variable "database_public_access_enabled" {
   description = "A switch indicating if databases should have public access enabled"
   type        = bool
