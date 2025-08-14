@@ -200,6 +200,11 @@ variable "documents_host" {
   type        = string
 }
 
+variable "document_storage_api_host" {
+  description = "Azure blob storage URL"
+  type        = string
+}
+
 variable "environment" {
   description = "The environment resources are deployed to e.g. 'dev'"
   type        = string

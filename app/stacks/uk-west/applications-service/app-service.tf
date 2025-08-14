@@ -12,6 +12,7 @@ module "app_services" {
   applications_easy_auth_config                                         = var.applications_easy_auth_config
   applications_service_public_url                                       = var.applications_service_public_url
   applications_service_redis_connection_string_secret_name              = azurerm_key_vault_secret.redis_cache_connection_string.name
+  azure_blob_store_host                                                 = var.document_storage_api_host
   back_office_service_bus_namespace_name                                = var.back_office_service_bus_namespace_name
   back_office_service_bus_deadline_submission_topic_id                  = var.back_office_service_bus_deadline_submission_topic_id
   back_office_service_bus_nsip_project_topic_id                         = var.back_office_service_bus_nsip_project_topic_id
