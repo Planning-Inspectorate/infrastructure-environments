@@ -33,6 +33,7 @@ module "app_services" {
   container_registry_name                                               = var.container_registry_name
   container_registry_rg                                                 = var.container_registry_rg
   documents_host                                                        = var.documents_host
+  document_storage_api_host                                             = var.document_storage_api_host
   endpoint_subnet_id                                                    = azurerm_subnet.applications_service_ingress.id
   environment                                                           = var.environment
   feature_allow_project_information                                     = var.feature_allow_project_information
