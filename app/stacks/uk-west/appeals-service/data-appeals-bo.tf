@@ -40,7 +40,7 @@ data "azurerm_resource_group" "appeals_bo" {
 # storage
 data "azurerm_storage_account" "appeals_bo" {
   # max length 24, so trim off the end - will only apply to training environment!
-  name                = substr("pinsstdocsappealsbo${var.environment}", 0, 24)
+  name                = var.environment == "staging" ? "pinsstdocsappealsbostage" : substr("pinsstdocsappealsbo${var.environment}", 0, 24)
   resource_group_name = local.appeals_bo_config.resource_group_name
 }
 
