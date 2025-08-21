@@ -46,14 +46,14 @@ locals {
       local.forms_web_app_mongodb
     ]
   )
-  appeals_session_collection_id = join(
-    "/",
-    [
-      local.appeals_cosmosdb_id,
-      "collections",
-      local.session_mongodb_collection
-    ]
-  )
+  # appeals_session_collection_id = join(
+  #   "/",
+  #   [
+  #     local.appeals_cosmosdb_id,
+  #     "collections",
+  #     local.session_mongodb_collection
+  #   ]
+  # )
 
   tags = merge(
     var.common_tags,
