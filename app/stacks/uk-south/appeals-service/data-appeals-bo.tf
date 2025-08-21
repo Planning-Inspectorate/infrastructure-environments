@@ -72,7 +72,7 @@ data "azurerm_servicebus_topic" "appeal_event" {
 }
 
 data "azurerm_servicebus_topic" "appeal_event_estimate" {
-  name         = var.environment == "staging" ? "appeal-event-estimate-staging" :"appeal-event-estimate"
+  name         = var.environment == "staging" ? "appeal-event-estimate-staging" : "appeal-event-estimate"
   namespace_id = local.appeals_bo_service_bus_id
 }
 
