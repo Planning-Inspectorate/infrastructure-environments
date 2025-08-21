@@ -76,10 +76,10 @@ resource "azurerm_private_endpoint" "cosmosdb" {
   tags = local.tags
 }
 
-import {
-  to = azurerm_cosmosdb_mongo_database.appeals_cosmosdb
-  id = local.appeals_cosmosdb_id
-}
+# import {
+#   to = azurerm_cosmosdb_mongo_database.appeals_cosmosdb
+#   id = local.appeals_cosmosdb_id
+# }
 
 resource "azurerm_cosmosdb_mongo_database" "appeals_cosmosdb" {
   name                = local.forms_web_app_mongodb
