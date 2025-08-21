@@ -52,56 +52,56 @@ data "azurerm_storage_container" "appeal_bo_documents" {
 
 # service bus
 data "azurerm_servicebus_topic" "appeal_has" {
-  name         = "appeal-has"
+  name         = var.environment == "staging" ? "appeal-has-staging" : "appeal-has"
   namespace_id = local.appeals_bo_service_bus_id
 }
 
 data "azurerm_servicebus_topic" "appeal_s78" {
-  name         = "appeal-s78"
+  name         = var.environment == "staging" ? "appeal-s78-staging" : "appeal-s78"
   namespace_id = local.appeals_bo_service_bus_id
 }
 
 data "azurerm_servicebus_topic" "appeal_document" {
-  name         = "appeal-document"
+  name         = var.environment == "staging" ? "appeal-document-staging" : "appeal-document"
   namespace_id = local.appeals_bo_service_bus_id
 }
 
 data "azurerm_servicebus_topic" "appeal_event" {
-  name         = "appeal-event"
+  name         = var.environment == "staging" ? "appeal-event-staging" : "appeal-event"
   namespace_id = local.appeals_bo_service_bus_id
 }
 
 data "azurerm_servicebus_topic" "appeal_event_estimate" {
-  name         = "appeal-event-estimate"
+  name         = var.environment == "staging" ? "appeal-event-estimate-staging" :"appeal-event-estimate"
   namespace_id = local.appeals_bo_service_bus_id
 }
 
 data "azurerm_servicebus_topic" "appeal_service_user" {
-  name         = "appeal-service-user"
+  name         = var.environment == "staging" ? "appeal-service-user-staging" : "appeal-service-user"
   namespace_id = local.appeals_bo_service_bus_id
 }
 
 data "azurerm_servicebus_topic" "appeal_fo_appellant_submission" {
-  name         = "appeal-fo-appellant-submission"
+  name         = var.environment == "staging" ? "appeal-fo-appellant-submission-staging" : "appeal-fo-appellant-submission"
   namespace_id = local.appeals_bo_service_bus_id
 }
 
 data "azurerm_servicebus_topic" "appeal_fo_lpa_questionnaire_submission" {
-  name         = "appeal-fo-lpa-questionnaire-submission"
+  name         = var.environment == "staging" ? "appeal-fo-lpa-questionnaire-submission-staging" : "appeal-fo-lpa-questionnaire-submission"
   namespace_id = local.appeals_bo_service_bus_id
 }
 
 data "azurerm_servicebus_topic" "listed_building" {
-  name         = "listed-building"
+  name         = var.environment == "staging" ? "listed-building-staging" : "listed-building"
   namespace_id = local.appeals_bo_service_bus_id
 }
 
 data "azurerm_servicebus_topic" "appeal_fo_representation_submission" {
-  name         = "appeal-fo-representation-submission"
+  name         = var.environment == "staging" ? "appeal-fo-representation-submission-staging" : "appeal-fo-representation-submission"
   namespace_id = local.appeals_bo_service_bus_id
 }
 
 data "azurerm_servicebus_topic" "appeal_representation" {
-  name         = "appeal-representation"
+  name         = var.environment == "staging" ? "appeal-representation-staging" : "appeal-representation"
   namespace_id = local.appeals_bo_service_bus_id
 }
