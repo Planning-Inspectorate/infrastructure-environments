@@ -87,7 +87,7 @@ data "azurerm_servicebus_topic" "appeal_fo_appellant_submission" {
 }
 
 data "azurerm_servicebus_topic" "appeal_fo_lpa_questionnaire_submission" {
-  name         = var.environment == "staging" ? "appeal-fo-lpa-questionnaire-submission-staging" : "appeal-fo-lpa-questionnaire-submission"
+  name         = var.environment == "staging" ? "appeal-fo-lpa-questionnaire-submission-stag" : "appeal-fo-lpa-questionnaire-submission"
   namespace_id = local.appeals_bo_service_bus_id
 }
 
