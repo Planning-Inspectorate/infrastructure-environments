@@ -26,7 +26,7 @@ locals {
   feature_enabled_content_security_policy      = "true"
   feature_general_s51_bo                       = "false"
   feature_register_of_advice                   = "false"
-  feature_allow_welsh_cases                    = "false"
+  feature_allow_welsh_cases                    = "true"
   feature_hide_project_timeline_link           = "false"
   feature_home_page                            = "true"
   feature_primary_navigation                   = "true"
