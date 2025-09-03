@@ -243,13 +243,13 @@ resource "azurerm_frontdoor_rules_engine" "search_indexing" {
   frontdoor_name      = azurerm_frontdoor.common.name
   resource_group_name = azurerm_frontdoor.common.resource_group_name
 
-  rule {
+  rule { # no match condition in here?
     name     = "addrobotstagheader"
     priority = 1
 
     action {
       response_header {
-        header_action_type = "Append"
+        header_action_type = "Overwrite"
         header_name        = "X-Robots-Tag"
         value              = "noindex,nofollow"
       }
@@ -269,7 +269,7 @@ resource "azurerm_frontdoor_rules_engine" "search_indexing" {
 
     action {
       response_header {
-        header_action_type = "Append"
+        header_action_type = "Overwrite"
         header_name        = "X-Robots-Tag"
         value              = "noindex,nofollow"
       }
