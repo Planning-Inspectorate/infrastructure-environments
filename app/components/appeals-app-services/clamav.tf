@@ -86,12 +86,12 @@ locals {
   clamv_host_name = "${var.service_name}-clamav-${var.resource_suffix}"
 }
 
-# Allow the container to write to the DNS, for IP changes (on restart)
-resource "azurerm_role_assignment" "write_dns_access" {
-  scope                = data.azurerm_private_dns_zone.internal.id
-  role_definition_name = "Private DNS Zone Contributor"
-  principal_id         = azurerm_container_group.clamav.identity[0].principal_id
-}
+# # Allow the container to write to the DNS, for IP changes (on restart)
+# resource "azurerm_role_assignment" "write_dns_access" {
+#   scope                = data.azurerm_private_dns_zone.internal.id
+#   role_definition_name = "Private DNS Zone Contributor"
+#   principal_id         = azurerm_container_group.clamav.identity[0].principal_id
+# }
 
 # alerts
 # crude alert to check memory usage drops (which seem to indicate failures)
