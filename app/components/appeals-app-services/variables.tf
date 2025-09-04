@@ -526,3 +526,27 @@ variable "service_bus_config" {
     fo_subscription_ttl          = string
   })
 }
+
+variable "service_bus_topic" {
+  description = "BO Topic names for staging"
+  type = object({
+    appeal_has            = string
+    appeal_s78            = string
+    document              = string
+    event                 = string
+    listed_building       = string
+    service_user          = string
+    appeal_representation = string
+
+  })
+  default = {
+
+    appeal_has            = "appeal-has"
+    appeal_s78            = "appeal-s78"
+    document              = "appeal-document"
+    event                 = "appeal-event"
+    listed_building       = "listed-building"
+    service_user          = "appeal-service-user"
+    appeal_representation = "appeal-representation"
+  }
+}

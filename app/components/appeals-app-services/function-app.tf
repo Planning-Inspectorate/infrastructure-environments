@@ -34,13 +34,13 @@ module "front_office_subscribers" {
     AUTH_BASE_URL = "https://${module.app_service["auth_server"].default_site_hostname}"
 
     # service bus topics
-    SB_TOPIC_NAME_APPEAL_HAS            = data.azurerm_servicebus_topic.appeal_has.name
-    SB_TOPIC_NAME_APPEAL_S78            = data.azurerm_servicebus_topic.appeal_s78.name
-    SB_TOPIC_NAME_APPEAL_DOCUMENT       = data.azurerm_servicebus_topic.appeal_document.name
-    SB_TOPIC_NAME_APPEAL_EVENT          = data.azurerm_servicebus_topic.appeal_event.name
-    SB_TOPIC_NAME_APPEAL_SERVICE_USER   = data.azurerm_servicebus_topic.appeal_service_user.name
-    SB_TOPIC_NAME_LISTED_BUILDING       = data.azurerm_servicebus_topic.listed_building.name
-    SB_TOPIC_NAME_APPEAL_REPRESENTATION = data.azurerm_servicebus_topic.appeal_representation.name
+    SB_TOPIC_NAME_APPEAL_HAS            = var.service_bus_topic.appeal_has
+    SB_TOPIC_NAME_APPEAL_S78            = var.service_bus_topic.appeal_s78
+    SB_TOPIC_NAME_APPEAL_DOCUMENT       = var.service_bus_topic.document
+    SB_TOPIC_NAME_APPEAL_EVENT          = var.service_bus_topic.event
+    SB_TOPIC_NAME_APPEAL_SERVICE_USER   = var.service_bus_topic.service_user
+    SB_TOPIC_NAME_LISTED_BUILDING       = var.service_bus_topic.listed_building
+    SB_TOPIC_NAME_APPEAL_REPRESENTATION = var.service_bus_topic.appeal_representation
 
     # service bus subscriptions
     SB_SUBSCRIPTION_NAME_APPEAL_HAS            = azurerm_servicebus_subscription.appeals_fo_has_case_topic_subscription[0].name
