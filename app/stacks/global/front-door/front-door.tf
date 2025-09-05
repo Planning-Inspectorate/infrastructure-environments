@@ -267,7 +267,7 @@ resource "azurerm_frontdoor_rules_engine" "search_indexing" {
 
   rule { # runs after rule 1; is this redundant due to rule 1 applies it globally?
     name     = "BookReferenceFileRobotsTag"
-    priority = 2 
+    priority = 2
 
     match_condition {
       variable  = "RequestFilename"

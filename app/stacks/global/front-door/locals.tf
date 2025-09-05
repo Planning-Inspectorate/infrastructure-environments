@@ -109,7 +109,7 @@ locals {
   # We cannot use a terraform for_each loop for the null_resource since these all run in parallel. Hence the loop is done within the command
   # Bash requires a space separate string to loop through.
   # Link Rules Engine to ALL routing rules; scope behavior inside the Rules Engine via match conditions
-  search_indexing_rule_backends = join(" ", [for mapping in local.frontend_endpoint_mappings : mapping["name"]])#if mapping["search_indexing"] == false])
+  search_indexing_rule_backends = join(" ", [for mapping in local.frontend_endpoint_mappings : mapping["name"]]) #if mapping["search_indexing"] == false])
 
   # Hosts that should always receive X-Robots-Tag: noindex,nofollow via rule 1
   # - Back Office (current and, if present, new hostname)
