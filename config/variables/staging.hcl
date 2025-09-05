@@ -19,4 +19,13 @@ locals {
     "web_auth_enabled"  = true
     "application_id"    = "cfbeda8b-8a44-443f-be26-59b180dd01c1"
   }
+  service_bus_topic                    = {
+    appeal_has            = "appeal-has-staging"
+    appeal_s78            = "appeal-s78-staging"
+    document              = "appeal-document-staging"
+    event                 = "appeal-event-staging"
+    listed_building       = "listed-building-staging"
+    service_user          = "appeal-service-user-staging"
+    appeal_representation = "appeal-representation-staging"
+  }
 }
