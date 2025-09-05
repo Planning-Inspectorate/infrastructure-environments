@@ -247,16 +247,25 @@ resource "azurerm_frontdoor_rules_engine" "search_indexing" {
     name     = "addrobotstagheader"
     priority = 1
 
+    # Apply unconditional noindex only to selected hosts derived in locals
+    match_condition {
+      variable  = "RequestHeader"
+      selector  = "Host"
+      operator  = "Equal"
+      value     = local.rules_engine_noindex_hosts
+      transform = ["Lowercase"]
+    }
+
     action {
       response_header {
-        header_action_type = "Append"
+        header_action_type = "Overwrite"
         header_name        = "X-Robots-Tag"
         value              = "noindex,nofollow"
       }
     }
   }
 
-  rule {
+  rule { # runs after rule 1; is this redundant due to rule 1 applies it globally?
     name     = "BookReferenceFileRobotsTag"
     priority = 2
 
@@ -269,7 +278,7 @@ resource "azurerm_frontdoor_rules_engine" "search_indexing" {
 
     action {
       response_header {
-        header_action_type = "Append"
+        header_action_type = "Overwrite"
         header_name        = "X-Robots-Tag"
         value              = "noindex,nofollow"
       }

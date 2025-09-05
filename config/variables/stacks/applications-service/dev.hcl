@@ -59,4 +59,6 @@ locals {
     login_username = "pins-odt-sql-dev-applications-fo"
     object_id      = "3d17ce3a-7e17-414d-bd11-9832e30c79f0"
   }
+
+  enable_search_indexing_by_default = true
 }

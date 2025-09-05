@@ -108,7 +108,21 @@ locals {
   # This variable is used in a bash script to loop through some Azure CLI commands that cannot conflict
   # We cannot use a terraform for_each loop for the null_resource since these all run in parallel. Hence the loop is done within the command
   # Bash requires a space separate string to loop through.
-  search_indexing_rule_backends = join(" ", [for mapping in local.frontend_endpoint_mappings : mapping["name"] if mapping["search_indexing"] == false])
+  # Link Rules Engine to ALL routing rules; scope behavior inside the Rules Engine via match conditions
+  search_indexing_rule_backends = join(" ", [for mapping in local.frontend_endpoint_mappings : mapping["name"]]) #if mapping["search_indexing"] == false])
+
+  # Hosts that should always receive X-Robots-Tag: noindex,nofollow via rule 1
+  # - Back Office (current and, if present, new hostname)
+  # - Appeals
+  # - Applications ONLY when default search indexing is disabled for the environment
+  rules_engine_noindex_hosts = [
+    for h in compact([
+      local.back_office_frontend.frontend_endpoint,
+      local.back_office_frontend.frontend_endpoint_new,
+      local.appeals_frontend.frontend_endpoint,
+      var.enable_search_indexing_by_default ? null : local.applications_frontend.frontend_endpoint
+    ]) : lower(h)
+  ]
 
   tags = merge(
     var.common_tags,
