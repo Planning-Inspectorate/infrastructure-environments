@@ -114,13 +114,13 @@ locals {
     object_id      = "6ee5b56b-17db-4deb-9d56-943155bbc780"
   }
   service_bus_topic = {
-    appeal_has            = "appeal-has-staging"
-    appeal_s78            = "appeal-s78-staging"
-    document              = "appeal-document-staging"
-    event                 = "appeal-event-staging"
-    listed_building       = "listed-building-staging"
-    service_user          = "appeal-service-user-staging"
-    appeal_representation = "appeal-representation-staging"
+    "appeal_has"            = "appeal-has-staging"
+    "appeal_s78"            = "appeal-s78-staging"
+    "document"              = "appeal-document-staging"
+    "event"                 = "appeal-event-staging"
+    "listed_building"       = "listed-building-staging"
+    "service_user"          = "appeal-service-user-staging"
+    "appeal_representation" = "appeal-representation-staging"
   }
   task_submit_to_horizon_cron_string    = "*/10 * * * *"
   task_submit_to_horizon_trigger_active = "true"
