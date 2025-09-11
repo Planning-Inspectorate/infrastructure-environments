@@ -80,7 +80,7 @@ locals {
 
   frontend_endpoint_mappings = [{
     name            = "ApplicationsService"
-    search_indexing = var.enable_search_indexing_by_default
+    search_indexing = false
     }, {
     name            = "BackOffice"
     search_indexing = false
