@@ -20,44 +20,58 @@ locals {
       auth_enabled               = var.appeals_easy_auth_config.web_auth_enabled
 
       app_settings = {
-        ALLOW_TESTING_OVERRIDES                   = var.allow_testing_overrides
-        APPLICATIONINSIGHTS_CONNECTION_STRING     = local.secret_refs["appeals-app-insights-connection-string"]
-        APPEALS_SERVICE_API_TIMEOUT               = var.api_timeout
-        APPEALS_SERVICE_API_URL                   = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
-        AUTH_BASE_URL                             = "https://pins-app-${var.service_name}-auth-server-${var.resource_suffix}.azurewebsites.net"
-        CLAMAV_HOST                               = azurerm_private_dns_a_record.clamav.fqdn
-        CLAMAV_PORT                               = "3310"
-        CLIENT_ID                                 = local.secret_refs["appeals-forms-web-app-client-id"]
-        CLIENT_SECRET                             = local.secret_refs["appeals-forms-web-app-client-secret"]
-        COMMENTS_ENABLED                          = var.comments_enabled
-        RULE_6_ENABLED                            = var.rule_6_enabled
-        SCOPING_OPINION_ENABLED                   = var.scoping_opinion_enabled
-        DOCS_API_PATH                             = "/opt/app/api"
-        DOCUMENTS_SERVICE_API_TIMEOUT             = var.api_timeout
-        DOCUMENTS_SERVICE_API_URL                 = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net/"
-        FEATURE_FLAG_GOOGLE_TAG_MANAGER           = false
-        FEATURE_FLAG_NEW_APPEAL_JOURNEY           = true
-        FILE_UPLOAD_DEBUG                         = var.appeals_frontend_file_upload_debug_logging_enabled
-        FILE_UPLOAD_MAX_FILE_SIZE_BYTES           = var.max_file_upload_size_in_bytes
-        FILE_UPLOAD_TMP_PATH                      = "/tmp"
-        FILE_UPLOAD_USE_TEMP_FILES                = true
-        GOOGLE_ANALYTICS_ID                       = var.google_analytics_id
-        GOOGLE_TAG_MANAGER_ID                     = var.google_tag_manager_id
-        HOST_URL                                  = "https://${var.appeals_service_public_url}"
-        NODE_ENV                                  = var.node_environment
-        PDF_SERVICE_API_URL                       = "https://pins-app-${var.service_name}-pdf-api-${var.resource_suffix}.azurewebsites.net"
-        PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING = local.secret_refs["appeals-app-config-connection-string"]
-        PORT                                      = "3000"
-        SESSION_KEY                               = local.secret_refs["appeals-wfe-session-key"]
-        SESSION_MONGODB_COLLECTION                = "sessions"
-        SESSION_MONGODB_DB_NAME                   = "forms-web-app"
-        SESSION_MONGODB_URL                       = local.secret_refs["appeals-mongo-db-connection-string"]
-        SUBDOMAIN_OFFSET                          = "3"
-        USE_SECURE_SESSION_COOKIES                = true,
-        RETRY_MAX_ATTEMPTS                        = "3"
-        RETRY_STATUS_CODES                        = "500,502,503,504"
-        MICROSOFT_PROVIDER_AUTHENTICATION_SECRET  = local.secret_refs["appeals-microsoft-provider-authentication-secret"]
-        WEBSITE_AUTH_AAD_ALLOWED_TENANTS          = data.azurerm_client_config.current.tenant_id
+        ALLOW_TESTING_OVERRIDES                    = var.allow_testing_overrides
+        APPLICATIONINSIGHTS_CONNECTION_STRING      = local.secret_refs["appeals-app-insights-connection-string"]
+        APPEALS_SERVICE_API_TIMEOUT                = var.api_timeout
+        APPEALS_SERVICE_API_URL                    = "https://pins-app-${var.service_name}-appeals-api-${var.resource_suffix}.azurewebsites.net"
+        AUTH_BASE_URL                              = "https://pins-app-${var.service_name}-auth-server-${var.resource_suffix}.azurewebsites.net"
+        CLAMAV_HOST                                = azurerm_private_dns_a_record.clamav.fqdn
+        CLAMAV_PORT                                = "3310"
+        CLIENT_ID                                  = local.secret_refs["appeals-forms-web-app-client-id"]
+        CLIENT_SECRET                              = local.secret_refs["appeals-forms-web-app-client-secret"]
+        COMMENTS_ENABLED                           = var.comments_enabled
+        RULE_6_ENABLED                             = var.rule_6_enabled
+        SCOPING_OPINION_ENABLED                    = var.scoping_opinion_enabled
+        DOCS_API_PATH                              = "/opt/app/api"
+        DOCUMENTS_SERVICE_API_TIMEOUT              = var.api_timeout
+        DOCUMENTS_SERVICE_API_URL                  = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net/"
+        FEATURE_FLAG_GOOGLE_TAG_MANAGER            = false
+        FEATURE_FLAG_NEW_APPEAL_JOURNEY            = true
+        FILE_UPLOAD_DEBUG                          = var.appeals_frontend_file_upload_debug_logging_enabled
+        FILE_UPLOAD_MAX_FILE_SIZE_BYTES            = var.max_file_upload_size_in_bytes
+        FILE_UPLOAD_TMP_PATH                       = "/tmp"
+        FILE_UPLOAD_USE_TEMP_FILES                 = true
+        GOOGLE_ANALYTICS_ID                        = var.google_analytics_id
+        GOOGLE_TAG_MANAGER_ID                      = var.google_tag_manager_id
+        HOST_URL                                   = "https://${var.appeals_service_public_url}"
+        NODE_ENV                                   = var.node_environment
+        PDF_SERVICE_API_URL                        = "https://pins-app-${var.service_name}-pdf-api-${var.resource_suffix}.azurewebsites.net"
+        PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING  = local.secret_refs["appeals-app-config-connection-string"]
+        PORT                                       = "3000"
+        SB_SUBSCRIPTION_NAME_APPEAL_HAS            = azurerm_servicebus_subscription.appeals_fo_has_case_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_S78            = azurerm_servicebus_subscription.appeals_fo_s78_case_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_DOCUMENT       = azurerm_servicebus_subscription.appeals_fo_document_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_EVENT          = azurerm_servicebus_subscription.appeals_fo_event_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_SERVICE_USER   = azurerm_servicebus_subscription.appeals_fo_service_user_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_LISTED_BUILDING       = azurerm_servicebus_subscription.appeals_fo_listed_building_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_REPRESENTATION = azurerm_servicebus_subscription.appeals_fo_appeal_representation_topic_subscription[0].name
+        SB_TOPIC_NAME_APPEAL_HAS                   = var.service_bus_topic.appeal_has
+        SB_TOPIC_NAME_APPEAL_S78                   = var.service_bus_topic.appeal_s78
+        SB_TOPIC_NAME_APPEAL_DOCUMENT              = var.service_bus_topic.document
+        SB_TOPIC_NAME_APPEAL_EVENT                 = var.service_bus_topic.event
+        SB_TOPIC_NAME_APPEAL_SERVICE_USER          = var.service_bus_topic.service_user
+        SB_TOPIC_NAME_LISTED_BUILDING              = var.service_bus_topic.listed_building
+        SB_TOPIC_NAME_APPEAL_REPRESENTATION        = var.service_bus_topic.appeal_representation
+        SESSION_KEY                                = local.secret_refs["appeals-wfe-session-key"]
+        SESSION_MONGODB_COLLECTION                 = "sessions"
+        SESSION_MONGODB_DB_NAME                    = "forms-web-app"
+        SESSION_MONGODB_URL                        = local.secret_refs["appeals-mongo-db-connection-string"]
+        SUBDOMAIN_OFFSET                           = "3"
+        USE_SECURE_SESSION_COOKIES                 = true,
+        RETRY_MAX_ATTEMPTS                         = "3"
+        RETRY_STATUS_CODES                         = "500,502,503,504"
+        MICROSOFT_PROVIDER_AUTHENTICATION_SECRET   = local.secret_refs["appeals-microsoft-provider-authentication-secret"]
+        WEBSITE_AUTH_AAD_ALLOWED_TENANTS           = data.azurerm_client_config.current.tenant_id
 
       }
     }
@@ -117,6 +131,24 @@ locals {
 
         FUNCTIONS_CLIENT_ID     = local.secret_refs["appeals-function-client-id"]
         FUNCTIONS_CLIENT_SECRET = local.secret_refs["appeals-function-client-secret"]
+
+        # service bus topics
+        SB_TOPIC_NAME_APPEAL_HAS            = var.service_bus_topic.appeal_has
+        SB_TOPIC_NAME_APPEAL_S78            = var.service_bus_topic.appeal_s78
+        SB_TOPIC_NAME_APPEAL_DOCUMENT       = var.service_bus_topic.document
+        SB_TOPIC_NAME_APPEAL_EVENT          = var.service_bus_topic.event
+        SB_TOPIC_NAME_APPEAL_SERVICE_USER   = var.service_bus_topic.service_user
+        SB_TOPIC_NAME_LISTED_BUILDING       = var.service_bus_topic.listed_building
+        SB_TOPIC_NAME_APPEAL_REPRESENTATION = var.service_bus_topic.appeal_representation
+
+        # service bus subscriptions
+        SB_SUBSCRIPTION_NAME_APPEAL_HAS            = azurerm_servicebus_subscription.appeals_fo_has_case_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_S78            = azurerm_servicebus_subscription.appeals_fo_s78_case_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_DOCUMENT       = azurerm_servicebus_subscription.appeals_fo_document_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_EVENT          = azurerm_servicebus_subscription.appeals_fo_event_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_SERVICE_USER   = azurerm_servicebus_subscription.appeals_fo_service_user_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_LISTED_BUILDING       = azurerm_servicebus_subscription.appeals_fo_listed_building_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_REPRESENTATION = azurerm_servicebus_subscription.appeals_fo_appeal_representation_topic_subscription[0].name
       }
     }
 
@@ -136,9 +168,9 @@ locals {
         APPLICATIONINSIGHTS_CONNECTION_STRING                                                 = local.secret_refs["appeals-app-insights-connection-string"]
         APP_APPEALS_BASE_URL                                                                  = "https://${var.appeals_service_public_url}"
         AUTH_BASE_URL                                                                         = "https://pins-app-${var.service_name}-auth-server-${var.resource_suffix}.azurewebsites.net"
-        BACK_OFFICE_APPELLANT_SUBMISSION_TOPIC                                                = "appeal-fo-appellant-submission"
-        BACK_OFFICE_LPA_RESPONSE_SUBMISSION_TOPIC                                             = "appeal-fo-lpa-questionnaire-submission"
-        BACK_OFFICE_REPRESENTATION_SUBMISSION_TOPIC                                           = "appeal-fo-representation-submission"
+        BACK_OFFICE_APPELLANT_SUBMISSION_TOPIC                                                = var.service_bus_submission.appellant
+        BACK_OFFICE_LPA_RESPONSE_SUBMISSION_TOPIC                                             = var.service_bus_submission.lpa_questionnaire
+        BACK_OFFICE_REPRESENTATION_SUBMISSION_TOPIC                                           = var.service_bus_submission.representation
         BLOB_STORAGE_CONNECTION_STRING                                                        = local.secret_refs["appeals-documents-primary-blob-connection-string"]
         DOCS_API_PATH                                                                         = "/opt/app/api"
         DOCUMENTS_SERVICE_API_TIMEOUT                                                         = var.api_timeout
@@ -152,6 +184,20 @@ locals {
         MONGODB_URL                                                                           = local.secret_refs["appeals-mongo-db-connection-string"]
         NODE_ENV                                                                              = var.node_environment
         PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING                                             = local.secret_refs["appeals-app-config-connection-string"]
+        SB_SUBSCRIPTION_NAME_APPEAL_HAS                                                       = azurerm_servicebus_subscription.appeals_fo_has_case_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_S78                                                       = azurerm_servicebus_subscription.appeals_fo_s78_case_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_DOCUMENT                                                  = azurerm_servicebus_subscription.appeals_fo_document_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_EVENT                                                     = azurerm_servicebus_subscription.appeals_fo_event_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_SERVICE_USER                                              = azurerm_servicebus_subscription.appeals_fo_service_user_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_LISTED_BUILDING                                                  = azurerm_servicebus_subscription.appeals_fo_listed_building_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_REPRESENTATION                                            = azurerm_servicebus_subscription.appeals_fo_appeal_representation_topic_subscription[0].name
+        SB_TOPIC_NAME_APPEAL_HAS                                                              = var.service_bus_topic.appeal_has
+        SB_TOPIC_NAME_APPEAL_S78                                                              = var.service_bus_topic.appeal_s78
+        SB_TOPIC_NAME_APPEAL_DOCUMENT                                                         = var.service_bus_topic.document
+        SB_TOPIC_NAME_APPEAL_EVENT                                                            = var.service_bus_topic.event
+        SB_TOPIC_NAME_APPEAL_SERVICE_USER                                                     = var.service_bus_topic.service_user
+        SB_TOPIC_NAME_LISTED_BUILDING                                                         = var.service_bus_topic.listed_building
+        SB_TOPIC_NAME_APPEAL_REPRESENTATION                                                   = var.service_bus_topic.appeal_representation
         SERVER_PORT                                                                           = "3000"
         SERVER_SHOW_ERRORS                                                                    = true
         SERVER_TERMINATION_GRACE_PERIOD_SECONDS                                               = "0"
@@ -218,27 +264,41 @@ locals {
       auth_enabled                    = false
 
       app_settings = {
-        APPLICATIONINSIGHTS_CONNECTION_STRING     = local.secret_refs["appeals-app-insights-connection-string"]
-        AUTH_BASE_URL                             = "https://pins-app-${var.service_name}-auth-server-${var.resource_suffix}.azurewebsites.net"
-        BLOB_STORAGE_CONNECTION_STRING            = local.secret_refs["appeals-documents-primary-blob-connection-string"]
-        BLOB_STORAGE_HOST                         = var.appeal_documents_primary_blob_host
-        BO_STORAGE_CONTAINER_HOST                 = var.back_office_document_storage_api_host
-        BO_STORAGE_CONTAINER_NAME                 = var.bo_appeals_document_container_name
-        DOCS_API_PATH                             = "/opt/app/api"
-        FILE_MAX_SIZE_IN_BYTES                    = var.max_file_upload_size_in_bytes
-        FILE_UPLOAD_PATH                          = "/tmp/upload"
-        LOGGER_LEVEL                              = var.logger_level
-        MONGODB_AUTO_INDEX                        = true
-        MONGODB_DB_NAME                           = "documents-service-api"
-        MONGODB_URL                               = local.secret_refs["appeals-mongo-db-connection-string"]
-        NODE_ENV                                  = var.node_environment
-        PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING = local.secret_refs["appeals-app-config-connection-string"]
-        SERVER_PORT                               = "4000",
-        SERVER_SHOW_ERRORS                        = true
-        SQL_CONNECTION_STRING                     = local.secret_refs["appeals-sql-server-connection-string-app"]
-        STORAGE_CONTAINER_NAME                    = var.appeal_documents_storage_container_name
-        STORAGE_UPLOAD_MAX_ATTEMPTS               = "3"
-        STORAGE_UPLOAD_QUERY_LIMIT                = "5"
+        APPLICATIONINSIGHTS_CONNECTION_STRING      = local.secret_refs["appeals-app-insights-connection-string"]
+        AUTH_BASE_URL                              = "https://pins-app-${var.service_name}-auth-server-${var.resource_suffix}.azurewebsites.net"
+        BLOB_STORAGE_CONNECTION_STRING             = local.secret_refs["appeals-documents-primary-blob-connection-string"]
+        BLOB_STORAGE_HOST                          = var.appeal_documents_primary_blob_host
+        BO_STORAGE_CONTAINER_HOST                  = var.back_office_document_storage_api_host
+        BO_STORAGE_CONTAINER_NAME                  = var.bo_appeals_document_container_name
+        DOCS_API_PATH                              = "/opt/app/api"
+        FILE_MAX_SIZE_IN_BYTES                     = var.max_file_upload_size_in_bytes
+        FILE_UPLOAD_PATH                           = "/tmp/upload"
+        LOGGER_LEVEL                               = var.logger_level
+        MONGODB_AUTO_INDEX                         = true
+        MONGODB_DB_NAME                            = "documents-service-api"
+        MONGODB_URL                                = local.secret_refs["appeals-mongo-db-connection-string"]
+        NODE_ENV                                   = var.node_environment
+        PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING  = local.secret_refs["appeals-app-config-connection-string"]
+        SB_SUBSCRIPTION_NAME_APPEAL_HAS            = azurerm_servicebus_subscription.appeals_fo_has_case_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_S78            = azurerm_servicebus_subscription.appeals_fo_s78_case_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_DOCUMENT       = azurerm_servicebus_subscription.appeals_fo_document_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_EVENT          = azurerm_servicebus_subscription.appeals_fo_event_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_SERVICE_USER   = azurerm_servicebus_subscription.appeals_fo_service_user_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_LISTED_BUILDING       = azurerm_servicebus_subscription.appeals_fo_listed_building_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_REPRESENTATION = azurerm_servicebus_subscription.appeals_fo_appeal_representation_topic_subscription[0].name
+        SB_TOPIC_NAME_APPEAL_HAS                   = var.service_bus_topic.appeal_has
+        SB_TOPIC_NAME_APPEAL_S78                   = var.service_bus_topic.appeal_s78
+        SB_TOPIC_NAME_APPEAL_DOCUMENT              = var.service_bus_topic.document
+        SB_TOPIC_NAME_APPEAL_EVENT                 = var.service_bus_topic.event
+        SB_TOPIC_NAME_APPEAL_SERVICE_USER          = var.service_bus_topic.service_user
+        SB_TOPIC_NAME_LISTED_BUILDING              = var.service_bus_topic.listed_building
+        SB_TOPIC_NAME_APPEAL_REPRESENTATION        = var.service_bus_topic.appeal_representation
+        SERVER_PORT                                = "4000",
+        SERVER_SHOW_ERRORS                         = true
+        SQL_CONNECTION_STRING                      = local.secret_refs["appeals-sql-server-connection-string-app"]
+        STORAGE_CONTAINER_NAME                     = var.appeal_documents_storage_container_name
+        STORAGE_UPLOAD_MAX_ATTEMPTS                = "3"
+        STORAGE_UPLOAD_QUERY_LIMIT                 = "5"
       }
     }
 
@@ -254,15 +314,29 @@ locals {
       auth_enabled                    = false
 
       app_settings = {
-        APPLICATIONINSIGHTS_CONNECTION_STRING   = local.secret_refs["appeals-app-insights-connection-string"]
-        AUTH_BASE_URL                           = "https://pins-app-${var.service_name}-auth-server-${var.resource_suffix}.azurewebsites.net"
-        DOCS_API_PATH                           = "/opt/app/api"
-        GOTENBERG_URL                           = "http://gotenberg:4000"
-        LOGGER_LEVEL                            = var.logger_level
-        NODE_ENV                                = var.node_environment
-        SERVER_PORT                             = "3000"
-        SERVER_SHOW_ERRORS                      = true
-        SERVER_TERMINATION_GRACE_PERIOD_SECONDS = "0"
+        APPLICATIONINSIGHTS_CONNECTION_STRING      = local.secret_refs["appeals-app-insights-connection-string"]
+        AUTH_BASE_URL                              = "https://pins-app-${var.service_name}-auth-server-${var.resource_suffix}.azurewebsites.net"
+        DOCS_API_PATH                              = "/opt/app/api"
+        GOTENBERG_URL                              = "http://gotenberg:4000"
+        LOGGER_LEVEL                               = var.logger_level
+        NODE_ENV                                   = var.node_environment
+        SB_SUBSCRIPTION_NAME_APPEAL_HAS            = azurerm_servicebus_subscription.appeals_fo_has_case_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_S78            = azurerm_servicebus_subscription.appeals_fo_s78_case_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_DOCUMENT       = azurerm_servicebus_subscription.appeals_fo_document_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_EVENT          = azurerm_servicebus_subscription.appeals_fo_event_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_SERVICE_USER   = azurerm_servicebus_subscription.appeals_fo_service_user_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_LISTED_BUILDING       = azurerm_servicebus_subscription.appeals_fo_listed_building_topic_subscription[0].name
+        SB_SUBSCRIPTION_NAME_APPEAL_REPRESENTATION = azurerm_servicebus_subscription.appeals_fo_appeal_representation_topic_subscription[0].name
+        SB_TOPIC_NAME_APPEAL_HAS                   = var.service_bus_topic.appeal_has
+        SB_TOPIC_NAME_APPEAL_S78                   = var.service_bus_topic.appeal_s78
+        SB_TOPIC_NAME_APPEAL_DOCUMENT              = var.service_bus_topic.document
+        SB_TOPIC_NAME_APPEAL_EVENT                 = var.service_bus_topic.event
+        SB_TOPIC_NAME_APPEAL_SERVICE_USER          = var.service_bus_topic.service_user
+        SB_TOPIC_NAME_LISTED_BUILDING              = var.service_bus_topic.listed_building
+        SB_TOPIC_NAME_APPEAL_REPRESENTATION        = var.service_bus_topic.appeal_representation
+        SERVER_PORT                                = "3000"
+        SERVER_SHOW_ERRORS                         = true
+        SERVER_TERMINATION_GRACE_PERIOD_SECONDS    = "0"
       }
     }
   }
