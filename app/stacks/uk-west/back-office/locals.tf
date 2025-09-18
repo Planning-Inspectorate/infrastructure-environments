@@ -22,7 +22,8 @@ locals {
       "database=${azurerm_mssql_database.back_office.name}",
       "user=${local.sql_server_username_app}",
       "password=${random_password.back_office_sql_server_password_app.result}",
-      "trustServerCertificate=true"
+      "trustServerCertificate=true",
+      var.environment == "prod" ? "connection_limit=10" : ""
     ]
   )
 
