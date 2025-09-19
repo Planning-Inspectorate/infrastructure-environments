@@ -4,7 +4,7 @@ resource "azurerm_public_ip" "vnet_gateway" {
   name                = "pins-vgw-pip-${var.service_name}-${var.resource_suffix}"
   resource_group_name = var.resource_group_name
   location            = var.location
-  allocation_method   = "Dynamic"
+  allocation_method   = "Static"
   sku                 = "Basic"
 
   tags = var.tags
