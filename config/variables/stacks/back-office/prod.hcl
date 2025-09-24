@@ -42,10 +42,10 @@ locals {
     },
     {
       name    = "azure-ai-language-redaction",
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
-        users      = []
+        users      = ["EN010154"]
       }
     }
   ]
