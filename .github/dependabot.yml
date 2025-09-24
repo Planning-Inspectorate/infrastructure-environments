@@ -5,14 +5,14 @@
 
 version: 2
 updates:
-  - package-ecosystem: "terraform"
+  - package-ecosystem: 'terraform'
     directories:
-      - "/app/**/*"
-      - "/config"
+      - '/app/**/*'
+      - '/config'
     schedule:
-      interval: "weekly"
-      day: "tuesday"
+      interval: 'weekly'
+      day: 'tuesday'
     groups:
       terraform-providers:
         patterns:
-          - "hashicorp/azurerm"
+          - 'hashicorp/azurerm'
