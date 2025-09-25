@@ -13,7 +13,7 @@ locals {
   logger_level                         = "debug"
   monitoring_alerts_enabled            = true
   primary_vnet_address_space           = ["10.1.0.0/16"]
-  private_endpoint_enabled             = false
+  private_endpoint_enabled             = true
   secondary_vnet_address_space         = ["10.11.0.0/16"]
   srv_notify_base_url                  = "https://api.notifications.service.gov.uk/"
   appeals_easy_auth_config             = {
