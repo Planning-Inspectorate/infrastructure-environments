@@ -45,7 +45,7 @@ locals {
       enabled = true
       targeting = {
         percentage = 100
-        users      = ["BC0110001", "BC0110002", "BC0110003"]
+        users      = ["BC0110001", "BC0110002", "BC0110003", "BC0110015"]
       }
     }
   ]
@@ -80,7 +80,7 @@ locals {
   }
   sql_database_configuration = {
     max_size_gb               = 250 # included
-    short_term_retention_days = 7 # 7-35
+    short_term_retention_days = 7   # 7-35
     audit_retention_days      = 30
     sku_name                  = "S0"
   }
