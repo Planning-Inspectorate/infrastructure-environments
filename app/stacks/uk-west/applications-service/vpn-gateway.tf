@@ -8,6 +8,8 @@ resource "azurerm_local_network_gateway" "national_infrastructure" {
 }
 
 resource "azurerm_virtual_network_gateway_connection" "national_infrastructure" {
+  count = var.common_vnet_gateway_id != null && var.common_vnet_gateway_id != "" ? 1 : 0
+
   name                       = "pins-vcn-${local.service_name}-${local.resource_suffix}"
   resource_group_name        = azurerm_resource_group.applications_service_stack.name
   location                   = azurerm_resource_group.applications_service_stack.location
