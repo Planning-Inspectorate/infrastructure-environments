@@ -23,9 +23,6 @@ module "applications_background_job_functions" {
   app_settings = {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.service_bus_namespace_name}.servicebus.windows.net"
 
-    # Malware Detection
-    API_HOST = var.back_office_api_host
-
     # Notify Subscribers
     NODE_ENV                     = var.node_environment
     API_HOST                     = var.back_office_api_host
