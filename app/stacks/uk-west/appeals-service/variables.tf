@@ -30,6 +30,22 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "appeals_vnet_staging" {
+  description = "Appeals staging vnet peering flags for appeals back office test"
+  type = object({
+    fo_network_name = string
+    fo_rg           = string
+    bo_network_name = string
+    bo_rg           = string
+  })
+  default = {
+    fo_network_name = "pins-vnet-common-staging-ukw-001"
+    fo_rg           = "pins-rg-common-staging-ukw-001"
+    bo_network_name = "pins-vnet-appeals-bo-test"
+    bo_rg           = "pins-rg-appeals-bo-test"
+  }
+}
+
 variable "integration_functions_app_service_plan_id" {
   description = "The id of the common integration functions app service plan"
   type        = string
@@ -441,4 +457,42 @@ variable "service_bus_config" {
     bo_subscription_ttl          = string
     fo_subscription_ttl          = string
   })
+}
+
+variable "service_bus_submission" {
+  description = "BO Submission Topic names for staging"
+  type = object({
+    appellant         = string
+    lpa_questionnaire = string
+    representation    = string
+  })
+  default = {
+    appellant         = "appeal-fo-appellant-submission"
+    lpa_questionnaire = "appeal-fo-lpa-questionnaire-submission"
+    representation    = "appeal-fo-representation-submission"
+  }
+}
+
+variable "service_bus_topic" {
+  description = "BO Topic names for staging"
+  type = object({
+    appeal_has            = string
+    appeal_s78            = string
+    document              = string
+    event                 = string
+    listed_building       = string
+    service_user          = string
+    appeal_representation = string
+
+  })
+  default = {
+
+    appeal_has            = "appeal-has"
+    appeal_s78            = "appeal-s78"
+    document              = "appeal-document"
+    event                 = "appeal-event"
+    listed_building       = "listed-building"
+    service_user          = "appeal-service-user"
+    appeal_representation = "appeal-representation"
+  }
 }
