@@ -42,6 +42,11 @@ locals {
   node_environment                                                      = "development"
   open_registration_case_references                                     = ""
   planned_outage_resume_text                                            = ""
+  redis_cache_configuration = {
+    family   = "C"
+    capacity = 0
+    sku_name = "Basic"
+  }
   srv_notify_ip_registration_confirmation_email_to_ip_template_id       = "830c9c01-1f81-4198-be72-11ab173c128a"
   srv_notify_ip_registration_confirmation_email_to_ip_template_id_welsh = "a773d70c-ebbc-42dc-b4c8-d862eb9e67de"
   srv_notify_service_id                                                 = "9b89eb93-3071-432c-9c6b-4e07dbda9071"
