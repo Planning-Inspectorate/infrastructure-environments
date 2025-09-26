@@ -18,7 +18,7 @@ module "applications_migration_function" {
   resource_group_name        = var.resource_group_name
   resource_suffix            = var.resource_suffix
   service_name               = local.service_name
-  function_node_version      = 20
+  function_node_version      = 22
 
   app_settings = {
     # Function env variables
