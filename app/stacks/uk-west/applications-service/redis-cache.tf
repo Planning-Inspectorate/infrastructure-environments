@@ -1,12 +1,12 @@
 resource "azurerm_redis_cache" "applications_service_redis_cache" {
-  capacity                      = 1
-  family                        = "C"
   location                      = azurerm_resource_group.applications_service_stack.location
   name                          = "pins-redis-cache-${local.service_name}-${local.resource_suffix}"
   resource_group_name           = azurerm_resource_group.applications_service_stack.name
-  sku_name                      = "Standard"
   public_network_access_enabled = false
   minimum_tls_version           = "1.2"
+  capacity                      = var.redis_cache_configuration.capacity
+  family                        = var.redis_cache_configuration.family
+  sku_name                      = var.redis_cache_configuration.sku_name
 }
 
 resource "azurerm_private_endpoint" "applications_service_redis_cache" {
