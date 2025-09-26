@@ -8,7 +8,7 @@ module "applications_background_job_functions" {
   app_insights_instrument_key              = var.app_insights_instrument_key
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
-  function_node_version                    = 20
+  function_node_version                    = 22
   integration_subnet_id                    = var.integration_subnet_id
   # adding key_vault_id creates a read_secrets permission (see import)
   key_vault_id               = var.key_vault_id
