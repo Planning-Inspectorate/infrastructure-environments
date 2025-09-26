@@ -12,3 +12,7 @@ updates:
     schedule:
       interval: 'weekly'
       day: 'tuesday'
+    groups:
+      terraform-providers:
+        patterns:
+          - 'hashicorp/azurerm'
