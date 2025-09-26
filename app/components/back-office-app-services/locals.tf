@@ -7,9 +7,9 @@ locals {
 
       # Networking
       app_service_private_dns_zone_id = var.app_service_private_dns_zone_id
-      endpoint_subnet_id              = var.private_endpoint_enabled ? var.endpoint_subnet_id : null
+      endpoint_subnet_id              = var.endpoint_subnet_id
       front_door_restriction          = true
-      inbound_vnet_connectivity       = var.private_endpoint_enabled
+      inbound_vnet_connectivity       = true
       integration_subnet_id           = var.integration_subnet_id
       key_vault_access                = true
       outbound_vnet_connectivity      = true
