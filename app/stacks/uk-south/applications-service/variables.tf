@@ -378,6 +378,15 @@ variable "private_endpoint_enabled" {
   default     = true
 }
 
+variable "redis_cache_configuration" {
+  description = "Redis configuration options"
+  type = object({
+    family   = string
+    capacity = number
+    sku_name = string
+  })
+}
+
 variable "srv_notify_base_url" {
   description = "The base URL for the Notifications service"
   type        = string
