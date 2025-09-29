@@ -44,6 +44,7 @@ resource "azurerm_log_analytics_workspace" "common" {
   resource_group_name = azurerm_resource_group.common[0].name
   sku                 = "PerGB2018"
   retention_in_days   = 30
+  daily_quota_gb      = var.log_daily_cap_gb
 
   tags = local.tags
 }

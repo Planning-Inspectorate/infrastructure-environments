@@ -13,3 +13,8 @@ variable "location" {
   type        = string
   default     = "uk-south"
 }
+
+variable "log_daily_cap_gb" {
+  description = "Daily log ingestion cap in GB"
+  type        = number
+}
