@@ -63,6 +63,7 @@ locals {
   azuread_applications_inspector_group_id          = "000ad7e9-31ad-4c6c-b9c8-d78e42495548"
 
   # logging
+  log_daily_cap_gb                          = 0.4
   back_office_applications_log_level_file   = "silent"
   back_office_applications_log_level_stdout = "info"
 
@@ -81,7 +82,7 @@ locals {
   }
   sql_database_configuration = {
     max_size_gb               = 250 # included
-    short_term_retention_days = 30 # 7-35
+    short_term_retention_days = 30  # 7-35
     audit_retention_days      = 120
     sku_name                  = "S0"
   }

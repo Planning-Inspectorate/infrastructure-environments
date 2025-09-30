@@ -62,6 +62,7 @@ locals {
   azuread_applications_inspector_group_id          = "b197404b-f185-4d26-9ff8-a4e42d5b3d70"
 
   # logging
+  log_daily_cap_gb                          = 0.4
   back_office_applications_log_level_file   = "silent"
   back_office_applications_log_level_stdout = "info"
 
