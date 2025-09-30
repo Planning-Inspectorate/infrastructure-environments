@@ -13,6 +13,7 @@ resource "azurerm_log_analytics_workspace" "back_office" {
   location            = azurerm_resource_group.back_office_stack.location
   sku                 = "PerGB2018"
   retention_in_days   = 30
+  daily_quota_gb      = var.log_daily_cap_gb
 
   tags = local.tags
 }
