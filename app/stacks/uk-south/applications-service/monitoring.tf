@@ -4,6 +4,7 @@ resource "azurerm_log_analytics_workspace" "applcations_service" {
   location            = azurerm_resource_group.applications_service_stack.location
   sku                 = "PerGB2018"
   retention_in_days   = 30
+  daily_quota_gb      = var.log_daily_cap_gb
 
   tags = local.tags
 }

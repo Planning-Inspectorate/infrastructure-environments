@@ -33,6 +33,7 @@ locals {
   feature_save_and_exit_option                 = "false"
   feature_show_affected_area_section           = "false"
   google_analytics_id                          = "G-DQ9S57CJDP"
+  log_daily_cap_gb                             = 0.4
   monitoring_alerts_enabled                    = true
   monitoring_config = {
     app_insights_web_test_enabled = true
