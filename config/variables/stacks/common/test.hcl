@@ -3,4 +3,5 @@ locals {
   secondary_vnet_address_space                = "10.12.0.0/16"
   create_turbrepo_cache                       = false
   deploy_national_infrastructure_vnet_gateway = true
+  log_daily_cap_gb                            = 0.1
 }
