@@ -24,6 +24,10 @@ output "primary_applications_sql_database_id" {
   value       = azurerm_mssql_database.applications_sql_db.id
 }
 
+output "training_subscription_id" {
+  value = data.azurerm_subscription.current.subscription_id
+}
+
 output "web_frontend_url" {
   description = "The URL of the web frontend app service"
   value       = module.app_services.web_frontend_url
