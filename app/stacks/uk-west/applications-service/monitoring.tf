@@ -87,10 +87,10 @@ resource "azurerm_role_assignment" "applications_sql_server_storage" {
   principal_id         = azurerm_mssql_server.applications_sql_server.identity[0].principal_id
 }
 
-resource "azurerm_advanced_threat_protection" "applications_sql_server_storage" {
-  target_resource_id = azurerm_storage_account.applications_sql_server.id
-  enabled            = var.monitoring_alerts_enabled
-}
+# resource "azurerm_advanced_threat_protection" "applications_sql_server_storage" {
+#   target_resource_id = azurerm_storage_account.applications_sql_server.id
+#   enabled            = var.monitoring_alerts_enabled
+# }
 
 # auditing policy
 resource "azurerm_mssql_server_extended_auditing_policy" "applications_sql_server" {
