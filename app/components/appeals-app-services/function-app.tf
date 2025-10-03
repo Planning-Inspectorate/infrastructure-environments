@@ -3,7 +3,7 @@ module "front_office_subscribers" {
   #checkov:skip=CKV_TF_1: Use of commit hash are not required for our Terraform modules
   count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
 
-  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.51"
+  source = "github.com/Planning-Inspectorate/infrastructure-modules.git//modules/node-function-app?ref=1.53"
 
   action_group_ids                         = var.action_group_ids
   app_name                                 = "fo-integration"
