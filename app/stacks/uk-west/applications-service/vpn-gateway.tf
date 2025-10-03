@@ -7,7 +7,14 @@ resource "azurerm_local_network_gateway" "national_infrastructure" {
   tags                = local.tags
 }
 
+moved {
+  from = azurerm_virtual_network_gateway_connection.national_infrastructure
+  to   = azurerm_virtual_network_gateway_connection.national_infrastructure[0]
+}
+
 resource "azurerm_virtual_network_gateway_connection" "national_infrastructure" {
+  count = var.environment != "training" ? 1 : 0
+  
   name                       = "pins-vcn-${local.service_name}-${local.resource_suffix}"
   resource_group_name        = azurerm_resource_group.applications_service_stack.name
   location                   = azurerm_resource_group.applications_service_stack.location
