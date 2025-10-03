@@ -94,7 +94,7 @@ moved {
 }
 resource "azurerm_advanced_threat_protection" "applications_sql_server_storage" {
   count = var.environment != "training" ? 1 : 0
-  
+
   target_resource_id = azurerm_storage_account.applications_sql_server.id
   enabled            = var.monitoring_alerts_enabled
 }
