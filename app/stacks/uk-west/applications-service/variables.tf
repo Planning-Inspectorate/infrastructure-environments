@@ -280,6 +280,12 @@ variable "feature_allow_welsh_cases" {
   type        = string
 }
 
+variable "global_banner_text" {
+  description = "Text to be displayed in the global banner across all pages in the application. If empty, no banner is shown."
+  type        = string
+  default     = ""
+}
+
 variable "google_analytics_id" {
   description = "The id used to connect the frontend app to Google Analytics"
   type        = string

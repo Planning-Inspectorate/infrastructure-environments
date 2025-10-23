@@ -39,6 +39,7 @@ locals {
         FEATURE_SAVE_AND_EXIT_OPTION                 = var.feature_save_and_exit_option
         FEATURE_SHOW_AFFECTED_AREA_SECTION           = var.feature_show_affected_area_section
         FILE_UPLOADS_PATH                            = "/opt/app/uploads"
+        GLOBAL_BANNER_TEXT                           = var.global_banner_text
         GOOGLE_ANALYTICS_ID                          = var.google_analytics_id
         HOST_URL                                     = "https://${var.applications_service_public_url}/"
         MICROSOFT_PROVIDER_AUTHENTICATION_SECRET     = local.secret_refs["applications-service-microsoft-provider-authentication-secret"]

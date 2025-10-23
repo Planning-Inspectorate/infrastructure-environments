@@ -33,6 +33,7 @@ locals {
   feature_redis_session_store                  = "true"
   feature_save_and_exit_option                 = "false"
   feature_show_affected_area_section           = "false"
+  global_banner_text                           = ""
   google_analytics_id                          = "G-DQ9S57CJDP"
   log_daily_cap_gb                             = 5
   monitoring_alerts_enabled                    = true

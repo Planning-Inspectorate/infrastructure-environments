@@ -53,6 +53,7 @@ module "app_services" {
   feature_show_affected_area_section                                    = var.feature_show_affected_area_section
   function_storage_name                                                 = var.function_storage_name
   function_storage_primary_access_key                                   = var.function_storage_primary_access_key
+  global_banner_text                                                    = var.global_banner_text
   google_analytics_id                                                   = var.google_analytics_id
   integration_subnet_id                                                 = var.integration_subnet_id
   key_vault_id                                                          = var.key_vault_id

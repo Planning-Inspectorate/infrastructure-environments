@@ -276,6 +276,12 @@ variable "feature_allow_welsh_cases" {
   type        = string
 }
 
+variable "global_banner_text" {
+  description = "Text to be displayed in the global banner across all pages in the application. If empty, no banner is shown."
+  type        = string
+  default     = ""
+}
+
 variable "function_storage_name" {
   description = "Name of the Storage Account used for Function Apps"
   type        = string
