@@ -2,9 +2,9 @@
 
 locals {
   appeals_easy_auth_config = {
-    "client_id"         = "31bbeefd-e00b-4ef9-b12d-145e06e4ab43"
-    "web_auth_enabled"  = true
-    "application_id"    = "cfbeda8b-8a44-443f-be26-59b180dd01c1"
+    "client_id"        = "31bbeefd-e00b-4ef9-b12d-145e06e4ab43"
+    "web_auth_enabled" = true
+    "application_id"   = "cfbeda8b-8a44-443f-be26-59b180dd01c1"
   }
   appeals_feature_flags = [
     {
@@ -25,6 +25,14 @@ locals {
     },
     {
       name    = "cas-planning-appeal-form-v2"
+      enabled = true
+      targeting = {
+        percentage = 100
+        users      = ["Q1111"]
+      }
+    },
+    {
+      name    = "enforcement-appeal-form-v2"
       enabled = true
       targeting = {
         percentage = 100
