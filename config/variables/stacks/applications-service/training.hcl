@@ -38,11 +38,11 @@ locals {
   monitoring_config = {
     app_insights_web_test_enabled = true
   }
-  national_infrastructure_gateway_ip                                    = "51.140.221.209"
-  national_infrastructure_vnet_address_space                            = ["10.224.161.0/24", "192.168.0.0/20"]
-  node_environment                                                      = "production"
-  open_registration_case_references                                     = ""
-  planned_outage_resume_text                                            = ""
+  national_infrastructure_gateway_ip         = "51.140.221.209"
+  national_infrastructure_vnet_address_space = ["10.224.161.0/24", "192.168.0.0/20"]
+  node_environment                           = "production"
+  open_registration_case_references          = ""
+  planned_outage_resume_text                 = ""
   redis_cache_configuration = {
     family   = "C"
     capacity = 0
