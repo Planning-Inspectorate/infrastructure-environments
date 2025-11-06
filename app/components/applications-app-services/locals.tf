@@ -85,7 +85,7 @@ locals {
         BACK_OFFICE_INTEGRATION_GET_APPLICATIONS                  = var.back_office_integration_get_applications
         FEATURE_ALLOW_WELSH_CASES                                 = var.feature_allow_welsh_cases
         FEATURE_REGISTER_OF_ADVICE                                = var.feature_register_of_advice
-        FEATURE_ENABLE_PROJECTS_MAP                                = var.feature_enable_projects_map
+        FEATURE_ENABLE_PROJECTS_MAP                               = var.feature_enable_projects_map
         BACK_OFFICE_SERVICE_BUS_ENABLED                           = "true"
         BACK_OFFICE_SERVICE_BUS_HOSTNAME                          = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
         DATABASE_URL                                              = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/applications-service-sql-server-connection-string-app/)"
