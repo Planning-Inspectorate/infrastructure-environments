@@ -51,6 +51,7 @@ module "app_services" {
   feature_redis_session_store                                           = var.feature_redis_session_store
   feature_save_and_exit_option                                          = var.feature_save_and_exit_option
   feature_show_affected_area_section                                    = var.feature_show_affected_area_section
+  feature_enable_projects_map                                           = var.feature_enable_projects_map
   function_storage_name                                                 = var.function_storage_name
   function_storage_primary_access_key                                   = var.function_storage_primary_access_key
   global_banner_text                                                    = var.global_banner_text
