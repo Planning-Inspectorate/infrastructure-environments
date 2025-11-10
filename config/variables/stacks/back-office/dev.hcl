@@ -42,7 +42,7 @@ locals {
     },
     {
       name    = "applics-1845-fees-forecasting",
-      enabled = true
+      enabled = false
       targeting = {
         percentage = 100
         users      = []
