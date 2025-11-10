@@ -42,7 +42,7 @@ locals {
     },
     {
       name    = "applics-1845-fees-forecasting",
-      enabled = true
+      enabled = false
       targeting = {
         percentage = 100
         users      = []
@@ -50,7 +50,7 @@ locals {
     },
     {
       name    = "azure-ai-language-redaction",
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = [] //no values enables flag globally
