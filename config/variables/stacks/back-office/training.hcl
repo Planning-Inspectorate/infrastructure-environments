@@ -50,7 +50,7 @@ locals {
     },
     {
       name    = "azure-ai-language-redaction",
-      enabled = true
+      enabled = false
       targeting = {
         percentage = 100
         users      = [] //no values enables flag globally
