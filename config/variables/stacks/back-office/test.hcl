@@ -41,6 +41,14 @@ locals {
       }
     },
     {
+      name    = "applics-1845-fees-forecasting",
+      enabled = true
+      targeting = {
+        percentage = 100
+        users      = []
+      }
+    },
+    {
       name    = "azure-ai-language-redaction",
       enabled = true
       targeting = {
