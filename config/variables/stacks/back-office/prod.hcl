@@ -110,13 +110,6 @@ locals {
     deploy = true # use service-specific instance
   }
 
-<<<<<<< HEAD
   web_app_insights_web_test_enabled = false
   log_daily_quota_gb                = 0.5
-=======
-  monitoring_config = {
-    web_app_insights_web_test_enabled = true
-    log_daily_cap                     = 0.5
-  }
->>>>>>> 8301dcd6e7c8812f63bd74e40ef8b84e7418e40e
 }
