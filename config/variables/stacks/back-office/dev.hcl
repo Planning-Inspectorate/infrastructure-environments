@@ -109,4 +109,6 @@ locals {
   text_analytics_config = {
     deploy = false # use tooling subscription shared instance
   }
+
+  web_app_insights_web_test_enabled = false
 }

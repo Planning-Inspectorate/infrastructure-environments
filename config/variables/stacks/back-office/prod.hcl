@@ -109,4 +109,6 @@ locals {
   text_analytics_config = {
     deploy = true # use service-specific instance
   }
+
+  web_app_insights_web_test_enabled = true
 }
