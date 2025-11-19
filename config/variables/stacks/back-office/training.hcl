@@ -41,6 +41,14 @@ locals {
       }
     },
     {
+      name    = "applics-1845-fees-forecasting",
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = []
+      }
+    },
+    {
       name    = "azure-ai-language-redaction",
       enabled = true
       targeting = {
@@ -102,6 +110,14 @@ locals {
   text_analytics_config = {
     deploy = false # use tooling subscription shared instance
   }
+<<<<<<< HEAD
   web_app_insights_web_test_enabled = false
   log_daily_quota_gb                = 0.2
+=======
+
+  monitoring_config = {
+  web_app_insights_web_test_enabled = false
+  log_daily_cap                     = 0.2
+  }
+>>>>>>> 8301dcd6e7c8812f63bd74e40ef8b84e7418e40e
 }

@@ -88,7 +88,13 @@ resource "azurerm_role_assignment" "applications_sql_server_storage" {
   principal_id         = azurerm_mssql_server.applications_sql_server.identity[0].principal_id
 }
 
+moved {
+  from = azurerm_advanced_threat_protection.applications_sql_server_storage
+  to   = azurerm_advanced_threat_protection.applications_sql_server_storage[0]
+}
 resource "azurerm_advanced_threat_protection" "applications_sql_server_storage" {
+  count = var.environment != "training" ? 1 : 0
+
   target_resource_id = azurerm_storage_account.applications_sql_server.id
   enabled            = var.monitoring_alerts_enabled
 }

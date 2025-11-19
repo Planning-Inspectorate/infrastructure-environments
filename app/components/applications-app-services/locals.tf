@@ -38,7 +38,9 @@ locals {
         FEATURE_REDIS_SESSION_STORE                  = var.feature_redis_session_store
         FEATURE_SAVE_AND_EXIT_OPTION                 = var.feature_save_and_exit_option
         FEATURE_SHOW_AFFECTED_AREA_SECTION           = var.feature_show_affected_area_section
+        FEATURE_ENABLE_PROJECTS_MAP                  = var.feature_enable_projects_map
         FILE_UPLOADS_PATH                            = "/opt/app/uploads"
+        GLOBAL_BANNER_TEXT                           = var.global_banner_text
         GOOGLE_ANALYTICS_ID                          = var.google_analytics_id
         HOST_URL                                     = "https://${var.applications_service_public_url}/"
         MICROSOFT_PROVIDER_AUTHENTICATION_SECRET     = local.secret_refs["applications-service-microsoft-provider-authentication-secret"]
@@ -83,6 +85,7 @@ locals {
         BACK_OFFICE_INTEGRATION_GET_APPLICATIONS                  = var.back_office_integration_get_applications
         FEATURE_ALLOW_WELSH_CASES                                 = var.feature_allow_welsh_cases
         FEATURE_REGISTER_OF_ADVICE                                = var.feature_register_of_advice
+        FEATURE_ENABLE_PROJECTS_MAP                               = var.feature_enable_projects_map
         BACK_OFFICE_SERVICE_BUS_ENABLED                           = "true"
         BACK_OFFICE_SERVICE_BUS_HOSTNAME                          = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
         DATABASE_URL                                              = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/applications-service-sql-server-connection-string-app/)"
