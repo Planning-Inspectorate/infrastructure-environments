@@ -216,7 +216,7 @@ resource "azurerm_monitor_metric_alert" "back_office_sql_db_deadlock_alert" {
 
 # availability test for the app web
 resource "azurerm_application_insights_standard_web_test" "web" {
-  count = var.monitoring_config.web_app_insights_web_test_enabled ? 1 : 0
+  count = var.web_app_insights_web_test_enabled ? 1 : 0
 
   name                    = "${local.service_name}-ai-swt-web-${local.resource_suffix}"
   resource_group_name     = azurerm_resource_group.back_office_stack.name
@@ -244,7 +244,9 @@ resource "azurerm_application_insights_standard_web_test" "web" {
 }
 
 resource "azurerm_monitor_metric_alert" "web_availability" {
-  count = var.monitoring_config.web_app_insights_web_test_enabled ? 1 : 0
+  count = var.web_app_insights_web_test_enabled ? 1 : 0
+
+>>>>>>> 8301dcd6e7c8812f63bd74e40ef8b84e7418e40e
 
   name                = "Web Availability - ${local.resource_suffix}"
   resource_group_name = azurerm_resource_group.back_office_stack.name
