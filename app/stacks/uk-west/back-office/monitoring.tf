@@ -213,3 +213,62 @@ resource "azurerm_monitor_metric_alert" "back_office_sql_db_deadlock_alert" {
 
   tags = local.tags
 }
+
+# availability test for the app web
+resource "azurerm_application_insights_standard_web_test" "web" {
+  count = var.monitoring_config.web_app_insights_web_test_enabled ? 1 : 0
+
+  name                    = "${local.service_name}-ai-swt-web-${local.resource_suffix}"
+  resource_group_name     = azurerm_resource_group.back_office_stack.name
+  location                = azurerm_resource_group.back_office_stack.location
+  application_insights_id = azurerm_application_insights.back_office_app_insights.id
+  geo_locations = [
+    "emea-se-sto-edge", # UK West
+    "emea-ru-msa-edge", # UK South
+    "emea-gb-db3-azr",  # North Europe
+    "emea-nl-ams-azr"   # West Europe
+  ]
+  retry_enabled = true
+  enabled       = true
+
+  request {
+    # web app health check endpoint
+    url = "https://${var.back_office_public_url}/health"
+  }
+  validation_rules {
+    ssl_check_enabled           = true
+    ssl_cert_remaining_lifetime = 7
+  }
+
+  tags = local.tags
+}
+
+resource "azurerm_monitor_metric_alert" "web_availability" {
+  count = var.monitoring_config.web_app_insights_web_test_enabled ? 1 : 0
+
+  name                = "Web Availability - ${local.resource_suffix}"
+  resource_group_name = azurerm_resource_group.back_office_stack.name
+  scopes = [
+    azurerm_application_insights_standard_web_test.web[0].id,
+    azurerm_application_insights.back_office_app_insights.id
+  ]
+  description = "Metric alert for standard web test (availability) for the web app - which also checks the certificate"
+
+  application_insights_web_test_location_availability_criteria {
+    web_test_id           = azurerm_application_insights_standard_web_test.web[0].id
+    component_id          = azurerm_application_insights.back_office_app_insights.id
+    failed_location_count = 1
+  }
+
+  action {
+    action_group_id = var.action_group_ids.bo_applications_tech
+  }
+
+  action {
+    action_group_id = var.action_group_ids.bo_applications_service_manager
+  }
+
+  action {
+    action_group_id = var.action_group_ids.its
+  }
+}

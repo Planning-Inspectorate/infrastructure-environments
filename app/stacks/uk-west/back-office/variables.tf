@@ -286,3 +286,11 @@ variable "back_office_feature_flags" {
   description = "A list of maps describing feature flags to be saved in the App Configuration store"
   type        = list(any)
 }
+
+variable "monitoring_config" {
+  description = "Config for monitoring"
+  type = object({
+    web_app_insights_web_test_enabled = bool
+    log_daily_cap                     = number
+  })
+}
