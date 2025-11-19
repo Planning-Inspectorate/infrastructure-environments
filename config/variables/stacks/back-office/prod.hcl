@@ -111,5 +111,4 @@ locals {
   }
 
   web_app_insights_web_test_enabled = true
-  log_daily_quota_gb                = 0.5
 }
