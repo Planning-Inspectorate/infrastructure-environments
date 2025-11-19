@@ -102,8 +102,6 @@ locals {
     deploy = false # use tooling subscription shared instance
   }
   
-  monitoring_config = {
-    web_app_insights_web_test_enabled = false
-    log_daily_cap                     = 0.2
-  }
+  web_app_insights_web_test_enabled = false
+  log_daily_quota_gb                = 0.2
 }

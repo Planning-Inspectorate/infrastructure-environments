@@ -287,10 +287,7 @@ variable "back_office_feature_flags" {
   type        = list(any)
 }
 
-variable "monitoring_config" {
+variable "web_app_insights_web_test_enabled" {
   description = "Config for monitoring"
-  type = object({
-    web_app_insights_web_test_enabled = bool
-    log_daily_cap                     = number
-  })
+  type        = bool
 }
