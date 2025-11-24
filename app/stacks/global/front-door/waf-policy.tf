@@ -1405,6 +1405,13 @@ resource "azurerm_frontdoor_firewall_policy" "back_office_applications_frontend"
       operator       = "Equals"
       selector       = "titleWelsh"
     }
+
+    # Exclude all rules for redact representation field
+    exclusion {
+      match_variable = "RequestBodyPostArgNames"
+      operator       = "Equals"
+      selector       = "redactedRepresentation"
+    }
   }
 
   managed_rule {
