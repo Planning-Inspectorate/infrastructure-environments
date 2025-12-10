@@ -43,10 +43,6 @@ locals {
     {
       name    = "s20-appeal-form-v2"
       enabled = true
-      targeting = {
-        percentage = 100
-        users      = ["Q1111"]
-      }
     },
     {
       name    = "s78-appeal-form-v2"
