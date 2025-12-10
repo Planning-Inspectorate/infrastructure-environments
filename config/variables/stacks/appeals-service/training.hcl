@@ -2,26 +2,26 @@ locals {
   appeals_feature_flags = [
     {
       name    = "adverts-appeal-form-v2"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
-        users      = ["Q1111"]
+        users      = []
       }
     },
     {
       name    = "cas-adverts-appeal-form-v2"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
-        users      = ["Q1111"]
+        users      = []
       }
     },
     {
       name    = "cas-planning-appeal-form-v2"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
-        users      = ["Q1111"]
+        users      = []
       }
     },
     {
@@ -37,7 +37,7 @@ locals {
       enabled = true
       targeting = {
         percentage = 100
-        users      = ["Q1111"]
+        users      = []
       }
     },
     {
@@ -45,7 +45,7 @@ locals {
       enabled = true
       targeting = {
         percentage = 100
-        users      = ["Q1111"]
+        users      = []
       }
     },
     {
@@ -53,7 +53,7 @@ locals {
       enabled = true
       targeting = {
         percentage = 100
-        users      = ["Q1111"]
+        users      = []
       }
     }
   ]
