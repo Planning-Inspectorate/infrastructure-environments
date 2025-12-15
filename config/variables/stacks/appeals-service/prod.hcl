@@ -55,6 +55,14 @@ locals {
         percentage = 100
         users      = []
       }
+    },
+    {
+      name    = "enable-application-api-lookup"
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = ["Q9999"]
+      }
     }
   ]
   allow_testing_overrides                            = false
