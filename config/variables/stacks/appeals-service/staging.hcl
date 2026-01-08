@@ -48,6 +48,14 @@ locals {
       }
     },
     {
+      name    = "ldc-appeal-form-v2"
+      enabled = true
+      targeting = {
+        percentage = 100
+        users      = ["Q1111"]
+      }
+    },
+    {
       name    = "has-appeal-form-v2"
       enabled = true
       targeting = {
