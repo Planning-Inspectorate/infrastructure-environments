@@ -96,7 +96,7 @@ locals {
   google_analytics_id                            = "G-HWLKLSJF53"
   google_tag_manager_id                          = "GTM-KZN7XP4"
   horizon_url                                    = "http://10.0.7.4:8000"
-  log_daily_cap_gb                               = 0.4
+  log_daily_cap_gb                               = 0.8
   monitoring_config = {
     app_insights_web_test_enabled = false
   }
