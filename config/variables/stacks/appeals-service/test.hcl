@@ -26,7 +26,7 @@ locals {
     },
     {
       name    = "enforcement-appeal-form-v2"
-      enabled = true
+      enabled = false
       targeting = {
         percentage = 100
         users      = ["Q1111"]
@@ -34,7 +34,7 @@ locals {
     },
     {
       name    = "enforcement-listed-appeal-form-v2"
-      enabled = true
+      enabled = false
       targeting = {
         percentage = 100
         users      = ["Q1111"]
@@ -42,7 +42,7 @@ locals {
     },
     {
       name    = "ldc-appeal-form-v2"
-      enabled = true
+      enabled = false
       targeting = {
         percentage = 100
         users      = ["Q1111"]
@@ -74,7 +74,7 @@ locals {
     },
     {
       name    = "enable-application-api-lookup"
-      enabled = true
+      enabled = false
       targeting = {
         percentage = 100
         users      = ["Q9999"]
