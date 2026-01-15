@@ -14,7 +14,7 @@ locals {
     "web_auth_enabled" = false
     "application_id"   = "7d92b220-8d5b-45d6-a870-39464439d6b1"
   }
-  back_office_integration_get_applications     = "MERGE"
+  back_office_integration_get_applications     = "BO"
   client_affinity_enabled                      = true
   documents_host                               = "https://infrastructure.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
   document_storage_api_host                    = "https://nsip-documents.planninginspectorate.gov.uk/"
