@@ -167,10 +167,17 @@ variable "logger_level" {
 }
 
 variable "max_file_upload_size_in_bytes" {
-  default     = "26214400" #25MB
+  default     = "52428800" #50MB
   description = "Max number of bytes allowed in a file upload"
   type        = string
 }
+
+variable "max_file_upload_size_in_bytes_ip" {
+  default     = "26214400" #25MB
+  description = "Max number of bytes allowed in a file upload for interested party users"
+  type        = string
+}
+
 
 variable "monitoring_alerts_enabled" {
   default     = false
