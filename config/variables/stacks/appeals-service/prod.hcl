@@ -26,10 +26,10 @@ locals {
     },
     {
       name    = "enforcement-appeal-form-v2"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
-        users      = ["Q1111"]
+        users      = ["Q1111", "T5150", "D0840", "B5480"]
       }
     },
     {
