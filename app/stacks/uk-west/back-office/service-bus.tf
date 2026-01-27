@@ -96,6 +96,12 @@ resource "azurerm_servicebus_topic" "nsip_s51_advice" {
   default_message_ttl = var.service_bus_config.default_topic_ttl
 }
 
+resource "azurerm_servicebus_topic" "dco_portal_data_submissions" {
+  name                = var.sb_topic_names.applications.commands.dco_portal_data_submissions
+  namespace_id        = azurerm_servicebus_namespace.back_office.id
+  default_message_ttl = var.service_bus_config.default_topic_ttl
+}
+
 # Commands
 resource "azurerm_servicebus_topic" "register_nsip_subscription" {
   name                = var.sb_topic_names.applications.commands.register_nsip_subscription

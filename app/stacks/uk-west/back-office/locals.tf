@@ -59,7 +59,8 @@ locals {
         var.sb_topic_names.applications.commands.register_nsip_subscription,
         var.sb_topic_names.applications.commands.register_representation,
         var.sb_topic_names.applications.commands.deadline_submission_topic,
-        var.sb_topic_names.applications.commands.deadline_submission_result
+        var.sb_topic_names.applications.commands.deadline_submission_result,
+        var.sb_topic_names.applications.commands.dco_portal_data_submissions
       ],
       # could be back office or front office issue
       action_groups = [

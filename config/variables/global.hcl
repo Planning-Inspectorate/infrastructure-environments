@@ -21,10 +21,11 @@ locals {
 
     applications = {
       commands = {
-        register_nsip_subscription = "register-nsip-subscription"
-        register_representation    = "register-representation"
-        deadline_submission_topic  = "deadline-submission-topic"
-        deadline_submission_result = "deadline-submission-result"
+        register_nsip_subscription          = "register-nsip-subscription"
+        register_representation             = "register-representation"
+        deadline_submission_topic           = "deadline-submission-topic"
+        deadline_submission_result          = "deadline-submission-result"
+        dco_portal_data_submissions         = "dco-portal-data-submissions" 
       }
 
       events = {
