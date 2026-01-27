@@ -229,10 +229,11 @@ variable "sb_topic_names" {
     common = object({ service_user = string }),
     applications = object({
       commands = object({
-        register_nsip_subscription = string
-        register_representation    = string
-        deadline_submission_topic  = string
-        deadline_submission_result = string
+        register_nsip_subscription  = string
+        register_representation     = string
+        deadline_submission_topic   = string
+        deadline_submission_result  = string
+        dco_portal_data_submissions = string
       })
       events = object({
         nsip_project        = string
