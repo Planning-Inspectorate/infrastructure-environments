@@ -18,27 +18,6 @@ resource "azurerm_log_analytics_workspace" "back_office" {
   tags = local.tags
 }
 
-resource "azurerm_monitor_diagnostic_setting" "back_office_sql_database" {
-  name                       = "SQLDatabaseAudit"
-  target_resource_id         = azurerm_mssql_database.back_office.id
-  log_analytics_workspace_id = azurerm_log_analytics_workspace.back_office.id
-
-  enabled_log {
-    category = "SQLSecurityAuditEvents"
-  }
-
-  metric {
-    category = "AllMetrics"
-  }
-
-  lifecycle {
-    ignore_changes = [
-      enabled_log,
-      metric
-    ]
-  }
-}
-
 resource "azurerm_monitor_diagnostic_setting" "back_office_documents" {
   name                       = "pins-documents-${local.service_name}-${local.resource_suffix}"
   target_resource_id         = "${azurerm_storage_account.back_office_documents.id}/blobServices/default"
