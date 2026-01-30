@@ -12,10 +12,13 @@ locals {
   tooling_subscription_id = read_terragrunt_config("${get_parent_terragrunt_dir()}/variables/global.hcl").locals.tooling_subscription_id
 
   is_dr_deployment = get_env("DR_DEPLOYMENT", false)
+  module_source    = (try(local.stack_variables.retired, false)) ?
+    "${get_parent_terragrunt_dir()}/../app//components/retired-module" :
+    "${get_parent_terragrunt_dir()}/../app//stacks/${local.location}/${local.stack}"
 }
 
 terraform {
-  source = "${get_parent_terragrunt_dir()}/../app//stacks/${local.location}/${local.stack}"
+  source = local.module_source
 
   extra_arguments "retry_lock" {
     commands  = get_terraform_commands_that_need_locking()
