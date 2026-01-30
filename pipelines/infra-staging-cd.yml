@@ -50,18 +50,6 @@ extends:
                   echo "##vso[build.addbuildtag]stack=${{ parameters.stack }}"
                   echo "##vso[build.addbuildtag]region=${{ parameters.region }}"
                 displayName: Add stack & region build tag
-              # Remove front-door and front-door-https stacks from plan when running in non-production environments
-              # now covered by individual projects with front door premium
-              - script: |
-                  if [ "$(ENVIRONMENT)" != "prod" ]; then
-                    echo "Removing front-door and front-door-https stacks from plan for non-production environment"
-                    rm -rf $(System.DefaultWorkingDirectory)/app/stacks/global/back-office
-                    rm -rf $(System.DefaultWorkingDirectory)/app/stacks/global/front-door
-                    rm -rf $(System.DefaultWorkingDirectory)/app/stacks/global/front-door-https
-                  fi
-                displayName: 'Remove front-door classic stacks from plan'
-                env:
-                  ENVIRONMENT: $(ENVIRONMENT)
               - template: ${{variables['Build.SourcesDirectory']}}/steps/terragrunt_plan.yml@templates
                 parameters:
                   artifactName: terraform-plan-$(ENVIRONMENT)
