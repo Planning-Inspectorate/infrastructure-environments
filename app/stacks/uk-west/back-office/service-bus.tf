@@ -126,3 +126,26 @@ resource "azurerm_servicebus_topic" "deadline_submission_result" {
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = var.service_bus_config.default_topic_ttl
 }
+
+resource "azurerm_servicebus_topic" "redaction_system_redaction_process_complete" {
+  name                = var.sb_topic_names.applications.events.redaction_system_redaction_process_complete
+  namespace_id        = azurerm_servicebus_namespace.back_office.id
+  default_message_ttl = var.service_bus_config.default_topic_ttl
+}
+
+resource "azurerm_servicebus_subscription" "redaction_process_complete" {
+  for_each           = local.redaction_process_service_bus_subscribers
+  name               = each.key
+  topic_id           = azurerm_servicebus_topic.redaction_system_redaction_process_complete.id
+  max_delivery_count = 1
+}
+
+resource "azurerm_servicebus_subscription_rule" "redaction_process_complete" {
+  for_each        = local.redaction_process_service_bus_subscribers
+  name            = "subscription_rule"
+  subscription_id = azurerm_servicebus_subscription.redaction_process_complete[each.key].id
+  filter_type     = "CorrelationFilter"
+  correlation_filter {
+    label = each.key
+  }
+}
