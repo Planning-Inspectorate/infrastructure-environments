@@ -236,14 +236,15 @@ variable "sb_topic_names" {
         dco_portal_data_submissions = string
       })
       events = object({
-        nsip_project        = string
-        nsip_project_update = string
-        nsip_documents      = string
-        folders             = string
-        nsip_subscription   = string
-        nsip_exam_timetable = string
-        nsip_representation = string
-        nsip_s51_advice     = string
+        nsip_project                                = string
+        nsip_project_update                         = string
+        nsip_documents                              = string
+        folders                                     = string
+        nsip_subscription                           = string
+        nsip_exam_timetable                         = string
+        nsip_representation                         = string
+        nsip_s51_advice                             = string
+        redaction_system_redaction_process_complete = string
       })
     })
   })
