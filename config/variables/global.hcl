@@ -37,6 +37,7 @@ locals {
         nsip_exam_timetable = "nsip-exam-timetable"
         nsip_representation = "nsip-representation"
         nsip_s51_advice     = "nsip-s51-advice"
+        redaction_system_redaction_process_complete = "redaction-process-complete"
       }
     }
   }
