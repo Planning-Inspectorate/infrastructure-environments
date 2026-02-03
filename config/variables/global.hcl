@@ -29,14 +29,14 @@ locals {
       }
 
       events = {
-        nsip_project        = "nsip-project"
-        nsip_project_update = "nsip-project-update"
-        nsip_documents      = "nsip-document"
-        folders             = "folder"
-        nsip_subscription   = "nsip-subscription"
-        nsip_exam_timetable = "nsip-exam-timetable"
-        nsip_representation = "nsip-representation"
-        nsip_s51_advice     = "nsip-s51-advice"
+        nsip_project                                = "nsip-project"
+        nsip_project_update                         = "nsip-project-update"
+        nsip_documents                              = "nsip-document"
+        folders                                     = "folder"
+        nsip_subscription                           = "nsip-subscription"
+        nsip_exam_timetable                         = "nsip-exam-timetable"
+        nsip_representation                         = "nsip-representation"
+        nsip_s51_advice                             = "nsip-s51-advice"
         redaction_system_redaction_process_complete = "redaction-process-complete"
       }
     }
