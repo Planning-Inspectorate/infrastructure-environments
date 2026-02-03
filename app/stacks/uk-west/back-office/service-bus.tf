@@ -136,7 +136,7 @@ resource "azurerm_servicebus_topic" "redaction_process_complete" {
 resource "azurerm_servicebus_subscription" "redaction_process_complete" {
   for_each           = local.redaction_process_service_bus_subscribers
   name               = each.key
-  topic_id           = azurerm_servicebus_topic.redaction_system_redaction_process_complete.id
+  topic_id           = azurerm_servicebus_topic.redaction_process_complete.id
   max_delivery_count = 1
 }
 
