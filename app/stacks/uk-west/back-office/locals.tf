@@ -107,7 +107,7 @@ locals {
   redaction_process_service_bus_subscribers = toset(
     [
       "cbos",
-      "redaction_system" # This is useful just for testing purposes (e.g for smoke testing message sending in prod)
+      "redaction-system" # This is useful just for testing purposes (e.g for smoke testing message sending in prod)
     ]
   )
   bo_applications_tech_emails = [for rec in data.azurerm_monitor_action_group.bo_applications_tech.email_receiver : rec.email_address]
