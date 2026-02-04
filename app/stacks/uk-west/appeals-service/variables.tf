@@ -501,3 +501,9 @@ variable "service_bus_topic" {
     }
   }
 }
+
+variable "waf_blocks_alerts_enabled" {
+  default     = false
+  description = "Indicates whether WAF blocks are enabled for App Service"
+  type        = bool
+}

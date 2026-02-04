@@ -144,4 +144,5 @@ locals {
   }
   task_submit_to_horizon_cron_string    = "*/15 * * * *"
   task_submit_to_horizon_trigger_active = "true"
+  waf_blocks_alerts_enabled             = true
 }

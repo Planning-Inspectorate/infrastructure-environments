@@ -34,3 +34,9 @@ data "azurerm_virtual_network" "staging_afo_vnet" {
   name                = var.appeals_vnet_staging.fo_network_name
   resource_group_name = var.appeals_vnet_staging.fo_rg
 }
+
+data "azurerm_log_analytics_workspace" "fd_common_prod" {
+  count               = var.environment == "prod" ? 1 : 0 # only in prod
+  name                = "pins-log-common-prod"
+  resource_group_name = "pins-rg-common-prod"
+}
