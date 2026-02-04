@@ -19,6 +19,8 @@ parameters:
       - applications-service
       - back-office
       - front-door-premium
+      - front-door-https
+      - front-door
   - name: DRDeployment
     displayName: Disaster Recovery Deployment?
     type: boolean
