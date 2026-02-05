@@ -49,30 +49,6 @@ locals {
       }
     },
     {
-      name    = "has-appeal-form-v2"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = []
-      }
-    },
-    {
-      name    = "s20-appeal-form-v2"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = []
-      }
-    },
-    {
-      name    = "s78-appeal-form-v2"
-      enabled = true
-      targeting = {
-        percentage = 100
-        users      = []
-      }
-    },
-    {
       name    = "enable-application-api-lookup"
       enabled = false
       targeting = {
