@@ -106,4 +106,9 @@ locals {
   }
   bo_applications_tech_emails = [for rec in data.azurerm_monitor_action_group.bo_applications_tech.email_receiver : rec.email_address]
   tech_emails                 = local.bo_applications_tech_emails
+  redaction_process_service_bus_subscribers = toset(
+    [
+      "cbos",
+    ]
+  )
 }
