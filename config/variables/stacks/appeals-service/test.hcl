@@ -29,7 +29,7 @@ locals {
       enabled = true
       targeting = {
         percentage = 100
-        users      = ["Q1111"]
+        users      = []
       }
     },
     {
@@ -42,10 +42,10 @@ locals {
     },
     {
       name    = "ldc-appeal-form-v2"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
-        users      = ["Q1111"]
+        users      = []
       }
     },
     {
