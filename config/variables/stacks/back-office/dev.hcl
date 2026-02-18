@@ -55,6 +55,14 @@ locals {
         percentage = 100
         users      = ["BC0110001", "BC0110002", "BC0110003"]
       }
+    },
+    {
+      name    = "idas-340-redaction-service",
+      enabled = true,
+      targeting = {
+        percentage = 100
+        users       = []
+      }
     }
   ]
 
