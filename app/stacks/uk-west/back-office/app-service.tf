@@ -10,6 +10,8 @@ module "app_services" {
   azuread_applications_case_admin_officer_group_id                                    = var.azuread_applications_case_admin_officer_group_id
   azuread_applications_caseteam_group_id                                              = var.azuread_applications_caseteam_group_id
   azuread_applications_inspector_group_id                                             = var.azuread_applications_inspector_group_id
+  azure_ai_doc_redaction_base_url                                                     = var.azure_ai_doc_redaction_base_url
+  azure_ai_doc_redaction_storage_name                                                 = azurerm_storage_account.back_office_documents.name
   back_office_applications_log_level_file                                             = var.back_office_applications_log_level_file
   back_office_applications_log_level_stdout                                           = var.back_office_applications_log_level_stdout
   back_office_hostname                                                                = var.back_office_public_url_new == null ? var.back_office_public_url : var.back_office_public_url_new

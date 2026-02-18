@@ -55,6 +55,14 @@ locals {
         percentage = 100
         users      = ["BC0110001", "BC0110002", "BC0110003"]
       }
+    },
+    {
+      name    = "idas-340-redaction-service",
+      enabled = true,
+      targeting = {
+        percentage = 100
+        users       = []
+      }
     }
   ]
 
@@ -110,6 +118,8 @@ locals {
     network_name = "vnet-redaction-system-dev-uks"
   }
   enabled_redaction_system      = true
+  azure_ai_doc_redaction_base_url = "https://pins-func-redaction-system-dev-uks.azurewebsites.net"
+
   redaction_system_principal_id = "bbe76e30-4011-4a70-90d5-7f92e44afb5a"
 
   text_analytics_config = {
