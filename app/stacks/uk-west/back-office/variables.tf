@@ -317,3 +317,8 @@ variable "redaction_system_principal_id" {
   type        = string
   default     = ""
 }
+variable "azure_ai_doc_redaction_base_url" {
+  description = "The endpoint for the Azure AI Document Redaction service"
+  type        = string
+  default     = ""
+}
