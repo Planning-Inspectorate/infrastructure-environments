@@ -50,6 +50,8 @@ locals {
     capacity = 0
     sku_name = "Basic"
   }
+  redis_cache_enabled                                                   = "false"
+  redis_cache_ttl                                                       = 3600
   srv_notify_ip_registration_confirmation_email_to_ip_template_id       = "830c9c01-1f81-4198-be72-11ab173c128a"
   srv_notify_ip_registration_confirmation_email_to_ip_template_id_welsh = "a773d70c-ebbc-42dc-b4c8-d862eb9e67de"
   srv_notify_service_id                                                 = "9b89eb93-3071-432c-9c6b-4e07dbda9071"

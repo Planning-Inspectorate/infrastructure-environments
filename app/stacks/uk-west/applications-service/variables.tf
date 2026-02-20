@@ -240,6 +240,18 @@ variable "feature_redis_session_store" {
   type        = string
 }
 
+variable "redis_cache_enabled" {
+  description = "Toggle to enable or disable API request caching using Redis"
+  type        = bool
+  default     = false
+}
+
+variable "redis_cache_ttl" {
+  description = "Expiry time in seconds for cached items in Redis"
+  type        = number
+  default     = 3600
+}
+
 variable "feature_enabled_content_security_policy" {
   description = "Feature toggle to enable/disable content security policy"
   type        = string

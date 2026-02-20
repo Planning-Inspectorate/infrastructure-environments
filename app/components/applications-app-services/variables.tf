@@ -65,6 +65,18 @@ variable "applications_service_redis_connection_string_secret_name" {
   type        = string
 }
 
+variable "redis_cache_enabled" {
+  description = "Toggle to enable or disable caching using Redis"
+  type        = bool
+  default     = false
+}
+
+variable "redis_cache_ttl" {
+  description = "Expiry time in seconds for cached items in Redis"
+  type        = number
+  default     = 3600
+}
+
 variable "back_office_integration_case_references" {
   description = "list of case references (comma separated) that use back office"
   type        = string
