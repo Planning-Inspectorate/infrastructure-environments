@@ -49,6 +49,8 @@ locals {
         OS_MAPS_API_SECRET                           = local.secret_refs["applications-service-os-maps-api-secret"]
         PLANNED_OUTAGE_RESUME_TEXT                   = var.planned_outage_resume_text
         REDIS_CONNECTION_STRING                      = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/${var.applications_service_redis_connection_string_secret_name}/)"
+        REDIS_CACHE_ENABLED                          = var.redis_cache_enabled
+        REDIS_CACHE_TTL                              = var.redis_cache_ttl
         SESSION_KEY                                  = local.secret_refs["applications-service-session-key"]
         SUBDOMAIN_OFFSET                             = "3"
         USE_SECURE_SESSION_COOKIES                   = true,
@@ -105,6 +107,8 @@ locals {
         NI_OAUTH_CLIENT_SECRET                                    = local.secret_refs["applications-service-ni-oauth-client-secret"]
         NI_OAUTH_PASSWORD                                         = local.secret_refs["applications-service-ni-oauth-password"]
         NI_OAUTH_USERNAME                                         = local.secret_refs["applications-service-ni-oauth-username"]
+        REDIS_CONNECTION_STRING                                   = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/${var.applications_service_redis_connection_string_secret_name}/)"
+        REDIS_CACHE_ENABLED                                       = var.redis_cache_enabled
         NODE_ENV                                                  = var.node_environment
         SERVER_PORT                                               = "3000"
         SERVER_SHOW_ERRORS                                        = true
