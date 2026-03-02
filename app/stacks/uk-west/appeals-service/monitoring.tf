@@ -188,3 +188,145 @@ resource "azurerm_monitor_scheduled_query_rules_alert_v2" "log_cap" {
     ]
   }
 }
+
+# transformations
+resource "azurerm_monitor_data_collection_rule" "appeals_service_dcr" {
+  name                = "${local.service_name}-${local.resource_suffix}-dcr"
+  resource_group_name = azurerm_resource_group.appeals_service_stack.name
+  location            = azurerm_resource_group.appeals_service_stack.location
+
+  data_flow {
+    streams      = ["Microsoft-InsightsAppDependencies"]
+    destinations = ["log_analytics"]
+
+    transform_kql = <<KQL
+      source
+      | project
+          TimeGenerated,
+          Target,
+          DependencyType,
+          Name,
+          Data,
+          Success,
+          ResultCode,
+          DurationMs,
+          PerformanceBucket,
+          ParentId,
+          AppRoleName
+      KQL
+  }
+
+  data_flow {
+    streams      = ["Microsoft-InsightsAppExceptions"]
+    destinations = ["log_analytics"]
+
+    transform_kql = <<KQL
+      source
+      | project
+          TimeGenerated,
+          ProblemId,
+          ExceptionType,
+          Method,
+          OuterType,
+          OuterMessage,
+          OuterMethod,
+          InnermostType,
+          InnermostMessage,
+          SeverityLevel
+    KQL
+  }
+
+  data_flow {
+    streams      = ["Microsoft-InsightsAppMetrics"]
+    destinations = ["log_analytics"]
+
+    transform_kql = <<KQL
+      source
+      | project TimeGenerated, Name, ItemCount, Sum, Min, Max, AppRoleName
+    KQL
+  }
+
+  data_flow {
+    streams      = ["Microsoft-InsightsAppPerformanceCounters"]
+    destinations = ["log_analytics"]
+
+    transform_kql = <<KQL
+      source
+      | project TenantId, TimeGenerated, Name, Category, Counter, Value, AppRoleName
+    KQL
+  }
+
+  data_flow {
+    streams      = ["Microsoft-InsightsAppRequests"]
+    destinations = ["log_analytics"]
+
+    transform_kql = <<KQL
+      source
+      | project
+          Id,
+          TimeGenerated,
+          AppRoleName,
+          Name,
+          Url,
+          Success,
+          ResultCode,
+          DurationMs,
+          PerformanceBucket
+    KQL
+  }
+
+  data_flow {
+    streams      = ["Microsoft-InsightsAppServiceConsoleLogs"]
+    destinations = ["log_analytics"]
+
+    transform_kql = <<KQL
+      source
+      | extend parsed = parse_json(ResultDescription)
+      | extend
+          Level = case(
+              isnull(parsed.level), Level,
+              parsed.level == 20, "Debug",
+              parsed.level == 30, "Informational",
+              parsed.level == 40, "Warning",
+              parsed.level == 50, "Error",
+              tostring(parsed.level)
+          )
+      | project TimeGenerated, Level, ResultDescription
+    KQL
+  }
+
+  data_flow {
+    streams      = ["Microsoft-InsightsAppTraces"]
+    destinations = ["log_analytics"]
+
+    transform_kql = <<KQL
+      source
+      | project TimeGenerated, AppRoleName, Message, OperationName, SeverityLevel
+    KQL
+  }
+
+  data_flow {
+    streams      = ["Microsoft-InsightsFunctionAppLogs"]
+    destinations = ["log_analytics"]
+
+    transform_kql = <<KQL
+      source
+      | project
+          TimeGenerated,
+          Category,
+          Message,
+          ExceptionDetails,
+          ExceptionMessage,
+          ExceptionType,
+          FunctionName,
+          EventName
+    KQL
+  }
+
+  destinations {
+    log_analytics {
+      workspace_resource_id = azurerm_log_analytics_workspace.appeals_service.id
+      name                  = "log_analytics"
+    }
+  }
+}
