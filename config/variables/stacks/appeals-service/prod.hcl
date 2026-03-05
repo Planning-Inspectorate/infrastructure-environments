@@ -63,6 +63,7 @@ locals {
   comments_enabled                                   = true
   rule_6_enabled                                     = true
   scoping_opinion_enabled                            = true
+  appellant_statement_enabled                        = false
   google_analytics_id                                = "G-DW8DW9TQ84"
   google_tag_manager_id                              = "GTM-KZN7XP4"
   horizon_url                                        = "http://10.224.161.68:8000"
