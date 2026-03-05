@@ -1,7 +1,7 @@
 module "azure_region_ukw" {
   #checkov:skip=CKV_TF_1: Use of commit hash are not required for our Terraform modules
   source  = "claranet/regions/azurerm"
-  version = "8.0.2"
+  version = "8.0.3"
 
   azure_region = var.location
 }
