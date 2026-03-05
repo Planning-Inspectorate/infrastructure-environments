@@ -454,6 +454,12 @@ variable "scoping_opinion_enabled" {
   default     = false
 }
 
+variable "appellant_statement_enabled" {
+  description = "A switch to determine if appellant statement journeys are enabled"
+  type        = bool
+  default     = false
+}
+
 variable "service_bus_config" {
   description = "service bus configuration"
   type = object({

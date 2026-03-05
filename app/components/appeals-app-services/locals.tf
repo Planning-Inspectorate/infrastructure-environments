@@ -32,6 +32,7 @@ locals {
         COMMENTS_ENABLED                          = var.comments_enabled
         RULE_6_ENABLED                            = var.rule_6_enabled
         SCOPING_OPINION_ENABLED                   = var.scoping_opinion_enabled
+        APPELLANT_STATEMENT_ENABLED               = var.appellant_statement_enabled
         DOCS_API_PATH                             = "/opt/app/api"
         DOCUMENTS_SERVICE_API_TIMEOUT             = var.api_timeout
         DOCUMENTS_SERVICE_API_URL                 = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net/"
@@ -145,6 +146,7 @@ locals {
         DOCUMENTS_SERVICE_API_TIMEOUT                                                         = var.api_timeout
         DOCUMENTS_SERVICE_API_URL                                                             = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net"
         FEATURE_FLAG_NEW_APPEAL_JOURNEY                                                       = true
+        APPELLANT_STATEMENT_ENABLED                                                           = var.appellant_statement_enabled
         LOGGER_LEVEL                                                                          = var.logger_level
         LPA_DATA_PATH                                                                         = "/opt/app/data/lpa-list.csv"
         LPA_TRIALIST_DATA_PATH                                                                = "/opt/app/data/lpa-trialists.json"
