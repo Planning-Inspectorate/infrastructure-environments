@@ -60,7 +60,7 @@ locals {
         RETRY_STATUS_CODES                        = "500,502,503,504"
         MICROSOFT_PROVIDER_AUTHENTICATION_SECRET  = local.secret_refs["appeals-microsoft-provider-authentication-secret"]
         WEBSITE_AUTH_AAD_ALLOWED_TENANTS          = data.azurerm_client_config.current.tenant_id
-
+        WEBSITES_ENABLE_APP_SERVICE_STORAGE       = false
       }
     }
 
@@ -119,6 +119,8 @@ locals {
 
         FUNCTIONS_CLIENT_ID     = local.secret_refs["appeals-function-client-id"]
         FUNCTIONS_CLIENT_SECRET = local.secret_refs["appeals-function-client-secret"]
+
+        WEBSITES_ENABLE_APP_SERVICE_STORAGE = false
       }
     }
 
@@ -201,6 +203,7 @@ locals {
         STORAGE_CONTAINER_NAME                                                                = var.appeal_documents_storage_container_name
         TASK_SUBMIT_TO_HORIZON_CRON_STRING                                                    = var.task_submit_to_horizon_cron_string
         TASK_SUBMIT_TO_HORIZON_TRIGGER_ACTIVE                                                 = var.task_submit_to_horizon_trigger_active
+        WEBSITES_ENABLE_APP_SERVICE_STORAGE                                                   = false
       }
 
       slot_setting_overrides = {
@@ -242,6 +245,7 @@ locals {
         STORAGE_CONTAINER_NAME                    = var.appeal_documents_storage_container_name
         STORAGE_UPLOAD_MAX_ATTEMPTS               = "3"
         STORAGE_UPLOAD_QUERY_LIMIT                = "5"
+        WEBSITES_ENABLE_APP_SERVICE_STORAGE       = false
       }
     }
 
@@ -266,6 +270,7 @@ locals {
         SERVER_PORT                             = "3000"
         SERVER_SHOW_ERRORS                      = true
         SERVER_TERMINATION_GRACE_PERIOD_SECONDS = "0"
+        WEBSITES_ENABLE_APP_SERVICE_STORAGE     = false
       }
     }
   }
