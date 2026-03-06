@@ -128,4 +128,6 @@ resource "azurerm_private_endpoint" "keyvault" {
     subresource_names              = ["vault"]
     is_manual_connection           = false
   }
+
+  tags = local.tags
 }
