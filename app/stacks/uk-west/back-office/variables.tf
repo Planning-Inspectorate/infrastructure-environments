@@ -293,3 +293,9 @@ variable "web_app_insights_web_test_enabled" {
   description = "Config for monitoring"
   type        = bool
 }
+
+variable "azure_ai_doc_redaction_base_url" {
+  description = "The endpoint for the Azure AI Document Redaction service"
+  type        = string
+  default     = ""
+}

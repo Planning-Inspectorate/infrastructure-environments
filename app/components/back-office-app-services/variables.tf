@@ -326,3 +326,15 @@ variable "text_analytics_config" {
   })
   default = null
 }
+
+variable "azure_ai_doc_redaction_base_url" {
+  description = "Endpoint for Azure AI Document Redaction Service"
+  type        = string
+  default     = ""
+}
+
+variable "azure_ai_doc_redaction_storage_name" {
+  description = "Storage account name for Azure AI Document Redaction Service"
+  type        = string
+  default     = ""
+}
