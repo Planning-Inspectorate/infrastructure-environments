@@ -28,6 +28,7 @@ module "app_services" {
   monitoring_alerts_enabled                                                           = var.monitoring_alerts_enabled
   node_environment                                                                    = var.node_environment
   private_endpoint_enabled                                                            = var.private_endpoint_enabled
+  redaction_system_principal_id                                                       = var.redaction_system_principal_id
   resource_group_name                                                                 = azurerm_resource_group.back_office_stack.name
   resource_suffix                                                                     = local.resource_suffix
   service_bus_namespace_name                                                          = azurerm_servicebus_namespace.back_office.name

@@ -293,3 +293,9 @@ variable "web_app_insights_web_test_enabled" {
   description = "Config for monitoring"
   type        = bool
 }
+
+variable "redaction_system_principal_id" {
+  description = "Managed identity principal ID of the redaction system function"
+  type        = string
+  default     = ""
+}

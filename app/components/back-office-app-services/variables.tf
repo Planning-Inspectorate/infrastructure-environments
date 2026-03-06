@@ -326,3 +326,9 @@ variable "text_analytics_config" {
   })
   default = null
 }
+
+variable "redaction_system_principal_id" {
+  description = "Managed identity principal ID of the redaction system function"
+  type        = string
+  default     = ""
+}
