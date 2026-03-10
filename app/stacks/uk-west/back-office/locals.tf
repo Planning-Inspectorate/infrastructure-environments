@@ -1,4 +1,5 @@
 locals {
+  org          = "pins"
   service_name = "back-office"
   # TODO: Let's create database-specific users and passwords instead for connection strings
   # Also, let's store this in Key Vault rather than just spitting it into env variables!

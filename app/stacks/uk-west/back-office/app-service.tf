@@ -21,6 +21,7 @@ module "app_services" {
   document_storage_api_host                                                           = var.back_office_published_documents_domain
   document_storage_account_endpoint                                                   = azurerm_storage_account.back_office_documents.primary_blob_endpoint
   endpoint_subnet_id                                                                  = azurerm_subnet.back_office_ingress.id
+  enabled_redaction_system                                                            = var.enabled_redaction_system
   key_vault_id                                                                        = var.key_vault_id
   key_vault_uri                                                                       = var.key_vault_uri
   location                                                                            = azurerm_resource_group.back_office_stack.location

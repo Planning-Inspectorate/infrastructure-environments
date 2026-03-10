@@ -327,6 +327,12 @@ variable "text_analytics_config" {
   default = null
 }
 
+variable "enabled_redaction_system" {
+  description = "Whether or not the redaction system is enabled, this is to support all envs"
+  type        = bool
+  default     = false
+}
+
 variable "redaction_system_principal_id" {
   description = "Managed identity principal ID of the redaction system function"
   type        = string
