@@ -148,6 +148,12 @@ variable "servicebus_topic_register_representation_id" {
   type        = string
 }
 
+variable "servicebus_topic_dco_portal_data_submissions_id" {
+  description = "Service Bus Topic dco-portal-data-submissions id"
+  type        = string
+  default     = ""
+}
+
 variable "service_bus_config" {
   description = "service bus configuration"
   type = object({

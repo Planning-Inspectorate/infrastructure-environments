@@ -350,3 +350,9 @@ variable "azure_ai_doc_redaction_storage_name" {
   type        = string
   default     = ""
 }
+
+variable "servicebus_topic_dco_portal_data_submissions_id" {
+  description = "Service Bus Topic dco-portal-data-submissions id"
+  type        = string
+  default     = ""
+}
