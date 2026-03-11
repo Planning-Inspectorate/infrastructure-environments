@@ -21,3 +21,11 @@ resource "azurerm_servicebus_subscription" "register_representation_subscription
   default_message_ttl                  = var.service_bus_config.bo_subscription_ttl
   dead_lettering_on_message_expiration = true
 }
+
+resource "azurerm_servicebus_subscription" "dco_portal_data_submissions" {
+  name                                 = "cbos-dco-portal-data-submissions-sub"
+  topic_id                             = var.servicebus_topic_dco_portal_data_submissions_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.bo_subscription_ttl
+  dead_lettering_on_message_expiration = true
+}
