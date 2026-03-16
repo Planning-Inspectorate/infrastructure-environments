@@ -55,6 +55,8 @@ module "app_services" {
   servicebus_topic_dco_portal_data_submissions_id                                     = azurerm_servicebus_topic.dco_portal_data_submissions.id
   deadline_submissions_result_topic_name                                              = azurerm_servicebus_topic.deadline_submission_result.name
   malware_scanning_topic_id                                                           = azurerm_eventgrid_topic.malware_scanning_topic.id
+  redaction_process_complete_subscription_enabled                                     = var.enabled_redaction_system
+  redaction_process_complete_subscription_id                                          = azurerm_servicebus_subscription.redaction_process_complete["cbos"].id
   tags                                                                                = local.tags
   notify_subscribers_function_gov_notify_template_id                                  = var.notify_subscribers_function_gov_notify_template_id
   notify_subscribers_function_gov_notify_template_welsh_id                            = var.notify_subscribers_function_gov_notify_template_welsh_id
