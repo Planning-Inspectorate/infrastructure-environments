@@ -356,3 +356,14 @@ variable "servicebus_topic_dco_portal_data_submissions_id" {
   type        = string
   default     = ""
 }
+
+variable "redaction_process_complete_subscription_enabled" {
+  description = "Indicates whether the redaction-process-complete subscription is enabled for the service bus topic"
+  type        = bool
+  default     = false
+}
+
+variable "redaction_process_complete_subscription_id" {
+  description = "The ID of the redaction-process-complete subscription for the service bus topic"
+  type        = string
+}
