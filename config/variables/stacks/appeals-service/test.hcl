@@ -25,6 +25,14 @@ locals {
       }
     },
     {
+      name    = "expedited-appeals-fo-v1"
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = []
+      }
+    },
+    {
       name    = "enforcement-appeal-form-v2"
       enabled = true
       targeting = {
