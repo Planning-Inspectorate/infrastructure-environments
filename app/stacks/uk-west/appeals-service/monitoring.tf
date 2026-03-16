@@ -194,11 +194,11 @@ resource "azurerm_monitor_data_collection_rule" "appeals_service_dcr" {
   name                = "${local.service_name}-${local.resource_suffix}-dcr"
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
   location            = azurerm_resource_group.appeals_service_stack.location
+  kind                = "WorkspaceTransforms"
 
   data_flow {
-    streams      = ["Microsoft-InsightsAppDependencies"]
-    destinations = ["log_analytics"]
-
+    streams       = ["Microsoft-Table-AppDependencies"]
+    destinations  = ["log_analytics"]
     transform_kql = <<KQL
       source
       | project
@@ -213,8 +213,29 @@ resource "azurerm_monitor_data_collection_rule" "appeals_service_dcr" {
           PerformanceBucket,
           ParentId,
           AppRoleName
-      KQL
+    KQL
   }
+
+  # data_flow {
+  #   streams      = ["Microsoft-InsightsAppDependencies"]
+  #   destinations = ["log_analytics"]
+
+  #   transform_kql = <<KQL
+  #     source
+  #     | project
+  #         TimeGenerated,
+  #         Target,
+  #         DependencyType,
+  #         Name,
+  #         Data,
+  #         Success,
+  #         ResultCode,
+  #         DurationMs,
+  #         PerformanceBucket,
+  #         ParentId,
+  #         AppRoleName
+  #     KQL
+  # }
 
   # data_flow {
   #   streams      = ["Microsoft-InsightsAppExceptions"]
