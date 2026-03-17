@@ -326,3 +326,44 @@ variable "text_analytics_config" {
   })
   default = null
 }
+
+variable "enabled_redaction_system" {
+  description = "Whether or not the redaction system is enabled, this is to support all envs"
+  type        = bool
+  default     = false
+}
+
+variable "redaction_system_principal_id" {
+  description = "Managed identity principal ID of the redaction system function"
+  type        = string
+  default     = ""
+}
+
+variable "azure_ai_doc_redaction_base_url" {
+  description = "Endpoint for Azure AI Document Redaction Service"
+  type        = string
+  default     = ""
+}
+
+variable "azure_ai_doc_redaction_storage_name" {
+  description = "Storage account name for Azure AI Document Redaction Service"
+  type        = string
+  default     = ""
+}
+
+variable "servicebus_topic_dco_portal_data_submissions_id" {
+  description = "Service Bus Topic dco-portal-data-submissions id"
+  type        = string
+  default     = ""
+}
+
+variable "redaction_process_complete_subscription_enabled" {
+  description = "Indicates whether the redaction-process-complete subscription is enabled for the service bus topic"
+  type        = bool
+  default     = false
+}
+
+variable "redaction_process_complete_subscription_id" {
+  description = "The ID of the redaction-process-complete subscription for the service bus topic"
+  type        = string
+}

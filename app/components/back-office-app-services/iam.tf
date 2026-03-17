@@ -41,3 +41,12 @@ resource "azurerm_role_assignment" "back_office_web_language_reader" {
   role_definition_name = "Cognitive Services Language Reader"
   principal_id         = module.app_service["back_office_frontend"].principal_id
 }
+
+
+resource "azurerm_role_assignment" "redaction_system_documents_access" {
+  count = var.enabled_redaction_system ? 1 : 0
+
+  scope                = var.document_storage_back_office_document_service_uploads_container_resource_manager_id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = var.redaction_system_principal_id
+}

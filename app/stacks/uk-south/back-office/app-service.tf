@@ -57,6 +57,8 @@ module "app_services" {
   servicebus_topic_deadline_submission_topic_name = ""
   servicebus_topic_deadline_submission_result_id  = ""
   servicebus_topic_register_representation_id     = ""
+  redaction_process_complete_subscription_enabled = false
+  redaction_process_complete_subscription_id      = ""
 
   # notify subscribers configuration
   notify_subscribers_function_gov_notify_template_id       = var.notify_subscribers_function_gov_notify_template_id
