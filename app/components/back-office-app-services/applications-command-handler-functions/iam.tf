@@ -48,3 +48,10 @@ resource "azurerm_role_assignment" "service_bus_data_receiver" {
   role_definition_name = "Azure Service Bus Data Receiver"
   principal_id         = module.applications_command_handler_functions.principal_id
 }
+
+#dcop
+resource "azurerm_role_assignment" "dco_portal_data_submissions_reciever" {
+  scope                = azurerm_servicebus_subscription.dco_portal_data_submissions.id
+  role_definition_name = "Azure Service Bus Data Receiver"
+  principal_id         = module.applications_command_handler_functions.principal_id
+}
