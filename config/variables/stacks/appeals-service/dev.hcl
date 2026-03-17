@@ -25,7 +25,7 @@ locals {
       }
     },
     {
-      name    = "expedited-appeals-fo-v1"
+      name    = "expedited-appeals-fo-v2"
       enabled = true
       targeting = {
         percentage = 100
