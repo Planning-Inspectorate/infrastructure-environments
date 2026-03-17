@@ -46,3 +46,15 @@ data "azurerm_monitor_action_group" "bo_applications_tech" {
   resource_group_name = var.common_resource_group_name
   name                = var.action_group_names.bo_applications_tech
 }
+
+data "azurerm_virtual_network" "common_vnet" {
+  name                = var.common_vnet_name
+  resource_group_name = var.common_resource_group_name
+}
+
+data "azurerm_virtual_network" "redaction_vnet" {
+  count = var.enabled_redaction_system ? 1 : 0
+
+  name                = var.redaction_system_integration.network_name
+  resource_group_name = var.redaction_system_integration.network_rg
+}

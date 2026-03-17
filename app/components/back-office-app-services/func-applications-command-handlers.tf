@@ -20,6 +20,7 @@ module "applications_command_handler_functions" {
   servicebus_topic_register_nsip_subscription_id             = var.servicebus_topic_register_nsip_subscription_id
   servicebus_topic_register_representation_id                = var.servicebus_topic_register_representation_id
   servicebus_topic_deadline_submission_result_id             = var.servicebus_topic_deadline_submission_result_id
+  servicebus_topic_dco_portal_data_submissions_id            = var.servicebus_topic_dco_portal_data_submissions_id
   service_bus_namespace_name                                 = var.service_bus_namespace_name
   back_office_storage_account_host                           = var.document_storage_account_endpoint
   back_office_storage_account_domain                         = var.document_storage_api_host

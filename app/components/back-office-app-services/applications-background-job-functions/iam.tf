@@ -27,3 +27,11 @@ resource "azurerm_role_assignment" "nsip_document_service_bus_data_unpublished_r
   role_definition_name = "Azure Service Bus Data Receiver"
   principal_id         = module.applications_background_job_functions.principal_id
 }
+
+resource "azurerm_role_assignment" "redaction_process_complete_receiver" {
+  count = var.redaction_process_complete_subscription_enabled ? 1 : 0
+
+  scope                = var.redaction_process_complete_subscription_id
+  role_definition_name = "Azure Service Bus Data Receiver"
+  principal_id         = module.applications_background_job_functions.principal_id
+}

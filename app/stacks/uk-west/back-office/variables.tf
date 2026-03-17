@@ -293,3 +293,32 @@ variable "web_app_insights_web_test_enabled" {
   description = "Config for monitoring"
   type        = bool
 }
+
+variable "redaction_system_integration" {
+  description = "All variables associated with the redaction system integration with back office"
+  type = object({
+    network_rg   = string
+    network_name = string
+  })
+  default = ({
+    network_rg   = ""
+    network_name = ""
+  })
+}
+
+variable "enabled_redaction_system" {
+  description = "Whether or not the redaction system is enabled, this is to support all envs"
+  type        = bool
+  default     = false
+}
+
+variable "redaction_system_principal_id" {
+  description = "Managed identity principal ID of the redaction system function"
+  type        = string
+  default     = ""
+}
+variable "azure_ai_doc_redaction_base_url" {
+  description = "The endpoint for the Azure AI Document Redaction service"
+  type        = string
+  default     = ""
+}

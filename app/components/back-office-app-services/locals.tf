@@ -30,6 +30,10 @@ locals {
         APPLICATIONS_INSPECTOR_GROUP_ID            = var.azuread_applications_inspector_group_id
         AZURE_BLOB_STORE_HOST                      = var.document_storage_api_host
         AZURE_AI_LANGUAGE_ENDPOINT                 = var.text_analytics_config == null ? "" : var.text_analytics_config.endpoint
+        AZURE_AI_DOC_REDACTION_BASE_URL            = var.enabled_redaction_system ? var.azure_ai_doc_redaction_base_url : null
+        AZURE_AI_DOC_REDACTION_STORAGE_NAME        = var.enabled_redaction_system ? var.azure_ai_doc_redaction_storage_name : null
+        AZURE_AI_DOC_REDACTION_REDACT_KEY          = var.enabled_redaction_system ? local.secret_refs["azure-ai-doc-redaction-redact-key"] : null
+        AZURE_AI_DOC_REDACTION_APPLY_KEY           = var.enabled_redaction_system ? local.secret_refs["azure-ai-doc-redaction-apply-key"] : null
         FRONT_OFFICE_URL                           = var.applications_front_office_web_url
         KEY_VAULT_ENABLED                          = var.api_key_vault_authorization_enabled
         KEY_VAULT_URI                              = var.key_vault_uri
@@ -91,6 +95,8 @@ locals {
     "os-places-api-key",
     "session-secret",
     "back-office-applications-gov-notify-api-key",
+    "azure-ai-doc-redaction-redact-key",
+    "azure-ai-doc-redaction-apply-key",
     # MIGRATION RESOUCE: only need these secrets for project-updates migration
     "applications-service-welsh-mysql-database",
     "applications-service-welsh-mysql-dialect",
