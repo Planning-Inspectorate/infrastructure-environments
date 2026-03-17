@@ -55,6 +55,14 @@ locals {
         percentage = 100
         users      = ["BC0110001", "BC0110002", "BC0110003"]
       }
+    },
+    {
+      name    = "idas-340-redaction-service",
+      enabled = true,
+      targeting = {
+        percentage = 100
+        users       = []
+      }
     }
   ]
 
@@ -105,6 +113,14 @@ locals {
   applications_front_office_web_url      = "https://applications-service-dev.planninginspectorate.gov.uk"
   odw_synapse_integration_enabled        = true
   back_office_published_documents_domain = "https://back-office-applications-docs-dev.planninginspectorate.gov.uk"
+  redaction_system_integration = {
+    network_rg   = "pins-rg-redaction-system-dev-uks"
+    network_name = "vnet-redaction-system-dev-uks"
+  }
+  enabled_redaction_system      = true
+  azure_ai_doc_redaction_base_url = "https://pins-func-redaction-system-dev-uks.azurewebsites.net"
+
+  redaction_system_principal_id = "bbe76e30-4011-4a70-90d5-7f92e44afb5a"
 
   text_analytics_config = {
     deploy = false # use tooling subscription shared instance

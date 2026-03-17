@@ -10,6 +10,8 @@ module "app_services" {
   azuread_applications_case_admin_officer_group_id                                    = var.azuread_applications_case_admin_officer_group_id
   azuread_applications_caseteam_group_id                                              = var.azuread_applications_caseteam_group_id
   azuread_applications_inspector_group_id                                             = var.azuread_applications_inspector_group_id
+  azure_ai_doc_redaction_base_url                                                     = var.azure_ai_doc_redaction_base_url
+  azure_ai_doc_redaction_storage_name                                                 = azurerm_storage_account.back_office_documents.name
   back_office_applications_log_level_file                                             = var.back_office_applications_log_level_file
   back_office_applications_log_level_stdout                                           = var.back_office_applications_log_level_stdout
   back_office_hostname                                                                = var.back_office_public_url_new == null ? var.back_office_public_url : var.back_office_public_url_new
@@ -21,6 +23,7 @@ module "app_services" {
   document_storage_api_host                                                           = var.back_office_published_documents_domain
   document_storage_account_endpoint                                                   = azurerm_storage_account.back_office_documents.primary_blob_endpoint
   endpoint_subnet_id                                                                  = azurerm_subnet.back_office_ingress.id
+  enabled_redaction_system                                                            = var.enabled_redaction_system
   key_vault_id                                                                        = var.key_vault_id
   key_vault_uri                                                                       = var.key_vault_uri
   location                                                                            = azurerm_resource_group.back_office_stack.location
@@ -28,6 +31,7 @@ module "app_services" {
   monitoring_alerts_enabled                                                           = var.monitoring_alerts_enabled
   node_environment                                                                    = var.node_environment
   private_endpoint_enabled                                                            = var.private_endpoint_enabled
+  redaction_system_principal_id                                                       = var.redaction_system_principal_id
   resource_group_name                                                                 = azurerm_resource_group.back_office_stack.name
   resource_suffix                                                                     = local.resource_suffix
   service_bus_namespace_name                                                          = azurerm_servicebus_namespace.back_office.name
@@ -48,8 +52,11 @@ module "app_services" {
   servicebus_topic_deadline_submission_topic_name                                     = azurerm_servicebus_topic.deadline_submission_topic.name
   servicebus_topic_deadline_submission_result_id                                      = azurerm_servicebus_topic.deadline_submission_result.id
   servicebus_topic_register_representation_id                                         = azurerm_servicebus_topic.register_representation.id
+  servicebus_topic_dco_portal_data_submissions_id                                     = azurerm_servicebus_topic.dco_portal_data_submissions.id
   deadline_submissions_result_topic_name                                              = azurerm_servicebus_topic.deadline_submission_result.name
   malware_scanning_topic_id                                                           = azurerm_eventgrid_topic.malware_scanning_topic.id
+  redaction_process_complete_subscription_enabled                                     = var.enabled_redaction_system
+  redaction_process_complete_subscription_id                                          = azurerm_servicebus_subscription.redaction_process_complete["cbos"].id
   tags                                                                                = local.tags
   notify_subscribers_function_gov_notify_template_id                                  = var.notify_subscribers_function_gov_notify_template_id
   notify_subscribers_function_gov_notify_template_welsh_id                            = var.notify_subscribers_function_gov_notify_template_welsh_id
