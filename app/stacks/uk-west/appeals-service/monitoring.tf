@@ -4,7 +4,7 @@ resource "azurerm_log_analytics_workspace" "appeals_service" {
   location            = azurerm_resource_group.appeals_service_stack.location
   sku                 = "PerGB2018"
   retention_in_days   = 30
-  daily_quota_gb      = 1
+  daily_quota_gb      = var.log_daily_cap_gb
 
   tags = local.tags
 }
@@ -83,8 +83,6 @@ resource "azurerm_monitor_scheduled_query_rules_alert_v2" "web_app_insights" {
   resource_group_name = azurerm_resource_group.appeals_service_stack.name
   scopes              = [module.app_services.app_service_ids["appeals_service_api_${module.azure_region_primary.location_short}"]]
 
-
-
   enabled                          = var.monitoring_alerts_enabled
   auto_mitigation_enabled          = true
   workspace_alerts_storage_enabled = false
@@ -104,6 +102,84 @@ resource "azurerm_monitor_scheduled_query_rules_alert_v2" "web_app_insights" {
   }
 
   severity = 1
+  action {
+    action_groups = [
+      var.action_group_ids.tech,
+      var.action_group_ids.service_manager,
+      var.action_group_ids.its
+    ]
+  }
+}
+
+resource "azurerm_monitor_scheduled_query_rules_alert_v2" "waf_blocks" {
+  count = var.waf_blocks_alerts_enabled ? 1 : 0 # this resource will only be built in prod, therefore waf blocks only in prod
+
+  name         = "appeals-waf-blocks"
+  display_name = "appeals WAF blocks"
+  description  = "Triggered when there has been a WAF block for appeals service in the last 2 hours"
+
+  location            = azurerm_resource_group.appeals_service_stack.location
+  resource_group_name = azurerm_resource_group.appeals_service_stack.name
+
+  scopes = [data.azurerm_log_analytics_workspace.fd_common_prod[0].id]
+
+  auto_mitigation_enabled          = true
+  workspace_alerts_storage_enabled = false
+
+  evaluation_frequency = "PT2H"
+  window_duration      = "PT2H"
+
+  criteria {
+    query                   = <<-QUERY
+      AzureDiagnostics
+      | where Category == "FrontdoorWebApplicationFirewallLog"
+      | where action_s == "Block"
+      | where host_s == 'appeal-planning-decision.service.gov.uk'
+      QUERY
+    time_aggregation_method = "Count"
+    operator                = "GreaterThanOrEqual"
+    threshold               = 1
+  }
+
+  severity = 2
+  action {
+    action_groups = [
+      var.action_group_ids.tech,
+      var.action_group_ids.service_manager,
+      var.action_group_ids.its
+    ]
+  }
+}
+
+# Log cap alert using scheduled query rules
+resource "azurerm_monitor_scheduled_query_rules_alert_v2" "log_cap" {
+  count = var.environment == "prod" ? 1 : 0
+
+  name         = "Log cap Alert"
+  display_name = "log Daily data limit reached"
+  description  = "Triggered when the log Data cap is reached."
+
+  location            = azurerm_resource_group.appeals_service_stack.location
+  resource_group_name = azurerm_resource_group.appeals_service_stack.name
+  scopes              = [azurerm_log_analytics_workspace.appeals_service.id]
+
+  enabled                 = true
+  auto_mitigation_enabled = false
+
+  evaluation_frequency = "PT5M"
+  window_duration      = "PT5M"
+
+  criteria {
+    query                   = <<-QUERY
+      _LogOperation
+      | where Category =~ "Ingestion" | where Detail contains "OverQuota"
+      QUERY
+    time_aggregation_method = "Count"
+    threshold               = 0
+    operator                = "GreaterThan"
+  }
+
+  severity = 2
   action {
     action_groups = [
       var.action_group_ids.tech,

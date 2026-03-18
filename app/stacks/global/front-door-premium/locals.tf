@@ -1,5 +1,5 @@
 locals {
-  services = ["appeals", "applications", "crowndev", "template", "scheduling"]
+  services = ["appeals", "applications", "crowndev", "template", "scheduling", "mpesc"]
   tags = merge(
     var.common_tags,
     {

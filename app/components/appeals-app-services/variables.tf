@@ -167,10 +167,17 @@ variable "logger_level" {
 }
 
 variable "max_file_upload_size_in_bytes" {
-  default     = "26214400" #25MB
+  default     = "52428800" #50MB
   description = "Max number of bytes allowed in a file upload"
   type        = string
 }
+
+variable "max_file_upload_size_in_bytes_ip" {
+  default     = "26214400" #25MB
+  description = "Max number of bytes allowed in a file upload for interested party users"
+  type        = string
+}
+
 
 variable "monitoring_alerts_enabled" {
   default     = false
@@ -517,6 +524,12 @@ variable "scoping_opinion_enabled" {
   default     = false
 }
 
+variable "appellant_statement_enabled" {
+  description = "A switch to determine if appellant statement journeys are enabled"
+  type        = bool
+  default     = false
+}
+
 variable "service_bus_config" {
   description = "service bus configuration"
   type = object({
@@ -525,4 +538,42 @@ variable "service_bus_config" {
     bo_subscription_ttl          = string
     fo_subscription_ttl          = string
   })
+}
+
+variable "service_bus_topic" {
+  description = "BO Submission and Topic names"
+  type = object({
+    submission = object({
+      appellant         = string
+      lpa_questionnaire = string
+      representation    = string
+    })
+    topic = object({
+      appeal_has            = string
+      appeal_s78            = string
+      document              = string
+      event                 = string
+      listed_building       = string
+      service_user          = string
+      appeal_representation = string
+      event_estimate        = string
+    })
+  })
+  default = {
+    submission = {
+      appellant         = "appeal-fo-appellant-submission"
+      lpa_questionnaire = "appeal-fo-lpa-questionnaire-submission"
+      representation    = "appeal-fo-representation-submission"
+    }
+    topic = {
+      appeal_has            = "appeal-has"
+      appeal_s78            = "appeal-s78"
+      document              = "appeal-document"
+      event                 = "appeal-event"
+      listed_building       = "listed-building"
+      service_user          = "appeal-service-user"
+      appeal_representation = "appeal-representation"
+      event_estimate        = "appeal-event-estimate"
+    }
+  }
 }

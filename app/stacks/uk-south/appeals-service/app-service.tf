@@ -26,6 +26,7 @@ module "app_services" {
   comments_enabled                                                                      = var.comments_enabled
   rule_6_enabled                                                                        = var.rule_6_enabled
   scoping_opinion_enabled                                                               = var.scoping_opinion_enabled
+  appellant_statement_enabled                                                           = var.appellant_statement_enabled
   endpoint_subnet_id                                                                    = azurerm_subnet.appeals_service_ingress.id
   function_apps_storage_account                                                         = var.function_apps_storage_account
   function_apps_storage_account_access_key                                              = var.function_apps_storage_account_access_key
@@ -101,6 +102,7 @@ module "app_services" {
   appeals_frontend_file_upload_debug_logging_enabled                                    = var.appeals_frontend_file_upload_debug_logging_enabled
   service_bus_config                                                                    = var.service_bus_config
   appeals_easy_auth_config                                                              = var.appeals_easy_auth_config
+  service_bus_topic                                                                     = var.service_bus_topic
 
   tags = local.tags
 

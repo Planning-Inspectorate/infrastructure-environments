@@ -1,4 +1,5 @@
 locals {
+  org          = "pins"
   service_name = "back-office"
   # TODO: Let's create database-specific users and passwords instead for connection strings
   # Also, let's store this in Key Vault rather than just spitting it into env variables!
@@ -59,7 +60,8 @@ locals {
         var.sb_topic_names.applications.commands.register_nsip_subscription,
         var.sb_topic_names.applications.commands.register_representation,
         var.sb_topic_names.applications.commands.deadline_submission_topic,
-        var.sb_topic_names.applications.commands.deadline_submission_result
+        var.sb_topic_names.applications.commands.deadline_submission_result,
+        var.sb_topic_names.applications.commands.dco_portal_data_submissions
       ],
       # could be back office or front office issue
       action_groups = [
@@ -105,4 +107,9 @@ locals {
   }
   bo_applications_tech_emails = [for rec in data.azurerm_monitor_action_group.bo_applications_tech.email_receiver : rec.email_address]
   tech_emails                 = local.bo_applications_tech_emails
+  redaction_process_service_bus_subscribers = toset(
+    [
+      "cbos",
+    ]
+  )
 }

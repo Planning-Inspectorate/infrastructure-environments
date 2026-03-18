@@ -240,6 +240,18 @@ variable "feature_redis_session_store" {
   type        = string
 }
 
+variable "redis_cache_enabled" {
+  description = "Toggle to enable or disable API request caching using Redis"
+  type        = bool
+  default     = false
+}
+
+variable "redis_cache_ttl" {
+  description = "Expiry time in seconds for cached items in Redis"
+  type        = number
+  default     = 3600
+}
+
 variable "feature_enabled_content_security_policy" {
   description = "Feature toggle to enable/disable content security policy"
   type        = string
@@ -280,6 +292,17 @@ variable "feature_allow_welsh_cases" {
   type        = string
 }
 
+variable "feature_enable_projects_map" {
+  description = "Feature toggle to enable/disable projects map"
+  type        = string
+}
+
+variable "global_banner_text" {
+  description = "Text to be displayed in the global banner across all pages in the application. If empty, no banner is shown."
+  type        = string
+  default     = ""
+}
+
 variable "google_analytics_id" {
   description = "The id used to connect the frontend app to Google Analytics"
   type        = string
@@ -316,6 +339,11 @@ variable "logger_level" {
   description = "The level of logging enabled for applications in the environment e.g. info"
   type        = string
   default     = "info"
+}
+
+variable "log_daily_cap_gb" {
+  description = "Daily log ingestion cap in GB"
+  type        = number
 }
 
 variable "monitoring_alerts_enabled" {
@@ -364,6 +392,15 @@ variable "private_endpoint_enabled" {
   description = "A switch to determine if Private Endpoint should be enabled for backend App Services"
   type        = bool
   default     = true
+}
+
+variable "redis_cache_configuration" {
+  description = "Redis configuration options"
+  type = object({
+    family   = string
+    capacity = number
+    sku_name = string
+  })
 }
 
 variable "srv_notify_base_url" {

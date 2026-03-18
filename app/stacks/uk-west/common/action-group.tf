@@ -15,3 +15,21 @@ resource "azurerm_monitor_action_group" "all_action_groups" {
     ]
   }
 }
+
+
+resource "azurerm_monitor_action_group" "devops_action_group" {
+  count = var.environment == "prod" ? 1 : 0 # only in prod
+
+  name                = "pins-ag-odt-devops-tech-${var.environment}"
+  resource_group_name = azurerm_resource_group.common_infrastructure.name
+  short_name          = "DevOps" # 1-12 chars only
+  tags                = local.tags
+
+  # we set emails in the action groups in Azure Portal - to avoid needing to manage
+  # emails in terraform
+  lifecycle {
+    ignore_changes = [
+      email_receiver
+    ]
+  }
+}

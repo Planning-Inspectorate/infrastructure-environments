@@ -58,6 +58,11 @@ variable "location" {
   default     = "uk-west"
 }
 
+variable "log_daily_cap_gb" {
+  description = "Daily log ingestion cap in GB"
+  type        = number
+}
+
 variable "pipeline_appeals_service_principal_object_id" {
   description = "The ID of the service principal associated with the Appeals Service pipelines"
   type        = string

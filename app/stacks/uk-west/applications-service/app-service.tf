@@ -12,6 +12,8 @@ module "app_services" {
   applications_easy_auth_config                                         = var.applications_easy_auth_config
   applications_service_public_url                                       = var.applications_service_public_url
   applications_service_redis_connection_string_secret_name              = azurerm_key_vault_secret.redis_cache_connection_string.name
+  redis_cache_enabled                                                   = var.redis_cache_enabled
+  redis_cache_ttl                                                       = var.redis_cache_ttl
   back_office_service_bus_namespace_name                                = var.back_office_service_bus_namespace_name
   back_office_service_bus_deadline_submission_topic_id                  = var.back_office_service_bus_deadline_submission_topic_id
   back_office_service_bus_nsip_project_topic_id                         = var.back_office_service_bus_nsip_project_topic_id
@@ -49,8 +51,10 @@ module "app_services" {
   feature_redis_session_store                                           = var.feature_redis_session_store
   feature_save_and_exit_option                                          = var.feature_save_and_exit_option
   feature_show_affected_area_section                                    = var.feature_show_affected_area_section
+  feature_enable_projects_map                                           = var.feature_enable_projects_map
   function_storage_name                                                 = azurerm_storage_account.function_storage.name
   function_storage_primary_access_key                                   = azurerm_storage_account.function_storage.primary_access_key
+  global_banner_text                                                    = var.global_banner_text
   google_analytics_id                                                   = var.google_analytics_id
   integration_subnet_id                                                 = var.integration_subnet_id
   key_vault_id                                                          = var.key_vault_id

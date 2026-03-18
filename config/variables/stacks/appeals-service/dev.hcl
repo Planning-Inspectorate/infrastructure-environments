@@ -5,7 +5,7 @@ locals {
       enabled = true
       targeting = {
         percentage = 100
-        users      = ["Q1111"]
+        users      = []
       }
     },
     {
@@ -13,7 +13,7 @@ locals {
       enabled = true
       targeting = {
         percentage = 100
-        users      = ["Q1111"]
+        users      = []
       }
     },
     {
@@ -21,31 +21,47 @@ locals {
       enabled = true
       targeting = {
         percentage = 100
-        users      = ["Q1111"]
+        users      = []
       }
     },
     {
-      name    = "has-appeal-form-v2"
+      name    = "expedited-appeals-fo-v2"
       enabled = true
       targeting = {
         percentage = 100
-        users      = ["Q1111"]
+        users      = []
       }
     },
     {
-      name    = "s20-appeal-form-v2"
+      name    = "enforcement-appeal-form-v2"
       enabled = true
       targeting = {
         percentage = 100
-        users      = ["Q1111"]
+        users      = []
       }
     },
     {
-      name    = "s78-appeal-form-v2"
+      name    = "enforcement-listed-appeal-form-v2"
       enabled = true
       targeting = {
         percentage = 100
-        users      = ["Q1111"]
+        users      = []
+      }
+    },
+    {
+      name    = "ldc-appeal-form-v2"
+      enabled = true
+      targeting = {
+        percentage = 100
+        users      = []
+      }
+    },
+    {
+      name    = "enable-application-api-lookup"
+      enabled = true
+      targeting = {
+        percentage = 100
+        users      = ["Q9999"]
       }
     }
   ]
@@ -54,9 +70,11 @@ locals {
   comments_enabled                               = true
   rule_6_enabled                                 = true
   scoping_opinion_enabled                        = true
+  appellant_statement_enabled                    = true
   google_analytics_id                            = "G-HWLKLSJF53"
   google_tag_manager_id                          = "GTM-KZN7XP4"
   horizon_url                                    = "http://10.0.7.4:8000"
+  log_daily_cap_gb                               = 0.8
   monitoring_config = {
     app_insights_web_test_enabled = false
   }

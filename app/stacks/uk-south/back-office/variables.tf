@@ -163,6 +163,11 @@ variable "key_vault_uri" {
   type        = string
 }
 
+variable "log_daily_cap_gb" {
+  description = "Daily log ingestion cap in GB"
+  type        = number
+}
+
 variable "location" {
   description = "The location resources are deployed to in slug format e.g. 'uk-south'"
   type        = string

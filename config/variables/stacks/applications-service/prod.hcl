@@ -14,7 +14,7 @@ locals {
     "web_auth_enabled" = false
     "application_id"   = "7d92b220-8d5b-45d6-a870-39464439d6b1"
   }
-  back_office_integration_get_applications     = "MERGE"
+  back_office_integration_get_applications     = "BO"
   client_affinity_enabled                      = true
   documents_host                               = "https://infrastructure.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
   document_storage_api_host                    = "https://nsip-documents.planninginspectorate.gov.uk/"
@@ -24,8 +24,8 @@ locals {
   feature_application_insights                 = "true"
   feature_enable_generalised_form_sanitisation = "true"
   feature_enabled_content_security_policy      = "true"
-  feature_general_s51_bo                       = "false"
-  feature_register_of_advice                   = "false"
+  feature_general_s51_bo                       = "true"
+  feature_register_of_advice                   = "true"
   feature_allow_welsh_cases                    = "true"
   feature_hide_project_timeline_link           = "false"
   feature_home_page                            = "true"
@@ -33,16 +33,26 @@ locals {
   feature_redis_session_store                  = "true"
   feature_save_and_exit_option                 = "false"
   feature_show_affected_area_section           = "false"
+  feature_enable_projects_map                  = "false"
+  global_banner_text                           = ""
   google_analytics_id                          = "G-DQ9S57CJDP"
+  log_daily_cap_gb                             = 5
   monitoring_alerts_enabled                    = true
   monitoring_config = {
     app_insights_web_test_enabled = true
   }
-  national_infrastructure_gateway_ip                                    = "51.140.221.209"
-  national_infrastructure_vnet_address_space                            = ["10.224.161.0/24", "192.168.0.0/20"]
-  node_environment                                                      = "production"
-  open_registration_case_references                                     = ""
-  planned_outage_resume_text                                            = ""
+  national_infrastructure_gateway_ip         = "51.140.221.209"
+  national_infrastructure_vnet_address_space = ["10.224.161.0/24", "192.168.0.0/20"]
+  node_environment                           = "production"
+  open_registration_case_references          = ""
+  planned_outage_resume_text                 = ""
+  redis_cache_configuration = {
+    family   = "C"
+    capacity = 1
+    sku_name = "Standard"
+  }
+  redis_cache_enabled                                                   = "false"
+  redis_cache_ttl                                                       = 3600
   srv_notify_ip_registration_confirmation_email_to_ip_template_id       = "442ee953-7bd2-4b44-aa38-9dc8a3e42ab4"
   srv_notify_ip_registration_confirmation_email_to_ip_template_id_welsh = "b7559278-492b-4e4d-899c-484c03d05335"
   srv_notify_service_id                                                 = "2f25f917-c24f-44a6-9d0c-aebac7c98081"

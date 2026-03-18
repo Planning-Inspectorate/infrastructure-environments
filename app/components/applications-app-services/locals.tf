@@ -38,7 +38,9 @@ locals {
         FEATURE_REDIS_SESSION_STORE                  = var.feature_redis_session_store
         FEATURE_SAVE_AND_EXIT_OPTION                 = var.feature_save_and_exit_option
         FEATURE_SHOW_AFFECTED_AREA_SECTION           = var.feature_show_affected_area_section
+        FEATURE_ENABLE_PROJECTS_MAP                  = var.feature_enable_projects_map
         FILE_UPLOADS_PATH                            = "/opt/app/uploads"
+        GLOBAL_BANNER_TEXT                           = var.global_banner_text
         GOOGLE_ANALYTICS_ID                          = var.google_analytics_id
         HOST_URL                                     = "https://${var.applications_service_public_url}/"
         MICROSOFT_PROVIDER_AUTHENTICATION_SECRET     = local.secret_refs["applications-service-microsoft-provider-authentication-secret"]
@@ -47,6 +49,8 @@ locals {
         OS_MAPS_API_SECRET                           = local.secret_refs["applications-service-os-maps-api-secret"]
         PLANNED_OUTAGE_RESUME_TEXT                   = var.planned_outage_resume_text
         REDIS_CONNECTION_STRING                      = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/${var.applications_service_redis_connection_string_secret_name}/)"
+        REDIS_CACHE_ENABLED                          = var.redis_cache_enabled
+        REDIS_CACHE_TTL                              = var.redis_cache_ttl
         SESSION_KEY                                  = local.secret_refs["applications-service-session-key"]
         SUBDOMAIN_OFFSET                             = "3"
         USE_SECURE_SESSION_COOKIES                   = true,
@@ -83,6 +87,7 @@ locals {
         BACK_OFFICE_INTEGRATION_GET_APPLICATIONS                  = var.back_office_integration_get_applications
         FEATURE_ALLOW_WELSH_CASES                                 = var.feature_allow_welsh_cases
         FEATURE_REGISTER_OF_ADVICE                                = var.feature_register_of_advice
+        FEATURE_ENABLE_PROJECTS_MAP                               = var.feature_enable_projects_map
         BACK_OFFICE_SERVICE_BUS_ENABLED                           = "true"
         BACK_OFFICE_SERVICE_BUS_HOSTNAME                          = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
         DATABASE_URL                                              = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/applications-service-sql-server-connection-string-app/)"
@@ -102,6 +107,8 @@ locals {
         NI_OAUTH_CLIENT_SECRET                                    = local.secret_refs["applications-service-ni-oauth-client-secret"]
         NI_OAUTH_PASSWORD                                         = local.secret_refs["applications-service-ni-oauth-password"]
         NI_OAUTH_USERNAME                                         = local.secret_refs["applications-service-ni-oauth-username"]
+        REDIS_CONNECTION_STRING                                   = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/${var.applications_service_redis_connection_string_secret_name}/)"
+        REDIS_CACHE_ENABLED                                       = var.redis_cache_enabled
         NODE_ENV                                                  = var.node_environment
         SERVER_PORT                                               = "3000"
         SERVER_SHOW_ERRORS                                        = true

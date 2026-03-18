@@ -32,6 +32,7 @@ locals {
         COMMENTS_ENABLED                          = var.comments_enabled
         RULE_6_ENABLED                            = var.rule_6_enabled
         SCOPING_OPINION_ENABLED                   = var.scoping_opinion_enabled
+        APPELLANT_STATEMENT_ENABLED               = var.appellant_statement_enabled
         DOCS_API_PATH                             = "/opt/app/api"
         DOCUMENTS_SERVICE_API_TIMEOUT             = var.api_timeout
         DOCUMENTS_SERVICE_API_URL                 = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net/"
@@ -39,6 +40,7 @@ locals {
         FEATURE_FLAG_NEW_APPEAL_JOURNEY           = true
         FILE_UPLOAD_DEBUG                         = var.appeals_frontend_file_upload_debug_logging_enabled
         FILE_UPLOAD_MAX_FILE_SIZE_BYTES           = var.max_file_upload_size_in_bytes
+        FILE_UPLOAD_MAX_FILE_SIZE_BYTES_IP        = var.max_file_upload_size_in_bytes_ip
         FILE_UPLOAD_TMP_PATH                      = "/tmp"
         FILE_UPLOAD_USE_TEMP_FILES                = true
         GOOGLE_ANALYTICS_ID                       = var.google_analytics_id
@@ -136,14 +138,15 @@ locals {
         APPLICATIONINSIGHTS_CONNECTION_STRING                                                 = local.secret_refs["appeals-app-insights-connection-string"]
         APP_APPEALS_BASE_URL                                                                  = "https://${var.appeals_service_public_url}"
         AUTH_BASE_URL                                                                         = "https://pins-app-${var.service_name}-auth-server-${var.resource_suffix}.azurewebsites.net"
-        BACK_OFFICE_APPELLANT_SUBMISSION_TOPIC                                                = "appeal-fo-appellant-submission"
-        BACK_OFFICE_LPA_RESPONSE_SUBMISSION_TOPIC                                             = "appeal-fo-lpa-questionnaire-submission"
-        BACK_OFFICE_REPRESENTATION_SUBMISSION_TOPIC                                           = "appeal-fo-representation-submission"
+        BACK_OFFICE_APPELLANT_SUBMISSION_TOPIC                                                = var.service_bus_topic.submission.appellant
+        BACK_OFFICE_LPA_RESPONSE_SUBMISSION_TOPIC                                             = var.service_bus_topic.submission.lpa_questionnaire
+        BACK_OFFICE_REPRESENTATION_SUBMISSION_TOPIC                                           = var.service_bus_topic.submission.representation
         BLOB_STORAGE_CONNECTION_STRING                                                        = local.secret_refs["appeals-documents-primary-blob-connection-string"]
         DOCS_API_PATH                                                                         = "/opt/app/api"
         DOCUMENTS_SERVICE_API_TIMEOUT                                                         = var.api_timeout
         DOCUMENTS_SERVICE_API_URL                                                             = "https://pins-app-${var.service_name}-documents-api-${var.resource_suffix}.azurewebsites.net"
         FEATURE_FLAG_NEW_APPEAL_JOURNEY                                                       = true
+        APPELLANT_STATEMENT_ENABLED                                                           = var.appellant_statement_enabled
         LOGGER_LEVEL                                                                          = var.logger_level
         LPA_DATA_PATH                                                                         = "/opt/app/data/lpa-list.csv"
         LPA_TRIALIST_DATA_PATH                                                                = "/opt/app/data/lpa-trialists.json"

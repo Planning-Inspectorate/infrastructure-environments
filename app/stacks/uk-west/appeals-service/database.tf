@@ -164,7 +164,12 @@ resource "azurerm_storage_container" "appeals_sql_server" {
   container_access_type = "private"
 }
 
+moved {
+  from = azurerm_advanced_threat_protection.appeals_sql_server
+  to   = azurerm_advanced_threat_protection.appeals_sql_server[0]
+}
 resource "azurerm_advanced_threat_protection" "appeals_sql_server" {
+  count              = var.environment != "staging" ? 1 : 0
   target_resource_id = azurerm_storage_account.appeals_sql_server.id
   enabled            = true
 }

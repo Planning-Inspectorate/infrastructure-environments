@@ -41,11 +41,27 @@ locals {
       }
     },
     {
+      name    = "applics-1845-fees-forecasting",
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = []
+      }
+    },
+    {
       name    = "azure-ai-language-redaction",
       enabled = true
       targeting = {
         percentage = 100
         users      = [] //no values enables flag globally
+      }
+    },
+    {
+      name    = "idas-340-redaction-service",
+      enabled = false,
+      targeting = {
+        percentage = 100
+        users       = []
       }
     }
   ]
@@ -63,6 +79,7 @@ locals {
   azuread_applications_inspector_group_id          = "000ad7e9-31ad-4c6c-b9c8-d78e42495548"
 
   # logging
+  log_daily_cap_gb                          = 0.4
   back_office_applications_log_level_file   = "silent"
   back_office_applications_log_level_stdout = "info"
 
@@ -81,7 +98,7 @@ locals {
   }
   sql_database_configuration = {
     max_size_gb               = 250 # included
-    short_term_retention_days = 30 # 7-35
+    short_term_retention_days = 30  # 7-35
     audit_retention_days      = 120
     sku_name                  = "S0"
   }
@@ -101,4 +118,5 @@ locals {
   text_analytics_config = {
     deploy = false # use tooling subscription shared instance
   }
+  web_app_insights_web_test_enabled = false
 }

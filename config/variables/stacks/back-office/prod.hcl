@@ -41,16 +41,32 @@ locals {
       }
     },
     {
+      name    = "applics-1845-fees-forecasting",
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = []
+      }
+    },
+    {
       name    = "azure-ai-language-redaction",
       enabled = true
       targeting = {
         percentage = 100
         users      = ["EN010154"]
       }
+    },
+    {
+      name    = "idas-340-redaction-service",
+      enabled = false,
+      targeting = {
+        percentage = 100
+        users       = []
+      }
     }
   ]
 
-  sensitive_application_case_references = "TR020003"
+  sensitive_application_case_references = "TR020003, EN020022"
 
   node_environment                    = "production"
   api_key_vault_authorization_enabled = "true"
@@ -62,6 +78,7 @@ locals {
   azuread_applications_inspector_group_id          = "9dbf4271-7823-45ed-b1a7-3712f6f2faa3"
 
   # logging
+  log_daily_cap_gb                          = 0.4
   back_office_applications_log_level_file   = "silent"
   back_office_applications_log_level_stdout = "info"
 
@@ -100,4 +117,6 @@ locals {
   text_analytics_config = {
     deploy = true # use service-specific instance
   }
+
+  web_app_insights_web_test_enabled = true
 }

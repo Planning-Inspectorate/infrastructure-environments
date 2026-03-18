@@ -143,6 +143,11 @@ variable "location" {
   default     = "uk-west"
 }
 
+variable "log_daily_cap_gb" {
+  description = "Daily log ingestion cap in GB"
+  type        = number
+}
+
 variable "monitoring_alerts_enabled" {
   default     = false
   description = "Indicates whether Azure Monitor alerts are enabled for App Service"
@@ -224,20 +229,22 @@ variable "sb_topic_names" {
     common = object({ service_user = string }),
     applications = object({
       commands = object({
-        register_nsip_subscription = string
-        register_representation    = string
-        deadline_submission_topic  = string
-        deadline_submission_result = string
+        register_nsip_subscription  = string
+        register_representation     = string
+        deadline_submission_topic   = string
+        deadline_submission_result  = string
+        dco_portal_data_submissions = string
       })
       events = object({
-        nsip_project        = string
-        nsip_project_update = string
-        nsip_documents      = string
-        folders             = string
-        nsip_subscription   = string
-        nsip_exam_timetable = string
-        nsip_representation = string
-        nsip_s51_advice     = string
+        nsip_project                                = string
+        nsip_project_update                         = string
+        nsip_documents                              = string
+        folders                                     = string
+        nsip_subscription                           = string
+        nsip_exam_timetable                         = string
+        nsip_representation                         = string
+        nsip_s51_advice                             = string
+        redaction_system_redaction_process_complete = string
       })
     })
   })
@@ -280,4 +287,38 @@ variable "back_office_published_documents_domain" {
 variable "back_office_feature_flags" {
   description = "A list of maps describing feature flags to be saved in the App Configuration store"
   type        = list(any)
+}
+
+variable "web_app_insights_web_test_enabled" {
+  description = "Config for monitoring"
+  type        = bool
+}
+
+variable "redaction_system_integration" {
+  description = "All variables associated with the redaction system integration with back office"
+  type = object({
+    network_rg   = string
+    network_name = string
+  })
+  default = ({
+    network_rg   = ""
+    network_name = ""
+  })
+}
+
+variable "enabled_redaction_system" {
+  description = "Whether or not the redaction system is enabled, this is to support all envs"
+  type        = bool
+  default     = false
+}
+
+variable "redaction_system_principal_id" {
+  description = "Managed identity principal ID of the redaction system function"
+  type        = string
+  default     = ""
+}
+variable "azure_ai_doc_redaction_base_url" {
+  description = "The endpoint for the Azure AI Document Redaction service"
+  type        = string
+  default     = ""
 }

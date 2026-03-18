@@ -21,21 +21,23 @@ locals {
 
     applications = {
       commands = {
-        register_nsip_subscription = "register-nsip-subscription"
-        register_representation    = "register-representation"
-        deadline_submission_topic  = "deadline-submission-topic"
-        deadline_submission_result = "deadline-submission-result"
+        register_nsip_subscription          = "register-nsip-subscription"
+        register_representation             = "register-representation"
+        deadline_submission_topic           = "deadline-submission-topic"
+        deadline_submission_result          = "deadline-submission-result"
+        dco_portal_data_submissions         = "dco-portal-data-submissions" 
       }
 
       events = {
-        nsip_project        = "nsip-project"
-        nsip_project_update = "nsip-project-update"
-        nsip_documents      = "nsip-document"
-        folders             = "folder"
-        nsip_subscription   = "nsip-subscription"
-        nsip_exam_timetable = "nsip-exam-timetable"
-        nsip_representation = "nsip-representation"
-        nsip_s51_advice     = "nsip-s51-advice"
+        nsip_project                                = "nsip-project"
+        nsip_project_update                         = "nsip-project-update"
+        nsip_documents                              = "nsip-document"
+        folders                                     = "folder"
+        nsip_subscription                           = "nsip-subscription"
+        nsip_exam_timetable                         = "nsip-exam-timetable"
+        nsip_representation                         = "nsip-representation"
+        nsip_s51_advice                             = "nsip-s51-advice"
+        redaction_system_redaction_process_complete = "redaction-process-complete"
       }
     }
   }
