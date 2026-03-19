@@ -29,7 +29,7 @@ locals {
   )
 
   fo_applications_tech_emails = [for rec in data.azurerm_monitor_action_group.fo_applications_tech.email_receiver : rec.email_address]
-  # Filter emails to stay under 300 char limit (including comma separators)
+  # Filter emails to stay under 300 char limit for azurerm_mssql_server_security_alert_policy.email_addresses
   tech_emails = [
     for i, email in local.fo_applications_tech_emails : email
     if sum([for e in slice(local.fo_applications_tech_emails, 0, i + 1) : length(e) + 1]) <= 300
