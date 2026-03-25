@@ -50,6 +50,9 @@ resource "azurerm_log_analytics_workspace" "common" {
 }
 
 #front door monitoring - diagnostic setting
+locals {
+  service_name = "Prod Front Door"
+}
 resource "azurerm_monitor_diagnostic_setting" "web_front_door" {
   count                      = var.environment == "prod" ? 1 : 0 # only in prod
   name                       = "pins-fd-mds-common-prod"
@@ -77,7 +80,7 @@ resource "azurerm_monitor_scheduled_query_rules_alert_v2" "log_cap" {
   count = var.environment == "prod" ? 1 : 0
 
   name         = "Log cap Alert"
-  display_name = "log Daily data limit reached"
+  display_name = "Daily logging limit (${var.log_daily_cap_gb}GB) reached for ${local.service_name} in PROD"
   description  = "Triggered when the log Data cap is reached."
 
   location            = module.azure_region_ukw.location
