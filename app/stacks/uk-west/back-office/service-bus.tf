@@ -128,7 +128,7 @@ resource "azurerm_servicebus_topic" "deadline_submission_result" {
 }
 
 resource "azurerm_servicebus_topic" "redaction_process_complete" {
-  name                = var.sb_topic_names.applications.events.redaction_system_redaction_process_complete
+  name                = var.sb_topic_names.applications.redaction_system.process_complete
   namespace_id        = azurerm_servicebus_namespace.back_office.id
   default_message_ttl = var.service_bus_config.default_topic_ttl
 }
