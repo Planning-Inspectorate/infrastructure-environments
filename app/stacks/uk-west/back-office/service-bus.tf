@@ -127,6 +127,13 @@ resource "azurerm_servicebus_topic" "deadline_submission_result" {
   default_message_ttl = var.service_bus_config.default_topic_ttl
 }
 
+# redaction
+resource "azurerm_servicebus_queue" "redaction_internal_queue" {
+  name                = var.sb_topic_names.applications.redaction_system.internal_queue
+  namespace_id        = azurerm_servicebus_namespace.back_office.id
+  default_message_ttl = var.service_bus_config.default_topic_ttl
+}
+
 resource "azurerm_servicebus_topic" "redaction_process_complete" {
   name                = var.sb_topic_names.applications.redaction_system.process_complete
   namespace_id        = azurerm_servicebus_namespace.back_office.id

@@ -246,6 +246,7 @@ variable "sb_topic_names" {
         nsip_s51_advice     = string
       })
       redaction_system = object({
+        internal_queue   = string
         process_complete = string
       })
     })
