@@ -48,7 +48,7 @@ locals {
   planned_outage_resume_text                 = ""
   redis_cache_configuration = {
     family   = "C"
-    capacity = 1
+    capacity = 2
     sku_name = "Standard"
   }
   redis_cache_enabled                                                   = "false"
