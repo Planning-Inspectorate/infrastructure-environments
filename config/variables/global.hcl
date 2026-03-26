@@ -39,6 +39,7 @@ locals {
         nsip_s51_advice     = "nsip-s51-advice"
       }
       redaction_system = {
+        internal_queue   = "redaction-internal-queue"
         process_complete = "redaction-process-complete"
       }
     }
