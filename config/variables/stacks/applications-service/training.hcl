@@ -14,7 +14,7 @@ locals {
     "application_id"   = "4c373f03-2609-4cfe-a9f1-c8db2869c923"
   }
   back_office_integration_case_references      = "EN0710001,EN0710002,EN0110001,EN0110003,EN0110002,EN0210001"
-  back_office_integration_get_applications     = "BO"
+  back_office_integration_get_applications     = "MERGE"
   documents_host                               = "https://infrastructure.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
   document_storage_api_host                    = "https://nsip-documents.planninginspectorate.gov.uk/"
   feature_allow_project_information            = "true"
@@ -32,7 +32,7 @@ locals {
   feature_redis_session_store                  = "true"
   feature_save_and_exit_option                 = "false"
   feature_show_affected_area_section           = "false"
-  feature_enable_projects_map                  = "false"
+  feature_enable_projects_map                  = "true"
   global_banner_text                           = ""
   google_analytics_id                          = "G-DQ9S57CJDP"
   log_daily_cap_gb                             = 0.4

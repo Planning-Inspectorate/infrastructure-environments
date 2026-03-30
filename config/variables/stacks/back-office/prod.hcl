@@ -113,6 +113,14 @@ locals {
   applications_front_office_web_url      = "https://national-infrastructure-consenting.planninginspectorate.gov.uk"
   odw_synapse_integration_enabled        = true
   back_office_published_documents_domain = "https://nsip-documents.planninginspectorate.gov.uk"
+  redaction_system_integration = {
+    network_rg   = "pins-rg-redaction-system-prod-uks"
+    network_name = "vnet-redaction-system-prod-uks"
+  }
+  enabled_redaction_system      = true
+  azure_ai_doc_redaction_base_url = "https://pins-func-redaction-system-prod-uks.azurewebsites.net"
+
+  redaction_system_principal_id = "994099fc-75da-47d0-9b76-345fab733b38"
 
   text_analytics_config = {
     deploy = true # use service-specific instance

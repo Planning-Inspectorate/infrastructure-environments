@@ -114,6 +114,14 @@ locals {
   applications_front_office_web_url      = "https://applications-service-training.planninginspectorate.gov.uk"
   odw_synapse_integration_enabled        = false
   back_office_published_documents_domain = "https://back-office-applications-docs-train.planninginspectorate.gov.uk"
+  redaction_system_integration = {
+    network_rg   = "pins-rg-redaction-system-training-uks"
+    network_name = "vnet-redaction-system-training-uks"
+  }
+  enabled_redaction_system      = true
+  azure_ai_doc_redaction_base_url = "https://pins-func-redaction-system-training-uks.azurewebsites.net"
+
+  redaction_system_principal_id = ""
 
   text_analytics_config = {
     deploy = false # use tooling subscription shared instance
