@@ -120,7 +120,7 @@ locals {
   enabled_redaction_system      = true
   azure_ai_doc_redaction_base_url = "https://pins-func-redaction-system-dev-uks.azurewebsites.net"
 
-  redaction_system_principal_id = "bbe76e30-4011-4a70-90d5-7f92e44afb5a"
+  redaction_system_principal_id = "223d3a5d-819f-48f8-998d-dceca3d9648b"
 
   text_analytics_config = {
     deploy = false # use tooling subscription shared instance
