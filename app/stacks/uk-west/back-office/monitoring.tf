@@ -27,6 +27,14 @@ resource "azurerm_monitor_diagnostic_setting" "back_office_documents" {
     category = "StorageRead"
   }
 
+  enabled_log {
+    category = "StorageDelete"
+  }
+
+  enabled_log {
+    category = "StorageWrite"
+  }
+
   enabled_metric {
     category = "AllMetrics"
   }
