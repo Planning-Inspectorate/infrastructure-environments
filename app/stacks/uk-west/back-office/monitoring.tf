@@ -18,6 +18,11 @@ resource "azurerm_log_analytics_workspace" "back_office" {
   tags = local.tags
 }
 
+import {
+  id = "/subscriptions/d1d6c393-2fe3-40af-ac27-f5b6bad36735/resourceGroups/pins-rg-back-office-prod-ukw-001/providers/Microsoft.OperationalInsights/workspaces/pins-log-back-office-prod-ukw-001"
+  to = azurerm_monitor_diagnostic_setting.back_office_documents
+}
+
 resource "azurerm_monitor_diagnostic_setting" "back_office_documents" {
   name                       = "pins-documents-${local.service_name}-${local.resource_suffix}"
   target_resource_id         = "${azurerm_storage_account.back_office_documents.id}/blobServices/default"
