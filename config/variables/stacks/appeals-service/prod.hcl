@@ -63,6 +63,14 @@ locals {
         percentage = 100
         users      = ["Q9999"]
       }
+    },
+    {
+      name    = "expedited-appeals-fo-v2"
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = []
+      }
     }
   ]
   allow_testing_overrides                            = false
