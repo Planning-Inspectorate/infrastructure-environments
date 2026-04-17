@@ -19,10 +19,20 @@ variable "app_service_plan_id" {
   type        = string
 }
 
+variable "app_service_private_dns_zone_id" {
+  description = "The id of the private DNS zone for App services"
+  type        = string
+}
+
 variable "app_insights_instrument_key" {
   description = "App Insights instrument key, for the function apps"
   type        = string
   default     = null
+}
+
+variable "endpoint_subnet_id" {
+  description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
+  type        = string
 }
 
 variable "function_apps_storage_account" {

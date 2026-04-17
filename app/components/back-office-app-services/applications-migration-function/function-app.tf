@@ -8,6 +8,7 @@ module "applications_migration_function" {
   app_insights_instrument_key              = var.app_insights_instrument_key
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
+  inbound_vnet_connectivity                = true
   integration_subnet_id                    = var.integration_subnet_id
   # adding key_vault_id creates a read_secrets permission (see import)
   key_vault_id               = var.key_vault_id
@@ -15,10 +16,14 @@ module "applications_migration_function" {
   log_analytics_workspace_id = var.log_analytics_workspace_id
   monitoring_alerts_enabled  = var.monitoring_alerts_enabled
   outbound_vnet_connectivity = true
-  resource_group_name        = var.resource_group_name
-  resource_suffix            = var.resource_suffix
-  service_name               = local.service_name
-  function_node_version      = 22
+  private_endpoint = {
+    private_dns_zone_id = var.app_service_private_dns_zone_id
+    subnet_id           = var.endpoint_subnet_id
+  } 
+  resource_group_name   = var.resource_group_name
+  resource_suffix       = var.resource_suffix
+  service_name          = local.service_name
+  function_node_version = 22
 
   app_settings = {
     # Function env variables
