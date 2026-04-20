@@ -45,6 +45,7 @@ locals {
         SESSION_SECRET                             = local.secret_refs["session-secret"],
         SENSITIVE_APPLICATION_CASE_REFERENCES      = var.sensitive_application_case_references
         PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING  = local.existing_secret_refs["bo-app-config-connection-string"]
+        WEBSITES_ENABLE_APP_SERVICE_STORAGE        = false
       }
     }
 
@@ -85,6 +86,7 @@ locals {
         NI_DB_MYSQL_PORT                          = local.existing_secret_refs["applications-service-mysql-port"]
         NI_DB_MYSQL_USERNAME                      = local.existing_secret_refs["applications-service-mysql-username"],
         PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING = local.existing_secret_refs["bo-app-config-connection-string"]
+        WEBSITES_ENABLE_APP_SERVICE_STORAGE       = false
       }
     }
   }
