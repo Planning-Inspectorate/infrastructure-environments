@@ -90,7 +90,7 @@ resource "azurerm_private_endpoint" "text_analytics_private_endpoint_v2" {
   name                = "pins-pe-lang-cbos-${local.resource_suffix}"
   location            = azurerm_resource_group.back_office_stack.location
   resource_group_name = azurerm_resource_group.back_office_stack.name
-  subnet_id           = azurerm_subnet.back_office_ingress.id
+  subnet_id           = var.back_office_integration_subnet_id
 
   private_dns_zone_group {
     name                 = "azure-lang-private-dns-zone-group"
