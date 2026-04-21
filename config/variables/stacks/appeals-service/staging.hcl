@@ -1,6 +1,13 @@
 # Staging environment specific configuration for Appeals Service only
 
 locals {
+  app_service_plan = {
+    sku                      = "P0v3"
+    per_site_scaling_enabled = false
+    worker_count             = 1
+    zone_balancing_enabled   = false
+  }
+
   appeals_easy_auth_config = {
     "client_id"        = "31bbeefd-e00b-4ef9-b12d-145e06e4ab43"
     "web_auth_enabled" = true
@@ -127,7 +134,7 @@ locals {
     long_term_retention_yearly  = "P1Y"
     long_term_week_of_year      = 1
     audit_retention_days        = 30
-    sku_name                    = "S0"
+    sku_name                    = "S1"
   }
   sql_server_azuread_administrator = {
     login_username = "pins-odt-sql-staging-appeals-fo"
