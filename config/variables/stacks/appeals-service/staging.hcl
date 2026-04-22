@@ -33,7 +33,7 @@ locals {
     },
     {
       name    = "expedited-appeals-fo-v2"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
