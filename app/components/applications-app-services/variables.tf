@@ -410,6 +410,22 @@ variable "tags" {
   type        = map(string)
 }
 
+# variable "tooling_config" { # This will need a terraform vars file to host the values?
+#   description = "Config for the tooling subscription resources"
+#   type = object({
+#     container_registry_name = string
+#     container_registry_rg   = string
+#     network_name            = string
+#     network_rg              = string
+#     subscription_id         = string
+#   })
+# }
+
+variable "tooling_subscription_id" {
+  description = "The ID for the Tooling subscription"
+  type        = string
+}
+
 variable "documents_host" {
   description = "Specifies environment specific Wordpress CMS URL Prefix"
   type        = string

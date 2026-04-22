@@ -11,14 +11,19 @@ module "back_office_subscribers" {
   function_apps_storage_account            = var.function_storage_name
   function_apps_storage_account_access_key = var.function_storage_primary_access_key
   integration_subnet_id                    = var.integration_subnet_id
+  inbound_vnet_connectivity                = var.private_endpoint_enabled
   location                                 = var.location
   log_analytics_workspace_id               = var.log_analytics_workspace_id
   monitoring_alerts_enabled                = var.monitoring_alerts_enabled
   outbound_vnet_connectivity               = true
-  resource_group_name                      = var.resource_group_name
-  resource_suffix                          = var.resource_suffix
-  service_name                             = "applications-service"
-  function_node_version                    = 22
+  private_endpoint = {
+    private_dns_zone_id = var.app_service_private_dns_zone_id
+    subnet_id           = var.endpoint_subnet_id
+  } 
+  resource_group_name   = var.resource_group_name
+  resource_suffix       = var.resource_suffix
+  service_name          = "applications-service"
+  function_node_version = 22
 
   app_settings = {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"

@@ -21,6 +21,11 @@ module "front_office_subscribers" {
   resource_suffix                          = var.resource_suffix
   service_name                             = "appeals"
   function_node_version                    = 22
+  inbound_vnet_connectivity                = true
+  private_endpoint = {
+    private_dns_zone_id = var.app_service_private_dns_zone_id
+    subnet_id           = var.endpoint_subnet_id
+  } 
 
   app_settings = {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"
