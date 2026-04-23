@@ -63,6 +63,18 @@ resource "azurerm_private_endpoint" "text_analytics_private_endpoint" {
   tags = local.tags
 }
 
+resource "azurerm_subnet" "back_office_text_analytics" {
+  count = var.text_analytics_config.deploy ? 1 : 0
+
+  name                 = "pins-snet-${local.service_name}-text-analytics-${local.resource_suffix}"
+  resource_group_name  = var.common_resource_group_name
+  virtual_network_name = var.common_vnet_name
+  address_prefixes = [
+    "10.3.100.0/24"
+  ]
+  private_endpoint_network_policies = "Enabled"
+}
+
 resource "azurerm_cognitive_account" "text_analytics_v2" {
   count = var.text_analytics_config.deploy ? 1 : 0
 
@@ -90,7 +102,7 @@ resource "azurerm_private_endpoint" "text_analytics_private_endpoint_v2" {
   name                = "pins-pe-lang-cbos-${local.resource_suffix}"
   location            = azurerm_resource_group.back_office_stack.location
   resource_group_name = azurerm_resource_group.back_office_stack.name
-  subnet_id           = var.back_office_integration_subnet_id
+  subnet_id           = azurerm_subnet.back_office_text_analytics[0].id
 
   private_dns_zone_group {
     name                 = "azure-lang-private-dns-zone-group"
