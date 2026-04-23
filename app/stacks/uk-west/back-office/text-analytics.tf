@@ -96,13 +96,23 @@ resource "azurerm_cognitive_account" "text_analytics_v2" {
   tags = local.tags
 }
 
+data "azurerm_subnet" "tooling_vnet_language_service_shared" {
+  count = var.text_analytics_config.deploy ? 1 : 0
+
+  name                 = "pins-snet-language-service-shared-tooling-uks"
+  virtual_network_name = "pins-vnet-shared-tooling-uks"
+  resource_group_name  = "pins-rg-shared-tooling-uks"
+
+  provider = azurerm.tooling
+}
+
 resource "azurerm_private_endpoint" "text_analytics_private_endpoint_v2" {
   count = var.text_analytics_config.deploy ? 1 : 0
 
   name                = "pins-pe-lang-cbos-${local.resource_suffix}"
   location            = azurerm_resource_group.back_office_stack.location
   resource_group_name = azurerm_resource_group.back_office_stack.name
-  subnet_id           = azurerm_subnet.back_office_text_analytics[0].id
+  subnet_id           = data.azurerm_subnet.tooling_vnet_language_service_shared[0].id
 
   private_dns_zone_group {
     name                 = "azure-lang-private-dns-zone-group"
