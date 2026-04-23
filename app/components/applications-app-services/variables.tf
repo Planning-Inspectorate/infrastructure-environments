@@ -318,28 +318,8 @@ variable "srv_notify_service_id" {
   type        = string
 }
 
-variable "feature_save_and_exit_option" {
-  description = "Feature toggle for showing the save and exit option on registration form"
-  type        = string
-}
-
-variable "feature_show_affected_area_section" {
-  description = "Feature toggle for showing the affected area section on project page"
-  type        = string
-}
-
-variable "feature_hide_project_timeline_link" {
-  description = "Feature toggle to show / hide the project timeline link on project overview nav bar"
-  type        = string
-}
-
 variable "feature_home_page" {
   description = "Feature toggle to enable/disable routing to the home page"
-  type        = string
-}
-
-variable "feature_primary_navigation" {
-  description = "Feature toggle to enable/disable display of primary navigation"
   type        = string
 }
 
@@ -352,21 +332,6 @@ variable "feature_back_office_subscriber_enabled" {
   description = "Temporary flag to enable/disable Back Office subscription integration. Always disabled for uk-south for now."
   type        = bool
   default     = false
-}
-
-variable "feature_enabled_content_security_policy" {
-  description = "Feature toggle to enable/disable content security policy"
-  type        = string
-}
-
-variable "feature_allow_welsh_translation" {
-  description = "Feature toggle activating Welsh translation."
-  type        = string
-}
-
-variable "feature_allow_project_information" {
-  description = "Feature toggle for project information"
-  type        = string
 }
 
 variable "feature_enable_generalised_form_sanitisation" {
@@ -386,11 +351,6 @@ variable "feature_register_of_advice" {
 
 variable "feature_allow_welsh_cases" {
   description = "Feature toggle to enable/disable Welsh cases"
-  type        = string
-}
-
-variable "feature_application_insights" {
-  description = "Feature toggle to enable/disable application insights"
   type        = string
 }
 
