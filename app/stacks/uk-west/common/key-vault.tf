@@ -1,17 +1,19 @@
 resource "azurerm_key_vault" "environment_key_vault" {
-  #checkov:skip=CKV_AZURE_42: Soft delete protection enabled by default in latest Azure provider
-  #checkov:skip=CKV_AZURE_109: TODO: Network ACL, currently not implemented as it blocks pipeline
-  #checkov:skip=CKV_AZURE_189: TODO: Ensure that Azure Key Vault disables public network access
   #checkov:skip=CKV2_AZURE_32: "Ensure private endpoint is configured to key vault"
-  name                        = replace("pinskv${local.service_name}${local.kv_resource_suffix}", "-", "")
-  location                    = azurerm_resource_group.common_infrastructure.location
-  resource_group_name         = azurerm_resource_group.common_infrastructure.name
-  enabled_for_disk_encryption = true
-  purge_protection_enabled    = true
-  soft_delete_retention_days  = 7
-  tenant_id                   = data.azurerm_client_config.current.tenant_id
+  name                          = replace("pinskv${local.service_name}${local.kv_resource_suffix}", "-", "")
+  location                      = azurerm_resource_group.common_infrastructure.location
+  resource_group_name           = azurerm_resource_group.common_infrastructure.name
+  enabled_for_disk_encryption   = true
+  purge_protection_enabled      = true
+  soft_delete_retention_days    = 7
+  tenant_id                     = data.azurerm_client_config.current.tenant_id
+  sku_name                      = "standard"
+  public_network_access_enabled = false
 
-  sku_name = "standard"
+  network_acls {
+    bypass         = "AzureServices"
+    default_action = "Deny"
+  }
 
   tags = local.tags
 }
@@ -101,6 +103,10 @@ resource "azurerm_key_vault_secret" "applications_service_vpn_gateway_shared_key
   name         = "applications-service-vpn-gateway-shared-key"
   value        = "<enter_value>"
 
+  depends_on = [
+    azurerm_private_endpoint.keyvault,
+  ]
+
   tags = local.tags
 
   lifecycle {
@@ -108,4 +114,25 @@ resource "azurerm_key_vault_secret" "applications_service_vpn_gateway_shared_key
       value
     ]
   }
+}
+
+resource "azurerm_private_endpoint" "keyvault" {
+  name                = "pins-pe-keyvault-${local.resource_suffix}"
+  location            = azurerm_resource_group.common_infrastructure.location
+  resource_group_name = azurerm_resource_group.common_infrastructure.name
+  subnet_id           = module.networking.integration_subnet_id
+
+  private_dns_zone_group {
+    name                 = "pins-pdns-${local.service_name}-keyvault-${var.environment}"
+    private_dns_zone_ids = [data.azurerm_private_dns_zone.keyvault.id]
+  }
+
+  private_service_connection {
+    name                           = "pins-psc-keyvault-${local.resource_suffix}"
+    private_connection_resource_id = azurerm_key_vault.environment_key_vault.id
+    subresource_names              = ["vault"]
+    is_manual_connection           = false
+  }
+
+  tags = local.tags
 }

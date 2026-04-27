@@ -192,6 +192,17 @@ resource "azurerm_private_dns_zone_virtual_network_link" "sql_synapse_vnet_link"
   provider = azurerm.tooling
 }
 
+resource "azurerm_private_dns_zone_virtual_network_link" "keyvault" {
+  name                  = "pins-vnetlink-${var.service_name}-keyvault-${var.resource_suffix}"
+  resource_group_name   = var.tooling_network_rg
+  private_dns_zone_name = data.azurerm_private_dns_zone.keyvault.name
+  virtual_network_id    = azurerm_virtual_network.common_infrastructure.id
+
+  tags = var.tags
+
+  provider = azurerm.tooling
+}
+
 resource "azurerm_virtual_network_peering" "env_to_tooling" {
   name                      = "pins-peer-env-to-tooling-${var.service_name}-${var.resource_suffix}"
   remote_virtual_network_id = data.azurerm_virtual_network.tooling.id
