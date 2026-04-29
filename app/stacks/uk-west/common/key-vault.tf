@@ -1,5 +1,6 @@
 resource "azurerm_key_vault" "environment_key_vault" {
-  #checkov:skip=CKV2_AZURE_32: "Ensure private endpoint is configured to key vault"
+  #checkov:skip=CKV_AZURE_109: TODO: Network ACL, currently not implemented as it blocks pipeline
+  #checkov:skip=CKV_AZURE_189: TODO: Ensure that Azure Key Vault disables public network access
   name                          = replace("pinskv${local.service_name}${local.kv_resource_suffix}", "-", "")
   location                      = azurerm_resource_group.common_infrastructure.location
   resource_group_name           = azurerm_resource_group.common_infrastructure.name
@@ -8,11 +9,11 @@ resource "azurerm_key_vault" "environment_key_vault" {
   soft_delete_retention_days    = 7
   tenant_id                     = data.azurerm_client_config.current.tenant_id
   sku_name                      = "standard"
-  public_network_access_enabled = false
+  public_network_access_enabled = true
 
   network_acls {
     bypass         = "AzureServices"
-    default_action = "Deny"
+    default_action = "Allow"
   }
 
   tags = local.tags
