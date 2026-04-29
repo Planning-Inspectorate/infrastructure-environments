@@ -18,3 +18,4 @@ updates:
       terraform-providers:
         patterns:
           - 'hashicorp/azurerm'
+          - 'claranet/region/azurerm'
