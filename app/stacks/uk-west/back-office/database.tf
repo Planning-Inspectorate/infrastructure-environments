@@ -172,16 +172,35 @@ resource "azurerm_storage_account" "back_office_sql_server" {
   https_traffic_only_enabled       = true
   allow_nested_items_to_be_public  = false
   cross_tenant_replication_enabled = false
-
-  # network_rules {
-  #   default_action             = "Deny"
-  #   ip_rules                   = ["127.0.0.1"]
-  #   virtual_network_subnet_ids = [azurerm_subnet.back_office_ingress.id]
-  #   bypass                     = ["AzureServices"]
-  # }
+  public_network_access_enabled    = false
+  network_rules {
+    default_action = "Deny"
+    bypass         = ["AzureServices"]
+  }
 
   identity {
     type = "SystemAssigned"
+  }
+
+  tags = local.tags
+}
+
+resource "azurerm_private_endpoint" "back_office_sql_storage" {
+  name                = "pins-sqlst-private-endpoint-${local.service_name}-${local.resource_suffix}"
+  resource_group_name = azurerm_resource_group.back_office_stack.name
+  location            = azurerm_resource_group.back_office_stack.location
+  subnet_id           = azurerm_subnet.back_office_ingress.id
+
+  private_dns_zone_group {
+    name                 = "pins-pdns-${local.service_name}-sqlst-${var.environment}"
+    private_dns_zone_ids = [data.azurerm_private_dns_zone.storage.id]
+  }
+
+  private_service_connection {
+    name                           = "pins-psc-sqlst-${local.resource_suffix}"
+    private_connection_resource_id = azurerm_mssql_server.back_office.id
+    subresource_names              = ["blob"]
+    is_manual_connection           = false
   }
 
   tags = local.tags
