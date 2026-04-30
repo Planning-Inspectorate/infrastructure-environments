@@ -139,12 +139,11 @@ resource "azurerm_advanced_threat_protection" "applications_sql_server_storage" 
 
 # auditing policy
 resource "azurerm_mssql_server_extended_auditing_policy" "applications_sql_server" {
-  enabled                    = var.monitoring_alerts_enabled
-  storage_endpoint           = azurerm_storage_account.applications_sql_server.primary_blob_endpoint
-  storage_account_access_key = azurerm_storage_account.applications_sql_server.primary_access_key
-  server_id                  = azurerm_mssql_server.applications_sql_server.id
-  retention_in_days          = var.sql_database_configuration["audit_retention_days"]
-  log_monitoring_enabled     = false
+  enabled                = var.monitoring_alerts_enabled
+  storage_endpoint       = azurerm_storage_account.applications_sql_server.primary_blob_endpoint
+  server_id              = azurerm_mssql_server.applications_sql_server.id
+  retention_in_days      = var.sql_database_configuration["audit_retention_days"]
+  log_monitoring_enabled = false
 
   depends_on = [
     azurerm_role_assignment.applications_sql_server_storage,
@@ -173,7 +172,6 @@ resource "azurerm_mssql_server_vulnerability_assessment" "applications_sql_serve
   #checkov:skip=CKV2_AZURE_5: false positive?
   server_security_alert_policy_id = azurerm_mssql_server_security_alert_policy.applications_sql_server.id
   storage_container_path          = "${azurerm_storage_account.applications_sql_server.primary_blob_endpoint}${azurerm_storage_container.sql_server.name}/"
-  storage_account_access_key      = azurerm_storage_account.applications_sql_server.primary_access_key
 
   recurring_scans {
     enabled                   = var.monitoring_alerts_enabled
