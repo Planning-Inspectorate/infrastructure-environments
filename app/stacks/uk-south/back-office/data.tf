@@ -28,6 +28,12 @@ data "azurerm_private_dns_zone" "service_bus" {
   provider = azurerm.tooling
 }
 
+data "azurerm_private_dns_zone" "storage" {
+  name = "privatelink.blob.core.windows.net"
+
+  provider = azurerm.tooling
+}
+
 data "azurerm_monitor_action_group" "bo_applications_tech" {
   resource_group_name = var.common_resource_group_name_ukw
   name                = var.action_group_names.bo_applications_tech
