@@ -121,7 +121,7 @@ resource "azurerm_private_endpoint" "keyvault" {
   name                = "pins-pe-keyvault-${local.resource_suffix}"
   location            = azurerm_resource_group.common_infrastructure.location
   resource_group_name = azurerm_resource_group.common_infrastructure.name
-  subnet_id           = module.networking.integration_subnet_id
+  subnet_id           = module.networking.private_endpoints_subnet_id
 
   private_dns_zone_group {
     name                 = "pins-pdns-${local.service_name}-keyvault-${var.environment}"

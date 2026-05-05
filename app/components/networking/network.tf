@@ -7,6 +7,14 @@ resource "azurerm_virtual_network" "common_infrastructure" {
   tags = var.tags
 }
 
+resource "azurerm_subnet" "private_endpoints_subnet" {
+  name                              = "pins-snet-${var.service_name}-private-endpoints-${var.resource_suffix}"
+  resource_group_name               = var.resource_group_name
+  virtual_network_name              = azurerm_virtual_network.common_infrastructure.name
+  address_prefixes                  = [module.vnet_address_space.network_cidr_blocks["private_endpoints"]]
+  private_endpoint_network_policies = "Enabled"
+}
+
 resource "azurerm_subnet" "vnet_gateway_subnet" {
   # Name if this subnet must be 'GatewaySubnet' since the VNet Gateway expects this
   name                              = "GatewaySubnet"
