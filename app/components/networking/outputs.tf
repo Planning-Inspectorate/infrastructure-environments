@@ -23,6 +23,11 @@ output "integration_subnet_id" {
   value       = azurerm_subnet.integration_subnet.id
 }
 
+output "private_endpoints_subnet_id" {
+  description = "The id of the subnet for private endpoints (non-delegated)"
+  value       = azurerm_subnet.private_endpoints_subnet.id
+}
+
 output "vnet_cidr_blocks" {
   description = "A map of IP address blocks from the subnet name to the allocated CIDR prefix"
   value       = module.vnet_address_space.network_cidr_blocks

@@ -47,6 +47,10 @@ module "vnet_address_space" {
     {
       name     = "common_integration_functions_app_service_integration"
       new_bits = 8 # /24 (251 usable) [0 - 255]
+    },
+    {
+      name     = "private_endpoints"
+      new_bits = 8 # /24 (251 usable) [0 - 255]
     }
   ]
 }
