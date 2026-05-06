@@ -1,5 +1,5 @@
 import {
-  for_each = lookup(local.staging_slot_read_secrets_principal_ids, var.environment, {}) # Put the object into a list so that we can loop through it?
+  for_each = lookup(local.staging_slot_read_secrets_principal_ids, var.environment, {})
   to       = module.app_services.module.app_service[each.key].azurerm_key_vault_access_policy.read_secrets_staging_slot[0]
   id       = "${var.key_vault_id}/objectId/${each.value}"
 }
