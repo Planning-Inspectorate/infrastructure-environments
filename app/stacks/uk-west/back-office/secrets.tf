@@ -1,3 +1,9 @@
+import {
+  for_each = lookup(local.staging_slot_read_secrets_principal_ids, var.environment, {})
+  to       = module.app_services.module.app_service[each.key].azurerm_key_vault_access_policy.read_secrets_staging_slot[0]
+  id       = "${var.key_vault_id}/objectId/${each.value}"
+}
+
 resource "azurerm_key_vault_secret" "app_secret" {
   #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
   #checkov:skip=CKV_AZURE_114: No need to set content type via Terraform, as secrets to be updated in Portal
