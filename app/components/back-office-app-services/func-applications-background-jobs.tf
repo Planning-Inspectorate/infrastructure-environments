@@ -17,6 +17,7 @@ module "applications_background_job_functions" {
   document_storage_back_office_document_service_uploads_container_resource_manager_id = var.document_storage_back_office_document_service_uploads_container_resource_manager_id
   document_storage_back_office_published_documents_container_resource_manager_id      = var.document_storage_back_office_published_documents_container_resource_manager_id
   servicebus_topic_nsip_documents_id                                                  = var.servicebus_topic_nsip_documents_id
+  servicebus_queue_shapefile_queue_id                                                 = var.servicebus_queue_shapefile_queue_id
   app_service_plan_id                                                                 = azurerm_service_plan.back_office_functions_plan.id
   service_bus_namespace_name                                                          = var.service_bus_namespace_name
   back_office_storage_account_host                                                    = var.document_storage_account_endpoint

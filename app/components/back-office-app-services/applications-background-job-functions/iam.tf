@@ -4,9 +4,9 @@ resource "azurerm_role_assignment" "nsip_project_update_service_bus_data_receive
   principal_id         = module.applications_background_job_functions.principal_id
 }
 
-resource "azurerm_role_assignment" "function_blob_data_reader" {
+resource "azurerm_role_assignment" "function_blob_document_writer" {
   scope                = var.document_storage_back_office_document_service_uploads_container_resource_manager_id
-  role_definition_name = "Storage Blob Data Reader"
+  role_definition_name = "Storage Blob Data Contributor"
   principal_id         = module.applications_background_job_functions.principal_id
 }
 
@@ -33,5 +33,18 @@ resource "azurerm_role_assignment" "redaction_process_complete_receiver" {
 
   scope                = var.redaction_process_complete_subscription_id
   role_definition_name = "Azure Service Bus Data Receiver"
+  principal_id         = module.applications_background_job_functions.principal_id
+}
+
+# shapefile queue permissions
+resource "azurerm_role_assignment" "shapefile_queue_receiver" {
+  scope                = var.servicebus_queue_shapefile_queue_id
+  role_definition_name = "Azure Service Bus Data Receiver"
+  principal_id         = module.applications_background_job_functions.principal_id
+}
+
+resource "azurerm_role_assignment" "shapefile_queue_sender" {
+  scope                = var.servicebus_queue_shapefile_queue_id
+  role_definition_name = "Azure Service Bus Data Sender"
   principal_id         = module.applications_background_job_functions.principal_id
 }

@@ -357,6 +357,11 @@ variable "servicebus_topic_dco_portal_data_submissions_id" {
   default     = ""
 }
 
+variable "servicebus_queue_shapefile_queue_id" {
+  description = "Service Bus queue shapefile id"
+  type        = string
+}
+
 variable "redaction_process_complete_subscription_enabled" {
   description = "Indicates whether the redaction-process-complete subscription is enabled for the service bus topic"
   type        = bool
