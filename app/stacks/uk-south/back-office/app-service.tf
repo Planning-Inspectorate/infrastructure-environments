@@ -57,6 +57,7 @@ module "app_services" {
   servicebus_topic_deadline_submission_topic_name = ""
   servicebus_topic_deadline_submission_result_id  = ""
   servicebus_topic_register_representation_id     = ""
+  servicebus_queue_shapefile_queue_id             = ""
   redaction_process_complete_subscription_enabled = false
   redaction_process_complete_subscription_id      = ""
 
