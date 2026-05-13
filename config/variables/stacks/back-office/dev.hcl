@@ -91,7 +91,7 @@ locals {
     sku                           = "Standard"
     capacity                      = 0
     public_network_access_enabled = true
-    private_endpoint_enabled      = false
+    private_endpoint_enabled      = true
     premium_messaging_partitions  = 0
     secondary_enabled             = false
   }
