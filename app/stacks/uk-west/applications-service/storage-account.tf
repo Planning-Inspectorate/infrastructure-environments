@@ -74,7 +74,7 @@ resource "azurerm_private_endpoint" "applications_sql_storage" {
 
   private_service_connection {
     name                           = "pins-psc-sqlst-${local.resource_suffix}"
-    private_connection_resource_id = azurerm_mssql_server.applications_sql_server.id
+    private_connection_resource_id = azurerm_storage_account.applications_sql_server.id
     subresource_names              = ["blob"]
     is_manual_connection           = false
   }
