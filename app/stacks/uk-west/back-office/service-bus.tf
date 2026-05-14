@@ -127,6 +127,19 @@ resource "azurerm_servicebus_topic" "deadline_submission_result" {
   default_message_ttl = var.service_bus_config.default_topic_ttl
 }
 
+import {
+  id = "/subscriptions/962e477c-0f3b-4372-97fc-a198a58e259e/resourceGroups/pins-rg-common-dev-ukw-001/providers/Microsoft.KeyVault/vaults/pinskvcommondevukw001/objectId/49d7f503-7823-485c-aeda-738c9b118585"
+  to = module.app_services.module.app_service["back_office_frontend"].azurerm_key_vault_access_policy.read_secrets_staging_slot[0]
+}
+
+import {
+  id = "/subscriptions/962e477c-0f3b-4372-97fc-a198a58e259e/resourceGroups/pins-rg-common-dev-ukw-001/providers/Microsoft.KeyVault/vaults/pinskvcommondevukw001/objectId/ec2d534d-6871-4454-8b2d-4a759fcc193b"
+  to = module.app_services.module.app_service["back_office_api"].azurerm_key_vault_access_policy.read_secrets_staging_slot[0]
+}
+import {
+  id = "/subscriptions/962e477c-0f3b-4372-97fc-a198a58e259e/resourceGroups/pins-rg-back-office-dev-ukw-001/providers/Microsoft.ServiceBus/namespaces/pins-sb-back-office-dev-ukw-001/queues/shapefile-processing-queue"
+  to = azurerm_servicebus_queue.shapefile_processing_queue
+}
 # Shapefile Processing Queues
 resource "azurerm_servicebus_queue" "shapefile_processing_queue" {
   name                = "shapefile-processing-queue"
