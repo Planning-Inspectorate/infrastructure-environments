@@ -71,6 +71,14 @@ locals {
         percentage = 100
         users      = []
       }
+    },
+    {
+      name    = "new-bys-enforcement"
+      enabled = true
+      targeting = {
+        percentage = 100
+        users      = []
+      }
     }
   ]
   allow_testing_overrides                        = true
