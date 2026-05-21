@@ -62,6 +62,7 @@ module "app_services" {
   location                                                              = azurerm_resource_group.applications_service_stack.location
   log_analytics_workspace_id                                            = azurerm_log_analytics_workspace.applications_service.id
   logger_level                                                          = var.logger_level
+  master_geojson_url                                                    = var.master_geojson_url
   monitoring_alerts_enabled                                             = var.monitoring_alerts_enabled
   environment                                                           = var.environment
   node_environment                                                      = var.node_environment

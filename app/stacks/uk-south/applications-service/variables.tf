@@ -358,6 +358,11 @@ variable "log_daily_cap_gb" {
   type        = number
 }
 
+variable "master_geojson_url" {
+  description = "Public url for the master geoJson file"
+  type        = string
+}
+
 variable "monitoring_alerts_enabled" {
   default     = false
   description = "Indicates whether Azure Monitor alerts are enabled for App Service"
