@@ -36,6 +36,7 @@ locals {
   global_banner_text                           = ""
   google_analytics_id                          = "G-X21W2S2FN3"
   log_daily_cap_gb                             = 0.4
+  master_geojson_url                           = "https://back-office-applications-docs-dev.planninginspectorate.gov.uk/published-documents/gis-boundaries/all-project-boundaries.geojson"
   monitoring_alerts_enabled                    = false
   monitoring_config = {
     app_insights_web_test_enabled = false

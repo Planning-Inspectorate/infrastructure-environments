@@ -43,6 +43,7 @@ locals {
         GLOBAL_BANNER_TEXT                           = var.global_banner_text
         GOOGLE_ANALYTICS_ID                          = var.google_analytics_id
         HOST_URL                                     = "https://${var.applications_service_public_url}/"
+        MASTER_GEOJSON_URL                           = var.master_geojson_url
         MICROSOFT_PROVIDER_AUTHENTICATION_SECRET     = local.secret_refs["applications-service-microsoft-provider-authentication-secret"]
         OPEN_REGISTRATION_CASE_REFERENCES            = var.open_registration_case_references
         OS_MAPS_API_KEY                              = local.secret_refs["applications-service-os-maps-api-key"]
