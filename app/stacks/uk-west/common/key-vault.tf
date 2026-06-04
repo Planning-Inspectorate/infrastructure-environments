@@ -9,11 +9,11 @@ resource "azurerm_key_vault" "environment_key_vault" {
   soft_delete_retention_days    = 7
   tenant_id                     = data.azurerm_client_config.current.tenant_id
   sku_name                      = "standard"
-  public_network_access_enabled = true
+  public_network_access_enabled = false
 
   network_acls {
     bypass         = "AzureServices"
-    default_action = "Allow"
+    default_action = "Deny"
   }
 
   tags = local.tags
