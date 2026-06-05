@@ -66,7 +66,7 @@ locals {
     },
     {
       name    = "enable-advert-appellant-statement"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
