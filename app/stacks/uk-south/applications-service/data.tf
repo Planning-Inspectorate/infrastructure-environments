@@ -15,3 +15,9 @@ data "azurerm_private_dns_zone" "redis_cache" {
 
   provider = azurerm.tooling
 }
+
+data "azurerm_private_dns_zone" "storage" {
+  name = "privatelink.blob.core.windows.net"
+
+  provider = azurerm.tooling
+}
