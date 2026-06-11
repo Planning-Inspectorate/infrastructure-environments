@@ -20,6 +20,11 @@ variable "app_insights_instrument_key" {
   default     = null
 }
 
+variable "app_service_private_dns_zone_id" {
+  description = "The id of the private DNS zone for App services"
+  type        = string
+}
+
 variable "back_office_api_host" {
   description = "Back Office Api Host"
   type        = string
@@ -27,6 +32,11 @@ variable "back_office_api_host" {
 
 variable "back_office_storage_account_domain" {
   description = "Back Office Storage Account custom domain"
+  type        = string
+}
+
+variable "endpoint_subnet_id" {
+  description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
   type        = string
 }
 

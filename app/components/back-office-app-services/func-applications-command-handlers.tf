@@ -29,6 +29,8 @@ module "applications_command_handler_functions" {
   document_storage_submissions_container_resource_manager_id = var.document_storage_submissions_container_resource_manager_id
   document_storage_uploads_container_resource_manager_id     = var.document_storage_back_office_document_service_uploads_container_resource_manager_id
   service_bus_config                                         = var.service_bus_config
+  endpoint_subnet_id                                         = var.endpoint_subnet_id
+  app_service_private_dns_zone_id                            = var.app_service_private_dns_zone_id
 
   providers = {
     azurerm         = azurerm

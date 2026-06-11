@@ -11,6 +11,7 @@ module "front_office_subscribers" {
   app_insights_instrument_key              = var.app_insights_instrument_key
   function_apps_storage_account            = var.function_apps_storage_account
   function_apps_storage_account_access_key = var.function_apps_storage_account_access_key
+  inbound_vnet_connectivity                = true
   integration_subnet_id                    = var.common_integration_functions_subnet_id
   key_vault_id                             = var.key_vault_id
   location                                 = var.location
@@ -21,6 +22,10 @@ module "front_office_subscribers" {
   resource_suffix                          = var.resource_suffix
   service_name                             = "appeals"
   function_node_version                    = 22
+  private_endpoint = {
+    private_dns_zone_id = var.app_service_private_dns_zone_id
+    subnet_id           = var.endpoint_subnet_id
+  }
 
   app_settings = {
     ServiceBusConnection__fullyQualifiedNamespace = "${var.back_office_service_bus_namespace_name}.servicebus.windows.net"

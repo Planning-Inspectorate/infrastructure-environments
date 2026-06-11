@@ -19,6 +19,8 @@ module "applications_migration_function" {
   key_vault_uri                            = var.key_vault_uri
   key_vault_id                             = var.key_vault_id
   node_environment                         = var.node_environment
+  endpoint_subnet_id                       = var.endpoint_subnet_id
+  app_service_private_dns_zone_id          = var.app_service_private_dns_zone_id
 
   # Synapse Migration Variables
   odw_synapse_integration_enabled  = var.odw_synapse_integration_enabled

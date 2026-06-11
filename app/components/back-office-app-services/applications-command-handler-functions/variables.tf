@@ -20,6 +20,16 @@ variable "app_insights_instrument_key" {
   default     = null
 }
 
+variable "app_service_private_dns_zone_id" {
+  description = "The id of the private DNS zone for App services"
+  type        = string
+}
+
+variable "endpoint_subnet_id" {
+  description = "The id of the private endpoint subnet the app service is linked to for ingress traffic"
+  type        = string
+}
+
 variable "function_apps_storage_account" {
   description = "Function Storage name"
   type        = string
