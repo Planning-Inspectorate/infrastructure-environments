@@ -112,4 +112,24 @@ locals {
       "cbos",
     ]
   )
+
+  # Principal IDs of staging slot that require read secrets access to Key Vault. Linked to story DevOps Jira  #DEV-602
+  staging_slot_read_secrets_principal_ids = {
+    dev = {
+      back_office_frontend = "49d7f503-7823-485c-aeda-738c9b118585"
+      back_office_api      = "ec2d534d-6871-4454-8b2d-4a759fcc193b"
+    },
+    test = {
+      back_office_frontend = "143bf42c-efae-4812-835b-26cc4757d9b7"
+      back_office_api      = "ecf1064f-f382-4126-96c8-535e84b60cfe"
+    },
+    training = {
+      back_office_frontend = "eabeb6fa-b2e4-4d73-b682-62527b3664d2"
+      back_office_api      = "cb9dd29e-7cc3-45dc-8050-d7c0750d0cc1"
+    },
+    prod = {
+      back_office_frontend = "0a065567-b3ea-42e0-8bb4-24a67907f0c2"
+      back_office_api      = "07029e6d-afcb-47ce-8238-31e3ac976dad"
+    }
+  }
 }
