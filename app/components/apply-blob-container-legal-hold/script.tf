@@ -1,8 +1,7 @@
-/*
-  The ability to apply a Legal Hold on a blob container is currently not supported
-  by terraform, so the approach is to import this module that runs an Azure CLI
-  script to apply it once the resource has been provisioned.
-*/
+# The ability to apply a Legal Hold on a blob container is currently not supported
+# by terraform, so the approach is to import this module that runs an Azure CLI
+# script to apply it once the resource has been provisioned.
+
 resource "null_resource" "apply_blob_container_legal_hold" {
   count = length(var.blob_store_account_container_pairs)
 
