@@ -74,7 +74,7 @@ locals {
     },
     {
       name    = "new-bys-enforcement"
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
