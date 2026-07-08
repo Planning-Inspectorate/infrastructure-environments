@@ -1,4 +1,5 @@
 locals {
+  //no values in 'users' enables flags globally
   back_office_feature_flags = [
     {
       name    = "boas-1-test-feature"
@@ -53,7 +54,7 @@ locals {
       enabled = true
       targeting = {
         percentage = 100
-        users      = ["EN010154"]
+        users      = []
       }
     },
     {
@@ -61,9 +62,7 @@ locals {
       enabled = true,
       targeting = {
         percentage = 100
-        users       = [
-          "BC010001"
-        ]
+        users       = []
       }
     }
   ]

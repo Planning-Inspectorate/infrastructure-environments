@@ -53,7 +53,7 @@ locals {
       enabled = true
       targeting = {
         percentage = 100
-        users      = ["BC0110001", "BC0110002", "BC0110003"]
+        users      = []
       }
     },
     {
