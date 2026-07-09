@@ -59,11 +59,11 @@ resource "azurerm_storage_account" "applications_sql_server" {
   https_traffic_only_enabled       = true
   allow_nested_items_to_be_public  = false
   cross_tenant_replication_enabled = false
-  public_network_access_enabled    = false
+  public_network_access_enabled    = true
 
   network_rules {
-    default_action = "Deny"
-    bypass         = ["AzureServices"]
+    default_action = "Allow"
+    bypass         = ["AzureServices", "Logging", "Metrics"]
   }
 
   identity {

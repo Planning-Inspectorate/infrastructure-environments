@@ -152,7 +152,7 @@ resource "azurerm_mssql_server_extended_auditing_policy" "applications_sql_serve
 }
 
 # security alerts
-resource "azurerm_mssql_server_security_alert_policy" "applications_sql_server" {
+resource "azurerm_mssql_server_security_alert_policy" "applications_sql_server" { # take off this policy temporarily?
   state                      = var.monitoring_alerts_enabled ? "Enabled" : "Disabled"
   resource_group_name        = azurerm_resource_group.applications_service_stack.name
   server_name                = azurerm_mssql_server.applications_sql_server.name
