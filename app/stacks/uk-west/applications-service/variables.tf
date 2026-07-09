@@ -192,7 +192,7 @@ variable "container_registry_rg" {
 variable "database_public_access_enabled" {
   description = "Specifies whether sql db is exposed over internet or private network only"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "documents_host" {
