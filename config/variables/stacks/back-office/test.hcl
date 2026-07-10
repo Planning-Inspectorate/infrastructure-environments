@@ -63,6 +63,14 @@ locals {
         percentage = 100
         users       = []
       }
+    },
+    {
+      name    = "idas-607-examination-library",
+      enabled = true,
+      targeting = {
+        percentage = 100
+        users       = []
+      }
     }
   ]
 
