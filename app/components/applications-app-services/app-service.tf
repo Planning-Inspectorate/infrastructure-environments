@@ -7,17 +7,17 @@ module "app_service" {
   action_group_ids                = var.action_group_ids
   app_name                        = each.value["app_name"]
   app_service_plan_id             = var.app_service_plan_id
-  app_service_private_dns_zone_id = try(nullif(each.value["app_service_private_dns_zone_id"], ""), null)
+  app_service_private_dns_zone_id = try(each.value["app_service_private_dns_zone_id"] != "" ? each.value["app_service_private_dns_zone_id"] : null, null)
   app_settings                    = each.value["app_settings"]
   client_affinity_enabled         = try(each.value["client_affinity_enabled"], null)
   container_registry_name         = var.container_registry_name
   container_registry_rg           = var.container_registry_rg
-  endpoint_subnet_id              = try(nullif(each.value["endpoint_subnet_id"], ""), null)
+  endpoint_subnet_id              = try(each.value["endpoint_subnet_id"] != "" ? each.value["endpoint_subnet_id"] : null, null)
   front_door_restriction          = can(each.value["front_door_restriction"]) ? each.value["front_door_restriction"] : null
   image_name                      = each.value["image_name"]
   inbound_vnet_connectivity       = each.value["inbound_vnet_connectivity"]
   public_network_access           = each.value["public_network_access"]
-  integration_subnet_id           = try(nullif(each.value["integration_subnet_id"], ""), null)
+  integration_subnet_id           = try(each.value["integration_subnet_id"] != "" ? each.value["integration_subnet_id"] : null, null)
   key_vault_id                    = each.value["key_vault_access"] ? var.key_vault_id : null
   location                        = var.location
   log_analytics_workspace_id      = var.log_analytics_workspace_id
@@ -32,11 +32,11 @@ module "app_service" {
   auth_config = {
     auth_enabled           = each.value["auth_enabled"]
     require_authentication = each.value["auth_enabled"]
-    auth_client_id         = nullif(var.applications_easy_auth_config.client_id, "")
+    auth_client_id         = var.applications_easy_auth_config.client_id != "" ? var.applications_easy_auth_config.client_id : null
     auth_provider_secret   = "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET"
     auth_tenant_endpoint   = "https://login.microsoftonline.com/${data.azurerm_client_config.current.tenant_id}/v2.0"
-    allowed_applications   = nullif(var.applications_easy_auth_config.application_id, "")
-    allowed_audiences      = nullif("https://${var.applications_service_public_url}/.auth/login/aad/callback", "")
+    allowed_applications   = var.applications_easy_auth_config.application_id != "" ? var.applications_easy_auth_config.application_id : null
+    allowed_audiences      = var.applications_service_public_url != "" ? "https://${var.applications_service_public_url}/.auth/login/aad/callback" : null
     excluded_paths         = []
   }
 
