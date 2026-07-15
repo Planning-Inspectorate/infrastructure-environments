@@ -53,11 +53,23 @@ variable "applications_easy_auth_config" {
     web_auth_enabled = bool
     application_id   = string
   })
+  validation {
+    condition     = !var.applications_easy_auth_config.web_auth_enabled || length(var.applications_easy_auth_config.client_id) > 0
+    error_message = "applications_easy_auth_config.client_id must not be empty when web_auth_enabled is true"
+  }
+  validation {
+    condition     = !var.applications_easy_auth_config.web_auth_enabled || length(var.applications_easy_auth_config.application_id) > 0
+    error_message = "applications_easy_auth_config.application_id must not be empty when web_auth_enabled is true"
+  }
 }
 
 variable "applications_service_public_url" {
   description = "The public URL for the Applications Service frontend web app"
   type        = string
+  validation {
+    condition     = length(var.applications_service_public_url) > 0
+    error_message = "applications_service_public_url must not be empty"
+  }
 }
 
 variable "applications_service_redis_connection_string_secret_name" {
@@ -197,6 +209,10 @@ variable "google_analytics_id" {
 variable "integration_subnet_id" {
   description = "The id of the vnet integration subnet the app service is linked to for egress traffic"
   type        = string
+  validation {
+    condition     = length(var.integration_subnet_id) > 0
+    error_message = "integration_subnet_id must not be empty"
+  }
 }
 
 variable "key_vault_id" {
