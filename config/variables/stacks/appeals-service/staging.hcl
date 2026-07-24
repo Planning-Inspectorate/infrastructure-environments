@@ -95,6 +95,14 @@ locals {
         users      = []
       }
     },
+    {
+      name    = "sharing-inquiry-event-documents"
+      enabled = true
+      targeting = {
+        percentage = 100
+        users      = []
+      }
+    },
   ]
   allow_testing_overrides                        = true
   appeals_feature_back_office_subscriber_enabled = true
