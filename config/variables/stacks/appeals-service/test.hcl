@@ -97,8 +97,15 @@ locals {
       }
     },
     {
-    
       name    = "sharing-inquiry-documents"
+      enabled = false
+      targeting = {
+        percentage = 100
+        users      = []
+      }
+    },
+    {
+      name    = "sharing-supporting-documents"
       enabled = false
       targeting = {
         percentage = 100

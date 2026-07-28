@@ -104,6 +104,14 @@ locals {
         users      = []
       }
     },
+    {
+      name    = "sharing-supporting-documents"
+      enabled = true
+      targeting = {
+        percentage = 100
+        users      = []
+      }
+    },
 
   ]
   allow_testing_overrides                        = true
