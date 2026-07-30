@@ -13,8 +13,8 @@ locals {
     "web_auth_enabled" = true
     "application_id"   = "4c373f03-2609-4cfe-a9f1-c8db2869c923"
   }
-  back_office_integration_case_references      = "EN0710001,EN0710002,EN0110001,EN0110003,EN0110002,EN0210001"
-  back_office_integration_get_applications     = "MERGE"
+  back_office_integration_case_references      = ""
+  back_office_integration_get_applications     = "BO"
   documents_host                               = "https://infrastructure.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
   document_storage_api_host                    = "https://nsip-documents.planninginspectorate.gov.uk/"
   feature_allow_project_information            = "true"

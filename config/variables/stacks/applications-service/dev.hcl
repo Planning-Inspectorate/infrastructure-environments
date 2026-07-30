@@ -13,8 +13,8 @@ locals {
     "web_auth_enabled" = true
     "application_id"   = "7d92b220-8d5b-45d6-a870-39464439d6b1"
   }
-  back_office_integration_case_references      = "BC0110001,BC0110003,BC0110004,BC0110005"
-  back_office_integration_get_applications     = "MERGE"
+  back_office_integration_case_references      = ""
+  back_office_integration_get_applications     = "BO"
   documents_host                               = "https://nitestaz.planninginspectorate.gov.uk/wp-content/ipc/uploads/projects/"
   document_storage_api_host                    = "https://nsip-documents.planninginspectorate.gov.uk/"
   feature_allow_project_information            = "true"
