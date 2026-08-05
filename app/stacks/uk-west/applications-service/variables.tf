@@ -40,12 +40,6 @@ variable "applications_easy_auth_config" {
   })
 }
 
-variable "applications_service_vpn_gateway_shared_key" {
-  description = "The applications service virtual network gateway shared key"
-  sensitive   = true
-  type        = string
-}
-
 variable "apps_config" {
   description = "Application configuration settings"
   type = object({
@@ -162,11 +156,6 @@ variable "common_resource_group_name" {
 variable "common_vnet_cidr_blocks" {
   description = "A map of IP address blocks from the subnet name to the allocated CIDR prefix"
   type        = map(string)
-}
-
-variable "common_vnet_gateway_id" {
-  description = "The id of the common infrastructure virtual network gateway"
-  type        = string
 }
 
 variable "common_vnet_name" {
@@ -365,16 +354,6 @@ variable "monitoring_config" {
   default = {
     app_insights_web_test_enabled = false
   }
-}
-
-variable "national_infrastructure_gateway_ip" {
-  description = "The public IP address of the National Infrastructure gateway endpoint"
-  type        = string
-}
-
-variable "national_infrastructure_vnet_address_space" {
-  description = "The address space advertised by the National Infrastructure gateway endpoint"
-  type        = list(string)
 }
 
 variable "node_environment" {

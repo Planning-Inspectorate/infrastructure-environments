@@ -97,26 +97,6 @@ resource "azurerm_key_vault_access_policy" "pipeline_back_office" {
   storage_permissions     = []
 }
 
-resource "azurerm_key_vault_secret" "applications_service_vpn_gateway_shared_key" {
-  #checkov:skip=CKV_AZURE_41: TODO: Secret rotation
-  #checkov:skip=CKV_AZURE_114: No need to set content type via Terraform, as secrets to be updated in Portal
-  key_vault_id = azurerm_key_vault.environment_key_vault.id
-  name         = "applications-service-vpn-gateway-shared-key"
-  value        = "<enter_value>"
-
-  depends_on = [
-    azurerm_private_endpoint.keyvault,
-  ]
-
-  tags = local.tags
-
-  lifecycle {
-    ignore_changes = [
-      value
-    ]
-  }
-}
-
 resource "azurerm_private_endpoint" "keyvault" {
   name                = "pins-pe-keyvault-${local.resource_suffix}"
   location            = azurerm_resource_group.common_infrastructure.location

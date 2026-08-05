@@ -43,7 +43,6 @@ dependency "common" {
       back_office_endpoints = "10.1.4.0/24"
     }
     vnet_id                = "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.Network/virtualNetworks/virtualNetworksValue"
-    common_vnet_gateway_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Network/virtualNetworkGateways/mock_id"
     common_vnet_name       = "mock_vnet_name"
     integration_subnet_id  = "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.Network/virtualNetworks/virtualNetworksValue/subnets/subnetValue"
     key_vault_id           = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.KeyVault/vaults/mockvault"
@@ -72,7 +71,6 @@ inputs = {
   back_office_integration_subnet_id = dependency.common.outputs.back_office_integration_subnet_id
   common_resource_group_name        = dependency.common.outputs.common_resource_group_name
   common_vnet_cidr_blocks           = dependency.common.outputs.common_vnet_cidr_blocks
-  common_vnet_gateway_id            = dependency.common.outputs.common_vnet_gateway_id
   common_vnet_name                  = dependency.common.outputs.common_vnet_name
   integration_subnet_id             = dependency.common.outputs.integration_subnet_id
   key_vault_uri                     = dependency.common.outputs.key_vault_uri

@@ -9,12 +9,10 @@ dependency "common_uks" {
 
   mock_outputs = {
     app_service_plan_id                         = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pins-rg-common-dev-ukw-001/providers/Microsoft.Web/serverfarms/mock_id"
-    applications_service_vpn_gateway_shared_key = "mock_shared_key"
     common_resource_group_name                  = "mock_resource_group_name"
     common_vnet_cidr_blocks = {
       appeals_service_endpoints = "10.1.2.0/24"
     }
-    common_vnet_gateway_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mock_resource_group/providers/Microsoft.Network/virtualNetworkGateways/mock_id"
     common_vnet_name       = "mock_vnet_name"
     integration_subnet_id  = "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.Network/virtualNetworks/virtualNetworksValue/subnets/subnetValue"
   }
@@ -90,7 +88,6 @@ inputs = {
     info_sec        = dependency.common_ukw.outputs.action_group_ids["info-sec"]
   }
   app_service_plan_id                         = try(dependency.common_uks.outputs.app_service_plan_id, null)
-  applications_service_vpn_gateway_shared_key = dependency.common_uks.outputs.applications_service_vpn_gateway_shared_key
 
   # TODO: ASB-1171 - uncomment when service bus in back office uks set up
   #  back_office_submissions_storage_container_name                 = dependency.back_office_uks.outputs.back_office_submissions_storage_container_name
@@ -111,7 +108,6 @@ inputs = {
 
   common_resource_group_name           = dependency.common_uks.outputs.common_resource_group_name
   common_vnet_cidr_blocks              = dependency.common_uks.outputs.common_vnet_cidr_blocks
-  common_vnet_gateway_id               = try(dependency.common_uks.outputs.common_vnet_gateway_id, null)
   common_vnet_name                     = dependency.common_uks.outputs.common_vnet_name
   function_storage_name                = dependency.applications_service_ukw.outputs.function_storage_name
   function_storage_primary_access_key  = dependency.applications_service_ukw.outputs.function_storage_primary_access_key

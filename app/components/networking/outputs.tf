@@ -33,11 +33,6 @@ output "vnet_cidr_blocks" {
   value       = module.vnet_address_space.network_cidr_blocks
 }
 
-output "vnet_gateway_id" {
-  description = "The id of the common infrastructure virtual network gateway"
-  value       = length(azurerm_virtual_network_gateway.common) > 0 ? azurerm_virtual_network_gateway.common[0].id : null
-}
-
 output "vnet_id" {
   description = "The ID of the Virtual Network"
   value       = azurerm_virtual_network.common_infrastructure.id

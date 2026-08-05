@@ -10,12 +10,6 @@ variable "integration_functions_app_service_plan_sku" {
   type        = string
 }
 
-variable "applications_service_vpn_gateway_shared_key" {
-  description = "The applications service virtual network gateway shared key"
-  sensitive   = true
-  type        = string
-}
-
 variable "common_tags" {
   description = "The common resource tags for the project"
   type        = map(string)
