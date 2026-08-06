@@ -58,7 +58,7 @@ locals {
     },
     {
       name    = "idas-340-redaction-service",
-      enabled = false,
+      enabled = true,
       targeting = {
         percentage = 100
         users       = []
