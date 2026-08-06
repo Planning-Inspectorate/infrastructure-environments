@@ -43,7 +43,7 @@ locals {
     },
     {
       name    = "applics-1845-fees-forecasting",
-      enabled = false
+      enabled = true
       targeting = {
         percentage = 100
         users      = []
@@ -75,7 +75,7 @@ locals {
     }
   ]
 
-  sensitive_application_case_references = "TR020003, EN020022"
+  sensitive_application_case_references = "TR020003, EN020022, TR020004"
 
   node_environment                    = "production"
   api_key_vault_authorization_enabled = "true"
