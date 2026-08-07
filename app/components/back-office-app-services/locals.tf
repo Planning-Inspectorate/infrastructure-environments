@@ -46,6 +46,9 @@ locals {
         SENSITIVE_APPLICATION_CASE_REFERENCES      = var.sensitive_application_case_references
         PINS_FEATURE_FLAG_AZURE_CONNECTION_STRING  = local.existing_secret_refs["bo-app-config-connection-string"]
       }
+      slot_setting_overrides = {
+        APP_HOSTNAME = "pins-app-${var.service_name}-wfe-${var.resource_suffix}-staging.azurewebsites.net"
+      }
     }
 
     back_office_api = {

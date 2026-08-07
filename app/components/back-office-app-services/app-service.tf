@@ -28,6 +28,7 @@ module "app_service" {
   resource_group_name                   = var.resource_group_name
   resource_suffix                       = var.resource_suffix
   service_name                          = var.service_name
+  slot_setting_overrides                = try(each.value["slot_setting_overrides"], {})
 
   tags = var.tags
 
