@@ -34,6 +34,7 @@ locals {
         AZURE_AI_DOC_REDACTION_STORAGE_NAME        = var.enabled_redaction_system ? var.azure_ai_doc_redaction_storage_name : null
         AZURE_AI_DOC_REDACTION_REDACT_KEY          = var.enabled_redaction_system ? local.secret_refs["azure-ai-doc-redaction-redact-key"] : null
         AZURE_AI_DOC_REDACTION_APPLY_KEY           = var.enabled_redaction_system ? local.secret_refs["azure-ai-doc-redaction-apply-key"] : null
+        AZURE_AI_DOC_REDACTION_SANITISE_KEY        = var.enabled_redaction_system ? local.secret_refs["azure-ai-doc-redaction-sanitise-key"] : null
         FRONT_OFFICE_URL                           = var.applications_front_office_web_url
         KEY_VAULT_ENABLED                          = var.api_key_vault_authorization_enabled
         KEY_VAULT_URI                              = var.key_vault_uri
@@ -100,6 +101,7 @@ locals {
     "back-office-applications-gov-notify-api-key",
     "azure-ai-doc-redaction-redact-key",
     "azure-ai-doc-redaction-apply-key",
+    "azure-ai-doc-redaction-sanitise-key",
     # MIGRATION RESOUCE: only need these secrets for project-updates migration
     "applications-service-welsh-mysql-database",
     "applications-service-welsh-mysql-dialect",
