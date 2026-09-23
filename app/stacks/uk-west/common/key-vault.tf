@@ -10,6 +10,7 @@ resource "azurerm_key_vault" "environment_key_vault" {
   tenant_id                     = data.azurerm_client_config.current.tenant_id
   sku_name                      = "standard"
   public_network_access_enabled = false
+  rbac_authorization_enabled    = false
 
   network_acls {
     bypass         = "AzureServices"

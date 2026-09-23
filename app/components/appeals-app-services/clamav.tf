@@ -195,16 +195,15 @@ resource "azurerm_storage_account" "clamav" {
 }
 
 resource "azurerm_storage_share" "clamav" {
-  name                 = "clamav-db"
-  storage_account_name = azurerm_storage_account.clamav.name
-  quota                = 50
+  name               = "clamav-db"
+  storage_account_id = azurerm_storage_account.clamav.id
+  quota              = 50
 }
 
 # networking
 resource "azurerm_private_dns_a_record" "clamav" {
   name                = local.clamv_host_name
-  zone_name           = data.azurerm_private_dns_zone.internal.name
-  resource_group_name = data.azurerm_private_dns_zone.internal.resource_group_name
+  private_dns_zone_id = data.azurerm_private_dns_zone.internal.id
   ttl                 = 60
   records             = [azurerm_container_group.clamav.ip_address]
 

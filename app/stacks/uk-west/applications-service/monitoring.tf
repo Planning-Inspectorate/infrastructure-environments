@@ -140,7 +140,7 @@ resource "azurerm_advanced_threat_protection" "applications_sql_server_storage" 
 # auditing policy
 resource "azurerm_mssql_server_extended_auditing_policy" "applications_sql_server" {
   enabled                = var.monitoring_alerts_enabled
-  storage_endpoint       = azurerm_storage_account.applications_sql_server.primary_blob_endpoint
+  blob_storage_endpoint  = azurerm_storage_account.applications_sql_server.primary_blob_endpoint
   server_id              = azurerm_mssql_server.applications_sql_server.id
   retention_in_days      = var.sql_database_configuration["audit_retention_days"]
   log_monitoring_enabled = false
@@ -153,14 +153,15 @@ resource "azurerm_mssql_server_extended_auditing_policy" "applications_sql_serve
 
 # security alerts
 resource "azurerm_mssql_server_security_alert_policy" "applications_sql_server" {
-  state                      = var.monitoring_alerts_enabled ? "Enabled" : "Disabled"
-  resource_group_name        = azurerm_resource_group.applications_service_stack.name
-  server_name                = azurerm_mssql_server.applications_sql_server.name
-  storage_endpoint           = azurerm_storage_account.applications_sql_server.primary_blob_endpoint
-  storage_account_access_key = azurerm_storage_account.applications_sql_server.primary_access_key
-  retention_days             = var.sql_database_configuration["audit_retention_days"]
-  email_account_admins       = true
-  email_addresses            = local.tech_emails
+  #checkov:skip=CKV_AZURE_27: "Ensure that 'Email service and co-administrators' is 'Enabled' for MSSQL servers"
+  state                        = var.monitoring_alerts_enabled ? "Enabled" : "Disabled"
+  resource_group_name          = azurerm_resource_group.applications_service_stack.name
+  server_name                  = azurerm_mssql_server.applications_sql_server.name
+  storage_endpoint             = azurerm_storage_account.applications_sql_server.primary_blob_endpoint
+  storage_account_access_key   = azurerm_storage_account.applications_sql_server.primary_access_key
+  retention_days               = var.sql_database_configuration["audit_retention_days"]
+  email_account_admins_enabled = true
+  email_addresses              = local.tech_emails
 }
 
 # vulnerabilty assesment

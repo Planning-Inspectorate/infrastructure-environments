@@ -46,8 +46,8 @@ data "azurerm_storage_account" "appeals_bo" {
 }
 
 data "azurerm_storage_container" "appeal_bo_documents" {
-  name                 = local.appeals_bo_config.documents_container
-  storage_account_name = data.azurerm_storage_account.appeals_bo.name
+  name               = local.appeals_bo_config.documents_container
+  storage_account_id = data.azurerm_storage_account.appeals_bo.id
 }
 
 # service bus
