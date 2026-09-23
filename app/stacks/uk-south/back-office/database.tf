@@ -124,7 +124,7 @@ resource "azurerm_storage_container" "back_office_sql_server" {
   #TODO: Logging
   #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
   name                  = "sqlvulnerabilityassessment"
-  storage_account_name  = azurerm_storage_account.back_office_sql_server.name
+  storage_account_id    = azurerm_storage_account.back_office_sql_server.id
   container_access_type = "private"
 }
 

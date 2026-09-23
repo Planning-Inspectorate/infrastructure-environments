@@ -37,10 +37,9 @@ resource "azurerm_subnet" "cosmosdb" {
 resource "azurerm_private_dns_zone_virtual_network_link" "cosmosdb_vnet_link" {
   count = var.cosmosdb_enable_public_access ? 0 : 1
 
-  name                  = "pins-vnetlink-${var.service_name}-cosmosdb-${var.resource_suffix}"
-  resource_group_name   = var.tooling_network_rg
-  private_dns_zone_name = "privatelink.mongo.cosmos.azure.com"
-  virtual_network_id    = azurerm_virtual_network.common_infrastructure.id
+  name                = "pins-vnetlink-${var.service_name}-cosmosdb-${var.resource_suffix}"
+  private_dns_zone_id = data.azurerm_private_dns_zone.cosmosdb.id
+  virtual_network_id  = azurerm_virtual_network.common_infrastructure.id
 
   tags = var.tags
 
@@ -124,10 +123,9 @@ resource "azurerm_subnet" "back_office_clamav" {
 ## to the common virtual network
 
 resource "azurerm_private_dns_zone_virtual_network_link" "app_service_vnet_link" {
-  name                  = "pins-vnetlink-${var.service_name}-app-service-${var.resource_suffix}"
-  resource_group_name   = var.tooling_network_rg
-  private_dns_zone_name = "privatelink.azurewebsites.net"
-  virtual_network_id    = azurerm_virtual_network.common_infrastructure.id
+  name                = "pins-vnetlink-${var.service_name}-app-service-${var.resource_suffix}"
+  private_dns_zone_id = data.azurerm_private_dns_zone.app_service.id
+  virtual_network_id  = azurerm_virtual_network.common_infrastructure.id
 
   tags = var.tags
 
@@ -135,10 +133,9 @@ resource "azurerm_private_dns_zone_virtual_network_link" "app_service_vnet_link"
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "cognitive_vnet_link" {
-  name                  = "pins-vnetlink-${var.service_name}-cognitive-${var.resource_suffix}"
-  resource_group_name   = var.tooling_network_rg
-  private_dns_zone_name = "privatelink.cognitiveservices.azure.com"
-  virtual_network_id    = azurerm_virtual_network.common_infrastructure.id
+  name                = "pins-vnetlink-${var.service_name}-cognitive-${var.resource_suffix}"
+  private_dns_zone_id = data.azurerm_private_dns_zone.cognitive.id
+  virtual_network_id  = azurerm_virtual_network.common_infrastructure.id
 
   tags = var.tags
 
@@ -146,10 +143,9 @@ resource "azurerm_private_dns_zone_virtual_network_link" "cognitive_vnet_link" {
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "back_office_sql_server" {
-  name                  = "pins-vnetlink-${var.service_name}-sql-server-${var.resource_suffix}"
-  resource_group_name   = var.tooling_network_rg
-  private_dns_zone_name = "privatelink.database.windows.net"
-  virtual_network_id    = azurerm_virtual_network.common_infrastructure.id
+  name                = "pins-vnetlink-${var.service_name}-sql-server-${var.resource_suffix}"
+  private_dns_zone_id = data.azurerm_private_dns_zone.sql_server.id
+  virtual_network_id  = azurerm_virtual_network.common_infrastructure.id
 
   tags = var.tags
 
@@ -157,10 +153,9 @@ resource "azurerm_private_dns_zone_virtual_network_link" "back_office_sql_server
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "internal" {
-  name                  = "pins-vnetlink-${var.service_name}-internal-${var.resource_suffix}"
-  resource_group_name   = var.tooling_network_rg
-  private_dns_zone_name = var.internal_dns_name
-  virtual_network_id    = azurerm_virtual_network.common_infrastructure.id
+  name                = "pins-vnetlink-${var.service_name}-internal-${var.resource_suffix}"
+  private_dns_zone_id = data.azurerm_private_dns_zone.internal.id
+  virtual_network_id  = azurerm_virtual_network.common_infrastructure.id
 
   tags = var.tags
 
@@ -168,10 +163,9 @@ resource "azurerm_private_dns_zone_virtual_network_link" "internal" {
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "redis" {
-  name                  = "pins-vnetlink-${var.service_name}-redis-${var.resource_suffix}"
-  resource_group_name   = var.tooling_network_rg
-  private_dns_zone_name = "privatelink.redis.cache.windows.net"
-  virtual_network_id    = azurerm_virtual_network.common_infrastructure.id
+  name                = "pins-vnetlink-${var.service_name}-redis-${var.resource_suffix}"
+  private_dns_zone_id = data.azurerm_private_dns_zone.redis.id
+  virtual_network_id  = azurerm_virtual_network.common_infrastructure.id
 
   tags = var.tags
 
@@ -179,10 +173,9 @@ resource "azurerm_private_dns_zone_virtual_network_link" "redis" {
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "service_bus" {
-  name                  = "pins-vnetlink-${var.service_name}-service-bus-${var.resource_suffix}"
-  resource_group_name   = var.tooling_network_rg
-  private_dns_zone_name = "privatelink.servicebus.windows.net"
-  virtual_network_id    = azurerm_virtual_network.common_infrastructure.id
+  name                = "pins-vnetlink-${var.service_name}-service-bus-${var.resource_suffix}"
+  private_dns_zone_id = data.azurerm_private_dns_zone.service_bus.id
+  virtual_network_id  = azurerm_virtual_network.common_infrastructure.id
 
   tags = var.tags
 
@@ -190,10 +183,9 @@ resource "azurerm_private_dns_zone_virtual_network_link" "service_bus" {
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "sql_synapse_vnet_link" {
-  name                  = "pins-vnetlink-${var.service_name}-synapse-sql-${var.resource_suffix}"
-  resource_group_name   = var.tooling_network_rg
-  private_dns_zone_name = "privatelink.sql.azuresynapse.net"
-  virtual_network_id    = azurerm_virtual_network.common_infrastructure.id
+  name                = "pins-vnetlink-${var.service_name}-synapse-sql-${var.resource_suffix}"
+  private_dns_zone_id = data.azurerm_private_dns_zone.sql_synapse.id
+  virtual_network_id  = azurerm_virtual_network.common_infrastructure.id
 
   tags = var.tags
 
@@ -201,11 +193,10 @@ resource "azurerm_private_dns_zone_virtual_network_link" "sql_synapse_vnet_link"
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "keyvault" {
-  name                  = "pins-vnetlink-${var.service_name}-keyvault-${var.resource_suffix}"
-  resource_group_name   = var.tooling_network_rg
-  private_dns_zone_name = data.azurerm_private_dns_zone.keyvault.name
-  virtual_network_id    = azurerm_virtual_network.common_infrastructure.id
-  resolution_policy     = "NxDomainRedirect"
+  name                = "pins-vnetlink-${var.service_name}-keyvault-${var.resource_suffix}"
+  private_dns_zone_id = data.azurerm_private_dns_zone.keyvault.id
+  virtual_network_id  = azurerm_virtual_network.common_infrastructure.id
+  resolution_policy   = "NxDomainRedirect"
 
   tags = var.tags
 
@@ -213,11 +204,10 @@ resource "azurerm_private_dns_zone_virtual_network_link" "keyvault" {
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "storage" {
-  name                  = "pins-vnetlink-${var.service_name}-storage-${var.resource_suffix}"
-  resource_group_name   = var.tooling_network_rg
-  private_dns_zone_name = data.azurerm_private_dns_zone.storage.name
-  virtual_network_id    = azurerm_virtual_network.common_infrastructure.id
-  resolution_policy     = "NxDomainRedirect"
+  name                = "pins-vnetlink-${var.service_name}-storage-${var.resource_suffix}"
+  private_dns_zone_id = data.azurerm_private_dns_zone.storage.id
+  virtual_network_id  = azurerm_virtual_network.common_infrastructure.id
+  resolution_policy   = "NxDomainRedirect"
 
   tags = var.tags
 

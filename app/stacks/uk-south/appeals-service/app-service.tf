@@ -16,7 +16,7 @@ module "app_services" {
   appeals_service_public_url                                                            = var.appeals_service_public_url
   back_office_service_bus_namespace_name                                                = local.appeals_bo_config.service_bus_namespace
   bo_storage_account_id                                                                 = data.azurerm_storage_account.appeals_bo.id
-  bo_appeals_document_container_id                                                      = data.azurerm_storage_container.appeal_bo_documents.resource_manager_id
+  bo_appeals_document_container_id                                                      = data.azurerm_storage_container.appeal_bo_documents.id
   bo_appeals_document_container_name                                                    = local.appeals_bo_config.documents_container
   back_office_document_storage_api_host                                                 = data.azurerm_storage_account.appeals_bo.primary_blob_endpoint
   clamav_subnet_id                                                                      = var.clamav_subnet_id

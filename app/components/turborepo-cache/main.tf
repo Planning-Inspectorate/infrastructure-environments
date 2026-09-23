@@ -33,7 +33,7 @@ resource "azurerm_storage_container" "turborepo_remote_cache" {
   #TODO: Logging
   #checkov:skip=CKV2_AZURE_21 Logging not implemented yet
   name                  = local.container_name
-  storage_account_name  = azurerm_storage_account.turborepo_remote_cache.name
+  storage_account_id    = azurerm_storage_account.turborepo_remote_cache.id
   container_access_type = "private"
 }
 
