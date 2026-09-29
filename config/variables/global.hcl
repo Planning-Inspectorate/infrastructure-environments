@@ -59,4 +59,23 @@ locals {
     # default TTL for front office subscriptions
     fo_subscription_ttl = "P1D"
   }
+
+  # back office reps endpoint - same config across all environments for now
+  reps_endpoint_config = {
+    app_service_plan_sku = "P0v3"
+    database = {
+      sku         = "Basic",
+      max_size_gb = 1
+    }
+    function_app_settings = {
+      GLICLASS_MODEL_REVISION = "e065d1844f913a9aa611cf33623a9538b8aa8841"
+      GLICLASS_THRESHOLD      = "0.1"
+      MKL_NUM_THREADS         = "2"
+      OMP_NUM_THREADS         = "2"
+      TEXT_CHUNK_OVERLAP      = "256"
+      TEXT_CHUNK_SIZE         = "2048"
+      XDG_CACHE_HOME          = "/tmp/.cache"
+    }
+    python_version = "3.13"
+  }
 }

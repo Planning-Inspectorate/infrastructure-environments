@@ -67,6 +67,9 @@ module "app_services" {
   odw_data_lake_storage_account_id                                                    = var.odw_synapse_integration_enabled ? one(data.terraform_remote_state.odw).outputs.data_lake_account_id : ""
   service_bus_config                                                                  = var.service_bus_config
   servicebus_queue_shapefile_queue_id                                                 = azurerm_servicebus_queue.shapefile_processing_queue.id
+  database_server_id                                                                  = azurerm_mssql_server.back_office.id
+  database_server_url                                                                 = azurerm_mssql_server.back_office.fully_qualified_domain_name
+  reps_endpoint_config                                                                = var.reps_endpoint_config
   text_analytics_config = {
     endpoint = local.text_analytics_instance.endpoint
     id       = local.text_analytics_instance.id

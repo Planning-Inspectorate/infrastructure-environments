@@ -29,6 +29,16 @@ variable "app_insights_instrument_key" {
   type        = string
   default     = null
 }
+variable "database_server_id" {
+  description = "Database server ID"
+  type        = string
+  default     = null
+}
+variable "database_server_url" {
+  description = "Database server URL"
+  type        = string
+  default     = null
+}
 
 variable "azuread_auth_client_id" {
   description = "The Back Office web frontend app registration ID used for Azure AD authentication"
@@ -371,4 +381,18 @@ variable "redaction_process_complete_subscription_enabled" {
 variable "redaction_process_complete_subscription_id" {
   description = "The ID of the redaction-process-complete subscription for the service bus topic"
   type        = string
+}
+
+variable "reps_endpoint_config" {
+  description = "Config for the reps endpoint function and resources"
+  type = object({
+    app_service_plan_sku = string
+    database = object({
+      sku         = string
+      max_size_gb = number
+    })
+    function_app_settings = map(string)
+    python_version        = string
+  })
+  default = null
 }
