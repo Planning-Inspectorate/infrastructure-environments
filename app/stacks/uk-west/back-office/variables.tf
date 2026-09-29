@@ -329,3 +329,16 @@ variable "azure_ai_doc_redaction_base_url" {
   type        = string
   default     = ""
 }
+
+variable "reps_endpoint_config" {
+  description = "Config for the reps endpoint function and resources"
+  type = object({
+    app_service_plan_sku = string
+    database = object({
+      sku         = string
+      max_size_gb = number
+    })
+    function_app_settings = map(string)
+    python_version        = string
+  })
+}
