@@ -249,6 +249,10 @@ variable "sb_topic_names" {
         internal_queue   = string
         process_complete = string
       })
+      examination_library = object({
+        publish   = string
+        unpublish = string
+      })
     })
   })
 }
