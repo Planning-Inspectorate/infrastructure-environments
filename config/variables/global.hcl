@@ -42,6 +42,10 @@ locals {
         internal_queue   = "redaction-internal-queue"
         process_complete = "redaction-process-complete"
       }
+      examination_library = {
+        publish   = "examination-library-publish"
+        unpublish = "examination-library-unpublish"
+      }
     }
   }
 

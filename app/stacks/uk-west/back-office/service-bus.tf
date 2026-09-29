@@ -141,6 +141,19 @@ resource "azurerm_servicebus_queue" "redaction_internal_queue" {
   default_message_ttl = var.service_bus_config.default_topic_ttl
 }
 
+# Examinations Library Queues
+resource "azurerm_servicebus_queue" "examination_library_publish" {
+  name                = var.sb_topic_names.applications.examination_library.publish
+  namespace_id        = azurerm_servicebus_namespace.back_office.id
+  default_message_ttl = var.service_bus_config.default_topic_ttl
+}
+
+resource "azurerm_servicebus_queue" "examination_library_unpublish" {
+  name                = var.sb_topic_names.applications.examination_library.unpublish
+  namespace_id        = azurerm_servicebus_namespace.back_office.id
+  default_message_ttl = var.service_bus_config.default_topic_ttl
+}
+
 resource "azurerm_servicebus_topic" "redaction_process_complete" {
   name                = var.sb_topic_names.applications.redaction_system.process_complete
   namespace_id        = azurerm_servicebus_namespace.back_office.id
