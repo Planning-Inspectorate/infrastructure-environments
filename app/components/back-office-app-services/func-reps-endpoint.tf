@@ -86,7 +86,7 @@ resource "azurerm_private_endpoint" "idas_reps_endpoint_func" {
   name                = "pins-pe-${var.service_name}-idas-python-${var.resource_suffix}"
   location            = var.location
   resource_group_name = var.resource_group_name
-  subnet_id           = var.back_office_integration_subnet_id
+  subnet_id           = var.endpoint_subnet_id
 
   private_dns_zone_group {
     name                 = "pins-pdns-${var.service_name}-funcapp-python-${var.resource_suffix}"
