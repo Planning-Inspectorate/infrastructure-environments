@@ -175,7 +175,7 @@ locals {
     long_term_retention_yearly  = "P1Y"
     long_term_week_of_year      = 1
     audit_retention_days        = 30
-    sku_name                    = "S0"
+    sku_name                    = "S1"
   }
   sql_server_azuread_administrator = {
     login_username = "pins-odt-sql-staging-appeals-fo"
