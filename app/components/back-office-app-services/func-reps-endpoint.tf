@@ -33,7 +33,7 @@ resource "azurerm_linux_function_app" "idas_reps_endpoint" {
   app_settings = merge({
     BUILD_FLAGS                    = "UseExpressBuild"
     DATABASE_NAME                  = azurerm_mssql_database.idas_reps_endpoint[0].name
-    DATEBASE_SERVER                = var.database_server_url
+    DATABASE_SERVER                = var.database_server_url
     ENABLE_ORYX_BUILD              = "true"
     ENABLE_PROFILING_ENDPOINT      = "1"
     FUNCTIONS_WORKER_RUNTIME       = "python"
