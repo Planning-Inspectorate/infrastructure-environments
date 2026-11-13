@@ -196,6 +196,7 @@ locals {
       "service_user"          = "appeal-service-user-staging"
       "appeal_representation" = "appeal-representation-staging"
       "event_estimate"        = "appeal-event-estimate-staging"
+      "appeal_group_c"        = "appeal-group-c-staging"
     }
   }
   task_submit_to_horizon_cron_string    = "*/10 * * * *"

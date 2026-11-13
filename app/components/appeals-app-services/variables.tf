@@ -494,6 +494,11 @@ variable "service_bus_appeal_representation_topic_id" {
   type        = string
 }
 
+variable "service_bus_appeal_group_c_topic_id" {
+  description = "ID for the appeal group C topic"
+  type        = string
+}
+
 variable "appeals_feature_back_office_subscriber_enabled" {
   description = "Feature toggle for appeals back office to front office service topic susbcription using azure functions"
   type        = bool
@@ -557,6 +562,7 @@ variable "service_bus_topic" {
       service_user          = string
       appeal_representation = string
       event_estimate        = string
+      appeal_group_c        = string
     })
   })
   default = {
@@ -574,6 +580,7 @@ variable "service_bus_topic" {
       service_user          = "appeal-service-user"
       appeal_representation = "appeal-representation"
       event_estimate        = "appeal-event-estimate"
+      appeal_group_c        = "appeal-group-c"
     }
   }
 }
