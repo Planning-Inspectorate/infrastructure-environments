@@ -546,6 +546,7 @@ variable "service_bus_topic" {
       service_user          = string
       appeal_representation = string
       event_estimate        = string
+      appeal_group_c        = string
     })
   })
   default = {
@@ -563,6 +564,7 @@ variable "service_bus_topic" {
       service_user          = "appeal-service-user"
       appeal_representation = "appeal-representation"
       event_estimate        = "appeal-event-estimate"
+      appeal_group_c        = "appeal-group-c"
     }
   }
 }

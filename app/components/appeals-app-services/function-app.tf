@@ -46,6 +46,7 @@ module "front_office_subscribers" {
     SB_TOPIC_NAME_APPEAL_SERVICE_USER   = var.service_bus_topic.topic.service_user
     SB_TOPIC_NAME_LISTED_BUILDING       = var.service_bus_topic.topic.listed_building
     SB_TOPIC_NAME_APPEAL_REPRESENTATION = var.service_bus_topic.topic.appeal_representation
+    SB_TOPIC_NAME_APPEAL_GROUP_C        = var.service_bus_topic.topic.appeal_group_c
 
     # service bus subscriptions
     SB_SUBSCRIPTION_NAME_APPEAL_HAS            = try(azurerm_servicebus_subscription.appeals_fo_has_case_topic_subscription[0].name, "")
@@ -55,6 +56,7 @@ module "front_office_subscribers" {
     SB_SUBSCRIPTION_NAME_APPEAL_SERVICE_USER   = try(azurerm_servicebus_subscription.appeals_fo_service_user_topic_subscription[0].name, "")
     SB_SUBSCRIPTION_NAME_LISTED_BUILDING       = try(azurerm_servicebus_subscription.appeals_fo_listed_building_topic_subscription[0].name, "")
     SB_SUBSCRIPTION_NAME_APPEAL_REPRESENTATION = try(azurerm_servicebus_subscription.appeals_fo_appeal_representation_topic_subscription[0].name, "")
+    SB_SUBSCRIPTION_NAME_APPEAL_GROUP_C        = try(azurerm_servicebus_subscription.appeal_group_c_fo[0].name, "appeal-group-c-fo-sub")
   }
 
   tags = var.tags
@@ -143,6 +145,17 @@ resource "azurerm_servicebus_subscription" "appeals_fo_appeal_representation_top
 
   name                                 = "appeal-representation-fo-sub"
   topic_id                             = var.service_bus_appeal_representation_topic_id
+  max_delivery_count                   = 1
+  default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
+  dead_lettering_on_message_expiration = true
+}
+
+# Appeals fo appeal group c topic subscription
+resource "azurerm_servicebus_subscription" "appeal_group_c_fo" {
+  count = var.appeals_feature_back_office_subscriber_enabled ? 1 : 0
+
+  name                                 = "appeal-group-c-fo-sub"
+  topic_id                             = var.service_bus_appeal_group_c_topic_id
   max_delivery_count                   = 1
   default_message_ttl                  = var.service_bus_config.fo_subscription_ttl
   dead_lettering_on_message_expiration = true
